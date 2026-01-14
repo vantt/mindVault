@@ -42,6 +42,10 @@ h1 {
     background-color: #238636;
 }
 
+.dot.red {
+    background-color: #da3633;
+}
+
 .pwd-container {
     display: flex;
     gap: 8px;
