@@ -1,7 +1,7 @@
 
 {
   "manifest_version": 3,
-  "name": "SecretHash Password Generator",
+  "name": "mindVault Password Generator",
   "version": "1.0.0",
   "description": "Generate passwords from formulas stored in Google Sheets",
   "permissions": [

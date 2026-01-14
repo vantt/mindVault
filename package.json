@@ -1,6 +1,6 @@
 
 {
-  "name": "secrethash-extension",
+  "name": "mindvault-extension",
   "version": "1.0.0",
   "description": "Clean Architecture Password Generator Extension",
   "scripts": {

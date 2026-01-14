@@ -1,8 +1,8 @@
-# SecretHash Password Generator
+# mindVault Password Generator
 
 **Turn Google Sheets into a Secure Password Manager**
 
-SecretHash is a Chrome Extension that allows you to generate strong, consistent passwords directly from your Google Sheets cells using a formula-based approach (e.g., `fb#1`). It uses **Argon2id** and **AES-256-GCM** to ensure your master secrets are secure.
+mindVault is a Chrome Extension that allows you to generate strong, consistent passwords directly from your Google Sheets cells using a formula-based approach (e.g., `fb#1`). It uses **Argon2id** and **AES-256-GCM** to ensure your master secrets are secure.
 
 ## Features
 

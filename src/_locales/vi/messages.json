@@ -1,6 +1,6 @@
 
 {
-  "appName": { "message": "SecretHash - Trình tạo Mật khẩu" },
+  "appName": { "message": "mindVault - Trình tạo Mật khẩu" },
   "appDescription": { "message": "Tạo mật khẩu từ công thức trong Google Sheets" },
   
   "setupTitle": { "message": "Thiết lập Mật khẩu Chủ" },

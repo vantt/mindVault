@@ -44,7 +44,7 @@ document.addEventListener('click', async (event) => {
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if (request.action === "TRIGGER_HOTKEY") {
         const target = document.activeElement;
-        console.log("SecretHash Hotkey Target:", target);
+        console.log("mindVault Hotkey Target:", target);
         
         if (target) {
             let text = "";
@@ -78,14 +78,14 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
                          const val = formulaBar.innerText || formulaBar.textContent; 
                          if (val) {
                              text = val;
-                             console.log("SecretHash: Extracted from Formula Bar:", text);
+                             console.log("mindVault: Extracted from Formula Bar:", text);
                          }
                      }
                  }
             }
             
             text = text ? text.replace(/[\r\n]+/g, '').trim() : "";
-            console.log("SecretHash: Final Extracted Text for Popup:", text);
+            console.log("mindVault: Final Extracted Text for Popup:", text);
             
             if (!text) {
                  sendResponse({ success: false, error: "Empty cell" });
@@ -109,7 +109,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 });
 
 async function generateAndShow(target, text) {
-     console.log("SecretHash: Generating for", text);
+     console.log("mindVault: Generating for", text);
      try {
         const response = await chrome.runtime.sendMessage({
             action: "GENERATE_PASSWORD",
@@ -119,7 +119,7 @@ async function generateAndShow(target, text) {
         if (response && response.success) {
             showPopup(target, response.password, response.settings);
         } else if (response && response.error) {
-            console.warn("SecretHash:", response.error);
+            console.warn("mindVault:", response.error);
             // Show friendly error toast
             let friendlyMsg = "Generation failed";
             if (response.error.includes("Secret not found")) {
@@ -132,7 +132,7 @@ async function generateAndShow(target, text) {
             showErrorToast(target, friendlyMsg);
         }
     } catch (e) {
-        console.error("SecretHash: Generation loop error", e);
+        console.error("mindVault: Generation loop error", e);
         if (e.message.includes("Extension context invalidated")) {
              // If we can, show a toast telling user to reload?
              // But we might not be able to interact with DOM if invalid?
@@ -174,7 +174,7 @@ function showPopup(targetElement, password, settings = {}) {
     
     const style = document.createElement('style');
     style.textContent = `
-        .secrethash-popup {
+        .mindvault-popup {
             background: #161b22;
             border: 1px solid #30363d;
             border-radius: 8px;
@@ -240,10 +240,10 @@ function showPopup(targetElement, password, settings = {}) {
         : '';
 
     const popupContent = document.createElement('div');
-    popupContent.className = 'secrethash-popup';
+    popupContent.className = 'mindvault-popup';
     popupContent.innerHTML = `
         <div class="header">
-            <span>SecretHash</span>
+            <span>mindVault</span>
             <span class="close-btn" tabindex="0">&times;</span>
         </div>
         <div class="pwd-container">
@@ -298,7 +298,7 @@ function showPopup(targetElement, password, settings = {}) {
             navigator.clipboard.readText().then(text => {
                 if (text === password) {
                     navigator.clipboard.writeText("");
-                    console.log("SecretHash: Clipboard cleared");
+                    console.log("mindVault: Clipboard cleared");
                 }
             }).catch(() => navigator.clipboard.writeText(""));
         }, 30000);
@@ -316,7 +316,7 @@ function showPopup(targetElement, password, settings = {}) {
         navigator.clipboard.writeText(password).catch(err => {
             // Ignore NotAllowedError (common when triggered from popup/hotkey without focus)
             if (err.name !== 'NotAllowedError') {
-                 console.warn("SecretHash: Auto-copy warning", err);
+                 console.warn("mindVault: Auto-copy warning", err);
             }
         });
     }
@@ -350,7 +350,7 @@ function showErrorToast(targetElement, message) {
     
     const style = document.createElement('style');
     style.textContent = `
-        .secrethash-toast {
+        .mindvault-toast {
             background: #da3633;
             color: #f0f6fc;
             padding: 8px 12px;
@@ -369,7 +369,7 @@ function showErrorToast(targetElement, message) {
     shadow.appendChild(style);
 
     const toast = document.createElement('div');
-    toast.className = 'secrethash-toast';
+    toast.className = 'mindvault-toast';
     toast.textContent = `⚠️ ${message}`;
     shadow.appendChild(toast);
 

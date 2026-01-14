@@ -10,7 +10,7 @@ const generatePasswordUseCase = new GeneratePassword(parserAdapter, storageAdapt
 
 // Installation/Update Handler
 chrome.runtime.onInstalled.addListener(async () => {
-    console.log("SecretHash installed/updated. Injecting content scripts...");
+    console.log("mindVault installed/updated. Injecting content scripts...");
     
     // Inject into existing tabs
     const tabs = await chrome.tabs.query({ url: "https://docs.google.com/spreadsheets/*" });
