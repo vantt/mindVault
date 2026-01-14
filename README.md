@@ -2,6 +2,11 @@
 
 **Turn Google Sheets into a Secure Password Manager**
 
+> **Note:** This repository contains two projects:
+>
+> 1. **[Chrome Extension](./chrome-extension)**: The main password manager tool.
+> 2. **[Landing Page](./landing-page)**: Marketing website.
+
 mindVault is a Chrome Extension that allows you to generate strong, consistent passwords directly from your Google Sheets cells using a formula-based approach (e.g., `r4nd0m#1`). It uses **Argon2id** and **AES-256-GCM** to ensure your master secrets are secure.
 
 ## Why is this Safe? (Recipe vs. Cake)
@@ -52,21 +57,27 @@ _Simple formula. Unbreakable security._
 
                  |
 
+## Core Documentations
+
+- [Password System Design](./docs/password-system-design.md)
+- [Product Requirements Document (PRD)](./docs/prd.md)
+- [Security Assessment](./docs/security-assessment.md)
+
 ## Installation (Developer Mode)
 
 1. **Clone or Download** this repository.
 2. Open Chrome and navigate to `chrome://extensions/`.
 3. Enable **Developer mode** (top right toggle).
 4. Click **Load unpacked**.
-5. Select the `src` folder of this project.
+5. Select the `src` folder inside `chrome-extension` (e.g., `./chrome-extension/src`).
 
 ## Usage
 
 ### 1. Setup
 
 - Click the extension icon.
-- Create a strong **Master Password**. This is used to encrypt your 5 secret phrases.
-- **Important**: If you lose this password, you lose access to your configuration. There is no reset.
+- Create a strong **Master Password**. This is used to encrypt your secret phrases.
+- **Important**: If you lose this password, you lose access to your secrets. There is no reset.
 
 ### 2. Configure Secrets
 
@@ -98,13 +109,6 @@ _Simple formula. Unbreakable security._
 - **Version** (Optional): `_v2`, `_v3` to rotate passwords.
 
 Example: `gmail@2_v2`
-
-## Documentation
-
-- [Product Requirements Document (PRD)](./docs/prd.md)
-- [Password System Design](./docs/password-system-design.md)
-- [Security Assessment](./docs/security-assessment.md)
-- [Implementation Plan](./docs/implementation_plan.md)
 
 ## Development
 

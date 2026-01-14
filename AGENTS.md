@@ -3,6 +3,26 @@
 > **Target Audience:** Antigravity (AI), Claude Code, Amp Code, Windsurf, Cursor, or any other AI Agent working on this repo.
 > **Status:** MANDATORY - READ BEFORE ACTING.
 
+## Project Structure
+
+This repository is a monorepo containing two distinct sub-projects:
+
+1.  **`chrome-extension`**:
+
+    - **Description**: Contains the source code for the Chrome Extension (mindVault).
+    - **Alias**: Referred to as **"extension"**.
+    - **Location**: `./chrome-extension`
+
+2.  **`landing-page`**:
+    - **Description**: The marketing landing page for the project.
+    - **Location**: `./landing-page`
+    - **Status**: Currently in initialization.
+
+**Context Awareness:**
+
+- Always check which sub-project the user is referring to.
+- Do not mix dependencies or files between the two directories.
+
 ## Critical Protocols
 
 ### 1. Test Case Protocol (The "Golden" Rule)
