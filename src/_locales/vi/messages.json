@@ -1,0 +1,47 @@
+
+{
+  "appName": { "message": "SecretHash - Trình tạo Mật khẩu" },
+  "appDescription": { "message": "Tạo mật khẩu từ công thức trong Google Sheets" },
+  
+  "setupTitle": { "message": "Thiết lập Mật khẩu Chủ" },
+  "setupDesc": { "message": "Tạo mật khẩu chủ mạnh để mã hóa bí mật của bạn. Đây là cách duy nhất để truy cập dữ liệu." },
+  "lblMasterPassword": { "message": "Mật khẩu Chủ" },
+  "lblConfirmPassword": { "message": "Xác nhận Mật khẩu" },
+  "btnStartSetup": { "message": "Bắt đầu Thiết lập" },
+  "backupConfirm": { "message": "Tôi đã sao lưu thủ công mật khẩu chủ và các bí mật (ví dụ: viết ra giấy)." },
+  
+  "unlockTitle": { "message": "Mở khóa Tiện ích" },
+  "unlockDesc": { "message": "Nhập mật khẩu chủ để quản lý bí mật." },
+  "btnUnlock": { "message": "Mở khóa" },
+  
+  "manageSecretsTitle": { "message": "Quản lý Bí mật" },
+  "manageSecretsDesc": { "message": "Cấu hình 5 cụm từ bí mật. Chúng sẽ được kết hợp với công thức của bạn." },
+  "placeholderSecret": { "message": "Nhập cụm từ bí mật" },
+  "lblSettings": { "message": "Cài đặt" },
+  "lblPepperingHint": { "message": "Hiện gợi ý \"Đừng quên nêm gia vị\"" },
+  "btnSafeChanges": { "message": "Lưu Thay đổi" },
+  "btnChangePassword": { "message": "Đổi Mật khẩu" },
+  "btnLock": { "message": "Khóa" },
+  
+  "changePwdTitle": { "message": "Đổi Mật khẩu Chủ" },
+  "changePwdDesc": { "message": "Mã hóa lại bí mật với mật khẩu chủ mới." },
+  "lblCurrentPassword": { "message": "Mật khẩu Hiện tại" },
+  "lblNewPassword": { "message": "Mật khẩu Mới" },
+  "lblConfirmNewPassword": { "message": "Xác nhận Mật khẩu Mới" },
+  "backupConfirmNew": { "message": "Tôi đã sao lưu mật khẩu chủ MỚI của mình." },
+  "btnUpdatePassword": { "message": "Cập nhật Mật khẩu" },
+  "btnCancel": { "message": "Hủy bỏ" },
+  
+  "toastSetupComplete": { "message": "Thiết lập Hoàn tất!" },
+  "toastUnlockSuccess": { "message": "Đã mở khóa!" },
+  "toastSaveSuccess": { "message": "Đã lưu Bí mật!" },
+  "toastPwdUpdated": { "message": "Cập nhật mật khẩu thành công!" },
+  "toastPwdMismatch": { "message": "Mật khẩu không khớp" },
+  "toastPwdShort": { "message": "Mật khẩu quá ngắn" },
+  
+  "statusUnlocked": { "message": "Đã Mở khóa" },
+  "statusLocked": { "message": "Đã Khóa" },
+  "hintClickCell": { "message": "Nhấp vào ô chứa công thức trong Google Sheets." },
+  "hintUnlock": { "message": "Mở khóa để tạo mật khẩu." },
+  "btnUnlockSettings": { "message": "Mở khóa Cài đặt" }
+}

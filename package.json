@@ -1,0 +1,14 @@
+
+{
+  "name": "secrethash-extension",
+  "version": "1.0.0",
+  "description": "Clean Architecture Password Generator Extension",
+  "scripts": {
+    "test": "node test/unit/generate_password.test.mjs",
+    "postinstall": "node scripts/copy_wasm.js"
+  },
+  "dependencies": {
+    "argon2-browser": "^1.18.0"
+  },
+  "type": "module"
+}

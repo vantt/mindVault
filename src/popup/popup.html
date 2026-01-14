@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="popup.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔐 SecretHash</h1>
+        </header>
+
+        <main>
+            <div id="status-setup" class="hidden">
+                 <div class="status-indicator">
+                    <span class="dot red"></span> <span>Setup Required</span>
+                </div>
+                <p class="hint">Create a master password to start using SecretHash.</p>
+                <button id="btn-start-setup" class="btn primary">Start Setup</button>
+            </div>
+
+            <div id="status-unlocked" class="hidden">
+                <div class="status-indicator active">
+                    <span class="dot"></span> <span data-i18n="statusUnlocked">Unlocked</span>
+                </div>
+                <p class="hint" data-i18n="hintClickCell">Click any cell in Google Sheets containing a formula.</p>
+                <button id="btn-lock" class="btn secondary" data-i18n="btnLock">Lock Extension</button>
+            </div>
+
+            <div id="status-generated" class="hidden">
+                 <div class="status-indicator active">
+                    <span class="dot green"></span> <span data-i18n="statusReady">Ready</span>
+                </div>
+                <div class="pwd-container">
+                     <input type="text" id="gen-password" readonly>
+                     <button id="btn-copy" class="btn primary">Copy</button>
+                </div>
+                <p id="gen-hint" class="hint"></p>
+                <div class="actions-row">
+                     <button id="btn-back" class="btn secondary">Back</button>
+                     <button id="btn-lock-gen" class="btn secondary">Lock</button>
+                </div>
+            </div>
+
+            <div id="status-locked" class="hidden">
+                 <div class="status-indicator">
+                    <span class="dot red"></span> <span data-i18n="statusLocked">Locked</span>
+                </div>
+                <!-- In-popup Unlock Form -->
+                <div class="unlock-container" style="margin-top: 1rem;">
+                    <input type="password" id="unlock-password" placeholder="Master Password" style="width: 100%; box-sizing: border-box; margin-bottom: 8px;">
+                    <button id="btn-unlock" class="btn primary">Unlock</button>
+                    <p id="unlock-error" class="hint" style="color: #da3633; display: none; margin-top: 8px;"></p>
+                </div>
+            </div>
+            
+            <button id="btn-settings" class="btn-icon">⚙️</button>
+        </main>
+    </div>
+    <script type="module" src="popup.js"></script>
+</body>
+</html>

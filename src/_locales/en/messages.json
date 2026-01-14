@@ -1,0 +1,52 @@
+
+{
+  "appName": {
+    "message": "SecretHash Password Generator",
+    "description": "Name of the extension"
+  },
+  "appDescription": {
+    "message": "Generate passwords from formulas stored in Google Sheets",
+    "description": "Description of the extension"
+  },
+  "setupTitle": { "message": "Setup Master Password" },
+  "setupDesc": { "message": "Create a strong master password to encrypt your secrets. This is the only way to access your data." },
+  "lblMasterPassword": { "message": "Master Password" },
+  "lblConfirmPassword": { "message": "Confirm Password" },
+  "btnStartSetup": { "message": "Start Setup" },
+  "backupConfirm": { "message": "I have backed up my master password and secrets manually." },
+  
+  "unlockTitle": { "message": "Unlock Extension" },
+  "unlockDesc": { "message": "Enter your master password to manage secrets." },
+  "btnUnlock": { "message": "Unlock" },
+  
+  "manageSecretsTitle": { "message": "Manage Secrets" },
+  "manageSecretsDesc": { "message": "Configure your 5 secret phrases. These are combined with your formulas." },
+  "placeholderSecret": { "message": "Enter secret phrase" },
+  "lblSettings": { "message": "Settings" },
+  "lblPepperingHint": { "message": "Show \"Don't forget pepper\" hint" },
+  "btnSafeChanges": { "message": "Save Changes" },
+  "btnChangePassword": { "message": "Change Password" },
+  "btnLock": { "message": "Lock" },
+  
+  "changePwdTitle": { "message": "Change Master Password" },
+  "changePwdDesc": { "message": "Re-encrypt your secrets with a new master password." },
+  "lblCurrentPassword": { "message": "Current Password" },
+  "lblNewPassword": { "message": "New Password" },
+  "lblConfirmNewPassword": { "message": "Confirm New Password" },
+  "backupConfirmNew": { "message": "I have backed up my NEW master password." },
+  "btnUpdatePassword": { "message": "Update Password" },
+  "btnCancel": { "message": "Cancel" },
+  
+  "toastSetupComplete": { "message": "Setup Complete!" },
+  "toastUnlockSuccess": { "message": "Unlocked!" },
+  "toastSaveSuccess": { "message": "Secrets Saved!" },
+  "toastPwdUpdated": { "message": "Password Updated Successfully!" },
+  "toastPwdMismatch": { "message": "Passwords do not match" },
+  "toastPwdShort": { "message": "Password too short" },
+  
+  "statusUnlocked": { "message": "Unlocked" },
+  "statusLocked": { "message": "Locked" },
+  "hintClickCell": { "message": "Click any cell in Google Sheets containing a formula." },
+  "hintUnlock": { "message": "Unlock to generate passwords." },
+  "btnUnlockSettings": { "message": "Unlock Settings" }
+}

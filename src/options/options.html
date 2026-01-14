@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title data-i18n="appName">SecretHash Settings</title>
+    <link rel="stylesheet" href="options.css" />
+    <!-- Google Fonts for premium look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>🔐 SecretHash</h1>
+        <p data-i18n="appDescription">Secure Password Generator</p>
+      </header>
+
+      <main>
+        <!-- Setup Section (Initial State) -->
+        <section id="setup-section" class="card hidden">
+          <h2 data-i18n="setupTitle">Setup Master Password</h2>
+          <p data-i18n="setupDesc">
+            Create a strong master password to encrypt your secrets. This is the
+            only way to access your data.
+          </p>
+          <form id="setup-form">
+            <div class="form-group">
+              <label for="setup-password" data-i18n="lblMasterPassword">Master Password</label>
+              <input
+                type="password"
+                id="setup-password"
+                required
+                minlength="8"
+                placeholder="Minimum 8 characters"
+              />
+            </div>
+            <div class="form-group">
+              <label for="setup-confirm" data-i18n="lblConfirmPassword">Confirm Password</label>
+              <input
+                type="password"
+                id="setup-confirm"
+                required
+                minlength="8"
+                placeholder="Confirm password"
+              />
+            </div>
+            <div class="form-group checkbox-group" style="padding: 10px 0;">
+                <input type="checkbox" id="setup-backup-confirm" required>
+                <label for="setup-backup-confirm" style="display:inline; font-weight:normal; margin-left: 8px;" data-i18n="backupConfirm">I have backed up my master password and secrets manually.</label>
+            </div>
+            <button type="submit" class="btn primary" data-i18n="btnStartSetup">Start Setup</button>
+          </form>
+        </section>
+
+        <!-- Unlock Section (Locked State) -->
+        <section id="unlock-section" class="card hidden">
+          <h2 data-i18n="unlockTitle">Unlock Extension</h2>
+          <p data-i18n="unlockDesc">Enter your master password to manage secrets.</p>
+          <form id="unlock-form">
+            <div class="form-group">
+              <label for="unlock-password" data-i18n="lblMasterPassword">Master Password</label>
+              <input type="password" id="unlock-password" required />
+            </div>
+            <button type="submit" class="btn primary" data-i18n="btnUnlock">Unlock</button>
+          </form>
+        </section>
+
+        <!-- Dashboard Section (Unlocked State) -->
+        <section id="dashboard-section" class="hidden">
+          <div class="card">
+            <h2 data-i18n="manageSecretsTitle">Manage Secrets</h2>
+            <p data-i18n="manageSecretsDesc">
+              Configure your 5 secret phrases. These are combined with your
+              formulas.
+            </p>
+            <form id="secrets-form">
+              <div class="secret-item">
+                <label>Secret #1 (Prefix #)</label>
+                <div class="input-wrapper">
+                  <input
+                    type="password"
+                    class="secret-input"
+                    data-index="1"
+                    data-i18n-placeholder="placeholderSecret"
+                    placeholder="Enter secret phrase"
+                  />
+                  <button type="button" class="btn-toggle-visibility">👁</button>
+                </div>
+              </div>
+              <div class="secret-item">
+                <label>Secret #2 (Middle @)</label>
+                <div class="input-wrapper">
+                  <input
+                    type="password"
+                    class="secret-input"
+                    data-index="2"
+                    data-i18n-placeholder="placeholderSecret"
+                    placeholder="Enter secret phrase"
+                  />
+                  <button type="button" class="btn-toggle-visibility">👁</button>
+                </div>
+              </div>
+              <div class="secret-item">
+                <label>Secret #3 (Suffix $)</label>
+                <div class="input-wrapper">
+                  <input
+                    type="password"
+                    class="secret-input"
+                    data-index="3"
+                    data-i18n-placeholder="placeholderSecret"
+                    placeholder="Enter secret phrase"
+                  />
+                  <button type="button" class="btn-toggle-visibility">👁</button>
+                </div>
+              </div>
+              <div class="secret-item">
+                <label>Secret #4 (Interleave %)</label>
+                <div class="input-wrapper">
+                  <input
+                    type="password"
+                    class="secret-input"
+                    data-index="4"
+                    data-i18n-placeholder="placeholderSecret"
+                    placeholder="Enter secret phrase"
+                  />
+                  <button type="button" class="btn-toggle-visibility">👁</button>
+                </div>
+              </div>
+              <div class="secret-item">
+                <label>Secret #5 (Pair ^)</label>
+                <div class="input-wrapper">
+                  <input
+                    type="password"
+                    class="secret-input"
+                    data-index="5"
+                    data-i18n-placeholder="placeholderSecret"
+                    placeholder="Enter secret phrase"
+                  />
+                  <button type="button" class="btn-toggle-visibility">👁</button>
+                </div>
+              </div>
+
+                <div class="secret-item">
+                     <label data-i18n="lblSettings">Settings</label>
+                     <div class="form-group checkbox-group">
+                         <input type="checkbox" id="setting-peppering-hint">
+                         <label for="setting-peppering-hint" style="display:inline; font-weight:normal; margin-left: 8px;" data-i18n="lblPepperingHint">Show "Don't forget pepper" hint</label>
+                     </div>
+                </div>
+
+                <div class="actions">
+                  <button type="submit" class="btn primary" data-i18n="btnSafeChanges">Save Changes</button>
+                  <button type="button" id="btn-change-pwd" class="btn secondary" data-i18n="btnChangePassword">Change Password</button>
+                  <button type="button" id="btn-lock" class="btn secondary" data-i18n="btnLock">Lock</button>
+                </div>
+            </form>
+          </div>
+        </section>
+
+        <!-- Change Password Section -->
+        <section id="change-password-section" class="card hidden">
+            <h2 data-i18n="changePwdTitle">Change Master Password</h2>
+            <p data-i18n="changePwdDesc">Re-encrypt your secrets with a new master password.</p>
+            <form id="change-password-form">
+                <div class="form-group">
+                    <label for="old-password" data-i18n="lblCurrentPassword">Current Password</label>
+                    <input type="password" id="old-password" required>
+                </div>
+                <div class="form-group">
+                    <label for="new-password" data-i18n="lblNewPassword">New Password</label>
+                    <input type="password" id="new-password" required minlength="8">
+                </div>
+                <div class="form-group">
+                    <label for="confirm-new-password" data-i18n="lblConfirmNewPassword">Confirm New Password</label>
+                    <input type="password" id="confirm-new-password" required minlength="8">
+                </div>
+                <!-- Re-confirm backup is good practice -->
+                <div class="form-group checkbox-group" style="padding: 10px 0;">
+                    <input type="checkbox" id="change-backup-confirm" required>
+                    <label for="change-backup-confirm" style="display:inline; font-weight:normal; margin-left: 8px;" data-i18n="backupConfirmNew">I have backed up my NEW master password.</label>
+                </div>
+                <div class="actions">
+                    <button type="submit" class="btn primary" data-i18n="btnUpdatePassword">Update Password</button>
+                    <button type="button" id="btn-cancel-change" class="btn secondary">« Manage Secrets</button>
+                </div>
+            </form>
+        </section>
+      </main>
+
+      <!-- Toast Notification -->
+      <div id="toast" class="toast hidden"></div>
+    </div>
+
+    <!-- Script Entry Point -->
+    <script type="module" src="options.js"></script>
+  </body>
+</html>
