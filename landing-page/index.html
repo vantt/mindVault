@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="mindVault - Turn Google Sheets into a Secure Password Manager. Zero-knowledge security with Argon2id + AES-256-GCM encryption.">
+    <meta name="keywords" content="password manager, Google Sheets, Chrome Extension, security, encryption, zero-knowledge">
+    <meta name="author" content="mindVault">
+    <meta name="theme-color" content="#00FF41">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="mindVault - Secure Password Manager">
+    <meta property="og:description" content="Turn Google Sheets into a Secure Password Manager with zero-knowledge architecture.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="./assets/og-image.png">
+
+    <title>mindVault - Turn Google Sheets into a Secure Password Manager</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
+</head>
+<body>
+    <!-- Background Effects -->
+    <div class="bg-grid"></div>
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <svg class="nav-logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="2" y="2" width="28" height="28" rx="6" stroke="currentColor" stroke-width="2"/>
+                    <path d="M16 8V24M10 16H22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <circle cx="16" cy="16" r="4" stroke="currentColor" stroke-width="2"/>
+                </svg>
+                <span>mindVault</span>
+            </a>
+            <div class="nav-links">
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#security" class="nav-link">Security</a>
+                <a href="#how-it-works" class="nav-link">How It Works</a>
+            </div>
+            <a href="#install" class="btn btn-primary btn-sm">
+                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="7 10 12 15 17 10"/>
+                    <line x1="12" y1="15" x2="12" y2="3"/>
+                </svg>
+                Install Extension
+            </a>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-content">
+            <a href="#features" class="mobile-menu-link">Features</a>
+            <a href="#security" class="mobile-menu-link">Security</a>
+            <a href="#how-it-works" class="mobile-menu-link">How It Works</a>
+            <a href="#install" class="btn btn-primary btn-lg mobile-menu-cta">Install Extension</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="hero-badge-dot"></span>
+                    <span>Chrome Extension</span>
+                </div>
+                <h1 class="hero-title">
+                    Turn <span class="text-gradient">Google Sheets</span> into a Secure Password Manager
+                </h1>
+                <p class="hero-description">
+                    Keep using the spreadsheet you love. Your passwords stay private with zero-knowledge encryption.
+                    Hackers see formulas, not passwords.
+                </p>
+                <div class="hero-cta">
+                    <a href="#install" class="btn btn-primary btn-lg">
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="7 10 12 15 17 10"/>
+                            <line x1="12" y1="15" x2="12" y2="3"/>
+                        </svg>
+                        Install Free Extension
+                    </a>
+                    <a href="#how-it-works" class="btn btn-ghost btn-lg">
+                        See How It Works
+                        <svg class="btn-icon-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <span class="hero-stat-value">256-bit</span>
+                        <span class="hero-stat-label">AES Encryption</span>
+                    </div>
+                    <div class="hero-stat-divider"></div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-value">Zero</span>
+                        <span class="hero-stat-label">Data Stored</span>
+                    </div>
+                    <div class="hero-stat-divider"></div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-value">100%</span>
+                        <span class="hero-stat-label">Open Source</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-terminal">
+                    <div class="terminal-header">
+                        <div class="terminal-dots">
+                            <span></span><span></span><span></span>
+                        </div>
+                        <span class="terminal-title">password-generator.sh</span>
+                    </div>
+                    <div class="terminal-body">
+                        <div class="terminal-line">
+                            <span class="terminal-prompt">$</span>
+                            <span class="terminal-command">cat google-sheet.csv</span>
+                        </div>
+                        <div class="terminal-line terminal-output">
+                            <span class="terminal-dim"># What hackers see:</span>
+                        </div>
+                        <div class="terminal-line terminal-output">
+                            <span class="terminal-string">"gmail#1"</span>, <span class="terminal-string">"fb@2"</span>, <span class="terminal-string">"bank$3"</span>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="terminal-prompt">$</span>
+                            <span class="terminal-command">mindvault generate "gmail#1"</span>
+                        </div>
+                        <div class="terminal-line terminal-output">
+                            <span class="terminal-dim"># Your actual password:</span>
+                        </div>
+                        <div class="terminal-line terminal-output terminal-success">
+                            <span class="terminal-glow">MySecret*gmail</span>
+                            <span class="terminal-copied">Copied!</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <span>Scroll to explore</span>
+            <div class="hero-scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- Problem/Solution Section -->
+    <section class="problem-solution" id="problem-solution">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">The Problem</span>
+                <h2 class="section-title">Why Traditional Password Storage Fails</h2>
+            </div>
+
+            <div class="comparison-grid">
+                <!-- Problem Side -->
+                <div class="comparison-card comparison-problem">
+                    <div class="comparison-icon">
+                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="2" stroke-dasharray="4 4"/>
+                            <path d="M24 14V26" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                            <circle cx="24" cy="32" r="2" fill="currentColor"/>
+                        </svg>
+                    </div>
+                    <h3 class="comparison-title">Storing Passwords in Sheets</h3>
+                    <p class="comparison-description">
+                        You keep passwords in Google Sheets because it's convenient. But one shared link, one breach, and everything is exposed.
+                    </p>
+                    <div class="comparison-visual">
+                        <div class="sheet-preview sheet-danger">
+                            <div class="sheet-row">
+                                <span class="sheet-cell sheet-header">Service</span>
+                                <span class="sheet-cell sheet-header">Password</span>
+                            </div>
+                            <div class="sheet-row">
+                                <span class="sheet-cell">Gmail</span>
+                                <span class="sheet-cell sheet-exposed">MyP@ssw0rd123</span>
+                            </div>
+                            <div class="sheet-row">
+                                <span class="sheet-cell">Facebook</span>
+                                <span class="sheet-cell sheet-exposed">Fb$ecure456</span>
+                            </div>
+                            <div class="sheet-row">
+                                <span class="sheet-cell">Bank</span>
+                                <span class="sheet-cell sheet-exposed">B@nkPass789</span>
+                            </div>
+                        </div>
+                        <div class="danger-badge">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 9v4M12 17h.01"/>
+                                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                            </svg>
+                            Exposed!
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Solution Side -->
+                <div class="comparison-card comparison-solution">
+                    <div class="comparison-icon">
+                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="2"/>
+                            <path d="M16 24L22 30L32 18" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="comparison-title">The mindVault Way</h3>
+                    <p class="comparison-description">
+                        Store only formulas in your sheet. Your secrets stay encrypted on your device. Even if hackers get your sheet, they get nothing.
+                    </p>
+                    <div class="comparison-visual">
+                        <div class="sheet-preview sheet-safe">
+                            <div class="sheet-row">
+                                <span class="sheet-cell sheet-header">Service</span>
+                                <span class="sheet-cell sheet-header">Formula</span>
+                            </div>
+                            <div class="sheet-row">
+                                <span class="sheet-cell">Gmail</span>
+                                <span class="sheet-cell sheet-formula">gmail#1</span>
+                            </div>
+                            <div class="sheet-row">
+                                <span class="sheet-cell">Facebook</span>
+                                <span class="sheet-cell sheet-formula">fb@2</span>
+                            </div>
+                            <div class="sheet-row">
+                                <span class="sheet-cell">Bank</span>
+                                <span class="sheet-cell sheet-formula">bank$3</span>
+                            </div>
+                        </div>
+                        <div class="safe-badge">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                            </svg>
+                            Encrypted
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recipe vs Cake Analogy -->
+            <div class="analogy-section">
+                <div class="analogy-header">
+                    <span class="section-badge">Think of it like this</span>
+                    <h3 class="analogy-title">Recipe vs. Cake</h3>
+                </div>
+                <div class="analogy-content">
+                    <div class="analogy-item">
+                        <div class="analogy-icon analogy-recipe">
+                            <svg viewBox="0 0 48 48" fill="none">
+                                <rect x="8" y="6" width="32" height="36" rx="4" stroke="currentColor" stroke-width="2"/>
+                                <line x1="14" y1="14" x2="34" y2="14" stroke="currentColor" stroke-width="2"/>
+                                <line x1="14" y1="22" x2="34" y2="22" stroke="currentColor" stroke-width="2"/>
+                                <line x1="14" y1="30" x2="26" y2="30" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div class="analogy-text">
+                            <h4>What's on your sheet</h4>
+                            <code class="analogy-code">gmail#1</code>
+                            <p>Just the recipe name - useless without ingredients</p>
+                        </div>
+                    </div>
+                    <div class="analogy-plus">+</div>
+                    <div class="analogy-item">
+                        <div class="analogy-icon analogy-secret">
+                            <svg viewBox="0 0 48 48" fill="none">
+                                <path d="M24 4L6 14v10c0 11 8 21 18 24 10-3 18-13 18-24V14L24 4z" stroke="currentColor" stroke-width="2"/>
+                                <path d="M24 18v8M24 30h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div class="analogy-text">
+                            <h4>What you remember</h4>
+                            <code class="analogy-code">MySecret*</code>
+                            <p>Your secret ingredient - never leaves your device</p>
+                        </div>
+                    </div>
+                    <div class="analogy-equals">=</div>
+                    <div class="analogy-item">
+                        <div class="analogy-icon analogy-result">
+                            <svg viewBox="0 0 48 48" fill="none">
+                                <circle cx="24" cy="24" r="18" stroke="currentColor" stroke-width="2"/>
+                                <path d="M16 24l5 5 10-10" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div class="analogy-text">
+                            <h4>Your actual password</h4>
+                            <code class="analogy-code analogy-result-code">MySecret*gmail</code>
+                            <p>The finished cake - generated on demand</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section (Bento Grid) -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Features</span>
+                <h2 class="section-title">Everything You Need, Nothing You Don't</h2>
+                <p class="section-description">
+                    Powerful security features wrapped in a simple, intuitive interface.
+                </p>
+            </div>
+
+            <div class="bento-grid">
+                <!-- Feature 1: Zero Knowledge (Large) -->
+                <div class="bento-card bento-large" data-aos="fade-up">
+                    <div class="bento-icon bento-icon-primary">
+                        <svg viewBox="0 0 48 48" fill="none">
+                            <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="24" cy="24" r="12" stroke="currentColor" stroke-width="2" stroke-dasharray="4 2"/>
+                            <circle cx="24" cy="24" r="4" fill="currentColor"/>
+                        </svg>
+                    </div>
+                    <h3 class="bento-title">Zero-Knowledge Architecture</h3>
+                    <p class="bento-description">
+                        Your master password and secrets never leave your device. Everything is encrypted locally with Argon2id + AES-256-GCM before syncing.
+                    </p>
+                    <div class="bento-visual">
+                        <div class="encryption-flow">
+                            <div class="flow-node flow-device">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="5" y="2" width="14" height="20" rx="2"/>
+                                    <line x1="12" y1="18" x2="12.01" y2="18"/>
+                                </svg>
+                                <span>Your Device</span>
+                            </div>
+                            <div class="flow-arrow">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                            </div>
+                            <div class="flow-node flow-encrypted">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="11" width="18" height="11" rx="2"/>
+                                    <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                                </svg>
+                                <span>Encrypted</span>
+                            </div>
+                            <div class="flow-arrow">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                            </div>
+                            <div class="flow-node flow-cloud">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>
+                                </svg>
+                                <span>Chrome Sync</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature 2: Instant Generation -->
+                <div class="bento-card bento-medium" data-aos="fade-up" data-aos-delay="100">
+                    <div class="bento-icon">
+                        <svg viewBox="0 0 48 48" fill="none">
+                            <path d="M24 4v8M24 36v8M4 24h8M36 24h8" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                            <circle cx="24" cy="24" r="8" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3 class="bento-title">Instant Generation</h3>
+                    <p class="bento-description">
+                        Click any cell with a formula to instantly generate your password. No waiting, no server calls.
+                    </p>
+                    <div class="bento-badge">
+                        <span class="badge-dot"></span>
+                        Client-side only
+                    </div>
+                </div>
+
+                <!-- Feature 3: Hotkey Support -->
+                <div class="bento-card bento-medium" data-aos="fade-up" data-aos-delay="150">
+                    <div class="bento-icon">
+                        <svg viewBox="0 0 48 48" fill="none">
+                            <rect x="4" y="16" width="40" height="24" rx="4" stroke="currentColor" stroke-width="2"/>
+                            <rect x="10" y="22" width="8" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/>
+                            <rect x="20" y="22" width="8" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/>
+                            <rect x="30" y="22" width="8" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/>
+                            <rect x="14" y="30" width="20" height="4" rx="1" stroke="currentColor" stroke-width="1.5"/>
+                        </svg>
+                    </div>
+                    <h3 class="bento-title">Hotkey Support</h3>
+                    <p class="bento-description">
+                        Press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>L</kbd> to generate from the focused cell. Speed meets security.
+                    </p>
+                </div>
+
+                <!-- Feature 4: Auto-Clear Clipboard -->
+                <div class="bento-card bento-small" data-aos="fade-up" data-aos-delay="200">
+                    <div class="bento-icon bento-icon-accent">
+                        <svg viewBox="0 0 48 48" fill="none">
+                            <rect x="8" y="6" width="24" height="36" rx="4" stroke="currentColor" stroke-width="2"/>
+                            <path d="M16 6V4a4 4 0 0 1 8 0v2" stroke="currentColor" stroke-width="2"/>
+                            <path d="M40 20l-8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="40" cy="28" r="6" stroke="currentColor" stroke-width="2"/>
+                            <path d="M40 25v6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="bento-title">Auto-Clear</h3>
+                    <p class="bento-description">
+                        Clipboard clears after 30 seconds automatically.
+                    </p>
+                </div>
+
+                <!-- Feature 5: Auto-Lock -->
+                <div class="bento-card bento-small" data-aos="fade-up" data-aos-delay="250">
+                    <div class="bento-icon bento-icon-accent">
+                        <svg viewBox="0 0 48 48" fill="none">
+                            <circle cx="24" cy="24" r="18" stroke="currentColor" stroke-width="2"/>
+                            <path d="M24 14v10l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="bento-title">Auto-Lock</h3>
+                    <p class="bento-description">
+                        Locks after 5 min idle or 10 min total session.
+                    </p>
+                </div>
+
+                <!-- Feature 6: Cross-Device Sync -->
+                <div class="bento-card bento-wide" data-aos="fade-up" data-aos-delay="300">
+                    <div class="bento-content-row">
+                        <div class="bento-text">
+                            <div class="bento-icon">
+                                <svg viewBox="0 0 48 48" fill="none">
+                                    <rect x="4" y="8" width="18" height="12" rx="2" stroke="currentColor" stroke-width="2"/>
+                                    <rect x="26" y="8" width="18" height="12" rx="2" stroke="currentColor" stroke-width="2"/>
+                                    <rect x="8" y="28" width="14" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
+                                    <rect x="26" y="28" width="14" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M24 20v8M13 24h22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                            <h3 class="bento-title">Cross-Device Sync</h3>
+                            <p class="bento-description">
+                                Your encrypted secrets sync across all your Chrome browsers via Chrome Sync. Same password everywhere, securely.
+                            </p>
+                        </div>
+                        <div class="bento-visual-sync">
+                            <div class="sync-device sync-laptop">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <rect x="2" y="3" width="20" height="14" rx="2"/>
+                                    <path d="M2 17h20M8 21h8"/>
+                                </svg>
+                            </div>
+                            <div class="sync-lines">
+                                <div class="sync-line"></div>
+                                <div class="sync-line"></div>
+                                <div class="sync-line"></div>
+                            </div>
+                            <div class="sync-device sync-phone">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <rect x="5" y="2" width="14" height="20" rx="2"/>
+                                    <line x1="12" y1="18" x2="12.01" y2="18"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Security Section -->
+    <section class="security" id="security">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Security</span>
+                <h2 class="section-title">Military-Grade Encryption</h2>
+                <p class="section-description">
+                    Built on proven cryptographic standards trusted by security experts worldwide.
+                </p>
+            </div>
+
+            <div class="security-grid">
+                <div class="security-card" data-aos="fade-right">
+                    <div class="security-icon">
+                        <svg viewBox="0 0 64 64" fill="none">
+                            <path d="M32 4L8 16v16c0 17.6 10.4 33.6 24 40 13.6-6.4 24-22.4 24-40V16L32 4z" stroke="currentColor" stroke-width="2"/>
+                            <path d="M32 4L8 16v16c0 17.6 10.4 33.6 24 40" fill="currentColor" fill-opacity="0.1"/>
+                            <circle cx="32" cy="32" r="8" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="32" cy="32" r="3" fill="currentColor"/>
+                        </svg>
+                    </div>
+                    <h3 class="security-title">Argon2id</h3>
+                    <p class="security-description">
+                        Winner of the Password Hashing Competition. Memory-hard algorithm that's resistant to GPU and ASIC attacks.
+                    </p>
+                    <div class="security-specs">
+                        <span class="spec-item">Memory: 64MB</span>
+                        <span class="spec-item">Iterations: 3</span>
+                        <span class="spec-item">Parallelism: 4</span>
+                    </div>
+                </div>
+
+                <div class="security-card" data-aos="fade-up">
+                    <div class="security-icon">
+                        <svg viewBox="0 0 64 64" fill="none">
+                            <rect x="8" y="24" width="48" height="32" rx="4" stroke="currentColor" stroke-width="2"/>
+                            <path d="M20 24V16a12 12 0 0 1 24 0v8" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="32" cy="40" r="6" stroke="currentColor" stroke-width="2"/>
+                            <path d="M32 44v6" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3 class="security-title">AES-256-GCM</h3>
+                    <p class="security-description">
+                        The gold standard for symmetric encryption. Used by governments and financial institutions worldwide.
+                    </p>
+                    <div class="security-specs">
+                        <span class="spec-item">256-bit key</span>
+                        <span class="spec-item">Authenticated</span>
+                        <span class="spec-item">NIST approved</span>
+                    </div>
+                </div>
+
+                <div class="security-card" data-aos="fade-left">
+                    <div class="security-icon">
+                        <svg viewBox="0 0 64 64" fill="none">
+                            <circle cx="32" cy="32" r="24" stroke="currentColor" stroke-width="2" stroke-dasharray="4 4"/>
+                            <circle cx="32" cy="32" r="16" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="32" cy="32" r="8" stroke="currentColor" stroke-width="2"/>
+                            <path d="M32 8v8M32 48v8M8 32h8M48 32h8" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3 class="security-title">Zero-Knowledge</h3>
+                    <p class="security-description">
+                        We can't see your passwords because we never have them. All encryption happens on your device.
+                    </p>
+                    <div class="security-specs">
+                        <span class="spec-item">Local only</span>
+                        <span class="spec-item">No servers</span>
+                        <span class="spec-item">No telemetry</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="trust-badges" data-aos="fade-up">
+                <div class="trust-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        <path d="M9 12l2 2 4-4"/>
+                    </svg>
+                    <span>Open Source</span>
+                </div>
+                <div class="trust-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M12 6v6l4 2"/>
+                    </svg>
+                    <span>No Tracking</span>
+                </div>
+                <div class="trust-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="11" width="18" height="11" rx="2"/>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                    </svg>
+                    <span>Fully Encrypted</span>
+                </div>
+                <div class="trust-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                    </svg>
+                    <span>Auditable Code</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">How It Works</span>
+                <h2 class="section-title">Get Started in 3 Simple Steps</h2>
+                <p class="section-description">
+                    From installation to password generation in under 2 minutes.
+                </p>
+            </div>
+
+            <div class="steps-container">
+                <div class="step" data-aos="fade-up">
+                    <div class="step-number">
+                        <span>01</span>
+                    </div>
+                    <div class="step-content">
+                        <h3 class="step-title">Install & Setup</h3>
+                        <p class="step-description">
+                            Install the Chrome extension and create your master password. This password encrypts all your secrets locally.
+                        </p>
+                        <div class="step-visual">
+                            <div class="setup-preview">
+                                <div class="setup-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"/>
+                                        <path d="M12 16v-4M12 8h.01"/>
+                                    </svg>
+                                </div>
+                                <div class="setup-form">
+                                    <div class="setup-input">
+                                        <span class="input-label">Master Password</span>
+                                        <div class="input-field">
+                                            <span class="input-dots">........</span>
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                                <circle cx="12" cy="12" r="3"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step-connector"></div>
+                </div>
+
+                <div class="step" data-aos="fade-up" data-aos-delay="150">
+                    <div class="step-number">
+                        <span>02</span>
+                    </div>
+                    <div class="step-content">
+                        <h3 class="step-title">Add Your Secrets</h3>
+                        <p class="step-description">
+                            Configure up to 5 secret phrases. Each maps to a modifier (#, @, $, %, ^) for different password patterns.
+                        </p>
+                        <div class="step-visual">
+                            <div class="secrets-preview">
+                                <div class="secret-row">
+                                    <span class="secret-modifier">#</span>
+                                    <span class="secret-value">MySecretPrefix</span>
+                                </div>
+                                <div class="secret-row">
+                                    <span class="secret-modifier">@</span>
+                                    <span class="secret-value">MySuffix2024</span>
+                                </div>
+                                <div class="secret-row">
+                                    <span class="secret-modifier">$</span>
+                                    <span class="secret-value">Wrapper!</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step-connector"></div>
+                </div>
+
+                <div class="step" data-aos="fade-up" data-aos-delay="300">
+                    <div class="step-number">
+                        <span>03</span>
+                    </div>
+                    <div class="step-content">
+                        <h3 class="step-title">Generate Passwords</h3>
+                        <p class="step-description">
+                            Click any cell with a formula (e.g., <code>gmail#1</code>) or use the hotkey. Your password is generated instantly and copied to clipboard.
+                        </p>
+                        <div class="step-visual">
+                            <div class="generate-preview">
+                                <div class="cell-click">
+                                    <span class="cell-value">gmail#1</span>
+                                    <div class="click-ripple"></div>
+                                </div>
+                                <div class="generate-arrow">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                                    </svg>
+                                </div>
+                                <div class="password-output">
+                                    <span class="password-value">MySecretPrefix*gmail</span>
+                                    <span class="copied-badge">Copied!</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="install">
+        <div class="container">
+            <div class="cta-content" data-aos="zoom-in">
+                <div class="cta-glow"></div>
+                <h2 class="cta-title">
+                    Ready to Secure Your Passwords?
+                </h2>
+                <p class="cta-description">
+                    Join thousands of users who've upgraded their Google Sheets security.
+                    Free, open-source, and privacy-first.
+                </p>
+                <div class="cta-buttons">
+                    <a href="https://chrome.google.com/webstore" target="_blank" rel="noopener" class="btn btn-primary btn-xl">
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <circle cx="12" cy="12" r="4"/>
+                            <path d="M21.17 8H12M3.95 6.06L8.54 14M10.88 21.94L15.46 14"/>
+                        </svg>
+                        Add to Chrome - It's Free
+                    </a>
+                    <a href="https://github.com" target="_blank" rel="noopener" class="btn btn-ghost btn-xl">
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                        View on GitHub
+                    </a>
+                </div>
+                <div class="cta-features">
+                    <div class="cta-feature">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 6L9 17l-5-5"/>
+                        </svg>
+                        <span>No account required</span>
+                    </div>
+                    <div class="cta-feature">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 6L9 17l-5-5"/>
+                        </svg>
+                        <span>Works offline</span>
+                    </div>
+                    <div class="cta-feature">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 6L9 17l-5-5"/>
+                        </svg>
+                        <span>Open source</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="#" class="footer-logo">
+                        <svg class="footer-logo-icon" viewBox="0 0 32 32" fill="none">
+                            <rect x="2" y="2" width="28" height="28" rx="6" stroke="currentColor" stroke-width="2"/>
+                            <path d="M16 8V24M10 16H22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="16" cy="16" r="4" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        <span>mindVault</span>
+                    </a>
+                    <p class="footer-tagline">
+                        Turn Google Sheets into a secure password manager.
+                    </p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4 class="footer-heading">Product</h4>
+                        <a href="#features" class="footer-link">Features</a>
+                        <a href="#security" class="footer-link">Security</a>
+                        <a href="#how-it-works" class="footer-link">How It Works</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4 class="footer-heading">Resources</h4>
+                        <a href="#" class="footer-link">Documentation</a>
+                        <a href="#" class="footer-link">FAQ</a>
+                        <a href="#" class="footer-link">Support</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4 class="footer-heading">Legal</h4>
+                        <a href="#" class="footer-link">Privacy Policy</a>
+                        <a href="#" class="footer-link">Terms of Service</a>
+                        <a href="#" class="footer-link">License</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">
+                    &copy; 2024 mindVault. Open source under MIT License.
+                </p>
+                <div class="footer-social">
+                    <a href="#" class="social-link" aria-label="GitHub">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Twitter">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
