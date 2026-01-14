@@ -2,7 +2,44 @@
 
 **Turn Google Sheets into a Secure Password Manager**
 
-mindVault is a Chrome Extension that allows you to generate strong, consistent passwords directly from your Google Sheets cells using a formula-based approach (e.g., `fb#1`). It uses **Argon2id** and **AES-256-GCM** to ensure your master secrets are secure.
+mindVault is a Chrome Extension that allows you to generate strong, consistent passwords directly from your Google Sheets cells using a formula-based approach (e.g., `r4nd0m#1`). It uses **Argon2id** and **AES-256-GCM** to ensure your master secrets are secure.
+
+## Why is this Safe? (Recipe vs. Cake)
+
+> **Your Google Sheet can stay public. Your passwords stay private.**
+
+### The Problem
+
+Storing passwords in Google Sheets? You're one shared link away from disaster. But you keep doing it because it's convenient.
+
+### The Better Way
+
+What if you could keep using Google Sheets—without storing actual passwords?
+We split your password into two parts:
+
+- **Part 1 (Public)**: A simple formula you save in your sheet (`r4nd0m#1`)
+- **Part 2 (Secret)**: A phrase only you remember (`Basic*`)
+
+When you need to log in, mindVault combines them intelligently `using many different rules` you define. Your actual password never touches your sheet. If a hacker steals your Google Sheet, they only see a list of "Recipe Names". Without the Secret Ingredients (which never leave your device), they cannot bake the Cake (generate the password).
+
+### Why It Works
+
+**Same convenience**: Still using Google Sheets you already love
+**Real security**: Hackers see formulas, not passwords. Worthless without your secret
+**Future-proof**: Need to rotate passwords? Change one secret, update instantly across all accounts
+**Peace of mind**: Your most sensitive data is never stored as plaintext
+
+### The Math
+
+```
+What's on your sheet: `r4nd0m#1`
+What you remember: `Basic*`
+Your actual password: `Basic*r4nd0m`
+```
+
+_Simple formula. Unbreakable security._
+
+![Security Diagram](./docs/security_diagram.png)
 
 ## Features
 
@@ -12,6 +49,8 @@ mindVault is a Chrome Extension that allows you to generate strong, consistent p
 - 📋 **Auto-Clear Clipboard**: Passwords are automatically cleared from your clipboard after 30 seconds.
 - 🔒 **Auto-Lock**: Automatically locks after 5 minutes of inactivity or 10 minutes total.
 - 🌍 **Localization**: Supports English and **Vietnamese**.
+
+                 |
 
 ## Installation (Developer Mode)
 
