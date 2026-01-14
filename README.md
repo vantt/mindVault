@@ -99,6 +99,13 @@ _Simple formula. Unbreakable security._
 
 Example: `gmail@2_v2`
 
+## Documentation
+
+- [Product Requirements Document (PRD)](./docs/prd.md)
+- [Password System Design](./docs/password-system-design.md)
+- [Security Assessment](./docs/security-assessment.md)
+- [Implementation Plan](./docs/implementation_plan.md)
+
 ## Development
 
 - **Architecture**: Domain-Driven Design (DDD) with Clean Architecture.
