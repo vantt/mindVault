@@ -1466,3 +1466,7 @@ const testCases = [
 ---
 
 **End of Document**
+
+## 16. Technical Documentation
+
+For detailed engineering observations, debugging logs, and solutions to specific issues (Manifest V3 CSP, WASM, Shadow DOM, etc.), please refer to `docs/technical_insights.md`.
