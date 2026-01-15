@@ -211,12 +211,102 @@ Tạo một **Wrapper Module** (`src/wasm/wrapper.js`) để kiểm soát việc
 2.  **Promise Wrappers**: Đảm bảo Module chỉ được trả về khi WASM đã thực sự load xong (`postRun` hook).
 3.  **High-Level API**: Export một API đơn giản (`hash`, `verify`) che giấu sự phức tạp của việc cấp phát bộ nhớ (malloc/free) trong WASM.
 
-```javascript
+````javascript
 // wrapper.js snippet
 global.Module = {
   locateFile: (path) => new URL("./argon2.wasm", import.meta.url).href,
 };
 
 // ... load script ...
-// ... wait for postRun ...
+
+---
+
+## 10. Extension Context Invalidation Handling
+
+### Vấn đề
+
+Sau khi Extension được cập nhật hoặc reload (do developer hoặc browser auto-update), các Content Script đang chạy trên các tab cũ bị "mồ côi" (orphaned). Kết nối đến Background Script bị ngắt hoàn toàn.
+Mọi nỗ lực gọi `chrome.runtime.sendMessage` từ Content Script sẽ ném lỗi: `Error: Extension context invalidated`.
+User sẽ thấy chức năng không phản hồi hoặc lỗi console đỏ lòm, gây trải nghiệm người dùng rất tệ.
+
+### Giải pháp
+
+1.  **Try/Catch Wrapper**: Luôn bọc mọi lệnh gọi `sendMessage` trong khối `try/catch`.
+2.  **Specific Detection**: Bắt chính xác chuỗi lỗi `Extension context invalidated`.
+3.  **User Actionable Feedback**: Hiển thị thông báo (Toast) ngay trên giao diện yêu cầu User reload lại trang (F5). Đây là cách duy nhất để nạp lại Content Script mới kết nối được với Extension mới.
+4.  **Graceful Degradation**: Nếu tính năng không quá quan trọng, hãy disable nó đi thay vì liên tục thử lại gây spam lỗi.
+
+---
+
+## 11. UI Visibility Management (Single Source of Truth)
+
+### Vấn đề
+
+Khi xây dựng giao diện Single Page Application (SPA) đơn giản bằng Vanilla JS (như Options Page hoặc Popup), thường có nhiều "màn hình" ảo (các thẻ `div`).
+Nếu quản lý ẩn/hiện thủ công (ví dụ: khi bật A thì nhớ tắt B), rất dễ xảy ra lỗi logic khi thêm màn hình C. Kết quả là **"Double Screens"** - hiển thị chồng chéo hai màn hình cùng lúc (ví dụ: vừa hiện Unlock vừa hiện Dashboard).
+
+### Giải pháp
+
+Luôn sử dụng một hàm **Centralized Helper** để chuyển đổi màn hình. Nguyên tắc: **Reset tất cả về ẩn trước, sau đó mới hiện cái cần thiết.**
+
+```javascript
+// options.js
+const allSections = [setupSection, unlockSection, dashboardSection, changePasswordSection];
+
+function showSection(targetSection) {
+    // 1. Force hide ALL sections first (Reset state)
+    allSections.forEach(s => s.classList.add("hidden"));
+
+    // 2. Show ONLY the target
+    targetSection.classList.remove("hidden");
+}
+````
+
+---
+
+## 12. Cross-Context State Synchronization
+
+### Vấn đề
+
+Chrome Extension hoạt động trên nhiều context khác nhau:
+
+1.  **Popup**: Khi click vào icon.
+2.  **Options Page**: Khi mở trang cài đặt full tab.
+3.  **Background**: Service Worker.
+
+Trạng thái Unlock (Session Key) được lưu trong `chrome.storage.session`. Nếu User mở Options Page (đang bị khóa), sau đó click vào Popup và Unlock thành công, thì Options Page vẫn hiển thị màn hình khóa -> Trạng thái bị lệch (Stale State).
+
+### Giải pháp
+
+Sử dụng `chrome.storage.onChanged` trong các trang UI (Options/Popup) để lắng nghe sự thay đổi trạng thái từ bất kỳ đâu.
+
+```javascript
+// options.js
+chrome.storage.onChanged.addListener((changes, area) => {
+  // Nếu sessionKey thay đổi (vừa unlock hoặc vừa lock từ popup)
+  if (area === "session" && changes.sessionKey) {
+    checkStatus(); // Gọi hàm kiểm tra và vẽ lại UI ngay lập tức
+  }
+});
 ```
+
+---
+
+## 13. In-Popup Unlock vs In-Page Popup (UX Decision)
+
+### Vấn đề
+
+Cách tiếp cận ban đầu: Bắt click vào ô input trên trang web -> Hiển thị Popup nhập mật khẩu ngay tại chỗ (In-Page Popup).
+Nhược điểm:
+
+- **Intrusive**: Che mất nội dung trang web.
+- **Technical Debt**: Phải xử lý vị trí (positioning), z-index, và focus stealing rất phức tạp.
+- **Security Perception**: User có thể e ngại khi nhập Master Password vào một khung nhìn giống như thuộc về trang web đó.
+
+### Giải pháp (Refactored UX)
+
+Chuyển hoàn toàn việc nhập Master Password về **Extension Popup** (Context riêng của Extension).
+
+1.  **Workflow**: Click Icon -> Nhập Pass -> Enter.
+2.  **Auto-resume**: Ngay khi Unlock thành công, Extension tự động quét lại tab hiện tại. Nếu đang ở trên Google Sheet có công thức, nó tự động tính toán và hiển thị kết quả luôn mà không cần user thao tác thêm.
+3.  **Disable In-Page Click**: Tắt bỏ tính năng click-to-show popup trên trang web để tránh conflict, giúp trải nghiệm mượt mà và "sạch" hơn.
