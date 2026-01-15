@@ -458,6 +458,90 @@
     window.addEventListener('load', initRecipeDemo);
 
     // ================================================
+    // Recipe Builder (Interactive)
+    // ================================================
+    function initRecipeBuilder() {
+        const hashInput = document.getElementById('builder-hash');
+        const positionBtns = document.querySelectorAll('.position-btn');
+        const jarBtns = document.querySelectorAll('.jar-btn');
+        const versionBtns = document.querySelectorAll('.version-btn');
+        const recipeOutput = document.getElementById('builder-recipe');
+        const passwordOutput = document.getElementById('builder-password');
+
+        if (!hashInput || !recipeOutput) return;
+
+        let currentState = {
+            hash: 'github',
+            position: '#',
+            jar: '1',
+            secret: 'MyS3cr3t*',
+            version: ''
+        };
+
+        function updateOutput() {
+            // Build recipe string
+            const recipe = currentState.hash + currentState.position + currentState.jar + currentState.version;
+            recipeOutput.textContent = recipe;
+
+            // Generate password
+            const password = generatePassword(recipe, currentState.secret);
+
+            // Animate the change
+            passwordOutput.style.opacity = '0';
+            passwordOutput.style.transform = 'scale(0.95)';
+
+            setTimeout(() => {
+                passwordOutput.textContent = password;
+                passwordOutput.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+                passwordOutput.style.opacity = '1';
+                passwordOutput.style.transform = 'scale(1)';
+            }, 150);
+        }
+
+        // Hash input
+        hashInput.addEventListener('input', function () {
+            currentState.hash = this.value || 'service';
+            updateOutput();
+        });
+
+        // Position buttons
+        positionBtns.forEach(btn => {
+            btn.addEventListener('click', function () {
+                positionBtns.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                currentState.position = this.dataset.pos;
+                updateOutput();
+            });
+        });
+
+        // Jar buttons
+        jarBtns.forEach(btn => {
+            btn.addEventListener('click', function () {
+                jarBtns.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                currentState.jar = this.dataset.jar;
+                currentState.secret = this.dataset.secret;
+                updateOutput();
+            });
+        });
+
+        // Version buttons
+        versionBtns.forEach(btn => {
+            btn.addEventListener('click', function () {
+                versionBtns.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                currentState.version = this.dataset.ver;
+                updateOutput();
+            });
+        });
+
+        // Initial output
+        updateOutput();
+    }
+
+    window.addEventListener('load', initRecipeBuilder);
+
+    // ================================================
     // FAQ Accordion
     // ================================================
     function initFAQ() {

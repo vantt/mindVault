@@ -288,6 +288,243 @@
         </div>
     </section>
 
+    <!-- Recipe Syntax Deep Dive Section -->
+    <section class="syntax-deep-dive" id="recipe-syntax">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">The Magic Formula</span>
+                <h2 class="section-title">Understanding Recipe Syntax</h2>
+                <p class="section-description">
+                    A recipe is a simple code that tells mindVault how to combine your secret with a hash to generate a unique password.
+                </p>
+            </div>
+
+            <!-- Recipe Anatomy -->
+            <div class="recipe-anatomy" data-aos="fade-up">
+                <h3 class="anatomy-title">Anatomy of a Recipe</h3>
+                <div class="anatomy-visual">
+                    <div class="anatomy-code">
+                        <span class="anatomy-part anatomy-hash" data-tooltip="The ingredient (usually service name)">gmail</span><span class="anatomy-part anatomy-position" data-tooltip="Position modifier: where to put your secret">#</span><span class="anatomy-part anatomy-secret-num" data-tooltip="Which secret jar to use (1-5)">1</span><span class="anatomy-part anatomy-version" data-tooltip="Optional: version for rotation">_v2</span>
+                    </div>
+                    <div class="anatomy-labels">
+                        <div class="anatomy-label">
+                            <span class="label-line"></span>
+                            <span class="label-text">Hash/Ingredient</span>
+                        </div>
+                        <div class="anatomy-label">
+                            <span class="label-line"></span>
+                            <span class="label-text">Position</span>
+                        </div>
+                        <div class="anatomy-label">
+                            <span class="label-line"></span>
+                            <span class="label-text">Secret #</span>
+                        </div>
+                        <div class="anatomy-label">
+                            <span class="label-line"></span>
+                            <span class="label-text">Version</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Position Modifiers Explained -->
+            <div class="position-modifiers" data-aos="fade-up">
+                <h3 class="modifiers-title">Position Modifiers Explained</h3>
+                <p class="modifiers-subtitle">The position symbol determines how your secret combines with the hash</p>
+
+                <div class="modifiers-grid">
+                    <!-- Prefix # -->
+                    <div class="modifier-card" data-modifier="#">
+                        <div class="modifier-header">
+                            <code class="modifier-symbol">#</code>
+                            <span class="modifier-name">Prefix</span>
+                        </div>
+                        <div class="modifier-visual">
+                            <div class="visual-equation">
+                                <span class="visual-secret">Secret</span>
+                                <span class="visual-plus">+</span>
+                                <span class="visual-hash">Hash</span>
+                            </div>
+                            <div class="visual-arrow">↓</div>
+                            <div class="visual-result">
+                                <span class="result-secret">MyS3cr3t*</span><span class="result-hash">gmail</span>
+                            </div>
+                        </div>
+                        <p class="modifier-desc">Secret comes first, then the hash. Most common pattern.</p>
+                        <code class="modifier-example">gmail#1 → MyS3cr3t*gmail</code>
+                    </div>
+
+                    <!-- Suffix $ -->
+                    <div class="modifier-card" data-modifier="$">
+                        <div class="modifier-header">
+                            <code class="modifier-symbol">$</code>
+                            <span class="modifier-name">Suffix</span>
+                        </div>
+                        <div class="modifier-visual">
+                            <div class="visual-equation">
+                                <span class="visual-hash">Hash</span>
+                                <span class="visual-plus">+</span>
+                                <span class="visual-secret">Secret</span>
+                            </div>
+                            <div class="visual-arrow">↓</div>
+                            <div class="visual-result">
+                                <span class="result-hash">bank</span><span class="result-secret">Ultra$ecure</span>
+                            </div>
+                        </div>
+                        <p class="modifier-desc">Hash comes first, secret at the end.</p>
+                        <code class="modifier-example">bank$3 → bankUltra$ecure</code>
+                    </div>
+
+                    <!-- Middle @ -->
+                    <div class="modifier-card" data-modifier="@">
+                        <div class="modifier-header">
+                            <code class="modifier-symbol">@</code>
+                            <span class="modifier-name">Middle</span>
+                        </div>
+                        <div class="modifier-visual">
+                            <div class="visual-equation">
+                                <span class="visual-hash">Ha</span>
+                                <span class="visual-plus">+</span>
+                                <span class="visual-secret">Secret</span>
+                                <span class="visual-plus">+</span>
+                                <span class="visual-hash">sh</span>
+                            </div>
+                            <div class="visual-arrow">↓</div>
+                            <div class="visual-result">
+                                <span class="result-hash">fa</span><span class="result-secret">M1ddl3!</span><span class="result-hash">cebook</span>
+                            </div>
+                        </div>
+                        <p class="modifier-desc">Secret inserted in the middle of the hash.</p>
+                        <code class="modifier-example">facebook@2 → faM1ddl3!cebook</code>
+                    </div>
+
+                    <!-- Interleave % -->
+                    <div class="modifier-card" data-modifier="%">
+                        <div class="modifier-header">
+                            <code class="modifier-symbol">%</code>
+                            <span class="modifier-name">Interleave</span>
+                        </div>
+                        <div class="modifier-visual">
+                            <div class="visual-equation">
+                                <span class="visual-mixed">H+S+a+e+s+c+h+ret</span>
+                            </div>
+                            <div class="visual-arrow">↓</div>
+                            <div class="visual-result">
+                                <span class="result-interleave">bSiencarcneet</span>
+                            </div>
+                        </div>
+                        <p class="modifier-desc">Characters alternate between hash and secret. Most complex.</p>
+                        <code class="modifier-example">binance%4 → bSiencarcneet</code>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive Recipe Builder -->
+            <div class="recipe-builder" data-aos="fade-up">
+                <h3 class="builder-title">Try It Yourself</h3>
+                <p class="builder-subtitle">Build your own recipe and see the password generated in real-time</p>
+
+                <div class="builder-container">
+                    <div class="builder-inputs">
+                        <div class="builder-field">
+                            <label>Hash (service name)</label>
+                            <input type="text" id="builder-hash" value="github" placeholder="e.g., gmail, bank, netflix">
+                        </div>
+                        <div class="builder-field">
+                            <label>Position</label>
+                            <div class="builder-positions">
+                                <button class="position-btn active" data-pos="#"># Prefix</button>
+                                <button class="position-btn" data-pos="$">$ Suffix</button>
+                                <button class="position-btn" data-pos="@">@ Middle</button>
+                                <button class="position-btn" data-pos="%">% Interleave</button>
+                            </div>
+                        </div>
+                        <div class="builder-field">
+                            <label>Secret Jar</label>
+                            <div class="builder-jars">
+                                <button class="jar-btn active" data-jar="1" data-secret="MyS3cr3t*">1</button>
+                                <button class="jar-btn" data-jar="2" data-secret="M1ddl3!">2</button>
+                                <button class="jar-btn" data-jar="3" data-secret="Ultra$ecure">3</button>
+                                <button class="jar-btn" data-jar="4" data-secret="S3cr3t">4</button>
+                                <button class="jar-btn" data-jar="5" data-secret="P@ss!">5</button>
+                            </div>
+                        </div>
+                        <div class="builder-field">
+                            <label>Version (optional)</label>
+                            <div class="builder-versions">
+                                <button class="version-btn active" data-ver="">None</button>
+                                <button class="version-btn" data-ver="_v2">v2</button>
+                                <button class="version-btn" data-ver="_v3">v3</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="builder-output">
+                        <div class="output-recipe">
+                            <span class="output-label">Your Recipe</span>
+                            <code class="output-value" id="builder-recipe">github#1</code>
+                        </div>
+                        <div class="output-arrow">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </div>
+                        <div class="output-password">
+                            <span class="output-label">Generated Password</span>
+                            <code class="output-value output-password-value" id="builder-password">MyS3cr3t*github</code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pro Tips -->
+            <div class="syntax-tips" data-aos="fade-up">
+                <h3 class="tips-title">Pro Tips</h3>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <div class="tip-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                            </svg>
+                        </div>
+                        <h4>Use Meaningful Hashes</h4>
+                        <p>Use the service name as hash (gmail, bank, netflix) — easy to remember and unique per site.</p>
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                        </div>
+                        <h4>Categorize by Importance</h4>
+                        <p>Use different secret jars for different security levels: #1 for critical (bank), #3 for casual (social).</p>
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="23 4 23 10 17 10"/>
+                                <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>
+                            </svg>
+                        </div>
+                        <h4>Version for Rotation</h4>
+                        <p>When a site requires password change, just add <code>_v2</code> to your recipe. No need to remember new passwords.</p>
+                    </div>
+                    <div class="tip-card">
+                        <div class="tip-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                            </svg>
+                        </div>
+                        <h4>Strong Secrets Matter</h4>
+                        <p>Your secrets should be 8+ chars with mixed case, numbers, and symbols. They're the real keys to your kingdom.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Problem/Solution Section -->
     <section class="problem-solution" id="problem-solution">
         <div class="container">
@@ -520,41 +757,15 @@
                 </div>
             </div>
 
-            <!-- Recipe Syntax Quick Reference -->
-            <div class="syntax-reference" data-aos="fade-up">
-                <h3 class="syntax-title">Recipe Syntax Quick Reference</h3>
-                <div class="syntax-grid">
-                    <div class="syntax-item">
-                        <code class="syntax-symbol">#</code>
-                        <span class="syntax-name">Prefix</span>
-                        <span class="syntax-example">Secret + Hash</span>
-                    </div>
-                    <div class="syntax-item">
-                        <code class="syntax-symbol">$</code>
-                        <span class="syntax-name">Suffix</span>
-                        <span class="syntax-example">Hash + Secret</span>
-                    </div>
-                    <div class="syntax-item">
-                        <code class="syntax-symbol">@</code>
-                        <span class="syntax-name">Middle</span>
-                        <span class="syntax-example">Ha + Secret + sh</span>
-                    </div>
-                    <div class="syntax-item">
-                        <code class="syntax-symbol">%</code>
-                        <span class="syntax-name">Interleave</span>
-                        <span class="syntax-example">H+S+a+e+s+c+h+ret</span>
-                    </div>
-                    <div class="syntax-item">
-                        <code class="syntax-symbol">1-5</code>
-                        <span class="syntax-name">Secret Jar</span>
-                        <span class="syntax-example">Which secret to use</span>
-                    </div>
-                    <div class="syntax-item">
-                        <code class="syntax-symbol">_v2</code>
-                        <span class="syntax-name">Version</span>
-                        <span class="syntax-example">Password rotation</span>
-                    </div>
-                </div>
+            <!-- Link to Recipe Syntax Section -->
+            <div class="chef-cta" data-aos="fade-up">
+                <p>Want to master the recipe syntax?</p>
+                <a href="#recipe-syntax" class="btn btn-ghost btn-md">
+                    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 19V5M5 12l7-7 7 7"/>
+                    </svg>
+                    Explore the Recipe Guide
+                </a>
             </div>
         </div>
     </section>
@@ -1097,18 +1308,18 @@
 
                 <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
                     <button class="faq-question">
-                        <span>What's the recipe syntax?</span>
+                        <span>Where can I learn more about recipe syntax?</span>
                         <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M6 9l6 6 6-6"/>
                         </svg>
                     </button>
                     <div class="faq-answer">
-                        <p>Recipes follow this pattern: <code>&lt;hash&gt;&lt;position&gt;&lt;secret#&gt;[_version]</code></p>
+                        <p>Check out our detailed <a href="#recipe-syntax" style="color: var(--color-primary);">Recipe Syntax Guide</a> above! It covers:</p>
                         <ul>
-                            <li><code>gmail#1</code> — Hash "gmail" + Secret 1 as prefix</li>
-                            <li><code>bank$3</code> — Hash "bank" + Secret 3 as suffix</li>
-                            <li><code>fb@2</code> — Hash "fb" + Secret 2 in the middle</li>
-                            <li><code>gmail#1_v2</code> — Same recipe, version 2 (for rotation)</li>
+                            <li><strong>Anatomy</strong> — Each part of a recipe explained visually</li>
+                            <li><strong>Position modifiers</strong> — <code>#</code> prefix, <code>$</code> suffix, <code>@</code> middle, <code>%</code> interleave</li>
+                            <li><strong>Interactive builder</strong> — Try building recipes in real-time</li>
+                            <li><strong>Pro tips</strong> — Best practices for creating secure recipes</li>
                         </ul>
                     </div>
                 </div>
