@@ -362,6 +362,171 @@
     }
 
     // ================================================
+    // Interactive Recipe Demo
+    // ================================================
+    function initRecipeDemo() {
+        const demoButtons = document.querySelectorAll('.demo-btn');
+        const formulaEl = document.getElementById('demo-formula');
+        const secretEl = document.getElementById('demo-secret');
+        const resultEl = document.getElementById('demo-result');
+        const copyBtn = document.getElementById('demo-copy');
+
+        if (!demoButtons.length || !formulaEl) return;
+
+        // Set first button as active
+        demoButtons[0]?.classList.add('active');
+
+        demoButtons.forEach(btn => {
+            btn.addEventListener('click', function () {
+                // Update active state
+                demoButtons.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+
+                const formula = this.dataset.formula;
+                const secret = this.dataset.secret;
+
+                // Parse the formula to generate result
+                const result = generatePassword(formula, secret);
+
+                // Animate the change
+                animateTextChange(formulaEl, formula);
+                animateTextChange(secretEl, secret);
+                animateTextChange(resultEl, result);
+            });
+        });
+
+        // Copy button functionality
+        if (copyBtn) {
+            copyBtn.addEventListener('click', function () {
+                const password = resultEl.textContent;
+                navigator.clipboard.writeText(password).then(() => {
+                    const span = this.querySelector('span');
+                    const originalText = span.textContent;
+                    span.textContent = 'Copied!';
+                    this.classList.add('copied');
+
+                    setTimeout(() => {
+                        span.textContent = originalText;
+                        this.classList.remove('copied');
+                    }, 2000);
+                });
+            });
+        }
+    }
+
+    function generatePassword(formula, secret) {
+        // Simple password generation based on formula syntax
+        // Format: <hash><position><secret#> where position is #, $, @, %
+        const match = formula.match(/^(\w+)([#$@%])(\d)(?:_v(\d+))?$/);
+        if (!match) return secret + formula;
+
+        const [, hash, position] = match;
+
+        switch (position) {
+            case '#': // Prefix: Secret + Hash
+                return secret + hash;
+            case '$': // Suffix: Hash + Secret
+                return hash + secret;
+            case '@': // Middle: Ha + Secret + sh
+                const mid = Math.floor(hash.length / 2);
+                return hash.slice(0, mid) + secret + hash.slice(mid);
+            case '%': // Interleave
+                let result = '';
+                const maxLen = Math.max(hash.length, secret.length);
+                for (let i = 0; i < maxLen; i++) {
+                    if (i < hash.length) result += hash[i];
+                    if (i < secret.length) result += secret[i];
+                }
+                return result;
+            default:
+                return secret + hash;
+        }
+    }
+
+    function animateTextChange(el, newText) {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(-5px)';
+
+        setTimeout(() => {
+            el.textContent = newText;
+            el.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+            el.style.opacity = '1';
+            el.style.transform = 'translateY(0)';
+        }, 150);
+    }
+
+    window.addEventListener('load', initRecipeDemo);
+
+    // ================================================
+    // FAQ Accordion
+    // ================================================
+    function initFAQ() {
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+
+            if (question) {
+                question.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+
+                    // Close all other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+
+                    // Toggle current item
+                    item.classList.toggle('active', !isActive);
+                });
+            }
+        });
+    }
+
+    window.addEventListener('load', initFAQ);
+
+    // ================================================
+    // Hacker Terminal Typing Animation
+    // ================================================
+    function initHackerTerminal() {
+        const hackerTerminal = document.querySelector('.hacker-terminal');
+        if (!hackerTerminal) return;
+
+        const lines = hackerTerminal.querySelectorAll('.terminal-line');
+        let delay = 0;
+
+        lines.forEach((line, index) => {
+            line.style.opacity = '0';
+            line.style.transform = 'translateX(-10px)';
+
+            setTimeout(() => {
+                line.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+                line.style.opacity = '1';
+                line.style.transform = 'translateX(0)';
+            }, delay);
+
+            // Error lines appear faster
+            delay += line.classList.contains('terminal-error') ? 200 : 400;
+        });
+    }
+
+    // Observe when hacker terminal enters viewport
+    const hackerObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                initHackerTerminal();
+                hackerObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.3 });
+
+    const hackerTerminal = document.querySelector('.hacker-terminal');
+    if (hackerTerminal) {
+        hackerObserver.observe(hackerTerminal);
+    }
+
+    // ================================================
     // Console Easter Egg
     // ================================================
     console.log(`

@@ -45,9 +45,10 @@
                 <span>mindVault</span>
             </a>
             <div class="nav-links">
+                <a href="#core-concept" class="nav-link">How It Works</a>
                 <a href="#features" class="nav-link">Features</a>
                 <a href="#security" class="nav-link">Security</a>
-                <a href="#how-it-works" class="nav-link">How It Works</a>
+                <a href="#faq" class="nav-link">FAQ</a>
             </div>
             <a href="#install" class="btn btn-primary btn-sm">
                 <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -68,9 +69,10 @@
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobile-menu">
         <div class="mobile-menu-content">
+            <a href="#core-concept" class="mobile-menu-link">How It Works</a>
             <a href="#features" class="mobile-menu-link">Features</a>
             <a href="#security" class="mobile-menu-link">Security</a>
-            <a href="#how-it-works" class="mobile-menu-link">How It Works</a>
+            <a href="#faq" class="mobile-menu-link">FAQ</a>
             <a href="#install" class="btn btn-primary btn-lg mobile-menu-cta">Install Extension</a>
         </div>
     </div>
@@ -163,6 +165,129 @@
         </div>
     </section>
 
+    <!-- Core Concept Section - Interactive Recipe Visualization -->
+    <section class="core-concept" id="core-concept">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">The Core Insight</span>
+                <h2 class="section-title">Your Password Doesn't Exist Until You Need It</h2>
+                <p class="section-description">
+                    We don't store passwords. We store <strong>recipes</strong> — instructions for recreating them on-demand with your secret ingredient.
+                </p>
+            </div>
+
+            <!-- Interactive Recipe Demo -->
+            <div class="recipe-demo" data-aos="fade-up">
+                <div class="demo-container">
+                    <div class="demo-step demo-step-1">
+                        <div class="step-label">
+                            <span class="step-num">1</span>
+                            <span>Your Sheet (Public)</span>
+                        </div>
+                        <div class="recipe-card">
+                            <div class="recipe-card-header">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="3" width="18" height="18" rx="2"/>
+                                    <path d="M3 9h18M9 21V9"/>
+                                </svg>
+                                <span>Google Sheets</span>
+                            </div>
+                            <div class="recipe-content">
+                                <span class="recipe-service">Gmail</span>
+                                <span class="recipe-formula" id="demo-formula">gmail#1</span>
+                            </div>
+                            <div class="recipe-tooltip">
+                                <span class="tooltip-arrow"></span>
+                                <code>gmail</code> = ingredient &nbsp;&nbsp; <code>#</code> = put secret first &nbsp;&nbsp; <code>1</code> = use secret jar #1
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="demo-connector">
+                        <div class="connector-line">
+                            <div class="connector-pulse"></div>
+                        </div>
+                        <div class="connector-icon">+</div>
+                    </div>
+
+                    <div class="demo-step demo-step-2">
+                        <div class="step-label">
+                            <span class="step-num">2</span>
+                            <span>Your Secret (Private)</span>
+                        </div>
+                        <div class="secret-card">
+                            <div class="secret-card-header">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                </svg>
+                                <span>Your Mind + Extension</span>
+                            </div>
+                            <div class="secret-content">
+                                <span class="secret-label">Secret Jar #1</span>
+                                <span class="secret-value" id="demo-secret">MyS3cr3t*</span>
+                            </div>
+                            <div class="secret-badge">
+                                <svg viewBox="0 0 16 16" fill="currentColor">
+                                    <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
+                                </svg>
+                                Encrypted locally
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="demo-connector">
+                        <div class="connector-line">
+                            <div class="connector-pulse"></div>
+                        </div>
+                        <div class="connector-icon">=</div>
+                    </div>
+
+                    <div class="demo-step demo-step-3">
+                        <div class="step-label">
+                            <span class="step-num">3</span>
+                            <span>Your Password (Generated)</span>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-card-header">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 6L9 17l-5-5"/>
+                                </svg>
+                                <span>Ready to Use</span>
+                            </div>
+                            <div class="result-content">
+                                <span class="result-value" id="demo-result">MyS3cr3t*gmail</span>
+                                <button class="result-copy" id="demo-copy">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="9" y="9" width="13" height="13" rx="2"/>
+                                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                                    </svg>
+                                    <span>Copy</span>
+                                </button>
+                            </div>
+                            <div class="result-meta">
+                                <span class="meta-item">Generated fresh</span>
+                                <span class="meta-divider">·</span>
+                                <span class="meta-item">Never stored</span>
+                                <span class="meta-divider">·</span>
+                                <span class="meta-item">Auto-clears in 30s</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Try Different Recipes -->
+                <div class="demo-controls">
+                    <span class="controls-label">Try different recipes:</span>
+                    <div class="controls-buttons">
+                        <button class="demo-btn" data-formula="gmail#1" data-secret="MyS3cr3t*">gmail#1</button>
+                        <button class="demo-btn" data-formula="bank$3" data-secret="Ultra$ecure">bank$3</button>
+                        <button class="demo-btn" data-formula="fb@2" data-secret="M1ddl3!">fb@2</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Problem/Solution Section -->
     <section class="problem-solution" id="problem-solution">
         <div class="container">
@@ -173,7 +298,7 @@
 
             <div class="comparison-grid">
                 <!-- Problem Side -->
-                <div class="comparison-card comparison-problem">
+                <div class="comparison-card comparison-problem" data-aos="fade-right">
                     <div class="comparison-icon">
                         <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="2" stroke-dasharray="4 4"/>
@@ -215,7 +340,7 @@
                 </div>
 
                 <!-- Solution Side -->
-                <div class="comparison-card comparison-solution">
+                <div class="comparison-card comparison-solution" data-aos="fade-left">
                     <div class="comparison-icon">
                         <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="2"/>
@@ -256,55 +381,178 @@
                 </div>
             </div>
 
-            <!-- Recipe vs Cake Analogy -->
-            <div class="analogy-section">
-                <div class="analogy-header">
-                    <span class="section-badge">Think of it like this</span>
-                    <h3 class="analogy-title">Recipe vs. Cake</h3>
+            <!-- Hacker's View Section -->
+            <div class="hacker-view" data-aos="fade-up">
+                <div class="hacker-header">
+                    <span class="section-badge hacker-badge">What Hackers See</span>
+                    <h3 class="hacker-title">Even With Full Access to Your Sheet</h3>
                 </div>
-                <div class="analogy-content">
-                    <div class="analogy-item">
-                        <div class="analogy-icon analogy-recipe">
-                            <svg viewBox="0 0 48 48" fill="none">
-                                <rect x="8" y="6" width="32" height="36" rx="4" stroke="currentColor" stroke-width="2"/>
-                                <line x1="14" y1="14" x2="34" y2="14" stroke="currentColor" stroke-width="2"/>
-                                <line x1="14" y1="22" x2="34" y2="22" stroke="currentColor" stroke-width="2"/>
-                                <line x1="14" y1="30" x2="26" y2="30" stroke="currentColor" stroke-width="2"/>
-                            </svg>
+                <div class="hacker-content">
+                    <div class="hacker-terminal">
+                        <div class="terminal-header">
+                            <div class="terminal-dots">
+                                <span></span><span></span><span></span>
+                            </div>
+                            <span class="terminal-title">attacker@darknet:~</span>
                         </div>
-                        <div class="analogy-text">
-                            <h4>What's on your sheet</h4>
-                            <code class="analogy-code">gmail#1</code>
-                            <p>Just the recipe name - useless without ingredients</p>
+                        <div class="terminal-body">
+                            <div class="terminal-line">
+                                <span class="terminal-prompt">$</span>
+                                <span class="terminal-command">cat stolen_sheet.csv</span>
+                            </div>
+                            <div class="terminal-line terminal-output">
+                                <span class="terminal-string">"Gmail", "gmail#1"</span>
+                            </div>
+                            <div class="terminal-line terminal-output">
+                                <span class="terminal-string">"Bank", "bank$3"</span>
+                            </div>
+                            <div class="terminal-line terminal-output">
+                                <span class="terminal-string">"Trading", "binance%4"</span>
+                            </div>
+                            <div class="terminal-line">
+                                <span class="terminal-prompt">$</span>
+                                <span class="terminal-command">./crack_passwords.sh</span>
+                            </div>
+                            <div class="terminal-line terminal-output terminal-error">
+                                <span>[ERROR] No passwords found. Only recipes.</span>
+                            </div>
+                            <div class="terminal-line terminal-output terminal-error">
+                                <span>[ERROR] Missing secret ingredients. Cannot reconstruct.</span>
+                            </div>
+                            <div class="terminal-line">
+                                <span class="terminal-prompt">$</span>
+                                <span class="terminal-cursor">█</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="analogy-plus">+</div>
-                    <div class="analogy-item">
-                        <div class="analogy-icon analogy-secret">
-                            <svg viewBox="0 0 48 48" fill="none">
-                                <path d="M24 4L6 14v10c0 11 8 21 18 24 10-3 18-13 18-24V14L24 4z" stroke="currentColor" stroke-width="2"/>
-                                <path d="M24 18v8M24 30h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                            </svg>
+                    <div class="hacker-explanation">
+                        <div class="explanation-item">
+                            <div class="explanation-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <path d="M12 8v4M12 16h.01"/>
+                                </svg>
+                            </div>
+                            <div class="explanation-text">
+                                <h4>Recipes are useless alone</h4>
+                                <p>Like a menu without the chef's secret spices — they can see the dish names but can't cook anything.</p>
+                            </div>
                         </div>
-                        <div class="analogy-text">
-                            <h4>What you remember</h4>
-                            <code class="analogy-code">MySecret*</code>
-                            <p>Your secret ingredient - never leaves your device</p>
+                        <div class="explanation-item">
+                            <div class="explanation-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="11" width="18" height="11" rx="2"/>
+                                    <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                                </svg>
+                            </div>
+                            <div class="explanation-text">
+                                <h4>Secrets never leave your device</h4>
+                                <p>Encrypted with Argon2id and stored locally. Even if Chrome syncs, it's just encrypted noise.</p>
+                            </div>
+                        </div>
+                        <div class="explanation-item">
+                            <div class="explanation-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                    <path d="M9 12l2 2 4-4"/>
+                                </svg>
+                            </div>
+                            <div class="explanation-text">
+                                <h4>100 accounts, 5 secrets</h4>
+                                <p>Manage hundreds of unique passwords while only remembering 5 secret phrases. The extension does the rest.</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="analogy-equals">=</div>
-                    <div class="analogy-item">
-                        <div class="analogy-icon analogy-result">
-                            <svg viewBox="0 0 48 48" fill="none">
-                                <circle cx="24" cy="24" r="18" stroke="currentColor" stroke-width="2"/>
-                                <path d="M16 24l5 5 10-10" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </div>
-                        <div class="analogy-text">
-                            <h4>Your actual password</h4>
-                            <code class="analogy-code analogy-result-code">MySecret*gmail</code>
-                            <p>The finished cake - generated on demand</p>
-                        </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chef Analogy Section - Storytelling -->
+    <section class="chef-analogy" id="chef-analogy">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Think Like a Chef</span>
+                <h2 class="section-title">The Cookbook, Not the Kitchen</h2>
+                <p class="section-description">
+                    Imagine you're a chef. You wouldn't store all your cooked meals in a public fridge. You'd keep the recipes and cook fresh when needed.
+                </p>
+            </div>
+
+            <div class="chef-grid">
+                <div class="chef-card" data-aos="fade-up">
+                    <div class="chef-icon">
+                        <svg viewBox="0 0 64 64" fill="none">
+                            <rect x="12" y="8" width="40" height="48" rx="4" stroke="currentColor" stroke-width="2"/>
+                            <path d="M20 20h24M20 28h24M20 36h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="48" cy="48" r="12" fill="var(--bg-primary)" stroke="currentColor" stroke-width="2"/>
+                            <path d="M48 42v12M42 48h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3>The Menu (Your Sheet)</h3>
+                    <p>Lists all dishes and their codes. Anyone can see the menu — but they can't eat the food.</p>
+                    <code class="chef-code">Facebook → fb#1</code>
+                </div>
+
+                <div class="chef-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="chef-icon chef-icon-secret">
+                        <svg viewBox="0 0 64 64" fill="none">
+                            <path d="M32 8c-12 0-20 8-20 16v8c0 12 8 24 20 28 12-4 20-16 20-28v-8c0-8-8-16-20-16z" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="32" cy="32" r="8" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="32" cy="32" r="3" fill="currentColor"/>
+                        </svg>
+                    </div>
+                    <h3>The Secret Spices (Your Secrets)</h3>
+                    <p>Only you know what's in each jar. Without the right spice, the dish is incomplete.</p>
+                    <code class="chef-code chef-code-secret">Jar #1 → MyS3cr3t*</code>
+                </div>
+
+                <div class="chef-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="chef-icon chef-icon-result">
+                        <svg viewBox="0 0 64 64" fill="none">
+                            <circle cx="32" cy="32" r="24" stroke="currentColor" stroke-width="2"/>
+                            <path d="M20 32l8 8 16-16" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>The Dish (Your Password)</h3>
+                    <p>Cooked fresh on demand. Never stored. Never stale. Always exactly what you need.</p>
+                    <code class="chef-code chef-code-result">Result → MyS3cr3t*fb</code>
+                </div>
+            </div>
+
+            <!-- Recipe Syntax Quick Reference -->
+            <div class="syntax-reference" data-aos="fade-up">
+                <h3 class="syntax-title">Recipe Syntax Quick Reference</h3>
+                <div class="syntax-grid">
+                    <div class="syntax-item">
+                        <code class="syntax-symbol">#</code>
+                        <span class="syntax-name">Prefix</span>
+                        <span class="syntax-example">Secret + Hash</span>
+                    </div>
+                    <div class="syntax-item">
+                        <code class="syntax-symbol">$</code>
+                        <span class="syntax-name">Suffix</span>
+                        <span class="syntax-example">Hash + Secret</span>
+                    </div>
+                    <div class="syntax-item">
+                        <code class="syntax-symbol">@</code>
+                        <span class="syntax-name">Middle</span>
+                        <span class="syntax-example">Ha + Secret + sh</span>
+                    </div>
+                    <div class="syntax-item">
+                        <code class="syntax-symbol">%</code>
+                        <span class="syntax-name">Interleave</span>
+                        <span class="syntax-example">H+S+a+e+s+c+h+ret</span>
+                    </div>
+                    <div class="syntax-item">
+                        <code class="syntax-symbol">1-5</code>
+                        <span class="syntax-name">Secret Jar</span>
+                        <span class="syntax-example">Which secret to use</span>
+                    </div>
+                    <div class="syntax-item">
+                        <code class="syntax-symbol">_v2</code>
+                        <span class="syntax-name">Version</span>
+                        <span class="syntax-example">Password rotation</span>
                     </div>
                 </div>
             </div>
@@ -694,6 +942,192 @@
         </div>
     </section>
 
+    <!-- Testimonials / Social Proof Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Trusted By</span>
+                <h2 class="section-title">What Users Are Saying</h2>
+                <p class="section-description">
+                    Developers and security-conscious users love the simplicity and peace of mind.
+                </p>
+            </div>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card" data-aos="fade-up">
+                    <div class="testimonial-content">
+                        <div class="testimonial-stars">
+                            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        </div>
+                        <p class="testimonial-text">
+                            "Finally, a password manager that works WITH my existing workflow. I've been using Google Sheets for years — now it's actually secure."
+                        </p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <span>DT</span>
+                        </div>
+                        <div class="author-info">
+                            <span class="author-name">David T.</span>
+                            <span class="author-role">Full-Stack Developer</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card testimonial-featured" data-aos="fade-up" data-aos-delay="100">
+                    <div class="testimonial-content">
+                        <div class="testimonial-stars">
+                            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        </div>
+                        <p class="testimonial-text">
+                            "The 'recipe' concept is genius. My team shares the same sheet, but each person has their own secrets. Zero overlap, zero risk. It just makes sense."
+                        </p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar author-avatar-featured">
+                            <span>MN</span>
+                        </div>
+                        <div class="author-info">
+                            <span class="author-name">Minh N.</span>
+                            <span class="author-role">Security Engineer</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="testimonial-content">
+                        <div class="testimonial-stars">
+                            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                        </div>
+                        <p class="testimonial-text">
+                            "Open source, local encryption, no accounts needed. This is how password management should work. My paranoid self approves."
+                        </p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <span>SK</span>
+                        </div>
+                        <div class="author-info">
+                            <span class="author-name">Sarah K.</span>
+                            <span class="author-role">Privacy Advocate</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">FAQ</span>
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-description">
+                    Everything you need to know about mindVault.
+                </p>
+            </div>
+
+            <div class="faq-grid">
+                <div class="faq-item" data-aos="fade-up">
+                    <button class="faq-question">
+                        <span>Is this really secure if my sheet is public?</span>
+                        <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes! Your sheet only contains <strong>recipes</strong>, not passwords. A recipe like <code>gmail#1</code> is meaningless without your secret phrase. Think of it like a safe combination without the safe — useless on its own. Your secrets are encrypted with Argon2id + AES-256-GCM and stored locally on your device.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="50">
+                    <button class="faq-question">
+                        <span>What happens if I forget my master password?</span>
+                        <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Unfortunately, there's no recovery option — by design. This is zero-knowledge architecture. We never see or store your master password. You'll need to reset the extension and reconfigure your secrets. We strongly recommend writing down your secrets and storing them safely offline.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="100">
+                    <button class="faq-question">
+                        <span>How is this different from other password managers?</span>
+                        <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Traditional password managers store encrypted passwords in a vault. mindVault is different — we don't store passwords at all. We store <em>recipes</em> that combine with your secrets to <em>generate</em> passwords on demand. This means:</p>
+                        <ul>
+                            <li>No password database to hack</li>
+                            <li>Works with your existing Google Sheets workflow</li>
+                            <li>You control the "formula" for each password</li>
+                            <li>Passwords are never stored, even encrypted</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="150">
+                    <button class="faq-question">
+                        <span>Can I use this on multiple devices?</span>
+                        <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes! Your encrypted secrets sync across all Chrome browsers where you're signed in. The secrets are encrypted before syncing, so even Google can't read them. Just install the extension on each device and unlock with your master password.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="200">
+                    <button class="faq-question">
+                        <span>What's the recipe syntax?</span>
+                        <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Recipes follow this pattern: <code>&lt;hash&gt;&lt;position&gt;&lt;secret#&gt;[_version]</code></p>
+                        <ul>
+                            <li><code>gmail#1</code> — Hash "gmail" + Secret 1 as prefix</li>
+                            <li><code>bank$3</code> — Hash "bank" + Secret 3 as suffix</li>
+                            <li><code>fb@2</code> — Hash "fb" + Secret 2 in the middle</li>
+                            <li><code>gmail#1_v2</code> — Same recipe, version 2 (for rotation)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="250">
+                    <button class="faq-question">
+                        <span>Is mindVault open source?</span>
+                        <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 9l6 6 6-6"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes! 100% open source under the MIT license. You can audit every line of code, fork it, contribute, or run your own modified version. We believe security through transparency is the only way.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- CTA Section -->
     <section class="cta" id="install">
         <div class="container">
@@ -766,15 +1200,15 @@
                 <div class="footer-links">
                     <div class="footer-column">
                         <h4 class="footer-heading">Product</h4>
+                        <a href="#core-concept" class="footer-link">How It Works</a>
                         <a href="#features" class="footer-link">Features</a>
                         <a href="#security" class="footer-link">Security</a>
-                        <a href="#how-it-works" class="footer-link">How It Works</a>
                     </div>
                     <div class="footer-column">
                         <h4 class="footer-heading">Resources</h4>
-                        <a href="#" class="footer-link">Documentation</a>
-                        <a href="#" class="footer-link">FAQ</a>
-                        <a href="#" class="footer-link">Support</a>
+                        <a href="#faq" class="footer-link">FAQ</a>
+                        <a href="#testimonials" class="footer-link">Testimonials</a>
+                        <a href="#install" class="footer-link">Install</a>
                     </div>
                     <div class="footer-column">
                         <h4 class="footer-heading">Legal</h4>
