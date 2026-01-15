@@ -1,33 +1,44 @@
 
+self.SW_LOADED = true;
 import { GeneratePassword } from "./core/usecases/generate_password.js";
 import { ChromeStorageAdapter } from "./adapters/infrastructure/chrome_storage_adapter.js";
 import { RegexParserAdapter } from "./adapters/infrastructure/regex_parser_adapter.js";
 
 // Composition Root
-const storageAdapter = new ChromeStorageAdapter();
-const parserAdapter = new RegexParserAdapter();
-const generatePasswordUseCase = new GeneratePassword(parserAdapter, storageAdapter);
+self.DEBUG_LOGS = [];
+function logDebug(msg) {
+    self.DEBUG_LOGS.push(msg);
+    console.log(msg);
+}
+
+logDebug("SW: Imports done");
+
+let storageAdapter, parserAdapter, generatePasswordUseCase;
+
+try {
+    logDebug("SW: Init StorageAdapter");
+    storageAdapter = new ChromeStorageAdapter();
+    logDebug("SW: Init ParserAdapter");
+    parserAdapter = new RegexParserAdapter();
+    logDebug("SW: Init UseCase");
+    generatePasswordUseCase = new GeneratePassword(parserAdapter, storageAdapter);
+    self.storageAdapter = storageAdapter;
+    self.generatePasswordUseCase = generatePasswordUseCase;
+    logDebug("SW: Init Complete");
+} catch (e) {
+    logDebug(`SW: Init Error ${e.name} ${e.message} ${e.stack}`);
+}
 
 // Installation/Update Handler
-chrome.runtime.onInstalled.addListener(async () => {
-    console.log("mindVault installed/updated. Injecting content scripts...");
-    
-    // Inject into existing tabs
-    const tabs = await chrome.tabs.query({ url: "https://docs.google.com/spreadsheets/*" });
-    for (const tab of tabs) {
-        try {
-            await chrome.scripting.executeScript({
-                target: { tabId: tab.id },
-                files: ["content/content.js"]
-            });
-        } catch (err) {
-            console.warn(`Failed to inject into tab ${tab.id}:`, err);
-        }
-    }
-});
+// chrome.runtime.onInstalled.addListener(async () => {
+//     console.log("mindVault installed/updated. Injecting content scripts...");
+//     // ... logic removed to avoid duplication ...
+// });
 
 // Message Listener
+logDebug("SW: Registering listener");
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+    logDebug(`SW: Received ${JSON.stringify(request)} from ${sender.tab ? sender.tab.id : 'unknown'}`);
     if (request.action === "GENERATE_PASSWORD") {
         handleGeneratePassword(request.text, sendResponse);
         return true; // Keep channel open for async response

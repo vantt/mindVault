@@ -46,45 +46,17 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         const target = document.activeElement;
         console.log("mindVault Hotkey Target:", target);
         
-        if (target) {
-            let text = "";
-            if (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA') {
-                text = target.value;
-            } else {
-                text = target.innerText || target.textContent;
-            }
-            
-            if (text) generateAndShow(target, text.trim());
+        const text = extractRecipeText(target);
+        if (text) {
+            generateAndShow(target, text);
+        } else {
+            console.log("mindVault: No recipe found in active element or formula bar");
         }
     } else if (request.action === "GET_CURRENT_CELL_PASSWORD") {
         (async () => {
-            let target = document.activeElement;
-            let text = "";
-
-            // Google Sheets Strategy:
-            // 1. Try generic active element (standard inputs, etc)
-            if (target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA')) {
-                text = target.value;
-            } else if (target && target.isContentEditable) {
-                text = target.innerText || target.textContent;
-            }
-
-            // 2. Specialized Check for Google Sheets (Active Cell Fallback)
-            // If we didn't get text, or text implies we are just at the body/grid level
-            if (!text || (target && target.tagName === 'BODY') || (target && target.classList.contains('grid-container'))) {
-                 if (window.location.hostname === 'docs.google.com') {
-                     const formulaBar = document.getElementById('t-formula-bar-input');
-                     if (formulaBar) {
-                         const val = formulaBar.innerText || formulaBar.textContent; 
-                         if (val) {
-                             text = val;
-                             console.log("mindVault: Extracted from Formula Bar:", text);
-                         }
-                     }
-                 }
-            }
+            const target = document.activeElement;
+            const text = extractRecipeText(target);
             
-            text = text ? text.replace(/[\r\n]+/g, '').trim() : "";
             console.log("mindVault: Final Extracted Text for Popup:", text);
             
             if (!text) {
@@ -107,6 +79,34 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         return true; // Keep channel open for async response
     }
 });
+
+function extractRecipeText(target) {
+    let text = "";
+
+    // 1. Try generic active element (standard inputs, etc)
+    if (target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA')) {
+        text = target.value;
+    } else if (target && target.isContentEditable) {
+        text = target.innerText || target.textContent;
+    }
+
+    // 2. Specialized Check for Google Sheets (Active Cell Fallback)
+    // If we didn't get text, or text implies we are just at the body/grid level
+    if (!text || (target && target.tagName === 'BODY') || (target && target.classList.contains('grid-container'))) {
+            if (window.location.hostname === 'docs.google.com') {
+                const formulaBar = document.getElementById('t-formula-bar-input');
+                if (formulaBar) {
+                    const val = formulaBar.innerText || formulaBar.textContent; 
+                    if (val) {
+                        text = val;
+                        console.log("mindVault: Extracted from Formula Bar:", text);
+                    }
+                }
+            }
+    }
+    
+    return text ? text.replace(/[\r\n]+/g, '').trim() : "";
+}
 
 async function generateAndShow(target, text) {
      console.log("mindVault: Generating for", text);

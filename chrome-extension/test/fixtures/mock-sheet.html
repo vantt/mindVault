@@ -1,0 +1,43 @@
+<!-- 
+  MOCK SHEET FIXTURE (The 'Stunt Double')
+  
+  This file implements the "Contract" expected by the chrome extension's content script.
+  It provides the minimal DOM structure required to trigger the extraction logic:
+  1. #t-formula-bar-input : Mimics the Google Sheets Formula Bar for reading values.
+  2. .grid-container      : Mimics the sheet body to test focus contexts.
+  3. .cell-input          : Mimics an active cell.
+  
+  Visual appearance is irrelevant; only ID and Class matching matters for the test.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mock Google Sheet</title>
+    <style>
+        body { font-family: arial, sans-serif; padding: 20px; }
+        .grid-container { border: 1px solid #ccc; padding: 20px; margin-top: 10px; min-height: 200px; }
+        #t-formula-bar-input { border: 1px solid #aaa; padding: 5px; min-height: 20px; width: 300px; margin-bottom: 20px; }
+        .cell-input { border: 1px solid #ddd; width: 100px; height: 25px; display: inline-block; padding: 2px; }
+        .std-input { border: 1px solid #ddd; padding: 5px; margin-bottom: 10px; display: block; }
+    </style>
+</head>
+<body class="docs-spreadsheet-view">
+    <h1>Mock Google Sheet for E2E</h1>
+    
+    <!-- 1. Mock Formula Bar (Google Sheets specific) -->
+    <div id="wrapper">
+        <div id="t-formula-bar-input"></div>
+    </div>
+
+    <!-- 2. Standard Input for generic testing -->
+    <input type="text" id="generic-input" class="std-input" placeholder="Type generic recipe here...">
+
+    <!-- 3. Mock Grid Container (to simulate clicking 'off' the input) -->
+    <div class="grid-container" tabindex="0">
+        <p>Grid Area (Click here to defocus)</p>
+        <!-- Mock Cell -->
+        <div contenteditable="true" class="cell-input" id="cell-A1"></div>
+    </div>
+</body>
+</html>
