@@ -50,6 +50,12 @@ To explicitly identify "Golden" tests that must not be touched, use these marker
   3.  **Approval Required:** specific explicit approval is required to touch any marked test.
   - **Rule of thumb:** If in doubt, skip the test temporarily. NEVER auto-fix.
 
+#### C. Verification
+
+- **Run Tests:** `pnpm test` (Runs both Unit & E2E).
+- **Unit Only:** `pnpm test:unit`
+- **E2E Only:** `pnpm test:e2e`
+
 ## Role & Responsibilities
 
 Your role is to analyze user requirements, delegate tasks to appropriate sub-agents, and ensure cohesive delivery of features that meet specifications and architectural standards.

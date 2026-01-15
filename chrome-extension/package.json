@@ -1,14 +1,23 @@
-
 {
   "name": "mindvault-extension",
   "version": "1.0.0",
   "description": "Clean Architecture Password Generator Extension",
   "scripts": {
-    "test": "node test/unit/generate_password.test.mjs",
+    "test": "vitest run && playwright test",
+    "test:all": "vitest run && playwright test",
+    "test:unit": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test",
     "postinstall": "node scripts/copy_wasm.js"
   },
   "dependencies": {
     "argon2-browser": "^1.18.0"
   },
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "@playwright/test": "^1.57.0",
+    "jsdom": "^27.4.0",
+    "vitest": "^4.0.17"
+  },
+  "packageManager": "pnpm@10.24.0+sha512.01ff8ae71b4419903b65c60fb2dc9d34cf8bb6e06d03bde112ef38f7a34d6904c424ba66bea5cdcf12890230bf39f9580473140ed9c946fef328b6e5238a345a"
 }

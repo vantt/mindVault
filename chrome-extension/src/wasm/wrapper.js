@@ -32,46 +32,36 @@ function loadModule(mem) {
         };
     }
 
+    // Hook postRun via global Module configuration
+    let postRunResolved = false;
+    let resolvePostRun;
+    
+    const postRunPromise = new Promise(resolve => resolvePostRun = resolve);
+
+    global.Module.postRun = global.Module.postRun || [];
+    global.Module.postRun.push(() => {
+        postRunResolved = true;
+        resolvePostRun(global.Module);
+    });
+
     internalModulePromise = (async () => {
         // Dynamic import so it runs AFTER we set global.Module
-        // We assume ./argon2.js has 'export default Module;' appended
         const modImport = await import('./argon2.js');
         const Mod = modImport.default || modImport;
 
-        return new Promise((resolve) => {
-            // Hook postRun if not finished
-            // Note: Mod.calledRun matches what emscripten sets when run() is called.
-            // But run() is called at end of file.
-            // If WASM is async, it might still be loading.
-            
-            // Emscripten (in argon2.js):
-            // function doRun(){ ... initRuntime(); ... postRun() }
-            // run() calls preRun(), then if dependencies>0 returns. 
-            // instantiateAsync adds a runDependency("wasm-instantiate").
-            // So run() returns early.
-            // When WASM loads, removeRunDependency -> callback -> doRun.
-            
-            // So we are likely safely in the "waiting for WASM" phase.
-            // We can append to postRun.
-            
-            const existingPostRun = Mod.postRun;
-            Mod.postRun = () => {
-                if (existingPostRun) {
-                    if (Array.isArray(existingPostRun)) existingPostRun.forEach(f => f());
-                    else existingPostRun();
-                }
-                resolve(Mod);
-            };
-            
-            // Just in case it finished synchronously (unlikely) or we missed it:
+        try {
+            // Check if already done (if synchronous or very fast)
             if (Mod.calledRun && !Mod.runDependencies) {
-                 // It might be done? But calledRun is set inside doRun.
-                 // If calledRun is true, it might be done.
-                 // But safer to just hook.
-                 // If we strictly hang here, it's bad.
-                 // But usually fine.
+                return Mod;
             }
-        });
+        } catch (e) { /* ignore access errors */ }
+        
+        // Wait for postRun if not done
+        if (!postRunResolved) {
+             await postRunPromise;
+        }
+        
+        return global.Module;
     })();
 
     return internalModulePromise;

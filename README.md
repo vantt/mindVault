@@ -118,3 +118,35 @@ Example: `gmail@2_v2`
 - **Architecture**: Domain-Driven Design (DDD) with Clean Architecture.
 - **Tech Stack**: Vanilla JS, Chrome Extensions Manifest V3.
 - **Security**: Argon2 (WASM), Web Crypto API.
+
+## Testing
+
+This project uses **Vitest** for Unit/Integration tests and **Playwright** for E2E tests.
+
+### Running Tests
+
+We support `npm`, `pnpm`, or `yarn`. Commands below use `pnpm` as recommended.
+
+- **Run All Tests**:
+
+  ```bash
+  cd chrome-extension
+  pnpm test
+  ```
+
+  _Runs Unit tests followed by E2E tests._
+
+- **Unit Tests Only**:
+
+  ```bash
+  pnpm test:unit
+  ```
+
+- **E2E Tests Only**:
+  ```bash
+  pnpm test:e2e
+  ```
+
+### Test Protocols
+
+- **Golden Tests**: Tests marked with `// @approved` are considered "Source of Truth". **Do not modify** them without explicit user approval.
