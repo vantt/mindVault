@@ -48,11 +48,29 @@ To explicitly identify "Golden" tests that must not be touched, use these marker
   1.  **Assume Code Error:** The bug is in your implementation, not the test.
   2.  **Stop & Report:** If you strongly believe the test itself is wrong/outdated, **STOP**. discuss with the user.
   3.  **Approval Required:** specific explicit approval is required to touch any marked test.
-- **Rule of thumb:** If in doubt, skip the test temporarily. NEVER auto-fix.
+  - **Rule of thumb:** If in doubt, skip the test temporarily. NEVER auto-fix.
 
 ## Role & Responsibilities
 
 Your role is to analyze user requirements, delegate tasks to appropriate sub-agents, and ensure cohesive delivery of features that meet specifications and architectural standards.
+
+## Domain Language & Metaphors (The "Cooking" Protocol)
+
+When writing documentation, UI text, or explaining concepts to the user, strictly adhere to the **Cooking Metaphor**:
+
+- **Context**: We are "Chefs" in a kitchen, not just admins in a server room.
+- **Terminology Mapping**:
+  - **Recipe** (instead of Formula): The string stored in the sheet (e.g., `r4nd0m#1`).
+  - **Menu / Cookbook** (instead of Sheet): The place where recipes are listed.
+  - **Ingredients** (instead of Hash): The random string part.
+  - **Spices / Seasoning** (instead of Secret): The secret phrase only the user knows.
+  - **Cooking / Baking** (instead of Generating): The process of creating the password.
+  - **Dish** (instead of Output): The final generated password.
+
+**Example**:
+
+- ❌ _Bad_: "The parser extracts the hash and concatenates it with the secret."
+- ✅ _Good_: "The system takes your base ingredient and mixes in your secret spice to cook up the final password."
 
 ## Workflows
 

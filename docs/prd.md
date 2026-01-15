@@ -33,39 +33,32 @@
 
 ## 1. Executive Summary
 
-### 1.1 Problem Statement
+### 1.1 Problem Statement (The "Chef" Insight)
 
-Người dùng đang sử dụng hệ thống quản lý password "Special Character + Number" với:
+Người dùng hiện tại giống như **IT Admin** quản lý password theo cách thủ công:
 
-- **Recipe (Công thức chế biến)** được lưu công khai trong Google Sheets
-- **Secret phrases** được ghi nhớ trong đầu
+- **Recipe (Công thức)**: Lưu "r4nd0m#1" trên Spreadsheet.
+- **Secret (Gia vị bí mật)**: Nhớ trong đầu ("Basic\*").
+- **Process (Quy trình)**: Mỗi lần đăng nhập phải copy, paste, và gõ thêm bí mật thủ công.
 
-Hiện tại, mỗi lần cần đăng nhập, user phải:
+→ **Rủi ro**: Tốn thời gian, dễ "nêm" sai gia vị (gõ nhầm), và mệt mỏi.
 
-1. Mở Google Sheet
-2. Tìm Recipe của tài khoản
-3. **Chế biến thủ công** password từ recipe + secret
-4. Nhập password
+### 1.2 Solution (The "Sous-Chef")
 
-→ Quá trình này **tốn thời gian** và**dễ sai sót** khi tính toán thủ công.
+Chrome Extension đóng vai trò là **"Phụ bếp ảo" (Sous-Chef)**:
 
-### 1.2 Solution
-
-Chrome Extension tự động:
-
-1. **Detect** khi user click vào cell chứa Recipe trên Google Sheets
-2. **Parse** recipe và kết hợp với secret (đã lưu encrypted)
-3. **Hiển thị** password thực trong popup
-4. **Copy** password vào clipboard với 1 click
+1. **Detect (Nhận diện)**: Tự động thấy khi bạn chọn "Món ăn" (Recipe) trên Menu (Google Sheet).
+2. **Cook (Chế biến)**: Lấy "Gia vị bí mật" (Secret Encypted) và "Nguyên liệu" (Hash) để chế biến ra password.
+3. **Serve (Phục vụ)**: Đưa món ăn hoàn chỉnh (Password) cho bạn copy chỉ với 1 click.
 
 ### 1.3 Key Benefits
 
-| Benefit                    | Description                           |
-| -------------------------- | ------------------------------------- |
-| ⚡ **Tiết kiệm thời gian** | Từ 30s → 2s để lấy password           |
-| ✅ **Giảm sai sót**        | Không còn tính toán thủ công          |
-| 🔒 **Bảo mật**             | Secrets encrypted với master password |
-| 🔄 **Sync**                | Hoạt động trên mọi device có Chrome   |
+| Benefit                      | Description                          |
+| ---------------------------- | ------------------------------------ |
+| ⚡ **Nấu ăn cực nhanh**      | Từ 30s → 2s để có password           |
+| ✅ **Không bao giờ nêm sai** | Máy tính làm, không bao giờ gõ nhầm  |
+| 🔒 **Bảo mật tuyệt đối**     | Gia vị (Secrets) được khóa trong két |
+| 🔄 **Bếp nào cũng dùng**     | Sync mọi nơi trên Chrome             |
 
 ---
 
@@ -98,10 +91,10 @@ Chrome Extension tự động:
 ### 3.1 Core User Stories
 
 ```
-US-01: Setup Secrets
+US-01: Setup Secrets (Stock the Kitchen)
 AS A user
-I WANT TO securely store my 5 secret phrases in the extension
-SO THAT I don't have to remember them every time
+I WANT TO securely store my 5 secret spices in the extension
+SO THAT I don't have to search for them every time
 
 Acceptance Criteria:
 - [ ] User can set master password (min 8 chars)
@@ -124,7 +117,7 @@ Acceptance Criteria:
 ```
 
 ```
-US-03: View Generated Password
+US-03: View Cooked Dish (Password)
 AS A user
 I WANT TO see the calculated password in a popup
 SO THAT I can verify it before using
@@ -137,7 +130,7 @@ Acceptance Criteria:
 ```
 
 ```
-US-04: Copy Password
+US-04: Serve (Copy Password)
 AS A user
 I WANT TO copy the password to clipboard with one click
 SO THAT I can quickly paste it into login forms
@@ -150,7 +143,7 @@ Acceptance Criteria:
 ```
 
 ```
-US-05: Unlock with Master Password
+US-05: Unlock Kitchen (Master Password)
 AS A user
 I WANT TO unlock the extension with my master password
 SO THAT my secrets remain protected
@@ -165,7 +158,7 @@ Acceptance Criteria:
 ```
 
 ```
-US-06: Cross-device Sync
+US-06: Cross-Kitchen Sync
 AS A user
 I WANT MY encrypted secrets to sync across my devices
 SO THAT I can use the extension on any computer
@@ -180,7 +173,7 @@ Acceptance Criteria:
 ### 3.2 Secondary User Stories
 
 ```
-US-07: Edit Secrets
+US-07: Edit Spices
 AS A user
 I WANT TO edit my secret phrases
 SO THAT I can update them when I rotate
@@ -193,7 +186,7 @@ Acceptance Criteria:
 ```
 
 ```
-US-08: Change Master Password
+US-08: Change Master Key
 AS A user
 I WANT TO change my master password
 SO THAT I can maintain security
@@ -208,22 +201,22 @@ Acceptance Criteria:
 
 ## 4. Functional Requirements
 
-### 4.1 Formula Parsing
+### 4.1 Recipe Parsing (Phân tích công thức)
 
 Extension MUST parse các định dạng công thức sau:
 
 ```
-Pattern: <hash><position><secret_num>[modifiers][_version]
+Pattern: <base_ingredient><cooking_style><spice_index>[toppings][_version]
 
 Examples:
-├── r4nd0m#1           → Basic recipe
-├── r4nd0m_v2#1        → With version
-├── r4nd0m_vU1#1       → Urgent version
-├── r4nd0m_vB1#1       → Backup version
-├── r4nd0m#1_          → With modifier (reverse position)
-├── r4nd0m#1!          → With modifier (uppercase)
-├── r4nd0m#1?          → With modifier (reverse secret)
-└── r4nd0m#1~          → With modifier (remove special chars)
+├── r4nd0m#1           → Món cơ bản (Basic recipe)
+├── r4nd0m_v2#1        → Đổi vị (With version)
+├── r4nd0m_vU1#1       → Món cấp cứu (Urgent version)
+├── r4nd0m_vB1#1       → Món dự phòng (Backup version)
+├── r4nd0m#1_          → Lật mặt (Reverse position)
+├── r4nd0m#1!          → Lửa lớn (Uppercase)
+├── r4nd0m#1?          → Đảo gia vị (Reverse secret)
+└── r4nd0m#1~          → Giảm vị (Remove special chars)
 ```
 
 **Regex Pattern:**
@@ -232,55 +225,50 @@ Examples:
 ^([a-zA-Z0-9]+)([#@$%^])(\d)([_!?~]*)(?:_(v[a-zA-Z0-9]+))?$
 ```
 
-### 4.2 Position Types
+### 4.2 Cooking Styles (Position Types)
 
-| Symbol | Name            | Algorithm                           |
-| ------ | --------------- | ----------------------------------- |
-| `#`    | Prefix          | `secret + hash`                     |
-| `$`    | Suffix          | `hash + secret`                     |
-| `@`    | Middle          | `hash[0:mid] + secret + hash[mid:]` |
-| `%`    | Interleave Char | Xen kẽ từng ký tự                   |
-| `^`    | Interleave Pair | Xen kẽ từng cặp ký tự               |
+| Symbol | Style Name  | Action (Algorithm)                           |
+| ------ | ----------- | -------------------------------------------- |
+| `#`    | Top Garnish | Prefix (`secret + hash`)                     |
+| `$`    | Base Sauce  | Suffix (`hash + secret`)                     |
+| `@`    | Filling     | Middle (`hash[0:mid] + secret + hash[mid:]`) |
+| `%`    | Mixed Salad | Interleave Char (Xen kẽ từng ký tự)          |
+| `^`    | Layer Cake  | Interleave Pair (Xen kẽ từng cặp)            |
 
-**Algorithm Details:**
+**Cooking Demonstration:**
 
 ```javascript
-// Position #: Prefix
+// Style #: Top Garnish
 "r4nd0m" + "#1" + secret("Basic*") → "Basic*r4nd0m"
 
-// Position $: Suffix
+// Style $: Base Sauce
 "r4nd0m" + "$3" + secret("Ultra$") → "r4nd0mUltra$"
 
-// Position @: Middle
+// Style @: Filling
 "r4nd0m" + "@2" + secret("Secure#") → "r4n" + "Secure#" + "d0m" = "r4nSecure#d0m"
 
-// Position %: Interleave characters
+// Style %: Mixed Salad
 "r4nd0m" + "%4" + secret("Trade&")
 → r+T, 4+r, n+a, d+d, 0+e, m+&
 → "rT4rnadd0em&"
-
-// Position ^: Interleave pairs
-"r4nd0m" + "^4" + secret("Trade&")
-→ (r4)+(Tr), (nd)+(ad), (0m)+(e&)
-→ "r4Trndad0me&"
 ```
 
-### 4.3 Modifiers
+### 4.3 Toppings (Modifiers)
 
-| Modifier | Effect             | Example                          |
-| -------- | ------------------ | -------------------------------- |
-| `_`      | Đảo ngược vị trí   | `#1_`: secret ở cuối thay vì đầu |
-| `!`      | Viết HOA secret    | `Basic*` → `BASIC*`              |
-| `?`      | Đảo ngược secret   | `Basic*` → `*cisaB`              |
-| `~`      | Xóa ký tự đặc biệt | `Basic*` → `Basic`               |
+| Topping | Culinary Effect    | Example                                 |
+| ------- | ------------------ | --------------------------------------- |
+| `_`     | **Flip (Lật)**     | Secret ở cuối thay vì đầu               |
+| `!`     | **Sear (Lửa lớn)** | Viết HOA secret (`Basic*` → `BASIC*`)   |
+| `?`     | **Stir (Đảo)**     | Đảo ngược secret (`Basic*` → `*cisaB`)  |
+| `~`     | **Mild (Giảm vị)** | Xóa ký tự đặc biệt (`Basic*` → `Basic`) |
 
-**Multiple modifiers:** Áp dụng theo thứ tự xuất hiện
+**Multiple Toppings:** Chế biến theo thứ tự:
 
 ```
-r4nd0m#1_! → Đảo vị trí, sau đó viết HOA → "r4nd0mBASIC*"
+r4nd0m#1_! → Lật vị trí trước, sau đó bật Lửa lớn → "r4nd0mBASIC*"
 ```
 
-### 4.4 Version Handling
+### 4.4 Version Handling (Seasonal Menu)
 
 | Version Format | Meaning             | Secret Key                       |
 | -------------- | ------------------- | -------------------------------- |
@@ -299,7 +287,7 @@ v3 pattern: "{base}Q324"  → "Basic*Q324"
 vU1 pattern: "{base}!0624" → "Basic*!0624"
 ```
 
-### 4.5 Secret Storage Structure
+### 4.5 Secret Storage Structure (The Pantry)
 
 ```javascript
 // Stored in chrome.storage.sync (encrypted)
@@ -322,10 +310,7 @@ vU1 pattern: "{base}!0624" → "Basic*!0624"
       },
       "backup": "BasicBackup*"
     },
-    "2": { ... },
-    "3": { ... },
-    "4": { ... },
-    "5": { ... }
+    // ... secrets 2-5
   },
   "settings": {
     "versionPattern": "{base}{quarter}",
@@ -465,7 +450,7 @@ password-extension/
 }
 ```
 
-### 5.4 Security Requirements
+### 5.4 Security Requirements (Kitchen Safety Rules)
 
 #### 5.4.1 Key Derivation (Primary: Argon2id)
 
@@ -690,12 +675,12 @@ async function deriveKeyPBKDF2(masterPassword, salt) {
 │  Recipe: r4nd0m_v2#1                    │
 │  ─────────────────────────────────────   │
 │                                          │
-│  Password:                               │
+│  Dish (Password):                        │
 │  ┌────────────────────────────────────┐  │
-│  │ ••••••••••••••           👁 [Copy] │  │
+│  │ ••••••••••••••           👁 [Serve] │  │
 │  └────────────────────────────────────┘  │
 │                                          │
-│  ✓ Copied! (auto-clear in 30s)          │
+│  ✓ Served! (auto-clear in 30s)          │
 │                                          │
 └──────────────────────────────────────────┘
 
@@ -711,7 +696,7 @@ STATE: Locked
 │ 🔐 SecretHash                        [×] │
 ├──────────────────────────────────────────┤
 │                                          │
-│  🔒 Extension is locked                  │
+│  🔒 Kitchen is locked                    │
 │                                          │
 │  Master Password:                        │
 │  ┌────────────────────────────────────┐  │
@@ -761,7 +746,7 @@ STATE: Missing Secret
 │                                          │
 │  Quick Actions:                          │
 │  ┌────────────────────────────────────┐  │
-│  │ 🔒 Lock Now                        │  │
+│  │ 🔒 Lock Kitchen                    │  │
 │  └────────────────────────────────────┘  │
 │  ┌────────────────────────────────────┐  │
 │  │ ⚙️ Settings                        │  │
@@ -793,7 +778,7 @@ STATE: Missing Secret
 │  └─────────────────────────────────────────────────────────────┘│
 │                                                                  │
 │  ┌─────────────────────────────────────────────────────────────┐│
-│  │ 🗝️ SECRET PHRASES                                           ││
+│  │ 🗝️ SECRET PHRASES (The Pantry)                              ││
 │  │ ─────────────────────────────────────────────────────────── ││
 │  │                                                              ││
 │  │ Secret #1:                    [••••••••] [👁] [Edit]        ││
@@ -1457,14 +1442,14 @@ const testCases = [
 
 ### A. Glossary
 
-| Term                | Definition                                                      |
-| ------------------- | --------------------------------------------------------------- |
-| **Formula**         | Chuỗi định dạng lưu trong sheet: `<hash><position><secret_num>` |
-| **Hash**            | Phần ngẫu nhiên của công thức, ví dụ: `r4nd0m`                  |
-| **Secret**          | Chuỗi bí mật do user định nghĩa, ví dụ: `Basic*`                |
-| **Position**        | Ký tự xác định vị trí ghép secret: `#@$%^`                      |
-| **Modifier**        | Ký tự thay đổi cách xử lý: `_!?~`                               |
-| **Master Password** | Mật khẩu chính để encrypt/decrypt secrets                       |
+| Term                   | Definition                                                      |
+| ---------------------- | --------------------------------------------------------------- |
+| **Recipe** (Formula)   | Chuỗi định dạng lưu trong sheet: `<hash><position><secret_num>` |
+| **Ingredient** (Hash)  | Phần ngẫu nhiên của công thức, ví dụ: `r4nd0m`                  |
+| **Secret Spice**       | Chuỗi bí mật do user định nghĩa, ví dụ: `Basic*`                |
+| **Cooking Style**      | Ký tự xác định vị trí ghép secret: `#@$%^`                      |
+| **Topping** (Modifier) | Ký tự thay đổi cách xử lý: `_!?~`                               |
+| **Master Key**         | Mật khẩu chính để encrypt/decrypt secrets                       |
 
 ### B. Related Documents
 
