@@ -14,8 +14,8 @@ document.addEventListener('click', async (event) => {
 
     const target = event.target;
     
-    // 2. Detect Generic Formula
-    // Logic: If it looks like a formula, try to generate.
+    // 2. Detect Generic Recipe
+    // Logic: If it looks like a recipe, try to generate.
     // Enhanced Regex from PRD: ^([a-zA-Z0-9]+)([#@$%^])(\d)([_!?~]*)(?:_(v[a-zA-Z0-9]+))?$
     // Simple verification check before sending to background
     const text = target.innerText || target.textContent;
@@ -26,17 +26,17 @@ document.addEventListener('click', async (event) => {
     // Updated Regex to match the structure defined in RegexParserAdapter logic (hash, modifier, index, optional version)
     // RegexParserAdapter: /^([a-zA-Z0-9]+)([#@$%^])(\d)([_!?~]*)(?:_(v[a-zA-Z0-9]+))?$/
     // We use a looser find version here to extraction.
-    const formulaMatch = trimmed.match(/([a-zA-Z0-9]+)([#@$%^])(\d)([_!?~]*)(?:_(v[a-zA-Z0-9]+))?/);
+    const recipeMatch = trimmed.match(/([a-zA-Z0-9]+)([#@$%^])(\d)([_!?~]*)(?:_(v[a-zA-Z0-9]+))?/);
     
     // Check if directly clicked or HOTKEY triggered
     const isHotkey = event.detail && event.detail.isHotkey; 
     
-    if (formulaMatch) {
-       const exactFormula = formulaMatch[0];
+    if (recipeMatch) {
+       const exactRecipe = recipeMatch[0];
        
-       // If clicked, we might want to be stricter (click ON the formula), but cell click usually means the whole cell text.
-       // Sending extracted formula prevents "Formula validation failed" in background.
-       generateAndShow(target, exactFormula);
+       // If clicked, we might want to be stricter (click ON the recipe), but cell click usually means the whole cell text.
+       // Sending extracted recipe prevents "Recipe validation failed" in background.
+       generateAndShow(target, exactRecipe);
     }
 });
 
@@ -124,8 +124,8 @@ async function generateAndShow(target, text) {
             let friendlyMsg = "Generation failed";
             if (response.error.includes("Secret not found")) {
                 friendlyMsg = "Secret not found (Check Options)";
-            } else if (response.error.includes("Invalid formula")) {
-                friendlyMsg = "Invalid formula format";
+            } else if (response.error.includes("Invalid recipe")) {
+                friendlyMsg = "Invalid recipe format";
             } else {
                 friendlyMsg = response.error;
             }

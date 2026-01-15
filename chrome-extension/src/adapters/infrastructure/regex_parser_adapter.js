@@ -1,6 +1,5 @@
-
 import { IParser } from "../../core/ports/interfaces.js";
-import { Formula } from "../../core/domain/formula.js";
+import { Recipe } from "../../core/domain/recipe.js";
 
 export class RegexParserAdapter extends IParser {
     constructor() {
@@ -10,7 +9,7 @@ export class RegexParserAdapter extends IParser {
 
     /**
      * @param {string} text 
-     * @returns {Formula|null}
+     * @returns {Recipe|null}
      */
     parse(text) {
         const match = text.match(this.regex);
@@ -21,9 +20,9 @@ export class RegexParserAdapter extends IParser {
         const modifiers = modifiersStr ? modifiersStr.split('') : [];
         
         try {
-            return new Formula(hash, position, secretIndex, modifiers, version || null);
+            return new Recipe(hash, position, secretIndex, modifiers, version || null);
         } catch (e) {
-            console.error("Formula validation failed:", e);
+            console.error("Recipe validation failed:", e);
             return null;
         }
     }

@@ -11,34 +11,34 @@ export class GeneratePassword {
 
     /**
      * Executes the password generation use case.
-     * @param {string} formulaText 
+     * @param {string} recipeText 
      * @returns {Promise<string>}
      */
-    async execute(formulaText) {
-        const formula = this.parser.parse(formulaText);
+    async execute(recipeText) {
+        const recipe = this.parser.parse(recipeText);
         
-        if (!formula) {
-            throw new Error("Invalid formula format");
+        if (!recipe) {
+            throw new Error("Invalid recipe format");
         }
 
         // 1. Get Secret
-        let secret = await this.storage.getSecret(formula.secretIndex);
+        let secret = await this.storage.getSecret(recipe.secretIndex);
         if (!secret) {
-            throw new Error(`Secret #${formula.secretIndex} not found`);
+            throw new Error(`Secret #${recipe.secretIndex} not found`);
         }
 
         // 2. Apply Version (if applicable)
-        if (formula.version) {
+        if (recipe.version) {
             // MVP Strategy: Append version to secret. 
             // This ensures "Basic" vs "Basic_v2" generates different results.
             // Future: Load pattern from settings.
-            secret = `${secret}_${formula.version}`;
+            secret = `${secret}_${recipe.version}`;
         }
 
         // Let's check modifiers first as they apply to the secret.
         
         // Modifier: ~ (Remove special chars)
-        if (formula.modifiers.includes('~')) {
+        if (recipe.modifiers.includes('~')) {
             secret = secret.replace(/[^\w\s]|_/g, ""); // Keep alphanumeric. _ is usually considered 'word' but typically 'special' in this context?
             // PRD: "Basic*" -> "Basic". * is special.
             // regex `[^\w]` removes everything not a-z, A-Z, 0-9, _. 
@@ -49,26 +49,26 @@ export class GeneratePassword {
         }
 
         // Modifier: ? (Reverse secret)
-        if (formula.modifiers.includes('?')) {
+        if (recipe.modifiers.includes('?')) {
             secret = secret.split('').reverse().join('');
         }
 
         // Modifier: ! (Uppercase secret)
-        if (formula.modifiers.includes('!')) {
+        if (recipe.modifiers.includes('!')) {
             secret = secret.toUpperCase();
         }
 
         // Modifier: _ (Reverse position)
         // This affects the "Position" logic, not the secret itself directly (except for where it goes).
-        let position = formula.position;
-        if (formula.modifiers.includes('_')) {
+        let position = recipe.position;
+        if (recipe.modifiers.includes('_')) {
             if (position === '#') position = '$';
             else if (position === '$') position = '#';
             // what about @, %, ^? Assuming no-op or undefined. 
             // PRD only gave example for #.
         }
 
-        const hash = formula.hash;
+        const hash = recipe.hash;
 
         switch (position) {
             case '#': // Prefix: Secret + Hash? PRD says: "secret + hash" -> "Basic*r4nd0m"

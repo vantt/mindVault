@@ -5,7 +5,7 @@
     "description": "Name of the extension"
   },
   "appDescription": {
-    "message": "Generate passwords from formulas stored in Google Sheets",
+    "message": "Generate passwords from recipes stored in Google Sheets",
     "description": "Description of the extension"
   },
   "setupTitle": { "message": "Setup Master Password" },
@@ -20,7 +20,7 @@
   "btnUnlock": { "message": "Unlock" },
   
   "manageSecretsTitle": { "message": "Manage Secrets" },
-  "manageSecretsDesc": { "message": "Configure your 5 secret phrases. These are combined with your formulas." },
+  "manageSecretsDesc": { "message": "Configure your 5 secret phrases. These are combined with your recipes." },
   "placeholderSecret": { "message": "Enter secret phrase" },
   "lblSettings": { "message": "Settings" },
   "lblPepperingHint": { "message": "Show \"Don't forget pepper\" hint" },
@@ -46,7 +46,7 @@
   
   "statusUnlocked": { "message": "Unlocked" },
   "statusLocked": { "message": "Locked" },
-  "hintClickCell": { "message": "Click any cell in Google Sheets containing a formula." },
+  "hintClickCell": { "message": "Click any cell in Google Sheets containing a recipe." },
   "hintUnlock": { "message": "Unlock to generate passwords." },
   "btnUnlockSettings": { "message": "Unlock Settings" }
 }

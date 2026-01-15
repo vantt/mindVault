@@ -1,7 +1,7 @@
 
 {
   "appName": { "message": "mindVault - Trình tạo Mật khẩu" },
-  "appDescription": { "message": "Tạo mật khẩu từ công thức trong Google Sheets" },
+  "appDescription": { "message": "Tạo mật khẩu từ Recipe (Công thức) trong Google Sheets" },
   
   "setupTitle": { "message": "Thiết lập Mật khẩu Chủ" },
   "setupDesc": { "message": "Tạo mật khẩu chủ mạnh để mã hóa bí mật của bạn. Đây là cách duy nhất để truy cập dữ liệu." },
@@ -15,7 +15,7 @@
   "btnUnlock": { "message": "Mở khóa" },
   
   "manageSecretsTitle": { "message": "Quản lý Bí mật" },
-  "manageSecretsDesc": { "message": "Cấu hình 5 cụm từ bí mật. Chúng sẽ được kết hợp với công thức của bạn." },
+  "manageSecretsDesc": { "message": "Cấu hình 5 cụm từ bí mật (gia vị). Chúng sẽ được kết hợp với Recipe của bạn." },
   "placeholderSecret": { "message": "Nhập cụm từ bí mật" },
   "lblSettings": { "message": "Cài đặt" },
   "lblPepperingHint": { "message": "Hiện gợi ý \"Đừng quên nêm gia vị\"" },
@@ -41,7 +41,7 @@
   
   "statusUnlocked": { "message": "Đã Mở khóa" },
   "statusLocked": { "message": "Đã Khóa" },
-  "hintClickCell": { "message": "Nhấp vào ô chứa công thức trong Google Sheets." },
+  "hintClickCell": { "message": "Nhấp vào ô chứa Recipe trong Google Sheets." },
   "hintUnlock": { "message": "Mở khóa để tạo mật khẩu." },
   "btnUnlockSettings": { "message": "Mở khóa Cài đặt" }
 }

@@ -37,14 +37,14 @@
 
 Người dùng đang sử dụng hệ thống quản lý password "Special Character + Number" với:
 
-- **Công thức (formula)** được lưu công khai trong Google Sheets
+- **Recipe (Công thức chế biến)** được lưu công khai trong Google Sheets
 - **Secret phrases** được ghi nhớ trong đầu
 
 Hiện tại, mỗi lần cần đăng nhập, user phải:
 
 1. Mở Google Sheet
-2. Tìm công thức của tài khoản
-3. **Tính toán thủ công** password từ công thức + secret
+2. Tìm Recipe của tài khoản
+3. **Chế biến thủ công** password từ recipe + secret
 4. Nhập password
 
 → Quá trình này **tốn thời gian** và**dễ sai sót** khi tính toán thủ công.
@@ -53,8 +53,8 @@ Hiện tại, mỗi lần cần đăng nhập, user phải:
 
 Chrome Extension tự động:
 
-1. **Detect** khi user click vào cell chứa công thức trên Google Sheets
-2. **Parse** công thức vàkết hợp với secret (đã lưu encrypted)
+1. **Detect** khi user click vào cell chứa Recipe trên Google Sheets
+2. **Parse** recipe và kết hợp với secret (đã lưu encrypted)
 3. **Hiển thị** password thực trong popup
 4. **Copy** password vào clipboard với 1 click
 
@@ -75,7 +75,7 @@ Chrome Extension tự động:
 
 | #   | Goal                                         | Success Metric                         |
 | --- | -------------------------------------------- | -------------------------------------- |
-| G1  | Auto-detect công thức khi click cell         | Detection rate > 95%                   |
+| G1  | Auto-detect recipe khi click cell            | Detection rate > 95%                   |
 | G2  | Tính đúng password cho tất cả position types | Accuracy = 100%                        |
 | G3  | Bảo mật secrets với encryption               | Argon2id + AES-256-GCM                 |
 | G4  | Sync across devices                          | Works on 100% Chrome-synced devices    |
@@ -111,14 +111,14 @@ Acceptance Criteria:
 ```
 
 ```
-US-02: Auto-detect Formula
+US-02: Auto-detect Recipe
 AS A user
-I WANT THE extension to automatically detect when I click a cell containing a password formula
+I WANT THE extension to automatically detect when I click a cell containing a password recipe
 SO THAT I don't have to manually trigger it
 
 Acceptance Criteria:
 - [ ] Extension detects click on any cell in Google Sheets
-- [ ] Extension validates if cell content matches formula pattern
+- [ ] Extension validates if cell content matches recipe pattern
 - [ ] Works on docs.google.com/spreadsheets/*
 - [ ] No false positives on regular text
 ```
@@ -133,7 +133,7 @@ Acceptance Criteria:
 - [ ] Popup appears near the clicked cell
 - [ ] Password is hidden by default (dots)
 - [ ] Click to reveal/hide password
-- [ ] Shows formula being processed
+- [ ] Shows recipe being processed
 ```
 
 ```
@@ -216,7 +216,7 @@ Extension MUST parse các định dạng công thức sau:
 Pattern: <hash><position><secret_num>[modifiers][_version]
 
 Examples:
-├── r4nd0m#1           → Basic formula
+├── r4nd0m#1           → Basic recipe
 ├── r4nd0m_v2#1        → With version
 ├── r4nd0m_vU1#1       → Urgent version
 ├── r4nd0m_vB1#1       → Backup version
@@ -391,7 +391,7 @@ password-extension/
 ├── lib/
 │   ├── crypto.js           # Encryption utilities (Argon2id + AES)
 │   ├── argon2.js           # Argon2 wrapper
-│   ├── parser.js           # Formula parser
+│   ├── parser.js           # Recipe parser
 │   ├── generator.js        # Password generator
 │   └── storage.js          # Storage wrapper
 ├── wasm/
@@ -424,7 +424,7 @@ password-extension/
   "manifest_version": 3,
   "name": "SecretHash Password Generator",
   "version": "1.0.0",
-  "description": "Generate passwords from formulas stored in Google Sheets",
+  "description": "Generate passwords from recipes stored in Google Sheets",
 
   "permissions": ["storage", "clipboardWrite", "activeTab"],
 
@@ -687,7 +687,7 @@ async function deriveKeyPBKDF2(masterPassword, salt) {
 │ 🔐 SecretHash                        [×] │
 ├──────────────────────────────────────────┤
 │                                          │
-│  Formula: r4nd0m_v2#1                    │
+│  Recipe: r4nd0m_v2#1                    │
 │  ─────────────────────────────────────   │
 │                                          │
 │  Password:                               │
@@ -722,12 +722,12 @@ STATE: Locked
 │                                          │
 └──────────────────────────────────────────┘
 
-STATE: Invalid Formula
+STATE: Invalid Recipe
 ┌──────────────────────────────────────────┐
 │ 🔐 SecretHash                        [×] │
 ├──────────────────────────────────────────┤
 │                                          │
-│  ⚠️ Invalid formula format              │
+│  ⚠️ Invalid recipe format              │
 │                                          │
 │  Cell value: "Hello World"               │
 │                                          │
@@ -770,7 +770,7 @@ STATE: Missing Secret
 │  ─────────────────────────────────────   │
 │                                          │
 │  Usage: Click any cell in Google Sheets  │
-│  containing a password formula.          │
+│  containing a password recipe.          │
 │                                          │
 └──────────────────────────────────────────┘
 ```
@@ -796,11 +796,11 @@ STATE: Missing Secret
 │  │ 🗝️ SECRET PHRASES                                           ││
 │  │ ─────────────────────────────────────────────────────────── ││
 │  │                                                              ││
-│  │ Secret #1 (Low security):     [••••••••] [👁] [Edit]        ││
-│  │ Secret #2 (Medium security):  [••••••••] [👁] [Edit]        ││
-│  │ Secret #3 (High security):    [••••••••] [👁] [Edit]        ││
-│  │ Secret #4 (Trading):          [••••••••] [👁] [Edit]        ││
-│  │ Secret #5 (Backup):           [••••••••] [👁] [Edit]        ││
+│  │ Secret #1:                    [••••••••] [👁] [Edit]        ││
+│  │ Secret #2:                    [••••••••] [👁] [Edit]        ││
+│  │ Secret #3:                    [••••••••] [👁] [Edit]        ││
+│  │ Secret #4:                    [••••••••] [👁] [Edit]        ││
+│  │ Secret #5:                    [••••••••] [👁] [Edit]        ││
 │  │                                                              ││
 │  │ ─────────────────────────────────────────────────────────── ││
 │  │ Version Pattern:                                             ││

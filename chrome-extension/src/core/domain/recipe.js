@@ -1,9 +1,8 @@
-
 /**
- * Domain Entity representing a parsed password formula.
+ * Domain Entity representing a parsed password recipe.
  * Encapsulates the structure: <hash><position><secret_num>[modifiers][_version]
  */
-export class Formula {
+export class Recipe {
     constructor(hash, position, secretIndex, modifiers = [], version = null) {
         this.hash = hash;
         this.position = position;

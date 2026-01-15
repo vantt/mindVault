@@ -1,12 +1,11 @@
-
 /**
  * @interface IParser
  */
 export class IParser {
     /**
-     * Parses a string into a Formula object.
+     * Parses a string into a Recipe object.
      * @param {string} text 
-     * @returns {import("../domain/formula").Formula | null}
+     * @returns {import("../domain/recipe").Recipe | null}
      */
     parse(text) {
         throw new Error("Method not implemented.");

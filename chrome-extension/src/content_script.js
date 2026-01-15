@@ -6,13 +6,13 @@ document.addEventListener('click', (event) => {
     // For MVP Manual Verification: "Trigger Hotkey -> Adapter reads DOM".
     // I'll assume we can just click for now, or add a hotkey listener.
     
-    // For now, let's just log and try to send any text that looks like a formula
+    // For now, let's just log and try to send any text that looks like a recipe
     // Parsing is done in background, but we can do a quick check to avoid spamming
     // Regex: starts with alphanumeric, contains #@$%^
     
     const text = target.innerText || target.textContent;
     if (text && /[a-zA-Z0-9]+[#@$%^]\d/.test(text)) {
-        console.log("mindVault: Detected potential formula:", text);
+        console.log("mindVault: Detected potential recipe:", text);
         
         chrome.runtime.sendMessage({
             action: "GENERATE_PASSWORD",
