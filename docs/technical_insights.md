@@ -163,3 +163,60 @@ function localizeHtml() {
 ```
 
 Giúp code JS sạch hơn và dễ bảo trì file ngôn ngữ.
+
+---
+
+## 8. Web Crypto API: Exportable Keys
+
+### Vấn đề
+
+Khi thực hiện Setup hoặc Change Password, cần lưu trữ `sessionKey` dưới dạng JWK vào `chrome.storage.session`.
+Tuy nhiên, `crypto.subtle.exportKey("jwk", key)` ném lỗi:
+`DOMException: key is not extractable`.
+
+### Nguyên nhân
+
+Khi import key (sau khi derive từ Argon2) bằng `crypto.subtle.importKey`, cờ `extractable` được set là `false` (mặc định cho mục đích bảo mật, để key không bị lộ ra ngoài JS context).
+Tuy nhiên, để lưu trữ lại key này vào session (để dùng lại mà không cần derive lại tốn thời gian), chúng ta buộc phải export nó.
+
+### Giải pháp
+
+Khi import key lần đầu (để tạo object Key dùng cho session), phải set `extractable: true`.
+
+```javascript
+const key = await crypto.subtle.importKey(
+  "raw",
+  keyMaterial,
+  { name: "AES-GCM" },
+  true, // <--- MUST BE TRUE
+  ["encrypt", "decrypt"]
+);
+```
+
+---
+
+## 9. Argon2 WASM in Chrome Extension (Custom Wrapper)
+
+### Vấn đề
+
+Thư viện `argon2-browser` mặc định sử dụng cơ chế loading WASM của Emscripten phụ thuộc vào việc fetch file `.wasm`.
+Trong môi trường Extension, đường dẫn file bị thay đổi (tương đối với background script hoặc content script), và logic mặc định của Emscripten thường tìm file `.wasm` không đúng chỗ.
+Ngoài ra, việc dùng trực tiếp `import argon2 from 'argon2-browser'` có thể trả về một module chưa sẵn sàng (Promise) hoặc Object cấu hình thấp cấp, gây lỗi `ArgonType is undefined` hoặc `Module is not a function`.
+
+### Giải pháp
+
+Tạo một **Wrapper Module** (`src/wasm/wrapper.js`) để kiểm soát việc khởi tạo module Emscripten:
+
+1.  **Locate File Hook**: Can thiệp vào `locateFile` của Emscripten để chỉ định chính xác đường dẫn file `.wasm` sử dụng `import.meta.url` hoặc `chrome.runtime.getURL`.
+2.  **Promise Wrappers**: Đảm bảo Module chỉ được trả về khi WASM đã thực sự load xong (`postRun` hook).
+3.  **High-Level API**: Export một API đơn giản (`hash`, `verify`) che giấu sự phức tạp của việc cấp phát bộ nhớ (malloc/free) trong WASM.
+
+```javascript
+// wrapper.js snippet
+global.Module = {
+  locateFile: (path) => new URL("./argon2.wasm", import.meta.url).href,
+};
+
+// ... load script ...
+// ... wait for postRun ...
+```
