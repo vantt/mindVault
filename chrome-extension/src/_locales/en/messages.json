@@ -1,4 +1,3 @@
-
 {
   "appName": {
     "message": "mindVault Password Generator",
@@ -8,45 +7,265 @@
     "message": "Generate passwords from recipes stored in Google Sheets",
     "description": "Description of the extension"
   },
-  "setupTitle": { "message": "Setup Master Password" },
-  "setupDesc": { "message": "Create a strong master password to encrypt your secrets. This is the only way to access your data." },
-  "lblMasterPassword": { "message": "Master Password" },
-  "lblConfirmPassword": { "message": "Confirm Password" },
-  "btnStartSetup": { "message": "Start Setup" },
-  "backupConfirm": { "message": "I have backed up my master password and secrets manually." },
-  
-  "unlockTitle": { "message": "Unlock Extension" },
-  "unlockDesc": { "message": "Enter your master password to manage secrets." },
-  "btnUnlock": { "message": "Unlock" },
-  
-  "manageSecretsTitle": { "message": "Manage Secrets" },
-  "manageSecretsDesc": { "message": "Configure your 5 secret phrases. These are combined with your recipes." },
-  "placeholderSecret": { "message": "Enter secret phrase" },
-  "lblSettings": { "message": "Settings" },
-  "lblPepperingHint": { "message": "Show \"Don't forget pepper\" hint" },
-  "btnSafeChanges": { "message": "Save Changes" },
-  "btnChangePassword": { "message": "Change Password" },
-  "btnLock": { "message": "Lock" },
-  
-  "changePwdTitle": { "message": "Change Master Password" },
-  "changePwdDesc": { "message": "Re-encrypt your secrets with a new master password." },
-  "lblCurrentPassword": { "message": "Current Password" },
-  "lblNewPassword": { "message": "New Password" },
-  "lblConfirmNewPassword": { "message": "Confirm New Password" },
-  "backupConfirmNew": { "message": "I have backed up my NEW master password." },
-  "btnUpdatePassword": { "message": "Update Password" },
-  "btnCancel": { "message": "Cancel" },
-  
-  "toastSetupComplete": { "message": "Setup Complete!" },
-  "toastUnlockSuccess": { "message": "Unlocked!" },
-  "toastSaveSuccess": { "message": "Secrets Saved!" },
-  "toastPwdUpdated": { "message": "Password Updated Successfully!" },
-  "toastPwdMismatch": { "message": "Passwords do not match" },
-  "toastPwdShort": { "message": "Password too short" },
-  
-  "statusUnlocked": { "message": "Unlocked" },
-  "statusLocked": { "message": "Locked" },
-  "hintClickCell": { "message": "Click any cell in Google Sheets containing a recipe." },
-  "hintUnlock": { "message": "Unlock to generate passwords." },
-  "btnUnlockSettings": { "message": "Unlock Settings" }
+  "setupTitle": {
+    "message": "Setup Master Password"
+  },
+  "setupDesc": {
+    "message": "Create a strong master password to encrypt your secrets. This is the only way to access your data."
+  },
+  "lblMasterPassword": {
+    "message": "Master Password"
+  },
+  "lblConfirmPassword": {
+    "message": "Confirm Password"
+  },
+  "btnStartSetup": {
+    "message": "Start Setup"
+  },
+  "backupConfirm": {
+    "message": "I have backed up my master password and secrets manually."
+  },
+  "unlockTitle": {
+    "message": "Unlock Extension"
+  },
+  "unlockDesc": {
+    "message": "Enter your master password to manage secrets."
+  },
+  "btnUnlock": {
+    "message": "Unlock"
+  },
+  "manageSecretsTitle": {
+    "message": "Manage Secrets"
+  },
+  "manageSecretsDesc": {
+    "message": "Configure your 5 secret phrases. These are combined with your recipes."
+  },
+  "placeholderSecret": {
+    "message": "Enter secret phrase"
+  },
+  "lblSettings": {
+    "message": "Settings"
+  },
+  "lblPepperingHint": {
+    "message": "Show \"Don't forget pepper\" hint"
+  },
+  "btnSafeChanges": {
+    "message": "Save Changes"
+  },
+  "btnChangePassword": {
+    "message": "Change Password"
+  },
+  "btnLock": {
+    "message": "Lock"
+  },
+  "changePwdTitle": {
+    "message": "Change Master Password"
+  },
+  "changePwdDesc": {
+    "message": "Re-encrypt your secrets with a new master password."
+  },
+  "lblCurrentPassword": {
+    "message": "Current Password"
+  },
+  "lblNewPassword": {
+    "message": "New Password"
+  },
+  "lblConfirmNewPassword": {
+    "message": "Confirm New Password"
+  },
+  "backupConfirmNew": {
+    "message": "I have backed up my NEW master password."
+  },
+  "btnUpdatePassword": {
+    "message": "Update Password"
+  },
+  "btnCancel": {
+    "message": "Cancel"
+  },
+  "toastSetupComplete": {
+    "message": "Setup Complete!"
+  },
+  "toastUnlockSuccess": {
+    "message": "Unlocked!"
+  },
+  "toastSaveSuccess": {
+    "message": "Secrets Saved!"
+  },
+  "toastPwdUpdated": {
+    "message": "Password Updated Successfully!"
+  },
+  "toastPwdMismatch": {
+    "message": "Passwords do not match"
+  },
+  "toastPwdShort": {
+    "message": "Password too short"
+  },
+  "statusUnlocked": {
+    "message": "Unlocked"
+  },
+  "statusLocked": {
+    "message": "Locked"
+  },
+  "statusReady": {
+    "message": "Ready"
+  },
+  "statusSetup": {
+    "message": "Setup Required"
+  },
+  "hintClickCell": {
+    "message": "Click any cell in Google Sheets containing a recipe."
+  },
+  "hintUnlock": {
+    "message": "Unlock to generate passwords."
+  },
+  "btnUnlockSettings": {
+    "message": "Unlock Settings"
+  },
+  "tabSecrets": {
+    "message": "Secrets"
+  },
+  "tabProfiles": {
+    "message": "Profiles"
+  },
+  "tabSettings": {
+    "message": "Settings"
+  },
+  "profilesOwnTitle": {
+    "message": "My Profiles"
+  },
+  "profilesSharedTitle": {
+    "message": "Shared Profiles"
+  },
+  "profilesAssignTitle": {
+    "message": "Sheet Assignments"
+  },
+  "btnNewProfile": {
+    "message": "New Profile"
+  },
+  "btnImportProfile": {
+    "message": "Import Shared"
+  },
+  "btnEditSecrets": {
+    "message": "Edit Secrets"
+  },
+  "btnExportProfile": {
+    "message": "Export"
+  },
+  "btnSetDefault": {
+    "message": "Set Default"
+  },
+  "btnRemoveProfile": {
+    "message": "Remove"
+  },
+  "lblSheetLocked": {
+    "message": "Locked to sheet"
+  },
+  "lblImportedFrom": {
+    "message": "Imported from"
+  },
+  "lblUsedBySheets": {
+    "message": "Used by sheets"
+  },
+  "exportWizardTitle": {
+    "message": "Export Profile"
+  },
+  "importWizardTitle": {
+    "message": "Import Shared Profile"
+  },
+  "errSheetMismatch": {
+    "message": "This profile is locked to a different sheet."
+  },
+  "errProfileAssigned": {
+    "message": "Profile is assigned to sheets. Remove assignments first."
+  },
+  "profileFallback": {
+    "message": "Using default profile"
+  },
+  "migrationNotice": {
+    "message": "Migrated to v2. Secrets are now in profile \"Default\"."
+  },
+  "exportNextStep": {
+    "message": "Use this extension on the shared sheet to generate and set account passwords using derived secrets."
+  },
+  "btnBuildRecipe": {
+    "message": "Build Recipe"
+  },
+  "statusBuilder": {
+    "message": "Recipe Builder"
+  },
+  "builderHash": {
+    "message": "Hash"
+  },
+  "builderPosition": {
+    "message": "Position"
+  },
+  "builderSecret": {
+    "message": "Secret"
+  },
+  "builderModifiers": {
+    "message": "Modifiers"
+  },
+  "builderProfile": {
+    "message": "Profile"
+  },
+  "builderRecipeOutput": {
+    "message": "Recipe"
+  },
+  "builderPasswordPreview": {
+    "message": "Password preview"
+  },
+  "btnCopyRecipe": {
+    "message": "Copy Recipe"
+  },
+  "btnBuilderBack": {
+    "message": "Back"
+  },
+  "errHashAscii": {
+    "message": "Only ASCII letters and digits (a-z, A-Z, 0-9). Unicode is unreliable across devices."
+  },
+  "hintPositionHash": {
+    "message": "<span class='tip-pos'>#</span> Prefix — <span class='tip-secret'>secret</span> + <span class='tip-hash'>hash</span><br>e.g. <span class='tip-secret'>XYZ</span> + <span class='tip-hash'>abc</span> → <span class='tip-secret'>XYZ</span><span class='tip-hash'>abc</span>"
+  },
+  "hintPositionDollar": {
+    "message": "<span class='tip-pos'>$$</span> Suffix — <span class='tip-hash'>hash</span> + <span class='tip-secret'>secret</span><br>e.g. <span class='tip-hash'>abc</span> + <span class='tip-secret'>XYZ</span> → <span class='tip-hash'>abc</span><span class='tip-secret'>XYZ</span>"
+  },
+  "hintPositionAt": {
+    "message": "<span class='tip-pos'>@</span> Middle — insert <span class='tip-secret'>secret</span> into the middle of <span class='tip-hash'>hash</span><br>e.g. <span class='tip-hash'>a</span><span class='tip-secret'>XYZ</span><span class='tip-hash'>bc</span>"
+  },
+  "hintPositionPercent": {
+    "message": "<span class='tip-pos'>%</span> Interleave 1-by-1 — alternate one char from each<br>e.g. <span class='tip-hash'>a</span><span class='tip-secret'>X</span><span class='tip-hash'>b</span><span class='tip-secret'>Y</span><span class='tip-hash'>c</span><span class='tip-secret'>Z</span>"
+  },
+  "hintPositionCaret": {
+    "message": "<span class='tip-pos'>^</span> Interleave 2-by-2 — alternate two chars from each<br>e.g. <span class='tip-hash'>ab</span><span class='tip-secret'>XY</span><span class='tip-hash'>c</span><span class='tip-secret'>Z</span>"
+  },
+  "hintModifierFlip": {
+    "message": "<span class='tip-mod'>_</span> Flip position <span class='tip-pos'>#</span>↔<span class='tip-pos'>$$</span> (no effect on <span class='tip-pos'>@ % ^</span>). One hash+secret pair → two passwords."
+  },
+  "hintModifierUpper": {
+    "message": "<span class='tip-mod'>!</span> Uppercase the <span class='tip-secret'>secret</span> before combining"
+  },
+  "hintModifierReverse": {
+    "message": "<span class='tip-mod'>?</span> Reverse the <span class='tip-secret'>secret</span> string before combining"
+  },
+  "hintModifierStrip": {
+    "message": "<span class='tip-mod'>~</span> Strip non-alphanumeric chars from <span class='tip-secret'>secret</span>"
+  },
+  "errRecipeMismatch": {
+    "message": "Recipe mismatch — was this recipe built for a different sheet or profile?"
+  },
+  "errInvalidSheetUrl": {
+    "message": "Invalid Google Sheets URL"
+  },
+  "warnNoSheetUrl": {
+    "message": "Without target sheet, this recipe won't verify on decode."
+  },
+  "warnLegacyNoTag": {
+    "message": "Legacy recipe (no verification tag)."
+  },
+  "builderSheetUrl": {
+    "message": "Target Sheet URL"
+  },
+  "hintSheetUrlAuto": {
+    "message": "Auto-filled from current tab. Edit if targeting a different sheet."
+  }
 }

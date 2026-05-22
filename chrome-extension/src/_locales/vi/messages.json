@@ -1,47 +1,269 @@
-
 {
-  "appName": { "message": "mindVault - Trình tạo Mật khẩu" },
-  "appDescription": { "message": "Tạo mật khẩu từ Recipe (Công thức) trong Google Sheets" },
-  
-  "setupTitle": { "message": "Thiết lập Mật khẩu Chủ" },
-  "setupDesc": { "message": "Tạo mật khẩu chủ mạnh để mã hóa bí mật của bạn. Đây là cách duy nhất để truy cập dữ liệu." },
-  "lblMasterPassword": { "message": "Mật khẩu Chủ" },
-  "lblConfirmPassword": { "message": "Xác nhận Mật khẩu" },
-  "btnStartSetup": { "message": "Bắt đầu Thiết lập" },
-  "backupConfirm": { "message": "Tôi đã sao lưu thủ công mật khẩu chủ và các bí mật (ví dụ: viết ra giấy)." },
-  
-  "unlockTitle": { "message": "Mở khóa Tiện ích" },
-  "unlockDesc": { "message": "Nhập mật khẩu chủ để quản lý bí mật." },
-  "btnUnlock": { "message": "Mở khóa" },
-  
-  "manageSecretsTitle": { "message": "Quản lý Bí mật" },
-  "manageSecretsDesc": { "message": "Cấu hình 5 cụm từ bí mật (gia vị). Chúng sẽ được kết hợp với Recipe của bạn." },
-  "placeholderSecret": { "message": "Nhập cụm từ bí mật" },
-  "lblSettings": { "message": "Cài đặt" },
-  "lblPepperingHint": { "message": "Hiện gợi ý \"Đừng quên nêm gia vị\"" },
-  "btnSafeChanges": { "message": "Lưu Thay đổi" },
-  "btnChangePassword": { "message": "Đổi Mật khẩu" },
-  "btnLock": { "message": "Khóa" },
-  
-  "changePwdTitle": { "message": "Đổi Mật khẩu Chủ" },
-  "changePwdDesc": { "message": "Mã hóa lại bí mật với mật khẩu chủ mới." },
-  "lblCurrentPassword": { "message": "Mật khẩu Hiện tại" },
-  "lblNewPassword": { "message": "Mật khẩu Mới" },
-  "lblConfirmNewPassword": { "message": "Xác nhận Mật khẩu Mới" },
-  "backupConfirmNew": { "message": "Tôi đã sao lưu mật khẩu chủ MỚI của mình." },
-  "btnUpdatePassword": { "message": "Cập nhật Mật khẩu" },
-  "btnCancel": { "message": "Hủy bỏ" },
-  
-  "toastSetupComplete": { "message": "Thiết lập Hoàn tất!" },
-  "toastUnlockSuccess": { "message": "Đã mở khóa!" },
-  "toastSaveSuccess": { "message": "Đã lưu Bí mật!" },
-  "toastPwdUpdated": { "message": "Cập nhật mật khẩu thành công!" },
-  "toastPwdMismatch": { "message": "Mật khẩu không khớp" },
-  "toastPwdShort": { "message": "Mật khẩu quá ngắn" },
-  
-  "statusUnlocked": { "message": "Đã Mở khóa" },
-  "statusLocked": { "message": "Đã Khóa" },
-  "hintClickCell": { "message": "Nhấp vào ô chứa Recipe trong Google Sheets." },
-  "hintUnlock": { "message": "Mở khóa để tạo mật khẩu." },
-  "btnUnlockSettings": { "message": "Mở khóa Cài đặt" }
+  "appName": {
+    "message": "mindVault - Trình tạo Mật khẩu"
+  },
+  "appDescription": {
+    "message": "Tạo mật khẩu từ Recipe (Công thức) trong Google Sheets"
+  },
+  "setupTitle": {
+    "message": "Thiết lập Mật khẩu Chủ"
+  },
+  "setupDesc": {
+    "message": "Tạo mật khẩu chủ mạnh để mã hóa bí mật của bạn. Đây là cách duy nhất để truy cập dữ liệu."
+  },
+  "lblMasterPassword": {
+    "message": "Mật khẩu Chủ"
+  },
+  "lblConfirmPassword": {
+    "message": "Xác nhận Mật khẩu"
+  },
+  "btnStartSetup": {
+    "message": "Bắt đầu Thiết lập"
+  },
+  "backupConfirm": {
+    "message": "Tôi đã sao lưu thủ công mật khẩu chủ và các bí mật (ví dụ: viết ra giấy)."
+  },
+  "unlockTitle": {
+    "message": "Mở khóa Tiện ích"
+  },
+  "unlockDesc": {
+    "message": "Nhập mật khẩu chủ để quản lý bí mật."
+  },
+  "btnUnlock": {
+    "message": "Mở khóa"
+  },
+  "manageSecretsTitle": {
+    "message": "Quản lý Bí mật"
+  },
+  "manageSecretsDesc": {
+    "message": "Cấu hình 5 cụm từ bí mật (gia vị). Chúng sẽ được kết hợp với Recipe của bạn."
+  },
+  "placeholderSecret": {
+    "message": "Nhập cụm từ bí mật"
+  },
+  "lblSettings": {
+    "message": "Cài đặt"
+  },
+  "lblPepperingHint": {
+    "message": "Hiện gợi ý \"Đừng quên nêm gia vị\""
+  },
+  "btnSafeChanges": {
+    "message": "Lưu Thay đổi"
+  },
+  "btnChangePassword": {
+    "message": "Đổi Mật khẩu"
+  },
+  "btnLock": {
+    "message": "Khóa"
+  },
+  "changePwdTitle": {
+    "message": "Đổi Mật khẩu Chủ"
+  },
+  "changePwdDesc": {
+    "message": "Mã hóa lại bí mật với mật khẩu chủ mới."
+  },
+  "lblCurrentPassword": {
+    "message": "Mật khẩu Hiện tại"
+  },
+  "lblNewPassword": {
+    "message": "Mật khẩu Mới"
+  },
+  "lblConfirmNewPassword": {
+    "message": "Xác nhận Mật khẩu Mới"
+  },
+  "backupConfirmNew": {
+    "message": "Tôi đã sao lưu mật khẩu chủ MỚI của mình."
+  },
+  "btnUpdatePassword": {
+    "message": "Cập nhật Mật khẩu"
+  },
+  "btnCancel": {
+    "message": "Hủy bỏ"
+  },
+  "toastSetupComplete": {
+    "message": "Thiết lập Hoàn tất!"
+  },
+  "toastUnlockSuccess": {
+    "message": "Đã mở khóa!"
+  },
+  "toastSaveSuccess": {
+    "message": "Đã lưu Bí mật!"
+  },
+  "toastPwdUpdated": {
+    "message": "Cập nhật mật khẩu thành công!"
+  },
+  "toastPwdMismatch": {
+    "message": "Mật khẩu không khớp"
+  },
+  "toastPwdShort": {
+    "message": "Mật khẩu quá ngắn"
+  },
+  "statusUnlocked": {
+    "message": "Đã Mở khóa"
+  },
+  "statusLocked": {
+    "message": "Đã Khóa"
+  },
+  "statusReady": {
+    "message": "Sẵn sàng"
+  },
+  "statusSetup": {
+    "message": "Cần thiết lập"
+  },
+  "hintClickCell": {
+    "message": "Nhấp vào ô chứa Recipe trong Google Sheets."
+  },
+  "hintUnlock": {
+    "message": "Mở khóa để tạo mật khẩu."
+  },
+  "btnUnlockSettings": {
+    "message": "Mở khóa Cài đặt"
+  },
+  "tabSecrets": {
+    "message": "Bí mật"
+  },
+  "tabProfiles": {
+    "message": "Hồ sơ"
+  },
+  "tabSettings": {
+    "message": "Cài đặt"
+  },
+  "profilesOwnTitle": {
+    "message": "Hồ sơ của tôi"
+  },
+  "profilesSharedTitle": {
+    "message": "Hồ sơ được chia sẻ"
+  },
+  "profilesAssignTitle": {
+    "message": "Gán Sheet"
+  },
+  "btnNewProfile": {
+    "message": "Tạo Hồ sơ"
+  },
+  "btnImportProfile": {
+    "message": "Nhập Hồ sơ"
+  },
+  "btnEditSecrets": {
+    "message": "Sửa Bí mật"
+  },
+  "btnExportProfile": {
+    "message": "Xuất"
+  },
+  "btnSetDefault": {
+    "message": "Đặt mặc định"
+  },
+  "btnRemoveProfile": {
+    "message": "Xóa"
+  },
+  "lblSheetLocked": {
+    "message": "Khóa với sheet"
+  },
+  "lblImportedFrom": {
+    "message": "Nhập từ"
+  },
+  "lblUsedBySheets": {
+    "message": "Dùng bởi sheets"
+  },
+  "exportWizardTitle": {
+    "message": "Xuất Hồ sơ"
+  },
+  "importWizardTitle": {
+    "message": "Nhập Hồ sơ Chia sẻ"
+  },
+  "errSheetMismatch": {
+    "message": "Hồ sơ này bị khóa với một sheet khác."
+  },
+  "errProfileAssigned": {
+    "message": "Hồ sơ đang được gán cho sheets. Hãy xóa gán trước."
+  },
+  "profileFallback": {
+    "message": "Dùng hồ sơ mặc định"
+  },
+  "migrationNotice": {
+    "message": "Đã chuyển sang v2. Bí mật nay nằm trong hồ sơ \"Default\"."
+  },
+  "exportNextStep": {
+    "message": "Dùng tiện ích này trên sheet được chia sẻ để tạo và cập nhật mật khẩu tài khoản bằng bí mật được phái sinh."
+  },
+  "btnBuildRecipe": {
+    "message": "Tạo Recipe"
+  },
+  "statusBuilder": {
+    "message": "Trình tạo Recipe"
+  },
+  "builderHash": {
+    "message": "Hash"
+  },
+  "builderPosition": {
+    "message": "Vị trí"
+  },
+  "builderSecret": {
+    "message": "Bí mật"
+  },
+  "builderModifiers": {
+    "message": "Modifier"
+  },
+  "builderProfile": {
+    "message": "Hồ sơ"
+  },
+  "builderRecipeOutput": {
+    "message": "Recipe"
+  },
+  "builderPasswordPreview": {
+    "message": "Xem trước mật khẩu"
+  },
+  "btnCopyRecipe": {
+    "message": "Copy Recipe"
+  },
+  "btnBuilderBack": {
+    "message": "Quay lại"
+  },
+  "errHashAscii": {
+    "message": "Chỉ chấp nhận chữ và số ASCII (a-z, A-Z, 0-9). Unicode không đồng nhất giữa các máy."
+  },
+  "hintPositionHash": {
+    "message": "<span class='tip-pos'>#</span> Prefix — <span class='tip-secret'>secret</span> + <span class='tip-hash'>hash</span><br>vd: <span class='tip-secret'>XYZ</span> + <span class='tip-hash'>abc</span> → <span class='tip-secret'>XYZ</span><span class='tip-hash'>abc</span>"
+  },
+  "hintPositionDollar": {
+    "message": "<span class='tip-pos'>$$</span> Suffix — <span class='tip-hash'>hash</span> + <span class='tip-secret'>secret</span><br>vd: <span class='tip-hash'>abc</span> + <span class='tip-secret'>XYZ</span> → <span class='tip-hash'>abc</span><span class='tip-secret'>XYZ</span>"
+  },
+  "hintPositionAt": {
+    "message": "<span class='tip-pos'>@</span> Middle — chèn <span class='tip-secret'>secret</span> vào giữa <span class='tip-hash'>hash</span><br>vd: <span class='tip-hash'>a</span><span class='tip-secret'>XYZ</span><span class='tip-hash'>bc</span>"
+  },
+  "hintPositionPercent": {
+    "message": "<span class='tip-pos'>%</span> Interleave 1 — trộn từng ký tự<br>vd: <span class='tip-hash'>a</span><span class='tip-secret'>X</span><span class='tip-hash'>b</span><span class='tip-secret'>Y</span><span class='tip-hash'>c</span><span class='tip-secret'>Z</span>"
+  },
+  "hintPositionCaret": {
+    "message": "<span class='tip-pos'>^</span> Interleave 2 — trộn từng 2 ký tự<br>vd: <span class='tip-hash'>ab</span><span class='tip-secret'>XY</span><span class='tip-hash'>c</span><span class='tip-secret'>Z</span>"
+  },
+  "hintModifierFlip": {
+    "message": "<span class='tip-mod'>_</span> Lật <span class='tip-pos'>#</span>↔<span class='tip-pos'>$$</span> (không ảnh hưởng <span class='tip-pos'>@ % ^</span>). 1 cặp hash+secret → 2 password."
+  },
+  "hintModifierUpper": {
+    "message": "<span class='tip-mod'>!</span> Viết hoa <span class='tip-secret'>secret</span> trước khi ghép"
+  },
+  "hintModifierReverse": {
+    "message": "<span class='tip-mod'>?</span> Đảo ngược chuỗi <span class='tip-secret'>secret</span> trước khi ghép"
+  },
+  "hintModifierStrip": {
+    "message": "<span class='tip-mod'>~</span> Xóa ký tự không-alphanumeric khỏi <span class='tip-secret'>secret</span>"
+  },
+  "errRecipeMismatch": {
+    "message": "Recipe không khớp — recipe này được tạo cho sheet hoặc profile khác?"
+  },
+  "errInvalidSheetUrl": {
+    "message": "URL Google Sheets không hợp lệ"
+  },
+  "warnNoSheetUrl": {
+    "message": "Không có sheet đích, recipe này sẽ không xác minh được khi giải mã."
+  },
+  "warnLegacyNoTag": {
+    "message": "Recipe cũ (không có verification tag)."
+  },
+  "builderSheetUrl": {
+    "message": "URL Sheet đích"
+  },
+  "hintSheetUrlAuto": {
+    "message": "Tự động điền từ tab hiện tại. Sửa nếu nhắm đến sheet khác."
+  }
 }

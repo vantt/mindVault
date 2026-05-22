@@ -9,8 +9,7 @@
     "clipboardWrite",
     "activeTab",
     "idle",
-    "alarms",
-    "scripting"
+    "alarms"
   ],
   "host_permissions": [
     "https://docs.google.com/spreadsheets/*"
