@@ -15,8 +15,13 @@
  * sheetMapping, not via builder).
  */
 
+import { initSheetDetector } from './sheet-detector.js';
+
 const PREVIEW_DEBOUNCE_MS = 300;
 const SHEET_URL_REGEX = /\/spreadsheets\/d\/([a-zA-Z0-9_-]+)/;
+// Bare Sheet ID — Google Sheets IDs use this charset; 20+ chars is heuristic min
+// length to avoid mistakenly accepting short typos as IDs.
+const SHEET_ID_REGEX = /^[a-zA-Z0-9_-]{20,}$/;
 
 /**
  * Initialize the builder. Returns a controller with `reset()` and `loadProfiles()`.
@@ -31,6 +36,7 @@ export function initRecipeBuilder({ onBack }) {
         hash: document.getElementById('bld-hash'),
         hashError: document.getElementById('bld-hash-error'),
         profile: document.getElementById('bld-profile'),
+        profileHint: document.getElementById('bld-profile-hint'),
         positionGroup: document.getElementById('bld-position-group'),
         secretGroup: document.getElementById('bld-secret-group'),
         modifierRow: document.getElementById('bld-modifier-row'),
@@ -39,6 +45,11 @@ export function initRecipeBuilder({ onBack }) {
         copyBtn: document.getElementById('btn-copy-recipe'),
         backBtn: document.getElementById('btn-builder-back'),
     };
+
+    // sheetMapping + defaultProfile cached from storage; used by alignProfileToSheet()
+    // so builder honors the same routing logic as decode-time (avoid silent mismatch).
+    let sheetMapping = {};
+    let defaultProfileName = 'Default';
 
     // Mirror of parser's hash charset — ASCII alphanumeric only.
     const HASH_VALID_CHAR = /^[a-zA-Z0-9]*$/;
@@ -69,7 +80,7 @@ export function initRecipeBuilder({ onBack }) {
     // ── Inputs + checkboxes ─────────────────────────────────────────────────
     el.hash.addEventListener('input', () => { validateHash(); onFormChange(); });
     el.profile.addEventListener('change', onFormChange);
-    el.sheetUrl.addEventListener('input', () => { parseSheetUrl(); onFormChange(); });
+    el.sheetUrl.addEventListener('input', () => { parseSheetInput(); onFormChange(); });
     el.modifierRow.querySelectorAll('input[type="checkbox"]').forEach(cb => {
         cb.addEventListener('change', onFormChange);
     });
@@ -90,27 +101,72 @@ export function initRecipeBuilder({ onBack }) {
         return ok;
     }
 
-    // ── Parse sheet URL → update state.sheetId + toggle warning/error ───────
-    function parseSheetUrl() {
+    // ── Parse sheet input → extract sheetId, normalize input to bare ID ─────
+    // Accepts: full Sheets URL (extracts the ID) OR a bare sheetId.
+    // Always normalizes the input field to show only the bare sheetId so it
+    // doesn't overflow the 300px popup width.
+    function parseSheetInput() {
         const raw = el.sheetUrl.value.trim();
         if (!raw) {
             state.sheetId = null;
             el.sheetUrlError.classList.add('hidden');
             el.sheetWarning.classList.remove('hidden');
+            alignProfileToSheet();
             return;
         }
-        const match = raw.match(SHEET_URL_REGEX);
-        if (match) {
-            state.sheetId = match[1];
+        const urlMatch = raw.match(SHEET_URL_REGEX);
+        const extracted = urlMatch ? urlMatch[1] : (SHEET_ID_REGEX.test(raw) ? raw : null);
+        if (extracted) {
+            state.sheetId = extracted;
+            // Normalize field: collapse pasted URL to just the ID so it fits the popup width.
+            if (el.sheetUrl.value !== extracted) el.sheetUrl.value = extracted;
             el.sheetUrlError.classList.add('hidden');
             el.sheetWarning.classList.add('hidden');
         } else {
             state.sheetId = null;
-            const msg = chrome.i18n.getMessage('errInvalidSheetUrl') || 'Not a valid Google Sheets URL';
+            const msg = chrome.i18n.getMessage('errInvalidSheetUrl') || 'Not a valid Sheet ID or URL';
             el.sheetUrlError.textContent = msg;
             el.sheetUrlError.classList.remove('hidden');
             el.sheetWarning.classList.add('hidden');
         }
+        alignProfileToSheet();
+    }
+
+    // ── Align profile dropdown with sheetMapping settings ───────────────────
+    // Decode-time routing uses sheetMapping[sheetId] → builder must match or the
+    // computed tag will mismatch on decode. Lock the dropdown when a mapping
+    // exists so user can't accidentally pick a different profile for that sheet.
+    function alignProfileToSheet() {
+        const options = Array.from(el.profile.options).map(o => o.value);
+        if (!options.length) return;
+
+        if (state.sheetId) {
+            const mapped = sheetMapping[state.sheetId];
+            if (mapped && options.includes(mapped)) {
+                // Sheet has an explicit mapping → lock to it
+                el.profile.value = mapped;
+                el.profile.disabled = true;
+                if (el.profileHint) {
+                    el.profileHint.textContent = chrome.i18n.getMessage('hintProfileFromMapping') || 'Auto-selected from sheet mapping';
+                    el.profileHint.classList.remove('hidden', 'warning');
+                }
+                return;
+            }
+            // No mapping for this sheet → default profile, allow override (user is
+            // building for an unmapped sheet — they can pick any own profile)
+            if (options.includes(defaultProfileName)) el.profile.value = defaultProfileName;
+            el.profile.disabled = false;
+            if (el.profileHint) {
+                el.profileHint.textContent = chrome.i18n.getMessage('hintProfileUnmapped') || 'Sheet not mapped — using default. Map in Options for stable behavior.';
+                el.profileHint.classList.remove('hidden');
+                el.profileHint.classList.add('warning');
+            }
+            return;
+        }
+
+        // No sheet selected → free pick
+        el.profile.disabled = false;
+        if (el.profileHint) el.profileHint.classList.add('hidden');
     }
 
     // ── Read currently-checked modifiers in DOM order ───────────────────────
@@ -179,7 +235,7 @@ export function initRecipeBuilder({ onBack }) {
         const myToken = ++previewToken;
         const profileName = el.profile.value;
         if (!profileName) {
-            el.passwordOut.textContent = '(no profile)';
+            el.passwordOut.textContent = chrome.i18n.getMessage('errNoProfile') || '(no profile)';
             el.passwordOut.classList.add('error');
             return;
         }
@@ -225,7 +281,7 @@ export function initRecipeBuilder({ onBack }) {
         if (!recipe || recipe === '—') return;
         navigator.clipboard.writeText(recipe);
         const original = el.copyBtn.textContent;
-        el.copyBtn.textContent = 'Copied!';
+        el.copyBtn.textContent = chrome.i18n.getMessage('lblCopied') || 'Copied!';
         setTimeout(() => { el.copyBtn.textContent = original; }, 1500);
     });
 
@@ -235,10 +291,25 @@ export function initRecipeBuilder({ onBack }) {
         onBack();
     });
 
+    // ── Sheet detector (refresh button + other-tabs picker) ─────────────────
+    const { runDetection } = initSheetDetector({
+        inputEl: el.sheetUrl,
+        warningEl: el.sheetWarning,
+        errorEl: el.sheetUrlError,
+        onDetected: (url) => {
+            el.sheetUrl.value = url;
+            parseSheetInput();
+            onFormChange();
+        },
+    });
+
     // ── Public: load own profiles + auto-fill sheet URL from active tab ─────
     async function loadProfiles() {
         try {
-            const { defaultProfile, ...all } = await chrome.storage.sync.get(null);
+            const all = await chrome.storage.sync.get(null);
+            // Cache routing settings for alignProfileToSheet()
+            sheetMapping = all.sheetMapping || {};
+            defaultProfileName = all.defaultProfile || 'Default';
             const ownNames = Object.keys(all)
                 .filter(k => k.startsWith('profile:'))
                 .map(k => k.slice('profile:'.length))
@@ -248,25 +319,19 @@ export function initRecipeBuilder({ onBack }) {
                 const opt = document.createElement('option');
                 opt.value = name;
                 opt.textContent = name;
-                if (name === defaultProfile) opt.selected = true;
+                if (name === defaultProfileName) opt.selected = true;
                 el.profile.appendChild(opt);
             });
         } catch (e) {
             console.error('loadProfiles failed', e);
         }
 
-        // Auto-fill sheet URL if currently active tab is a Google Sheet
-        try {
-            const r = await chrome.runtime.sendMessage({ action: 'GET_SHEET_ID_FROM_ACTIVE_TAB' });
-            if (r?.tabUrl && SHEET_URL_REGEX.test(r.tabUrl)) {
-                el.sheetUrl.value = r.tabUrl;
-                parseSheetUrl();
-            } else {
-                parseSheetUrl(); // applies initial empty-state warning
-            }
-        } catch {
-            parseSheetUrl();
-        }
+        // Auto-detect: fills active tab Sheet URL or shows a picker for other tabs
+        await runDetection();
+        // If detector found nothing, ensure initial warning state is applied
+        if (!el.sheetUrl.value) parseSheetInput();
+        // Align profile dropdown to detected sheet (lock if mapping exists)
+        alignProfileToSheet();
     }
 
     // ── Public: reset form to empty ─────────────────────────────────────────
@@ -274,6 +339,11 @@ export function initRecipeBuilder({ onBack }) {
         el.sheetUrl.value = '';
         el.sheetUrlError.classList.add('hidden');
         el.sheetWarning.classList.add('hidden');
+        el.profile.disabled = false;
+        if (el.profileHint) el.profileHint.classList.add('hidden');
+        // Hide other-tabs picker if visible
+        const picker = document.getElementById('bld-tabs-picker');
+        if (picker) { picker.classList.add('hidden'); picker.innerHTML = ''; }
         el.hash.value = '';
         el.hash.classList.remove('invalid');
         el.hashError.classList.add('hidden');

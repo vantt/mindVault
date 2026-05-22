@@ -115,12 +115,6 @@
   "hintClickCell": {
     "message": "Click any cell in Google Sheets containing a recipe."
   },
-  "hintUnlock": {
-    "message": "Unlock to generate passwords."
-  },
-  "btnUnlockSettings": {
-    "message": "Unlock Settings"
-  },
   "tabSecrets": {
     "message": "Secrets"
   },
@@ -172,14 +166,8 @@
   "importWizardTitle": {
     "message": "Import Shared Profile"
   },
-  "errSheetMismatch": {
-    "message": "This profile is locked to a different sheet."
-  },
   "errProfileAssigned": {
     "message": "Profile is assigned to sheets. Remove assignments first."
-  },
-  "profileFallback": {
-    "message": "Using default profile"
   },
   "migrationNotice": {
     "message": "Migrated to v2. Secrets are now in profile \"Default\"."
@@ -212,7 +200,7 @@
     "message": "Recipe"
   },
   "builderPasswordPreview": {
-    "message": "Password preview"
+    "message": "REAL PASSWORD"
   },
   "btnCopyRecipe": {
     "message": "Copy Recipe"
@@ -254,18 +242,55 @@
     "message": "Recipe mismatch — was this recipe built for a different sheet or profile?"
   },
   "errInvalidSheetUrl": {
-    "message": "Invalid Google Sheets URL"
+    "message": "Not a valid Sheet ID or URL"
   },
   "warnNoSheetUrl": {
     "message": "Without target sheet, this recipe won't verify on decode."
   },
-  "warnLegacyNoTag": {
-    "message": "Legacy recipe (no verification tag)."
-  },
   "builderSheetUrl": {
-    "message": "Target Sheet URL"
+    "message": "Target Sheet ID"
   },
-  "hintSheetUrlAuto": {
-    "message": "Auto-filled from current tab. Edit if targeting a different sheet."
+  "btnDetectRefreshTitle": {
+    "message": "Re-detect Sheets tabs"
+  },
+  "detectedNTabs": {
+    "message": "Detected $1 Sheets tabs — pick one:",
+    "placeholders": {
+      "1": {
+        "content": "$1",
+        "example": "3"
+      }
+    }
+  },
+  "hintProfileFromMapping": {
+    "message": "Auto-selected from sheet mapping"
+  },
+  "hintProfileUnmapped": {
+    "message": "Sheet not mapped — using default. Map in Options for stable behavior."
+  },
+  "hintSetupPrompt": {
+    "message": "Create a master password to start using mindVault."
+  },
+  "placeholderSheetUrl": {
+    "message": "Paste URL or Sheet ID"
+  },
+  "btnCopy": {
+    "message": "Copy"
+  },
+  "btnBack": {
+    "message": "Back"
+  },
+  "lblCopied": {
+    "message": "Copied!"
+  },
+  "errNoProfile": {
+    "message": "(no profile)"
+  },
+  "profilesSummary": {
+    "message": "Profiles: $OWN$ own · $SHARED$ shared",
+    "placeholders": {
+      "own":    { "content": "$1" },
+      "shared": { "content": "$2" }
+    }
   }
 }

@@ -375,7 +375,7 @@ async function migrateV1ToV2() {
 
 ## 8. Options Page UI
 
-Xem chi tiết tại [ui-spec-v2-multi-sheet-profiles.md](../ui-spec-v2-multi-sheet-profiles.md).
+Xem chi tiết tại [ui-specs/README.md](../ui-specs/README.md).
 
 ### Profiles Tab overview
 

@@ -113,12 +113,6 @@
   "hintClickCell": {
     "message": "Nhấp vào ô chứa Recipe trong Google Sheets."
   },
-  "hintUnlock": {
-    "message": "Mở khóa để tạo mật khẩu."
-  },
-  "btnUnlockSettings": {
-    "message": "Mở khóa Cài đặt"
-  },
   "tabSecrets": {
     "message": "Bí mật"
   },
@@ -170,14 +164,8 @@
   "importWizardTitle": {
     "message": "Nhập Hồ sơ Chia sẻ"
   },
-  "errSheetMismatch": {
-    "message": "Hồ sơ này bị khóa với một sheet khác."
-  },
   "errProfileAssigned": {
     "message": "Hồ sơ đang được gán cho sheets. Hãy xóa gán trước."
-  },
-  "profileFallback": {
-    "message": "Dùng hồ sơ mặc định"
   },
   "migrationNotice": {
     "message": "Đã chuyển sang v2. Bí mật nay nằm trong hồ sơ \"Default\"."
@@ -210,7 +198,7 @@
     "message": "Recipe"
   },
   "builderPasswordPreview": {
-    "message": "Xem trước mật khẩu"
+    "message": "REAL PASSWORD"
   },
   "btnCopyRecipe": {
     "message": "Copy Recipe"
@@ -252,18 +240,55 @@
     "message": "Recipe không khớp — recipe này được tạo cho sheet hoặc profile khác?"
   },
   "errInvalidSheetUrl": {
-    "message": "URL Google Sheets không hợp lệ"
+    "message": "Không phải Sheet ID hoặc URL hợp lệ"
   },
   "warnNoSheetUrl": {
     "message": "Không có sheet đích, recipe này sẽ không xác minh được khi giải mã."
   },
-  "warnLegacyNoTag": {
-    "message": "Recipe cũ (không có verification tag)."
-  },
   "builderSheetUrl": {
-    "message": "URL Sheet đích"
+    "message": "Sheet ID đích"
   },
-  "hintSheetUrlAuto": {
-    "message": "Tự động điền từ tab hiện tại. Sửa nếu nhắm đến sheet khác."
+  "btnDetectRefreshTitle": {
+    "message": "Phát hiện lại các tab Sheets"
+  },
+  "detectedNTabs": {
+    "message": "Phát hiện $1 tab Sheets — chọn một:",
+    "placeholders": {
+      "1": {
+        "content": "$1",
+        "example": "3"
+      }
+    }
+  },
+  "hintProfileFromMapping": {
+    "message": "Tự chọn theo sheet mapping"
+  },
+  "hintProfileUnmapped": {
+    "message": "Sheet chưa được map — dùng default. Hãy map trong Options để ổn định."
+  },
+  "hintSetupPrompt": {
+    "message": "Tạo mật khẩu chính để bắt đầu dùng mindVault."
+  },
+  "placeholderSheetUrl": {
+    "message": "Dán URL hoặc Sheet ID"
+  },
+  "btnCopy": {
+    "message": "Sao chép"
+  },
+  "btnBack": {
+    "message": "Quay lại"
+  },
+  "lblCopied": {
+    "message": "Đã sao chép!"
+  },
+  "errNoProfile": {
+    "message": "(chưa có profile)"
+  },
+  "profilesSummary": {
+    "message": "Profile: $OWN$ cá nhân · $SHARED$ chia sẻ",
+    "placeholders": {
+      "own":    { "content": "$1" },
+      "shared": { "content": "$2" }
+    }
   }
 }

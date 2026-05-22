@@ -6,6 +6,10 @@ function localizeHtml() {
         const msg = chrome.i18n.getMessage(el.dataset.i18n);
         if (msg) el.textContent = msg;
     });
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const msg = chrome.i18n.getMessage(el.dataset.i18nPlaceholder);
+        if (msg) el.placeholder = msg;
+    });
     // data-i18n-title="<key>" → store i18n message in `data-tooltip-html` + wire up custom rich tooltip
     document.querySelectorAll('[data-i18n-title]').forEach(el => {
         const msg = chrome.i18n.getMessage(el.dataset.i18nTitle);
@@ -110,7 +114,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                 const ownCount = Object.keys(all).filter(k => k.startsWith("profile:")).length;
                 const sharedCount = Object.keys(all).filter(k => k.startsWith("shared:")).length;
                 if (ownCount > 0 || sharedCount > 0) {
-                    profilesSummary.textContent = `Profiles: ${ownCount} own · ${sharedCount} shared`;
+                    const summaryMsg = chrome.i18n.getMessage('profilesSummary', [String(ownCount), String(sharedCount)]);
+                    profilesSummary.textContent = summaryMsg || `Profiles: ${ownCount} own · ${sharedCount} shared`;
                     profilesSummary.classList.remove('hidden');
                     profilesSummary.style.cursor = 'pointer';
                     profilesSummary.onclick = () => chrome.runtime.openOptionsPage();
@@ -168,12 +173,20 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.getElementById('btn-start-setup')?.addEventListener('click', openOptions);
     document.getElementById('btn-settings').addEventListener('click', openOptions);
 
-    // Open recipe builder from unlocked state
-    document.getElementById('btn-build-recipe')?.addEventListener('click', async () => {
-        await builder.loadProfiles();
+    // Open recipe builder — reachable from both unlocked state and the auto-generated
+    // state (which is what popup lands on when opened from a Sheets tab). Wiring both
+    // buttons to the same handler keeps the button accessible regardless of flow.
+    //
+    // Order matters: reset() FIRST to clear form fields, then loadProfiles() which
+    // runs sheet auto-detection and populates the URL field. Inverted order would
+    // wipe the just-detected URL.
+    const openBuilder = async () => {
         builder.reset();
+        await builder.loadProfiles();
         showSection('status-builder');
-    });
+    };
+    document.getElementById('btn-build-recipe')?.addEventListener('click', openBuilder);
+    document.getElementById('btn-build-recipe-gen')?.addEventListener('click', openBuilder);
 
     // Unlock
     const unlockInput = document.getElementById('unlock-password');
@@ -222,8 +235,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (!password) return;
         navigator.clipboard.writeText(password);
         const btn = document.getElementById('btn-copy');
-        btn.textContent = "Copied!";
-        setTimeout(() => btn.textContent = "Copy", 1500);
+        btn.textContent = chrome.i18n.getMessage('lblCopied') || "Copied!";
+        setTimeout(() => { btn.textContent = chrome.i18n.getMessage('btnCopy') || "Copy"; }, 1500);
     });
 
     // Back (from generated → unlocked)

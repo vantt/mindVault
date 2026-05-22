@@ -19,6 +19,10 @@ function localizeHtml() {
         const msg = chrome.i18n.getMessage(el.dataset.i18n);
         if (msg) el.textContent = msg;
     });
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const msg = chrome.i18n.getMessage(el.dataset.i18nPlaceholder);
+        if (msg) el.placeholder = msg;
+    });
 }
 
 // ── Section visibility ──
@@ -68,7 +72,7 @@ async function checkStatus() {
         showSection(dashboardSection);
         // Migration notice
         if (stored.migrationNotified === false) {
-            showToast("✅ Migrated to v2. Secrets are now in profile \"Default\".");
+            showToast(chrome.i18n.getMessage('migrationNotice') || '✅ Migrated to v2. Secrets are now in profile "Default".');
             await chrome.storage.sync.set({ migrationNotified: true });
         }
     } else {

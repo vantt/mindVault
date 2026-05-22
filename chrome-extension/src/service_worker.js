@@ -99,13 +99,32 @@ async function handleComputeRecipeTag(request, sendResponse) {
     }
 }
 
+/**
+ * Detect Google Sheets tabs across all open windows.
+ * Returns: { active: {sheetId, tabUrl, title}|null, otherTabs: [{sheetId, tabUrl, title}] }
+ * Priority: active tab first; if not a Sheet, query all tabs for Sheets URLs.
+ */
 async function getSheetIdFromActiveTab() {
+    const SHEET_RE = /\/spreadsheets\/d\/([a-zA-Z0-9_-]+)/;
     try {
-        const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-        if (!tab || !tab.url) return { sheetId: null };
-        const match = tab.url.match(/\/spreadsheets\/d\/([a-zA-Z0-9_-]+)/);
-        return { sheetId: match ? match[1] : null, tabUrl: tab.url };
-    } catch { return { sheetId: null }; }
+        const [activeTab] = await chrome.tabs.query({ active: true, currentWindow: true });
+        const activeMatch = activeTab?.url ? activeTab.url.match(SHEET_RE) : null;
+        const active = activeMatch
+            ? { sheetId: activeMatch[1], tabUrl: activeTab.url, title: activeTab.title || '' }
+            : null;
+
+        // Always query other Sheets tabs so popup can offer a picker
+        const allSheetTabs = await chrome.tabs.query({ url: '*://docs.google.com/spreadsheets/*' });
+        const otherTabs = allSheetTabs
+            .filter(t => !active || t.url !== activeTab.url)
+            .map(t => {
+                const m = t.url.match(SHEET_RE);
+                return m ? { sheetId: m[1], tabUrl: t.url, title: t.title || '' } : null;
+            })
+            .filter(Boolean);
+
+        return { active, otherTabs };
+    } catch { return { active: null, otherTabs: [] }; }
 }
 
 // Auto-Lock Constants

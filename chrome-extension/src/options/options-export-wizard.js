@@ -8,7 +8,7 @@ let state = {};
 
 export function openExportWizard(profileName, profileKey, sessionKey, onComplete) {
     state = { profileName, profileKey, sessionKey, onComplete, step: 1 };
-    document.getElementById('export-modal-title').textContent = `Export Profile: "${profileName}"`;
+    document.getElementById('export-modal-title').textContent = `${chrome.i18n.getMessage('exportWizardTitle') || 'Export Profile'}: "${profileName}"`;
     document.getElementById('btn-close-export').onclick = () => confirmClose('modal-export');
     renderStep(1);
     document.getElementById('modal-export').classList.remove('hidden');
@@ -130,7 +130,7 @@ async function generateBundle() {
                 <button class="btn sm secondary" id="btn-copy-bundle">📋 Copy Bundle</button>
                 <button class="btn sm secondary" id="btn-download-bundle">⬇️ Download .json</button>
             </div>
-            <div class="warning-box">⚠️ Next step: Use this extension on the shared sheet (as Owner) to generate and update each account password using derived secrets.<br><br>⚠️ Transmit via encrypted channel only.</div>`;
+            <div class="warning-box">⚠️ ${chrome.i18n.getMessage('exportNextStep') || 'Use this extension on the shared sheet to generate and set account passwords using derived secrets.'}<br><br>⚠️ Transmit via encrypted channel only.</div>`;
         document.getElementById('export-modal-footer').innerHTML = `<span></span><div class="right"><button id="exp-done" class="btn sm primary" style="width:auto">Done</button></div>`;
 
         document.getElementById('btn-copy-bundle').onclick = () => {

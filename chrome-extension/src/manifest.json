@@ -8,6 +8,7 @@
     "storage",
     "clipboardWrite",
     "activeTab",
+    "tabs",
     "idle",
     "alarms"
   ],
