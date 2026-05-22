@@ -1,62 +1,115 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
+    <title>mindVault</title>
     <link rel="stylesheet" href="popup.css">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>🔐 mindVault</h1>
+            <div class="header-title">
+                <h1>🔐 mindVault</h1>
+                <span class="status-mini" id="global-status">
+                    <span class="dot" id="global-status-dot"></span>
+                    <span id="global-status-text"></span>
+                </span>
+            </div>
+            <button id="btn-settings" class="btn-icon">⚙️</button>
         </header>
 
         <main>
             <div id="status-setup" class="hidden">
-                 <div class="status-indicator">
-                    <span class="dot red"></span> <span>Setup Required</span>
-                </div>
                 <p class="hint">Create a master password to start using mindVault.</p>
                 <button id="btn-start-setup" class="btn primary">Start Setup</button>
             </div>
 
             <div id="status-unlocked" class="hidden">
-                <div class="status-indicator active">
-                    <span class="dot"></span> <span data-i18n="statusUnlocked">Unlocked</span>
-                </div>
                 <p class="hint" data-i18n="hintClickCell">Click any cell in Google Sheets containing a recipe.</p>
+                <p id="profiles-summary" class="hint profiles-summary hidden"></p>
+                <button id="btn-build-recipe" class="btn primary" data-i18n="btnBuildRecipe">Build Recipe</button>
                 <button id="btn-lock" class="btn secondary" data-i18n="btnLock">Lock Extension</button>
             </div>
 
+            <div id="status-builder" class="hidden">
+                <div class="builder-form">
+                    <label class="builder-label" data-i18n="builderSheetUrl">Target Sheet URL</label>
+                    <input type="text" id="bld-sheet-url" autocomplete="off" spellcheck="false" placeholder="https://docs.google.com/spreadsheets/d/...">
+                    <p id="bld-sheet-url-error" class="builder-error hidden"></p>
+                    <p id="bld-sheet-warning" class="builder-warning hidden" data-i18n="warnNoSheetUrl">Without target sheet, this recipe won't verify on decode.</p>
+
+                    <label class="builder-label" data-i18n="builderHash">Hash</label>
+                    <input type="text" id="bld-hash" autocomplete="off" spellcheck="false">
+                    <p id="bld-hash-error" class="builder-error hidden"></p>
+
+                    <label class="builder-label" data-i18n="builderPosition">Position</label>
+                    <div class="toggle-group" id="bld-position-group">
+                        <button type="button" data-val="#" data-i18n-title="hintPositionHash">#</button>
+                        <button type="button" data-val="$" data-i18n-title="hintPositionDollar">$</button>
+                        <button type="button" data-val="@" data-i18n-title="hintPositionAt">@</button>
+                        <button type="button" data-val="%" data-i18n-title="hintPositionPercent">%</button>
+                        <button type="button" data-val="^" data-i18n-title="hintPositionCaret">^</button>
+                    </div>
+
+                    <label class="builder-label" data-i18n="builderSecret">Secret</label>
+                    <div class="toggle-group" id="bld-secret-group">
+                        <button type="button" data-val="1">1</button>
+                        <button type="button" data-val="2">2</button>
+                        <button type="button" data-val="3">3</button>
+                        <button type="button" data-val="4">4</button>
+                        <button type="button" data-val="5">5</button>
+                    </div>
+
+                    <label class="builder-label" data-i18n="builderModifiers">Modifiers</label>
+                    <div class="modifier-row" id="bld-modifier-row">
+                        <label data-i18n-title="hintModifierFlip"><input type="checkbox" data-val="_"> <span>_</span></label>
+                        <label data-i18n-title="hintModifierUpper"><input type="checkbox" data-val="!"> <span>!</span></label>
+                        <label data-i18n-title="hintModifierReverse"><input type="checkbox" data-val="?"> <span>?</span></label>
+                        <label data-i18n-title="hintModifierStrip"><input type="checkbox" data-val="~"> <span>~</span></label>
+                    </div>
+
+                    <label class="builder-label" data-i18n="builderProfile">Profile</label>
+                    <select id="bld-profile"></select>
+                </div>
+
+                <div class="preview-block">
+                    <div class="preview-label" data-i18n="builderRecipeOutput">Recipe</div>
+                    <code id="bld-recipe-out">—</code>
+                </div>
+
+                <div class="preview-block">
+                    <div class="preview-label" data-i18n="builderPasswordPreview">Password preview</div>
+                    <code id="bld-password-out">—</code>
+                </div>
+
+                <div class="actions-row">
+                    <button id="btn-builder-back" class="btn secondary" data-i18n="btnBuilderBack">Back</button>
+                    <button id="btn-copy-recipe" class="btn primary" data-i18n="btnCopyRecipe">Copy Recipe</button>
+                </div>
+            </div>
+
             <div id="status-generated" class="hidden">
-                 <div class="status-indicator active">
-                    <span class="dot green"></span> <span data-i18n="statusReady">Ready</span>
+                <div class="recipe-meta">
+                    <span id="gen-profile-label" class="profile-label hidden"></span>
                 </div>
                 <div class="pwd-container">
-                     <input type="text" id="gen-password" readonly>
-                     <button id="btn-copy" class="btn primary">Copy</button>
+                    <input type="text" id="gen-password" readonly>
+                    <button id="btn-copy" class="btn primary">Copy</button>
                 </div>
                 <p id="gen-hint" class="hint"></p>
                 <div class="actions-row">
-                     <button id="btn-back" class="btn secondary">Back</button>
-                     <button id="btn-lock-gen" class="btn secondary">Lock</button>
+                    <button id="btn-back" class="btn secondary">Back</button>
+                    <button id="btn-lock-gen" class="btn secondary">Lock</button>
                 </div>
             </div>
 
             <div id="status-locked" class="hidden">
-                 <div class="status-indicator">
-                    <span class="dot red"></span> <span data-i18n="statusLocked">Locked</span>
-                </div>
-                <!-- In-popup Unlock Form -->
-                <div class="unlock-container" style="margin-top: 1rem;">
-                    <input type="password" id="unlock-password" placeholder="Master Password" style="width: 100%; box-sizing: border-box; margin-bottom: 8px;">
+                <div class="unlock-container">
+                    <input type="password" id="unlock-password" placeholder="Master Password">
                     <button id="btn-unlock" class="btn primary">Unlock</button>
-                    <p id="unlock-error" class="hint" style="color: #da3633; display: none; margin-top: 8px;"></p>
+                    <p id="unlock-error" class="hint" style="display:none"></p>
                 </div>
             </div>
-            
-            <button id="btn-settings" class="btn-icon">⚙️</button>
         </main>
     </div>
     <script type="module" src="popup.js"></script>

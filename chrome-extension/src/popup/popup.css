@@ -1,135 +1,403 @@
-
-body {
-    background-color: #0d1117;
-    color: #f0f6fc;
-    font-family: 'Outfit', sans-serif;
-    margin: 0;
-    width: 250px;
-    padding: 1rem;
+:root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --surface2: #1c2128;
+    --border: #30363d;
+    --border-hover: #484f58;
+    --text: #e6edf3;
+    --text-muted: #7d8590;
+    --text-subtle: #4c566a;
+    --accent: #58a6ff;
+    --accent-hover: #79b8ff;
+    --green: #3fb950;
+    --red: #f85149;
+    --amber: #d29922;
 }
 
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Outfit', -apple-system, sans-serif;
+    font-size: 14px;
+    width: 300px;
+    line-height: 1.5;
+}
+
+.container {
+    padding: 14px 16px 16px;
+}
+
+/* ── Header ── */
 header {
-    margin-bottom: 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 14px;
+}
+
+.header-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0; /* allow pill to shrink if needed */
 }
 
 h1 {
-    font-size: 1.1rem;
-    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: -0.2px;
+    color: var(--text);
 }
 
+/* Compact status pill displayed next to the title */
+.status-mini {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 7px 2px 6px;
+    border-radius: 10px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    font-size: 0.65rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    line-height: 1;
+    white-space: nowrap;
+}
+.status-mini.active { color: var(--text); }
+.status-mini .dot { width: 6px; height: 6px; }
+
+#btn-settings {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 4px 6px;
+    color: var(--text-muted);
+    border-radius: 6px;
+    transition: color .15s, background .15s;
+    line-height: 1;
+}
+#btn-settings:hover { color: var(--text); background: var(--surface); }
+
+/* ── Status pill ── */
 .status-indicator {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    padding: 4px 8px;
-    border-radius: 12px;
-    background: #161b22;
-    border: 1px solid #30363d;
-    font-size: 0.9rem;
+    padding: 4px 10px 4px 8px;
+    border-radius: 20px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    margin-bottom: 10px;
 }
+.status-indicator.active { color: var(--text); }
 
 .dot {
-    width: 8px;
-    height: 8px;
+    width: 7px; height: 7px;
     border-radius: 50%;
-    background-color: #238636;
+    background: var(--green);
+    flex-shrink: 0;
+}
+.dot.green { background: var(--green); box-shadow: 0 0 6px rgba(63,185,80,.5); }
+.dot.red   { background: var(--red); }
+
+/* ── Hint text ── */
+.hint {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin: 6px 0 10px;
+    line-height: 1.5;
 }
 
-.dot.green {
-    background-color: #238636;
+/* ── Profile summary link ── */
+.profiles-summary {
+    display: inline-block;
+    font-size: 0.75rem;
+    color: var(--accent);
+    cursor: pointer;
+    margin: 2px 0 10px;
+    opacity: 0.85;
+    transition: opacity .15s;
+}
+.profiles-summary:hover { opacity: 1; }
+
+/* ── Recipe meta ── */
+.recipe-meta {
+    margin-bottom: 6px;
+    min-height: 20px;
+}
+.profile-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 2px 8px;
+    border-radius: 10px;
 }
 
-.dot.red {
-    background-color: #da3633;
-}
-
+/* ── Password output ── */
 .pwd-container {
     display: flex;
     gap: 8px;
-    margin-top: 1rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 6px;
 }
 
-input[type="text"] {
-    flex: 1;
-    background: #0d1117;
-    border: 1px solid #30363d;
-    color: white;
-    padding: 8px;
-    border-radius: 6px;
-    font-family: monospace;
-    font-size: 0.9rem;
-    min-width: 0; /* Fix flexbox overflow */
+input[type="text"], input[type="password"] {
+    width: 100%;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 8px 10px;
+    border-radius: 8px;
+    font-family: 'Fira Code', 'Consolas', monospace;
+    font-size: 0.85rem;
+    transition: border-color .15s, box-shadow .15s;
+    min-width: 0;
 }
-
-input[type="text"]:focus {
-    outline: 2px solid #1f6feb;
-    border-color: #1f6feb;
+input:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(88,166,255,.12);
 }
+input::placeholder { color: var(--text-subtle); }
 
-.btn.secondary {
-    background: #21262d;
-    color: #c9d1d9;
-    border-color: rgba(240, 246, 252, 0.1);
-}
-
-.btn.secondary:hover {
-    background: #30363d;
-    border-color: #8b949e;
-}
-
-.btn#btn-copy {
-    width: auto;
+/* ── Buttons ── */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all .15s;
+    width: 100%;
     white-space: nowrap;
 }
 
-#btn-settings {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 1.1rem;
-    padding: 0;
-    color: #8b949e;
+.btn.primary {
+    background: var(--accent);
+    border-color: transparent;
+    color: #0d1117;
+    font-weight: 600;
+}
+.btn.primary:hover { background: var(--accent-hover); }
+.btn.primary:active { transform: scale(.98); }
+
+.btn.secondary {
+    background: var(--surface);
+    color: var(--text-muted);
+    border-color: var(--border);
+}
+.btn.secondary:hover { color: var(--text); border-color: var(--border-hover); background: var(--surface2); }
+
+/* Copy button — green accent */
+.btn#btn-copy {
+    background: linear-gradient(135deg, #2ea043, #238636);
+    border-color: rgba(46,160,67,.3);
+    color: #fff;
+    font-weight: 600;
     width: auto;
+    flex-shrink: 0;
+    padding: 8px 14px;
+    box-shadow: 0 1px 3px rgba(0,0,0,.3), 0 0 0 1px rgba(46,160,67,.2);
 }
+.btn#btn-copy:hover  { background: linear-gradient(135deg, #3fb950, #2ea043); }
+.btn#btn-copy:active { transform: scale(.96); }
 
-#btn-settings:hover {
-    color: #f0f6fc;
-}
-
+/* ── Actions row ── */
 .actions-row {
     display: flex;
     gap: 8px;
     margin-top: 8px;
 }
+.actions-row .btn { flex: 1; padding: 7px 10px; font-size: 0.8rem; }
 
-.btn#btn-copy {
-    background: linear-gradient(180deg, #2ea043 0%, #238636 100%);
-    border-color: rgba(27, 31, 35, 0.15);
-    color: white;
-    font-weight: 500;
-    width: auto;
-    white-space: nowrap;
-    padding: 8px 16px;
-    box-shadow: 0 1px 0 rgba(27,31,35,0.1);
+/* ── Start setup ── */
+#status-setup .hint { margin-bottom: 12px; }
+
+/* ── Unlocked state ── */
+#status-unlocked .hint { margin-bottom: 12px; }
+
+/* ── Unlock form ── */
+.unlock-container {
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
-.btn#btn-copy:hover {
-    background: #2c974b;
-    border-color: rgba(27, 31, 35, 0.15);
+#unlock-error {
+    font-size: 0.78rem;
+    color: var(--red);
+    padding: 6px 10px;
+    background: rgba(248,81,73,.08);
+    border: 1px solid rgba(248,81,73,.2);
+    border-radius: 6px;
+    display: none;
 }
 
-.btn#btn-copy:active {
-    background: #238636;
-    box-shadow: inset 0 1px 0 rgba(20, 70, 32, 0.2);
+.hidden { display: none !important; }
+
+/* ── Builder entry button spacing ── */
+#status-unlocked #btn-build-recipe { margin-bottom: 8px; }
+
+/* ── Recipe Builder ── */
+.builder-form {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 10px;
+}
+.builder-label {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    margin-top: 6px;
+}
+.builder-form input[type="text"],
+.builder-form input[type="number"],
+.builder-form select {
+    padding: 6px 9px;
+    font-size: 0.8rem;
+}
+.builder-form select {
+    width: 100%;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    color: var(--text);
+    border-radius: 8px;
+    font-family: inherit;
+    cursor: pointer;
 }
 
-.hidden {
-    display: none !important;
+/* Inline field-level validation error (e.g. invalid hash chars) */
+.builder-form input.invalid { border-color: var(--red); }
+.builder-error {
+    font-size: 0.7rem;
+    color: var(--red);
+    line-height: 1.3;
+    margin-top: -2px;
 }
+/* Soft warning — recipe-without-tag advisory, not an error */
+.builder-warning {
+    font-size: 0.7rem;
+    color: #d29922;
+    line-height: 1.3;
+    margin-top: -2px;
+}
+
+/* Segmented toggle button group (position, secret) */
+.toggle-group {
+    display: flex;
+    gap: 4px;
+}
+.toggle-group button {
+    flex: 1;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    padding: 6px 0;
+    font-family: 'Fira Code', 'Consolas', monospace;
+    font-size: 0.85rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all .12s;
+}
+.toggle-group button:hover {
+    color: var(--text);
+    border-color: var(--border-hover);
+}
+.toggle-group button.active {
+    background: var(--accent);
+    border-color: transparent;
+    color: #0d1117;
+    font-weight: 600;
+}
+
+/* Modifier checkbox row */
+.modifier-row {
+    display: flex;
+    gap: 10px;
+    padding: 2px 0;
+}
+.modifier-row label {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-family: 'Fira Code', 'Consolas', monospace;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    cursor: pointer;
+}
+.modifier-row input[type="checkbox"] {
+    accent-color: var(--accent);
+    cursor: pointer;
+}
+.modifier-row label:has(input:checked) { color: var(--text); }
+
+/* Preview blocks (recipe + password) */
+.preview-block {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 6px 10px;
+    margin-bottom: 6px;
+}
+.preview-label {
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    margin-bottom: 2px;
+}
+.preview-block code {
+    display: block;
+    font-family: 'Fira Code', 'Consolas', monospace;
+    font-size: 0.85rem;
+    color: var(--text);
+    word-break: break-all;
+    min-height: 1.2em;
+}
+.preview-block code.muted { color: var(--text-subtle); }
+.preview-block code.error { color: var(--red); font-size: 0.75rem; }
+
+/* ── Custom rich tooltip (supports color spans in hint content) ── */
+.tooltip-popup {
+    position: fixed;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 0.72rem;
+    line-height: 1.5;
+    max-width: 260px;
+    box-shadow: 0 4px 14px rgba(0,0,0,.5);
+    z-index: 1000;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity .12s;
+}
+.tooltip-popup.visible { opacity: 1; }
+
+/* Color-coded tokens inside hint text */
+.tip-hash   { color: var(--green); font-family: 'Fira Code', 'Consolas', monospace; }
+.tip-secret { color: var(--amber); font-family: 'Fira Code', 'Consolas', monospace; }
+.tip-pos    { color: var(--accent); font-family: 'Fira Code', 'Consolas', monospace; font-weight: 600; }
+.tip-mod    { color: var(--amber); font-family: 'Fira Code', 'Consolas', monospace; font-weight: 600; }
