@@ -1,16 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <title data-i18n="appName">mindVault Settings</title>
     <link rel="stylesheet" href="options.css" />
-    <!-- Google Fonts for premium look -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap"
-      rel="stylesheet"
-    />
   </head>
   <body>
     <div class="container">
@@ -20,261 +13,213 @@
       </header>
 
       <main>
-        <!-- Setup Section (Initial State) -->
+        <!-- Setup Section -->
         <section id="setup-section" class="card hidden">
           <h2 data-i18n="setupTitle">Setup Master Password</h2>
-          <p data-i18n="setupDesc">
-            Create a strong master password to encrypt your secrets. This is the
-            only way to access your data.
-          </p>
+          <p data-i18n="setupDesc">Create a strong master password to encrypt your secrets.</p>
           <form id="setup-form">
             <div class="form-group">
-              <label for="setup-password" data-i18n="lblMasterPassword"
-                >Master Password</label
-              >
-              <input
-                type="password"
-                id="setup-password"
-                required
-                minlength="8"
-                placeholder="Minimum 8 characters"
-              />
+              <label for="setup-password" data-i18n="lblMasterPassword">Master Password</label>
+              <input type="password" id="setup-password" required minlength="8" placeholder="Minimum 8 characters" />
             </div>
             <div class="form-group">
-              <label for="setup-confirm" data-i18n="lblConfirmPassword"
-                >Confirm Password</label
-              >
-              <input
-                type="password"
-                id="setup-confirm"
-                required
-                minlength="8"
-                placeholder="Confirm password"
-              />
+              <label for="setup-confirm" data-i18n="lblConfirmPassword">Confirm Password</label>
+              <input type="password" id="setup-confirm" required minlength="8" placeholder="Confirm password" />
             </div>
-            <div class="form-group checkbox-group" style="padding: 10px 0">
+            <div class="form-group checkbox-group" style="padding:10px 0">
               <input type="checkbox" id="setup-backup-confirm" required />
-              <label
-                for="setup-backup-confirm"
-                style="display: inline; font-weight: normal; margin-left: 8px"
-                data-i18n="backupConfirm"
-                >I have backed up my master password and secrets
-                manually.</label
-              >
+              <label for="setup-backup-confirm" style="display:inline;font-weight:normal;margin-left:8px" data-i18n="backupConfirm">I have backed up my master password.</label>
             </div>
-            <button type="submit" class="btn primary" data-i18n="btnStartSetup">
-              Start Setup
-            </button>
+            <button type="submit" class="btn primary" data-i18n="btnStartSetup">Start Setup</button>
           </form>
         </section>
 
-        <!-- Unlock Section (Locked State) -->
+        <!-- Unlock Section -->
         <section id="unlock-section" class="card hidden">
           <h2 data-i18n="unlockTitle">Unlock Extension</h2>
-          <p data-i18n="unlockDesc">
-            Enter your master password to manage secrets.
-          </p>
+          <p data-i18n="unlockDesc">Enter your master password to manage secrets.</p>
           <form id="unlock-form">
             <div class="form-group">
-              <label for="unlock-password" data-i18n="lblMasterPassword"
-                >Master Password</label
-              >
+              <label for="unlock-password" data-i18n="lblMasterPassword">Master Password</label>
               <input type="password" id="unlock-password" required />
             </div>
-            <button type="submit" class="btn primary" data-i18n="btnUnlock">
-              Unlock
-            </button>
+            <button type="submit" class="btn primary" data-i18n="btnUnlock">Unlock</button>
           </form>
         </section>
 
-        <!-- Dashboard Section (Unlocked State) -->
+        <!-- Tab Bar (unlocked only) -->
+        <div id="tab-bar" class="tab-bar hidden">
+          <button class="tab active" data-tab="secrets" data-i18n="tabSecrets">Secrets</button>
+          <button class="tab" data-tab="profiles" data-i18n="tabProfiles">Profiles</button>
+          <button class="tab" data-tab="settings" data-i18n="tabSettings">Settings</button>
+        </div>
+
+        <!-- Dashboard Section (Unlocked) -->
         <section id="dashboard-section" class="hidden">
-          <div class="card">
-            <h2 data-i18n="manageSecretsTitle">Manage Secrets</h2>
-            <p data-i18n="manageSecretsDesc">
-              Configure your 5 secret phrases. These are combined with your
-              recipes.
-            </p>
-            <form id="secrets-form">
-              <div class="secret-item">
-                <label>Secret #1</label>
-                <div class="input-wrapper">
-                  <input
-                    type="password"
-                    class="secret-input"
-                    data-index="1"
-                    data-i18n-placeholder="placeholderSecret"
-                    placeholder="Enter secret phrase"
-                  />
-                  <button type="button" class="btn-toggle-visibility">👁</button>
-                </div>
-              </div>
-              <div class="secret-item">
-                <label>Secret #2</label>
-                <div class="input-wrapper">
-                  <input
-                    type="password"
-                    class="secret-input"
-                    data-index="2"
-                    data-i18n-placeholder="placeholderSecret"
-                    placeholder="Enter secret phrase"
-                  />
-                  <button type="button" class="btn-toggle-visibility">👁</button>
-                </div>
-              </div>
-              <div class="secret-item">
-                <label>Secret #3</label>
-                <div class="input-wrapper">
-                  <input
-                    type="password"
-                    class="secret-input"
-                    data-index="3"
-                    data-i18n-placeholder="placeholderSecret"
-                    placeholder="Enter secret phrase"
-                  />
-                  <button type="button" class="btn-toggle-visibility">👁</button>
-                </div>
-              </div>
-              <div class="secret-item">
-                <label>Secret #4</label>
-                <div class="input-wrapper">
-                  <input
-                    type="password"
-                    class="secret-input"
-                    data-index="4"
-                    data-i18n-placeholder="placeholderSecret"
-                    placeholder="Enter secret phrase"
-                  />
-                  <button type="button" class="btn-toggle-visibility">👁</button>
-                </div>
-              </div>
-              <div class="secret-item">
-                <label>Secret #5</label>
-                <div class="input-wrapper">
-                  <input
-                    type="password"
-                    class="secret-input"
-                    data-index="5"
-                    data-i18n-placeholder="placeholderSecret"
-                    placeholder="Enter secret phrase"
-                  />
-                  <button type="button" class="btn-toggle-visibility">👁</button>
-                </div>
-              </div>
 
-              <div class="secret-item">
-                <label data-i18n="lblSettings">Settings</label>
-                <div class="form-group checkbox-group">
-                  <input type="checkbox" id="setting-peppering-hint" />
-                  <label
-                    for="setting-peppering-hint"
-                    style="
-                      display: inline;
-                      font-weight: normal;
-                      margin-left: 8px;
-                    "
-                    data-i18n="lblPepperingHint"
-                    >Show "Don't forget pepper" hint</label
-                  >
+          <!-- Secrets Tab -->
+          <div id="tab-secrets" class="tab-content">
+            <div class="card">
+              <h2 data-i18n="manageSecretsTitle">Manage Secrets</h2>
+              <p id="secrets-profile-label" class="text-muted" style="margin-top:-.5rem;margin-bottom:1rem"></p>
+              <p data-i18n="manageSecretsDesc">Configure your 5 secret phrases. Combined with your recipes.</p>
+              <form id="secrets-form">
+                <div class="secret-item"><label>Secret #1</label><div class="input-wrapper"><input type="password" class="secret-input" data-index="1" placeholder="Enter secret phrase" /><button type="button" class="btn-toggle-visibility">👁</button></div></div>
+                <div class="secret-item"><label>Secret #2</label><div class="input-wrapper"><input type="password" class="secret-input" data-index="2" placeholder="Enter secret phrase" /><button type="button" class="btn-toggle-visibility">👁</button></div></div>
+                <div class="secret-item"><label>Secret #3</label><div class="input-wrapper"><input type="password" class="secret-input" data-index="3" placeholder="Enter secret phrase" /><button type="button" class="btn-toggle-visibility">👁</button></div></div>
+                <div class="secret-item"><label>Secret #4</label><div class="input-wrapper"><input type="password" class="secret-input" data-index="4" placeholder="Enter secret phrase" /><button type="button" class="btn-toggle-visibility">👁</button></div></div>
+                <div class="secret-item"><label>Secret #5</label><div class="input-wrapper"><input type="password" class="secret-input" data-index="5" placeholder="Enter secret phrase" /><button type="button" class="btn-toggle-visibility">👁</button></div></div>
+                <div class="secret-item">
+                  <label data-i18n="lblSettings">Settings</label>
+                  <div class="form-group checkbox-group">
+                    <input type="checkbox" id="setting-peppering-hint" />
+                    <label for="setting-peppering-hint" style="display:inline;font-weight:normal;margin-left:8px" data-i18n="lblPepperingHint">Show pepper hint</label>
+                  </div>
                 </div>
-              </div>
-
-              <div class="actions">
-                <button
-                  type="submit"
-                  class="btn primary"
-                  data-i18n="btnSafeChanges"
-                >
-                  Save Changes
-                </button>
-                <button
-                  type="button"
-                  id="btn-change-pwd"
-                  class="btn secondary"
-                  data-i18n="btnChangePassword"
-                >
-                  Change Password
-                </button>
-                <button
-                  type="button"
-                  id="btn-lock"
-                  class="btn secondary"
-                  data-i18n="btnLock"
-                >
-                  Lock
-                </button>
-              </div>
-            </form>
+                <div class="actions">
+                  <button type="submit" class="btn primary" data-i18n="btnSafeChanges">Save Changes</button>
+                  <button type="button" id="btn-change-pwd" class="btn secondary" data-i18n="btnChangePassword">Change Password</button>
+                  <button type="button" id="btn-lock" class="btn secondary" data-i18n="btnLock">Lock</button>
+                </div>
+              </form>
+            </div>
           </div>
+
+          <!-- Profiles Tab -->
+          <div id="tab-profiles" class="tab-content hidden">
+            <!-- My Profiles -->
+            <div class="section-header">
+              <span class="section-title" data-i18n="profilesOwnTitle">My Profiles</span>
+              <button id="btn-new-profile" class="btn sm secondary" data-i18n="btnNewProfile">+ New Profile</button>
+            </div>
+            <div id="own-profiles-list"></div>
+
+            <!-- Shared Profiles -->
+            <div class="section-header" style="margin-top:1.5rem">
+              <span class="section-title" data-i18n="profilesSharedTitle">Shared Profiles (Received)</span>
+              <button id="btn-import-profile" class="btn sm secondary" data-i18n="btnImportProfile">+ Import Profile</button>
+            </div>
+            <div id="shared-profiles-list"></div>
+
+            <!-- Sheet Assignments -->
+            <div class="section-header" style="margin-top:1.5rem">
+              <span class="section-title" data-i18n="profilesAssignTitle">Sheet Assignments</span>
+              <button id="btn-add-assignment" class="btn sm secondary">+ Add Assignment</button>
+            </div>
+            <div id="sheet-assignments-list"></div>
+            <div class="sheet-row default-row" style="margin-top:.5rem">
+              <span class="text-muted">Unknown sheets →</span>
+              <select id="select-default-profile" class="profile-select"></select>
+            </div>
+          </div>
+
+          <!-- Settings Tab -->
+          <div id="tab-settings" class="tab-content hidden">
+            <div class="card">
+              <h2 data-i18n="changePwdTitle">Change Master Password</h2>
+              <p data-i18n="changePwdDesc">Re-encrypt your secrets with a new master password.</p>
+              <form id="change-password-form">
+                <div class="form-group">
+                  <label for="old-password" data-i18n="lblCurrentPassword">Current Password</label>
+                  <input type="password" id="old-password" required />
+                </div>
+                <div class="form-group">
+                  <label for="new-password" data-i18n="lblNewPassword">New Password</label>
+                  <input type="password" id="new-password" required minlength="8" />
+                </div>
+                <div class="form-group">
+                  <label for="confirm-new-password" data-i18n="lblConfirmNewPassword">Confirm New Password</label>
+                  <input type="password" id="confirm-new-password" required minlength="8" />
+                </div>
+                <div class="form-group checkbox-group" style="padding:10px 0">
+                  <input type="checkbox" id="change-backup-confirm" required />
+                  <label for="change-backup-confirm" style="display:inline;font-weight:normal;margin-left:8px" data-i18n="backupConfirmNew">I have backed up my NEW master password.</label>
+                </div>
+                <div class="actions">
+                  <button type="submit" class="btn primary" data-i18n="btnUpdatePassword">Update Password</button>
+                </div>
+              </form>
+            </div>
+          </div>
+
         </section>
 
-        <!-- Change Password Section -->
-        <section id="change-password-section" class="card hidden">
-          <h2 data-i18n="changePwdTitle">Change Master Password</h2>
-          <p data-i18n="changePwdDesc">
-            Re-encrypt your secrets with a new master password.
-          </p>
-          <form id="change-password-form">
-            <div class="form-group">
-              <label for="old-password" data-i18n="lblCurrentPassword"
-                >Current Password</label
-              >
-              <input type="password" id="old-password" required />
+        <!-- Modals -->
+
+        <!-- New Profile Modal -->
+        <div id="modal-new-profile" class="modal-overlay hidden">
+          <div class="modal-box">
+            <div class="modal-header">
+              <h3 class="modal-title">Create New Profile</h3>
+              <button class="modal-close" data-modal="modal-new-profile">&times;</button>
             </div>
             <div class="form-group">
-              <label for="new-password" data-i18n="lblNewPassword"
-                >New Password</label
-              >
-              <input type="password" id="new-password" required minlength="8" />
+              <label>Profile Name</label>
+              <input type="text" id="new-profile-name" placeholder='e.g. "Banking", "TeamShare"' maxlength="50" />
             </div>
-            <div class="form-group">
-              <label
-                for="confirm-new-password"
-                data-i18n="lblConfirmNewPassword"
-                >Confirm New Password</label
-              >
-              <input
-                type="password"
-                id="confirm-new-password"
-                required
-                minlength="8"
-              />
+            <div class="modal-footer">
+              <button class="btn secondary sm" data-modal="modal-new-profile">Cancel</button>
+              <button id="btn-create-profile" class="btn primary sm" style="width:auto">Create</button>
             </div>
-            <!-- Re-confirm backup is good practice -->
-            <div class="form-group checkbox-group" style="padding: 10px 0">
-              <input type="checkbox" id="change-backup-confirm" required />
-              <label
-                for="change-backup-confirm"
-                style="display: inline; font-weight: normal; margin-left: 8px"
-                data-i18n="backupConfirmNew"
-                >I have backed up my NEW master password.</label
-              >
+          </div>
+        </div>
+
+        <!-- Edit Secrets Modal -->
+        <div id="modal-edit-secrets" class="modal-overlay hidden">
+          <div class="modal-box">
+            <div class="modal-header">
+              <h3 class="modal-title" id="edit-secrets-title">Edit Secrets</h3>
+              <button class="modal-close" data-modal="modal-edit-secrets">&times;</button>
             </div>
-            <div class="actions">
-              <button
-                type="submit"
-                class="btn primary"
-                data-i18n="btnUpdatePassword"
-              >
-                Update Password
-              </button>
-              <button
-                type="button"
-                id="btn-cancel-change"
-                class="btn secondary"
-              >
-                « Manage Secrets
-              </button>
+            <div id="edit-secrets-inputs"></div>
+            <div class="modal-footer">
+              <button class="btn secondary sm" data-modal="modal-edit-secrets">Cancel</button>
+              <button id="btn-save-modal-secrets" class="btn primary sm" style="width:auto">Save Changes</button>
             </div>
-          </form>
-        </section>
+          </div>
+        </div>
+
+        <!-- Export Wizard Modal -->
+        <div id="modal-export" class="modal-overlay hidden">
+          <div class="modal-box">
+            <div class="modal-header">
+              <h3 class="modal-title" id="export-modal-title">Export Profile</h3>
+              <button class="modal-close" id="btn-close-export">&times;</button>
+            </div>
+            <div class="wizard-progress" id="export-wizard-progress">
+              <div class="wizard-dot" id="exp-dot-1"></div>
+              <div class="wizard-dot" id="exp-dot-2"></div>
+              <div class="wizard-dot" id="exp-dot-3"></div>
+              <span class="wizard-step-label" id="exp-step-label"></span>
+            </div>
+            <div id="export-step-content"></div>
+            <div class="modal-footer" id="export-modal-footer"></div>
+          </div>
+        </div>
+
+        <!-- Import Wizard Modal -->
+        <div id="modal-import" class="modal-overlay hidden">
+          <div class="modal-box">
+            <div class="modal-header">
+              <h3 class="modal-title" data-i18n="importWizardTitle">Import Shared Profile</h3>
+              <button class="modal-close" id="btn-close-import">&times;</button>
+            </div>
+            <div class="wizard-progress">
+              <div class="wizard-dot" id="imp-dot-1"></div>
+              <div class="wizard-dot" id="imp-dot-2"></div>
+              <div class="wizard-dot" id="imp-dot-3"></div>
+              <span class="wizard-step-label" id="imp-step-label"></span>
+            </div>
+            <div id="import-step-content"></div>
+            <div class="modal-footer" id="import-modal-footer"></div>
+          </div>
+        </div>
+
       </main>
 
-      <!-- Toast Notification -->
       <div id="toast" class="toast hidden"></div>
     </div>
 
-    <!-- Script Entry Point -->
     <script type="module" src="options.js"></script>
   </body>
 </html>
