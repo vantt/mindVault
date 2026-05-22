@@ -142,17 +142,17 @@
                             <span class="terminal-dim"># What hackers see:</span>
                         </div>
                         <div class="terminal-line terminal-output">
-                            <span class="terminal-string">"gmail#1"</span>, <span class="terminal-string">"fb@2"</span>, <span class="terminal-string">"bank$3"</span>
+                            <span class="terminal-string">"9mailR4nd0mHash#1"</span>, <span class="terminal-string">"fb@2"</span>, <span class="terminal-string">"bank$3"</span>
                         </div>
                         <div class="terminal-line">
                             <span class="terminal-prompt">$</span>
-                            <span class="terminal-command">mindvault generate "gmail#1"</span>
+                            <span class="terminal-command">mindvault generate "9mailR4nd0mHash#1"</span>
                         </div>
                         <div class="terminal-line terminal-output">
                             <span class="terminal-dim"># Your actual password:</span>
                         </div>
                         <div class="terminal-line terminal-output terminal-success">
-                            <span class="terminal-glow">MySecret*gmail</span>
+                            <span class="terminal-glow">MySecret*9mailR4nd0mHash</span>
                             <span class="terminal-copied">Copied!</span>
                         </div>
                     </div>
@@ -193,12 +193,12 @@
                                 <span>Google Sheets</span>
                             </div>
                             <div class="recipe-content">
-                                <span class="recipe-service">Gmail</span>
-                                <span class="recipe-formula" id="demo-formula">gmail#1</span>
+                                <span class="recipe-service">Password Recipe</span>
+                                <span class="recipe-formula" id="demo-formula">9mailR4nd0mHash#1</span>
                             </div>
                             <div class="recipe-tooltip">
                                 <span class="tooltip-arrow"></span>
-                                <code>gmail</code> = ingredient &nbsp;&nbsp; <code>#</code> = put secret first &nbsp;&nbsp; <code>1</code> = use secret jar #1
+                                <code>9mailR4nd0mHash</code> = ingredient &nbsp;&nbsp; <code>#</code> = put secret first &nbsp;&nbsp; <code>1</code> = use secret jar #1
                             </div>
                         </div>
                     </div>
@@ -255,7 +255,7 @@
                                 <span>Ready to Use</span>
                             </div>
                             <div class="result-content">
-                                <span class="result-value" id="demo-result">MyS3cr3t*gmail</span>
+                                <span class="result-value" id="demo-result">MyS3cr3t*9mailR4nd0mHash</span>
                                 <button class="result-copy" id="demo-copy">
                                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                         <rect x="9" y="9" width="13" height="13" rx="2"/>
@@ -279,7 +279,7 @@
                 <div class="demo-controls">
                     <span class="controls-label">Try different recipes:</span>
                     <div class="controls-buttons">
-                        <button class="demo-btn" data-formula="gmail#1" data-secret="MyS3cr3t*">gmail#1</button>
+                        <button class="demo-btn" data-formula="9mailR4nd0mHash#1" data-secret="MyS3cr3t*">9mailR4nd0mHash#1</button>
                         <button class="demo-btn" data-formula="bank$3" data-secret="Ultra$ecure">bank$3</button>
                         <button class="demo-btn" data-formula="fb@2" data-secret="M1ddl3!">fb@2</button>
                     </div>
@@ -304,7 +304,7 @@
                 <h3 class="anatomy-title">Anatomy of a Recipe</h3>
                 <div class="anatomy-visual">
                     <div class="anatomy-code">
-                        <span class="anatomy-part anatomy-hash" data-tooltip="The ingredient (usually service name)">gmail</span><span class="anatomy-part anatomy-position" data-tooltip="Position modifier: where to put your secret">#</span><span class="anatomy-part anatomy-secret-num" data-tooltip="Which secret jar to use (1-5)">1</span><span class="anatomy-part anatomy-version" data-tooltip="Optional: version for rotation">_v2</span>
+                        <span class="anatomy-part anatomy-hash" data-tooltip="The ingredient (usually service name)">9mailR4nd0mHash</span><span class="anatomy-part anatomy-position" data-tooltip="Position modifier: where to put your secret">#</span><span class="anatomy-part anatomy-secret-num" data-tooltip="Which secret jar to use (1-5)">1</span><span class="anatomy-part anatomy-version" data-tooltip="Optional: version for rotation">_v2</span>
                     </div>
                     <div class="anatomy-labels">
                         <div class="anatomy-label">
@@ -347,11 +347,11 @@
                             </div>
                             <div class="visual-arrow">↓</div>
                             <div class="visual-result">
-                                <span class="result-secret">MyS3cr3t*</span><span class="result-hash">gmail</span>
+                                <span class="result-secret">MyS3cr3t*</span><span class="result-hash">9mailR4nd0mHash</span>
                             </div>
                         </div>
                         <p class="modifier-desc">Secret comes first, then the hash. Most common pattern.</p>
-                        <code class="modifier-example">gmail#1 → MyS3cr3t*gmail</code>
+                        <code class="modifier-example">9mailR4nd0mHash#1 → MyS3cr3t*9mailR4nd0mHash</code>
                     </div>
 
                     <!-- Suffix $ -->
@@ -427,8 +427,8 @@
                 <div class="builder-container">
                     <div class="builder-inputs">
                         <div class="builder-field">
-                            <label>Hash (service name)</label>
-                            <input type="text" id="builder-hash" value="github" placeholder="e.g., gmail, bank, netflix">
+                            <label>The Random Hash</label>
+                            <input type="text" id="builder-hash" value="g!th^b" placeholder="e.g., 9mailR4nd0mHash, bank, netflix">
                         </div>
                         <div class="builder-field">
                             <label>Position</label>
@@ -462,7 +462,7 @@
                     <div class="builder-output">
                         <div class="output-recipe">
                             <span class="output-label">Your Recipe</span>
-                            <code class="output-value" id="builder-recipe">github#1</code>
+                            <code class="output-value" id="builder-recipe">g!th^b#1</code>
                         </div>
                         <div class="output-arrow">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -471,7 +471,7 @@
                         </div>
                         <div class="output-password">
                             <span class="output-label">Generated Password</span>
-                            <code class="output-value output-password-value" id="builder-password">MyS3cr3t*github</code>
+                            <code class="output-value output-password-value" id="builder-password">MyS3cr3t*g!th^b</code>
                         </div>
                     </div>
                 </div>
@@ -488,7 +488,7 @@
                             </svg>
                         </div>
                         <h4>Use Meaningful Hashes</h4>
-                        <p>Use the service name as hash (gmail, bank, netflix) — easy to remember and unique per site.</p>
+                        <p>Use the service name as hash (9mailR4nd0mHash, bank, netflix) — easy to remember and unique per site.</p>
                     </div>
                     <div class="tip-card">
                         <div class="tip-icon">
@@ -554,7 +554,7 @@
                                 <span class="sheet-cell sheet-header">Password</span>
                             </div>
                             <div class="sheet-row">
-                                <span class="sheet-cell">Gmail</span>
+                                <span class="sheet-cell">9mailR4nd0mHash</span>
                                 <span class="sheet-cell sheet-exposed">MyP@ssw0rd123</span>
                             </div>
                             <div class="sheet-row">
@@ -595,8 +595,8 @@
                                 <span class="sheet-cell sheet-header">Recipe</span>
                             </div>
                             <div class="sheet-row">
-                                <span class="sheet-cell">Gmail</span>
-                                <span class="sheet-cell sheet-recipe">gmail#1</span>
+                                <span class="sheet-cell">9mailR4nd0mHash</span>
+                                <span class="sheet-cell sheet-recipe">9mailR4nd0mHash#1</span>
                             </div>
                             <div class="sheet-row">
                                 <span class="sheet-cell">Facebook</span>
@@ -638,7 +638,7 @@
                                 <span class="terminal-command">cat stolen_sheet.csv</span>
                             </div>
                             <div class="terminal-line terminal-output">
-                                <span class="terminal-string">"Gmail", "gmail#1"</span>
+                                <span class="terminal-string">"Gmail", "9mailR4nd0mHash#1"</span>
                             </div>
                             <div class="terminal-line terminal-output">
                                 <span class="terminal-string">"Bank", "bank$3"</span>
@@ -1128,12 +1128,12 @@
                     <div class="step-content">
                         <h3 class="step-title">Generate Passwords</h3>
                         <p class="step-description">
-                            Click any cell with a recipe (e.g., <code>gmail#1</code>) or use the hotkey. Your password is generated instantly and copied to clipboard.
+                            Click any cell with a recipe (e.g., <code>9mailR4nd0mHash#1</code>) or use the hotkey. Your password is generated instantly and copied to clipboard.
                         </p>
                         <div class="step-visual">
                             <div class="generate-preview">
                                 <div class="cell-click">
-                                    <span class="cell-value">gmail#1</span>
+                                    <span class="cell-value">9mailR4nd0mHash#1</span>
                                     <div class="click-ripple"></div>
                                 </div>
                                 <div class="generate-arrow">
@@ -1142,7 +1142,7 @@
                                     </svg>
                                 </div>
                                 <div class="password-output">
-                                    <span class="password-value">MySecretPrefix*gmail</span>
+                                    <span class="password-value">MySecretPrefix*9mailR4nd0mHash</span>
                                     <span class="copied-badge">Copied!</span>
                                 </div>
                             </div>
@@ -1260,7 +1260,7 @@
                         </svg>
                     </button>
                     <div class="faq-answer">
-                        <p>Yes! Your sheet only contains <strong>recipes</strong>, not passwords. A recipe like <code>gmail#1</code> is meaningless without your secret phrase. Think of it like a safe combination without the safe — useless on its own. Your secrets are encrypted with Argon2id + AES-256-GCM and stored locally on your device.</p>
+                        <p>Yes! Your sheet only contains <strong>recipes</strong>, not passwords. A recipe like <code>9mailR4nd0mHash#1</code> is meaningless without your secret phrase. Think of it like a safe combination without the safe — useless on its own. Your secrets are encrypted with Argon2id + AES-256-GCM and stored locally on your device.</p>
                     </div>
                 </div>
 

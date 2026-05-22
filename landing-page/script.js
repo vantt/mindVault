@@ -420,27 +420,37 @@
         const match = formula.match(/^(\w+)([#$@%])(\d)(?:_v(\d+))?$/);
         if (!match) return secret + formula;
 
-        const [, hash, position] = match;
+        const [, hash, position, , version] = match;
+        let result = '';
 
         switch (position) {
             case '#': // Prefix: Secret + Hash
-                return secret + hash;
+                result = secret + hash;
+                break;
             case '$': // Suffix: Hash + Secret
-                return hash + secret;
+                result = hash + secret;
+                break;
             case '@': // Middle: Ha + Secret + sh
                 const mid = Math.floor(hash.length / 2);
-                return hash.slice(0, mid) + secret + hash.slice(mid);
+                result = hash.slice(0, mid) + secret + hash.slice(mid);
+                break;
             case '%': // Interleave
-                let result = '';
                 const maxLen = Math.max(hash.length, secret.length);
                 for (let i = 0; i < maxLen; i++) {
                     if (i < hash.length) result += hash[i];
                     if (i < secret.length) result += secret[i];
                 }
-                return result;
+                break;
             default:
-                return secret + hash;
+                result = secret + hash;
         }
+
+        // Mechanical Versioning: Append v{version} if version > 1
+        if (version && parseInt(version) > 1) {
+            result += `v${version}`;
+        }
+
+        return result;
     }
 
     function animateTextChange(el, newText) {
@@ -471,7 +481,7 @@
         if (!hashInput || !recipeOutput) return;
 
         let currentState = {
-            hash: 'github',
+            hash: 'g!th^b',
             position: '#',
             jar: '1',
             secret: 'MyS3cr3t*',
