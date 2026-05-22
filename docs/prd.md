@@ -212,13 +212,10 @@ Acceptance Criteria:
 Extension MUST parse các định dạng công thức sau:
 
 ```
-Pattern: <base_ingredient><cooking_style><spice_index>[toppings][_version]
+Pattern: <base_ingredient><cooking_style><spice_index>[toppings]
 
 Examples:
 ├── r4nd0m#1           → Món cơ bản (Basic recipe)
-├── r4nd0m_v2#1        → Đổi vị (With version)
-├── r4nd0m_vU1#1       → Món cấp cứu (Urgent version)
-├── r4nd0m_vB1#1       → Món dự phòng (Backup version)
 ├── r4nd0m#1_          → Lật mặt (Reverse position)
 ├── r4nd0m#1!          → Lửa lớn (Uppercase)
 ├── r4nd0m#1?          → Đảo gia vị (Reverse secret)
@@ -228,8 +225,10 @@ Examples:
 **Regex Pattern:**
 
 ```regex
-^([a-zA-Z0-9]+)([#@$%^])(\d)([_!?~]*)(?:_(v[a-zA-Z0-9]+))?$
+^([a-zA-Z0-9]+)([#@$%^])(\d)([_!?~]*)$
 ```
+
+> **Deprecated:** Trước đây grammar có nhánh `(?:_(v[a-zA-Z0-9]+))?` để hỗ trợ version suffix (`_v2`, `_v3`…). Đã bỏ vì (a) thay đổi version cryptographically tương đương đổi ingredient text — không có giá trị bảo mật riêng, (b) suffix `_v2` còn lộ rằng `_v1` từng tồn tại, tạo tín hiệu rotation pattern cho attacker. **Hard break:** parser sẽ reject mọi recipe có hậu tố `_vN`. Để rotate password, hãy đổi ingredient text (vd `gmail@2` → `gmail2@2`).
 
 ### 4.2 Cooking Styles (Position Types)
 
@@ -274,24 +273,16 @@ Examples:
 r4nd0m#1_! → Lật vị trí trước, sau đó bật Lửa lớn → "r4nd0mBASIC*"
 ```
 
-### 4.4 Version Handling (Seasonal Menu)
+### 4.4 Password Rotation (Removed: Version Suffix)
 
-| Version Format | Meaning             | Secret Key                       |
-| -------------- | ------------------- | -------------------------------- |
-| (none)         | Version 1 (default) | `secret_1`                       |
-| `_v2`          | Version 2           | `secret_1_v2` hoặc apply pattern |
-| `_v3`          | Version 3           | `secret_1_v3` hoặc apply pattern |
-| `_vU1`         | Urgent version 1    | `secret_1_vU1`                   |
-| `_vB1`         | Backup version 1    | `secret_1_backup`                |
-
-**Version Pattern (User configurable):**
-
-```
-Base secret: "Basic*"
-v2 pattern: "{base}Q224"  → "Basic*Q224"
-v3 pattern: "{base}Q324"  → "Basic*Q324"
-vU1 pattern: "{base}!0624" → "Basic*!0624"
-```
+> **Deprecated section.** Grammar không còn hỗ trợ version suffix. Để rotate password khi bị lộ, đổi `ingredient` text:
+>
+> ```
+> Cũ:   gmail@2   → cooked password A
+> Mới:  gmail2@2  → cooked password B (hoàn toàn khác)
+> ```
+>
+> Lý do bỏ: version chỉ thay đổi input của hàm trộn — tương đương đổi ingredient. Giữ riêng concept "version" làm UI cồng kềnh và `_v2` còn lộ rằng `_v1` từng tồn tại.
 
 ### 4.5 Secret Storage Structure (The Pantry)
 
@@ -301,25 +292,16 @@ vU1 pattern: "{base}!0624" → "Basic*!0624"
   "encryptedData": "AES-256-GCM encrypted blob",
   "salt": "random salt for key derivation",
   "iv": "initialization vector",
-  "version": "1.0"
+  "version": "1.0"  // schema version (≠ recipe version)
 }
 
 // Decrypted structure
 {
   "secrets": {
-    "1": {
-      "base": "Basic*",
-      "versions": {
-        "v2": "Basic*Q224",
-        "v3": "Basic*Q324",
-        "vU1": "Basic*!0624"
-      },
-      "backup": "BasicBackup*"
-    },
+    "1": "Basic*",   // single value, no versions/backup
     // ... secrets 2-5
   },
   "settings": {
-    "versionPattern": "{base}{quarter}",
     "autoLockMinutes": 30,
     "clipboardClearSeconds": 30
   }
@@ -1211,18 +1193,6 @@ const testCases = [
   { formula: "h4sh3s$3", secret: "Ultra$", expected: "h4sh3sUltra$" },
   { formula: "c0d3s@2", secret: "Secure#", expected: "c0dSecure#3s" },
 
-  // With version
-  {
-    formula: "r4nd0m_v2#1",
-    secret: "Basic*Q224",
-    expected: "Basic*Q224r4nd0m",
-  },
-  {
-    formula: "h4sh3s_vU1$3",
-    secret: "Ultra$!0624",
-    expected: "h4sh3sUltra$!0624",
-  },
-
   // With modifiers
   { formula: "r4nd0m#1_", secret: "Basic*", expected: "r4nd0mBasic*" },
   { formula: "r4nd0m#1!", secret: "Basic*", expected: "BASIC*r4nd0m" },
@@ -1398,16 +1368,19 @@ const testCases = [
 
 ## 14. Future Enhancements (Post-MVP)
 
-| Feature                            | Priority | Complexity |
-| ---------------------------------- | -------- | ---------- |
-| Auto-fill passwords in login forms | High     | High       |
-| Support Excel Online               | Medium   | Medium     |
-| Support Notion tables              | Medium   | Medium     |
-| Password strength indicator        | Low      | Low        |
-| Export/import secrets              | Medium   | Low        |
-| Multiple profiles                  | Low      | Medium     |
-| Biometric unlock (WebAuthn)        | Low      | High       |
-| Dark mode                          | Low      | Low        |
+| Feature                            | Priority | Complexity | Spec |
+| ---------------------------------- | -------- | ---------- | ---- |
+| **Multi-sheet profiles & sharing** | **High** | **High**   | **[v2-multi-sheet-profiles.md](./prd/v2-multi-sheet-profiles.md)** |
+| Auto-fill passwords in login forms | High     | High       | —    |
+| Support Excel Online               | Medium   | Medium     | —    |
+| Support Notion tables              | Medium   | Medium     | —    |
+| Password strength indicator        | Low      | Low        | —    |
+| Biometric unlock (WebAuthn)        | Low      | High       | —    |
+| Dark mode                          | Low      | Low        | —    |
+
+> **Note:** This file (`prd.md`) covers MVP v1.x. Full version history in [`prd/`](./prd/) folder:
+> - [`prd/v1-mvp.md`](./prd/v1-mvp.md) — v1.0–1.3 MVP (copy of this file)
+> - [`prd/v2-multi-sheet-profiles.md`](./prd/v2-multi-sheet-profiles.md) — v2.0 Multi-sheet & Shared Access
 
 ---
 

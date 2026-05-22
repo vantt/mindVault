@@ -5,6 +5,12 @@
 **Date:** 2026-05-17  
 **Status:** Draft — Design Finalized, Pending Implementation
 
+### Changelog v2.2 (2026-05-22)
+- **Verification Tag (additive grammar):** `<base>[.<tag>]` — 4-char base32 HMAC suffix detects profile/sheet mismatch at decode time. Mismatch → `RecipeProfileMismatchError`, no password generated. See §2.5.
+- **Own-profile generation UNCHANGED** — tag is verification-only, does NOT affect password value. Manual rebuildability (README "Cookbook" insight) preserved. See [`recipe-tag-design-rationale.md`](../recipe-tag-design-rationale.md) for Option B vs Option A decision.
+- **Shared-profile generation UNCHANGED** — §2.4 HKDF binding stays as-is.
+- **Migration:** zero rotation — untagged (v2.1) recipes unaffected.
+
 ### Changelog v2.1
 - Bỏ Tier 2 (bundle expiry), Tier 3 (_VAULT_TOKEN), Tier 4 (Gist URL) — bypassable, complexity không tương xứng lợi ích
 - Thêm **Sheet-Bound Generation**: sheetId nhúng vào thuật toán generate → cryptographic binding, không cần allowlist trong storage
@@ -110,6 +116,39 @@ password = combine(DS_i, recipe, sheetId)
 ```
 
 > One-time setup cost: Owner phải config accounts dùng DS-generated passwords, không phải S-generated.
+
+### 2.5 Verification Tag (v2.2 — Mismatch Detection)
+
+> Design decision: see [`recipe-tag-design-rationale.md`](../recipe-tag-design-rationale.md) (Option B).
+
+**Recipe grammar (additive, backward compatible):**
+
+```
+<hash><position><secret_num>[modifiers][.<tag>]
+```
+
+- `tag` = 4 chars from base32 alphabet `abcdefghijkmnpqrstuvwxyz23456789` (excludes lookalikes `o/l/0/1`).
+- `tag = base32(HMAC_SHA256(rawSecret, canonical_recipe + "|" + sheetId)).slice(0,4)`
+- `canonical_recipe = hash + position + secretIndex + sortedModifiers` (tag excluded).
+
+**Decode behavior:**
+
+| Recipe | Sheet matches | Action |
+|--------|---------------|--------|
+| Untagged (legacy) | any | Generate as v2.1 — no verification |
+| Tagged | matches build-time | Generate (own: `S_i + hash`; shared: HKDF per §2.4) |
+| Tagged | mismatch | **Throw `RecipeProfileMismatchError`** — no password generated |
+| Tagged | sheetId missing | **Throw `RecipeProfileMismatchError`** |
+
+**Crucial property:** Tag is verification-only. **Password value is identical for tagged and untagged recipes when both decode against the same sheet+profile.** This preserves the README "Cookbook" insight — user can still mentally compute `secret + hash` without the extension.
+
+**Why this is correct cryptographically:**
+- HMAC is preimage-resistant: 20-bit truncation (4 base32 chars) does NOT enable brute-force secret recovery (no offline oracle — vault stays AES-encrypted).
+- 20 bits = ~1/1M random collision — adequate for verification, not exploitable.
+- Different sheetId → different HMAC → different tag → mismatch detected.
+- Different profile → different rawSecret → different HMAC → mismatch detected.
+
+> Own-profile threat model differs from shared: user owns all sheets, mismatch is mistake not attack — explicit error is sufficient defense without HKDF crypto layer. See rationale doc §4.
 
 ---
 

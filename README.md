@@ -34,7 +34,7 @@ When you need to log in, you become the Chef. You look at the menu (`r4nd0m#1`),
 
 **Hacker Proof**: If a hacker steals your sheet, they just get a list of recipes. They can't "cook" the password without your secret spices.
 **Convenience**: You manage a whole menu of 100+ accounts but only need to remember few jars of spices.
-**Taste Control**: Need to change a password? Just update the recipe version (`_v2`).
+**Taste Control**: Need to change a password? Just tweak the ingredient text (e.g. `r4nd0m` → `r4nd0m2`) — same secret, new password.
 **Freshness**: Passwords are cooked fresh on demand, never stored stale.
 
 ### The Recipe (Math)
@@ -99,7 +99,7 @@ _Simple formula. Unbreakable security._
 
 ## Recipe Syntax
 
-`<Ingredient><CookingStyle><SpiceIndex>[_Version]`
+`<Ingredient><CookingStyle><SpiceIndex>[Modifiers][.<VerifyTag>]`
 
 - **Ingredient** (Hash): Any random text (e.g., `f3c4b00k`, `r4nd0m`).
 - **Cooking Style** (Modifier):
@@ -109,9 +109,23 @@ _Simple formula. Unbreakable security._
   - `%`: **Mix** (Interleaved)
   - `^`: **Sandwich** (Paired)
 - **Spice Index**: 1-5 (Which secret jar to use).
-- **Version** (Optional): `_v2`, `_v3` to rotate passwords.
+- **Modifiers** (Optional): `_` flip position, `!` uppercase, `?` reverse, `~` strip special chars.
+- **Verify Tag** (Optional, 4 chars): `.xxxx` suffix produced by the popup Recipe Builder. Catches profile/sheet mismatches at decode time.
 
-Example: `gmail@2_v2`
+Example: `gmail@2` (legacy) or `gmail@2.a4b2` (with verify tag).
+
+### Verify Tag — what it is, what it isn't
+
+The optional `.tag` suffix is **verification metadata only**. It does NOT change the generated password. You can still "cook" your password by hand using the recipe minus the tag:
+
+```
+Recipe on sheet:  r4nd0m#1.a4b2
+You ignore tag → r4nd0m + spice #1 (Basic*)  →  Basic*r4nd0m
+```
+
+If you paste a tagged recipe into a sheet bound to a different profile (or copy a sheet to a different sheetId), the extension detects the mismatch and **refuses to generate** with an explicit error — instead of silently producing a wrong password. The tag is built using HMAC over your secret + sheetId, so the secret never leaks even with the tag visible. See [`docs/recipe-tag-design-rationale.md`](./docs/recipe-tag-design-rationale.md) for the design decision (why no HKDF binding for own profiles).
+
+> **Rotating a password?** Change the ingredient text (`gmail@2` → `gmail2@2`). Avoid leaking a rotation pattern like `_v2` that hints earlier versions exist.
 
 ## Development
 

@@ -12,12 +12,11 @@
 4. [Hướng dẫn từng bước](#hướng-dẫn-từng-bước)
 5. [Quản lý và lưu trữ](#quản-lý-và-lưu-trữ)
 6. [Biến thể và Indicators (Topping)](#biến-thể-và-indicators-topping)
-7. [Version Control](#version-control)
-8. [Rotation System](#rotation-system)
-9. [Backup và Recovery](#backup-và-recovery)
-10. [Best Practices](#best-practices)
-11. [Ví dụ thực tế chi tiết](#ví-dụ-thực-tế-chi-tiết)
-12. [Support & FAQ](#support--faq)
+7. [Rotation — Đổi mật khẩu](#rotation--đổi-mật-khẩu)
+8. [Backup và Recovery](#backup-và-recovery)
+9. [Best Practices](#best-practices)
+10. [Ví dụ thực tế chi tiết](#ví-dụ-thực-tế-chi-tiết)
+11. [Support & FAQ](#support--faq)
 
 ---
 
@@ -227,14 +226,15 @@ Pass: r4Trndad0me&
 **Sheet của bạn giờ đây là một Menu:**
 
 ```
-┌──────────────┬───────────────┬─────────┬────────────┬─────────────┐
-| Món (Account)| Recipe        | Version | Ngày nấu   | Ghi chú     |
-├──────────────┼───────────────┼─────────┼────────────┼─────────────┤
-| Facebook     | r4nd0m#1      | v1      | 2024-01-15 | -           |
-| Gmail        | h4sh3s@2_v2   | v2      | 2024-06-01 | Nghi ngờ lộ |
-| Bank         | p4ssw0$3_v3   | v3      | 2024-09-15 | Rotate      |
-| Binance      | cr7pt0%4      | v1      | 2024-03-20 | -           |
-└──────────────┴───────────────┴─────────┴────────────┴─────────────┘
+┌──────────────┬───────────────┬────────────┬─────────────┐
+| Món (Account)| Recipe        | Ngày nấu   | Ghi chú     |
+├──────────────┼───────────────┼────────────┼─────────────┤
+| Facebook     | r4nd0m#1      | 2024-01-15 | -           |
+| Gmail        | h4sh3s@2      | 2024-06-01 | -           |
+| Gmail (mới)  | h4sh3sB@2     | 2024-06-15 | Nghi ngờ lộ |
+| Bank         | p4ssw0$3      | 2024-09-15 | -           |
+| Binance      | cr7pt0%4      | 2024-03-20 | -           |
+└──────────────┴───────────────┴────────────┴─────────────┘
 ```
 
 > 💡 **Lưu ý:** Recipe (`r4nd0m#1`) hoàn toàn vô hại nếu người xem không có "Hũ gia vị" (Secret) của bạn.
@@ -274,72 +274,45 @@ Bạn có thể thêm các ký tự đặc biệt vào cuối Recipe để thay 
 
 ---
 
-## 🔄 VERSION CONTROL
+## ♻️ ROTATION — ĐỔI MẬT KHẨU
 
-### Tại sao cần Version?
+### Khi nào cần Rotate?
 
-Giống như bạn cải tiến món ăn. Version 1 có thể hơi nhạt, Version 2 bạn muốn đậm đà hơn (hoặc đơn giản là Ngân hàng bắt buộc đổi vị món ăn 3 tháng/lần).
+- Định kỳ theo quy định của ngân hàng/công ty.
+- Nghi ngờ mật khẩu bị lộ.
 
-### Các loại version
+### Nguyên tắc: Thay Hash, giữ nguyên Secret
 
-```
-┌──────────┬─────────────────────────────────────┐
-│ Ký hiệu  │ Ý nghĩa                             │
-├──────────┼─────────────────────────────────────┤
-│ v1       │ Version gốc (Original Recipe)       │
-│ v2, v3   │ Cải tiến định kỳ (Rotation)         │
-│ vU1      │ Version Khẩn cấp (Urgent/Detox)     │
-│ vB1      │ Version Backup (Emergency Food)     │
-└──────────┴─────────────────────────────────────┘
-```
-
-### Pattern rotation theo thời gian
-
-**Recipe trong sheet:**
+Password được tạo ra từ `Hash + Secret`. Để có password mới hoàn toàn khác, chỉ cần **đổi phần Hash** trong Recipe. Secret không cần thay.
 
 ```
-r4nd0m#1_v1  → Basic*r4nd0m         (Món gốc)
-r4nd0m#1_v2  → Basic*Q224r4nd0m     (Thêm gia vị Q2/2024)
-r4nd0m#1_v3  → Basic*Q324r4nd0m     (Thêm gia vị Q3/2024)
+Recipe cũ: fb2024#1   →  Basic*fb2024      ← password cũ trên Facebook
+Recipe mới: fb2024r#1  →  Basic*fb2024r    ← password mới, khác hoàn toàn
 ```
 
----
+> **Tại sao không dùng cùng một hash?** Vì password mới phải khác password cũ. Thêm 1-2 ký tự bất kỳ vào hash là đủ.
 
-## ♻️ ROTATION SYSTEM
+### Quy trình Rotate
 
-### Lịch rotate theo loại tài khoản (Menu theo mùa)
+1. **Trên Sheet:** Tìm dòng cần đổi → sửa phần Hash trong Recipe (thêm ký tự, đổi ký tự cuối, v.v.)
+2. **Trên Web:** Login bằng password cũ → đổi sang password mới (generate từ recipe mới)
+3. **Xong.** Secret không thay đổi, chỉ hash thay đổi.
 
-```
-┌────────────────────┬──────────────┬─────────────────────────┐
-│ Loại tài khoản     │ Tần suất     │ Lý do                   │
-├────────────────────┼──────────────┼─────────────────────────┤
-│ Ngân hàng (3)      │ 3 tháng      │ BẮT BUỘC (bảo mật cao)  │
-│ Trading (4)        │ 6 tháng      │ BẮT BUỘC (tài sản)      │
-│ Email chính (2)    │ 6 tháng      │ BẮT BUỘC (khóa phục hồi)│
-│ Mạng xã hội (1)    │ Không cần    │ Có 2FA là đủ            │
-└────────────────────┴──────────────┴─────────────────────────┘
-```
+**Ví dụ — Đổi pass VCB định kỳ:**
 
-### Quy trình rotate chuẩn
+| | Recipe | Password |
+|---|---|---|
+| Cũ | `vcb2024$3` | `vcb2024Ultra$` |
+| Mới | `vcb2024b$3` | `vcb2024bUltra$` |
 
-**Bước 1: Chuẩn bị**
+**Ví dụ — Khẩn cấp (nghi ngờ lộ Gmail):**
 
-- Kiểm tra recipe hiện tại trong sheet.
-- Chuẩn bị Secret Phrase cho version mới.
+| | Recipe | Password |
+|---|---|---|
+| Cũ | `gmail24@2` | `gmaSecure#il24` |
+| Mới | `gmailX@2` | `gmaSecure#ilX` |
 
-**Bước 2: Cập nhật Recipe**
-
-- Tăng số version: `v1` → `v2`.
-- Update ngày đổi trong sheet.
-
-**Bước 3: Đổi password trên website**
-
-- Login bằng password cũ.
-- Đổi sang password mới "vừa chế biến".
-
-**Bước 4: Nếm thử (Verify)**
-
-- Logout và Login lại bằng password mới.
+> **Ghi chú trong Sheet:** Thêm cột "Ghi chú" để note lý do rotate và ngày đổi. Hash mới ghi nhớ trong chính Recipe — không cần nhớ thêm gì.
 
 ---
 
@@ -416,17 +389,17 @@ Master Recipe: MyMaster2024!Backup@Safe
 
 ```
 [Hiện tại]
-Recipe: vcb2024$3 (v1)
+Recipe: vcb2024$3
 Password: vcb2024AnBank$2024
 
-[Tạo version mới - v2]
-Gia vị mới (Q3): AnBank$Q324
-Recipe mới: vcb2024$3_v2
-Password mới: vcb2024AnBank$Q324
+[Đổi hash để tạo password mới]
+Recipe mới: vcb2024b$3
+Password mới: vcb2024bAnBank$2024
 
 [Thực hiện]
-1. Login VCB, đổi pass sang pass mới.
-2. Cập nhật Sheet: vcb2024$3_v2
+1. Login VCB bằng pass cũ (vcb2024AnBank$2024).
+2. Đổi thành pass mới (vcb2024bAnBank$2024).
+3. Cập nhật Recipe trong Sheet: vcb2024$3 → vcb2024b$3
 ```
 
 ### Case Study 3: Nghi ngờ bị lộ (Khẩn cấp)
@@ -436,11 +409,12 @@ Password mới: vcb2024AnBank$Q324
 **Xử lý:**
 
 ```
-1. Ngay lập tức đổi sang Version Khẩn cấp (vU1).
-2. Recipe cũ: gmail24@2_v2
-3. Recipe mới: gmail24@2_vU1 (Dùng Gia vị Detox/Emergency)
-4. Đổi password ngay lập tức trên Google.
-5. Kiểm tra lại toàn bộ bếp (Review security).
+1. Tạo hash mới ngay lập tức.
+2. Recipe cũ: gmail24@2
+3. Recipe mới: gmailX@2 (thêm X vào hash)
+4. Password mới: gmaSecure#ilX (khác hoàn toàn)
+5. Đổi password trên Google ngay.
+6. Cập nhật Sheet.
 ```
 
 ---
