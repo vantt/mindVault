@@ -77,6 +77,16 @@ export function initRecipeBuilder({ onBack }) {
     wireToggleGroup(el.positionGroup, 'position');
     wireToggleGroup(el.secretGroup, 'secret');
 
+    // ── Generate random 24-char alphanumeric hash ────────────────────────────
+    const HASH_CHARSET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    const HASH_LENGTH = 24;
+    document.getElementById('btn-hash-generate').addEventListener('click', () => {
+        const arr = crypto.getRandomValues(new Uint8Array(HASH_LENGTH));
+        el.hash.value = Array.from(arr, b => HASH_CHARSET[b % HASH_CHARSET.length]).join('');
+        validateHash();
+        onFormChange();
+    });
+
     // ── Inputs + checkboxes ─────────────────────────────────────────────────
     el.hash.addEventListener('input', () => { validateHash(); onFormChange(); });
     el.profile.addEventListener('change', onFormChange);
@@ -307,18 +317,20 @@ export function initRecipeBuilder({ onBack }) {
 
     // ── Smart defaults: restore last-used position + secret from storage ──────
     // First-time users see a blank form. Returning users get their last picks.
+    function randomizeField(group, stateKey) {
+        const btns = [...group.querySelectorAll('button[data-val]')];
+        if (!btns.length) return;
+        const prev = state[stateKey];
+        const candidates = btns.length > 1 ? btns.filter(b => b.dataset.val !== prev) : btns;
+        const btn = candidates[Math.floor(Math.random() * candidates.length)];
+        group.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+        state[stateKey] = btn.dataset.val;
+        btn.classList.add('active');
+    }
+
     async function loadLastUsed() {
-        try {
-            const { lastUsedPosition, lastUsedSecret } = await chrome.storage.local.get(['lastUsedPosition', 'lastUsedSecret']);
-            if (lastUsedPosition) {
-                const btn = el.positionGroup.querySelector(`[data-val="${lastUsedPosition}"]`);
-                if (btn) { state.position = lastUsedPosition; btn.classList.add('active'); }
-            }
-            if (lastUsedSecret) {
-                const btn = el.secretGroup.querySelector(`[data-val="${lastUsedSecret}"]`);
-                if (btn) { state.secret = lastUsedSecret; btn.classList.add('active'); }
-            }
-        } catch { /* storage unavailable (incognito) — leave form blank */ }
+        randomizeField(el.positionGroup, 'position');
+        randomizeField(el.secretGroup, 'secret');
     }
 
     // Persist current position + secret so loadLastUsed() can restore them next open.
@@ -362,9 +374,7 @@ export function initRecipeBuilder({ onBack }) {
         alignProfileToSheet();
         // Restore last-used position + secret (blank for first-time users)
         await loadLastUsed();
-        // Auto-expand "More options" if a sheet was detected
-        const moreOptions = document.getElementById('bld-more-options');
-        if (moreOptions && state.sheetId) moreOptions.open = true;
+        // "More options" stays collapsed by default
         onFormChange();
     }
 

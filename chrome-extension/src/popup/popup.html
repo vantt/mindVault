@@ -3,151 +3,318 @@
 <head>
     <meta charset="UTF-8">
     <title>mindVault</title>
+    <link rel="stylesheet" href="../styles/tokens.css">
     <link rel="stylesheet" href="popup.css">
 </head>
 <body>
+    <!-- Atmospheric vignette (amber glow, top-right) -->
+    <div class="vignette" aria-hidden="true"></div>
+
     <div class="container">
         <header>
-            <div class="header-title">
-                <h1>🔐 mindVault</h1>
-                <span class="status-mini" id="global-status">
-                    <span class="dot" id="global-status-dot"></span>
-                    <span id="global-status-text"></span>
-                </span>
+            <!-- Wordmark: "mind" (muted) + "Vault" (italic, bright) + amber dot -->
+            <div class="wordmark" id="header-wordmark">
+                <span class="wordmark-mind">mind</span><span class="wordmark-vault">Vault</span><span class="wordmark-dot" aria-hidden="true"></span>
             </div>
-            <button id="btn-settings" class="btn-icon">⚙️</button>
+
+            <!-- Right side: status dot + label + settings cog -->
+            <div class="header-right">
+                <div class="status-mini" id="global-status">
+                    <span class="dot" id="global-status-dot"></span>
+                    <span class="status-mini-label" id="global-status-text"></span>
+                </div>
+                <button id="btn-settings" class="btn-icon" title="Settings" aria-label="Settings">
+                    <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                        <circle cx="8" cy="8" r="2" stroke="currentColor" stroke-width="1.3"/>
+                        <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.3"/>
+                        <path d="M8 1v2M8 13v2M1 8h2M13 8h2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+                    </svg>
+                </button>
+            </div>
         </header>
+        <div class="header-rule" aria-hidden="true"></div>
 
         <main>
-            <div id="status-setup" class="hidden">
-                <p class="hint" data-i18n="hintSetupPrompt">Create a master password to start using mindVault.</p>
-                <button id="btn-start-setup" class="btn primary" data-i18n="btnStartSetup">Start Setup</button>
+            <!-- ── Screen 1: Setup ── -->
+            <div id="status-setup" class="hidden screen screen-setup">
+                <div class="screen-content">
+                    <div class="caption" data-i18n="welcomeCaption">Welcome</div>
+                    <div class="sp-3"></div>
+                    <div class="display-heading">
+                        <em>Set a master password</em><br>
+                        <span data-i18n="hintSetupPrompt">to unlock everything else.</span>
+                    </div>
+                    <div class="sp-4"></div>
+                    <p class="body-text muted">
+                        mindVault encrypts your secrets with this single password.
+                        It never leaves your machine. There is no recovery — back it up.
+                    </p>
+                    <div class="spacer"></div>
+                    <button id="btn-start-setup" class="btn primary" data-i18n="btnStartSetup">Start setup</button>
+                    <div class="setup-footer-note">
+                        <span data-i18n="opensSettingsTab">opens settings tab</span>
+                        <span>↗</span>
+                    </div>
+                </div>
             </div>
 
-            <div id="status-unlocked" class="hidden">
-                <div id="quick-start-panel" class="quick-start-panel hidden">
-                  <div class="qs-header">
-                    <span class="qs-title" data-i18n="quickStartTitle">How it works</span>
-                    <button id="btn-qs-close" class="btn-qs-close" aria-label="Dismiss">×</button>
-                  </div>
-                  <ol class="qs-steps">
-                    <li data-i18n="quickStartStep1">Build a recipe</li>
-                    <li data-i18n="quickStartStep2">Paste it into a Google Sheets cell</li>
-                    <li data-i18n="quickStartStep3">Click the cell → password appears</li>
-                  </ol>
-                  <div class="qs-actions">
-                    <button id="btn-qs-got-it" class="btn secondary btn-sm" data-i18n="btnGotIt">Got it ✓</button>
-                    <button id="btn-qs-learn-more" class="btn primary btn-sm" data-i18n="linkLearnMore">Learn more →</button>
-                  </div>
+            <!-- ── Screen 2: Locked / Unlock ── -->
+            <div id="status-locked" class="hidden screen screen-unlock">
+                <div class="screen-content">
+                    <div class="caption">Unlock</div>
+                    <div class="sp-2"></div>
+                    <div class="display-heading">
+                        <em>Enter</em> your master password.
+                    </div>
+                    <div class="sp-5"></div>
+
+                    <!-- Password field — borderline style from design -->
+                    <div class="unlock-container">
+                        <div class="password-slab" id="unlock-slab">
+                            <input type="password" id="unlock-password"
+                                   placeholder="Master password…"
+                                   data-i18n-placeholder="lblMasterPassword"
+                                   autocomplete="current-password">
+                        </div>
+                        <p id="unlock-error" class="unlock-error-msg" style="display:none"></p>
+                    </div>
+
+                    <div class="spacer"></div>
+
+                    <button id="btn-unlock" class="btn primary" data-i18n="btnUnlock">Unlock</button>
+                    <div class="unlock-footer">
+                        <span class="unlock-hint-mono">press ⏎ to submit</span>
+                        <button class="btn-ghost">Forgot? Reset</button>
+                    </div>
                 </div>
-                <p id="home-sheet-context" class="home-sheet-context hidden"></p>
-                <p id="home-hint" class="hint"></p>
-                <div id="home-notice" class="home-notice hidden">
-                  <span id="home-notice-text"></span>
-                </div>
-                <p id="profiles-summary" class="hint profiles-summary hidden"></p>
-                <button id="btn-build-recipe" class="btn primary" data-i18n="btnBuildRecipe">Build Recipe</button>
-                <button id="btn-lock" class="btn secondary" data-i18n="btnLock">Lock Extension</button>
             </div>
 
-            <div id="status-builder" class="hidden">
-                <div class="builder-header-row">
-                    <button id="btn-how-it-works" class="btn-link" data-i18n="linkHowItWorks">? How it works</button>
+            <!-- ── Screen 3: Home (Unlocked) ── -->
+            <div id="status-unlocked" class="hidden screen screen-home">
+                <div class="screen-content">
+
+                    <!-- Quick Start panel (first-use) -->
+                    <div id="quick-start-panel" class="quick-start-panel hidden">
+                        <div class="qs-header">
+                            <span class="qs-title" data-i18n="quickStartTitle">How it works</span>
+                            <button id="btn-qs-close" class="btn-qs-close" aria-label="Dismiss">×</button>
+                        </div>
+                        <ol class="qs-steps">
+                            <li>
+                                <span class="qs-step-num">1</span>
+                                <span data-i18n="quickStartStep1">Build a recipe</span>
+                            </li>
+                            <li>
+                                <span class="qs-step-num">2</span>
+                                <span data-i18n="quickStartStep2">Paste it into a Google Sheets cell</span>
+                            </li>
+                            <li>
+                                <span class="qs-step-num">3</span>
+                                <span data-i18n="quickStartStep3">Click the cell → password appears</span>
+                            </li>
+                        </ol>
+                        <div class="qs-actions">
+                            <button id="btn-qs-got-it" class="btn secondary btn-sm" data-i18n="btnGotIt">Got it ✓</button>
+                            <button id="btn-qs-learn-more" class="btn-ghost amber" data-i18n="linkLearnMore">Learn more →</button>
+                        </div>
+                    </div>
+
+                    <!-- Sheet context badge (on Sheets tab) -->
+                    <p id="home-sheet-context" class="home-sheet-context hidden"></p>
+
+                    <!-- Home hint (standard state) -->
+                    <p id="home-hint" class="hint"></p>
+
+                    <!-- Amber inline notice (sheet errors) -->
+                    <div id="home-notice" class="home-notice hidden">
+                        <span id="home-notice-text"></span>
+                    </div>
+
+                    <!-- Profiles summary link -->
+                    <p id="profiles-summary" class="hint profiles-summary hidden"></p>
+
+                    <div class="spacer"></div>
+
+                    <button id="btn-build-recipe" class="btn primary" data-i18n="btnBuildRecipe">Build Recipe</button>
+                    <div class="home-footer">
+                        <button class="btn-ghost" data-i18n="btnManageProfiles">Manage profiles</button>
+                        <button id="btn-lock" class="btn-ghost" data-i18n="btnLock">Lock</button>
+                    </div>
                 </div>
+            </div>
 
-                <div class="builder-form">
-                    <label class="builder-label" data-i18n="builderHash">Hash</label>
-                    <p class="builder-subtitle" data-i18n="builderSubtitleHash">The text part of your recipe</p>
-                    <input type="text" id="bld-hash" autocomplete="off" spellcheck="false">
-                    <p id="bld-hash-error" class="builder-error hidden"></p>
-
-                    <label class="builder-label" data-i18n="builderPosition">Position</label>
-                    <p class="builder-subtitle" data-i18n="builderSubtitlePosition">Where your secret goes</p>
-                    <div class="toggle-group" id="bld-position-group">
-                        <button type="button" data-val="#" data-i18n-title="hintPositionHash">#</button>
-                        <button type="button" data-val="$" data-i18n-title="hintPositionDollar">$</button>
-                        <button type="button" data-val="@" data-i18n-title="hintPositionAt">@</button>
-                        <button type="button" data-val="%" data-i18n-title="hintPositionPercent">%</button>
-                        <button type="button" data-val="^" data-i18n-title="hintPositionCaret">^</button>
+            <!-- ── Screen 4: Generated (password shown) ── -->
+            <div id="status-generated" class="hidden screen screen-generated">
+                <div class="screen-content">
+                    <!-- Profile strip -->
+                    <div class="recipe-meta">
+                        <span id="gen-profile-label" class="profile-label hidden"></span>
                     </div>
 
-                    <label class="builder-label" data-i18n="builderSecret">Secret</label>
-                    <p class="builder-subtitle" data-i18n="builderSubtitleSecret">Which secret phrase to use</p>
-                    <div class="toggle-group" id="bld-secret-group">
-                        <button type="button" data-val="1">1</button>
-                        <button type="button" data-val="2">2</button>
-                        <button type="button" data-val="3">3</button>
-                        <button type="button" data-val="4">4</button>
-                        <button type="button" data-val="5">5</button>
+                    <div class="sp-4"></div>
+                    <div class="divider"></div>
+                    <div class="sp-4"></div>
+
+                    <!-- Password block -->
+                    <div class="gen-password-section">
+                        <div class="caption">Password</div>
+                        <div class="sp-3"></div>
+                        <!-- Password slab: full-width input + copy button side by side.
+                             NOTE: JS sets btn.textContent directly so no icon child here. -->
+                        <div class="pwd-container">
+                            <input type="text" id="gen-password" readonly aria-label="Generated password">
+                            <button id="btn-copy" class="btn-copy-inline" data-i18n="btnCopy">Copy</button>
+                        </div>
                     </div>
 
-                    <details id="bld-more-options">
-                        <summary class="builder-more-summary" data-i18n="moreOptions">More options</summary>
+                    <p id="gen-hint" class="hint"></p>
 
-                        <label class="builder-label" data-i18n="builderSheetUrl">Target Sheet ID</label>
-                        <p class="builder-subtitle" data-i18n="builderSubtitleSheetId">Optional — links recipe to a specific sheet</p>
-                        <input type="text" id="bld-sheet-url" autocomplete="off" spellcheck="false" placeholder="Paste URL or Sheet ID" data-i18n-placeholder="placeholderSheetUrl">
-                        <p id="bld-sheet-url-error" class="builder-error hidden"></p>
-                        <p id="bld-sheet-warning" class="builder-warning hidden" data-i18n="warnNoSheetUrl">Without target sheet, this recipe won't verify on decode.</p>
+                    <div class="spacer"></div>
 
-                        <label class="builder-label" data-i18n="builderModifiers">Modifiers</label>
-                        <p class="builder-subtitle" data-i18n="builderSubtitleModifiers">Optional transformations</p>
-                        <div class="modifier-row" id="bld-modifier-row">
-                            <label data-i18n-title="hintModifierFlip"><input type="checkbox" data-val="_"> <span>_</span></label>
-                            <label data-i18n-title="hintModifierUpper"><input type="checkbox" data-val="!"> <span>!</span></label>
-                            <label data-i18n-title="hintModifierReverse"><input type="checkbox" data-val="?"> <span>?</span></label>
-                            <label data-i18n-title="hintModifierStrip"><input type="checkbox" data-val="~"> <span>~</span></label>
+                    <button id="btn-build-recipe-gen" class="btn primary" data-i18n="btnBuildRecipe">Build Recipe</button>
+                    <div class="home-footer">
+                        <button id="btn-back" class="btn-ghost" data-i18n="btnBack">← Back</button>
+                        <button id="btn-lock-gen" class="btn-ghost" data-i18n="btnLock">Lock</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── Screen 5: Recipe Builder ── -->
+            <div id="status-builder" class="hidden screen screen-builder">
+                <div class="screen-content builder-screen-content">
+
+                    <!-- Top row: Back · How it works -->
+                    <div class="builder-header-row">
+                        <button id="btn-builder-back" class="btn-ghost" data-i18n="btnBuilderBack">← Back</button>
+                        <button id="btn-how-it-works" class="btn-how-it-works" data-i18n="linkHowItWorks">
+                            <span class="hiw-badge">?</span>
+                            <span>How it works</span>
+                        </button>
+                    </div>
+
+                    <div class="builder-form">
+                        <!-- Hash field -->
+                        <div class="builder-field">
+                            <div class="builder-field-header">
+                                <label class="builder-label" for="bld-hash" data-i18n="builderHash">Hash</label>
+                            </div>
+                            <p class="builder-subtitle" data-i18n="builderSubtitleHash">The text part of your recipe</p>
+                            <div class="input-slab-with-action">
+                                <input type="text" id="bld-hash" autocomplete="off" spellcheck="false"
+                                       placeholder="any ASCII string" data-i18n-placeholder="placeholderHash">
+                                <button type="button" id="btn-hash-generate" class="btn-detect-refresh"
+                                        title="Generate random hash">↻</button>
+                            </div>
+                            <p id="bld-hash-error" class="builder-error hidden"></p>
                         </div>
 
-                        <label class="builder-label">
-                            <span data-i18n="builderProfile">Profile</span>
-                            <span id="bld-profile-hint" class="builder-hint hidden"></span>
-                        </label>
-                        <select id="bld-profile"></select>
-                    </details>
-                </div>
+                        <!-- Position + Secret — paired row -->
+                        <div class="builder-paired-row">
+                            <div class="builder-field">
+                                <div class="builder-field-header">
+                                    <label class="builder-label" data-i18n="builderPosition">Position</label>
+                                </div>
+                                <p class="builder-subtitle" data-i18n="builderSubtitlePosition">Where your secret goes</p>
+                                <div class="toggle-group" id="bld-position-group">
+                                    <button type="button" data-val="#" data-i18n-title="hintPositionHash">#</button>
+                                    <button type="button" data-val="$" data-i18n-title="hintPositionDollar">$</button>
+                                    <button type="button" data-val="@" data-i18n-title="hintPositionAt">@</button>
+                                    <button type="button" data-val="%" data-i18n-title="hintPositionPercent">%</button>
+                                    <button type="button" data-val="^" data-i18n-title="hintPositionCaret">^</button>
+                                </div>
+                            </div>
+                            <div class="builder-field">
+                                <div class="builder-field-header">
+                                    <label class="builder-label" data-i18n="builderSecret">Secret</label>
+                                </div>
+                                <p class="builder-subtitle" data-i18n="builderSubtitleSecret">Which secret phrase</p>
+                                <div class="toggle-group toggle-group-mono" id="bld-secret-group">
+                                    <button type="button" data-val="1">1</button>
+                                    <button type="button" data-val="2">2</button>
+                                    <button type="button" data-val="3">3</button>
+                                    <button type="button" data-val="4">4</button>
+                                    <button type="button" data-val="5">5</button>
+                                </div>
+                            </div>
+                        </div>
 
-                <div class="preview-block">
-                    <div class="preview-label" data-i18n="builderRecipeOutput">Recipe</div>
-                    <code id="bld-recipe-out">—</code>
-                </div>
+                        <!-- More options (collapsible) -->
+                        <details id="bld-more-options" class="more-options">
+                            <summary class="builder-more-summary">
+                                <svg class="more-options-arrow" width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                                    <path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                <span data-i18n="moreOptions">More options</span>
+                            </summary>
 
-                <div class="preview-block">
-                    <div class="preview-label" data-i18n="builderPasswordPreview">REAL PASSWORD</div>
-                    <code id="bld-password-out">—</code>
-                </div>
+                            <div class="more-options-body">
+                                <!-- Target Sheet ID -->
+                                <div class="builder-field">
+                                    <div class="builder-field-header">
+                                        <label class="builder-label" data-i18n="builderSheetUrl">Target Sheet ID</label>
+                                    </div>
+                                    <p class="builder-subtitle" data-i18n="builderSubtitleSheetId">Optional — links recipe to a specific sheet</p>
+                                    <input type="text" id="bld-sheet-url" autocomplete="off" spellcheck="false"
+                                           placeholder="Paste URL or Sheet ID"
+                                           data-i18n-placeholder="placeholderSheetUrl">
+                                    <p id="bld-sheet-url-error" class="builder-error hidden"></p>
+                                    <p id="bld-sheet-warning" class="builder-warning hidden" data-i18n="warnNoSheetUrl">Without target sheet, this recipe won't verify on decode.</p>
+                                </div>
 
-                <div class="actions-row">
-                    <button id="btn-builder-back" class="btn secondary" data-i18n="btnBuilderBack">Back</button>
-                    <button id="btn-copy-recipe" class="btn primary" data-i18n="btnCopyRecipe">Copy Recipe</button>
-                </div>
-            </div>
+                                <!-- Modifiers -->
+                                <div class="builder-field">
+                                    <div class="builder-field-header">
+                                        <label class="builder-label" data-i18n="builderModifiers">Modifiers</label>
+                                    </div>
+                                    <p class="builder-subtitle" data-i18n="builderSubtitleModifiers">Optional transformations</p>
+                                    <div class="modifier-row" id="bld-modifier-row">
+                                        <label data-i18n-title="hintModifierFlip"><input type="checkbox" data-val="_"> <span>_</span></label>
+                                        <label data-i18n-title="hintModifierUpper"><input type="checkbox" data-val="!"> <span>!</span></label>
+                                        <label data-i18n-title="hintModifierReverse"><input type="checkbox" data-val="?"> <span>?</span></label>
+                                        <label data-i18n-title="hintModifierStrip"><input type="checkbox" data-val="~"> <span>~</span></label>
+                                    </div>
+                                </div>
 
-            <div id="status-generated" class="hidden">
-                <div class="recipe-meta">
-                    <span id="gen-profile-label" class="profile-label hidden"></span>
-                </div>
-                <div class="pwd-container">
-                    <input type="text" id="gen-password" readonly>
-                    <button id="btn-copy" class="btn primary" data-i18n="btnCopy">Copy</button>
-                </div>
-                <p id="gen-hint" class="hint"></p>
-                <button id="btn-build-recipe-gen" class="btn primary" data-i18n="btnBuildRecipe">Build Recipe</button>
-                <div class="actions-row">
-                    <button id="btn-back" class="btn secondary" data-i18n="btnBack">Back</button>
-                    <button id="btn-lock-gen" class="btn secondary" data-i18n="btnLock">Lock</button>
-                </div>
-            </div>
+                                <!-- Profile -->
+                                <div class="builder-field">
+                                    <div class="builder-field-header">
+                                        <label class="builder-label">
+                                            <span data-i18n="builderProfile">Profile</span>
+                                        </label>
+                                        <span id="bld-profile-hint" class="builder-hint hidden"></span>
+                                    </div>
+                                    <select id="bld-profile" class="builder-select"></select>
+                                </div>
+                            </div>
+                        </details>
+                    </div>
 
-            <div id="status-locked" class="hidden">
-                <div class="unlock-container">
-                    <input type="password" id="unlock-password" placeholder="Master Password" data-i18n-placeholder="lblMasterPassword">
-                    <button id="btn-unlock" class="btn primary">Unlock</button>
-                    <p id="unlock-error" class="hint" style="display:none"></p>
+                    <!-- Preview blocks -->
+                    <div class="preview-block">
+                        <div class="preview-row">
+                            <div class="preview-label" data-i18n="builderRecipeOutput">Recipe</div>
+                            <code id="bld-recipe-out">—</code>
+                        </div>
+                        <div class="preview-divider"></div>
+                        <div class="preview-row">
+                            <div class="preview-label accent" data-i18n="builderPasswordPreview">Real Password</div>
+                            <code id="bld-password-out">—</code>
+                        </div>
+                    </div>
+
+                    <!-- Actions row -->
+                    <div class="actions-row">
+                        <button id="btn-copy-recipe" class="btn primary" data-i18n="btnCopyRecipe">Copy Recipe</button>
+                    </div>
+
                 </div>
             </div>
         </main>
     </div>
+
+    <!-- Custom tooltip popup (JS-rendered) -->
+    <div class="tooltip-popup" id="tooltip-popup"></div>
+
     <script type="module" src="popup.js"></script>
 </body>
 </html>
