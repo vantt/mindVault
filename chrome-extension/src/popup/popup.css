@@ -482,3 +482,110 @@ input::placeholder { color: var(--text-subtle); }
 .tip-secret { color: var(--amber); font-family: 'Fira Code', 'Consolas', monospace; }
 .tip-pos    { color: var(--accent); font-family: 'Fira Code', 'Consolas', monospace; font-weight: 600; }
 .tip-mod    { color: var(--amber); font-family: 'Fira Code', 'Consolas', monospace; font-weight: 600; }
+
+/* ── Builder header row (How it works link) ── */
+.builder-header-row {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 6px;
+}
+
+/* Link-style button */
+.btn-link {
+    background: none;
+    border: none;
+    color: var(--accent);
+    font-size: 0.72rem;
+    cursor: pointer;
+    padding: 2px 0;
+    font-family: inherit;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+.btn-link:hover { color: var(--accent-hover); }
+
+/* Micro-copy subtitle under labels */
+.builder-subtitle {
+    font-size: 0.68rem;
+    color: var(--text-muted);
+    margin: -2px 0 4px;
+    line-height: 1.3;
+}
+
+/* More options collapsible */
+.builder-more-summary {
+    font-size: 0.72rem;
+    color: var(--accent);
+    cursor: pointer;
+    list-style: none;
+    padding: 4px 0;
+    margin-top: 4px;
+    user-select: none;
+}
+.builder-more-summary::-webkit-details-marker { display: none; }
+.builder-more-summary::before { content: '▸ '; font-size: 0.6rem; }
+details[open] .builder-more-summary::before { content: '▾ '; }
+
+/* ── Home screen contextual states ── */
+.home-sheet-context {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin: 0 0 6px;
+}
+.home-notice {
+    font-size: 0.78rem;
+    color: var(--amber);
+    background: rgba(210,153,34,.08);
+    border: 1px solid rgba(210,153,34,.25);
+    border-radius: 6px;
+    padding: 6px 10px;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+/* ── Quick Start panel ── */
+.quick-start-panel {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 12px;
+    margin-bottom: 10px;
+}
+.qs-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+}
+.qs-title {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--text);
+}
+.btn-qs-close {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 1rem;
+    line-height: 1;
+    padding: 0 2px;
+}
+.btn-qs-close:hover { color: var(--text); }
+.qs-steps {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    padding-left: 18px;
+    margin-bottom: 8px;
+    line-height: 1.6;
+}
+.qs-steps li { margin-bottom: 1px; }
+.qs-actions {
+    display: flex;
+    gap: 6px;
+}
+/* Small button variant for panel actions */
+.btn-sm {
+    padding: 5px 10px;
+    font-size: 0.75rem;
+}

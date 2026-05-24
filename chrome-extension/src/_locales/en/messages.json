@@ -292,5 +292,94 @@
       "own":    { "content": "$1" },
       "shared": { "content": "$2" }
     }
+  },
+
+  "_phase02_home_contextual_states": { "message": "" },
+  "hintEmptyCell": {
+    "message": "Selected cell is empty or has no recipe."
+  },
+  "hintNeedsReload": {
+    "message": "Extension needs tab reload."
+  },
+  "hintSheetContext": {
+    "message": "📄 $1",
+    "placeholders": {
+      "1": { "content": "$1", "example": "Budget 2026" }
+    }
+  },
+  "hintCellError": {
+    "message": "Could not read cell — check sheet permissions."
+  },
+  "hintPepperReminder": {
+    "message": "🔑 Don't forget your pepper!"
+  },
+  "lblProfile": {
+    "message": "Profile"
+  },
+
+  "_phase03_builder_redesign": { "message": "" },
+  "builderSubtitleHash": {
+    "message": "The text part of your recipe"
+  },
+  "builderSubtitlePosition": {
+    "message": "Where your secret goes"
+  },
+  "builderSubtitleSecret": {
+    "message": "Which secret phrase to use"
+  },
+  "builderSubtitleModifiers": {
+    "message": "Optional transformations"
+  },
+  "builderSubtitleSheetId": {
+    "message": "Optional — links recipe to a specific sheet"
+  },
+  "moreOptions": {
+    "message": "More options"
+  },
+  "linkHowItWorks": {
+    "message": "? How it works"
+  },
+
+  "_phase05_quick_start": { "message": "" },
+  "quickStartTitle": {
+    "message": "How it works"
+  },
+  "quickStartStep1": {
+    "message": "Build a recipe"
+  },
+  "quickStartStep2": {
+    "message": "Paste it into a Google Sheets cell"
+  },
+  "quickStartStep3": {
+    "message": "Click the cell → password appears"
+  },
+  "btnGotIt": {
+    "message": "Got it ✓"
+  },
+  "linkLearnMore": {
+    "message": "Learn more →"
+  },
+  "btnCreateFirstRecipe": {
+    "message": "Create First Recipe"
+  },
+
+  "_phase06_demo_page": { "message": "" },
+  "demoTagline": {
+    "message": "Turn recipes into passwords"
+  },
+  "demoIdeaTitle": {
+    "message": "The Idea"
+  },
+  "demoAnatomyTitle": {
+    "message": "Anatomy of a Recipe"
+  },
+  "demoModifiersTitle": {
+    "message": "Modifiers"
+  },
+  "demoDailyUseTitle": {
+    "message": "Daily Use"
+  },
+  "demoBackLink": {
+    "message": "← Back to extension"
   }
 }

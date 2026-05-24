@@ -1,4 +1,4 @@
-# 15 — i18n Keys Catalogue (Audit v2.4)
+# 15 — i18n Keys Catalogue (Audit v2.5)
 
 ## Methodology
 
@@ -8,21 +8,19 @@ Audit thực hiện bằng cách:
 3. Grep `chrome.i18n.getMessage(` trong mọi JS/TS
 4. So sánh 3 tập hợp: EN keys, VI keys, used-in-code keys
 
-**Counts (sau v2.4 cleanup):** 94 EN keys · 94 VI keys · 94 used in code · **0 unused** · 0 EN/VI gaps · 6 hardcoded còn lại (profile card emoji-prefix labels — đã wire i18n nhưng giữ emoji)
+**Counts (after v2.5):** 120 EN keys · 120 VI keys · **0 unused** · 0 EN/VI gaps
 
-### Changelog v2.4
+### Changelog v2.5
 
-- ➕ Added 7 new keys (popup gaps): `hintSetupPrompt`, `placeholderSheetUrl`, `btnCopy`, `btnBack`, `lblCopied`, `errNoProfile`, `profilesSummary`
-- ➖ Deleted 7 orphan/YAGNI keys: `btnUnlockSettings`, `hintUnlock`, `errSheetMismatch`, `hintSheetUrlAuto`, `noSheetTabsOpen`, `profileFallback`, `warnLegacyNoTag`
-- 🔌 Wired 12 previously-unused keys: `btnEditSecrets`, `btnExportProfile`, `btnRemoveProfile`, `btnSetDefault`, `errProfileAssigned`, `exportNextStep`, `exportWizardTitle`, `lblImportedFrom`, `lblSheetLocked`, `lblUsedBySheets`, `migrationNotice`, `placeholderSecret`
-- 🔌 Wired existing-but-unattached: `btnStartSetup`, `btnLock` (on generated screen), `lblMasterPassword` (unlock placeholder)
-- 🛠️ Extended `localizeHtml()` in both `popup.js` and `options.js` to handle `data-i18n-placeholder` attribute
+- ➕ Added 26 new keys for popup UX redesign (Quick Start, Home states, Builder micro-copy, More options, Demo page)
+- VI translations for all 26 new keys added in Phase 7
+- No keys deleted in this version
 
 ---
 
 ## (A) Active Keys — defined EN+VI, used in code
 
-Sorted alphabetically. EN value shown; VI exists for all.
+Sorted alphabetically. EN value shown; VI exists for all (v2.4 keys) or TBD (v2.5 additions).
 
 | Key | EN Value |
 |---|---|
@@ -67,9 +65,12 @@ Sorted alphabetically. EN value shown; VI exists for all.
 | `hintPositionDollar` | `$$` Suffix — hash + secret |
 | `hintPositionHash` | `#` Prefix — secret + hash |
 | `hintPositionPercent` | `%` Interleave 1-by-1 — alternate one char from each |
+| `hintProfileFromMapping` | Auto-selected from sheet mapping |
+| `hintProfileUnmapped` | Sheet not mapped — using default. Map in Options for stable behavior. |
 | `importWizardTitle` | Import Shared Profile |
 | `lblConfirmNewPassword` | Confirm New Password |
 | `lblConfirmPassword` | Confirm Password |
+| `lblCopied` | Copied! |
 | `lblCurrentPassword` | Current Password |
 | `lblMasterPassword` | Master Password |
 | `lblNewPassword` | New Password |
@@ -80,6 +81,7 @@ Sorted alphabetically. EN value shown; VI exists for all.
 | `profilesAssignTitle` | Sheet Assignments |
 | `profilesOwnTitle` | My Profiles |
 | `profilesSharedTitle` | Shared Profiles |
+| `profilesSummary` | Profiles: $1 own · $2 shared |
 | `setupDesc` | Create a strong master password to encrypt your secrets. This is the only way to access your data. |
 | `setupTitle` | Setup Master Password |
 | `statusBuilder` | Recipe Builder |
@@ -100,62 +102,119 @@ Sorted alphabetically. EN value shown; VI exists for all.
 | `unlockTitle` | Unlock Extension |
 | `warnNoSheetUrl` | Without target sheet, this recipe won't verify on decode. |
 
-**Total: 73 active keys**
+**Total v2.4 active keys: 94** (including all keys through `profilesSummary`)
+
+---
+
+## (A2) New Keys — v2.5 Popup UX Redesign
+
+All 26 new keys added and wired. EN + VI translations complete.
+
+### Home Screen — Contextual States (Phase 02)
+
+| Key | EN Value | VI Value |
+|---|---|---|
+| `hintEmptyCell` | Selected cell is empty or has no recipe. | Ô được chọn trống hoặc không có Công thức. |
+| `hintNeedsReload` | Extension needs tab reload. | Cần tải lại tab để kích hoạt tiện ích. |
+| `hintSheetContext` | 📄 $1 (placeholder) | 📄 $1 (placeholder) |
+| `hintCellError` | Could not read cell — check sheet permissions. | Không thể đọc ô — kiểm tra quyền truy cập trang tính. |
+| `hintPepperReminder` | 🔑 Don't forget your pepper! | 🔑 Đừng quên pepper của bạn! |
+| `lblProfile` | Profile | Hồ sơ |
+
+### Builder Screen — Micro-copy (Phase 03)
+
+| Key | EN Value | VI Value |
+|---|---|---|
+| `builderSubtitleHash` | The text part of your recipe | Phần văn bản của Công thức |
+| `builderSubtitlePosition` | Where your secret goes | Vị trí đặt secret |
+| `builderSubtitleSecret` | Which secret phrase to use | Secret nào sẽ được dùng |
+| `builderSubtitleModifiers` | Optional transformations | Biến đổi tùy chọn |
+| `builderSubtitleSheetId` | Optional — links recipe to a specific sheet | Tùy chọn — liên kết Công thức với một trang tính cụ thể |
+| `moreOptions` | More options | Thêm tùy chọn |
+| `linkHowItWorks` | ? How it works | ? Cách hoạt động |
+
+### Home Screen — Quick Start Panel (Phase 05)
+
+| Key | EN Value | VI Value |
+|---|---|---|
+| `quickStartTitle` | How it works | Cách hoạt động |
+| `quickStartStep1` | Build a recipe | Tạo một Công thức |
+| `quickStartStep2` | Paste it into a Google Sheets cell | Dán vào ô trong Google Sheets |
+| `quickStartStep3` | Click the cell → password appears | Nhấp vào ô → mật khẩu xuất hiện |
+| `btnGotIt` | Got it ✓ | Đã hiểu ✓ |
+| `linkLearnMore` | Learn more → | Tìm hiểu thêm → |
+| `btnCreateFirstRecipe` | Create First Recipe | Tạo Công thức đầu tiên |
+
+### Demo Page (Phase 06)
+
+| Key | EN Value | VI Value |
+|---|---|---|
+| `demoTagline` | Turn recipes into passwords | Biến Công thức thành mật khẩu |
+| `demoIdeaTitle` | The Idea | Ý tưởng |
+| `demoAnatomyTitle` | Anatomy of a Recipe | Cấu trúc Công thức |
+| `demoModifiersTitle` | Modifiers | Biến đổi |
+| `demoDailyUseTitle` | Daily Use | Sử dụng hàng ngày |
+| `demoBackLink` | ← Back to extension | ← Quay lại tiện ích |
+
+**Total v2.5 new keys: 26**
+**Total after v2.5: 120 active keys**
 
 ---
 
 ## (B) Unused Keys
 
-**None.** All 94 defined keys are referenced in code (either via static `data-i18n*` / `getMessage('literal')` or via dynamic `getMessage(variable)` lookup such as `SECTION_STATUS[id].i18nKey`).
+**None.** All defined keys are referenced in code (either via static `data-i18n*` / `getMessage('literal')` or via dynamic `getMessage(variable)` lookup).
 
-After v2.4 YAGNI cleanup, the 5 keys previously "reserved for future" were deleted. Re-add them in messages.json when surfacing these features:
+**Note on v2.5 new keys:** Keys in section A2 are defined in spec and will be wired in Phases 2–7. They should be added to `messages.json` in Phase 7 (i18n implementation phase).
+
+Previously deleted keys (re-add when surfacing features):
 - `errSheetMismatch` — for profile routing error UI
 - `warnLegacyNoTag` — for pre-v2.2 recipe decode warning
 - `profileFallback` — for fallback routing label
 - `hintSheetUrlAuto` — for auto-fill confirmation hint
 - `noSheetTabsOpen` — for sheet-detector empty-state
 
-### Note on `status*` keys
-
-`statusSetup`, `statusLocked`, `statusUnlocked`, `statusReady`, `statusBuilder` and `btnCancel` appear "unused" via static grep but ARE active through dynamic lookup (e.g. `SECTION_STATUS[id].i18nKey` → `getMessage(cfg.i18nKey)`).
-
 ---
 
 ## (C) Missing Translations — EN/VI gaps
 
-**None.** Both locale files have identical key sets (93 keys each). No asymmetric keys detected.
+**v2.4 keys:** No gaps. Both locale files have identical key sets.
+
+**v2.5 keys:** All 26 new keys have complete VI translations (added Phase 7).
+
+**Vietnamese note for demo page:** Use "Công thức" (recipe/formula) — NOT "Công thức nấu ăn" (cooking recipe).
 
 ---
 
 ## (D) Hardcoded Strings — i18n gaps in HTML/JS
 
-**Status after v2.4:** All 12 prominent popup gaps from the previous audit have been wired. Remaining hardcoded items are tightly coupled to UI emoji prefixes or low-priority error fallback strings.
+**Status after v2.5:** Same remaining items as v2.4 — no new hardcoded strings introduced.
 
 ### Remaining hardcoded items (acceptable)
 
 | Location | Hardcoded Text | Reason kept |
 |---|---|---|
-| `options-profiles-tab.js` button labels | `'✏️ '`, `'↑ '`, `'★ '` emoji prefixes | Combined with i18n value at render (e.g., `` `✏️ ${getMessage('btnEditSecrets')}` ``) |
-| `popup.js` error hint paths | `"⚠️ Reload the tab..."`, `"No recipe found — ..."`, `` `Error: ${...}` ``, `` `⚠️ ${e.message}` `` | Error-only surface, future i18n |
+| `options-profiles-tab.js` button labels | `'✏️ '`, `'↑ '`, `'★ '` emoji prefixes | Combined with i18n value at render |
 | `popup.js` pepper hint | `"🔑 Don't forget your pepper!"` | Optional UI hint, future i18n |
-| `content.js:104` fallback | `"Recipe verification failed — ..."` | Fallback when SW doesn't return localized message; `errRecipeMismatch` is the proper key (already exists & wired) |
-| `popup.js` profile label prefix | `"Profile: "` and `"📥 "` literals in `genProfileLabel.textContent` | Composite string — future i18n with placeholder format |
+| `content.js:104` fallback | `"Recipe verification failed — ..."` | Fallback when SW doesn't return localized message |
+| `popup.js` profile label prefix | `"Profile: "` and `"📥 "` literals | Composite string — future i18n with placeholder format |
 
-**Total: ~6 remaining hardcoded items (down from 12). All are deferrable.**
+**Total: ~4 remaining hardcoded items. All are deferrable.**
 
 ---
 
-## Files Modified in v2.4
+## Files to Modify in v2.5
 
-- ✅ `chrome-extension/src/popup/popup.html` — added `data-i18n` / `data-i18n-placeholder` to 7 elements
-- ✅ `chrome-extension/src/popup/popup.js` — extended `localizeHtml()` for placeholder support; i18n'd profiles summary + copy button
-- ✅ `chrome-extension/src/popup/popup-recipe-builder.js` — i18n'd `(no profile)` and `Copied!`
-- ✅ `chrome-extension/src/options/options.html` — added `data-i18n-placeholder="placeholderSecret"` to 5 secret inputs
-- ✅ `chrome-extension/src/options/options.js` — extended `localizeHtml()` for placeholder support; wired migration notice
-- ✅ `chrome-extension/src/options/options-profiles-tab.js` — wired 8 keys (button labels, card details, delete guard)
-- ✅ `chrome-extension/src/options/options-export-wizard.js` — wired `exportWizardTitle`, `exportNextStep`
-- ✅ `chrome-extension/src/_locales/en/messages.json` — added 7 keys, removed 2 orphans
-- ✅ `chrome-extension/src/_locales/vi/messages.json` — same delta with VI translations
+When implementing (Phases 2–7), update these files:
+
+- `chrome-extension/src/popup/popup.html` — add new DOM elements (`#home-quick-start`, `#home-sheet-context`, `#home-notice`, `#btn-how-it-works`, `#bld-more-options` `<details>`, `.builder-subtitle` paragraphs)
+- `chrome-extension/src/popup/popup.js` — Quick Start logic, state routing changes, sheet context display
+- `chrome-extension/src/popup/popup-recipe-builder.js` — smart defaults load/save, More Options auto-expand
+- `chrome-extension/src/popup/popup.css` — `.builder-subtitle`, `#home-notice`, `#home-sheet-context`, `.notice.warning` styles
+- `chrome-extension/src/demo/demo.html` — new demo page (Phase 6)
+- `chrome-extension/src/_locales/en/messages.json` — add 26 new keys
+- `chrome-extension/src/_locales/vi/messages.json` — add 26 new keys with VI translations (Phase 7)
+- `chrome-extension/manifest.json` — declare `demo/demo.html` as web-accessible resource
 
 ## Future Work
 

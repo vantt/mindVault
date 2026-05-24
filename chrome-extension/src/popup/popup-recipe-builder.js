@@ -276,9 +276,10 @@ export function initRecipeBuilder({ onBack }) {
     }
 
     // ── Copy recipe string ──────────────────────────────────────────────────
-    el.copyBtn.addEventListener('click', () => {
+    el.copyBtn.addEventListener('click', async () => {
         const recipe = el.recipeOut.textContent;
         if (!recipe || recipe === '—') return;
+        await saveLastUsed();
         navigator.clipboard.writeText(recipe);
         const original = el.copyBtn.textContent;
         el.copyBtn.textContent = chrome.i18n.getMessage('lblCopied') || 'Copied!';
@@ -286,7 +287,8 @@ export function initRecipeBuilder({ onBack }) {
     });
 
     // ── Back ────────────────────────────────────────────────────────────────
-    el.backBtn.addEventListener('click', () => {
+    el.backBtn.addEventListener('click', async () => {
+        await saveLastUsed();
         reset();
         onBack();
     });
@@ -302,6 +304,32 @@ export function initRecipeBuilder({ onBack }) {
             onFormChange();
         },
     });
+
+    // ── Smart defaults: restore last-used position + secret from storage ──────
+    // First-time users see a blank form. Returning users get their last picks.
+    async function loadLastUsed() {
+        try {
+            const { lastUsedPosition, lastUsedSecret } = await chrome.storage.local.get(['lastUsedPosition', 'lastUsedSecret']);
+            if (lastUsedPosition) {
+                const btn = el.positionGroup.querySelector(`[data-val="${lastUsedPosition}"]`);
+                if (btn) { state.position = lastUsedPosition; btn.classList.add('active'); }
+            }
+            if (lastUsedSecret) {
+                const btn = el.secretGroup.querySelector(`[data-val="${lastUsedSecret}"]`);
+                if (btn) { state.secret = lastUsedSecret; btn.classList.add('active'); }
+            }
+        } catch { /* storage unavailable (incognito) — leave form blank */ }
+    }
+
+    // Persist current position + secret so loadLastUsed() can restore them next open.
+    async function saveLastUsed() {
+        try {
+            await chrome.storage.local.set({
+                lastUsedPosition: state.position ?? null,
+                lastUsedSecret: state.secret ?? null,
+            });
+        } catch { /* ignore */ }
+    }
 
     // ── Public: load own profiles + auto-fill sheet URL from active tab ─────
     async function loadProfiles() {
@@ -332,6 +360,12 @@ export function initRecipeBuilder({ onBack }) {
         if (!el.sheetUrl.value) parseSheetInput();
         // Align profile dropdown to detected sheet (lock if mapping exists)
         alignProfileToSheet();
+        // Restore last-used position + secret (blank for first-time users)
+        await loadLastUsed();
+        // Auto-expand "More options" if a sheet was detected
+        const moreOptions = document.getElementById('bld-more-options');
+        if (moreOptions && state.sheetId) moreOptions.open = true;
+        onFormChange();
     }
 
     // ── Public: reset form to empty ─────────────────────────────────────────
@@ -361,7 +395,14 @@ export function initRecipeBuilder({ onBack }) {
         el.passwordOut.classList.remove('error');
         clearTimeout(debounceTimer);
         previewToken++;
+        // Form stays blank after reset (no random or last-used defaults on manual reset)
+        onFormChange();
     }
+
+    // ── "? How it works" link — opens demo page in a new tab ───────────────
+    document.getElementById('btn-how-it-works')?.addEventListener('click', () => {
+        chrome.tabs.create({ url: chrome.runtime.getURL('demo/demo.html') });
+    });
 
     return { loadProfiles, reset };
 }

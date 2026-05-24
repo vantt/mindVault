@@ -290,5 +290,94 @@
       "own":    { "content": "$1" },
       "shared": { "content": "$2" }
     }
+  },
+
+  "_phase02_home_contextual_states": { "message": "" },
+  "hintEmptyCell": {
+    "message": "Ô được chọn trống hoặc không có Công thức."
+  },
+  "hintNeedsReload": {
+    "message": "Cần tải lại tab để kích hoạt tiện ích."
+  },
+  "hintSheetContext": {
+    "message": "📄 $1",
+    "placeholders": {
+      "1": { "content": "$1", "example": "Ngân sách 2026" }
+    }
+  },
+  "hintCellError": {
+    "message": "Không thể đọc ô — kiểm tra quyền truy cập trang tính."
+  },
+  "hintPepperReminder": {
+    "message": "🔑 Đừng quên pepper của bạn!"
+  },
+  "lblProfile": {
+    "message": "Hồ sơ"
+  },
+
+  "_phase03_builder_redesign": { "message": "" },
+  "builderSubtitleHash": {
+    "message": "Phần văn bản của Công thức"
+  },
+  "builderSubtitlePosition": {
+    "message": "Vị trí đặt secret"
+  },
+  "builderSubtitleSecret": {
+    "message": "Secret nào sẽ được dùng"
+  },
+  "builderSubtitleModifiers": {
+    "message": "Biến đổi tùy chọn"
+  },
+  "builderSubtitleSheetId": {
+    "message": "Tùy chọn — liên kết Công thức với một trang tính cụ thể"
+  },
+  "moreOptions": {
+    "message": "Thêm tùy chọn"
+  },
+  "linkHowItWorks": {
+    "message": "? Cách hoạt động"
+  },
+
+  "_phase05_quick_start": { "message": "" },
+  "quickStartTitle": {
+    "message": "Cách hoạt động"
+  },
+  "quickStartStep1": {
+    "message": "Tạo một Công thức"
+  },
+  "quickStartStep2": {
+    "message": "Dán vào ô trong Google Sheets"
+  },
+  "quickStartStep3": {
+    "message": "Nhấp vào ô → mật khẩu xuất hiện"
+  },
+  "btnGotIt": {
+    "message": "Đã hiểu ✓"
+  },
+  "linkLearnMore": {
+    "message": "Tìm hiểu thêm →"
+  },
+  "btnCreateFirstRecipe": {
+    "message": "Tạo Công thức đầu tiên"
+  },
+
+  "_phase06_demo_page": { "message": "" },
+  "demoTagline": {
+    "message": "Biến Công thức thành mật khẩu"
+  },
+  "demoIdeaTitle": {
+    "message": "Ý tưởng"
+  },
+  "demoAnatomyTitle": {
+    "message": "Cấu trúc Công thức"
+  },
+  "demoModifiersTitle": {
+    "message": "Biến đổi"
+  },
+  "demoDailyUseTitle": {
+    "message": "Sử dụng hàng ngày"
+  },
+  "demoBackLink": {
+    "message": "← Quay lại tiện ích"
   }
 }

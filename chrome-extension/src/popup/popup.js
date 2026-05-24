@@ -65,6 +65,12 @@ document.addEventListener('DOMContentLoaded', async () => {
     const genProfileLabel = document.getElementById('gen-profile-label');
     const profilesSummary = document.getElementById('profiles-summary');
 
+    // ── Home contextual state elements ─────────────────────────────────────────
+    const homeHint       = document.getElementById('home-hint');
+    const homeNotice     = document.getElementById('home-notice');
+    const homeNoticeText = document.getElementById('home-notice-text');
+    const homeContext    = document.getElementById('home-sheet-context');
+
     // ── Global status pill (header) ─────────────────────────────────────────
     // Per-section status indicators are gone; the header pill is the single source of truth.
     const SECTION_STATUS = {
@@ -89,6 +95,101 @@ document.addEventListener('DOMContentLoaded', async () => {
         globalStatusText.textContent = chrome.i18n.getMessage(cfg.i18nKey) || cfg.i18nKey;
         globalStatusDot.className = 'dot ' + cfg.dot;
         globalStatusEl.classList.toggle('active', cfg.active);
+    }
+
+    // ── Quick Start panel — shown once per device for first-time users ─────────
+    async function initQuickStart() {
+        const panel    = document.getElementById('quick-start-panel');
+        const buildBtn = document.getElementById('btn-build-recipe');
+        if (!panel || !buildBtn) return;
+
+        let seen = false;
+        try {
+            const result = await chrome.storage.local.get('hasSeenQuickStart');
+            seen = !!result.hasSeenQuickStart;
+        } catch {
+            // Storage unavailable (e.g. incognito restricted) — show panel anyway
+        }
+        if (seen) return;
+
+        // Show panel + update CTA text
+        panel.classList.remove('hidden');
+        buildBtn.textContent = chrome.i18n.getMessage('btnCreateFirstRecipe') || 'Create First Recipe';
+
+        async function dismiss() {
+            try { await chrome.storage.local.set({ hasSeenQuickStart: true }); } catch {}
+            panel.classList.add('hidden');
+            buildBtn.textContent = chrome.i18n.getMessage('btnBuildRecipe') || 'Build Recipe';
+        }
+
+        document.getElementById('btn-qs-close')?.addEventListener('click', dismiss);
+        document.getElementById('btn-qs-got-it')?.addEventListener('click', dismiss);
+        document.getElementById('btn-qs-learn-more')?.addEventListener('click', async () => {
+            await dismiss();
+            chrome.tabs.create({ url: chrome.runtime.getURL('demo/demo.html') });
+        });
+    }
+
+    // ── tryAutoDetect — called on load and from Back button (Phase 4) ──────────
+    // Exposed in outer scope so Back handler can re-call it after returning Home.
+    async function tryAutoDetect(tab) {
+        // Reset notice state each call
+        homeNotice.classList.add('hidden');
+        homeContext.classList.add('hidden');
+        homeNoticeText.textContent = '';
+        homeHint.textContent = chrome.i18n.getMessage('hintClickCell') || 'Click any cell in Google Sheets containing a recipe.';
+
+        if (!tab?.url?.includes('docs.google.com/spreadsheets')) {
+            // Not on Sheets tab — generic hint, nothing else to do
+            return;
+        }
+
+        // Show sheet name badge
+        const sheetName = (tab.title || '').replace(/ [-–] Google Sheets$/i, '').trim();
+        if (sheetName) {
+            const badgeMsg = chrome.i18n.getMessage('hintSheetContext', [sheetName]);
+            homeContext.textContent = badgeMsg || `📄 ${sheetName}`;
+            homeContext.classList.remove('hidden');
+        }
+
+        try {
+            const response = await chrome.tabs.sendMessage(tab.id, { action: 'GET_CURRENT_CELL_PASSWORD' });
+
+            if (response?.success) {
+                // SUCCESS ONLY → navigate to generated screen
+                genPasswordInput.value = response.password;
+                if (response.profileName) {
+                    const prefix = response.isShared ? '📥 ' : '';
+                    genProfileLabel.textContent = `${chrome.i18n.getMessage('lblProfile') || 'Profile'}: ${prefix}${response.profileName}`;
+                    genProfileLabel.classList.remove('hidden');
+                } else {
+                    genProfileLabel.classList.add('hidden');
+                }
+                if (response.settings?.pepperingHint) {
+                    genHint.textContent = chrome.i18n.getMessage('hintPepperReminder') || "🔑 Don't forget your pepper!";
+                } else {
+                    genHint.textContent = '';
+                }
+                showSection('status-generated');
+                return;
+            }
+
+            // Any error → stay on Home, show amber notice
+            const msg = response?.error === 'Empty cell'
+                ? (chrome.i18n.getMessage('hintEmptyCell') || 'Selected cell is empty or has no recipe.')
+                : (chrome.i18n.getMessage('hintCellError') || 'Could not read recipe from this cell.');
+            homeNoticeText.textContent = msg;
+            homeNotice.classList.remove('hidden');
+
+        } catch (e) {
+            const isConnErr = e.message?.includes('Extension context invalidated')
+                || e.message?.includes('Could not establish connection')
+                || e.message?.includes('Receiving end does not exist');
+            homeNoticeText.textContent = isConnErr
+                ? (chrome.i18n.getMessage('hintNeedsReload') || '⚠️ Reload the tab to activate the extension.')
+                : `⚠️ ${e.message}`;
+            homeNotice.classList.remove('hidden');
+        }
     }
 
     // Recipe builder controller — wired regardless of auth state (handlers safely ignored if elements absent)
@@ -122,48 +223,13 @@ document.addEventListener('DOMContentLoaded', async () => {
                 }
             } catch {}
 
-            // Try auto-generate from active cell
+            // Show Quick Start panel for first-time users (before auto-detect so panel is
+            // visible on Home; if tryAutoDetect routes to Generated, panel is never seen anyway)
+            await initQuickStart();
+
+            // Try auto-generate from active cell (success → status-generated; errors stay on Home)
             const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-            if (tab?.url?.includes("docs.google.com/spreadsheets")) {
-                try {
-                    const response = await chrome.tabs.sendMessage(tab.id, { action: "GET_CURRENT_CELL_PASSWORD" });
-                    if (response?.success) {
-                        showSection('status-generated');
-                        genPasswordInput.value = response.password;
-                        // Profile indicator
-                        if (response.profileName) {
-                            const prefix = response.isShared ? '📥 ' : '';
-                            genProfileLabel.textContent = `Profile: ${prefix}${response.profileName}`;
-                            genProfileLabel.classList.remove('hidden');
-                        }
-                        if (response.settings?.pepperingHint) {
-                            genHint.textContent = "🔑 Don't forget your pepper!";
-                            genHint.style.color = "";
-                        }
-                    } else if (response?.error) {
-                        showSection('status-generated');
-                        genPasswordInput.value = "";
-                        if (response.error === "Empty cell") {
-                            genHint.textContent = "No recipe found — select a cell with a recipe, then re-open.";
-                        } else {
-                            const debugText = response.extractedText ? ` ("${response.extractedText}")` : "";
-                            genHint.textContent = `Error: ${response.error}${debugText}`;
-                        }
-                        genHint.style.color = "#da3633";
-                    }
-                } catch (e) {
-                    // Any connection failure (content script not loaded, extension reloaded, etc.)
-                    showSection('status-generated');
-                    genPasswordInput.value = "";
-                    const needsReload = e.message?.includes("Extension context invalidated") ||
-                                        e.message?.includes("Could not establish connection") ||
-                                        e.message?.includes("Receiving end does not exist");
-                    genHint.textContent = needsReload
-                        ? "⚠️ Reload the tab to activate the extension."
-                        : `⚠️ ${e.message}`;
-                    genHint.style.color = "#da3633";
-                }
-            }
+            await tryAutoDetect(tab);
         }
     }
 
@@ -239,6 +305,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         setTimeout(() => { btn.textContent = chrome.i18n.getMessage('btnCopy') || "Copy"; }, 1500);
     });
 
-    // Back (from generated → unlocked)
-    document.getElementById('btn-back').addEventListener('click', () => showSection('status-unlocked'));
+    // Back (from generated → unlocked) — re-run detection so Home reflects current tab state
+    document.getElementById('btn-back').addEventListener('click', async () => {
+        showSection('status-unlocked');
+        // Re-query active tab — user may have switched tabs while popup was open
+        const [activeTab] = await chrome.tabs.query({ active: true, currentWindow: true });
+        await tryAutoDetect(activeTab);
+    });
 });

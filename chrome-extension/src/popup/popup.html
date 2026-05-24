@@ -25,24 +25,44 @@
             </div>
 
             <div id="status-unlocked" class="hidden">
-                <p class="hint" data-i18n="hintClickCell">Click any cell in Google Sheets containing a recipe.</p>
+                <div id="quick-start-panel" class="quick-start-panel hidden">
+                  <div class="qs-header">
+                    <span class="qs-title" data-i18n="quickStartTitle">How it works</span>
+                    <button id="btn-qs-close" class="btn-qs-close" aria-label="Dismiss">×</button>
+                  </div>
+                  <ol class="qs-steps">
+                    <li data-i18n="quickStartStep1">Build a recipe</li>
+                    <li data-i18n="quickStartStep2">Paste it into a Google Sheets cell</li>
+                    <li data-i18n="quickStartStep3">Click the cell → password appears</li>
+                  </ol>
+                  <div class="qs-actions">
+                    <button id="btn-qs-got-it" class="btn secondary btn-sm" data-i18n="btnGotIt">Got it ✓</button>
+                    <button id="btn-qs-learn-more" class="btn primary btn-sm" data-i18n="linkLearnMore">Learn more →</button>
+                  </div>
+                </div>
+                <p id="home-sheet-context" class="home-sheet-context hidden"></p>
+                <p id="home-hint" class="hint"></p>
+                <div id="home-notice" class="home-notice hidden">
+                  <span id="home-notice-text"></span>
+                </div>
                 <p id="profiles-summary" class="hint profiles-summary hidden"></p>
                 <button id="btn-build-recipe" class="btn primary" data-i18n="btnBuildRecipe">Build Recipe</button>
                 <button id="btn-lock" class="btn secondary" data-i18n="btnLock">Lock Extension</button>
             </div>
 
             <div id="status-builder" class="hidden">
-                <div class="builder-form">
-                    <label class="builder-label" data-i18n="builderSheetUrl">Target Sheet ID</label>
-                    <input type="text" id="bld-sheet-url" autocomplete="off" spellcheck="false" placeholder="Paste URL or Sheet ID" data-i18n-placeholder="placeholderSheetUrl">
-                    <p id="bld-sheet-url-error" class="builder-error hidden"></p>
-                    <p id="bld-sheet-warning" class="builder-warning hidden" data-i18n="warnNoSheetUrl">Without target sheet, this recipe won't verify on decode.</p>
+                <div class="builder-header-row">
+                    <button id="btn-how-it-works" class="btn-link" data-i18n="linkHowItWorks">? How it works</button>
+                </div>
 
+                <div class="builder-form">
                     <label class="builder-label" data-i18n="builderHash">Hash</label>
+                    <p class="builder-subtitle" data-i18n="builderSubtitleHash">The text part of your recipe</p>
                     <input type="text" id="bld-hash" autocomplete="off" spellcheck="false">
                     <p id="bld-hash-error" class="builder-error hidden"></p>
 
                     <label class="builder-label" data-i18n="builderPosition">Position</label>
+                    <p class="builder-subtitle" data-i18n="builderSubtitlePosition">Where your secret goes</p>
                     <div class="toggle-group" id="bld-position-group">
                         <button type="button" data-val="#" data-i18n-title="hintPositionHash">#</button>
                         <button type="button" data-val="$" data-i18n-title="hintPositionDollar">$</button>
@@ -52,6 +72,7 @@
                     </div>
 
                     <label class="builder-label" data-i18n="builderSecret">Secret</label>
+                    <p class="builder-subtitle" data-i18n="builderSubtitleSecret">Which secret phrase to use</p>
                     <div class="toggle-group" id="bld-secret-group">
                         <button type="button" data-val="1">1</button>
                         <button type="button" data-val="2">2</button>
@@ -60,19 +81,30 @@
                         <button type="button" data-val="5">5</button>
                     </div>
 
-                    <label class="builder-label" data-i18n="builderModifiers">Modifiers</label>
-                    <div class="modifier-row" id="bld-modifier-row">
-                        <label data-i18n-title="hintModifierFlip"><input type="checkbox" data-val="_"> <span>_</span></label>
-                        <label data-i18n-title="hintModifierUpper"><input type="checkbox" data-val="!"> <span>!</span></label>
-                        <label data-i18n-title="hintModifierReverse"><input type="checkbox" data-val="?"> <span>?</span></label>
-                        <label data-i18n-title="hintModifierStrip"><input type="checkbox" data-val="~"> <span>~</span></label>
-                    </div>
+                    <details id="bld-more-options">
+                        <summary class="builder-more-summary" data-i18n="moreOptions">More options</summary>
 
-                    <label class="builder-label">
-                        <span data-i18n="builderProfile">Profile</span>
-                        <span id="bld-profile-hint" class="builder-hint hidden"></span>
-                    </label>
-                    <select id="bld-profile"></select>
+                        <label class="builder-label" data-i18n="builderSheetUrl">Target Sheet ID</label>
+                        <p class="builder-subtitle" data-i18n="builderSubtitleSheetId">Optional — links recipe to a specific sheet</p>
+                        <input type="text" id="bld-sheet-url" autocomplete="off" spellcheck="false" placeholder="Paste URL or Sheet ID" data-i18n-placeholder="placeholderSheetUrl">
+                        <p id="bld-sheet-url-error" class="builder-error hidden"></p>
+                        <p id="bld-sheet-warning" class="builder-warning hidden" data-i18n="warnNoSheetUrl">Without target sheet, this recipe won't verify on decode.</p>
+
+                        <label class="builder-label" data-i18n="builderModifiers">Modifiers</label>
+                        <p class="builder-subtitle" data-i18n="builderSubtitleModifiers">Optional transformations</p>
+                        <div class="modifier-row" id="bld-modifier-row">
+                            <label data-i18n-title="hintModifierFlip"><input type="checkbox" data-val="_"> <span>_</span></label>
+                            <label data-i18n-title="hintModifierUpper"><input type="checkbox" data-val="!"> <span>!</span></label>
+                            <label data-i18n-title="hintModifierReverse"><input type="checkbox" data-val="?"> <span>?</span></label>
+                            <label data-i18n-title="hintModifierStrip"><input type="checkbox" data-val="~"> <span>~</span></label>
+                        </div>
+
+                        <label class="builder-label">
+                            <span data-i18n="builderProfile">Profile</span>
+                            <span id="bld-profile-hint" class="builder-hint hidden"></span>
+                        </label>
+                        <select id="bld-profile"></select>
+                    </details>
                 </div>
 
                 <div class="preview-block">

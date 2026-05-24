@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>mindVault — How it works</title>
+  <link rel="stylesheet" href="demo.css">
+</head>
+<body>
+  <div class="demo-container">
+
+    <header class="demo-header">
+      <div class="demo-logo">🔐</div>
+      <h1>mindVault</h1>
+      <p class="demo-tagline" data-i18n="demoTagline">Turn recipes into passwords</p>
+    </header>
+
+    <!-- ── Section 1: The Idea ── -->
+    <section id="section-idea" class="demo-section">
+      <h2 data-i18n="demoIdeaTitle">The Idea</h2>
+
+      <p>Storing passwords in a spreadsheet means one breach exposes everything.
+         <strong>mindVault flips this</strong> — you store <em>recipes</em>, not passwords.
+         A recipe is a short code that tells the extension <em>how</em> to build your password,
+         using a secret only you know.</p>
+
+      <div class="recipe-example">
+        <div class="recipe-row">
+          <span class="recipe-label">Recipe (public)</span>
+          <code class="recipe-value">r4nd0m#1</code>
+        </div>
+        <div class="recipe-row">
+          <span class="recipe-label">Your secret #1</span>
+          <code class="recipe-value secret">Basic*</code>
+        </div>
+        <div class="recipe-divider"></div>
+        <div class="recipe-row result-row">
+          <span class="recipe-label">Password</span>
+          <code class="recipe-value result">Basic*r4nd0m</code>
+        </div>
+      </div>
+
+      <p class="insight-note">
+        💡 Your spreadsheet can be public. The password is never stored anywhere —
+        it's computed fresh each time from the recipe + your secret.
+      </p>
+    </section>
+
+    <!-- ── Section 2: Anatomy of a Recipe ── -->
+    <section id="section-anatomy" class="demo-section">
+      <h2 data-i18n="demoAnatomyTitle">Anatomy of a Recipe</h2>
+
+      <p>Every recipe has three parts:</p>
+
+      <div class="anatomy-grid">
+        <div class="anatomy-part">
+          <div class="anatomy-symbol hash-color">r4nd0m</div>
+          <div class="anatomy-name">Hash</div>
+          <div class="anatomy-desc">Any text you choose.<br>This is the public part.</div>
+        </div>
+        <div class="anatomy-sep">+</div>
+        <div class="anatomy-part">
+          <div class="anatomy-symbol pos-color">#</div>
+          <div class="anatomy-name">Position</div>
+          <div class="anatomy-desc">Symbol that controls<br>where your secret goes.</div>
+        </div>
+        <div class="anatomy-sep">+</div>
+        <div class="anatomy-part">
+          <div class="anatomy-symbol num-color">1</div>
+          <div class="anatomy-name">Secret #</div>
+          <div class="anatomy-desc">Which of your saved<br>secrets to use.</div>
+        </div>
+      </div>
+
+      <p class="subsection-label">Position symbols — <em>hash = <code>abc</code>, secret = <code>XYZ</code></em></p>
+
+      <table class="demo-table">
+        <thead>
+          <tr>
+            <th>Symbol</th>
+            <th>Meaning</th>
+            <th>Result</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>#</code></td>
+            <td>Prefix — secret first</td>
+            <td><code>XYZ<span class="dim">abc</span></code></td>
+          </tr>
+          <tr>
+            <td><code>$</code></td>
+            <td>Suffix — secret last</td>
+            <td><code><span class="dim">abc</span>XYZ</code></td>
+          </tr>
+          <tr>
+            <td><code>@</code></td>
+            <td>Middle — secret in centre</td>
+            <td><code><span class="dim">a</span>XYZ<span class="dim">bc</span></code></td>
+          </tr>
+          <tr>
+            <td><code>%</code></td>
+            <td>Interleave 1-by-1</td>
+            <td><code><span class="dim">a</span>X<span class="dim">b</span>Y<span class="dim">c</span>Z</code></td>
+          </tr>
+          <tr>
+            <td><code>^</code></td>
+            <td>Interleave 2-by-2</td>
+            <td><code><span class="dim">ab</span>XY<span class="dim">c</span>Z</code></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ── Section 3: Modifiers ── -->
+    <section id="section-modifiers" class="demo-section">
+      <h2 data-i18n="demoModifiersTitle">Modifiers</h2>
+
+      <p>Append optional modifier symbols after the position symbol to transform the output.
+         Modifiers can be combined.</p>
+
+      <table class="demo-table">
+        <thead>
+          <tr>
+            <th>Symbol</th>
+            <th>Effect</th>
+            <th>Example</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>_</code></td>
+            <td>Flip — swap prefix and suffix behaviour</td>
+            <td><code>#_</code> acts like <code>$</code></td>
+          </tr>
+          <tr>
+            <td><code>!</code></td>
+            <td>Uppercase — capitalise the secret</td>
+            <td><code>basic</code> → <code>BASIC</code></td>
+          </tr>
+          <tr>
+            <td><code>?</code></td>
+            <td>Reverse — reverse the secret string</td>
+            <td><code>XYZ</code> → <code>ZYX</code></td>
+          </tr>
+          <tr>
+            <td><code>~</code></td>
+            <td>Strip — remove non-alphanumeric chars</td>
+            <td><code>X!Y@Z</code> → <code>XYZ</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="recipe-example modifier-example">
+        <span class="recipe-label">Recipe with modifiers:</span>
+        <code>r4nd0m#1!?</code>
+        <span class="modifier-breakdown">← hash <code>r4nd0m</code>, position <code>#</code>, secret <code>1</code>, then modifiers <code>!</code><code>?</code></span>
+      </div>
+    </section>
+
+    <!-- ── Section 4: Daily Use ── -->
+    <section id="section-daily-use" class="demo-section">
+      <h2 data-i18n="demoDailyUseTitle">Daily Use</h2>
+
+      <ol class="workflow-list">
+        <li>
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <strong>Open your Google Sheet</strong>
+            <p>Your spreadsheet holds recipes — short codes like <code>fb#1</code> or <code>gh$2!</code>.</p>
+          </div>
+        </li>
+        <li>
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <strong>Click a cell with a recipe</strong>
+            <p>The selected cell value is read automatically by mindVault.</p>
+          </div>
+        </li>
+        <li>
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <strong>Open mindVault</strong>
+            <p>Click the extension icon or press <kbd>Ctrl+Shift+L</kbd> (Mac: <kbd>⌃⇧L</kbd>).</p>
+          </div>
+        </li>
+        <li>
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <strong>Copy &amp; paste</strong>
+            <p>Hit <strong>Copy</strong> and paste into the login field. Done.</p>
+          </div>
+        </li>
+      </ol>
+
+      <div class="tip-box">
+        <span class="tip-icon">🔄</span>
+        <div>
+          <strong>Rotating a password?</strong>
+          Update only the recipe hash — e.g. change <code>fb#1</code> to <code>fb2#1</code>.
+          Same secrets, completely different password. No secret changes needed.
+        </div>
+      </div>
+    </section>
+
+    <footer class="demo-footer">
+      <button id="btn-close-demo" class="btn-close-demo" data-i18n="demoBackLink">← Back to extension</button>
+    </footer>
+
+  </div>
+  <script src="demo.js" type="module"></script>
+</body>
+</html>

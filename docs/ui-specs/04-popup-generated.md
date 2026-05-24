@@ -2,9 +2,11 @@
 
 Reverse-engineered từ [`popup.html`](../../chrome-extension/src/popup/popup.html) (`#status-generated`) và [`popup.js`](../../chrome-extension/src/popup/popup.js) lines 121–161, 224–238.
 
-**Triggered bởi:** Auto-route từ [03-popup-home.md](./03-popup-home.md) khi popup mở trên Google Sheets tab và content script trả về password cho cell đang chọn. Cũng là destination khi error xảy ra trong flow `GET_CURRENT_CELL_PASSWORD`.
+**Triggered bởi:** Auto-route từ [03-popup-home.md](./03-popup-home.md) **SUCCESS ONLY** — `response.success === true`. This screen is reached only when a valid recipe cell is detected and a password is generated successfully.
 
-**Precondition:** Setup done + unlocked + active tab matches `docs.google.com/spreadsheets`.
+**NOT triggered by:** Error responses. All error states (empty cell, connection error, parse error) remain on the Home screen with an amber inline notice. See [03-popup-home.md](./03-popup-home.md) for error handling.
+
+**Precondition:** Setup done + unlocked + active tab matches `docs.google.com/spreadsheets` + `response.success === true`.
 
 ---
 
@@ -20,7 +22,7 @@ Reverse-engineered từ [`popup.html`](../../chrome-extension/src/popup/popup.ht
 │  ┌───────────────────────┐  [Copy]      │
 │  │ XyZ4kP9mNqRsTu        │              │
 │  └───────────────────────┘              │
-│  🔑 Don't forget your pepper!           │  ← optional hint
+│  🔑 Don't forget your pepper!           │  ← optional hint (success only)
 │                                          │
 │  [     Build Recipe     ]                │
 │                                          │
@@ -39,18 +41,18 @@ Reverse-engineered từ [`popup.html`](../../chrome-extension/src/popup/popup.ht
 | `#gen-profile-label` `.profile-label` | `<span>` | `hidden` class by default; shown when `response.profileName` present |
 | `.pwd-container` | `<div>` | Flex row wrapping `#gen-password` + `#btn-copy` |
 | `#gen-password` | `<input type="text" readonly>` | Generated password output |
-| `#btn-copy` | `<button class="btn primary">` | No `data-i18n`; hardcoded "Copy" |
-| `#gen-hint` | `<p class="hint">` | Status/error hint text; empty by default |
+| `#btn-copy` | `<button class="btn primary">` | `data-i18n="btnCopy"` → "Copy" |
+| `#gen-hint` | `<p class="hint">` | Status hint text (pepper reminder only); empty by default |
 | `#btn-build-recipe-gen` | `<button class="btn primary">` | `data-i18n="btnBuildRecipe"` |
 | `.actions-row` (inside `#status-generated`) | `<div>` | Flex row wrapping Back + Lock |
-| `#btn-back` | `<button class="btn secondary">` | No `data-i18n`; hardcoded "Back" |
-| `#btn-lock-gen` | `<button class="btn secondary">` | No `data-i18n`; hardcoded "Lock" |
+| `#btn-back` | `<button class="btn secondary">` | `data-i18n="btnBuilderBack"` → "Back" |
+| `#btn-lock-gen` | `<button class="btn secondary">` | `data-i18n="btnLock"` → "Lock" |
 
 ---
 
 ## Profile Indicator
 
-`#gen-profile-label` content format (set entirely in JS, no i18n):
+`#gen-profile-label` content format (set entirely in JS):
 
 ```js
 const prefix = response.isShared ? '📥 ' : '';
@@ -61,40 +63,35 @@ genProfileLabel.textContent = `Profile: ${prefix}${response.profileName}`;
 - Shared profile: `Profile: 📥 TeamFromB`
 - Hidden (`class="hidden"`) when `response.profileName` is absent
 
-**No "(fallback)" suffix exists in this screen.** The `profileFallback` i18n key (`"Using default profile"`) is defined but not used here. ~~Spec previously claimed `Profile: Default (fallback)` — this was wrong.~~
-
 Styling: class `profile-label`, font-size 0.85rem.
 
 ---
 
 ## Password Display & Copy
 
-- `#gen-password` is `readonly` — user không thể edit
-- Empty string (`""`) set on all error paths
+- `#gen-password` is `readonly` — user cannot edit
+- Value is always non-empty on this screen (error paths no longer route here)
 - Click `[Copy]`:
-  1. Guard: `if (!password) return` (no-op khi rỗng)
-  2. `navigator.clipboard.writeText(password)`
-  3. Button label → `"Copied!"`, after 1500ms → `"Copy"` (setTimeout)
-- Both "Copy" / "Copied!" labels are **hardcoded English** (no i18n)
+  1. `navigator.clipboard.writeText(password)`
+  2. Button label → `data-i18n="lblCopied"` ("Copied!"), after 1500ms → restored to `data-i18n="btnCopy"` ("Copy")
 
 ---
 
 ## Hint Text States
 
-`genHint.textContent` và `genHint.style.color` được set tùy theo response:
+On this screen `#gen-hint` is **success-only** — it shows the pepper reminder or nothing:
 
 | Condition | Hint text | `style.color` |
 |-----------|-----------|---------------|
-| Success + `response.settings?.pepperingHint` truthy | `"🔑 Don't forget your pepper!"` | `""` (cleared to default) |
-| Success + no pepper hint | `""` (empty, unchanged) | — |
-| `response.error === "Empty cell"` | `"No recipe found — select a cell with a recipe, then re-open."` | `"#da3633"` |
-| Other `response.error` | `` `Error: ${response.error}` `` + optional `` `("${response.extractedText}")` `` suffix if `extractedText` present | `"#da3633"` |
-| `catch (e)` + message includes `"Extension context invalidated"` / `"Could not establish connection"` / `"Receiving end does not exist"` | `"⚠️ Reload the tab to activate the extension."` | `"#da3633"` |
-| `catch (e)` other JS exception | `` `⚠️ ${e.message}` `` | `"#da3633"` |
+| `response.settings?.pepperingHint` truthy | `"🔑 Don't forget your pepper!"` | `""` (cleared to default) |
+| No pepper hint (normal success) | `""` (empty) | — |
 
-Note: error color is literal `"#da3633"`, **not** CSS variable `--danger`.
+**All error states have been removed from this screen.** The following error hint rows are no longer rendered here:
 
-**`response.warning` field** returned by service worker is present in the response object but **not displayed** in this screen — no handler in popup.js.
+- ~~Empty cell error~~ → moved to Home `#home-notice`
+- ~~Recipe parse error~~ → moved to Home `#home-notice`
+- ~~Connection error~~ → moved to Home `#home-notice`
+- ~~Other JS exception~~ → moved to Home `#home-notice`
 
 ---
 
@@ -102,12 +99,12 @@ Note: error color is literal `"#da3633"`, **not** CSS variable `--danger`.
 
 | Button | Handler | Behavior |
 |--------|---------|----------|
-| `[Copy]` | Inline click | Guard empty → clipboard write → flash "Copied!" 1500ms |
+| `[Copy]` | Inline click | Clipboard write → flash "Copied!" 1500ms |
 | `[Build Recipe]` | `openBuilder` (shared with `#btn-build-recipe` on Home) | `builder.reset()` → `builder.loadProfiles()` → `showSection('status-builder')` |
-| `[Back]` | Inline click | `showSection('status-unlocked')` — no state cleanup |
+| `[Back]` | Inline click | `tryAutoDetect()` re-runs → if success still detected, stays on Generated; otherwise `showSection('status-unlocked')` |
 | `[Lock]` | Inline click | `chrome.storage.session.remove("sessionKey")` → `window.close()` |
 
-`#btn-lock-gen` và `#btn-lock` (Home screen) share identical handler logic (both wired separately, not the same function reference).
+**Back button behavior change (Phase 4):** `[Back]` now calls `tryAutoDetect()` rather than directly calling `showSection('status-unlocked')`. This re-runs the auto-routing logic so the user ends up in the correct state (Generated if cell is still valid, Home otherwise).
 
 ---
 
@@ -130,21 +127,18 @@ SECTION_STATUS config for `'status-generated'`:
 |-----|----|----|-------|
 | `statusReady` | "Ready" | "Sẵn sàng" | Header status pill |
 | `btnBuildRecipe` | "Build Recipe" | "Tạo Recipe" | `#btn-build-recipe-gen` via `data-i18n` |
+| `btnCopy` | "Copy" | "Sao chép" | `#btn-copy` label |
+| `lblCopied` | "Copied!" | "Đã sao chép!" | `#btn-copy` flash state |
+| `btnBuilderBack` | "Back" | "Quay lại" | `#btn-back` label |
+| `btnLock` | "Lock" | "Khóa" | `#btn-lock-gen` label |
 
-**Gaps — hardcoded English strings in this screen (no i18n):**
+**Remaining hardcoded strings (acceptable, future i18n):**
 
 | String | Location |
 |--------|----------|
-| `"Copy"` / `"Copied!"` | `#btn-copy` label (JS) |
-| `"Back"` | `#btn-back` HTML + no JS override |
-| `"Lock"` | `#btn-lock-gen` HTML + no JS override |
 | `"Profile: "` prefix | `genProfileLabel.textContent` template literal |
 | `"📥 "` shared prefix | `genProfileLabel.textContent` template literal |
 | `"🔑 Don't forget your pepper!"` | `genHint.textContent` |
-| `"No recipe found — select a cell with a recipe, then re-open."` | `genHint.textContent` |
-| `` `Error: ${...}` `` pattern | `genHint.textContent` |
-| `"⚠️ Reload the tab to activate the extension."` | `genHint.textContent` |
-| `` `⚠️ ${e.message}` `` pattern | `genHint.textContent` |
 
 `profileFallback` key exists (`"Using default profile"`) but is **not used** anywhere in this screen.
 
@@ -152,7 +146,7 @@ SECTION_STATUS config for `'status-generated'`:
 
 ## Related Screens
 
-- [03-popup-home.md](./03-popup-home.md) — Parent; auto-routes here when on Sheets tab
+- [03-popup-home.md](./03-popup-home.md) — Parent; auto-routes here on SUCCESS ONLY from Sheets tab
 - [05-recipe-builder.md](./05-recipe-builder.md) — Forward via `[Build Recipe]`
 - [13-error-states.md](./13-error-states.md) — Cross-cutting error rules (sheet mismatch, fallback)
 - [02-popup-unlock.md](./02-popup-unlock.md) — Precondition (must be unlocked)

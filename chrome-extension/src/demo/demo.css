@@ -1,0 +1,340 @@
+/* demo.css — dark theme explainer page, mirrors popup.css variables */
+
+:root {
+  --bg: #0d1117;
+  --surface: #161b22;
+  --surface2: #1c2128;
+  --border: #30363d;
+  --border-hover: #484f58;
+  --text: #e6edf3;
+  --text-muted: #7d8590;
+  --accent: #58a6ff;
+  --green: #3fb950;
+  --amber: #d29922;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* ── Layout ── */
+.demo-container {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 32px 20px 60px;
+}
+
+/* ── Header ── */
+.demo-header {
+  text-align: center;
+  padding: 24px 0 32px;
+  border-bottom: 1px solid var(--border);
+}
+
+.demo-logo {
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.demo-header h1 {
+  font-size: 1.7rem;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  margin-bottom: 6px;
+}
+
+.demo-tagline {
+  color: var(--text-muted);
+  font-size: 1rem;
+}
+
+/* ── Sections ── */
+.demo-section {
+  padding: 28px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.demo-section h2 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 14px;
+}
+
+.demo-section p {
+  margin-bottom: 12px;
+  color: var(--text);
+}
+
+.demo-section p:last-of-type { margin-bottom: 0; }
+
+/* ── Recipe example box ── */
+.recipe-example {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px 16px;
+  font-family: 'Fira Code', 'Consolas', monospace;
+  font-size: 0.88rem;
+  margin: 14px 0;
+}
+
+.recipe-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 3px 0;
+}
+
+.recipe-label {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  min-width: 130px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.recipe-value { color: var(--text); }
+.recipe-value.secret { color: var(--amber); }
+.recipe-value.result { color: var(--green); font-weight: 600; }
+
+.recipe-divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 6px 0;
+}
+
+/* ── Insight note ── */
+.insight-note {
+  background: var(--surface);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 6px 6px 0;
+  padding: 10px 14px;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  margin-top: 14px !important;
+}
+
+/* ── Anatomy grid ── */
+.anatomy-grid {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 16px 0;
+  flex-wrap: wrap;
+}
+
+.anatomy-part {
+  flex: 1;
+  min-width: 110px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px;
+  text-align: center;
+}
+
+.anatomy-symbol {
+  font-family: 'Fira Code', 'Consolas', monospace;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.hash-color { color: var(--text); }
+.pos-color  { color: var(--accent); }
+.num-color  { color: var(--amber); }
+
+.anatomy-name {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.anatomy-desc {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.anatomy-sep {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  align-self: center;
+  padding-top: 4px;
+}
+
+.subsection-label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin: 14px 0 8px !important;
+}
+
+/* ── Tables ── */
+.demo-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  margin: 10px 0;
+}
+
+.demo-table th {
+  text-align: left;
+  color: var(--text-muted);
+  font-weight: 500;
+  padding: 6px 10px;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.demo-table td {
+  padding: 7px 10px;
+  border-bottom: 1px solid rgba(48, 54, 61, 0.5);
+  vertical-align: middle;
+}
+
+.demo-table tr:last-child td { border-bottom: none; }
+
+.demo-table code {
+  color: var(--accent);
+  font-family: 'Fira Code', 'Consolas', monospace;
+  font-size: 0.88rem;
+}
+
+.dim { color: var(--text-muted); }
+
+/* ── Modifier example ── */
+.modifier-example {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.modifier-breakdown {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.modifier-breakdown code {
+  color: var(--accent);
+  font-family: 'Fira Code', 'Consolas', monospace;
+}
+
+/* ── Workflow list ── */
+.workflow-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 14px 0;
+}
+
+.workflow-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.step-num {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--bg);
+  font-weight: 700;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.step-body strong { display: block; margin-bottom: 2px; }
+
+.step-body p {
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  margin: 0 !important;
+}
+
+.step-body code {
+  color: var(--accent);
+  font-family: 'Fira Code', 'Consolas', monospace;
+  font-size: 0.85rem;
+}
+
+kbd {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 1px 5px;
+  font-size: 0.8rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* ── Tip box ── */
+.tip-box {
+  display: flex;
+  gap: 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 14px;
+  margin-top: 16px;
+  font-size: 0.88rem;
+}
+
+.tip-icon { font-size: 1.1rem; flex-shrink: 0; }
+
+.tip-box code {
+  color: var(--accent);
+  font-family: 'Fira Code', 'Consolas', monospace;
+  font-size: 0.85rem;
+}
+
+/* ── Footer ── */
+.demo-footer {
+  text-align: center;
+  padding-top: 32px;
+}
+
+.btn-close-demo {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  padding: 9px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.88rem;
+  font-family: inherit;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.btn-close-demo:hover {
+  color: var(--text);
+  border-color: var(--border-hover);
+}
+
+/* ── Responsive ── */
+@media (max-width: 480px) {
+  .demo-container { padding: 20px 14px 40px; }
+  .anatomy-grid { gap: 6px; }
+  .anatomy-part { min-width: 90px; padding: 10px 8px; }
+  .recipe-label { min-width: 100px; }
+  .modifier-example { flex-direction: column; align-items: flex-start; }
+}
