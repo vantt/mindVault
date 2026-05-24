@@ -77,18 +77,49 @@ export function initRecipeBuilder({ onBack }) {
     wireToggleGroup(el.positionGroup, 'position');
     wireToggleGroup(el.secretGroup, 'secret');
 
-    // ── Generate random 24-char alphanumeric hash ────────────────────────────
-    const HASH_CHARSET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    const HASH_LENGTH = 24;
+    // ── Hash charset toggle buttons ───────────────────────────────────────────
+    const charsetBtns = {
+        upper:   document.getElementById('btn-hash-upper'),
+        lower:   document.getElementById('btn-hash-lower'),
+        digits:  document.getElementById('btn-hash-digits'),
+    };
+    const HASH_LEN = 24;
+
+    // Wire toggle buttons — at least one must stay active.
+    Object.values(charsetBtns).forEach(btn => {
+        btn.addEventListener('click', () => {
+            const activeCount = Object.values(charsetBtns).filter(b => b.classList.contains('active')).length;
+            if (btn.classList.contains('active') && activeCount === 1) return; // keep last active
+            btn.classList.toggle('active');
+        });
+    });
+
+    function buildCharset() {
+        let charset = '';
+        if (charsetBtns.upper.classList.contains('active'))   charset += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        if (charsetBtns.lower.classList.contains('active'))   charset += 'abcdefghijklmnopqrstuvwxyz';
+        if (charsetBtns.digits.classList.contains('active'))  charset += '0123456789';
+        return charset || 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    }
+
+    function updateLenIndicator() {
+        const lenEl = document.getElementById('bld-hash-len-indicator');
+        if (!lenEl) return;
+        const len = el.hash.value.length;
+        lenEl.textContent = len > 0 ? `· ${len}` : '';
+    }
+
     document.getElementById('btn-hash-generate').addEventListener('click', () => {
-        const arr = crypto.getRandomValues(new Uint8Array(HASH_LENGTH));
-        el.hash.value = Array.from(arr, b => HASH_CHARSET[b % HASH_CHARSET.length]).join('');
+        const charset = buildCharset();
+        const arr = crypto.getRandomValues(new Uint8Array(HASH_LEN));
+        el.hash.value = Array.from(arr, b => charset[b % charset.length]).join('');
         validateHash();
+        updateLenIndicator();
         onFormChange();
     });
 
     // ── Inputs + checkboxes ─────────────────────────────────────────────────
-    el.hash.addEventListener('input', () => { validateHash(); onFormChange(); });
+    el.hash.addEventListener('input', () => { validateHash(); updateLenIndicator(); onFormChange(); });
     el.profile.addEventListener('change', onFormChange);
     el.sheetUrl.addEventListener('input', () => { parseSheetInput(); onFormChange(); });
     el.modifierRow.querySelectorAll('input[type="checkbox"]').forEach(cb => {
@@ -392,6 +423,12 @@ export function initRecipeBuilder({ onBack }) {
         el.hash.classList.remove('invalid');
         el.hashError.classList.add('hidden');
         el.hashError.textContent = '';
+        // Reset charset toggles: upper + lower + digits ON, symbols OFF
+        charsetBtns.upper.classList.add('active');
+        charsetBtns.lower.classList.add('active');
+        charsetBtns.digits.classList.add('active');
+        charsetBtns.symbols.classList.remove('active');
+        updateLenIndicator();
         state.position = null;
         state.secret = null;
         state.sheetId = null;

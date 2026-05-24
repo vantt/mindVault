@@ -1,221 +1,492 @@
-/* demo.css — dark theme explainer page, mirrors popup.css variables */
+/* demo.css — Precision v2 design system for the mindVault demo page
+   Depends on: ../styles/tokens.css (ink ramp, accents, fonts, spacing) */
 
-:root {
-  --bg: #0d1117;
-  --surface: #161b22;
-  --surface2: #1c2128;
-  --border: #30363d;
-  --border-hover: #484f58;
-  --text: #e6edf3;
-  --text-muted: #7d8590;
-  --accent: #58a6ff;
-  --green: #3fb950;
-  --amber: #d29922;
-}
-
+/* ── Reset (tokens.css already provides *, but reinforce for clarity) ── */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
+/* ── Base ── */
 body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--ink-050);
+  color: var(--ink-900);
+  font-family: var(--font-body);
   font-size: 15px;
-  line-height: 1.7;
+  line-height: 1.65;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
 }
 
-/* ── Layout ── */
-.demo-container {
-  max-width: 700px;
+/* ── Atmospheric vignette — amber glow top-right ── */
+.demo-vignette {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(ellipse at 80% -8%, rgba(232, 163, 65, 0.06), transparent 55%);
+}
+
+/* ── Top nav strip ── */
+.demo-nav {
+  position: relative;
+  z-index: 10;
+  border-bottom: 1px solid var(--ink-200);
+  background: var(--ink-050);
+}
+
+.demo-nav-inner {
+  max-width: 760px;
   margin: 0 auto;
-  padding: 32px 20px 60px;
+  padding: var(--sp-4) var(--sp-5);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-4);
 }
 
-/* ── Header ── */
-.demo-header {
-  text-align: center;
-  padding: 24px 0 32px;
-  border-bottom: 1px solid var(--border);
+/* ── Wordmark: mind (ink-600) + Vault italic (ink-900, Fraunces) + amber dot ── */
+.demo-wordmark {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  display: flex;
+  align-items: baseline;
+  gap: 0;
+  flex-shrink: 0;
 }
 
-.demo-logo {
-  font-size: 2rem;
-  margin-bottom: 8px;
+.wordmark-mind {
+  color: var(--ink-600);
 }
 
-.demo-header h1 {
-  font-size: 1.7rem;
-  font-weight: 700;
-  letter-spacing: -0.3px;
-  margin-bottom: 6px;
+.wordmark-vault {
+  color: var(--ink-900);
+  font-style: italic;
+  letter-spacing: -0.025em;
 }
 
-.demo-tagline {
-  color: var(--text-muted);
-  font-size: 1rem;
+.wordmark-dot {
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--amber);
+  box-shadow: 0 0 6px rgba(232, 163, 65, 0.67);
+  margin-left: 6px;
+  align-self: center;
+  flex-shrink: 0;
 }
 
-/* ── Sections ── */
-.demo-section {
-  padding: 28px 0;
-  border-bottom: 1px solid var(--border);
-}
-
-.demo-section h2 {
-  font-size: 1.05rem;
-  font-weight: 600;
-  color: var(--accent);
+.demo-nav-label {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  color: var(--ink-500);
+  flex: 1;
+  text-align: center;
+}
+
+.btn-close-tab {
+  background: transparent;
+  border: 1px solid var(--ink-300);
+  color: var(--ink-700);
+  padding: 5px 10px;
+  border-radius: var(--radius-btn);
+  font-family: var(--font-body);
+  font-size: 11.5px;
+  cursor: pointer;
+  transition: border-color 0.12s, color 0.12s;
+  flex-shrink: 0;
+}
+
+.btn-close-tab:hover {
+  border-color: var(--ink-500);
+  color: var(--ink-900);
+}
+
+/* ── Main container ── */
+.demo-container {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 var(--sp-5) var(--sp-9);
+}
+
+/* ── Hero ── */
+.demo-hero {
+  padding: var(--sp-8) 0 var(--sp-5);
+}
+
+.demo-hero-caption {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-500);
+  margin-bottom: 12px;
+}
+
+.demo-hero-title {
+  font-family: var(--font-display);
+  font-size: 48px;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: var(--ink-900);
   margin-bottom: 14px;
 }
 
-.demo-section p {
-  margin-bottom: 12px;
-  color: var(--text);
+.demo-hero-title em {
+  font-style: italic;
 }
 
-.demo-section p:last-of-type { margin-bottom: 0; }
-
-/* ── Recipe example box ── */
-.recipe-example {
-  background: var(--surface2);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 14px 16px;
-  font-family: 'Fira Code', 'Consolas', monospace;
-  font-size: 0.88rem;
-  margin: 14px 0;
+.demo-hero-sub {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--ink-600);
+  max-width: 580px;
+  margin-bottom: var(--sp-5);
 }
 
-.recipe-row {
+/* ── TOC chips ── */
+.demo-toc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+}
+
+.demo-toc-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  border: 1px solid var(--ink-300);
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-size: 11.5px;
+  color: var(--ink-700);
+}
+
+.demo-toc-n {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.16em;
+  color: var(--amber);
+}
+
+/* ── Sections — two-col grid on wide screens ── */
+.demo-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-5);
+  align-items: flex-start;
+  margin-top: var(--sp-6);
+  padding-top: var(--sp-5);
+  border-top: 1px solid var(--ink-200);
+}
+
+/* Section label (SECTION 01, amber mono caption) */
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 10px;
+}
+
+/* Section heading (Fraunces display, italic) */
+.section-text h2 {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: -0.025em;
+  color: var(--ink-900);
+  line-height: 1.1;
+  margin-bottom: var(--sp-3);
+}
+
+.section-text p {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ink-700);
+}
+
+.section-text p + p {
+  margin-top: var(--sp-2);
+}
+
+/* ── Inline code ── */
+code {
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+  color: var(--amber);
+  background: transparent;
+}
+
+/* ── Idea visual box ── */
+.idea-box {
+  background: var(--ink-100);
+  border: 1px solid var(--ink-200);
+  border-radius: 6px;
+  padding: var(--sp-5);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.idea-row {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 3px 0;
+  gap: var(--sp-3);
 }
 
-.recipe-label {
-  color: var(--text-muted);
-  font-size: 0.8rem;
-  min-width: 130px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+.idea-piece-label {
+  width: 96px;
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-500);
 }
 
-.recipe-value { color: var(--text); }
-.recipe-value.secret { color: var(--amber); }
-.recipe-value.result { color: var(--green); font-weight: 600; }
+.idea-value {
+  flex: 1;
+  padding: var(--sp-3);
+  border-radius: 4px;
+  text-align: center;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--ink-800);
+}
 
-.recipe-divider {
-  border: none;
-  border-top: 1px solid var(--border);
-  margin: 6px 0;
+.idea-value--dashed {
+  background: var(--ink-050);
+  border: 1px dashed var(--ink-300);
+}
+
+.idea-value--code {
+  background: var(--ink-050);
+  border: 1px solid var(--ink-300);
+  font-family: var(--font-mono);
+  font-style: normal;
+  font-size: 15px;
+  color: var(--amber);
+  letter-spacing: 0.04em;
+}
+
+.idea-value--result {
+  background: var(--amber-bg);
+  border: 1px solid rgba(232, 163, 65, 0.33);
+  font-family: var(--font-mono);
+  font-style: normal;
+  font-size: 15px;
+  color: var(--amber);
+  letter-spacing: 0.05em;
+}
+
+.idea-plus {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--ink-500);
+  font-size: 16px;
+  padding: var(--sp-2) 0;
+  /* offset to align with idea-value column */
+  padding-left: calc(96px + var(--sp-3));
 }
 
 /* ── Insight note ── */
 .insight-note {
-  background: var(--surface);
-  border-left: 3px solid var(--accent);
-  border-radius: 0 6px 6px 0;
+  background: var(--ink-100);
+  border-left: 3px solid var(--amber);
+  border-radius: 0 4px 4px 0;
   padding: 10px 14px;
-  font-size: 0.88rem;
-  color: var(--text-muted);
-  margin-top: 14px !important;
+  font-family: var(--font-body);
+  font-size: 12.5px;
+  color: var(--ink-700);
+  line-height: 1.55;
+  margin-top: var(--sp-3);
 }
 
-/* ── Anatomy grid ── */
-.anatomy-grid {
+/* ── Anatomy visual box ── */
+.anatomy-box {
+  background: var(--ink-100);
+  border: 1px solid var(--ink-200);
+  border-radius: 6px;
+  padding: var(--sp-5);
+  margin-bottom: var(--sp-3);
+}
+
+/* Large recipe display */
+.anatomy-recipe-display {
+  background: var(--ink-050);
+  border: 1px solid var(--ink-300);
+  border-radius: 4px;
+  padding: var(--sp-4) var(--sp-3);
   display: flex;
-  align-items: flex-start;
-  gap: 8px;
-  margin: 16px 0;
-  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2px;
+  font-family: var(--font-mono);
+  font-size: 32px;
+  letter-spacing: 0.08em;
+  margin-bottom: var(--sp-4);
 }
 
-.anatomy-part {
-  flex: 1;
-  min-width: 110px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 12px;
+/* Anatomy part colors */
+.anat-hash { color: var(--ink-700); }
+.anat-pos  { color: var(--amber); }
+.anat-idx  { color: var(--moss); }
+.anat-mod  { color: var(--coral); }
+
+/* Annotation grid */
+.anatomy-annot-grid {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  row-gap: 10px;
+  column-gap: var(--sp-3);
+  align-items: center;
+}
+
+.anat-part-sym {
+  font-family: var(--font-mono);
+  font-size: 16px;
   text-align: center;
+  min-width: 22px;
 }
 
-.anatomy-symbol {
-  font-family: 'Fira Code', 'Consolas', monospace;
-  font-size: 1.3rem;
-  font-weight: 700;
-  margin-bottom: 4px;
-}
-
-.hash-color { color: var(--text); }
-.pos-color  { color: var(--accent); }
-.num-color  { color: var(--amber); }
-
-.anatomy-name {
-  font-size: 0.75rem;
-  font-weight: 600;
+.anat-detail-label {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  letter-spacing: 0.4px;
-  color: var(--text-muted);
-  margin-bottom: 4px;
+  margin-bottom: 2px;
 }
 
-.anatomy-desc {
-  font-size: 0.78rem;
-  color: var(--text-muted);
+.anat-detail-sub {
+  font-size: 12px;
+  color: var(--ink-700);
   line-height: 1.4;
 }
 
-.anatomy-sep {
-  font-size: 1.2rem;
-  color: var(--text-muted);
-  align-self: center;
-  padding-top: 4px;
-}
-
+/* ── Subsection label ── */
 .subsection-label {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  margin: 14px 0 8px !important;
+  font-family: var(--font-body);
+  font-size: 12.5px;
+  color: var(--ink-600);
+  margin: var(--sp-3) 0 var(--sp-2) !important;
 }
 
 /* ── Tables ── */
 .demo-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 0.85rem;
-  margin: 10px 0;
+  font-size: 13px;
+  margin: var(--sp-2) 0;
 }
 
 .demo-table th {
   text-align: left;
-  color: var(--text-muted);
+  color: var(--ink-600);
+  font-family: var(--font-mono);
+  font-size: 9.5px;
   font-weight: 500;
-  padding: 6px 10px;
-  border-bottom: 1px solid var(--border);
-  font-size: 0.78rem;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  letter-spacing: 0.3px;
+  padding: 6px 10px;
+  border-bottom: 1px solid var(--ink-200);
 }
 
 .demo-table td {
   padding: 7px 10px;
-  border-bottom: 1px solid rgba(48, 54, 61, 0.5);
+  border-bottom: 1px solid var(--ink-200);
   vertical-align: middle;
+  color: var(--ink-800);
+  font-size: 13px;
 }
 
-.demo-table tr:last-child td { border-bottom: none; }
+.demo-table tr:last-child td {
+  border-bottom: none;
+}
 
 .demo-table code {
-  color: var(--accent);
-  font-family: 'Fira Code', 'Consolas', monospace;
+  color: var(--amber);
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+}
+
+.dim { color: var(--ink-500); }
+
+/* ── Modifier table (design system visual) ── */
+.modifier-table-box {
+  background: var(--ink-100);
+  border: 1px solid var(--ink-200);
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: var(--sp-3);
+}
+
+.modifier-row {
+  display: grid;
+  grid-template-columns: 44px 88px 1fr;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: 14px var(--sp-4);
+  border-top: 1px solid var(--ink-200);
+}
+
+.modifier-row:first-child {
+  border-top: none;
+}
+
+.modifier-sym {
+  font-family: var(--font-mono);
+  font-size: 22px;
+  color: var(--coral);
+  text-align: center;
+}
+
+.modifier-name {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 15px;
+  color: var(--ink-900);
+}
+
+.modifier-eff {
+  font-size: 12.5px;
+  color: var(--ink-700);
+  line-height: 1.5;
+}
+
+/* ── Recipe example box ── */
+.recipe-example {
+  background: var(--ink-100);
+  border: 1px solid var(--ink-200);
+  border-radius: 6px;
+  padding: 14px var(--sp-4);
+  font-family: var(--font-mono);
   font-size: 0.88rem;
 }
 
-.dim { color: var(--text-muted); }
+.recipe-label {
+  font-family: var(--font-body);
+  color: var(--ink-600);
+  font-size: 12px;
+  font-family: var(--font-body);
+}
 
-/* ── Modifier example ── */
+/* Modifier example layout */
 .modifier-example {
   display: flex;
   align-items: center;
@@ -224,117 +495,227 @@ body {
 }
 
 .modifier-breakdown {
-  color: var(--text-muted);
-  font-size: 0.8rem;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: var(--ink-600);
+  font-size: 12px;
+  font-family: var(--font-body);
 }
 
 .modifier-breakdown code {
-  color: var(--accent);
-  font-family: 'Fira Code', 'Consolas', monospace;
+  color: var(--amber);
+  font-family: var(--font-mono);
 }
 
-/* ── Workflow list ── */
-.workflow-list {
-  list-style: none;
+/* ── Daily flow box ── */
+.daily-flow-box {
+  background: var(--ink-100);
+  border: 1px solid var(--ink-200);
+  border-radius: 6px;
+  padding: var(--sp-4);
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  margin: 14px 0;
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-3);
 }
 
-.workflow-list li {
+.flow-step {
   display: flex;
+  gap: var(--sp-3);
   align-items: flex-start;
-  gap: 14px;
 }
 
+/* Step number badge: ink-050 bg, ink-300 border, amber text (Geist Mono) */
 .step-num {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  background: var(--accent);
-  color: var(--bg);
-  font-weight: 700;
-  font-size: 0.85rem;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  background: var(--ink-050);
+  border: 1px solid var(--ink-300);
+  border-radius: var(--radius-btn);
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
-  margin-top: 2px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--amber);
+  letter-spacing: 0.12em;
 }
 
-.step-body strong { display: block; margin-bottom: 2px; }
+.step-body strong {
+  display: block;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 15px;
+  color: var(--ink-900);
+  margin-bottom: 3px;
+}
 
 .step-body p {
-  color: var(--text-muted);
-  font-size: 0.88rem;
-  margin: 0 !important;
+  font-size: 12px;
+  color: var(--ink-700);
+  line-height: 1.5;
+  margin: 0;
 }
 
 .step-body code {
-  color: var(--accent);
-  font-family: 'Fira Code', 'Consolas', monospace;
-  font-size: 0.85rem;
+  color: var(--amber);
+  font-family: var(--font-mono);
+  font-size: 0.9em;
 }
 
-kbd {
-  background: var(--surface2);
-  border: 1px solid var(--border);
+/* Security note inside flow box */
+.flow-note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: var(--sp-2);
+  padding: 10px var(--sp-3);
+  background: rgba(29, 40, 24, 0.44);
+  border: 1px solid rgba(132, 181, 119, 0.33);
   border-radius: 4px;
+  font-size: 11.5px;
+  color: var(--ink-800);
+  line-height: 1.55;
+}
+
+.flow-note-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--moss);
+  box-shadow: 0 0 6px rgba(132, 181, 119, 0.67);
+  flex-shrink: 0;
+}
+
+/* ── KBD tags ── */
+kbd {
+  background: var(--ink-150);
+  border: 1px solid var(--ink-300);
+  border-radius: var(--radius-btn);
   padding: 1px 5px;
-  font-size: 0.8rem;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 0.8em;
+  font-family: var(--font-body);
+  color: var(--ink-800);
 }
 
 /* ── Tip box ── */
 .tip-box {
-  display: flex;
-  gap: 12px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 12px 14px;
-  margin-top: 16px;
-  font-size: 0.88rem;
+  background: var(--ink-100);
+  border: 1px solid var(--ink-200);
+  border-radius: 6px;
+  padding: 12px var(--sp-4);
+  font-size: 12.5px;
+  color: var(--ink-700);
+  line-height: 1.55;
 }
 
-.tip-icon { font-size: 1.1rem; flex-shrink: 0; }
+.tip-box strong {
+  color: var(--ink-900);
+  display: block;
+  margin-bottom: 4px;
+}
 
 .tip-box code {
-  color: var(--accent);
-  font-family: 'Fira Code', 'Consolas', monospace;
-  font-size: 0.85rem;
+  color: var(--amber);
+  font-family: var(--font-mono);
+  font-size: 0.9em;
 }
 
-/* ── Footer ── */
-.demo-footer {
-  text-align: center;
-  padding-top: 32px;
+/* ── Closing section ── */
+.demo-closing {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--sp-4);
+  flex-wrap: wrap;
+  margin-top: var(--sp-7);
+  padding-top: var(--sp-5);
+  border-top: 1px solid var(--ink-200);
 }
 
-.btn-close-demo {
-  background: none;
-  border: 1px solid var(--border);
-  color: var(--text-muted);
-  padding: 9px 20px;
-  border-radius: 8px;
+.closing-title {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-style: italic;
+  letter-spacing: -0.02em;
+  color: var(--ink-900);
+}
+
+.closing-sub {
+  color: var(--ink-600);
+  font-size: 13px;
+  margin-top: 6px;
+  max-width: 460px;
+  line-height: 1.55;
+}
+
+.closing-actions {
+  display: flex;
+  gap: var(--sp-2);
+  flex-shrink: 0;
+}
+
+/* Secondary button (ghost, ink-300 border) */
+.btn-secondary {
+  background: transparent;
+  color: var(--ink-800);
+  border: 1px solid var(--ink-300);
+  padding: 10px var(--sp-4);
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: var(--radius-btn);
   cursor: pointer;
-  font-size: 0.88rem;
-  font-family: inherit;
-  transition: color 0.15s, border-color 0.15s;
+  transition: border-color 0.12s, color 0.12s;
 }
 
-.btn-close-demo:hover {
-  color: var(--text);
-  border-color: var(--border-hover);
+.btn-secondary:hover {
+  border-color: var(--ink-500);
+  color: var(--ink-900);
+}
+
+/* Primary button (amber bg, dark text) */
+.btn-primary {
+  background: var(--amber);
+  color: #1a0f02;
+  border: none;
+  padding: 10px var(--sp-4);
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: var(--radius-btn);
+  cursor: pointer;
+  transition: background 0.12s, box-shadow 0.12s;
+}
+
+.btn-primary:hover {
+  background: var(--amber-hi);
+  box-shadow: var(--shadow-amber-hover);
 }
 
 /* ── Responsive ── */
-@media (max-width: 480px) {
-  .demo-container { padding: 20px 14px 40px; }
-  .anatomy-grid { gap: 6px; }
-  .anatomy-part { min-width: 90px; padding: 10px 8px; }
-  .recipe-label { min-width: 100px; }
-  .modifier-example { flex-direction: column; align-items: flex-start; }
+@media (max-width: 640px) {
+  .demo-nav-label { display: none; }
+
+  .demo-hero-title { font-size: 32px; }
+  .demo-hero-sub   { font-size: 14px; }
+
+  .demo-section {
+    grid-template-columns: 1fr;
+  }
+
+  .demo-container { padding: 0 var(--sp-4) var(--sp-7); }
+
+  .closing-actions { width: 100%; }
+  .btn-secondary, .btn-primary { flex: 1; text-align: center; }
+
+  .modifier-row { grid-template-columns: 36px 72px 1fr; gap: var(--sp-2); }
+
+  .anatomy-recipe-display { font-size: 24px; }
+}
+
+@media (max-width: 400px) {
+  .demo-hero-title { font-size: 26px; }
+  .idea-piece-label { width: 72px; font-size: 8px; }
+  .idea-plus { padding-left: calc(72px + var(--sp-3)); }
 }

@@ -3,10 +3,10 @@ import { encryptWithKey, decryptWithKey } from "../adapters/infrastructure/aes-s
 import { initProfilesTab } from "./options-profiles-tab.js";
 import { openExportWizard } from "./options-export-wizard.js";
 import { openImportWizard } from "./options-import-wizard.js";
+import { initSettingsTab } from "./options-settings-tab.js";
 
 const argon2 = new Argon2Adapter();
 let sessionKey = null;
-let activeProfileKey = "profile:Default";
 
 // ── DOM refs ──
 const setupSection = document.getElementById("setup-section");
@@ -55,6 +55,8 @@ async function switchTab(name) {
     document.querySelectorAll('.tab-content').forEach(c => c.classList.toggle('hidden', c.id !== `tab-${name}`));
     if (name === 'profiles') {
         await initProfilesTab({ sessionKey, onExport: openExportWizard, onImport: openImportWizard, showToast });
+    } else if (name === 'settings') {
+        await initSettingsTab({ showToast });
     }
 }
 
@@ -67,9 +69,8 @@ async function checkStatus() {
         showSection(setupSection);
     } else if (session.sessionKey) {
         sessionKey = session.sessionKey;
-        activeProfileKey = `profile:${stored.defaultProfile || "Default"}`;
-        await loadSecrets();
         showSection(dashboardSection);
+        await switchTab('profiles');
         // Migration notice
         if (stored.migrationNotified === false) {
             showToast(chrome.i18n.getMessage('migrationNotice') || '✅ Migrated to v2. Secrets are now in profile "Default".');
@@ -78,33 +79,6 @@ async function checkStatus() {
     } else {
         showSection(unlockSection);
     }
-}
-
-// ── Secrets tab ──
-async function loadSecrets() {
-    try {
-        const stored = await chrome.storage.sync.get([activeProfileKey, "encryptedData", "iv", "defaultProfile"]);
-        const profileData = stored[activeProfileKey];
-        let decrypted;
-
-        if (profileData?.encryptedData) {
-            decrypted = await decryptWithKey(profileData.encryptedData, profileData.iv, sessionKey);
-        } else if (stored.encryptedData) {
-            // Pre-migration fallback
-            decrypted = await decryptWithKey(stored.encryptedData, stored.iv, sessionKey);
-        } else return;
-
-        Object.entries(decrypted.secrets || {}).forEach(([idx, obj]) => {
-            const input = document.querySelector(`.secret-input[data-index="${idx}"]`);
-            if (input) input.value = obj.base || '';
-        });
-        if (decrypted.settings?.pepperingHint) {
-            document.getElementById("setting-peppering-hint").checked = true;
-        }
-        const lbl = document.getElementById('secrets-profile-label');
-        const profileName = activeProfileKey.slice(8); // strip "profile:"
-        if (lbl) lbl.textContent = `Editing: ${profileName}`;
-    } catch (e) { console.error("loadSecrets error:", e); showToast("Failed to load secrets", true); }
 }
 
 // ── Event listeners ──
@@ -134,10 +108,9 @@ document.addEventListener("DOMContentLoaded", async () => {
                 sheetMapping: {}
             });
             await chrome.storage.session.set({ sessionKey });
-            activeProfileKey = "profile:Default";
             showToast(chrome.i18n.getMessage("toastSetupComplete"));
-            await loadSecrets();
             showSection(dashboardSection);
+            await switchTab('profiles');
         } catch (err) { showToast("Setup failed: " + err.message, true); }
     });
 
@@ -158,26 +131,12 @@ document.addEventListener("DOMContentLoaded", async () => {
             await decryptWithKey(verifyData.encryptedData, verifyData.iv, derivedKey); // throws if wrong pwd
             sessionKey = derivedKey;
             await chrome.storage.session.set({ sessionKey });
-            activeProfileKey = profileKey;
             showToast(chrome.i18n.getMessage("toastUnlockSuccess"));
-            await loadSecrets();
             showSection(dashboardSection);
+            await switchTab('profiles');
         } catch (err) {
             showToast(err.message.includes("OperationError") ? "Invalid Password" : err.message, true);
         }
-    });
-
-    // Save secrets (Secrets tab)
-    document.getElementById("secrets-form").addEventListener("submit", async (e) => {
-        e.preventDefault();
-        const data = { secrets: {}, settings: {} };
-        document.querySelectorAll(".secret-input").forEach(inp => { data.secrets[inp.dataset.index] = { base: inp.value }; });
-        data.settings.pepperingHint = document.getElementById("setting-peppering-hint").checked;
-        try {
-            const encrypted = await encryptWithKey(data, sessionKey);
-            await chrome.storage.sync.set({ [activeProfileKey]: encrypted });
-            showToast(chrome.i18n.getMessage("toastSaveSuccess"));
-        } catch (err) { showToast("Save failed: " + err.message, true); }
     });
 
     // Lock
@@ -185,15 +144,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         await chrome.storage.session.remove("sessionKey");
         sessionKey = null;
         location.reload();
-    });
-
-    // Visibility toggles (secrets tab)
-    document.querySelectorAll(".btn-toggle-visibility").forEach(btn => {
-        btn.addEventListener("click", () => {
-            const inp = btn.previousElementSibling;
-            inp.type = inp.type === "password" ? "text" : "password";
-            btn.textContent = inp.type === "password" ? "👁" : "🙈";
-        });
     });
 
     // Change password (Settings tab)
@@ -232,6 +182,8 @@ document.addEventListener("DOMContentLoaded", async () => {
             await chrome.storage.session.set({ sessionKey });
             showToast(chrome.i18n.getMessage("toastPwdUpdated"));
             document.getElementById("change-password-form").reset();
+            document.getElementById("change-password-form").classList.add("hidden");
+            document.getElementById("pwd-summary").classList.remove("hidden");
         } catch (err) {
             let msg = err.message;
             if (msg.includes("OperationError")) msg = "Incorrect current password";
@@ -239,9 +191,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             showToast(msg, true);
         }
     });
-
-    // Redirect "Change Password" button to Settings tab
-    document.getElementById("btn-change-pwd").addEventListener("click", () => switchTab("settings"));
 
     // Sync across tabs
     chrome.storage.onChanged.addListener((changes, area) => {

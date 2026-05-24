@@ -8,7 +8,7 @@ let state = {};
 
 export function openExportWizard(profileName, profileKey, sessionKey, onComplete) {
     state = { profileName, profileKey, sessionKey, onComplete, step: 1 };
-    document.getElementById('export-modal-title').textContent = `${chrome.i18n.getMessage('exportWizardTitle') || 'Export Profile'}: "${profileName}"`;
+    document.querySelector('#export-modal-title .modal-title-em').textContent = profileName;
     document.getElementById('btn-close-export').onclick = () => confirmClose('modal-export');
     renderStep(1);
     document.getElementById('modal-export').classList.remove('hidden');

@@ -4,210 +4,287 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>mindVault — How it works</title>
+  <!-- v2 Precision tokens: fonts (Fraunces, Geist, Geist Mono) + CSS custom props -->
+  <link rel="stylesheet" href="../styles/tokens.css">
   <link rel="stylesheet" href="demo.css">
 </head>
 <body>
+  <!-- Atmospheric vignette (amber glow, top-right) -->
+  <div class="demo-vignette" aria-hidden="true"></div>
+
+  <!-- ── Top nav strip ── -->
+  <nav class="demo-nav">
+    <div class="demo-nav-inner">
+      <!-- Wordmark: "mind" ink/600 + "Vault" ink/900 italic (Fraunces) + amber dot -->
+      <div class="demo-wordmark">
+        <span class="wordmark-mind">mind</span><span class="wordmark-vault">Vault</span><span class="wordmark-dot" aria-hidden="true"></span>
+      </div>
+      <div class="demo-nav-label">Demo · how it works</div>
+      <button id="btn-close-top" class="btn-close-tab" type="button">Close this tab</button>
+    </div>
+  </nav>
+
   <div class="demo-container">
 
-    <header class="demo-header">
-      <div class="demo-logo">🔐</div>
-      <h1>mindVault</h1>
-      <p class="demo-tagline" data-i18n="demoTagline">Turn recipes into passwords</p>
+    <!-- ── Hero ── -->
+    <header class="demo-hero">
+      <div class="demo-hero-caption">Read time · ~3 min</div>
+      <h1 class="demo-hero-title">
+        How <em>mind</em><em>Vault</em> works.
+      </h1>
+      <p class="demo-hero-sub">
+        A short recipe in a spreadsheet, five private phrases in your head —
+        every password derived on demand, nothing at rest.
+      </p>
+      <!-- Table of contents chips -->
+      <div class="demo-toc">
+        <span class="demo-toc-chip"><span class="demo-toc-n">01</span> The idea</span>
+        <span class="demo-toc-chip"><span class="demo-toc-n">02</span> Anatomy of a recipe</span>
+        <span class="demo-toc-chip"><span class="demo-toc-n">03</span> Modifiers</span>
+        <span class="demo-toc-chip"><span class="demo-toc-n">04</span> Daily use</span>
+      </div>
     </header>
 
     <!-- ── Section 1: The Idea ── -->
     <section id="section-idea" class="demo-section">
-      <h2 data-i18n="demoIdeaTitle">The Idea</h2>
-
-      <p>Storing passwords in a spreadsheet means one breach exposes everything.
-         <strong>mindVault flips this</strong> — you store <em>recipes</em>, not passwords.
-         A recipe is a short code that tells the extension <em>how</em> to build your password,
-         using a secret only you know.</p>
-
-      <div class="recipe-example">
-        <div class="recipe-row">
-          <span class="recipe-label">Recipe (public)</span>
-          <code class="recipe-value">r4nd0m#1</code>
-        </div>
-        <div class="recipe-row">
-          <span class="recipe-label">Your secret #1</span>
-          <code class="recipe-value secret">Basic*</code>
-        </div>
-        <div class="recipe-divider"></div>
-        <div class="recipe-row result-row">
-          <span class="recipe-label">Password</span>
-          <code class="recipe-value result">Basic*r4nd0m</code>
-        </div>
+      <div class="section-text">
+        <div class="section-label">Section 01</div>
+        <h2 data-i18n="demoIdeaTitle">The Idea</h2>
+        <p>Storing passwords in a spreadsheet means one breach exposes everything.
+           <strong>mindVault flips this</strong> — you store <em>recipes</em>, not passwords.
+           A recipe is a short code that tells the extension <em>how</em> to build your password,
+           using a secret only you know.</p>
       </div>
 
-      <p class="insight-note">
-        💡 Your spreadsheet can be public. The password is never stored anywhere —
-        it's computed fresh each time from the recipe + your secret.
-      </p>
+      <div class="section-visual">
+        <!-- Idea visual: in your head + in your sheet → derived -->
+        <div class="idea-box">
+          <div class="idea-row">
+            <div class="idea-piece-label">in your head</div>
+            <div class="idea-value idea-value--dashed">five private phrases</div>
+          </div>
+          <div class="idea-plus">+</div>
+          <div class="idea-row">
+            <div class="idea-piece-label">in your sheet</div>
+            <div class="idea-value idea-value--code">fb#1</div>
+          </div>
+          <div class="idea-plus">↓</div>
+          <div class="idea-row">
+            <div class="idea-piece-label">derived</div>
+            <div class="idea-value idea-value--result">f7nQp2!vXm9kR$8B</div>
+          </div>
+        </div>
+
+        <p class="insight-note">
+          Your spreadsheet can be public. The password is never stored anywhere —
+          it's computed fresh each time from the recipe + your secret.
+        </p>
+      </div>
     </section>
 
     <!-- ── Section 2: Anatomy of a Recipe ── -->
     <section id="section-anatomy" class="demo-section">
-      <h2 data-i18n="demoAnatomyTitle">Anatomy of a Recipe</h2>
-
-      <p>Every recipe has three parts:</p>
-
-      <div class="anatomy-grid">
-        <div class="anatomy-part">
-          <div class="anatomy-symbol hash-color">r4nd0m</div>
-          <div class="anatomy-name">Hash</div>
-          <div class="anatomy-desc">Any text you choose.<br>This is the public part.</div>
-        </div>
-        <div class="anatomy-sep">+</div>
-        <div class="anatomy-part">
-          <div class="anatomy-symbol pos-color">#</div>
-          <div class="anatomy-name">Position</div>
-          <div class="anatomy-desc">Symbol that controls<br>where your secret goes.</div>
-        </div>
-        <div class="anatomy-sep">+</div>
-        <div class="anatomy-part">
-          <div class="anatomy-symbol num-color">1</div>
-          <div class="anatomy-name">Secret #</div>
-          <div class="anatomy-desc">Which of your saved<br>secrets to use.</div>
-        </div>
+      <div class="section-text">
+        <div class="section-label">Section 02</div>
+        <h2 data-i18n="demoAnatomyTitle">Anatomy of a Recipe</h2>
+        <p>A recipe looks like <code>fb#1</code> — a hash you choose, a position symbol, and a secret
+           index from 1 to 5. The hash is the only public part; the index points at one of your five
+           phrases, never spelling it out.</p>
       </div>
 
-      <p class="subsection-label">Position symbols — <em>hash = <code>abc</code>, secret = <code>XYZ</code></em></p>
+      <div class="section-visual">
+        <!-- Recipe anatomy visual -->
+        <div class="anatomy-box">
+          <!-- Large recipe display -->
+          <div class="anatomy-recipe-display">
+            <span class="anat-hash">fb</span><span class="anat-pos">#</span><span class="anat-idx">1</span><span class="anat-mod">_</span>
+          </div>
+          <!-- Annotation list -->
+          <div class="anatomy-annot-grid">
+            <span class="anat-hash anat-part-sym">fb</span>
+            <div class="anat-detail">
+              <div class="anat-detail-label anat-hash">hash</div>
+              <div class="anat-detail-sub">any ASCII text you choose</div>
+            </div>
+            <span class="anat-pos anat-part-sym">#</span>
+            <div class="anat-detail">
+              <div class="anat-detail-label anat-pos">position</div>
+              <div class="anat-detail-sub">where the secret is woven in</div>
+            </div>
+            <span class="anat-idx anat-part-sym">1</span>
+            <div class="anat-detail">
+              <div class="anat-detail-label anat-idx">secret index</div>
+              <div class="anat-detail-sub">1 – 5, picks one of your phrases</div>
+            </div>
+            <span class="anat-mod anat-part-sym">_</span>
+            <div class="anat-detail">
+              <div class="anat-detail-label anat-mod">modifier</div>
+              <div class="anat-detail-sub">optional — transforms the combination</div>
+            </div>
+          </div>
+        </div>
 
-      <table class="demo-table">
-        <thead>
-          <tr>
-            <th>Symbol</th>
-            <th>Meaning</th>
-            <th>Result</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><code>#</code></td>
-            <td>Prefix — secret first</td>
-            <td><code>XYZ<span class="dim">abc</span></code></td>
-          </tr>
-          <tr>
-            <td><code>$</code></td>
-            <td>Suffix — secret last</td>
-            <td><code><span class="dim">abc</span>XYZ</code></td>
-          </tr>
-          <tr>
-            <td><code>@</code></td>
-            <td>Middle — secret in centre</td>
-            <td><code><span class="dim">a</span>XYZ<span class="dim">bc</span></code></td>
-          </tr>
-          <tr>
-            <td><code>%</code></td>
-            <td>Interleave 1-by-1</td>
-            <td><code><span class="dim">a</span>X<span class="dim">b</span>Y<span class="dim">c</span>Z</code></td>
-          </tr>
-          <tr>
-            <td><code>^</code></td>
-            <td>Interleave 2-by-2</td>
-            <td><code><span class="dim">ab</span>XY<span class="dim">c</span>Z</code></td>
-          </tr>
-        </tbody>
-      </table>
+        <!-- Position symbols table -->
+        <p class="subsection-label">Position symbols — <em>hash = <code>abc</code>, secret = <code>XYZ</code></em></p>
+        <table class="demo-table">
+          <thead>
+            <tr>
+              <th>Symbol</th>
+              <th>Meaning</th>
+              <th>Result</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>#</code></td>
+              <td>Prefix — secret first</td>
+              <td><code>XYZ<span class="dim">abc</span></code></td>
+            </tr>
+            <tr>
+              <td><code>$</code></td>
+              <td>Suffix — secret last</td>
+              <td><code><span class="dim">abc</span>XYZ</code></td>
+            </tr>
+            <tr>
+              <td><code>@</code></td>
+              <td>Middle — secret in centre</td>
+              <td><code><span class="dim">a</span>XYZ<span class="dim">bc</span></code></td>
+            </tr>
+            <tr>
+              <td><code>%</code></td>
+              <td>Interleave 1-by-1</td>
+              <td><code><span class="dim">a</span>X<span class="dim">b</span>Y<span class="dim">c</span>Z</code></td>
+            </tr>
+            <tr>
+              <td><code>^</code></td>
+              <td>Interleave 2-by-2</td>
+              <td><code><span class="dim">ab</span>XY<span class="dim">c</span>Z</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </section>
 
     <!-- ── Section 3: Modifiers ── -->
     <section id="section-modifiers" class="demo-section">
-      <h2 data-i18n="demoModifiersTitle">Modifiers</h2>
+      <div class="section-text">
+        <div class="section-label">Section 03</div>
+        <h2 data-i18n="demoModifiersTitle">Modifiers</h2>
+        <p>Append optional modifier symbols after the position symbol to transform the output.
+           Each modifier is deterministic and reversible — same recipe, same output, every time.
+           Modifiers can be combined.</p>
+      </div>
 
-      <p>Append optional modifier symbols after the position symbol to transform the output.
-         Modifiers can be combined.</p>
+      <div class="section-visual">
+        <!-- Modifier table -->
+        <div class="modifier-table-box">
+          <div class="modifier-row">
+            <span class="modifier-sym">_</span>
+            <span class="modifier-name">flip</span>
+            <span class="modifier-eff">Reverses how the secret combines with the hash</span>
+          </div>
+          <div class="modifier-row">
+            <span class="modifier-sym">!</span>
+            <span class="modifier-name">upper</span>
+            <span class="modifier-eff">Uppercases the secret before combining</span>
+          </div>
+          <div class="modifier-row">
+            <span class="modifier-sym">?</span>
+            <span class="modifier-name">reverse</span>
+            <span class="modifier-eff">Reverses the secret before combining</span>
+          </div>
+          <div class="modifier-row">
+            <span class="modifier-sym">~</span>
+            <span class="modifier-name">strip</span>
+            <span class="modifier-eff">Strips spaces and punctuation from the secret</span>
+          </div>
+        </div>
 
-      <table class="demo-table">
-        <thead>
-          <tr>
-            <th>Symbol</th>
-            <th>Effect</th>
-            <th>Example</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><code>_</code></td>
-            <td>Flip — swap prefix and suffix behaviour</td>
-            <td><code>#_</code> acts like <code>$</code></td>
-          </tr>
-          <tr>
-            <td><code>!</code></td>
-            <td>Uppercase — capitalise the secret</td>
-            <td><code>basic</code> → <code>BASIC</code></td>
-          </tr>
-          <tr>
-            <td><code>?</code></td>
-            <td>Reverse — reverse the secret string</td>
-            <td><code>XYZ</code> → <code>ZYX</code></td>
-          </tr>
-          <tr>
-            <td><code>~</code></td>
-            <td>Strip — remove non-alphanumeric chars</td>
-            <td><code>X!Y@Z</code> → <code>XYZ</code></td>
-          </tr>
-        </tbody>
-      </table>
-
-      <div class="recipe-example modifier-example">
-        <span class="recipe-label">Recipe with modifiers:</span>
-        <code>r4nd0m#1!?</code>
-        <span class="modifier-breakdown">← hash <code>r4nd0m</code>, position <code>#</code>, secret <code>1</code>, then modifiers <code>!</code><code>?</code></span>
+        <!-- Modifier example row -->
+        <div class="recipe-example modifier-example">
+          <span class="recipe-label">Recipe with modifiers:</span>
+          <code>r4nd0m#1!?</code>
+          <span class="modifier-breakdown">← hash <code>r4nd0m</code>, position <code>#</code>, secret <code>1</code>, then modifiers <code>!</code><code>?</code></span>
+        </div>
       </div>
     </section>
 
     <!-- ── Section 4: Daily Use ── -->
     <section id="section-daily-use" class="demo-section">
-      <h2 data-i18n="demoDailyUseTitle">Daily Use</h2>
+      <div class="section-text">
+        <div class="section-label">Section 04</div>
+        <h2 data-i18n="demoDailyUseTitle">Daily Use</h2>
+        <p>Open a spreadsheet, click the cell with your recipe, then open mindVault.
+           The popup auto-detects the cell and generates the password. Paste it, then close.
+           Nothing was written to disk, nothing was sent over the network.</p>
+      </div>
 
-      <ol class="workflow-list">
-        <li>
-          <div class="step-num">1</div>
-          <div class="step-body">
-            <strong>Open your Google Sheet</strong>
-            <p>Your spreadsheet holds recipes — short codes like <code>fb#1</code> or <code>gh$2!</code>.</p>
+      <div class="section-visual">
+        <!-- Steps -->
+        <div class="daily-flow-box">
+          <div class="flow-step">
+            <div class="step-num">01</div>
+            <div class="step-body">
+              <strong>Open your Google Sheet</strong>
+              <p>Your spreadsheet holds recipes — short codes like <code>fb#1</code> or <code>gh$2!</code>.</p>
+            </div>
           </div>
-        </li>
-        <li>
-          <div class="step-num">2</div>
-          <div class="step-body">
-            <strong>Click a cell with a recipe</strong>
-            <p>The selected cell value is read automatically by mindVault.</p>
+          <div class="flow-step">
+            <div class="step-num">02</div>
+            <div class="step-body">
+              <strong>Click a recipe cell</strong>
+              <p>Anywhere on the spreadsheet — mindVault reads the active cell.</p>
+            </div>
           </div>
-        </li>
-        <li>
-          <div class="step-num">3</div>
-          <div class="step-body">
-            <strong>Open mindVault</strong>
-            <p>Click the extension icon or press <kbd>Ctrl+Shift+L</kbd> (Mac: <kbd>⌃⇧L</kbd>).</p>
+          <div class="flow-step">
+            <div class="step-num">03</div>
+            <div class="step-body">
+              <strong>Open the extension</strong>
+              <p>Click the icon or press <kbd>Ctrl+Shift+L</kbd> (Mac: <kbd>⌃⇧L</kbd>). The popup auto-routes to the Generated screen.</p>
+            </div>
           </div>
-        </li>
-        <li>
-          <div class="step-num">4</div>
-          <div class="step-body">
-            <strong>Copy &amp; paste</strong>
-            <p>Hit <strong>Copy</strong> and paste into the login field. Done.</p>
+          <div class="flow-step">
+            <div class="step-num">04</div>
+            <div class="step-body">
+              <strong>Copy &amp; paste</strong>
+              <p>The password is on the clipboard. Close the popup and it disappears.</p>
+            </div>
           </div>
-        </li>
-      </ol>
 
-      <div class="tip-box">
-        <span class="tip-icon">🔄</span>
-        <div>
-          <strong>Rotating a password?</strong>
-          Update only the recipe hash — e.g. change <code>fb#1</code> to <code>fb2#1</code>.
-          Same secrets, completely different password. No secret changes needed.
+          <div class="flow-note">
+            <span class="flow-note-dot" aria-hidden="true"></span>
+            Nothing is stored, transmitted, or logged outside your device.
+          </div>
+        </div>
+
+        <!-- Tip box -->
+        <div class="tip-box">
+          <div class="tip-box-inner">
+            <strong>Rotating a password?</strong>
+            Update only the recipe hash — e.g. change <code>fb#1</code> to <code>fb2#1</code>.
+            Same secrets, completely different password. No secret changes needed.
+          </div>
         </div>
       </div>
     </section>
 
-    <footer class="demo-footer">
-      <button id="btn-close-demo" class="btn-close-demo" data-i18n="demoBackLink">← Back to extension</button>
-    </footer>
+    <!-- ── Closing ── -->
+    <div class="demo-closing">
+      <div class="closing-text">
+        <div class="closing-title">That's it.</div>
+        <div class="closing-sub">
+          The rest is detail — profile routing, sheet locking, shared bundles.
+          Worth knowing later. Not worth knowing today.
+        </div>
+      </div>
+      <div class="closing-actions">
+        <button id="btn-open-builder" class="btn-secondary" type="button">Open Recipe Builder</button>
+        <button id="btn-close-demo" class="btn-primary" data-i18n="demoBackLink" type="button">Close this tab</button>
+      </div>
+    </div>
 
   </div>
+
   <script src="demo.js" type="module"></script>
 </body>
 </html>

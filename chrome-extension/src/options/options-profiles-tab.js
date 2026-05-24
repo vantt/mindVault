@@ -56,8 +56,10 @@ function renderOwnProfiles(profiles, defaultName, sheetMapping, deps) {
         card.style.setProperty('--profile-color', color);
         card.innerHTML = `
             <div class="profile-header">
-                <span class="profile-dot" style="background:${color}"></span>
-                <span class="profile-name">${escHtml(name)}</span>
+                <div class="profile-header-left">
+                    <span class="profile-dot" style="background:${color}"></span>
+                    <span class="profile-name">${escHtml(name)}</span>
+                </div>
                 ${isDefault ? '<span class="profile-badge">⭐ default</span>' : ''}
             </div>
             <div class="profile-meta">${sheetCount > 0 ? `${sheetCount} ${chrome.i18n.getMessage('lblUsedBySheets') || 'sheets'}` : 'No sheet assignments'}</div>
@@ -95,8 +97,10 @@ function renderSharedProfiles(profiles, deps) {
         card.className = 'profile-card shared';
         card.innerHTML = `
             <div class="profile-header">
-                <span>📥</span>
-                <span class="profile-name">${escHtml(name)}</span>
+                <div class="profile-header-left">
+                    <span>📥</span>
+                    <span class="profile-name">${escHtml(name)}</span>
+                </div>
                 <span class="profile-badge">🔒 read-only</span>
             </div>
             <div class="profile-meta">
@@ -167,60 +171,65 @@ function openNewProfileModal(deps) {
 // ---------- Edit Secrets Modal ----------
 
 function openEditSecretsModal(profileKey, profileName, deps) {
-    document.getElementById('edit-secrets-title').textContent = `Edit Secrets: ${profileName}`;
-    const container = document.getElementById('edit-secrets-inputs');
-    container.innerHTML = Array.from({ length: 5 }, (_, i) => i + 1).map(i => `
-        <div class="secret-item">
-            <label>Secret #${i}</label>
-            <div class="input-wrapper">
-                <input type="password" class="modal-secret-input" data-index="${i}" placeholder="Enter secret phrase" />
-                <button type="button" class="btn-toggle-visibility" data-for="${i}">👁</button>
-            </div>
-        </div>`).join('');
+    document.querySelector('#edit-secrets-title .modal-title-em').textContent = profileName;
 
-    // Load existing secrets
+    // Reset inputs to password type and clear values
+    const inputs = document.querySelectorAll('#edit-secrets-inputs .modal-secret-input');
+    inputs.forEach(inp => {
+        inp.value = '';
+        inp.type = 'password';
+    });
+    document.getElementById('modal-peppering-hint').checked = false;
+
+    // Wire SVG eye toggles (idempotent — clone to strip old listeners)
+    document.querySelectorAll('#edit-secrets-inputs .modal-btn-eye').forEach(btn => {
+        const fresh = btn.cloneNode(true);
+        btn.parentNode.replaceChild(fresh, btn);
+        fresh.addEventListener('click', () => {
+            const inp = fresh.closest('.input-wrapper').querySelector('.modal-secret-input');
+            inp.type = inp.type === 'password' ? 'text' : 'password';
+            // Swap the path to crossed-out eye when revealed
+            const paths = fresh.querySelectorAll('path, circle');
+            fresh.style.opacity = inp.type === 'text' ? '0.5' : '1';
+        });
+    });
+
+    // Load existing secrets and settings
     chrome.storage.sync.get(profileKey).then(async stored => {
         const data = stored[profileKey];
         if (!data) return;
         try {
             const decrypted = await decryptWithKey(data.encryptedData, data.iv, deps.sessionKey);
-            container.querySelectorAll('.modal-secret-input').forEach(inp => {
-                const val = decrypted.secrets?.[inp.dataset.index]?.base || '';
-                inp.value = val;
+            document.querySelectorAll('#edit-secrets-inputs .modal-secret-input').forEach(inp => {
+                inp.value = decrypted.secrets?.[inp.dataset.index]?.base || '';
             });
+            if (decrypted.settings?.pepperingHint) {
+                document.getElementById('modal-peppering-hint').checked = true;
+            }
         } catch (e) { console.error("Failed to load secrets for edit:", e); }
-    });
-
-    // Visibility toggles
-    container.querySelectorAll('.btn-toggle-visibility').forEach(btn => {
-        btn.onclick = () => {
-            const inp = container.querySelector(`.modal-secret-input[data-index="${btn.dataset.for}"]`);
-            inp.type = inp.type === 'password' ? 'text' : 'password';
-            btn.textContent = inp.type === 'password' ? '👁' : '🙈';
-        };
     });
 
     openModal('modal-edit-secrets');
 
     const saveBtn = document.getElementById('btn-save-modal-secrets');
-    saveBtn.onclick = async () => {
-        const secrets = { secrets: {}, settings: {} };
-        container.querySelectorAll('.modal-secret-input').forEach(inp => {
-            secrets.secrets[inp.dataset.index] = { base: inp.value };
+    // Clone to strip any previous onclick
+    const freshSave = saveBtn.cloneNode(true);
+    saveBtn.parentNode.replaceChild(freshSave, saveBtn);
+    freshSave.addEventListener('click', async () => {
+        const data = { secrets: {}, settings: {} };
+        document.querySelectorAll('#edit-secrets-inputs .modal-secret-input').forEach(inp => {
+            data.secrets[inp.dataset.index] = { base: inp.value };
         });
-        // Preserve existing settings
+        data.settings.pepperingHint = document.getElementById('modal-peppering-hint').checked;
         try {
-            const stored = await chrome.storage.sync.get(profileKey);
-            if (stored[profileKey]) {
-                const existing = await decryptWithKey(stored[profileKey].encryptedData, stored[profileKey].iv, deps.sessionKey);
-                secrets.settings = existing.settings || {};
-            }
-        } catch {}
-        const encrypted = await encryptWithKey(secrets, deps.sessionKey);
-        await chrome.storage.sync.set({ [profileKey]: encrypted });
-        deps.showToast("Secrets saved");
-        closeModal('modal-edit-secrets');
-    };
+            const encrypted = await encryptWithKey(data, deps.sessionKey);
+            await chrome.storage.sync.set({ [profileKey]: encrypted });
+            deps.showToast("Secrets saved");
+            closeModal('modal-edit-secrets');
+        } catch (e) {
+            deps.showToast("Save failed: " + e.message, true);
+        }
+    });
 }
 
 // ---------- CRUD ----------

@@ -198,10 +198,13 @@
                             <div class="builder-field-header">
                                 <label class="builder-label" for="bld-hash" data-i18n="builderHash">Hash</label>
                             </div>
-                            <p class="builder-subtitle" data-i18n="builderSubtitleHash">The text part of your recipe</p>
+                            <p class="builder-subtitle" data-i18n="builderSubtitleHash">The text part of your recipe <span id="bld-hash-len-indicator" class="hash-len-indicator"></span></p>
                             <div class="input-slab-with-action">
                                 <input type="text" id="bld-hash" autocomplete="off" spellcheck="false"
                                        placeholder="any ASCII string" data-i18n-placeholder="placeholderHash">
+                                <button type="button" id="btn-hash-upper" class="btn-detect-refresh btn-charset-toggle active" title="Uppercase A-Z">A-Z</button>
+                                <button type="button" id="btn-hash-lower" class="btn-detect-refresh btn-charset-toggle active" title="Lowercase a-z">a-z</button>
+                                <button type="button" id="btn-hash-digits" class="btn-detect-refresh btn-charset-toggle active" title="Digits 0-9">0-9</button>
                                 <button type="button" id="btn-hash-generate" class="btn-detect-refresh"
                                         title="Generate random hash">↻</button>
                             </div>
