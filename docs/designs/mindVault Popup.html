@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>mindVault — Popup screens (400×600)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@300;400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
+
+<style>
+  html, body { margin: 0; padding: 0; background: #18181a; }
+  body { font-family: 'Geist', system-ui, sans-serif; color: #e8e6e0; -webkit-font-smoothing: antialiased; }
+  * { box-sizing: border-box; }
+</style>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script type="text/babel" src="design-canvas.jsx"></script>
+<script type="text/babel" src="mvault-system.jsx"></script>
+<script type="text/babel" src="screen-01-setup.jsx"></script>
+<script type="text/babel" src="screen-02-unlock.jsx"></script>
+<script type="text/babel" src="screen-03-home.jsx"></script>
+<script type="text/babel" src="screen-04-generated.jsx"></script>
+<script type="text/babel" src="screen-05-builder.jsx"></script>
+
+</head>
+<body>
+<div id="root"></div>
+
+<script type="text/babel">
+const { DesignCanvas, DCSection, DCArtboard } = window;
+const {
+  MSetupFaithful, MSetupExplore,
+  MUnlockFaithful, MUnlockExplore,
+  MHomeFaithful, MHomeBuilderFirst, MHomeTerminal,
+  MGenerated, MGeneratedHero, MGeneratedReceipt,
+  MBuilder,
+  M_TOK,
+} = window;
+
+// Chrome Extension popup target size
+const W = 400;
+const H = 600;
+
+const bg = { background: "#0e0e10" };
+
+function App() {
+  return (
+    <DesignCanvas>
+
+      <DCSection
+        id="intro"
+        title="mindVault · Popup screens"
+        subtitle="5 popup states (01–05). Updated to UI-spec v2.4 — Home owns sheet errors (was Generated); Generated is success-only; Builder has subtitles, ‘? How it works’ and a More-options collapsible. Sized 400×600. Visual language: warm ink ramp + Fraunces italic + Geist Mono · amber primary · coral block · moss success."
+      >
+        <DCArtboard id="notes" label="Notes" width={W} height={H} style={bg}>
+          <IntroCard/>
+        </DCArtboard>
+      </DCSection>
+
+      <DCSection
+        id="01-setup"
+        title="01 · First Setup"
+        subtitle="Shown when no salt in storage. Popup is just a CTA — actual master-password form lives on the Options page."
+      >
+        <DCArtboard id="setup-a" label="A · Faithful — minimal CTA" width={W} height={H} style={bg}>
+          <MSetupFaithful/>
+        </DCArtboard>
+        <DCArtboard id="setup-b" label="B · Explore — what you'll create" width={W} height={H} style={bg}>
+          <MSetupExplore/>
+        </DCArtboard>
+      </DCSection>
+
+      <DCSection
+        id="02-unlock"
+        title="02 · Unlock"
+        subtitle="Most frequent screen — seen every browser session restart. Argon2id ~0.8s so 'Unlocking…' state is real, not decoration."
+      >
+        <DCArtboard id="unlock-empty"    label="A · Empty / default"            width={W} height={H} style={bg}>
+          <MUnlockFaithful state="empty"/>
+        </DCArtboard>
+        <DCArtboard id="unlock-typing"   label="B · Typing (focused)"           width={W} height={H} style={bg}>
+          <MUnlockFaithful state="typing"/>
+        </DCArtboard>
+        <DCArtboard id="unlock-busy"     label="C · Unlocking… (deriving key)"  width={W} height={H} style={bg}>
+          <MUnlockFaithful state="busy"/>
+        </DCArtboard>
+        <DCArtboard id="unlock-invalid"  label="D · Error · Invalid password"   width={W} height={H} style={bg}>
+          <MUnlockFaithful state="error-invalid"/>
+        </DCArtboard>
+        <DCArtboard id="unlock-missing"  label="E · Error · Missing salt"       width={W} height={H} style={bg}>
+          <MUnlockFaithful state="error-missing"/>
+        </DCArtboard>
+        <DCArtboard id="unlock-nodata"   label="F · Error · No encrypted data"  width={W} height={H} style={bg}>
+          <MUnlockFaithful state="error-nodata"/>
+        </DCArtboard>
+        <DCArtboard id="unlock-explore"  label="G · Explore — welcome back"     width={W} height={H} style={bg}>
+          <MUnlockExplore/>
+        </DCArtboard>
+      </DCSection>
+
+      <DCSection
+        id="03-home"
+        title="03 · Home / Hub"
+        subtitle="Main hub after unlock. v2.4: all Sheets-tab errors now stay on Home (#home-notice). Quick Start panel shown until user dismisses it via hasSeenQuickStart flag."
+      >
+        <DCArtboard id="home-quickstart" label="A · First-use · Quick Start panel" width={W} height={H} style={bg}>
+          <MHomeFaithful context="quick-start"/>
+        </DCArtboard>
+        <DCArtboard id="home-standard"   label="B · Standard · non-Sheets tab"     width={W} height={H} style={bg}>
+          <MHomeFaithful context="standard"/>
+        </DCArtboard>
+        <DCArtboard id="home-empty"      label="C · Sheets tab · empty cell"       width={W} height={H} style={bg}>
+          <MHomeFaithful context="sheet-empty"/>
+        </DCArtboard>
+        <DCArtboard id="home-reload"     label="D · Sheets tab · needs reload"     width={W} height={H} style={bg}>
+          <MHomeFaithful context="sheet-reload"/>
+        </DCArtboard>
+        <DCArtboard id="home-builder"    label="E · Explore — builder-first"       width={W} height={H} style={bg}>
+          <MHomeBuilderFirst/>
+        </DCArtboard>
+        <DCArtboard id="home-terminal"   label="F · Explore — terminal status"     width={W} height={H} style={bg}>
+          <MHomeTerminal/>
+        </DCArtboard>
+      </DCSection>
+
+      <DCSection
+        id="04-generated"
+        title="04 · Generated (success only)"
+        subtitle="v2.4: success-only. Auto-routed only when response.success === true. All error paths moved to Home — see Section 03."
+      >
+        <DCArtboard id="gen-default"   label="A · Default · own profile"           width={W} height={H} style={bg}>
+          <MGenerated state="default"/>
+        </DCArtboard>
+        <DCArtboard id="gen-copied"    label="B · Just-copied flash (1.5s)"        width={W} height={H} style={bg}>
+          <MGenerated state="copied"/>
+        </DCArtboard>
+        <DCArtboard id="gen-shared"    label="C · Shared profile + bound sheet"    width={W} height={H} style={bg}>
+          <MGenerated state="shared"/>
+        </DCArtboard>
+        <DCArtboard id="gen-pepper"    label="D · Pepper hint visible"             width={W} height={H} style={bg}>
+          <MGenerated state="pepper"/>
+        </DCArtboard>
+        <DCArtboard id="gen-hero"      label="E · Explore — hero password"         width={W} height={H} style={bg}>
+          <MGeneratedHero/>
+        </DCArtboard>
+        <DCArtboard id="gen-receipt"   label="F · Explore — receipt / ledger"      width={W} height={H} style={bg}>
+          <MGeneratedReceipt/>
+        </DCArtboard>
+      </DCSection>
+
+      <DCSection
+        id="05-builder"
+        title="05 · Recipe Builder"
+        subtitle="v2.4: ‘? How it works’ link top-right; subtitle paragraphs under each primary field; Sheet ID + Modifiers + Profile wrapped in a More-options collapsible (auto-expands when a sheet is detected); Position + Secret pre-selected from lastUsed for returning users."
+      >
+        <DCArtboard id="bld-first"   label="A · First-time · empty (no defaults)"    width={W} height={H} style={bg}>
+          <MBuilder state="first-time"/>
+        </DCArtboard>
+        <DCArtboard id="bld-smart"   label="B · Returning · smart defaults pre-set" width={W} height={H} style={bg}>
+          <MBuilder state="smart-default"/>
+        </DCArtboard>
+        <DCArtboard id="bld-filled"  label="C · Filled · sheet auto-detected"       width={W} height={H} style={bg}>
+          <MBuilder state="filled"/>
+        </DCArtboard>
+        <DCArtboard id="bld-tabs"    label="D · Tabs picker · multi-tab"            width={W} height={H} style={bg}>
+          <MBuilder state="tabs-picker"/>
+        </DCArtboard>
+        <DCArtboard id="bld-locked"  label="E · Profile locked · sheet mapped"      width={W} height={H} style={bg}>
+          <MBuilder state="profile-locked"/>
+        </DCArtboard>
+        <DCArtboard id="bld-hasherr" label="F · Hash error · non-ASCII"             width={W} height={H} style={bg}>
+          <MBuilder state="hash-error"/>
+        </DCArtboard>
+      </DCSection>
+
+    </DesignCanvas>
+  );
+}
+
+function IntroCard() {
+  const t = M_TOK;
+  return (
+    <div style={{
+      width: "100%", height: "100%",
+      background: t.ink050, color: t.ink900,
+      fontFamily: "'Geist', system-ui, sans-serif",
+      padding: "32px 28px",
+      display: "flex", flexDirection: "column",
+      overflow: "hidden",
+    }}>
+      <div style={{
+        fontFamily: "'Fraunces', serif", fontSize: 32, fontWeight: 400,
+        letterSpacing: "-0.02em", lineHeight: 1.1,
+      }}>
+        <span style={{ color: t.ink600 }}>mind</span>
+        <span style={{ fontStyle: "italic" }}>Vault</span>
+      </div>
+      <div style={{
+        fontFamily: "'Geist Mono', monospace", fontSize: 10.5,
+        letterSpacing: "0.2em", textTransform: "uppercase",
+        color: t.ink500, marginTop: 12,
+      }}>
+        Popup canvas · v0.2 · spec 2.4
+      </div>
+
+      <div style={{ height: 22 }} />
+      <div style={{
+        fontFamily: "'Fraunces', serif", fontSize: 17, fontStyle: "italic",
+        color: t.ink800, lineHeight: 1.4,
+      }}>
+        5 screens × multiple states,<br/>
+        one file per screen.
+      </div>
+
+      <div style={{ height: 18 }} />
+      <div style={{ fontSize: 12.5, color: t.ink700, lineHeight: 1.55 }}>
+        <strong style={{ color: t.amber, fontWeight: 500 }}>Spec v2.4 deltas</strong>
+        <br/>
+        <span style={{ color: t.ink600 }}>03 Home</span> · adds Quick-Start panel + sheet-context badge; now owns all sheet errors
+        <br/>
+        <span style={{ color: t.ink600 }}>04 Generated</span> · success-only; 3 error states retired
+        <br/>
+        <span style={{ color: t.ink600 }}>05 Builder</span> · ‘? How it works’ link + per-field subtitles + More-options collapsible + smart defaults
+      </div>
+
+      <div style={{ height: 18 }} />
+      <div style={{ fontSize: 11.5, color: t.ink600, lineHeight: 1.55 }}>
+        Sizing · <span style={{ color: t.amber }}>400 × 600</span>.
+        The spec calls for 600px but that's unrealistic for a Chrome popup
+        (industry standard is 320–400). Builder is widest and fits at 400.
+      </div>
+
+      <div style={{ flex: 1 }} />
+
+      <div style={{
+        display: "flex", flexDirection: "column", gap: 6,
+        paddingTop: 14, borderTop: `1px solid ${t.ink200}`,
+      }}>
+        <Legend dot={t.moss}   label="ready · success · verified" />
+        <Legend dot={t.amber}  label="primary action · warning · pepper" />
+        <Legend dot={t.coral}  label="blocking error · invalid" />
+        <Legend dot={t.ink400} label="locked · disabled" />
+      </div>
+    </div>
+  );
+}
+
+function Legend({ dot, label }) {
+  return (
+    <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+      <span style={{
+        width: 7, height: 7, borderRadius: "50%",
+        background: dot, boxShadow: `0 0 7px ${dot}66`,
+      }}/>
+      <span style={{
+        fontFamily: "'Geist Mono', monospace", fontSize: 10.5,
+        letterSpacing: "0.12em", textTransform: "uppercase",
+        color: "#b4ad9f",
+      }}>{label}</span>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>

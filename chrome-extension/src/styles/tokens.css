@@ -1,0 +1,80 @@
+/* tokens.css — Precision Design System v2 tokens
+   Source of truth: docs/designs/README.md §3 + mvault-system.jsx */
+
+/* Self-host fonts for MV3 CSP compliance.
+   Fallback: load from Google Fonts during development. */
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@300;400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400;1,9..144,500&display=swap');
+
+:root {
+  /* ── Ink ramp (warm desaturated grays) ── */
+  --ink-000: #0a0a0c;
+  --ink-050: #0e0e10;
+  --ink-100: #15151a;
+  --ink-150: #1c1c22;
+  --ink-200: #232329;
+  --ink-300: #2f2f36;
+  --ink-400: #44413c;
+  --ink-500: #6a655d;
+  --ink-600: #8a857a;
+  --ink-700: #b4ad9f;
+  --ink-800: #d8d2c3;
+  --ink-900: #f0ece2;
+
+  /* ── Semantic accents ── */
+  --amber:    #e8a341;
+  --amber-hi: #f5b35a;
+  --amber-lo: #b97d23;
+  --amber-bg: #3a2a14;
+
+  --moss:    #84b577;
+  --moss-bg: #1d2818;
+
+  --coral:    #e0746c;
+  --coral-bg: #2b1815;
+
+  --honey: #d4a548;
+
+  /* ── Profile color palette (cycle by index) ── */
+  --profile-0: #58a6ff;
+  --profile-1: #e3b341;
+  --profile-2: #3fb950;
+  --profile-3: #a371f7;
+
+  /* ── Typography ── */
+  --font-display: 'Fraunces', serif;
+  --font-body:    'Geist', system-ui, sans-serif;
+  --font-mono:    'Geist Mono', ui-monospace, monospace;
+
+  /* ── Spacing (4px base) ── */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 20px;
+  --sp-6: 24px;
+  --sp-7: 32px;
+  --sp-8: 40px;
+  --sp-9: 56px;
+
+  /* ── Radii ── */
+  --radius-btn: 4px;
+  --radius-chip: 3px;
+
+  /* ── Shadows ── */
+  --shadow-amber-hover: 0 8px 22px rgba(232, 163, 65, 0.2);
+}
+
+/* ── Base reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: rgba(232, 163, 65, 0.2);
+  color: var(--ink-900);
+}
+
+.hidden { display: none !important; }

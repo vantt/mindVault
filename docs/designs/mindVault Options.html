@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>mindVault — Options · Settings · Demo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@300;400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
+
+<style>
+  html, body { margin: 0; padding: 0; background: #18181a; }
+  body { font-family: 'Geist', system-ui, sans-serif; color: #e8e6e0; -webkit-font-smoothing: antialiased; }
+  * { box-sizing: border-box; }
+  @keyframes spin { from { transform: rotate(0deg) } to { transform: rotate(360deg) } }
+  /* hide scrollbars inside artboards on the canvas */
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-thumb { background: #2f2f36; border-radius: 3px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+</style>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script type="text/babel" src="design-canvas.jsx"></script>
+<script type="text/babel" src="mvault-system.jsx"></script>
+<script type="text/babel" src="options-system.jsx"></script>
+<script type="text/babel" src="screen-options-secrets.jsx"></script>
+<script type="text/babel" src="screen-options-profiles.jsx"></script>
+<script type="text/babel" src="screen-options-settings.jsx"></script>
+<script type="text/babel" src="screen-modal-new-profile.jsx"></script>
+<script type="text/babel" src="screen-modal-edit-secrets.jsx"></script>
+<script type="text/babel" src="screen-wizard-export.jsx"></script>
+<script type="text/babel" src="screen-wizard-import.jsx"></script>
+<script type="text/babel" src="screen-demo.jsx"></script>
+
+</head>
+<body>
+<div id="root"></div>
+
+<script type="text/babel">
+const { DesignCanvas, DCSection, DCArtboard } = window;
+const {
+  OSecretsTab, OProfilesTab, OSettingsTab,
+  OModalNewProfile, OModalEditSecrets,
+  OWizardExport, OWizardImport,
+  ODemoPage,
+  M_TOK,
+} = window;
+
+// Fullpage artboard sizes. Spec calls content container 600px; we render a
+// 760px-wide tab-page area so margins/header/tabs read like a real browser tab.
+const PAGE_W = 760;
+
+const bg = { background: "#0e0e10" };
+
+function OptionsCanvas() {
+  return (
+    <DesignCanvas>
+
+      <DCSection
+        id="intro"
+        title="mindVault · Options & Demo"
+        subtitle="Fullpage screens covering the Options page (Secrets / Profiles / Settings tabs), the four profile-related modals, and the standalone Demo page. One file per screen; multiple states share their file. Visual language continues from the popup canvas — warm ink ramp + Fraunces italic + Geist Mono · amber primary."
+      >
+        <DCArtboard id="intro-card" label="Notes" width={PAGE_W} height={560} style={bg}>
+          <IntroCard/>
+        </DCArtboard>
+      </DCSection>
+
+      {/* SECRETS TAB ────────────────────────────────────────────────── */}
+      <DCSection
+        id="opt-secrets"
+        title="Options · Secrets tab"
+        subtitle="Default active tab after unlock. Five password fields + pepper-hint toggle + Save / Change Password / Lock. The profile context badge in the title block is the only v2 addition (was missing in v1)."
+      >
+        <DCArtboard id="sec-default" label="A · Default — Banking profile" width={PAGE_W} height={780} style={bg}>
+          <OSecretsTab state="default"/>
+        </DCArtboard>
+        <DCArtboard id="sec-reveal"  label="B · Secret #2 revealed"        width={PAGE_W} height={780} style={bg}>
+          <OSecretsTab state="reveal"/>
+        </DCArtboard>
+        <DCArtboard id="sec-saving"  label="C · Saving spinner"            width={PAGE_W} height={780} style={bg}>
+          <OSecretsTab state="saving"/>
+        </DCArtboard>
+        <DCArtboard id="sec-saved"   label="D · Saved toast"               width={PAGE_W} height={780} style={bg}>
+          <OSecretsTab state="saved"/>
+        </DCArtboard>
+        <DCArtboard id="sec-migrate" label="E · v1 → v2 migration toast"   width={PAGE_W} height={780} style={bg}>
+          <OSecretsTab state="migration"/>
+        </DCArtboard>
+      </DCSection>
+
+      {/* PROFILES TAB ───────────────────────────────────────────────── */}
+      <DCSection
+        id="opt-profiles"
+        title="Options · Profiles tab"
+        subtitle="My Profiles · Shared Profiles · Sheet Assignments. Each own profile card carries a 3px coloured left-strip (palette of 5, by render index). Shared cards use a muted strip + read-only badge."
+      >
+        <DCArtboard id="prof-empty"   label="A · Empty — only Default profile"  width={PAGE_W} height={900} style={bg}>
+          <OProfilesTab state="empty"/>
+        </DCArtboard>
+        <DCArtboard id="prof-full"    label="B · Populated — own + shared + assignments" width={PAGE_W} height={1180} style={bg}>
+          <OProfilesTab state="populated"/>
+        </DCArtboard>
+        <DCArtboard id="prof-guard"   label="C · Delete-guard warning visible"  width={PAGE_W} height={1180} style={bg}>
+          <OProfilesTab state="delete-guard"/>
+        </DCArtboard>
+      </DCSection>
+
+      {/* SETTINGS TAB ───────────────────────────────────────────────── */}
+      <DCSection
+        id="opt-settings"
+        title="Options · Settings tab"
+        subtitle="Designed from scratch — the spec didn't pin this tab. Master password (with re-encrypt), Language (i18n catalogue from spec 15), display defaults, sync storage usage, and a danger-zone reset."
+      >
+        <DCArtboard id="set-default"  label="A · Default — view all panels"       width={PAGE_W} height={1280} style={bg}>
+          <OSettingsTab state="default"/>
+        </DCArtboard>
+        <DCArtboard id="set-pwd"      label="B · Change password expanded"        width={PAGE_W} height={1480} style={bg}>
+          <OSettingsTab state="change-pwd"/>
+        </DCArtboard>
+        <DCArtboard id="set-pwderr"   label="C · Change password · mismatch"      width={PAGE_W} height={1480} style={bg}>
+          <OSettingsTab state="change-pwd-err"/>
+        </DCArtboard>
+        <DCArtboard id="set-quota"    label="D · Storage quota warning"           width={PAGE_W} height={1280} style={bg}>
+          <OSettingsTab state="storage-warn"/>
+        </DCArtboard>
+      </DCSection>
+
+      {/* MODAL · NEW PROFILE ───────────────────────────────────────── */}
+      <DCSection
+        id="modal-new"
+        title="Modal · New Profile"
+        subtitle="Lightweight intake — name only. Spec note: creating overwrites an existing profile of the same name. The Edit Secrets dialog auto-opens after creation (next section)."
+      >
+        <DCArtboard id="new-empty"   label="A · Empty — Create disabled" width={PAGE_W} height={780} style={bg}>
+          <OModalNewProfile state="default"/>
+        </DCArtboard>
+        <DCArtboard id="new-typing"  label="B · Typed name — ready"      width={PAGE_W} height={780} style={bg}>
+          <OModalNewProfile state="typing"/>
+        </DCArtboard>
+      </DCSection>
+
+      {/* MODAL · EDIT SECRETS ──────────────────────────────────────── */}
+      <DCSection
+        id="modal-edit"
+        title="Modal · Edit Secrets"
+        subtitle="Per-profile secrets editor. Opens from ‘✏️ Secrets’ on a profile card, OR automatically right after a profile is created."
+      >
+        <DCArtboard id="edit-fresh"  label="A · Fresh profile — all empty" width={PAGE_W} height={820} style={bg}>
+          <OModalEditSecrets state="first-time"/>
+        </DCArtboard>
+        <DCArtboard id="edit-mid"    label="B · Editing existing — #2 revealed" width={PAGE_W} height={820} style={bg}>
+          <OModalEditSecrets state="editing"/>
+        </DCArtboard>
+        <DCArtboard id="edit-saved"  label="C · Saved toast" width={PAGE_W} height={820} style={bg}>
+          <OModalEditSecrets state="saved"/>
+        </DCArtboard>
+      </DCSection>
+
+      {/* WIZARD · EXPORT ───────────────────────────────────────────── */}
+      <DCSection
+        id="wiz-export"
+        title="Wizard · Export profile"
+        subtitle="3 steps + done. Label → bound sheet → sharing password → bundle ready. The progress dots morph into ‘● Complete’ once the bundle is generated."
+      >
+        <DCArtboard id="exp-1" label="A · Step 1 — relationship label"       width={PAGE_W} height={820} style={bg}>
+          <OWizardExport state="step1"/>
+        </DCArtboard>
+        <DCArtboard id="exp-2" label="B · Step 2 — bound sheet"              width={PAGE_W} height={820} style={bg}>
+          <OWizardExport state="step2"/>
+        </DCArtboard>
+        <DCArtboard id="exp-3" label="C · Step 3 — sharing password"         width={PAGE_W} height={820} style={bg}>
+          <OWizardExport state="step3"/>
+        </DCArtboard>
+        <DCArtboard id="exp-done" label="D · Bundle ready"                   width={PAGE_W} height={820} style={bg}>
+          <OWizardExport state="done"/>
+        </DCArtboard>
+      </DCSection>
+
+      {/* WIZARD · IMPORT ───────────────────────────────────────────── */}
+      <DCSection
+        id="wiz-import"
+        title="Wizard · Import shared profile"
+        subtitle="3 steps. Paste/upload bundle (live validate) → sharing password → name + lock preview. Stored under shared:* key, locked to the bundled sheetId."
+      >
+        <DCArtboard id="imp-empty" label="A · Step 1 — empty paste area"   width={PAGE_W} height={820} style={bg}>
+          <OWizardImport state="step1-empty"/>
+        </DCArtboard>
+        <DCArtboard id="imp-valid" label="B · Step 1 — valid bundle"       width={PAGE_W} height={820} style={bg}>
+          <OWizardImport state="step1-valid"/>
+        </DCArtboard>
+        <DCArtboard id="imp-err"   label="C · Step 1 — unsupported version" width={PAGE_W} height={820} style={bg}>
+          <OWizardImport state="step1-error"/>
+        </DCArtboard>
+        <DCArtboard id="imp-pwd"   label="D · Step 2 — sharing password"   width={PAGE_W} height={820} style={bg}>
+          <OWizardImport state="step2"/>
+        </DCArtboard>
+        <DCArtboard id="imp-pwderr" label="E · Step 2 — wrong password"    width={PAGE_W} height={820} style={bg}>
+          <OWizardImport state="step2-error"/>
+        </DCArtboard>
+        <DCArtboard id="imp-name"  label="F · Step 3 — name & lock preview" width={PAGE_W} height={820} style={bg}>
+          <OWizardImport state="step3"/>
+        </DCArtboard>
+      </DCSection>
+
+      {/* DEMO PAGE ─────────────────────────────────────────────────── */}
+      <DCSection
+        id="demo"
+        title="Demo page (standalone)"
+        subtitle="Opened in a new tab from popup ‘Learn more →’ and Builder ‘? How it works’. Single screen, 4 sections, illustrated. Editorial feel — Fraunces italic headings, monospace recipe diagram, no marketing slop."
+      >
+        <DCArtboard id="demo-full" label="A · Full demo page" width={PAGE_W} height={2080} style={bg}>
+          <ODemoPage/>
+        </DCArtboard>
+      </DCSection>
+
+    </DesignCanvas>
+  );
+}
+
+function IntroCard() {
+  const t = M_TOK;
+  return (
+    <div style={{
+      width: "100%", height: "100%",
+      background: t.ink050, color: t.ink900,
+      fontFamily: "'Geist', system-ui, sans-serif",
+      padding: "32px 36px",
+      display: "flex", flexDirection: "column",
+      overflow: "hidden",
+      position: "relative",
+    }}>
+      <div style={{
+        position: "absolute", inset: 0, pointerEvents: "none",
+        background: `radial-gradient(ellipse at 80% -10%, rgba(232,163,65,0.06), transparent 55%)`,
+      }}/>
+      <div style={{ position: "relative", zIndex: 1, display: "flex", flexDirection: "column", height: "100%" }}>
+        <div style={{
+          fontFamily: "'Fraunces', serif", fontSize: 40, fontWeight: 400,
+          letterSpacing: "-0.025em", lineHeight: 1.05,
+        }}>
+          <span style={{ color: t.ink600 }}>mind</span>
+          <span style={{ fontStyle: "italic" }}>Vault</span>
+          <span style={{ color: t.ink600, fontStyle: "italic", fontSize: 28, marginLeft: 12 }}>· Options &amp; Demo</span>
+        </div>
+        <div style={{
+          fontFamily: "'Geist Mono', monospace", fontSize: 10.5,
+          letterSpacing: "0.2em", textTransform: "uppercase",
+          color: t.ink500, marginTop: 14,
+        }}>
+          Fullpage canvas · v0.1 · spec 2.4
+        </div>
+
+        <div style={{ height: 22 }} />
+        <div style={{
+          fontFamily: "'Fraunces', serif", fontSize: 20, fontStyle: "italic",
+          color: t.ink800, lineHeight: 1.45, maxWidth: 560,
+        }}>
+          Eight screens covering everything past unlock —<br/>
+          the dials, the sharing flow, and the explainer.
+        </div>
+
+        <div style={{ height: 22 }} />
+
+        <div style={{
+          display: "grid", gridTemplateColumns: "1fr 1fr",
+          rowGap: 8, columnGap: 36,
+          fontSize: 12.5, color: t.ink700, lineHeight: 1.55,
+        }}>
+          <IndexLine n="01" label="Secrets tab"      states="5 states"/>
+          <IndexLine n="02" label="Profiles tab"     states="3 states"/>
+          <IndexLine n="03" label="Settings tab"     states="4 states"/>
+          <IndexLine n="04" label="New Profile modal" states="2 states"/>
+          <IndexLine n="05" label="Edit Secrets modal" states="3 states"/>
+          <IndexLine n="06" label="Export wizard"    states="4 states"/>
+          <IndexLine n="07" label="Import wizard"    states="6 states"/>
+          <IndexLine n="08" label="Demo page"        states="1 screen"/>
+        </div>
+
+        <div style={{ flex: 1 }} />
+
+        <div style={{
+          paddingTop: 14, borderTop: `1px solid ${t.ink200}`,
+          display: "flex", flexDirection: "column", gap: 6,
+        }}>
+          <Legend dot={t.moss}   label="ready · success · verified" />
+          <Legend dot={t.amber}  label="primary action · warning · pepper" />
+          <Legend dot={t.coral}  label="blocking error · danger zone" />
+          <Legend dot={t.ink400} label="locked · read-only · disabled" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function IndexLine({ n, label, states }) {
+  const t = M_TOK;
+  return (
+    <div style={{ display: "flex", alignItems: "baseline", gap: 8 }}>
+      <span style={{
+        fontFamily: "'Geist Mono', monospace", fontSize: 10,
+        letterSpacing: "0.18em", color: t.amber,
+      }}>{n}</span>
+      <span style={{ color: t.ink900 }}>{label}</span>
+      <span style={{ flex: 1, height: 1, borderTop: `1px dashed ${t.ink300}`, alignSelf: "center", margin: "0 4px" }}/>
+      <span style={{
+        fontFamily: "'Geist Mono', monospace", fontSize: 10,
+        letterSpacing: "0.14em", color: t.ink500,
+      }}>{states}</span>
+    </div>
+  );
+}
+
+function Legend({ dot, label }) {
+  return (
+    <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+      <span style={{
+        width: 7, height: 7, borderRadius: "50%",
+        background: dot, boxShadow: `0 0 7px ${dot}66`,
+      }}/>
+      <span style={{
+        fontFamily: "'Geist Mono', monospace", fontSize: 10.5,
+        letterSpacing: "0.12em", textTransform: "uppercase",
+        color: "#b4ad9f",
+      }}>{label}</span>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<OptionsCanvas />);
+</script>
+</body>
+</html>
