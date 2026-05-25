@@ -63,7 +63,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     const genPasswordInput = document.getElementById('gen-password');
     const genHint = document.getElementById('gen-hint');
     const genProfileLabel = document.getElementById('gen-profile-label');
-    const profilesSummary = document.getElementById('profiles-summary');
 
     // ── Home contextual state elements ─────────────────────────────────────────
     const homeHint       = document.getElementById('home-hint');
@@ -130,9 +129,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         });
     }
 
+    const SHEET_ID_REGEX = /\/spreadsheets\/d\/([a-zA-Z0-9_-]+)/;
+
     // ── tryAutoDetect — called on load and from Back button (Phase 4) ──────────
     // Exposed in outer scope so Back handler can re-call it after returning Home.
     async function tryAutoDetect(tab) {
+        const shareBtn = document.getElementById('btn-share-sheet');
         // Reset notice state each call
         homeNotice.classList.add('hidden');
         homeContext.classList.add('hidden');
@@ -140,8 +142,16 @@ document.addEventListener('DOMContentLoaded', async () => {
         homeHint.textContent = chrome.i18n.getMessage('hintClickCell') || 'Click any cell in Google Sheets containing a recipe.';
 
         if (!tab?.url?.includes('docs.google.com/spreadsheets')) {
-            // Not on Sheets tab — generic hint, nothing else to do
+            // Not on Sheets tab — hide share button, generic hint
+            shareBtn?.classList.add('hidden');
             return;
+        }
+
+        // Show share button with the detected sheet ID
+        const sheetMatch = tab.url.match(SHEET_ID_REGEX);
+        if (sheetMatch && shareBtn) {
+            shareBtn.dataset.sheetId = sheetMatch[1];
+            shareBtn.classList.remove('hidden');
         }
 
         // Show sheet name badge
@@ -174,12 +184,22 @@ document.addEventListener('DOMContentLoaded', async () => {
                 return;
             }
 
-            // Any error → stay on Home, show amber notice
-            const msg = response?.error === 'Empty cell'
-                ? (chrome.i18n.getMessage('hintEmptyCell') || 'Selected cell is empty or has no recipe.')
-                : (chrome.i18n.getMessage('hintCellError') || 'Could not read recipe from this cell.');
+            // Any error → stay on Home, show amber notice (notice takes priority — hide generic hint)
+            let msg;
+            if (response?.error === 'Empty cell') {
+                msg = chrome.i18n.getMessage('hintEmptyCell') || 'Selected cell is empty or has no recipe.';
+            } else if (response?.code === 'RECIPE_MISMATCH') {
+                msg = chrome.i18n.getMessage('errRecipeMismatch') || 'Recipe mismatch — wrong sheet or profile?';
+            } else if (response?.error === 'Invalid recipe format') {
+                msg = chrome.i18n.getMessage('hintInvalidRecipe') || 'Invalid recipe — not a recognized recipe format.';
+            } else if (response?.error?.includes('not found')) {
+                msg = chrome.i18n.getMessage('hintSecretNotFound') || 'Secret not configured — check Settings.';
+            } else {
+                msg = chrome.i18n.getMessage('hintCellError') || 'Could not generate password from this cell.';
+            }
             homeNoticeText.textContent = msg;
             homeNotice.classList.remove('hidden');
+            homeHint.textContent = '';
 
         } catch (e) {
             const isConnErr = e.message?.includes('Extension context invalidated')
@@ -189,6 +209,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 ? (chrome.i18n.getMessage('hintNeedsReload') || '⚠️ Reload the tab to activate the extension.')
                 : `⚠️ ${e.message}`;
             homeNotice.classList.remove('hidden');
+            homeHint.textContent = '';
         }
     }
 
@@ -209,17 +230,18 @@ document.addEventListener('DOMContentLoaded', async () => {
         } else {
             showSection('status-unlocked');
 
-            // Show profiles summary
+            // Embed profile count into "Manage profiles" button label
             try {
                 const all = await chrome.storage.sync.get(null);
                 const ownCount = Object.keys(all).filter(k => k.startsWith("profile:")).length;
                 const sharedCount = Object.keys(all).filter(k => k.startsWith("shared:")).length;
-                if (ownCount > 0 || sharedCount > 0) {
-                    const summaryMsg = chrome.i18n.getMessage('profilesSummary', [String(ownCount), String(sharedCount)]);
-                    profilesSummary.textContent = summaryMsg || `Profiles: ${ownCount} own · ${sharedCount} shared`;
-                    profilesSummary.classList.remove('hidden');
-                    profilesSummary.style.cursor = 'pointer';
-                    profilesSummary.onclick = () => chrome.runtime.openOptionsPage();
+                const total = ownCount + sharedCount;
+                if (total > 0) {
+                    const manageBtn = document.getElementById('btn-manage-profiles');
+                    if (manageBtn) {
+                        const label = chrome.i18n.getMessage('btnManageProfiles') || 'Manage profiles';
+                        manageBtn.textContent = `${label} (${total})`;
+                    }
                 }
             } catch {}
 
@@ -238,6 +260,15 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     document.getElementById('btn-start-setup')?.addEventListener('click', openOptions);
     document.getElementById('btn-settings').addEventListener('click', openOptions);
+    document.getElementById('btn-manage-profiles')?.addEventListener('click', openOptions);
+
+    // Share sheet — store pending action then open Options (which reads it after unlock)
+    document.getElementById('btn-share-sheet')?.addEventListener('click', async () => {
+        const sheetId = document.getElementById('btn-share-sheet').dataset.sheetId;
+        if (!sheetId) return;
+        await chrome.storage.session.set({ pendingAction: { type: 'share', sheetId } });
+        chrome.runtime.openOptionsPage();
+    });
 
     // Open recipe builder — reachable from both unlocked state and the auto-generated
     // state (which is what popup lands on when opened from a Sheets tab). Wiring both
