@@ -2,12 +2,6 @@
 
 ## MVP Version 1.0
 
-> ⚠️ **Historical snapshot — do not edit.**
-> This file preserves v1.x grammar as originally shipped. Một số phần đã bị deprecate ở các iteration sau:
-> - **Recipe version suffix (`_v2`, `_v3`, `_vU1`, `_vB1`)** — đã bỏ khỏi grammar. Lý do: thay version cryptographically tương đương đổi ingredient text + suffix `_v2` lộ rằng `_v1` từng tồn tại. Để rotate password giờ chỉ cần đổi ingredient (vd `gmail@2` → `gmail2@2`).
->
-> Xem [`../prd.md`](../prd.md) cho grammar hiện hành.
-
 ---
 
 ## 📋 Document Info
