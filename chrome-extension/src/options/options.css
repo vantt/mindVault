@@ -178,10 +178,16 @@ main {
 
 /* ── Page-level content spacing ──────────────────────────────────────────── */
 
-#dashboard-section,
+#dashboard-section {
+  padding: var(--sp-6) 0 var(--sp-7);
+}
+
+/* Setup / Unlock: centered card — extra padding for full-page breathing room */
 #setup-section,
 #unlock-section {
-  padding: var(--sp-6) 0 var(--sp-7);
+  max-width: 480px;
+  margin: var(--sp-7) auto;
+  padding: var(--sp-7) var(--sp-8);  /* 32px top/bottom, 40px left/right */
 }
 
 .tab-content {

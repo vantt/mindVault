@@ -6,8 +6,8 @@ const adapter = new ExportImportAdapter();
 /** @type {{ profileName: string, profileKey: string, sessionKey: object, label: string, sheetId: string, onComplete: function }} */
 let state = {};
 
-export function openExportWizard(profileName, profileKey, sessionKey, onComplete) {
-    state = { profileName, profileKey, sessionKey, onComplete, step: 1 };
+export function openExportWizard(profileName, profileKey, sessionKey, onComplete, prefilledSheetId = null) {
+    state = { profileName, profileKey, sessionKey, onComplete, step: 1, sheetId: prefilledSheetId || '' };
     document.querySelector('#export-modal-title .modal-title-em').textContent = profileName;
     document.getElementById('btn-close-export').onclick = () => confirmClose('modal-export');
     renderStep(1);
@@ -54,9 +54,10 @@ function renderStep(step) {
 
         document.getElementById('btn-use-current-sheet').onclick = async () => {
             const resp = await chrome.runtime.sendMessage({ action: "GET_SHEET_ID_FROM_ACTIVE_TAB" });
-            if (resp?.sheetId) {
-                document.getElementById('exp-sheet').value = resp.sheetId;
-                document.getElementById('exp-sheet-preview').textContent = `✓ ${resp.sheetId}`;
+            const sheetId = resp?.active?.sheetId;
+            if (sheetId) {
+                document.getElementById('exp-sheet').value = sheetId;
+                document.getElementById('exp-sheet-preview').textContent = `✓ ${sheetId}`;
             } else {
                 document.getElementById('exp-sheet-preview').textContent = "No Google Sheet tab found";
             }

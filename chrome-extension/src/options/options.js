@@ -60,6 +60,21 @@ async function switchTab(name) {
     }
 }
 
+// ── Pending action handler (set by popup via session storage) ──
+async function handlePendingAction() {
+    const { pendingAction } = await chrome.storage.session.get('pendingAction');
+    if (!pendingAction) return;
+    await chrome.storage.session.remove('pendingAction');
+
+    if (pendingAction.type === 'share') {
+        const { sheetId } = pendingAction;
+        const sync = await chrome.storage.sync.get(['sheetMapping', 'defaultProfile']);
+        const profileName = (sync.sheetMapping || {})[sheetId] || sync.defaultProfile || 'Default';
+        const profileKey = `profile:${profileName}`;
+        openExportWizard(profileName, profileKey, sessionKey, () => {}, sheetId);
+    }
+}
+
 // ── Status check ──
 async function checkStatus() {
     const stored = await chrome.storage.sync.get(["salt", "defaultProfile", "migrationNotified"]);
@@ -76,6 +91,8 @@ async function checkStatus() {
             showToast(chrome.i18n.getMessage('migrationNotice') || '✅ Migrated to v2. Secrets are now in profile "Default".');
             await chrome.storage.sync.set({ migrationNotified: true });
         }
+        // Pending action from popup (e.g. "Share this sheet")
+        await handlePendingAction();
     } else {
         showSection(unlockSection);
     }
@@ -134,6 +151,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             showToast(chrome.i18n.getMessage("toastUnlockSuccess"));
             showSection(dashboardSection);
             await switchTab('profiles');
+            await handlePendingAction();
         } catch (err) {
             showToast(err.message.includes("OperationError") ? "Invalid Password" : err.message, true);
         }
