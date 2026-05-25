@@ -224,7 +224,7 @@ Professional, minimal, not tied to any specific concept.
 
 | Candidate | Status After Resolutions |
 |-----------|-------------------------|
-| **PassChef** | **Strengthened** — consumer tone fits, "user as chef" confirmed, recipe mechanism is durable |
+| **PassChef** | **Strengthened** — consumer tone fits, "user as chef" confirmed, recipe mechanism is durable. "PassChef explains the system best. I can say: 'Your sheet holds recipes, your head holds secret spices, and this tool helps you cook the password when you need it.'" |
 | **SpiceKey** | Remains viable — professional but still consumer-accessible |
 | **SheetVault** | **Eliminated** — corporate tone mismatches consumer target; "Sheet" in name conflicts with subtitle-only decision |
 
