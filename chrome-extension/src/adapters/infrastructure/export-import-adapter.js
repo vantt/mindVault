@@ -7,6 +7,8 @@
 const BUNDLE_TYPE = "mindvault-profile-share";
 const BUNDLE_VERSION = "2.1";
 const HKDF_INFO = "mindvault-share-v1";
+const FULLACCESS_BUNDLE_TYPE = "mindvault-fullaccess-share";
+const FULLACCESS_BUNDLE_VERSION = "1.0";
 const PBKDF2_ITERATIONS = 100000;
 
 /** Derive a base64 string from a secret using HKDF-SHA256. */
@@ -82,20 +84,65 @@ export class ExportImportAdapter {
     }
 
     /**
+     * Create an encrypted Full Access bundle — raw secrets, no HKDF derivation.
+     * Consumer gets identical secrets → generates identical passwords as Owner.
+     * @param {string} profileName
+     * @param {{[idx]: {base: string}}} secrets - own profile secrets (S_i)
+     * @param {string|null} sheetId - optional; if provided, Consumer's import auto-sets sheetMapping
+     * @param {string} sharingPassword
+     * @returns {object} bundle JSON object
+     */
+    async createFullAccessBundle(profileName, secrets, sheetId, sharingPassword) {
+        const exportSalt = Array.from(crypto.getRandomValues(new Uint8Array(16)));
+        const encKey = await deriveKeyFromPassword(sharingPassword, exportSalt);
+        const iv = crypto.getRandomValues(new Uint8Array(12));
+        const encrypted = await crypto.subtle.encrypt(
+            { name: "AES-GCM", iv },
+            encKey,
+            new TextEncoder().encode(JSON.stringify(secrets))
+        );
+        return {
+            type: FULLACCESS_BUNDLE_TYPE,
+            version: FULLACCESS_BUNDLE_VERSION,
+            bundleId: crypto.randomUUID(),
+            profileName,
+            exportedAt: new Date().toISOString(),
+            sheetId: sheetId || null,
+            encryptedData: Array.from(new Uint8Array(encrypted)),
+            iv: Array.from(iv),
+            exportSalt
+        };
+    }
+
+    /**
      * Validate bundle format without decrypting.
-     * @returns {{ valid: boolean, profileName?: string, sheetId?: string, exportedAt?: string, error?: string }}
+     * Accepts both legacy (mindvault-profile-share) and Full Access (mindvault-fullaccess-share) bundles.
+     * @returns {{ valid: boolean, bundleType?: string, profileName?: string, sheetId?: string, exportedAt?: string, error?: string }}
      */
     validateBundle(bundle) {
         if (!bundle || typeof bundle !== "object") return { valid: false, error: "Not a valid JSON object" };
-        if (bundle.type !== BUNDLE_TYPE) return { valid: false, error: "Not a mindVault bundle" };
-        if (bundle.version !== BUNDLE_VERSION) return { valid: false, error: `Unsupported bundle version: ${bundle.version}` };
-        if (!bundle.sheetId || !bundle.encryptedData || !bundle.iv || !bundle.exportSalt) {
+
+        const isLegacy = bundle.type === BUNDLE_TYPE;
+        const isFullAccess = bundle.type === FULLACCESS_BUNDLE_TYPE;
+
+        if (!isLegacy && !isFullAccess) return { valid: false, error: "Not a mindVault bundle" };
+
+        if (isLegacy && bundle.version !== BUNDLE_VERSION)
+            return { valid: false, error: `Unsupported bundle version: ${bundle.version}` };
+        if (isFullAccess && bundle.version !== FULLACCESS_BUNDLE_VERSION)
+            return { valid: false, error: `Unsupported bundle version: ${bundle.version}` };
+
+        // sheetId required for legacy, optional for fullaccess
+        if (isLegacy && (!bundle.sheetId || !bundle.encryptedData || !bundle.iv || !bundle.exportSalt))
             return { valid: false, error: "Incomplete bundle — missing required fields" };
-        }
+        if (isFullAccess && (!bundle.encryptedData || !bundle.iv || !bundle.exportSalt))
+            return { valid: false, error: "Incomplete bundle — missing required fields" };
+
         return {
             valid: true,
+            bundleType: bundle.type,
             profileName: bundle.profileName,
-            sheetId: bundle.sheetId,
+            sheetId: bundle.sheetId || null,
             exportedAt: bundle.exportedAt
         };
     }

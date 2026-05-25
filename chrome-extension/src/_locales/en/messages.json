@@ -173,7 +173,7 @@
     "message": "Migrated to v2. Secrets are now in profile \"Default\"."
   },
   "exportNextStep": {
-    "message": "Use this extension on the shared sheet to generate and set account passwords using derived secrets."
+    "message": "Use this extension on the shared sheet to generate and set account passwords using the shared profile's secrets."
   },
   "btnBuildRecipe": {
     "message": "Build Recipe"

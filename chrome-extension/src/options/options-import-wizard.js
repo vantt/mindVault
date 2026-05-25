@@ -90,8 +90,12 @@ function renderStep(step) {
         document.getElementById('imp-decrypt').onclick = () => decryptBundle();
 
     } else if (step === 3) {
-        const sheetFull = state.bundle?.sheetId || '—';
+        const isFullAccess = state.bundle?.type === 'mindvault-fullaccess-share';
+        const sheetFull = state.bundle?.sheetId || null;
         const suggestedName = state.bundle?.profileName || 'ImportedProfile';
+        const description = isFullAccess
+            ? "Creates an own profile with the sender's secrets — you'll generate the same passwords as them."
+            : `Locked to sheet: <span class="monospace">${escHtml(sheetFull || '—')}</span><br><span class="text-muted" style="font-size:.8rem">This profile will only work on that sheet. No manual assignment needed.</span>`;
         content.innerHTML = `
             <p class="wizard-section-title">✏️ Name This Profile</p>
             <p class="wizard-description">Local name — only visible to you.</p>
@@ -99,10 +103,7 @@ function renderStep(step) {
                 <label>Profile Name</label>
                 <input type="text" id="imp-profile-name" value="${escHtml(suggestedName)}" maxlength="50" />
             </div>
-            <div class="bundle-status valid">
-                Locked to sheet: <span class="monospace">${escHtml(sheetFull.length > 30 ? sheetFull.slice(0, 30) + '...' : sheetFull)}</span><br>
-                <span class="text-muted" style="font-size:.8rem">This profile will only work on that sheet. No manual assignment needed.</span>
-            </div>`;
+            <div class="bundle-status valid">${description}</div>`;
         footer.innerHTML = `<button id="imp-back-3" class="btn sm secondary">← Back</button><div class="right"><button id="imp-confirm" class="btn sm primary" style="width:auto">Import</button></div>`;
 
         document.getElementById('imp-back-3').onclick = () => renderStep(2);
@@ -119,7 +120,10 @@ function validateBundleInput() {
         if (result.valid) {
             state.bundle = parsed;
             const sid = result.sheetId || '';
-            showStatus('valid', `✓ Valid v2.1 bundle · Profile: ${result.profileName} · Sheet: ${sid.length > 14 ? sid.slice(0, 14) + '...' : sid}`);
+            const isFullAccess = result.bundleType === 'mindvault-fullaccess-share';
+            const typeLabel = isFullAccess ? 'Valid Full Access bundle' : 'Valid legacy bundle (HKDF)';
+            const sheetPart = sid ? ` · Sheet: ${sid.length > 14 ? sid.slice(0, 14) + '...' : sid}` : '';
+            showStatus('valid', `✓ ${typeLabel} · Profile: ${result.profileName}${sheetPart}`);
         } else {
             state.bundle = null;
             showStatus('invalid', result.error);
@@ -164,25 +168,38 @@ async function confirmImport() {
     const localName = document.getElementById('imp-profile-name')?.value.trim();
     if (!localName) { alert('Profile name is required.'); return; }
 
-    const sharedKey = `shared:${localName}`;
-    const sharedData = {
-        secrets: state.derivedSecrets,
-        isShared: true
-    };
-    const encrypted = await encryptWithKey(sharedData, state.sessionKey);
+    const isFullAccess = state.bundle?.type === 'mindvault-fullaccess-share';
+    const encrypted = await encryptWithKey(state.derivedSecrets, state.sessionKey);
 
-    await chrome.storage.sync.set({
-        [sharedKey]: {
-            ...encrypted,
-            readOnly: true,
-            sheetId: state.bundle.sheetId,
-            meta: {
-                importedFrom: state.bundle.profileName,
-                importedAt: new Date().toISOString().slice(0, 10),
-                bundleId: state.bundle.bundleId || ''
-            }
+    if (isFullAccess) {
+        // Full Access: store as own profile (profile:NAME) + auto sheetMapping
+        const updates = {
+            [`profile:${localName}`]: encrypted
+        };
+        if (state.bundle.sheetId) {
+            const existing = await chrome.storage.sync.get('sheetMapping');
+            const sheetMapping = existing.sheetMapping || {};
+            sheetMapping[state.bundle.sheetId] = localName;
+            updates.sheetMapping = sheetMapping;
         }
-    });
+        await chrome.storage.sync.set(updates);
+    } else {
+        // Legacy HKDF bundle: store as shared:NAME (existing behavior)
+        const sharedData = { secrets: state.derivedSecrets, isShared: true };
+        const encryptedShared = await encryptWithKey(sharedData, state.sessionKey);
+        await chrome.storage.sync.set({
+            [`shared:${localName}`]: {
+                ...encryptedShared,
+                readOnly: true,
+                sheetId: state.bundle.sheetId,
+                meta: {
+                    importedFrom: state.bundle.profileName,
+                    importedAt: new Date().toISOString().slice(0, 10),
+                    bundleId: state.bundle.bundleId || ''
+                }
+            }
+        });
+    }
 
     document.getElementById('modal-import').classList.add('hidden');
     state.onComplete?.();

@@ -3,7 +3,7 @@ import { decryptWithKey } from "../adapters/infrastructure/aes-storage-crypto-he
 
 const adapter = new ExportImportAdapter();
 
-/** @type {{ profileName: string, profileKey: string, sessionKey: object, label: string, sheetId: string, onComplete: function }} */
+/** @type {{ profileName: string, profileKey: string, sessionKey: object, sheetId: string|null, onComplete: function }} */
 let state = {};
 
 export function openExportWizard(profileName, profileKey, sessionKey, onComplete, prefilledSheetId = null) {
@@ -16,41 +16,23 @@ export function openExportWizard(profileName, profileKey, sessionKey, onComplete
 
 function renderStep(step) {
     state.step = step;
-    updateDots('exp', step, 3);
+    updateDots('exp', step, 2);
     const content = document.getElementById('export-step-content');
     const footer = document.getElementById('export-modal-footer');
 
     if (step === 1) {
         content.innerHTML = `
-            <p class="wizard-section-title">📝 Set Relationship Label</p>
-            <p class="wizard-description">Identifies who you're sharing with. Used to derive isolated secrets — changing it later invalidates existing bundles.</p>
+            <p class="wizard-section-title">🔒 Lock to Google Sheet (Optional)</p>
+            <p class="wizard-description">If provided, the sharing bundle will include this sheet ID, and the recipient's extension will auto-route to this profile when they open that sheet. Leave blank to share without sheet locking.</p>
             <div class="form-group">
-                <label>Label</label>
-                <input type="text" id="exp-label" value="${state.label || ''}" placeholder='e.g. "team-alice-2026"' pattern="[a-z0-9_-]+" maxlength="50" />
-                <p class="text-muted" style="margin-top:.4rem">⚠️ Keep private. Lowercase, numbers, hyphens only.</p>
-            </div>`;
-        footer.innerHTML = `<span></span><div class="right"><button id="exp-next-1" class="btn sm primary" style="width:auto">Continue →</button></div>`;
-        document.getElementById('exp-next-1').onclick = () => {
-            const label = document.getElementById('exp-label').value.trim();
-            if (!label || !/^[a-z0-9_-]+$/.test(label)) { alert("Label must be lowercase letters, numbers, and hyphens only."); return; }
-            state.label = label;
-            renderStep(2);
-        };
-
-    } else if (step === 2) {
-        content.innerHTML = `
-            <p class="wizard-section-title">🔒 Lock to Google Sheet</p>
-            <p class="wizard-description">Passwords from this bundle will ONLY work on this specific sheet. Copying the sheet changes its ID — derived passwords won't work on copies.</p>
-            <div class="form-group">
-                <label>Sheet URL or ID</label>
+                <label>Sheet URL or ID <span class="text-muted" style="font-weight:normal">(not required)</span></label>
                 <input type="text" id="exp-sheet" value="${state.sheetId || ''}" placeholder="Paste Google Sheets URL or ID" />
                 <div style="margin-top:.5rem;display:flex;gap:.5rem;align-items:center">
                     <button class="btn sm secondary" id="btn-use-current-sheet">📋 Use current sheet</button>
                     <span id="exp-sheet-preview" class="text-muted monospace" style="font-size:.83rem"></span>
                 </div>
-            </div>
-            <div class="warning-box">ℹ️ After sharing, set up account passwords using the derived secrets: use this extension with the shared sheet (as Owner) to generate and update each account password.</div>`;
-        footer.innerHTML = `<button id="exp-back-2" class="btn sm secondary">← Back</button><div class="right"><button id="exp-next-2" class="btn sm primary" style="width:auto">Continue →</button></div>`;
+            </div>`;
+        footer.innerHTML = `<span></span><div class="right"><button id="exp-next-1" class="btn sm primary" style="width:auto">Continue →</button></div>`;
 
         document.getElementById('btn-use-current-sheet').onclick = async () => {
             const resp = await chrome.runtime.sendMessage({ action: "GET_SHEET_ID_FROM_ACTIVE_TAB" });
@@ -62,17 +44,20 @@ function renderStep(step) {
                 document.getElementById('exp-sheet-preview').textContent = "No Google Sheet tab found";
             }
         };
-        document.getElementById('exp-back-2').onclick = () => renderStep(1);
-        document.getElementById('exp-next-2').onclick = () => {
+        document.getElementById('exp-next-1').onclick = () => {
             const raw = document.getElementById('exp-sheet').value.trim();
-            const extracted = extractSheetId(raw);
-            if (!extracted) { alert("Invalid Sheet URL or ID."); return; }
-            state.sheetId = extracted;
-            document.getElementById('exp-sheet-preview').textContent = `✓ ${extracted}`;
-            renderStep(3);
+            if (raw) {
+                const extracted = extractSheetId(raw);
+                if (!extracted) { alert("Invalid Sheet URL or ID."); return; }
+                state.sheetId = extracted;
+                document.getElementById('exp-sheet-preview').textContent = `✓ ${extracted}`;
+            } else {
+                state.sheetId = null;
+            }
+            renderStep(2);
         };
 
-    } else if (step === 3) {
+    } else if (step === 2) {
         content.innerHTML = `
             <p class="wizard-section-title">🔑 Set Sharing Password</p>
             <p class="wizard-description">This password protects the bundle. The recipient needs it to import.</p>
@@ -88,14 +73,14 @@ function renderStep(step) {
                 <input type="password" id="exp-sharing-pwd-confirm" />
             </div>
             <div id="exp-step3-status"></div>`;
-        footer.innerHTML = `<button id="exp-back-3" class="btn sm secondary">← Back</button><div class="right"><button id="exp-generate" class="btn sm primary" style="width:auto">Generate Bundle</button></div>`;
+        footer.innerHTML = `<button id="exp-back-2" class="btn sm secondary">← Back</button><div class="right"><button id="exp-generate" class="btn sm primary" style="width:auto">Generate Bundle</button></div>`;
 
         document.querySelector('#export-step-content .btn-toggle-visibility').onclick = (e) => {
             const inp = document.getElementById('exp-sharing-pwd');
             inp.type = inp.type === 'password' ? 'text' : 'password';
             e.target.textContent = inp.type === 'password' ? '👁' : '🙈';
         };
-        document.getElementById('exp-back-3').onclick = () => renderStep(2);
+        document.getElementById('exp-back-2').onclick = () => renderStep(1);
         document.getElementById('exp-generate').onclick = () => generateBundle();
     }
 }
@@ -119,8 +104,8 @@ async function generateBundle() {
         if (!profileData) throw new Error("Profile data not found");
         const decrypted = await decryptWithKey(profileData.encryptedData, profileData.iv, state.sessionKey);
 
-        // Create bundle
-        const bundle = await adapter.createBundle(state.profileName, decrypted.secrets, state.label, state.sheetId, pwd);
+        // Create Full Access bundle — raw secrets, no HKDF derivation
+        const bundle = await adapter.createFullAccessBundle(state.profileName, decrypted.secrets, state.sheetId, pwd);
         const bundleJson = JSON.stringify(bundle, null, 2);
 
         // Show result
@@ -131,7 +116,7 @@ async function generateBundle() {
                 <button class="btn sm secondary" id="btn-copy-bundle">📋 Copy Bundle</button>
                 <button class="btn sm secondary" id="btn-download-bundle">⬇️ Download .json</button>
             </div>
-            <div class="warning-box">⚠️ ${chrome.i18n.getMessage('exportNextStep') || 'Use this extension on the shared sheet to generate and set account passwords using derived secrets.'}<br><br>⚠️ Transmit via encrypted channel only.</div>`;
+            <div class="warning-box">⚠️ ${chrome.i18n.getMessage('exportNextStep') || "Use this extension on the shared sheet to generate and set account passwords using the shared profile's secrets."}<br><br>⚠️ Transmit via encrypted channel only.</div>`;
         document.getElementById('export-modal-footer').innerHTML = `<span></span><div class="right"><button id="exp-done" class="btn sm primary" style="width:auto">Done</button></div>`;
 
         document.getElementById('btn-copy-bundle').onclick = () => {
@@ -149,7 +134,7 @@ async function generateBundle() {
             document.getElementById('modal-export').classList.add('hidden');
             state.onComplete?.();
         };
-        updateDots('exp', 4, 3); // all done
+        updateDots('exp', 3, 2); // all done
     } catch (e) {
         btn.textContent = "Generate Bundle";
         btn.disabled = false;
@@ -168,7 +153,7 @@ function updateDots(prefix, step, total) {
 }
 
 function confirmClose(modalId) {
-    if (state.step > 1 && state.step <= 3) {
+    if (state.step > 1 && state.step <= 2) {
         if (!confirm("Discard export?")) return;
     }
     document.getElementById(modalId).classList.add('hidden');

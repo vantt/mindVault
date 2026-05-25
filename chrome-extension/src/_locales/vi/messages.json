@@ -171,7 +171,7 @@
     "message": "Đã chuyển sang v2. Bí mật nay nằm trong hồ sơ \"Default\"."
   },
   "exportNextStep": {
-    "message": "Dùng tiện ích này trên sheet được chia sẻ để tạo và cập nhật mật khẩu tài khoản bằng bí mật được phái sinh."
+    "message": "Dùng tiện ích này trên sheet được chia sẻ để tạo và cập nhật mật khẩu tài khoản bằng bí mật của profile được chia sẻ."
   },
   "btnBuildRecipe": {
     "message": "Tạo Recipe"
