@@ -305,8 +305,14 @@
       "1": { "content": "$1", "example": "Ngân sách 2026" }
     }
   },
+  "hintInvalidRecipe": {
+    "message": "Công thức không hợp lệ — định dạng không được nhận dạng."
+  },
+  "hintSecretNotFound": {
+    "message": "Chưa cấu hình Secret — kiểm tra Cài đặt."
+  },
   "hintCellError": {
-    "message": "Không thể đọc ô — kiểm tra quyền truy cập trang tính."
+    "message": "Không thể tạo mật khẩu từ ô này."
   },
   "hintPepperReminder": {
     "message": "🔑 Đừng quên pepper của bạn!"
@@ -379,5 +385,14 @@
   },
   "demoBackLink": {
     "message": "← Quay lại tiện ích"
+  },
+  "btnShareSheet": {
+    "message": "Chia sẻ"
+  },
+  "btnManageProfiles": {
+    "message": "Quản lý profiles"
+  },
+  "shareSheetNotice": {
+    "message": "Mở trình xuất trong Cài đặt — chia sẻ profile của bạn gắn với sheet này."
   }
 }

@@ -307,8 +307,14 @@
       "1": { "content": "$1", "example": "Budget 2026" }
     }
   },
+  "hintInvalidRecipe": {
+    "message": "Invalid recipe — not a recognized recipe format."
+  },
+  "hintSecretNotFound": {
+    "message": "Secret not configured — check Settings."
+  },
   "hintCellError": {
-    "message": "Could not read cell — check sheet permissions."
+    "message": "Could not generate password from this cell."
   },
   "hintPepperReminder": {
     "message": "🔑 Don't forget your pepper!"
@@ -410,5 +416,14 @@
   },
   "demoBackLink": {
     "message": "← Back to extension"
+  },
+  "btnShareSheet": {
+    "message": "Share"
+  },
+  "btnManageProfiles": {
+    "message": "Manage profiles"
+  },
+  "shareSheetNotice": {
+    "message": "Opens the export wizard in Settings — share your profile locked to this sheet."
   }
 }
