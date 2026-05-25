@@ -14,9 +14,38 @@ body {
     line-height: 1.5;
     width: 400px;
     min-height: 600px;
+    margin: 0 auto;
     position: relative;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
+}
+
+/* Full-page tab mode: card floats in a darker canvas */
+@media (min-height: 700px) {
+    html {
+        background: #000;  /* darker than body ink-050 → makes card distinct */
+    }
+    body {
+        margin-top: clamp(32px, 8vh, 80px);
+        margin-bottom: clamp(32px, 4vh, 60px);
+        border-radius: 12px;
+        min-height: 600px;
+        border: 1px solid var(--ink-300);
+        box-shadow: 0 12px 48px rgba(0, 0, 0, 0.5);
+    }
+    /* Extra horizontal breathing room so text clears the card edge */
+    header {
+        padding-left: var(--sp-6);
+        padding-right: var(--sp-6);
+    }
+    .header-rule {
+        margin-left: var(--sp-6);
+        margin-right: var(--sp-6);
+    }
+    .screen-content {
+        padding-left: var(--sp-6);
+        padding-right: var(--sp-6);
+    }
 }
 
 /* ── Atmospheric vignette (top-right amber glow) ── */
@@ -852,11 +881,14 @@ main {
     color: var(--amber);
 }
 
-/* Hash length status indicator inline with subtitle */
+/* Hash length status indicator — inline pill after subtitle text */
 .hash-len-indicator {
     font-family: var(--font-mono);
     font-size: 10px;
-    color: var(--ink-500);
+    font-weight: 500;
+    color: var(--ink-900);
+    letter-spacing: 0.02em;
+    margin-left: 4px;
 }
 
 /* Field-level validation messages */

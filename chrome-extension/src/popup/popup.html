@@ -137,7 +137,8 @@
 
                     <button id="btn-build-recipe" class="btn primary" data-i18n="btnBuildRecipe">Build Recipe</button>
                     <div class="home-footer">
-                        <button class="btn-ghost" data-i18n="btnManageProfiles">Manage profiles</button>
+                        <button id="btn-share-sheet" class="btn-ghost hidden" data-i18n="btnShareSheet">Share</button>
+                        <button id="btn-manage-profiles" class="btn-ghost" data-i18n="btnManageProfiles">Manage profiles</button>
                         <button id="btn-lock" class="btn-ghost" data-i18n="btnLock">Lock</button>
                     </div>
                 </div>
@@ -198,7 +199,7 @@
                             <div class="builder-field-header">
                                 <label class="builder-label" for="bld-hash" data-i18n="builderHash">Hash</label>
                             </div>
-                            <p class="builder-subtitle" data-i18n="builderSubtitleHash">The text part of your recipe <span id="bld-hash-len-indicator" class="hash-len-indicator"></span></p>
+                            <p class="builder-subtitle"><span data-i18n="builderSubtitleHash">The text part of your recipe</span> <span id="bld-hash-len-indicator" class="hash-len-indicator"></span></p>
                             <div class="input-slab-with-action">
                                 <input type="text" id="bld-hash" autocomplete="off" spellcheck="false"
                                        placeholder="any ASCII string" data-i18n-placeholder="placeholderHash">

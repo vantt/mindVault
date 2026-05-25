@@ -106,7 +106,7 @@ export function initRecipeBuilder({ onBack }) {
         const lenEl = document.getElementById('bld-hash-len-indicator');
         if (!lenEl) return;
         const len = el.hash.value.length;
-        lenEl.textContent = len > 0 ? `· ${len}` : '';
+        lenEl.textContent = len > 0 ? `Len ${len}` : '';
     }
 
     document.getElementById('btn-hash-generate').addEventListener('click', () => {
@@ -423,11 +423,10 @@ export function initRecipeBuilder({ onBack }) {
         el.hash.classList.remove('invalid');
         el.hashError.classList.add('hidden');
         el.hashError.textContent = '';
-        // Reset charset toggles: upper + lower + digits ON, symbols OFF
+        // Reset charset toggles: upper + lower + digits ON
         charsetBtns.upper.classList.add('active');
         charsetBtns.lower.classList.add('active');
         charsetBtns.digits.classList.add('active');
-        charsetBtns.symbols.classList.remove('active');
         updateLenIndicator();
         state.position = null;
         state.secret = null;
