@@ -1,9 +1,9 @@
 # Product Naming Decision
 
-> **Status:** Decision Ready — Council deliberation + focused debate complete
+> **Status:** DECIDED — PassChef (Final Synthesis unanimous 6/0)
 > **Last updated:** 2026-05-25
 > **Current name:** mindVault (to be replaced before Chrome Web Store publish)
-> **Council Winner:** VoidKey (9/18 initial + 5/6 debate) — see Section 10.9
+> **Final Winner:** PassChef — see Section 10.12 (Final Synthesis overturned VoidKey)
 
 ---
 
@@ -185,7 +185,7 @@ Professional, minimal, not tied to any specific concept.
 
 > **Source:** Council of High Intelligence brainstorming session (18 members, 2026-05-25)
 
-#### 🥇 VoidKey — COUNCIL WINNER (9/18 votes)
+#### ~~🥇 VoidKey — INITIAL COUNCIL WINNER (9/18 votes)~~ — ELIMINATED
 - **Strategy:** Zero-storage security signal
 - **Story:** "Nothing stored. Nothing to steal. Your passwords exist only when you need them."
 - **Strengths:** 
@@ -200,7 +200,7 @@ Professional, minimal, not tied to any specific concept.
 - **Tagline:** "Nothing stored. Nothing to steal."
 - **Council Quote:** "VoidKey signals to attackers: 'no central honeypot, nothing to steal, move along.' Antifragility through absence." — Taleb
 
-#### 🥈 PassChef — COUNCIL RUNNER-UP (7/18 votes)
+#### 🥇 PassChef — FINAL WINNER (Final Synthesis 6/0 unanimous)
 - **Strategy:** Password + Cooking (unchanged from original)
 - **Story:** "You're the chef. Extension is your kitchen. Sheet has recipes. You cook passwords."
 - **Strengths:** Most memorable, best storytelling, cooking metaphor = product moat, "Pass" aids search
@@ -308,9 +308,10 @@ Professional, minimal, not tied to any specific concept.
 ## 9. Next Steps
 
 - [x] ~~Resolve open questions (section 8)~~ — Resolved via Council deliberation
-- [ ] Verify domain availability for NEW Tier 1 candidates (VoidKey, PassChef, Derivio)
+- [x] ~~Final decision on name~~ — **PassChef** (Final Synthesis unanimous 6/0)
+- [ ] Verify domain availability for PassChef (passchef.com, passchef.app, passchef.io)
 - [ ] Check Chrome Web Store for existing extensions with similar names
-- [ ] Final decision on name
+- [ ] Register trademark
 - [ ] Plan rebrand execution (manifest, locales, README, landing page, docs)
 
 ---
@@ -420,13 +421,15 @@ Final voting session with expanded shortlist:
 
 ---
 
-### 10.5 Updated Shortlist (Post-Council)
+### 10.5 Updated Shortlist (Post-Initial Council) — Later Revised
 
 | Rank | Name | Tagline | Best For | Concerns |
 |------|------|---------|----------|----------|
-| 🥇 | **VoidKey** | "Nothing stored. Nothing to steal." | Security-first positioning, differentiation from vaults | "Void" sounds cold; needs warm onboarding |
-| 🥈 | **PassChef** | "Cook your password from a recipe." | Consumer friendliness, memorability, storytelling | Playful tone; needs serious execution |
+| ~~🥇~~ | ~~**VoidKey**~~ | ~~"Nothing stored. Nothing to steal."~~ | ~~Security-first positioning~~ | **ELIMINATED:** Semantic contradiction, System 1 rejection |
+| **🥇** | **PassChef** | "Cook your password from a recipe." | Consumer friendliness, memorability, storytelling | Playful tone; needs professional execution |
 | 🥉 | **Derivio** | "Passwords derived, never stored." | Enterprise scale, technical accuracy | Too clinical for consumers |
+
+> **Note:** VoidKey was eliminated after Marketing Psychology + Final Synthesis debates revealed fatal consumer perception issues. See Sections 10.11-10.12.
 
 ---
 
@@ -463,9 +466,9 @@ Final voting session with expanded shortlist:
 
 ---
 
-### 10.8 Council Verdict Summary
+### 10.8 Council Verdict Summary (Initial)
 
-**Winner: VoidKey (9/18 votes, 50%)**
+**Initial Winner: VoidKey (9/18 votes, 50%)** — Later overturned by Final Synthesis
 
 VoidKey emerged as an unexpected winner from the brainstorming session. It was not on the original shortlist but captures the product's core differentiator — zero-storage architecture — in the name itself.
 
@@ -473,6 +476,8 @@ The council split by provider family:
 - Anthropic models favored VoidKey (security-through-absence philosophy)
 - OpenAI models favored PassChef (consumer-friendly metaphor)
 - Google models split between VoidKey and Derivio
+
+> **Note:** This verdict was overturned by Final Synthesis (Section 10.12) after Marketing Psychology debate revealed fatal consumer perception issues with "Void."
 
 ---
 
@@ -532,29 +537,191 @@ The council split by provider family:
 >
 > Stop debating. Ship the damn thing.
 
-#### Debate Verdict
+#### Debate Verdict (Later Overturned)
 
-**Winner: VoidKey**
+**Winner: VoidKey** — Overturned by Final Synthesis (Section 10.12)
 
-The focused debate confirmed the initial council vote. VoidKey wins on strategic defensibility and psychological anchoring. PassChef remains strong fallback if "Void" tests poorly with users or domains unavailable.
+The focused debate confirmed the initial council vote. VoidKey wins on strategic defensibility and psychological anchoring. 
+
+> **Note:** This verdict was later overturned when Marketing Psychology debate (Section 10.11) revealed that "strategic defensibility" is worthless if consumers reject the name at System 1 level. See Final Synthesis for details.
 
 ---
 
-### 10.10 Final Recommendation
+### 10.10 ~~Final Recommendation~~ (SUPERSEDED)
 
-**Primary Choice: VoidKey**
-- Tagline: "Nothing stored. Nothing to steal."
-- Positioning: Zero-storage security (new category)
-- Risk: "Void" perception — mitigate with warm onboarding
+> **Note:** This section was superseded by Final Synthesis (Section 10.12). See below for current recommendation.
 
-**Fallback: PassChef**
-- Tagline: "Cook your password from a recipe."
-- Positioning: Consumer-friendly password creation
-- Use if: VoidKey domains unavailable OR user testing shows negative "void" reaction
+~~**Primary Choice: VoidKey**~~
+~~- Tagline: "Nothing stored. Nothing to steal."~~
+~~- Positioning: Zero-storage security (new category)~~
+~~- Risk: "Void" perception — mitigate with warm onboarding~~
 
-**Recommended Next Steps:**
-1. Verify domain availability (voidkey.com, voidkey.app, voidkey.io)
-2. If available, register immediately
-3. Test "VoidKey" with 5-10 target users for immediate reaction
-4. If "Void" tests poorly, switch to PassChef
-5. Make final decision and execute rebrand
+---
+
+### 10.11 Marketing Psychology Debate
+
+> **Date:** 2026-05-25
+> **Mode:** 5-member panel focused on consumer marketing psychology
+> **Providers:** Anthropic (2), OpenAI (2), Google (1)
+
+#### Panel Composition
+
+| Member | Focus | Provider |
+|--------|-------|----------|
+| Kahneman | Consumer decision science | Anthropic/Opus |
+| Watts | Perception & reframing | Anthropic/Opus |
+| Feynman | First-principles communication | OpenAI/GPT-5.4 |
+| Machiavelli | Actual consumer behavior | OpenAI/GPT-5.4 |
+| Rams | User-centered design | Google/Gemini-2.5-Pro |
+
+#### Evaluation Criteria
+
+1. **Visual imagery** — What images come to mind instantly?
+2. **Emotional response** — What feelings does each name evoke?
+3. **Friendliness/warmth** — Which feels more approachable?
+4. **Instant memorability** — Which sticks in memory faster?
+5. **Negative associations** — What bad/uncomfortable images might each trigger?
+
+#### Results: **PassChef 5 — VoidKey 0 (UNANIMOUS)**
+
+| Member | Verdict | Confidence | Key Argument |
+|--------|---------|------------|--------------|
+| **Kahneman** | PassChef | 75% | "Void" triggers high-availability negative concepts (void transactions, emptiness, loss). Affect heuristic = feeling becomes judgment. |
+| **Watts** | PassChef | High | **VoidKey has internal semantic contradiction** — "void" (nothing) + "key" (something exists). The name argues with itself. |
+| **Feynman** | PassChef | 78% | Concrete nouns beat abstract ones. PassChef gives action, personality, process. Risk: must not drift into "cute." |
+| **Machiavelli** | PassChef | 84% | VoidKey sounds like a brand to impress builders, not reassure consumers. Market punishes vanity, rewards clarity. |
+| **Rams** | PassChef | High | PassChef serves the user; VoidKey serves the engineer's ego. |
+
+#### Key Discovery: Semantic Contradiction
+
+Watts identified the killer argument against VoidKey:
+> "VoidKey contains a semantic contradiction. 'Void' means nothing; 'Key' means something exists. The name argues with itself. PassChef is semantically coherent — you are the chef of your own passwords."
+
+#### Criteria Scorecard
+
+| Criterion | PassChef | VoidKey | Winner |
+|-----------|----------|---------|--------|
+| Visual imagery | Chef, kitchen, creation | Black hole, emptiness | PassChef |
+| Emotional response | Warm, helpful, competent | Cold, abstract, ominous | PassChef |
+| Friendliness/warmth | Very high | Low | PassChef |
+| Instant memorability | High (concrete, unusual) | Medium (generic tech) | PassChef |
+| Negative associations | Minor (playful) | Severe (void = loss) | PassChef |
+
+---
+
+### 10.12 Final Synthesis Debate (DECISIVE)
+
+> **Date:** 2026-05-25
+> **Mode:** 6-member comprehensive synthesis
+> **Purpose:** Review ALL previous debate results and render final verdict
+> **Providers:** Anthropic (3), OpenAI (2), Google (1)
+
+#### Debate History Summary
+
+| Debate | Focus | Winner | Score |
+|--------|-------|--------|-------|
+| Initial Council (18) | Overall | VoidKey | 9-7 |
+| Focused Debate (6) | Security/Strategy | VoidKey | 5-1 |
+| Marketing Psychology (5) | Consumer Perception | PassChef | 5-0 |
+| **Final Synthesis (6)** | **ALL Aspects** | **PassChef** | **6-0** |
+
+#### Panel Composition
+
+| Member | Focus | Previous Position |
+|--------|-------|-------------------|
+| **Taleb** | Security philosophy, antifragility | VoidKey |
+| **Kahneman** | Decision science | VoidKey → PassChef |
+| **Torvalds** | Pragmatic shipping | VoidKey |
+| **Feynman** | First-principles clarity | PassChef |
+| **Machiavelli** | Market realpolitik | PassChef |
+| **Rams** | User-centered design | VoidKey → PassChef |
+
+#### Results: **PassChef 6 — VoidKey 0 (UNANIMOUS)**
+
+| Member | Previous | Final | Change? | Key Insight |
+|--------|----------|-------|---------|-------------|
+| **Taleb** | VoidKey | **PassChef** | **CONCEDED** | "Antifragility requires surviving volatility first. A name that fails at installation is fragile, not antifragile." |
+| **Kahneman** | VoidKey | **PassChef** | Yes | "System 1 sees 'void'=danger before 'nothing to steal' rationalization." |
+| **Torvalds** | VoidKey | **PassChef** | Yes | "'Security should feel cold' was wrong for consumer context." |
+| **Feynman** | PassChef | **PassChef** | No | "Strategic moat doesn't outweigh consumer perception problem." |
+| **Machiavelli** | PassChef | **PassChef** | No | "A fortress no one enters protects no kingdom. Distribution precedes redemption." |
+| **Rams** | VoidKey | **PassChef** | Yes | "VoidKey is honesty for engineer, not user." |
+
+#### Taleb's Concession (Key Turning Point)
+
+Taleb, VoidKey's strongest defender throughout all debates, conceded when confronted with System 1 rejection logic:
+
+> "I concede. Kahneman defeats the antifragility thesis. I argued VoidKey gains from controversy — but that assumes users engage long enough for System 2 to appreciate the name. If System 1 rejects at first encounter, there is no engagement to gain from. Antifragility requires *surviving* volatility first. A name that fails at installation is fragile, not antifragile."
+>
+> "Via negativa applied to my own position: Remove the assumption that 'polarizing = stronger signal.' The barbell breaks when 90% refuse to engage."
+
+#### Why VoidKey Lost (After Initially Winning)
+
+**1. System 1 Rejection (Kahneman)**
+> "System 1 does not parse taglines first. It sees 'VoidKey' and activates: void transaction (banking failure), the void (existential dread), avoid. These fire before 'nothing to steal' rationalization reaches awareness."
+
+**2. Semantic Contradiction (Watts)**
+- "Void" = absence, nothing, emptiness
+- "Key" = presence, access, something that unlocks
+- Combination creates cognitive friction: "a key to nothing?"
+
+**3. Distribution Before Redemption (Machiavelli)**
+> "Product success is decided by the many, not the few. Elites shape commentary; consumers shape revenue. A fortress in empty land has no value."
+
+**4. Wrong Context (Torvalds)**
+> "'Security products should feel cold' applies to enterprise tools — Wireshark, nmap, HashiCorp Vault. Not mainstream consumer apps."
+
+#### Key Quotes
+
+**Torvalds:**
+> "VoidKey is a clever word. PassChef is a product. Users don't buy clever — they buy things they can explain to their grandmother in a sentence."
+
+**Machiavelli (91% confidence — highest):**
+> "PassChef wins on power, memory, and conversion. 'VoidKey' signals emptiness, coldness, and risk; it sounds niche, even adversarial. 'PassChef' is vivid, ownable, and immediately teaches the product's metaphor."
+
+**Rams:**
+> "Good design makes a product understandable. VoidKey requires explanation, which is poor design."
+
+---
+
+### 10.13 Final Recommendation (CURRENT)
+
+**Winner: PassChef**
+
+| Element | Value |
+|---------|-------|
+| **Name** | PassChef |
+| **Tagline** | "Cook your password from a recipe. Nothing stored." |
+| **Positioning** | Consumer-friendly password creation |
+| **Execution Risk** | Must not drift into "cute" — needs professional design |
+
+#### Why PassChef Wins
+
+| Criterion | PassChef Advantage |
+|-----------|-------------------|
+| Instant Understanding | Cooking metaphor teaches the product in 3 seconds |
+| Semantic Coherence | "Chef" + "Pass" = you create passwords (no contradiction) |
+| Emotional Warmth | Friendly, approachable, trustworthy |
+| Memorability | Concrete nouns beat abstract ones |
+| No Negative Associations | "Chef" has only positive valence |
+
+#### VoidKey's Future
+
+Consider as technical sub-brand for API/SDK if B2B/enterprise expansion planned. The name works for developer-facing products where "zero-storage architecture" is a feature, not a marketing message.
+
+#### Next Steps
+
+1. Verify domain availability (passchef.com, passchef.app, passchef.io)
+2. Register trademark
+3. Execute rebrand (manifest, locales, README, landing page, docs)
+4. **Stop debating. Ship.**
+
+#### Decision Audit Trail
+
+| Date | Event | Outcome |
+|------|-------|---------|
+| 2026-05-25 | Initial Council (18) | VoidKey 9-7 |
+| 2026-05-25 | Focused Debate (6) | VoidKey 5-1 |
+| 2026-05-25 | Marketing Psychology (5) | PassChef 5-0 |
+| 2026-05-25 | Final Synthesis (6) | **PassChef 6-0** |
+| 2026-05-25 | **DECISION** | **PassChef** |
