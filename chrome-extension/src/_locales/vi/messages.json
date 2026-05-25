@@ -394,5 +394,88 @@
   },
   "shareSheetNotice": {
     "message": "Mở trình xuất trong Cài đặt — chia sẻ profile của bạn gắn với sheet này."
+  },
+
+  "_phase07_settings_tab": { "message": "" },
+  "settingsTitle": {
+    "message": "Tuỳ chọn & kho mật khẩu"
+  },
+  "settingsDesc": {
+    "message": "Mật khẩu chủ, ngôn ngữ, mặc định, và các điều chỉnh ảnh hưởng đến mọi hồ sơ."
+  },
+  "settingsVaultLabel": {
+    "message": "Kho mật khẩu"
+  },
+  "settingsVaultTitle": {
+    "message": "Mật khẩu chủ"
+  },
+  "settingsVaultSub": {
+    "message": "Tạo khóa AES cho mọi hồ sơ qua Argon2id. Thay đổi sẽ mã hóa lại tất cả hồ sơ ngay tại chỗ."
+  },
+  "settingsLocaleLabel": {
+    "message": "Ngôn ngữ"
+  },
+  "settingsLocaleTitle": {
+    "message": "Ngôn ngữ"
+  },
+  "settingsLocaleSub": {
+    "message": "Áp dụng cho popup, trang Tùy chọn và Demo."
+  },
+  "settingsDisplayLabel": {
+    "message": "Hiển thị"
+  },
+  "settingsDisplayTitle": {
+    "message": "Mặc định"
+  },
+  "settingsDisplaySub": {
+    "message": "Cài đặt theo hồ sơ; hồ sơ mới sẽ kế thừa các giá trị này."
+  },
+  "settingsShowPepperHint": {
+    "message": "Hiện gợi ý pepper cùng mật khẩu đã tạo"
+  },
+  "settingsShowPepperHintSub": {
+    "message": "Gợi ý ngắn giúp nhớ secret nào đã được dùng."
+  },
+  "settingsRevealPassword": {
+    "message": "Hiển thị mật khẩu mặc định sau khi Tạo"
+  },
+  "settingsRevealPasswordSub": {
+    "message": "Tắt: mật khẩu ẩn cho đến khi nhấn biểu tượng mắt."
+  },
+  "settingsAutoDetectSheet": {
+    "message": "Tự động phát hiện Sheet ID từ tab đang mở"
+  },
+  "settingsAutoDetectSheetSub": {
+    "message": "Điền sẵn trường Sheet trong Recipe Builder."
+  },
+  "settingsStorageLabel": {
+    "message": "Lưu trữ"
+  },
+  "settingsStorageTitle": {
+    "message": "Mức dùng chrome.storage.sync"
+  },
+  "settingsStorageSub": {
+    "message": "Blob mã hóa đồng bộ qua tài khoản Google. Giới hạn cứng là 100 KB trên tất cả các khóa."
+  },
+  "settingsDangerLabel": {
+    "message": "Vùng nguy hiểm"
+  },
+  "settingsDangerTitle": {
+    "message": "Đặt lại tiện ích"
+  },
+  "settingsDangerSub": {
+    "message": "Xóa mọi khóa khỏi chrome.storage.sync. Không thể hoàn tác."
+  },
+  "settingsDangerWarn": {
+    "message": "Bạn sẽ mất quyền truy cập vào mọi Recipe trong mọi bảng tính. Xuất hồ sơ trước nếu muốn giữ lại."
+  },
+  "btnResetEverything": {
+    "message": "Đặt lại tất cả…"
+  },
+  "btnReencryptSave": {
+    "message": "Mã hóa lại & lưu"
+  },
+  "settingsStorageWarn": {
+    "message": "đã dùng. Xóa hồ sơ hoặc gói nhập không dùng để giải phóng dung lượng — Chrome từ chối ghi vượt 100 KB."
   }
 }

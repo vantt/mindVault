@@ -15,6 +15,8 @@
  * @typedef {{ active: SheetTab|null, otherTabs: SheetTab[] }} DetectionResult
  */
 
+import { t } from '../i18n-loader.js';
+
 const SHEET_URL_REGEX = /\/spreadsheets\/d\/([a-zA-Z0-9_-]+)/;
 
 /**
@@ -42,7 +44,7 @@ export function initSheetDetector({ inputEl, warningEl, errorEl, onDetected }) {
     refreshBtn.type = 'button';
     refreshBtn.id = 'bld-detect-refresh';
     refreshBtn.className = 'btn-detect-refresh';
-    refreshBtn.title = chrome.i18n.getMessage('btnDetectRefreshTitle') || 'Re-detect Sheets tabs';
+    refreshBtn.title = t('btnDetectRefreshTitle') || 'Re-detect Sheets tabs';
     refreshBtn.textContent = '↻';
     // Insert refresh button as a sibling of inputEl, wrapped in a relative container
     _wrapInputWithRefreshBtn(inputEl, refreshBtn);
@@ -103,7 +105,7 @@ export function initSheetDetector({ inputEl, warningEl, errorEl, onDetected }) {
         pickerContainer.innerHTML = '';
         const label = document.createElement('span');
         label.className = 'tabs-picker-label';
-        const msg = chrome.i18n.getMessage('detectedNTabs', [String(tabs.length)])
+        const msg = t('detectedNTabs', [String(tabs.length)])
             || `Detected ${tabs.length} Sheets tabs`;
         label.textContent = msg;
         pickerContainer.appendChild(label);

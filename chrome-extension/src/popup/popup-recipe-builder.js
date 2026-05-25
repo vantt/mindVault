@@ -16,6 +16,7 @@
  */
 
 import { initSheetDetector } from './sheet-detector.js';
+import { t } from '../i18n-loader.js';
 
 const PREVIEW_DEBOUNCE_MS = 300;
 const SHEET_URL_REGEX = /\/spreadsheets\/d\/([a-zA-Z0-9_-]+)/;
@@ -135,7 +136,7 @@ export function initRecipeBuilder({ onBack }) {
             el.hashError.classList.add('hidden');
             el.hashError.textContent = '';
         } else {
-            const msg = chrome.i18n.getMessage('errHashAscii') || 'Only ASCII letters and digits allowed';
+            const msg = t('errHashAscii') || 'Only ASCII letters and digits allowed';
             el.hashError.textContent = msg;
             el.hashError.classList.remove('hidden');
         }
@@ -165,7 +166,7 @@ export function initRecipeBuilder({ onBack }) {
             el.sheetWarning.classList.add('hidden');
         } else {
             state.sheetId = null;
-            const msg = chrome.i18n.getMessage('errInvalidSheetUrl') || 'Not a valid Sheet ID or URL';
+            const msg = t('errInvalidSheetUrl') || 'Not a valid Sheet ID or URL';
             el.sheetUrlError.textContent = msg;
             el.sheetUrlError.classList.remove('hidden');
             el.sheetWarning.classList.add('hidden');
@@ -188,7 +189,7 @@ export function initRecipeBuilder({ onBack }) {
                 el.profile.value = mapped;
                 el.profile.disabled = true;
                 if (el.profileHint) {
-                    el.profileHint.textContent = chrome.i18n.getMessage('hintProfileFromMapping') || 'Auto-selected from sheet mapping';
+                    el.profileHint.textContent = t('hintProfileFromMapping') || 'Auto-selected from sheet mapping';
                     el.profileHint.classList.remove('hidden', 'warning');
                 }
                 return;
@@ -198,7 +199,7 @@ export function initRecipeBuilder({ onBack }) {
             if (options.includes(defaultProfileName)) el.profile.value = defaultProfileName;
             el.profile.disabled = false;
             if (el.profileHint) {
-                el.profileHint.textContent = chrome.i18n.getMessage('hintProfileUnmapped') || 'Sheet not mapped — using default. Map in Options for stable behavior.';
+                el.profileHint.textContent = t('hintProfileUnmapped') || 'Sheet not mapped — using default. Map in Options for stable behavior.';
                 el.profileHint.classList.remove('hidden');
                 el.profileHint.classList.add('warning');
             }
@@ -276,7 +277,7 @@ export function initRecipeBuilder({ onBack }) {
         const myToken = ++previewToken;
         const profileName = el.profile.value;
         if (!profileName) {
-            el.passwordOut.textContent = chrome.i18n.getMessage('errNoProfile') || '(no profile)';
+            el.passwordOut.textContent = t('errNoProfile') || '(no profile)';
             el.passwordOut.classList.add('error');
             return;
         }
@@ -323,7 +324,7 @@ export function initRecipeBuilder({ onBack }) {
         await saveLastUsed();
         navigator.clipboard.writeText(recipe);
         const original = el.copyBtn.textContent;
-        el.copyBtn.textContent = chrome.i18n.getMessage('lblCopied') || 'Copied!';
+        el.copyBtn.textContent = t('lblCopied') || 'Copied!';
         setTimeout(() => { el.copyBtn.textContent = original; }, 1500);
     });
 

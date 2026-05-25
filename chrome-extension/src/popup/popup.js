@@ -1,18 +1,19 @@
 import { Argon2Adapter } from "../adapters/infrastructure/argon2_adapter.js";
 import { initRecipeBuilder } from "./popup-recipe-builder.js";
+import { loadLocale, t } from "../i18n-loader.js";
 
 function localizeHtml() {
     document.querySelectorAll('[data-i18n]').forEach(el => {
-        const msg = chrome.i18n.getMessage(el.dataset.i18n);
+        const msg = t(el.dataset.i18n);
         if (msg) el.textContent = msg;
     });
     document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-        const msg = chrome.i18n.getMessage(el.dataset.i18nPlaceholder);
+        const msg = t(el.dataset.i18nPlaceholder);
         if (msg) el.placeholder = msg;
     });
     // data-i18n-title="<key>" → store i18n message in `data-tooltip-html` + wire up custom rich tooltip
     document.querySelectorAll('[data-i18n-title]').forEach(el => {
-        const msg = chrome.i18n.getMessage(el.dataset.i18nTitle);
+        const msg = t(el.dataset.i18nTitle);
         if (msg) {
             el.dataset.tooltipHtml = msg;
             attachTooltip(el);
@@ -51,6 +52,7 @@ function _hideTooltip() {
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
+    await loadLocale();
     localizeHtml();
 
     const argon2 = new Argon2Adapter();
@@ -91,7 +93,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.getElementById(id).classList.remove('hidden');
         const cfg = SECTION_STATUS[id];
         if (!cfg) return;
-        globalStatusText.textContent = chrome.i18n.getMessage(cfg.i18nKey) || cfg.i18nKey;
+        globalStatusText.textContent = t(cfg.i18nKey) || cfg.i18nKey;
         globalStatusDot.className = 'dot ' + cfg.dot;
         globalStatusEl.classList.toggle('active', cfg.active);
     }
@@ -113,12 +115,12 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         // Show panel + update CTA text
         panel.classList.remove('hidden');
-        buildBtn.textContent = chrome.i18n.getMessage('btnCreateFirstRecipe') || 'Create First Recipe';
+        buildBtn.textContent = t('btnCreateFirstRecipe') || 'Create First Recipe';
 
         async function dismiss() {
             try { await chrome.storage.local.set({ hasSeenQuickStart: true }); } catch {}
             panel.classList.add('hidden');
-            buildBtn.textContent = chrome.i18n.getMessage('btnBuildRecipe') || 'Build Recipe';
+            buildBtn.textContent = t('btnBuildRecipe') || 'Build Recipe';
         }
 
         document.getElementById('btn-qs-close')?.addEventListener('click', dismiss);
@@ -139,7 +141,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         homeNotice.classList.add('hidden');
         homeContext.classList.add('hidden');
         homeNoticeText.textContent = '';
-        homeHint.textContent = chrome.i18n.getMessage('hintClickCell') || 'Click any cell in Google Sheets containing a recipe.';
+        homeHint.textContent = t('hintClickCell') || 'Click any cell in Google Sheets containing a recipe.';
 
         if (!tab?.url?.includes('docs.google.com/spreadsheets')) {
             // Not on Sheets tab — hide share button, generic hint
@@ -157,7 +159,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         // Show sheet name badge
         const sheetName = (tab.title || '').replace(/ [-–] Google Sheets$/i, '').trim();
         if (sheetName) {
-            const badgeMsg = chrome.i18n.getMessage('hintSheetContext', [sheetName]);
+            const badgeMsg = t('hintSheetContext', [sheetName]);
             homeContext.textContent = badgeMsg || `📄 ${sheetName}`;
             homeContext.classList.remove('hidden');
         }
@@ -170,13 +172,13 @@ document.addEventListener('DOMContentLoaded', async () => {
                 genPasswordInput.value = response.password;
                 if (response.profileName) {
                     const prefix = response.isShared ? '📥 ' : '';
-                    genProfileLabel.textContent = `${chrome.i18n.getMessage('lblProfile') || 'Profile'}: ${prefix}${response.profileName}`;
+                    genProfileLabel.textContent = `${t('lblProfile') || 'Profile'}: ${prefix}${response.profileName}`;
                     genProfileLabel.classList.remove('hidden');
                 } else {
                     genProfileLabel.classList.add('hidden');
                 }
                 if (response.settings?.pepperingHint) {
-                    genHint.textContent = chrome.i18n.getMessage('hintPepperReminder') || "🔑 Don't forget your pepper!";
+                    genHint.textContent = t('hintPepperReminder') || "🔑 Don't forget your pepper!";
                 } else {
                     genHint.textContent = '';
                 }
@@ -187,15 +189,15 @@ document.addEventListener('DOMContentLoaded', async () => {
             // Any error → stay on Home, show amber notice (notice takes priority — hide generic hint)
             let msg;
             if (response?.error === 'Empty cell') {
-                msg = chrome.i18n.getMessage('hintEmptyCell') || 'Selected cell is empty or has no recipe.';
+                msg = t('hintEmptyCell') || 'Selected cell is empty or has no recipe.';
             } else if (response?.code === 'RECIPE_MISMATCH') {
-                msg = chrome.i18n.getMessage('errRecipeMismatch') || 'Recipe mismatch — wrong sheet or profile?';
+                msg = t('errRecipeMismatch') || 'Recipe mismatch — wrong sheet or profile?';
             } else if (response?.error === 'Invalid recipe format') {
-                msg = chrome.i18n.getMessage('hintInvalidRecipe') || 'Invalid recipe — not a recognized recipe format.';
+                msg = t('hintInvalidRecipe') || 'Invalid recipe — not a recognized recipe format.';
             } else if (response?.error?.includes('not found')) {
-                msg = chrome.i18n.getMessage('hintSecretNotFound') || 'Secret not configured — check Settings.';
+                msg = t('hintSecretNotFound') || 'Secret not configured — check Settings.';
             } else {
-                msg = chrome.i18n.getMessage('hintCellError') || 'Could not generate password from this cell.';
+                msg = t('hintCellError') || 'Could not generate password from this cell.';
             }
             homeNoticeText.textContent = msg;
             homeNotice.classList.remove('hidden');
@@ -206,7 +208,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 || e.message?.includes('Could not establish connection')
                 || e.message?.includes('Receiving end does not exist');
             homeNoticeText.textContent = isConnErr
-                ? (chrome.i18n.getMessage('hintNeedsReload') || '⚠️ Reload the tab to activate the extension.')
+                ? (t('hintNeedsReload') || '⚠️ Reload the tab to activate the extension.')
                 : `⚠️ ${e.message}`;
             homeNotice.classList.remove('hidden');
             homeHint.textContent = '';
@@ -239,7 +241,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 if (total > 0) {
                     const manageBtn = document.getElementById('btn-manage-profiles');
                     if (manageBtn) {
-                        const label = chrome.i18n.getMessage('btnManageProfiles') || 'Manage profiles';
+                        const label = t('btnManageProfiles') || 'Manage profiles';
                         manageBtn.textContent = `${label} (${total})`;
                     }
                 }
@@ -332,8 +334,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (!password) return;
         navigator.clipboard.writeText(password);
         const btn = document.getElementById('btn-copy');
-        btn.textContent = chrome.i18n.getMessage('lblCopied') || "Copied!";
-        setTimeout(() => { btn.textContent = chrome.i18n.getMessage('btnCopy') || "Copy"; }, 1500);
+        btn.textContent = t('lblCopied') || "Copied!";
+        setTimeout(() => { btn.textContent = t('btnCopy') || "Copy"; }, 1500);
     });
 
     // Back (from generated → unlocked) — re-run detection so Home reflects current tab state

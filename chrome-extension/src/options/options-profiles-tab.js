@@ -1,4 +1,5 @@
 import { encryptWithKey, decryptWithKey } from "../adapters/infrastructure/aes-storage-crypto-helper.js";
+import { t } from "../i18n-loader.js";
 
 const PROFILE_COLORS = ['#58a6ff', '#e3b341', '#3fb950', '#a371f7', '#f78166'];
 
@@ -62,12 +63,12 @@ function renderOwnProfiles(profiles, defaultName, sheetMapping, deps) {
                 </div>
                 ${isDefault ? '<span class="profile-badge">⭐ default</span>' : ''}
             </div>
-            <div class="profile-meta">${sheetCount > 0 ? `${sheetCount} ${chrome.i18n.getMessage('lblUsedBySheets') || 'sheets'}` : 'No sheet assignments'}</div>
+            <div class="profile-meta">${sheetCount > 0 ? `${sheetCount} ${t('lblUsedBySheets') || 'sheets'}` : 'No sheet assignments'}</div>
             <div class="profile-actions">
-                <button class="btn sm secondary btn-edit-secrets">✏️ ${chrome.i18n.getMessage('btnEditSecrets') || 'Edit Secrets'}</button>
-                <button class="btn sm secondary btn-export">↑ ${chrome.i18n.getMessage('btnExportProfile') || 'Export'}</button>
-                ${!isDefault ? `<button class="btn sm secondary btn-set-default">★ ${chrome.i18n.getMessage('btnSetDefault') || 'Set Default'}</button>` : ''}
-                ${!isDefault ? `<button class="btn sm danger btn-delete">${chrome.i18n.getMessage('btnRemoveProfile') || 'Remove'}</button>` : ''}
+                <button class="btn sm secondary btn-edit-secrets">✏️ ${t('btnEditSecrets') || 'Edit Secrets'}</button>
+                <button class="btn sm secondary btn-export">↑ ${t('btnExportProfile') || 'Export'}</button>
+                ${!isDefault ? `<button class="btn sm secondary btn-set-default">★ ${t('btnSetDefault') || 'Set Default'}</button>` : ''}
+                ${!isDefault ? `<button class="btn sm danger btn-delete">${t('btnRemoveProfile') || 'Remove'}</button>` : ''}
                 <span class="warn-text hidden" data-key="${key}"></span>
             </div>`;
         container.appendChild(card);
@@ -104,10 +105,10 @@ function renderSharedProfiles(profiles, deps) {
                 <span class="profile-badge">🔒 read-only</span>
             </div>
             <div class="profile-meta">
-                ${meta.importedFrom ? `${chrome.i18n.getMessage('lblImportedFrom') || 'Imported from'}: ${escHtml(meta.importedFrom)} · ` : ''}
+                ${meta.importedFrom ? `${t('lblImportedFrom') || 'Imported from'}: ${escHtml(meta.importedFrom)} · ` : ''}
                 ${meta.importedAt ? `Imported: ${meta.importedAt.slice(0,10)}` : ''}
             </div>
-            <div class="profile-meta monospace">${chrome.i18n.getMessage('lblSheetLocked') || 'Locked to sheet'}: ${sheetDisplay}</div>
+            <div class="profile-meta monospace">${t('lblSheetLocked') || 'Locked to sheet'}: ${sheetDisplay}</div>
             <div class="profile-actions">
                 <button class="btn sm danger btn-remove-shared">Remove</button>
             </div>`;
@@ -248,7 +249,7 @@ async function createProfile(name, deps) {
 async function deleteProfile(key, name, sheetCount, card, deps) {
     if (sheetCount > 0) {
         const warn = card.querySelector('.warn-text');
-        warn.textContent = chrome.i18n.getMessage('errProfileAssigned') || 'Assigned to N sheet(s). Reassign before deleting.';
+        warn.textContent = t('errProfileAssigned') || 'Assigned to N sheet(s). Reassign before deleting.';
         warn.classList.remove('hidden');
         return;
     }

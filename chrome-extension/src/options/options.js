@@ -4,6 +4,7 @@ import { initProfilesTab } from "./options-profiles-tab.js";
 import { openExportWizard } from "./options-export-wizard.js";
 import { openImportWizard } from "./options-import-wizard.js";
 import { initSettingsTab } from "./options-settings-tab.js";
+import { loadLocale, t } from "../i18n-loader.js";
 
 const argon2 = new Argon2Adapter();
 let sessionKey = null;
@@ -16,11 +17,11 @@ const dashboardSection = document.getElementById("dashboard-section");
 // ── Localization ──
 function localizeHtml() {
     document.querySelectorAll('[data-i18n]').forEach(el => {
-        const msg = chrome.i18n.getMessage(el.dataset.i18n);
+        const msg = t(el.dataset.i18n);
         if (msg) el.textContent = msg;
     });
     document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-        const msg = chrome.i18n.getMessage(el.dataset.i18nPlaceholder);
+        const msg = t(el.dataset.i18nPlaceholder);
         if (msg) el.placeholder = msg;
     });
 }
@@ -88,7 +89,7 @@ async function checkStatus() {
         await switchTab('profiles');
         // Migration notice
         if (stored.migrationNotified === false) {
-            showToast(chrome.i18n.getMessage('migrationNotice') || '✅ Migrated to v2. Secrets are now in profile "Default".');
+            showToast(t('migrationNotice') || '✅ Migrated to v2. Secrets are now in profile "Default".');
             await chrome.storage.sync.set({ migrationNotified: true });
         }
         // Pending action from popup (e.g. "Share this sheet")
@@ -100,6 +101,7 @@ async function checkStatus() {
 
 // ── Event listeners ──
 document.addEventListener("DOMContentLoaded", async () => {
+    await loadLocale();
     localizeHtml();
     initTabBar();
     await checkStatus();
@@ -109,8 +111,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         e.preventDefault();
         const pwd = document.getElementById("setup-password").value;
         const confirm = document.getElementById("setup-confirm").value;
-        if (pwd !== confirm) { showToast(chrome.i18n.getMessage("toastPwdMismatch"), true); return; }
-        if (pwd.length < 8) { showToast(chrome.i18n.getMessage("toastPwdShort"), true); return; }
+        if (pwd !== confirm) { showToast(t("toastPwdMismatch"), true); return; }
+        if (pwd.length < 8) { showToast(t("toastPwdShort"), true); return; }
         if (!document.getElementById("setup-backup-confirm").checked) { showToast("Please confirm backup", true); return; }
         try {
             showToast("Setting up…");
@@ -125,7 +127,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 sheetMapping: {}
             });
             await chrome.storage.session.set({ sessionKey });
-            showToast(chrome.i18n.getMessage("toastSetupComplete"));
+            showToast(t("toastSetupComplete"));
             showSection(dashboardSection);
             await switchTab('profiles');
         } catch (err) { showToast("Setup failed: " + err.message, true); }
@@ -148,7 +150,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             await decryptWithKey(verifyData.encryptedData, verifyData.iv, derivedKey); // throws if wrong pwd
             sessionKey = derivedKey;
             await chrome.storage.session.set({ sessionKey });
-            showToast(chrome.i18n.getMessage("toastUnlockSuccess"));
+            showToast(t("toastUnlockSuccess"));
             showSection(dashboardSection);
             await switchTab('profiles');
             await handlePendingAction();
@@ -170,8 +172,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         const oldPwd = document.getElementById("old-password").value;
         const newPwd = document.getElementById("new-password").value;
         const confirmPwd = document.getElementById("confirm-new-password").value;
-        if (newPwd !== confirmPwd) { showToast(chrome.i18n.getMessage("toastPwdMismatch"), true); return; }
-        if (newPwd.length < 8) { showToast(chrome.i18n.getMessage("toastPwdShort"), true); return; }
+        if (newPwd !== confirmPwd) { showToast(t("toastPwdMismatch"), true); return; }
+        if (newPwd.length < 8) { showToast(t("toastPwdShort"), true); return; }
         if (!document.getElementById("change-backup-confirm").checked) { showToast("Please confirm backup", true); return; }
         try {
             showToast("Re-encrypting…");
@@ -198,7 +200,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             await chrome.storage.sync.set(updates);
             sessionKey = newKey;
             await chrome.storage.session.set({ sessionKey });
-            showToast(chrome.i18n.getMessage("toastPwdUpdated"));
+            showToast(t("toastPwdUpdated"));
             document.getElementById("change-password-form").reset();
             document.getElementById("change-password-form").classList.add("hidden");
             document.getElementById("pwd-summary").classList.remove("hidden");

@@ -1,5 +1,6 @@
 import { ExportImportAdapter } from "../adapters/infrastructure/export-import-adapter.js";
 import { decryptWithKey } from "../adapters/infrastructure/aes-storage-crypto-helper.js";
+import { t } from "../i18n-loader.js";
 
 const adapter = new ExportImportAdapter();
 
@@ -116,7 +117,7 @@ async function generateBundle() {
                 <button class="btn sm secondary" id="btn-copy-bundle">📋 Copy Bundle</button>
                 <button class="btn sm secondary" id="btn-download-bundle">⬇️ Download .json</button>
             </div>
-            <div class="warning-box">⚠️ ${chrome.i18n.getMessage('exportNextStep') || "Use this extension on the shared sheet to generate and set account passwords using the shared profile's secrets."}<br><br>⚠️ Transmit via encrypted channel only.</div>`;
+            <div class="warning-box">⚠️ ${t('exportNextStep') || "Use this extension on the shared sheet to generate and set account passwords using the shared profile's secrets."}<br><br>⚠️ Transmit via encrypted channel only.</div>`;
         document.getElementById('export-modal-footer').innerHTML = `<span></span><div class="right"><button id="exp-done" class="btn sm primary" style="width:auto">Done</button></div>`;
 
         document.getElementById('btn-copy-bundle').onclick = () => {

@@ -2,6 +2,8 @@
    Handles: language toggle, display checkboxes, storage quota, danger zone,
    and the collapsed/expanded state of the master-password form. */
 
+import { t } from "../i18n-loader.js";
+
 const STORAGE_SYNC_QUOTA_BYTES = 102400; // 100 KB
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
@@ -35,6 +37,7 @@ async function initLangRadio() {
             o.setAttribute("aria-checked", String(active));
         });
         await chrome.storage.sync.set({ language: lang });
+        location.reload();
     });
 }
 
@@ -115,7 +118,7 @@ async function loadStorageUsage() {
         // Warning
         const warn = document.getElementById("quota-warning");
         if (usedPct > 75) {
-            const msg = chrome.i18n.getMessage("settingsStorageWarn");
+            const msg = t("settingsStorageWarn");
             warn.textContent = `${usedPct.toFixed(0)}% ${msg || "used. Delete unused profiles or imported bundles to free space."}`;
             warn.classList.remove("hidden");
         } else {
