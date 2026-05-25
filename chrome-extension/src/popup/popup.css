@@ -1,4 +1,4 @@
-/* popup.css — mindVault Precision v2 design system
+/* popup.css — PassChef Precision v2 design system
    Depends on: ../styles/tokens.css (loaded first in popup.html)
    Width: 400px | Height: 600px | Font scale: 4px base */
 
@@ -97,17 +97,16 @@ header {
     gap: 0;
 }
 
-.wordmark-mind {
+.wordmark-pass {
     color: var(--ink-600);
 }
 
-.wordmark-vault {
+.wordmark-chef {
     color: var(--ink-900);
-    font-style: italic;
     letter-spacing: -0.025em;
 }
 
-/* 4px amber dot after "Vault" */
+/* 4px amber dot after "Chef" */
 .wordmark-dot {
     display: inline-block;
     width: 4px;

@@ -4,10 +4,10 @@
  * Consumer imports the bundle and generates sheet-bound passwords.
  */
 
-const BUNDLE_TYPE = "mindvault-profile-share";
+const BUNDLE_TYPE = "passchef-profile-share";
 const BUNDLE_VERSION = "2.1";
-const HKDF_INFO = "mindvault-share-v1";
-const FULLACCESS_BUNDLE_TYPE = "mindvault-fullaccess-share";
+const HKDF_INFO = "passchef-share-v1";
+const FULLACCESS_BUNDLE_TYPE = "passchef-fullaccess-share";
 const FULLACCESS_BUNDLE_VERSION = "1.0";
 const PBKDF2_ITERATIONS = 100000;
 
@@ -116,7 +116,7 @@ export class ExportImportAdapter {
 
     /**
      * Validate bundle format without decrypting.
-     * Accepts both legacy (mindvault-profile-share) and Full Access (mindvault-fullaccess-share) bundles.
+     * Accepts both legacy (passchef-profile-share) and Full Access (passchef-fullaccess-share) bundles.
      * @returns {{ valid: boolean, bundleType?: string, profileName?: string, sheetId?: string, exportedAt?: string, error?: string }}
      */
     validateBundle(bundle) {
@@ -125,7 +125,7 @@ export class ExportImportAdapter {
         const isLegacy = bundle.type === BUNDLE_TYPE;
         const isFullAccess = bundle.type === FULLACCESS_BUNDLE_TYPE;
 
-        if (!isLegacy && !isFullAccess) return { valid: false, error: "Not a mindVault bundle" };
+        if (!isLegacy && !isFullAccess) return { valid: false, error: "Not a PassChef bundle" };
 
         if (isLegacy && bundle.version !== BUNDLE_VERSION)
             return { valid: false, error: `Unsupported bundle version: ${bundle.version}` };

@@ -3,7 +3,7 @@ import { test, expect } from './fixtures';
 
 test('Popup loads and shows correct title', async ({ page, extensionId }) => {
   await page.goto(`chrome-extension://${extensionId}/popup/popup.html`);
-  await expect(page.locator('h1')).toHaveText('🔐 mindVault');
+  await expect(page.locator('h1')).toHaveText('🔐 PassChef');
 });
 
 test('Should show Setup state initially', async ({ page, extensionId }) => {

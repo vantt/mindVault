@@ -1,4 +1,4 @@
-// screen-options-settings.jsx — Options page · Settings tab
+﻿// screen-options-settings.jsx — Options page · Settings tab
 //
 // The Secrets-tab → "Change Password" button switches to this tab (see spec 07).
 // The tab itself is unspec'd; I designed a reasonable v2 Settings page covering
@@ -322,7 +322,7 @@ function Footnote() {
     }}>
       <div style={{ display: "flex", alignItems: "center", gap: M_SP(4) }}>
         <span style={{ fontFamily: M_FONT.mono, letterSpacing: "0.14em", textTransform: "uppercase" }}>
-          mindVault · v2.4
+          PassChef · v2.4
         </span>
         <span style={{ color: M_TOK.ink400 }}>·</span>
         <span style={{ fontFamily: M_FONT.display, fontStyle: "italic", fontSize: 12.5 }}>

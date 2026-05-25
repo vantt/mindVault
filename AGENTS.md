@@ -9,7 +9,7 @@ This repository is a monorepo containing two distinct sub-projects:
 
 1.  **`chrome-extension`**:
 
-    - **Description**: Contains the source code for the Chrome Extension (mindVault).
+    - **Description**: Contains the source code for the Chrome Extension (PassChef).
     - **Alias**: Referred to as **"extension"**.
     - **Location**: `./chrome-extension`
 

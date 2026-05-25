@@ -1,5 +1,5 @@
 {
-  "name": "mindvault-extension",
+  "name": "passchef-extension",
   "version": "1.0.0",
   "description": "Clean Architecture Password Generator Extension",
   "scripts": {

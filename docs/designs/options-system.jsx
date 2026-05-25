@@ -1,4 +1,4 @@
-// options-system.jsx — Page chrome + form primitives for mindVault Options page.
+﻿// options-system.jsx — Page chrome + form primitives for PassChef Options page.
 // Uses tokens from mvault-system.jsx (M_TOK / M_FONT / M_SP).
 //
 // Sizing: options page is fullpage (browser tab). Spec calls for 600px content

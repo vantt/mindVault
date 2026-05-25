@@ -1,7 +1,7 @@
 import { IStorageRepository } from "../../core/ports/interfaces.js";
 import { getSessionKey, decryptWithKey } from "./aes-storage-crypto-helper.js";
 
-const SHEET_BIND_INFO = "mindvault-sheet-bind-v1";
+const SHEET_BIND_INFO = "passchef-sheet-bind-v1";
 
 export class ChromeStorageAdapter extends IStorageRepository {
     constructor() {

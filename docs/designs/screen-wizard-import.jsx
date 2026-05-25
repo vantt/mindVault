@@ -1,4 +1,4 @@
-// screen-wizard-import.jsx — Per spec 10-import-wizard.md
+﻿// screen-wizard-import.jsx — Per spec 10-import-wizard.md
 //
 // 3-step modal wizard for importing a shared profile bundle.
 //   Step 1: Paste / upload JSON · live validate
@@ -55,7 +55,7 @@ function ImpStep1({ state }) {
 
   const sample = isEmpty ? "" :
 `{
-  "type": "mindvault-profile-share",
+  "type": "PassChef-profile-share",
   "version": "${isErr ? "1.9" : "2.1"}",
   "bundleId": "f9a1c8b2-e3d4-4a6b-9c8d-1e2f3a4b5c6d",
   "profileName": "TeamFromB",
@@ -70,7 +70,7 @@ function ImpStep1({ state }) {
     <WizImpBody
       eyebrow="Step 1 — bundle"
       title="Paste or upload the bundle"
-      lead="A bundle is the JSON file the sender exported from their copy of mindVault. Paste the text below or attach the .json file."
+      lead="A bundle is the JSON file the sender exported from their copy of PassChef. Paste the text below or attach the .json file."
     >
       <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
         <OLabel>Bundle JSON</OLabel>

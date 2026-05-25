@@ -13,7 +13,7 @@ Reverse-engineered từ [`popup.html`](../../chrome-extension/src/popup/popup.ht
 
 ```
 ┌──────────────────────────────────────────┐
-│ 🔐 mindVault            🔴 Locked    ⚙️  │
+│ 🔐 PassChef            🔴 Locked    ⚙️  │
 │ ──────────────────────────────────────── │
 │                                          │
 │  [Master Password____________________]   │

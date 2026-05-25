@@ -1,6 +1,6 @@
 # Code Review Report — Round 3
 **Date:** 2026-05-18  
-**Scope:** mindVault Chrome Extension v2 — full file review (19 files)  
+**Scope:** PassChef Chrome Extension v2 — full file review (19 files)  
 **Reviewer:** code-reviewer agent
 
 ---
@@ -163,7 +163,7 @@ This always appends `...` even when `sheetId.length <= 20`.
 **File:** `popup/popup.html`  
 **What:** No `<title>` tag and no `lang="en"` on `<html>`. Options.html has a `data-i18n` title but no `lang` either.  
 **Why:** Accessibility: screen readers use `lang` to select pronunciation engine. `<title>` is required for a11y landmark.  
-**Fix:** Add `<html lang="en">` and `<title>mindVault</title>` to `popup.html`; add `lang="en"` to `options.html`.
+**Fix:** Add `<html lang="en">` and `<title>PassChef</title>` to `popup.html`; add `lang="en"` to `options.html`.
 
 ---
 

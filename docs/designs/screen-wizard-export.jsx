@@ -1,4 +1,4 @@
-// screen-wizard-export.jsx — Per spec 09-export-wizard.md
+﻿// screen-wizard-export.jsx — Per spec 09-export-wizard.md
 //
 // 3-step modal wizard + post-generate bundle screen.
 //   Step 1: Relationship label
@@ -95,7 +95,7 @@ function Step2() {
 
       <WarningRow tone="moss">
         <span style={{ color: M_TOK.ink800 }}>Owner step (after share):</span>
-        <span style={{ color: M_TOK.ink600 }}> Open this sheet using mindVault and update every account password to its derived value. Recipients can then decode passwords without ever seeing your originals.</span>
+        <span style={{ color: M_TOK.ink600 }}> Open this sheet using PassChef and update every account password to its derived value. Recipients can then decode passwords without ever seeing your originals.</span>
       </WarningRow>
     </WizardBody>
   );
@@ -132,7 +132,7 @@ function Step3() {
 function StepDone({ profile }) {
   const bundleJson =
 `{
-  "type": "mindvault-profile-share",
+  "type": "PassChef-profile-share",
   "version": "2.1",
   "bundleId": "f9a1c8b2-e3d4-4a6b-9c8d-1e2f3a4b5c6d",
   "profileName": "${profile}",

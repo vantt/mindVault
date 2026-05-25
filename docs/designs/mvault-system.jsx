@@ -1,4 +1,4 @@
-// mvault-system.jsx — Shared tokens, primitives, frame chrome for mindVault popup screens.
+﻿// mvault-system.jsx — Shared tokens, primitives, frame chrome for PassChef popup screens.
 // Sizing target: 400 × 600 popup. Derived from Precision direction.
 
 // ──────────────────────────────────────────────────────────────────────────

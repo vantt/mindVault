@@ -11,11 +11,11 @@ Reverse-engineered từ [`popup.html`](../../chrome-extension/src/popup/popup.ht
 
 ```
 ┌──────────────────────────────────────────┐
-│ 🔐 mindVault             🔴 Setup Required  ⚙️ │
+│ 🔐 PassChef             🔴 Setup Required  ⚙️ │
 │ ─────────────────────────────────────── │
 │                                          │
 │  Create a master password to start       │
-│  using mindVault.                        │
+│  using PassChef.                        │
 │                                          │
 │  [        Start Setup        ]           │
 │                                          │
@@ -24,7 +24,7 @@ Reverse-engineered từ [`popup.html`](../../chrome-extension/src/popup/popup.ht
 
 **Header pill:** `#global-status` — dot class `red` + text từ i18n `statusSetup` ("Setup Required"). `active: false` → pill không có `.active` class (muted styling). Pill được set bởi `showSection()` thông qua `SECTION_STATUS` map (popup.js:66–72).
 
-**Hint text:** hardcoded string, không có `data-i18n` — `"Create a master password to start using mindVault."` (popup.html:23).
+**Hint text:** hardcoded string, không có `data-i18n` — `"Create a master password to start using PassChef."` (popup.html:23).
 
 **CTA button:** `#btn-start-setup` `.btn.primary` — label `"Start Setup"` hardcoded (không có `data-i18n`) (popup.html:24).
 

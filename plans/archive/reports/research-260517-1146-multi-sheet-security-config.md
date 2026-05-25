@@ -1,4 +1,4 @@
-# Research: Multi-Sheet Security Config cho mindVault Extension
+# Research: Multi-Sheet Security Config cho PassChef Extension
 
 **Date:** 2026-05-17 | **Project:** passMan / chrome-extension
 
@@ -369,7 +369,7 @@ Options → Profiles
 
 ```json
 {
-  "type": "mindVault-profile-share",
+  "type": "PassChef-profile-share",
   "version": "1.0",
   "profileName": "TeamSheet",
   "exportedAt": "2026-05-17T12:00:00Z",

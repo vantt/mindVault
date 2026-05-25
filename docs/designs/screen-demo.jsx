@@ -1,4 +1,4 @@
-// screen-demo.jsx — Per spec 16-demo-page.md
+﻿// screen-demo.jsx — Per spec 16-demo-page.md
 //
 // Standalone explainer page (opened via chrome.tabs.create on Learn-more / How-it-works).
 // Max-width 700px, dark theme, 4 sections + Close button.
@@ -79,7 +79,7 @@ function ODemoPage({ state = "default" }) {
           <DemoSection
             n="01"
             title="The idea"
-            body="Your passwords live in your head — not in a database. A recipe is a short code you store in Google Sheets. mindVault reads the cell, combines it with one of your five private phrases, and computes the password on demand. Close the popup and the password is gone."
+            body="Your passwords live in your head — not in a database. A recipe is a short code you store in Google Sheets. PassChef reads the cell, combines it with one of your five private phrases, and computes the password on demand. Close the popup and the password is gone."
             visual={<IdeaVisual/>}
           />
 
@@ -100,7 +100,7 @@ function ODemoPage({ state = "default" }) {
           <DemoSection
             n="04"
             title="Daily use"
-            body="Open a spreadsheet, click the cell with your recipe, then open mindVault. The popup auto-detects the cell and generates the password. Paste it, then close. Nothing was written to disk, nothing was sent over the network."
+            body="Open a spreadsheet, click the cell with your recipe, then open PassChef. The popup auto-detects the cell and generates the password. Paste it, then close. Nothing was written to disk, nothing was sent over the network."
             visual={<DailyFlow/>}
           />
 
@@ -348,7 +348,7 @@ function ModifierTable() {
 
 function DailyFlow() {
   const steps = [
-    { n: "01", t: "Click a recipe cell", s: "Anywhere on the spreadsheet — mindVault reads the active cell." },
+    { n: "01", t: "Click a recipe cell", s: "Anywhere on the spreadsheet — PassChef reads the active cell." },
     { n: "02", t: "Open the extension",  s: "The popup auto-routes to the Generated screen if the cell holds a recipe." },
     { n: "03", t: "Copy & paste",        s: "The password is on the clipboard. Close the popup and it disappears." },
   ];

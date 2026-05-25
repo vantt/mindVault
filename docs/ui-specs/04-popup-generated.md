@@ -14,7 +14,7 @@ Reverse-engineered từ [`popup.html`](../../chrome-extension/src/popup/popup.ht
 
 ```
 ┌──────────────────────────────────────────┐
-│ 🔐 mindVault                🟢 Ready ⚙️ │
+│ 🔐 PassChef                🟢 Ready ⚙️ │
 │ ─────────────────────────────────────── │
 │                                          │
 │  Profile: Default              ← hidden if no profileName

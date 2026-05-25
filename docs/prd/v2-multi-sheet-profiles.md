@@ -1,19 +1,19 @@
 # PRD v2: Multi-Sheet Profiles & Shared Access
 
-**Product:** mindVault Password Generator  
+**Product:** PassChef Password Generator  
 **Version:** 2.3 (Revised)  
 **Date:** 2026-05-25  
 **Status:** Draft — Design Finalized, Pending Implementation
 
 ### Changelog v2.3 (2026-05-25)
 - **Full Access Sharing replaces HKDF Derived Secrets:** §2.3 rewritten — bundle now encrypts **raw secrets** (S_i), not HKDF-derived DS_i. Consumer gets identical secrets → generates identical passwords as Owner.
-- **Why HKDF was wrong:** HKDF derives *different* secrets → *different* passwords → Consumer cannot log in to accounts Owner set up. mindVault has no server — the password IS the credential. True revocation always requires changing service passwords regardless of HKDF.
-- **New bundle type:** `mindvault-fullaccess-share` v1.0 replaces `mindvault-profile-share` for new exports. Legacy bundles remain importable.
+- **Why HKDF was wrong:** HKDF derives *different* secrets → *different* passwords → Consumer cannot log in to accounts Owner set up. PassChef has no server — the password IS the credential. True revocation always requires changing service passwords regardless of HKDF.
+- **New bundle type:** `passchef-fullaccess-share` v1.0 replaces `passchef-profile-share` for new exports. Legacy bundles remain importable.
 - **Export wizard:** 3 → 2 steps. Label step removed (no HKDF → no label). Steps: Sheet ID (optional) → Sharing password → Bundle.
-- **Import behavior:** Full Access bundles create `profile:NAME` (own profile), not `shared:`. If bundle has sheetId → auto-added to `sheetMapping`. Legacy `mindvault-profile-share` imports unchanged → stored as `shared:NAME`.
+- **Import behavior:** Full Access bundles create `profile:NAME` (own profile), not `shared:`. If bundle has sheetId → auto-added to `sheetMapping`. Legacy `passchef-profile-share` imports unchanged → stored as `shared:NAME`.
 - **§2.4 Generation unchanged for Full Access imports:** Full Access imports are `profile:` (isShared=false) → standard own-profile generation, no sheetId binding.
 - **§6 Tier 5 revocation removed:** Label rotation meaningless without HKDF. Only Tier 1 (GSheets access) remains.
-- **Backward compat:** Legacy `mindvault-profile-share` bundles remain importable → stored as `shared:NAME` → HKDF-bound generation as before.
+- **Backward compat:** Legacy `passchef-profile-share` bundles remain importable → stored as `shared:NAME` → HKDF-bound generation as before.
 
 ### Changelog v2.2 (2026-05-22)
 - **Verification Tag (additive grammar):** `<base>[.<tag>]` — 4-char base32 HMAC suffix detects profile/sheet mismatch at decode time. Mismatch → `RecipeProfileMismatchError`, no password generated. See §2.5.
@@ -93,7 +93,7 @@ Bundle = AES-GCM-Encrypt(
 
 Consumer nhận `S_1..5` (raw) → generates **identical passwords** với Owner.
 
-> **Tại sao không dùng HKDF:** HKDF derives *different* secrets → generates *different* passwords → Consumer không thể đăng nhập bằng account Owner đã set up. mindVault không có server nên không có "derived access" — password IS the credential. Revoke luôn đòi hỏi đổi service password bất kể HKDF hay không.
+> **Tại sao không dùng HKDF:** HKDF derives *different* secrets → generates *different* passwords → Consumer không thể đăng nhập bằng account Owner đã set up. PassChef không có server nên không có "derived access" — password IS the credential. Revoke luôn đòi hỏi đổi service password bất kể HKDF hay không.
 
 **Owner workflow (v2.3):**
 ```
@@ -118,9 +118,9 @@ Generation algorithm **không thay đổi** — giống hệt own profile:
 password = combine(S_i, recipe)   // không có sheetId binding
 ```
 
-**Revocation:** Dựa vào Tier 1 (GSheets access) — Owner revoke GSheets permission → Consumer không mở được sheet URL → extension không trigger. Đủ với threat model của mindVault (no server).
+**Revocation:** Dựa vào Tier 1 (GSheets access) — Owner revoke GSheets permission → Consumer không mở được sheet URL → extension không trigger. Đủ với threat model của PassChef (no server).
 
-> **Legacy `shared:` profiles:** Vẫn dùng HKDF-bound generation (isShared=true, §2.4 cũ). Chỉ apply cho bundles cũ (`mindvault-profile-share`) đã import trước v2.3.
+> **Legacy `shared:` profiles:** Vẫn dùng HKDF-bound generation (isShared=true, §2.4 cũ). Chỉ apply cho bundles cũ (`passchef-profile-share`) đã import trước v2.3.
 
 ### 2.5 Verification Tag (v2.2 — Mismatch Detection)
 
@@ -171,7 +171,7 @@ password = combine(S_i, recipe)   // không có sheetId binding
   "profile:TeamFromAlice": { encryptedData: Array<number>, iv: Array<number> },
   // ↑ Full Access import: tạo profile:NAME như own profile
 
-  // Legacy HKDF-imported profiles (mindvault-profile-share bundles, pre-v2.3)
+  // Legacy HKDF-imported profiles (passchef-profile-share bundles, pre-v2.3)
   "shared:TeamFromB":  {
     encryptedData: Array<number>,
     iv: Array<number>,
@@ -224,7 +224,7 @@ password = combine(S_i, recipe)   // không có sheetId binding
 
 ```json
 {
-  "type": "mindvault-fullaccess-share",
+  "type": "passchef-fullaccess-share",
   "version": "1.0",
   "bundleId": "uuid-generated-at-export",
   "profileName": "TeamShare",
@@ -242,7 +242,7 @@ password = combine(S_i, recipe)   // không có sheetId binding
 
 ```json
 {
-  "type": "mindvault-profile-share",
+  "type": "passchef-profile-share",
   "version": "2.1",
   "bundleId": "uuid-generated-at-export",
   "profileName": "TeamShare",
@@ -262,7 +262,7 @@ password = combine(S_i, recipe)   // không có sheetId binding
 Step 1: Sheet ID (optional)   → [auto-fill từ active tab] hoặc nhập URL/ID
 Step 2: Sharing password      → [input + confirm] → [Generate Bundle]
 → Encrypt S_1..5 (raw) với PBKDF2(sharingPassword, exportSalt)
-→ Output bundle JSON  (type: "mindvault-fullaccess-share")
+→ Output bundle JSON  (type: "passchef-fullaccess-share")
 ```
 
 > Không còn bước Relationship Label — không có HKDF → không cần label.
@@ -276,12 +276,12 @@ Consumer: Options → Import Profile
   3. Nhập sharing password
   4. Derive import key → decrypt bundle → lấy secrets
 
-  If type === "mindvault-fullaccess-share":
+  If type === "passchef-fullaccess-share":
     5a. Re-encrypt secrets bằng Consumer's sessionKey
     6a. Lưu vào "profile:NAME" (own profile, không phải shared:)
     7a. Nếu bundle.sheetId → tự thêm sheetMapping[sheetId] = NAME
 
-  If type === "mindvault-profile-share" (legacy):
+  If type === "passchef-profile-share" (legacy):
     5b. Re-encrypt DS_1..5 bằng Consumer's sessionKey
     6b. Lưu vào "shared:NAME" với sheetId từ bundle (behavior cũ)
 
@@ -356,12 +356,12 @@ async function execute(recipe, profileName, sheetId) {
 
 Owner revoke Google Sheets sharing permission → Consumer không mở được sheet → extension không trigger → không generate được.
 
-Đây là **sufficient revocation** với threat model của mindVault:
+Đây là **sufficient revocation** với threat model của PassChef:
 - Consumer không ở trên URL sheetId_A được
 - Không có gì trong storage để bypass
 - Tức thời, zero implementation cost
 
-> **Lưu ý:** mindVault không có server. Nếu Consumer đã biết password thông qua việc generate trước đó, Tier 1 chỉ ngăn generate mới. Đổi service password là biện pháp duy nhất nếu cần true invalidation — điều này đúng với bất kỳ hệ thống nào, có hay không có HKDF.
+> **Lưu ý:** PassChef không có server. Nếu Consumer đã biết password thông qua việc generate trước đó, Tier 1 chỉ ngăn generate mới. Đổi service password là biện pháp duy nhất nếu cần true invalidation — điều này đúng với bất kỳ hệ thống nào, có hay không có HKDF.
 
 ### Recommended workflow
 

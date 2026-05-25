@@ -1,4 +1,4 @@
-// screen-01-setup.jsx — First Setup popup state.
+﻿// screen-01-setup.jsx — First Setup popup state.
 // Triggered when `salt` is missing from chrome.storage.sync.
 // Popup is a CTA only — actual master-password form lives on Options page.
 
@@ -20,7 +20,7 @@ function MSetupFaithful() {
         </MDisplay>
         <div style={{ height: M_SP(4) }} />
         <MBody muted>
-          mindVault encrypts your secrets with this single password.
+          PassChef encrypts your secrets with this single password.
           It never leaves your machine. There is no recovery — back it up.
         </MBody>
 

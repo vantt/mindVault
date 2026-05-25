@@ -1,5 +1,5 @@
 /**
- * mindVault Landing Page - JavaScript
+ * PassChef Landing Page - JavaScript
  * Handles animations, interactions, and scroll effects
  */
 
@@ -626,7 +626,7 @@
     console.log(`
     ╔═══════════════════════════════════════════════════════╗
     ║                                                       ║
-    ║   🔐 mindVault - Secure Password Manager              ║
+    ║   🔐 PassChef - Secure Password Manager              ║
     ║                                                       ║
     ║   Your passwords stay private. Always.                ║
     ║                                                       ║

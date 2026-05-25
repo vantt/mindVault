@@ -1,4 +1,4 @@
-# UI Specs — mindVault Chrome Extension
+# UI Specs — PassChef Chrome Extension
 
 **Version:** 2.1 (Revised)
 **Date:** 2026-05-17

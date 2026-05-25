@@ -2,14 +2,14 @@
 
 > **Status:** DECIDED — PassChef (Final Synthesis unanimous 6/0)
 > **Last updated:** 2026-05-25
-> **Current name:** mindVault (to be replaced before Chrome Web Store publish)
+> **Current name:** PassChef (to be replaced before Chrome Web Store publish)
 > **Final Winner:** PassChef — see Section 10.12 (Final Synthesis overturned VoidKey)
 
 ---
 
 ## 1. Why Rename
 
-mindVault sounds like every other password manager (1Password, LastPass, Bitwarden — all "vaults"). It fails to communicate the product's actual differentiator: passwords are **generated on demand from recipes**, never stored.
+PassChef sounds like every other password manager (1Password, LastPass, Bitwarden — all "vaults"). It fails to communicate the product's actual differentiator: passwords are **generated on demand from recipes**, never stored.
 
 The name was fine for development but insufficient for commercialization where first impression = install decision.
 
@@ -177,7 +177,7 @@ Professional, minimal, not tied to any specific concept.
 | Distill | Pretentious, whiskey association |
 | PassMint | "Mint" doesn't clearly connect to cooking |
 | CookKey | Sounds like "cookie" — web security confusion |
-| mindVault | Generic, indistinguishable from competitors |
+| PassChef | Generic, indistinguishable from competitors |
 
 ---
 

@@ -1,8 +1,8 @@
-# Prompt: Tiếp tục cải tiến Landing Page cho mindVault
+# Prompt: Tiếp tục cải tiến Landing Page cho PassChef
 
 ## Project Context
 
-**mindVault** là Chrome Extension biến Google Sheets thành Password Manager an toàn:
+**PassChef** là Chrome Extension biến Google Sheets thành Password Manager an toàn:
 
 - **Split Knowledge Architecture**: Public formulas (vd: `gmail#1`) + Private secrets = Secure passwords
 - **Zero-Knowledge**: Secrets không rời device, mã hóa với Argon2id + AES-256-GCM

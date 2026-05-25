@@ -11,7 +11,7 @@ Reverse-engineered từ [popup-recipe-builder.js](../../chrome-extension/src/pop
 
 ```
 ┌──────────────────────────────────────────┐
-│ 🔐 mindVault                  🟢      ⚙️ │
+│ 🔐 PassChef                  🟢      ⚙️ │
 │ ───────────────────────────────────────  │
 │  [Back]           ? How it works         │
 │                                          │

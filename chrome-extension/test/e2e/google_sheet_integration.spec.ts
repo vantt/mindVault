@@ -100,7 +100,7 @@ test('Google Sheet Integration: Hotkey & Extraction', async ({ page, extensionId
 
   // Fallback: IF popup not visible, try triggering via Service Worker directly
   // This confirms if the issue is just the Hotkey Dispatch vs the Logic
-  const isVisible = await page.locator('text=mindVault').isVisible();
+  const isVisible = await page.locator('text=PassChef').isVisible();
   if (!isVisible) {
       console.log('Hotkey failed to show popup. Attempting manual trigger via Service Worker...');
       const [worker] = page.context().serviceWorkers();
@@ -139,7 +139,7 @@ test('Google Sheet Integration: Hotkey & Extraction', async ({ page, extensionId
   }
 
   // Verify Popup appears (Shadow Root)
-  await expect(page.locator('text=mindVault')).toBeVisible({ timeout: 5000 });
+  await expect(page.locator('text=PassChef')).toBeVisible({ timeout: 5000 });
   
   // Check generated password visibility
   // Recipe: r4nd0m#1 (Style # top garnish) -> Secret(Basic*) + r4nd0m -> Basic*r4nd0m
@@ -153,7 +153,7 @@ test('Google Sheet Integration: Hotkey & Extraction', async ({ page, extensionId
   // Let's assume functionality is correct based on PRD.
   // We just want to see *some* result, or check if it *contains* the secret if simple mode.
   // But strictly, we simply want to verify the POPUP shows up and has a value in the input.
-  const popupInput = page.locator('div.mindvault-popup input[type="text"]');
+  const popupInput = page.locator('div.passchef-popup input[type="text"]');
   await expect(popupInput).toBeVisible();
   const generatedValue = await popupInput.inputValue();
   console.log('Generated Value 1:', generatedValue);
@@ -161,7 +161,7 @@ test('Google Sheet Integration: Hotkey & Extraction', async ({ page, extensionId
 
   // Close popup (Escape)
   await page.keyboard.press('Escape');
-  await expect(page.locator('text=mindVault')).not.toBeVisible();
+  await expect(page.locator('text=PassChef')).not.toBeVisible();
 
   // 4. Test Case: Formula Bar Extraction Fallback
   // Reset generic input
@@ -185,7 +185,7 @@ test('Google Sheet Integration: Hotkey & Extraction', async ({ page, extensionId
 
   // Fallback for Case 2: Manual Trigger if Hotkey missed (Headless quirk)
   try {
-      await expect(page.locator('text=mindVault')).toBeVisible({ timeout: 2000 });
+      await expect(page.locator('text=PassChef')).toBeVisible({ timeout: 2000 });
   } catch (e) {
       console.log('Case 2 Hotkey failed. Attempting manual trigger...');
       const [worker] = page.context().serviceWorkers();
@@ -201,7 +201,7 @@ test('Google Sheet Integration: Hotkey & Extraction', async ({ page, extensionId
   }
 
   // Verify Popup again
-  await expect(page.locator('text=mindVault')).toBeVisible();
+  await expect(page.locator('text=PassChef')).toBeVisible();
   const formulaValue = await popupInput.inputValue();
   console.log('Generated Value 2:', formulaValue);
   expect(formulaValue.length).toBeGreaterThan(5);

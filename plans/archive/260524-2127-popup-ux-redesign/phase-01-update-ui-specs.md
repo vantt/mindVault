@@ -47,7 +47,7 @@ Replace the single layout block with multiple contextual state layouts:
 **A. First-use state** (no `hasSeenQuickStart` in local storage):
 ```
 ┌──────────────────────────────────────────┐
-│ 🔐 mindVault          🟢 Unlocked    ⚙️ │
+│ 🔐 PassChef          🟢 Unlocked    ⚙️ │
 │ ──────────────────────────────────────── │
 │ ┌── How it works ───────────────────── ×┐│
 │ │ 1. Build a recipe                     ││
@@ -64,7 +64,7 @@ Replace the single layout block with multiple contextual state layouts:
 **B. Standard state** (not on Sheets tab, `hasSeenQuickStart` set):
 ```
 ┌──────────────────────────────────────────┐
-│ 🔐 mindVault          🟢 Unlocked    ⚙️ │
+│ 🔐 PassChef          🟢 Unlocked    ⚙️ │
 │ ──────────────────────────────────────── │
 │  Click any cell in Google Sheets         │
 │  containing a recipe.                    │

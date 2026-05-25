@@ -1,4 +1,4 @@
-/* options.css — mindVault Options page · Precision Design System v2
+/* options.css — PassChef Options page · Precision Design System v2
    Tokens imported via tokens.css (loaded before this file in options.html).
    All colours via var(--ink-*) / var(--amber) / var(--moss) / var(--coral).
    Spacing via var(--sp-N). Fonts via var(--font-*). */
@@ -70,8 +70,8 @@ main {
   line-height: 1;
 }
 
-.wordmark-mind    { color: var(--ink-600); }
-.wordmark-vault   { color: var(--ink-900); font-style: italic; letter-spacing: -0.025em; }
+.wordmark-pass    { color: var(--ink-600); }
+.wordmark-chef    { color: var(--ink-900); letter-spacing: -0.025em; }
 .wordmark-dot     {
   display: inline-block;
   width: 5px; height: 5px;

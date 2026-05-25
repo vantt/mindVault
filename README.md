@@ -1,4 +1,4 @@
-# mindVault Password Generator
+# PassChef Password Generator
 
 **Turn Google Sheets into a Secure Password Manager**
 
@@ -7,7 +7,7 @@
 > 1. **[Chrome Extension](./chrome-extension)**: The main password manager tool.
 > 2. **[Landing Page](./landing-page)**: Marketing website.
 
-mindVault is a Chrome Extension that allows you to generate strong, consistent passwords directly from your Google Sheets cells using a formula-based approach (e.g., `r4nd0m#1`). It uses **Argon2id** and **AES-256-GCM** to ensure your master secrets are secure.
+PassChef is a Chrome Extension that allows you to generate strong, consistent passwords directly from your Google Sheets cells using a formula-based approach (e.g., `r4nd0m#1`). It uses **Argon2id** and **AES-256-GCM** to ensure your master secrets are secure.
 
 ## Why is this Safe? (The "Recipe" Insight)
 

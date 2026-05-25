@@ -12,30 +12,30 @@ document.addEventListener('click', (event) => {
     
     const text = target.innerText || target.textContent;
     if (text && /[a-zA-Z0-9]+[#@$%^]\d/.test(text)) {
-        console.log("mindVault: Detected potential recipe:", text);
+        console.log("PassChef: Detected potential recipe:", text);
         
         chrome.runtime.sendMessage({
             action: "GENERATE_PASSWORD",
             text: text.trim()
         }, (response) => {
             if (chrome.runtime.lastError) {
-                console.error("mindVault Error:", chrome.runtime.lastError);
+                console.error("PassChef Error:", chrome.runtime.lastError);
                 return;
             }
             
             if (response && response.success) {
-                console.log("mindVault: Password Generated!", response.password);
+                console.log("PassChef: Password Generated!", response.password);
                 // In a real UI, show popup. Here just log or alert.
                 // alert(`Password: ${response.password}`);
                 
                 // Copy to clipboard
                 navigator.clipboard.writeText(response.password).then(() => {
-                    console.log("mindVault: Copied to clipboard");
+                    console.log("PassChef: Copied to clipboard");
                 }).catch(err => {
-                    console.error("mindVault: Failed to copy", err);
+                    console.error("PassChef: Failed to copy", err);
                 });
             } else {
-                console.error("mindVault: Generation failed", response?.error);
+                console.error("PassChef: Generation failed", response?.error);
             }
         });
     }

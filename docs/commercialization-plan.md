@@ -2,7 +2,7 @@
 
 > **Status:** Draft
 > **Last updated:** 2026-05-25
-> **Product:** mindVault Password Generator (name pending — see [naming-decision.md](./naming-decision.md))
+> **Product:** PassChef Password Generator (name pending — see [naming-decision.md](./naming-decision.md))
 > **Current version:** v2.3 (Full Access Sharing)
 
 ---

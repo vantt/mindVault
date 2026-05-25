@@ -25,7 +25,7 @@ Sorted alphabetically. EN value shown; VI exists for all (v2.4 keys) or TBD (v2.
 | Key | EN Value |
 |---|---|
 | `appDescription` | Generate passwords from recipes stored in Google Sheets |
-| `appName` | mindVault Password Generator |
+| `appName` | PassChef Password Generator |
 | `backupConfirm` | I have backed up my master password and secrets manually. |
 | `backupConfirmNew` | I have backed up my NEW master password. |
 | `btnBuildRecipe` | Build Recipe |

@@ -16,7 +16,7 @@
 
 ## Overview
 
-A standalone full-page HTML file that explains the mindVault concept and daily workflow. Opened as a new browser tab from:
+A standalone full-page HTML file that explains the PassChef concept and daily workflow. Opened as a new browser tab from:
 1. "Learn more →" on Quick Start panel
 2. "? How it works" in Builder header
 
@@ -81,13 +81,13 @@ Alternative: omit `web_accessible_resources` entirely — MV3 extension pages ar
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>mindVault — How it works</title>
+  <title>PassChef — How it works</title>
   <link rel="stylesheet" href="demo.css">
 </head>
 <body>
   <div class="demo-container">
     <header class="demo-header">
-      <h1>🔐 mindVault</h1>
+      <h1>🔐 PassChef</h1>
       <p class="demo-tagline" data-i18n="demoTagline">...</p>
     </header>
 
@@ -239,7 +239,7 @@ Table: Symbol / What it does / Example
 4 steps:
 1. Open your Google Sheet
 2. Click a cell containing a recipe
-3. Open mindVault (or press Ctrl+Shift+L)
+3. Open PassChef (or press Ctrl+Shift+L)
 4. Click Copy → paste into the login field
 
 Rotation tip: "Changed your password? Just update the recipe hash (e.g. `fb2`) — same secrets, new password."

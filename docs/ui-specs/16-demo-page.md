@@ -1,6 +1,6 @@
 # 16 — Demo Page (Standalone)
 
-New standalone HTML page explaining how mindVault works. Opened in a new browser tab — not inside the popup.
+New standalone HTML page explaining how PassChef works. Opened in a new browser tab — not inside the popup.
 
 **File path:** `chrome-extension/src/demo/demo.html`
 
@@ -39,15 +39,15 @@ Alternatively, if the page is only opened from within the extension (popup), `ma
 ```
 ┌──────────────────────────────────────────────┐  max-width: 700px
 │                                              │  dark theme
-│  🔐 mindVault                                │  ← h1
-│  How mindVault Works                         │  ← subtitle / page description
+│  🔐 PassChef                                │  ← h1
+│  How PassChef Works                         │  ← subtitle / page description
 │  ──────────────────────────────────────────  │
 │                                              │
 │  ## The Idea                                 │  ← Section 1
 │                                              │
 │  Your passwords live in your head — not      │
 │  in a database. A recipe is a short code     │
-│  you store in Google Sheets. mindVault       │
+│  you store in Google Sheets. PassChef       │
 │  reads the cell and computes your password   │
 │  on demand.                                  │
 │                                              │
@@ -82,7 +82,7 @@ Alternatively, if the page is only opened from within the extension (popup), `ma
 │  ## Daily Use                                │  ← Section 4
 │                                              │
 │  Open a spreadsheet, click a cell with your  │
-│  recipe, then open mindVault. Your password  │
+│  recipe, then open PassChef. Your password  │
 │  appears instantly. Nothing is stored —      │
 │  close the popup and it's gone.              │
 │                                              │
@@ -117,7 +117,7 @@ Alternatively, if the page is only opened from within the extension (popup), `ma
 ### Section 1 — The Idea
 
 **i18n heading key:** `demoSection1Title` → "The Idea"
-**i18n body key:** `demoSection1Body` → "Your passwords live in your head — not in a database. A recipe is a short code you store in Google Sheets. mindVault reads the cell and computes your password on demand."
+**i18n body key:** `demoSection1Body` → "Your passwords live in your head — not in a database. A recipe is a short code you store in Google Sheets. PassChef reads the cell and computes your password on demand."
 
 ### Section 2 — Anatomy of a Recipe
 
@@ -143,7 +143,7 @@ Optional: a modifier reference table showing symbol + effect. Can reuse the `hin
 ### Section 4 — Daily Use
 
 **i18n heading key:** `demoSection4Title` → "Daily Use"
-**i18n body key:** `demoSection4Body` → "Open a spreadsheet, click a cell with your recipe, then open mindVault. Your password appears instantly. Nothing is stored — close the popup and it's gone."
+**i18n body key:** `demoSection4Body` → "Open a spreadsheet, click a cell with your recipe, then open PassChef. Your password appears instantly. Nothing is stored — close the popup and it's gone."
 
 ---
 
@@ -178,15 +178,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
 | Key | EN Value |
 |---|---|
-| `demoTitle` | How mindVault Works |
+| `demoTitle` | How PassChef Works |
 | `demoSection1Title` | The Idea |
-| `demoSection1Body` | Your passwords live in your head — not in a database. A recipe is a short code you store in Google Sheets. mindVault reads the cell and computes your password on demand. |
+| `demoSection1Body` | Your passwords live in your head — not in a database. A recipe is a short code you store in Google Sheets. PassChef reads the cell and computes your password on demand. |
 | `demoSection2Title` | Anatomy of a Recipe |
 | `demoSection2Body` | A recipe looks like `fb#1` — a hash, a position, and a secret index. The extension combines these with your secret phrase to generate a unique password. |
 | `demoSection3Title` | Modifiers |
 | `demoSection3Body` | Add `_`, `!`, `?`, or `~` to transform how secrets are combined. Each modifier changes the output in a predictable, reversible way. |
 | `demoSection4Title` | Daily Use |
-| `demoSection4Body` | Open a spreadsheet, click a cell with your recipe, then open mindVault. Your password appears instantly. Nothing is stored — close the popup and it's gone. |
+| `demoSection4Body` | Open a spreadsheet, click a cell with your recipe, then open PassChef. Your password appears instantly. Nothing is stored — close the popup and it's gone. |
 | `demoBtnClose` | Close this tab |
 
 All keys above are also listed in [15-i18n-keys.md](./15-i18n-keys.md) section A2.

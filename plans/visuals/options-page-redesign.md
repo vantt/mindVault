@@ -12,7 +12,7 @@ The Options page has been converted from the v1 "GitHub-dark" design (blue accen
 ┌─────────────────────────────────────────────────────────────────────────┐
 │  APP BAR (ink-050 bg · ink-200 bottom border · sticky)                  │
 │  ┌───────────────────────────────────────────────────────────────────┐  │
-│  │  mind●Vault  · Options          ●  mindVault  [Fraunces italic]  │  │
+│  │  mind●Vault  · Options          ●  PassChef  [Fraunces italic]  │  │
 │  └───────────────────────────────────────────────────────────────────┘  │
 │  TAB BAR (ink-200 bottom border)                                         │
 │  ┌──────────┬──────────┬──────────┐                                      │

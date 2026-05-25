@@ -6,7 +6,7 @@ Tab bar hiển thị giữa header và main content, **chỉ khi unlocked** (das
 
 ```
 ┌──────────────────────────────────────────────────────────┐
-│  🔐 mindVault                                            │
+│  🔐 PassChef                                            │
 │  Secure Password Generator                               │
 │                                                          │
 │  ┌───────────┬────────────┬────────────┐                 │

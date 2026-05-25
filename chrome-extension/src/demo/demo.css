@@ -1,4 +1,4 @@
-/* demo.css — Precision v2 design system for the mindVault demo page
+/* demo.css — Precision v2 design system for the PassChef demo page
    Depends on: ../styles/tokens.css (ink ramp, accents, fonts, spacing) */
 
 /* ── Reset (tokens.css already provides *, but reinforce for clarity) ── */
@@ -56,13 +56,12 @@ body {
   flex-shrink: 0;
 }
 
-.wordmark-mind {
+.wordmark-pass {
   color: var(--ink-600);
 }
 
-.wordmark-vault {
+.wordmark-chef {
   color: var(--ink-900);
-  font-style: italic;
   letter-spacing: -0.025em;
 }
 

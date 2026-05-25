@@ -1,6 +1,6 @@
 {
   "appName": {
-    "message": "mindVault - Trình tạo Mật khẩu"
+    "message": "PassChef - Trình tạo Mật khẩu"
   },
   "appDescription": {
     "message": "Tạo mật khẩu từ Recipe (Công thức) trong Google Sheets"
@@ -267,7 +267,7 @@
     "message": "Sheet chưa được map — dùng default. Hãy map trong Options để ổn định."
   },
   "hintSetupPrompt": {
-    "message": "Tạo mật khẩu chính để bắt đầu dùng mindVault."
+    "message": "Tạo mật khẩu chính để bắt đầu dùng PassChef."
   },
   "placeholderSheetUrl": {
     "message": "Dán URL hoặc Sheet ID"

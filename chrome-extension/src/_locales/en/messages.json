@@ -1,6 +1,6 @@
 {
   "appName": {
-    "message": "mindVault Password Generator",
+    "message": "PassChef Password Generator",
     "description": "Name of the extension"
   },
   "appDescription": {
@@ -269,7 +269,7 @@
     "message": "Sheet not mapped — using default. Map in Options for stable behavior."
   },
   "hintSetupPrompt": {
-    "message": "Create a master password to start using mindVault."
+    "message": "Create a master password to start using PassChef."
   },
   "placeholderSheetUrl": {
     "message": "Paste URL or Sheet ID"

@@ -90,7 +90,7 @@ function renderStep(step) {
         document.getElementById('imp-decrypt').onclick = () => decryptBundle();
 
     } else if (step === 3) {
-        const isFullAccess = state.bundle?.type === 'mindvault-fullaccess-share';
+        const isFullAccess = state.bundle?.type === 'passchef-fullaccess-share';
         const sheetFull = state.bundle?.sheetId || null;
         const suggestedName = state.bundle?.profileName || 'ImportedProfile';
         const description = isFullAccess
@@ -120,7 +120,7 @@ function validateBundleInput() {
         if (result.valid) {
             state.bundle = parsed;
             const sid = result.sheetId || '';
-            const isFullAccess = result.bundleType === 'mindvault-fullaccess-share';
+            const isFullAccess = result.bundleType === 'passchef-fullaccess-share';
             const typeLabel = isFullAccess ? 'Valid Full Access bundle' : 'Valid legacy bundle (HKDF)';
             const sheetPart = sid ? ` · Sheet: ${sid.length > 14 ? sid.slice(0, 14) + '...' : sid}` : '';
             showStatus('valid', `✓ ${typeLabel} · Profile: ${result.profileName}${sheetPart}`);
@@ -168,7 +168,7 @@ async function confirmImport() {
     const localName = document.getElementById('imp-profile-name')?.value.trim();
     if (!localName) { alert('Profile name is required.'); return; }
 
-    const isFullAccess = state.bundle?.type === 'mindvault-fullaccess-share';
+    const isFullAccess = state.bundle?.type === 'passchef-fullaccess-share';
     const encrypted = await encryptWithKey(state.derivedSecrets, state.sessionKey);
 
     if (isFullAccess) {

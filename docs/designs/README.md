@@ -1,9 +1,9 @@
-# Handoff — mindVault Chrome Extension (v2)
+# Handoff — PassChef Chrome Extension (v2)
 
 > **Audience:** developer using Claude Code (or working alone) to implement
-> the mindVault UI in a real Chrome extension codebase.
+> the PassChef UI in a real Chrome extension codebase.
 >
-> **What is mindVault?** A Chrome Manifest-V3 extension that generates
+> **What is PassChef?** A Chrome Manifest-V3 extension that generates
 > deterministic per-site passwords inside Google Sheets, with multi-profile
 > + sharing support. Product context lives in `docs/prd/v2-multi-sheet-profiles.md`.
 
@@ -49,11 +49,11 @@ according to the behavior markdown.
 ## 2 · How the design files are organised
 
 ```
-design_handoff_mindvault/
+design_handoff_passchef/
 ├── README.md                          ← you are here
 ├── designs/                           ← open the *.html files to preview
-│   ├── mindVault Popup.html           ← canvas: every popup screen × state
-│   ├── mindVault Options.html         ← canvas: every options / modal / wizard / demo screen
+│   ├── PassChef Popup.html           ← canvas: every popup screen × state
+│   ├── PassChef Options.html         ← canvas: every options / modal / wizard / demo screen
 │   ├── DesignSystem.html              ← design system doc (type, color, components)
 │   ├── mvault-system.jsx              ← shared tokens + primitives for popup screens
 │   ├── options-system.jsx             ← shared tokens + primitives for options screens
@@ -89,8 +89,8 @@ design_handoff_mindvault/
     └── ui-spec-v2-multi-sheet-profiles.md  ← older single-doc UI spec; superseded by ui-specs/*.md
 ```
 
-**Previewing the mockups:** open `designs/mindVault Popup.html` and
-`designs/mindVault Options.html` in any modern browser. They use pan/zoom —
+**Previewing the mockups:** open `designs/PassChef Popup.html` and
+`designs/PassChef Options.html` in any modern browser. They use pan/zoom —
 scroll to pan, ⌘/Ctrl + scroll to zoom, click a card to focus.
 
 ---
@@ -482,7 +482,7 @@ For each screen, before marking done:
 ## 8 · Where to start reading
 
 If you are just starting:
-1. Open `designs/mindVault Popup.html` and `designs/mindVault Options.html`
+1. Open `designs/PassChef Popup.html` and `designs/PassChef Options.html`
    side by side.
 2. Read `docs/prd/v2-multi-sheet-profiles.md` end-to-end.
 3. Skim `docs/ui-specs/README.md` for the spec index, then read

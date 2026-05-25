@@ -11,14 +11,14 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         const target = document.activeElement;
         const text = extractRecipeText(target);
         if (text) generateAndShow(target, text);
-        else console.log("mindVault: No recipe found in active element or formula bar");
+        else console.log("PassChef: No recipe found in active element or formula bar");
     }
 
     if (request.action === "GET_CURRENT_CELL_PASSWORD") {
         (async () => {
             const target = document.activeElement;
             const text = extractRecipeText(target);
-            console.log("mindVault: Final Extracted Text for Popup:", text);
+            console.log("PassChef: Final Extracted Text for Popup:", text);
 
             if (!text) {
                 sendResponse({ success: false, error: "Empty cell" });
@@ -64,7 +64,7 @@ function extractRecipeText(target) {
                     const rect = el.getBoundingClientRect();
                     if (rect.top > 0 && rect.top < 150 && rect.width > 300) {
                         formulaBar = el;
-                        console.log("mindVault: Formula bar found via heuristic:", el.id || el.className);
+                        console.log("PassChef: Formula bar found via heuristic:", el.id || el.className);
                         break;
                     }
                 }
@@ -74,12 +74,12 @@ function extractRecipeText(target) {
                 const val = formulaBar.innerText || formulaBar.textContent;
                 if (val) {
                     text = val;
-                    console.log("mindVault: Extracted from Formula Bar:", text);
+                    console.log("PassChef: Extracted from Formula Bar:", text);
                 } else {
-                    console.log("mindVault: Formula bar found but empty. id=", formulaBar.id);
+                    console.log("PassChef: Formula bar found but empty. id=", formulaBar.id);
                 }
             } else {
-                console.log("mindVault: Formula bar element not found. Try reloading the tab.");
+                console.log("PassChef: Formula bar element not found. Try reloading the tab.");
             }
         }
     }
@@ -88,7 +88,7 @@ function extractRecipeText(target) {
 }
 
 async function generateAndShow(target, text) {
-    console.log("mindVault: Generating for", text);
+    console.log("PassChef: Generating for", text);
     try {
         const response = await chrome.runtime.sendMessage({
             action: "GENERATE_PASSWORD",
@@ -110,7 +110,7 @@ async function generateAndShow(target, text) {
             showErrorToast(target, msg);
         }
     } catch (e) {
-        console.error("mindVault: Generation error", e);
+        console.error("PassChef: Generation error", e);
         if (e.message?.includes("Extension context invalidated")) {
             try { showErrorToast(target, "Extension reloaded. Please refresh this page."); } catch {}
         }
@@ -126,7 +126,7 @@ function showPopup(targetElement, password, settings = {}) {
 
     const style = document.createElement('style');
     style.textContent = `
-        .mindvault-popup{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:12px;box-shadow:0 4px 12px rgba(0,0,0,.3);color:#f0f6fc;font-family:sans-serif;min-width:200px;animation:fadeIn .15s ease-out;box-sizing:border-box}
+        .passchef-popup{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:12px;box-shadow:0 4px 12px rgba(0,0,0,.3);color:#f0f6fc;font-family:sans-serif;min-width:200px;animation:fadeIn .15s ease-out;box-sizing:border-box}
         .header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;font-size:.85rem;color:#8b949e}
         .close-btn{cursor:pointer;font-size:1.2em;line-height:.5}
         .pwd-container{display:flex;gap:8px}
@@ -141,9 +141,9 @@ function showPopup(targetElement, password, settings = {}) {
         ? `<div style="font-size:.75rem;color:#8b949e;margin-top:6px;font-style:italic;">🔑 Don't forget your pepper!</div>` : '';
 
     const content = document.createElement('div');
-    content.className = 'mindvault-popup';
+    content.className = 'passchef-popup';
     content.innerHTML = `
-        <div class="header"><span>mindVault</span><span class="close-btn" tabindex="0">&times;</span></div>
+        <div class="header"><span>PassChef</span><span class="close-btn" tabindex="0">&times;</span></div>
         <div class="pwd-container">
             <input type="text" id="mv-pwd-input" readonly>
             <button class="copy-btn">Copy</button>
@@ -192,10 +192,10 @@ function showErrorToast(targetElement, message) {
     const shadow = host.attachShadow({ mode: 'open' });
 
     const style = document.createElement('style');
-    style.textContent = `.mindvault-toast{background:#da3633;color:#f0f6fc;padding:8px 12px;border-radius:6px;font-size:.85rem;box-shadow:0 4px 12px rgba(0,0,0,.3);border:1px solid #f85149;white-space:nowrap;animation:fadeIn .15s ease-out}@keyframes fadeIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}`;
+    style.textContent = `.passchef-toast{background:#da3633;color:#f0f6fc;padding:8px 12px;border-radius:6px;font-size:.85rem;box-shadow:0 4px 12px rgba(0,0,0,.3);border:1px solid #f85149;white-space:nowrap;animation:fadeIn .15s ease-out}@keyframes fadeIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}`;
     shadow.appendChild(style);
     const toast = document.createElement('div');
-    toast.className = 'mindvault-toast';
+    toast.className = 'passchef-toast';
     toast.textContent = `⚠️ ${message}`;
     shadow.appendChild(toast);
 

@@ -6,14 +6,14 @@
 
 **Design decision:**
 - HKDF derived secrets (`DS_i = HKDF(S_i, label)`) generate *different* passwords than Owner → Consumer cannot log in to accounts Owner set up → fundamentally broken for the actual use case.
-- mindVault has no server. The password IS the credential. HKDF adds zero practical revocation benefit — true revocation always requires changing service passwords regardless.
+- PassChef has no server. The password IS the credential. HKDF adds zero practical revocation benefit — true revocation always requires changing service passwords regardless.
 - **New model:** Bundle encrypts raw secrets (`S_i`) with `PBKDF2(sharingPassword)`. Consumer gets identical secrets → generates identical passwords.
 
 **Changes:**
-- New bundle type `mindvault-fullaccess-share` v1.0 (exported by default for all new exports).
+- New bundle type `passchef-fullaccess-share` v1.0 (exported by default for all new exports).
 - Export wizard: 3 → 2 steps. Relationship label step removed (no HKDF → no label needed).
-- Import: `mindvault-fullaccess-share` bundles create `profile:NAME` (own profile, not `shared:`). If bundle has `sheetId` → auto-added to `sheetMapping`.
-- Legacy `mindvault-profile-share` bundles remain importable → stored as `shared:NAME` → HKDF-bound generation unchanged.
+- Import: `passchef-fullaccess-share` bundles create `profile:NAME` (own profile, not `shared:`). If bundle has `sheetId` → auto-added to `sheetMapping`.
+- Legacy `passchef-profile-share` bundles remain importable → stored as `shared:NAME` → HKDF-bound generation unchanged.
 - Tier 5 revocation (label rotation) removed from revocation model — meaningless without HKDF.
 - PRD updated: `docs/prd/v2-multi-sheet-profiles.md` §2.3, §2.4, §4, §6, §10.2.
 

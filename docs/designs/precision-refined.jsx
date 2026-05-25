@@ -1,4 +1,4 @@
-// precision-refined.jsx — Refined Precision design system for PassMan.
+﻿// precision-refined.jsx — Refined Precision design system for PassMan.
 // Self-contained: all components, tokens, and helpers under the P_ namespace
 // to avoid collision with variations.jsx if both are loaded together.
 
@@ -600,7 +600,7 @@ function PrecisionTypeDoc() {
     <DocFrame title="Typography">
       <TypeRow font={P_FONT.display} size={44} weight={400} italic
                label="Display · Fraunces 44/400 italic"
-               sample="mindVault" />
+               sample="PassChef" />
       <TypeRow font={P_FONT.display} size={28} weight={400}
                label="Title · Fraunces 28/400"
                sample="Open a sheet, then click any cell." />

@@ -26,7 +26,7 @@ Bundle JSON
 - Hidden `<input type="file" accept=".json" #imp-file-input>` wrapped in label button — reads file text, populates textarea, then calls same validation
 
 **Validation (`adapter.validateBundle`):**
-- `bundle.type === "mindvault-profile-share"`
+- `bundle.type === "passchef-profile-share"`
 - `bundle.version === "2.1"` (exact match; other versions → "Unsupported bundle version: X")
 - Required fields: `sheetId`, `encryptedData`, `iv`, `exportSalt`
 - On fail: red status `#imp-bundle-status` with error text
@@ -140,7 +140,7 @@ No manual sheet assignment needed.
 - Step titles: "📥 Import Shared Profile", "🔑 Enter Sharing Password", "✏️ Name This Profile"
 - Step description paragraphs
 - Button labels: "Continue →", "← Back", "Decrypt →", "Import", "Decrypting…"
-- Validation messages: "Not valid JSON", "Not a mindVault bundle", "Unsupported bundle version: X",
+- Validation messages: "Not valid JSON", "Not a PassChef bundle", "Unsupported bundle version: X",
   "Incomplete bundle — missing required fields", "Password is required.", "Bundle contains invalid secret structure"
 - Decrypt error fallback: `e.message` (English from crypto layer)
 - Step counter: "Step N of 3"

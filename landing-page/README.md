@@ -1,6 +1,6 @@
-# mindVault Landing Page
+# PassChef Landing Page
 
-Modern, high-tech landing page for the **mindVault** Chrome Extension - a secure password manager that transforms Google Sheets into a password vault.
+Modern, high-tech landing page for the **PassChef** Chrome Extension - a secure password manager that transforms Google Sheets into a password vault.
 
 ## Tech Stack
 
@@ -41,7 +41,7 @@ landing-page/
 ## Features
 
 1. **Hero Section** - Headline, CTA, terminal demo
-2. **Problem/Solution** - Traditional vs mindVault comparison
+2. **Problem/Solution** - Traditional vs PassChef comparison
 3. **Recipe vs Cake** - Visual analogy explaining the concept
 4. **Features Grid** - Bento-style feature showcase
 5. **Security Section** - Argon2id + AES-256-GCM details

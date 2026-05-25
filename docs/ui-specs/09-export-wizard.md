@@ -146,7 +146,7 @@ After successful `adapter.createBundle()`, `#export-step-content` and `#export-m
 
 **Copy** (`#btn-copy-bundle`): `navigator.clipboard.writeText(bundleJson)`, button text → `"✓ Copied"`.
 
-**Download** (`#btn-download-bundle`): blob URL, filename = `mindvault-bundle-{profileName}.json`.
+**Download** (`#btn-download-bundle`): blob URL, filename = `passchef-bundle-{profileName}.json`.
 
 **Done** (`#exp-done`): hides `#modal-export`, calls `state.onComplete?.()`.
 
@@ -156,7 +156,7 @@ After successful `adapter.createBundle()`, `#export-step-content` and `#export-m
 
 ```json
 {
-  "type": "mindvault-profile-share",
+  "type": "passchef-profile-share",
   "version": "2.1",
   "bundleId": "<uuid>",
   "profileName": "<string>",

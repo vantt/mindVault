@@ -128,7 +128,7 @@ async function generateBundle() {
             const blob = new Blob([bundleJson], { type: 'application/json' });
             const a = document.createElement('a');
             a.href = URL.createObjectURL(blob);
-            a.download = `mindvault-bundle-${state.profileName}.json`;
+            a.download = `passchef-bundle-${state.profileName}.json`;
             a.click();
         };
         document.getElementById('exp-done').onclick = () => {

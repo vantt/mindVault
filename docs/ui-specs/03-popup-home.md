@@ -16,7 +16,7 @@ Displayed when `chrome.storage.local` key `hasSeenQuickStart` is absent or `fals
 
 ```
 ┌──────────────────────────────────────────┐
-│ 🔐 mindVault          🟢 Unlocked    ⚙️ │
+│ 🔐 PassChef          🟢 Unlocked    ⚙️ │
 │ ──────────────────────────────────────── │
 │ ┌── How it works ───────────────────── ×┐│
 │ │ 1. Build a recipe                     ││
@@ -53,7 +53,7 @@ Displayed when `hasSeenQuickStart` is `true` AND the active tab is NOT a Google 
 
 ```
 ┌──────────────────────────────────────────┐
-│ 🔐 mindVault          🟢 Unlocked    ⚙️ │
+│ 🔐 PassChef          🟢 Unlocked    ⚙️ │
 │ ──────────────────────────────────────── │
 │                                          │
 │  Click any cell in Google Sheets         │
@@ -83,7 +83,7 @@ Displayed when the active tab IS a Sheets tab AND `GET_CURRENT_CELL_PASSWORD` re
 
 ```
 ┌──────────────────────────────────────────┐
-│ 🔐 mindVault          🟢 Unlocked    ⚙️ │
+│ 🔐 PassChef          🟢 Unlocked    ⚙️ │
 │ ──────────────────────────────────────── │
 │                                          │
 │ 📄 Budget 2026                           │
@@ -107,7 +107,7 @@ Displayed when the active tab IS a Sheets tab AND a JS exception (`catch`) occur
 
 ```
 ┌──────────────────────────────────────────┐
-│ 🔐 mindVault          🟢 Unlocked    ⚙️ │
+│ 🔐 PassChef          🟢 Unlocked    ⚙️ │
 │ ──────────────────────────────────────── │
 │                                          │
 │ 📄 Budget 2026                           │
@@ -126,7 +126,7 @@ Displayed when the active tab IS a Sheets tab AND a JS exception (`catch`) occur
 
 | Element | Detail |
 |---------|--------|
-| Title | `🔐 mindVault` (h1) |
+| Title | `🔐 PassChef` (h1) |
 | Status pill | Green dot · i18n `statusUnlocked` ("Unlocked") |
 | Settings button | `⚙️` top-right (`#btn-settings`) → `chrome.runtime.openOptionsPage()` |
 

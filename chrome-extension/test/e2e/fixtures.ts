@@ -10,7 +10,7 @@ export const test = base.extend<{
 }>({
   context: async ({ }, use) => {
     const pathToExtension = path.join(process.cwd(), 'src');
-    const tempDir = await fs.promises.mkdtemp(path.join(os.tmpdir(), 'mindvault-e2e-'));
+    const tempDir = await fs.promises.mkdtemp(path.join(os.tmpdir(), 'passchef-e2e-'));
     
     console.log(`Loading extension from: ${pathToExtension}`);
     console.log(`User Data Dir: ${tempDir}`);

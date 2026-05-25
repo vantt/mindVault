@@ -1,10 +1,10 @@
-# mindVault Landing Page - Design Report
+# PassChef Landing Page - Design Report
 
 **Agent:** ui-ux-designer | **Date:** 2026-01-14 | **ID:** a1b18c1
 
 ## Summary
 
-Created a production-ready, award-winning quality landing page for mindVault Chrome Extension with cyberpunk glassmorphism design.
+Created a production-ready, award-winning quality landing page for PassChef Chrome Extension with cyberpunk glassmorphism design.
 
 ## Files Created
 
