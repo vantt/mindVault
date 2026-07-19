@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PassChef Privacy Policy - Zero-knowledge architecture. No data sent to servers. Your passwords never leave your device.">
+    <meta name="author" content="PassChef">
+    <meta name="theme-color" content="#00FF41">
+
+    <title>Privacy Policy - PassChef</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
+
+    <style>
+        /* Legal page-specific styles */
+        .legal-page {
+            padding: 120px 0 var(--space-24);
+            min-height: 100vh;
+        }
+
+        .legal-header {
+            margin-bottom: var(--space-16);
+            padding-bottom: var(--space-8);
+            border-bottom: 1px solid var(--border-primary);
+        }
+
+        .legal-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-2);
+            padding: var(--space-2) var(--space-4);
+            background: var(--bg-glass);
+            border: 1px solid var(--border-primary);
+            border-radius: var(--radius-full);
+            font-size: var(--text-sm);
+            font-weight: 500;
+            color: var(--color-primary);
+            margin-bottom: var(--space-4);
+        }
+
+        .legal-title {
+            font-family: var(--font-heading);
+            font-size: clamp(var(--text-3xl), 4vw, var(--text-5xl));
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            margin-bottom: var(--space-4);
+        }
+
+        .legal-meta {
+            font-size: var(--text-sm);
+            color: var(--text-tertiary);
+            display: flex;
+            gap: var(--space-6);
+            flex-wrap: wrap;
+        }
+
+        .legal-meta-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+        }
+
+        .legal-summary-box {
+            background: rgba(var(--color-primary-rgb), 0.05);
+            border: 1px solid rgba(var(--color-primary-rgb), 0.2);
+            border-radius: var(--radius-xl);
+            padding: var(--space-8);
+            margin-bottom: var(--space-12);
+        }
+
+        .legal-summary-box h3 {
+            font-family: var(--font-heading);
+            font-size: var(--text-lg);
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: var(--space-4);
+        }
+
+        .legal-summary-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-3);
+        }
+
+        .legal-summary-item {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-3);
+            font-size: var(--text-base);
+            color: var(--text-secondary);
+        }
+
+        .legal-summary-item svg {
+            width: 18px;
+            height: 18px;
+            color: var(--color-primary);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .legal-body {
+            max-width: 800px;
+        }
+
+        .legal-section {
+            margin-bottom: var(--space-12);
+        }
+
+        .legal-section h2 {
+            font-family: var(--font-heading);
+            font-size: var(--text-2xl);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: var(--space-6);
+            padding-bottom: var(--space-3);
+            border-bottom: 1px solid var(--border-secondary);
+        }
+
+        .legal-section h3 {
+            font-family: var(--font-heading);
+            font-size: var(--text-lg);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-3);
+            margin-top: var(--space-6);
+        }
+
+        .legal-section p {
+            font-size: var(--text-base);
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: var(--space-4);
+        }
+
+        .legal-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .legal-section ul, .legal-section ol {
+            margin: var(--space-4) 0;
+            padding-left: var(--space-6);
+            list-style: disc;
+        }
+
+        .legal-section ol {
+            list-style: decimal;
+        }
+
+        .legal-section li {
+            font-size: var(--text-base);
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: var(--space-2);
+        }
+
+        .legal-section a {
+            color: var(--color-primary);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        .legal-section a:hover {
+            color: var(--color-primary-dark);
+        }
+
+        .permission-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-primary);
+            border-radius: var(--radius-xl);
+            padding: var(--space-6);
+            margin-bottom: var(--space-4);
+            backdrop-filter: blur(10px);
+            transition: border-color var(--transition-fast);
+        }
+
+        .permission-card:hover {
+            border-color: rgba(var(--color-primary-rgb), 0.3);
+        }
+
+        .permission-card-header {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            margin-bottom: var(--space-3);
+        }
+
+        .permission-name {
+            font-family: var(--font-mono);
+            font-size: var(--text-sm);
+            font-weight: 600;
+            color: var(--color-primary);
+            background: rgba(var(--color-primary-rgb), 0.1);
+            padding: var(--space-1) var(--space-3);
+            border-radius: var(--radius-sm);
+        }
+
+        .permission-card p {
+            font-size: var(--text-sm);
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .highlight-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-primary);
+            border-left: 3px solid var(--color-primary);
+            border-radius: var(--radius-md);
+            padding: var(--space-5) var(--space-6);
+            margin: var(--space-6) 0;
+        }
+
+        .highlight-box p {
+            margin: 0;
+            font-size: var(--text-base);
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .contact-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-primary);
+            border-radius: var(--radius-xl);
+            padding: var(--space-8);
+            text-align: center;
+            margin-top: var(--space-8);
+        }
+
+        .contact-card h3 {
+            font-family: var(--font-heading);
+            font-size: var(--text-xl);
+            font-weight: 600;
+            margin-bottom: var(--space-3);
+        }
+
+        .contact-card p {
+            color: var(--text-secondary);
+            margin-bottom: var(--space-4);
+        }
+
+        .contact-card a {
+            color: var(--color-primary);
+            font-family: var(--font-mono);
+            text-decoration: none;
+        }
+
+        .contact-card a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Effects -->
+    <div class="bg-grid"></div>
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+
+    <!-- Navigation -->
+    <nav class="nav scrolled" id="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <svg class="nav-logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="2" y="2" width="28" height="28" rx="6" stroke="currentColor" stroke-width="2"/>
+                    <path d="M16 8V24M10 16H22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <circle cx="16" cy="16" r="4" stroke="currentColor" stroke-width="2"/>
+                </svg>
+                <span>PassChef</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html#core-concept" class="nav-link">How It Works</a>
+                <a href="index.html#features" class="nav-link">Features</a>
+                <a href="index.html#security" class="nav-link">Security</a>
+                <a href="index.html#faq" class="nav-link">FAQ</a>
+            </div>
+            <a href="index.html#install" class="btn btn-primary btn-sm">
+                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="7 10 12 15 17 10"/>
+                    <line x1="12" y1="15" x2="12" y2="3"/>
+                </svg>
+                Install Extension
+            </a>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-content">
+            <a href="index.html#core-concept" class="mobile-menu-link">How It Works</a>
+            <a href="index.html#features" class="mobile-menu-link">Features</a>
+            <a href="index.html#security" class="mobile-menu-link">Security</a>
+            <a href="index.html#faq" class="mobile-menu-link">FAQ</a>
+            <a href="index.html#install" class="btn btn-primary btn-lg mobile-menu-cta">Install Extension</a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="legal-page" role="main">
+        <div class="container">
+            <div class="legal-header">
+                <span class="legal-badge">Legal</span>
+                <h1 class="legal-title">Privacy Policy</h1>
+                <div class="legal-meta">
+                    <span class="legal-meta-item">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2"/>
+                            <line x1="16" y1="2" x2="16" y2="6"/>
+                            <line x1="8" y1="2" x2="8" y2="6"/>
+                            <line x1="3" y1="10" x2="21" y2="10"/>
+                        </svg>
+                        Last updated: June 13, 2026
+                    </span>
+                    <span class="legal-meta-item">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                            <circle cx="12" cy="7" r="4"/>
+                        </svg>
+                        PassChef / passchef.io
+                    </span>
+                </div>
+            </div>
+
+            <!-- TL;DR Summary -->
+            <div class="legal-summary-box">
+                <h3>The short version</h3>
+                <div class="legal-summary-list">
+                    <div class="legal-summary-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 6L9 17l-5-5"/>
+                        </svg>
+                        <span>No passwords, secrets, or personal data are ever sent to any server. Everything stays on your device.</span>
+                    </div>
+                    <div class="legal-summary-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 6L9 17l-5-5"/>
+                        </svg>
+                        <span>Encrypted secrets are stored in <code style="background: rgba(var(--color-primary-rgb), 0.1); color: var(--color-primary); padding: 2px 6px; border-radius: 4px; font-family: var(--font-mono);">chrome.storage.sync</code> — Google's own infrastructure. We never touch them.</span>
+                    </div>
+                    <div class="legal-summary-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 6L9 17l-5-5"/>
+                        </svg>
+                        <span>No analytics, no telemetry, no tracking of any kind.</span>
+                    </div>
+                    <div class="legal-summary-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 6L9 17l-5-5"/>
+                        </svg>
+                        <span>The clipboard auto-clears 30 seconds after a password is copied.</span>
+                    </div>
+                    <div class="legal-summary-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 6L9 17l-5-5"/>
+                        </svg>
+                        <span>You own your data entirely. Uninstalling the extension removes all locally stored data.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="legal-body">
+
+                <!-- 1. Introduction -->
+                <div class="legal-section">
+                    <h2>1. Introduction</h2>
+                    <p>
+                        This Privacy Policy describes how the PassChef Chrome Extension ("PassChef", "the extension", "we", "us") handles information when you install and use the extension. PassChef is an independent, open-source project maintained by an individual developer.
+                    </p>
+                    <p>
+                        PassChef is built on a zero-knowledge architecture. This means that by design, we are technically incapable of accessing your passwords, secrets, or any sensitive data — because that data never leaves your device and is never transmitted to any server we operate.
+                    </p>
+                </div>
+
+                <!-- 2. Data We Collect -->
+                <div class="legal-section">
+                    <h2>2. Data We Collect (and Don't Collect)</h2>
+
+                    <h3>Data stored locally on your device</h3>
+                    <p>The extension stores the following data exclusively in <code>chrome.storage.sync</code>, which is managed by Google's Chrome infrastructure:</p>
+                    <ul>
+                        <li><strong>Encrypted secrets</strong> — your secret phrases, encrypted with Argon2id key derivation and AES-256-GCM encryption before being stored. The plaintext values are never written to disk or transmitted anywhere.</li>
+                        <li><strong>Encrypted master password verification data</strong> — a cryptographic salt and verification token derived from your master password. The master password itself is never stored.</li>
+                        <li><strong>Extension settings</strong> — non-sensitive preferences such as auto-lock timeout.</li>
+                    </ul>
+
+                    <h3>Data we never collect</h3>
+                    <ul>
+                        <li>Your master password (plaintext or otherwise)</li>
+                        <li>Your generated passwords</li>
+                        <li>The recipe formulas in your Google Sheets</li>
+                        <li>Browsing history or visited URLs</li>
+                        <li>Personally identifiable information (name, email, IP address)</li>
+                        <li>Crash reports or usage analytics</li>
+                        <li>Any data sent to an external server</li>
+                    </ul>
+
+                    <div class="highlight-box">
+                        <p>PassChef operates no backend servers. There is no PassChef account, no sign-up, and no cloud service. The only "sync" that occurs is Google's own <code>chrome.storage.sync</code>, which syncs your encrypted secrets between your Chrome browsers. We have no access to this data — it is held by Google under their own Privacy Policy.</p>
+                    </div>
+                </div>
+
+                <!-- 3. Permissions -->
+                <div class="legal-section">
+                    <h2>3. Chrome Permissions Explained</h2>
+                    <p>PassChef requests only the permissions necessary to function. Here is exactly what each permission is used for and why it is required:</p>
+
+                    <div class="permission-card">
+                        <div class="permission-card-header">
+                            <span class="permission-name">storage</span>
+                        </div>
+                        <p>Used to persist your encrypted secrets and settings in <code>chrome.storage.sync</code>. This allows your encrypted configuration to sync across Chrome browsers where you are signed in. No plaintext data is ever written to storage.</p>
+                    </div>
+
+                    <div class="permission-card">
+                        <div class="permission-card-header">
+                            <span class="permission-name">clipboardWrite</span>
+                        </div>
+                        <p>Used to copy a generated password to your clipboard when you click "Copy" or trigger generation. The password exists in memory only during generation and is cleared from the clipboard automatically after 30 seconds via the <code>alarms</code> API.</p>
+                    </div>
+
+                    <div class="permission-card">
+                        <div class="permission-card-header">
+                            <span class="permission-name">activeTab</span>
+                        </div>
+                        <p>Used to read the content of the currently active Google Sheets tab — specifically the text of the selected cell, which contains the recipe formula (e.g., <code>bank$3</code>). Access is granted only for the current tab at the moment you trigger generation. The extension does not have persistent access to your browser tabs.</p>
+                    </div>
+
+                    <div class="permission-card">
+                        <div class="permission-card-header">
+                            <span class="permission-name">tabs</span>
+                        </div>
+                        <p>Used to detect whether the currently active tab is a Google Sheets page, so the extension can enable or disable the generation button appropriately. The extension reads only the tab URL to check for the <code>docs.google.com/spreadsheets</code> pattern. No tab content is read.</p>
+                    </div>
+
+                    <div class="permission-card">
+                        <div class="permission-card-header">
+                            <span class="permission-name">idle</span>
+                        </div>
+                        <p>Used to detect when your browser becomes idle, triggering the auto-lock feature. After 5 minutes of idle time, the extension locks and requires your master password to continue. No idle state data is transmitted anywhere.</p>
+                    </div>
+
+                    <div class="permission-card">
+                        <div class="permission-card-header">
+                            <span class="permission-name">alarms</span>
+                        </div>
+                        <p>Used to schedule the 30-second clipboard auto-clear. After copying a generated password, an alarm is set to overwrite the clipboard with an empty string after 30 seconds. Also used to trigger session timeout (auto-lock after 10 minutes of active session).</p>
+                    </div>
+                </div>
+
+                <!-- 4. How We Handle Encrypted Data -->
+                <div class="legal-section">
+                    <h2>4. How Encrypted Data Is Stored</h2>
+                    <p>
+                        Your secret phrases are encrypted using industry-standard cryptography before any storage occurs:
+                    </p>
+                    <ol>
+                        <li>Your master password is processed through <strong>Argon2id</strong> (memory: 64MB, iterations: 3, parallelism: 4) to derive an encryption key. This process is intentionally slow and memory-intensive to resist brute-force attacks.</li>
+                        <li>Each secret is encrypted with <strong>AES-256-GCM</strong>, producing an authenticated ciphertext with a random nonce.</li>
+                        <li>Only the resulting ciphertext (encrypted noise) is written to <code>chrome.storage.sync</code>.</li>
+                    </ol>
+                    <p>
+                        The encrypted data syncs to other Chrome browsers where you are signed in with the same Google account, via Google's own sync infrastructure. Google's handling of this data is governed by <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>. From PassChef's perspective, the data in Chrome Sync is opaque ciphertext — we cannot decrypt it, and neither can Google.
+                    </p>
+                    <div class="highlight-box">
+                        <p><strong>Important:</strong> Your master password is never stored anywhere — not locally, not in Chrome Sync, not on any server. If you forget your master password, there is no recovery mechanism. This is by design: if we could recover it, so could an attacker.</p>
+                    </div>
+                </div>
+
+                <!-- 5. No Telemetry -->
+                <div class="legal-section">
+                    <h2>5. No Telemetry or Analytics</h2>
+                    <p>
+                        PassChef contains zero analytics, telemetry, error reporting, or usage tracking of any kind. There are no third-party SDKs, tracking pixels, or remote logging calls in the extension codebase. You can verify this by reviewing the open-source code.
+                    </p>
+                    <p>
+                        The extension makes no outbound network requests except those initiated directly by you (for example, accessing Google Sheets in the active tab). There is no "phone home" behavior.
+                    </p>
+                </div>
+
+                <!-- 6. Data Retention -->
+                <div class="legal-section">
+                    <h2>6. Data Retention and Your Control</h2>
+                    <p>
+                        You have complete control over all data associated with PassChef:
+                    </p>
+                    <ul>
+                        <li><strong>View data:</strong> All stored data is accessible via Chrome's developer tools (<code>chrome.storage.sync</code>) or within the extension settings.</li>
+                        <li><strong>Delete data:</strong> Use the "Reset Extension" option in the extension settings to clear all stored encrypted secrets.</li>
+                        <li><strong>Uninstall:</strong> Uninstalling the extension from Chrome removes all locally stored data. Note that Chrome Sync data managed by Google may persist independently; you can clear this from your Google account's Chrome sync settings.</li>
+                        <li><strong>Export:</strong> The extension does not provide export functionality. Your recipes live in your own Google Sheet, which you control entirely.</li>
+                    </ul>
+                </div>
+
+                <!-- 7. Google Sheets -->
+                <div class="legal-section">
+                    <h2>7. Your Google Sheets Data</h2>
+                    <p>
+                        PassChef reads the text of the currently selected cell in Google Sheets to extract the recipe formula. This reading happens:
+                    </p>
+                    <ul>
+                        <li>Only when you are actively on a Google Sheets tab</li>
+                        <li>Only at the moment you trigger password generation (click or keyboard shortcut)</li>
+                        <li>Only for the selected cell content — not the entire spreadsheet</li>
+                    </ul>
+                    <p>
+                        The cell text is processed in memory to generate the password and is immediately discarded. It is never stored, logged, or transmitted. The extension cannot see your actual passwords because they are not in the sheet — only the recipe formulas are.
+                    </p>
+                    <p>
+                        Your Google Sheets file, its content, and its sharing settings are entirely under your control. PassChef does not require any special Google Sheets permissions and does not access the Google Sheets API.
+                    </p>
+                </div>
+
+                <!-- 8. GDPR & CCPA -->
+                <div class="legal-section">
+                    <h2>8. GDPR and CCPA Compliance</h2>
+                    <p>
+                        Because PassChef does not collect, transmit, store, or process any personal data on external servers, the formal data-processing obligations under GDPR and CCPA are largely not applicable. Nonetheless:
+                    </p>
+                    <ul>
+                        <li><strong>No personal data is sold or shared.</strong> There is no business model based on user data. PassChef is a free, open-source tool.</li>
+                        <li><strong>No data is transmitted to third parties.</strong> The only third-party infrastructure used is Google's <code>chrome.storage.sync</code>, which you access directly through your own Chrome/Google account.</li>
+                        <li><strong>Right to erasure:</strong> You can delete all extension data at any time by resetting or uninstalling the extension.</li>
+                        <li><strong>Right to access:</strong> All data stored by the extension is accessible to you directly through Chrome's developer tools.</li>
+                        <li><strong>CCPA:</strong> We do not sell personal information. California residents have all the same rights as all other users.</li>
+                    </ul>
+                </div>
+
+                <!-- 9. Children -->
+                <div class="legal-section">
+                    <h2>9. Children's Privacy</h2>
+                    <p>
+                        PassChef is not directed at children under the age of 13. We do not knowingly collect personal information from children. Given that PassChef collects no personal information from anyone, this is inherently satisfied.
+                    </p>
+                </div>
+
+                <!-- 10. Changes -->
+                <div class="legal-section">
+                    <h2>10. Changes to This Policy</h2>
+                    <p>
+                        If this Privacy Policy is updated, the new version will be posted at <code>passchef.io/privacy</code> with an updated "Last updated" date. Significant changes will be noted in the extension's release notes. Continued use of the extension after a policy update constitutes acceptance of the revised policy.
+                    </p>
+                    <p>
+                        Given that PassChef collects no personal data, meaningful changes to this policy are unlikely.
+                    </p>
+                </div>
+
+                <!-- 11. Contact -->
+                <div class="legal-section">
+                    <h2>11. Contact</h2>
+                    <p>
+                        PassChef is developed and maintained by an individual developer. If you have questions, concerns, or requests related to this Privacy Policy, please contact:
+                    </p>
+                    <div class="contact-card">
+                        <h3>Privacy Contact</h3>
+                        <p>For privacy-related inquiries about PassChef:</p>
+                        <a href="mailto:tetnu26@gmail.com">tetnu26@gmail.com</a>
+                    </div>
+                </div>
+
+            </div><!-- /legal-body -->
+        </div><!-- /container -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="index.html" class="footer-logo">
+                        <svg class="footer-logo-icon" viewBox="0 0 32 32" fill="none">
+                            <rect x="2" y="2" width="28" height="28" rx="6" stroke="currentColor" stroke-width="2"/>
+                            <path d="M16 8V24M10 16H22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="16" cy="16" r="4" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        <span>PassChef</span>
+                    </a>
+                    <p class="footer-tagline">
+                        Turn Google Sheets into a secure password manager.
+                    </p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4 class="footer-heading">Product</h4>
+                        <a href="index.html#core-concept" class="footer-link">How It Works</a>
+                        <a href="index.html#features" class="footer-link">Features</a>
+                        <a href="index.html#security" class="footer-link">Security</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4 class="footer-heading">Resources</h4>
+                        <a href="index.html#faq" class="footer-link">FAQ</a>
+                        <a href="index.html#install" class="footer-link">Install</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4 class="footer-heading">Legal</h4>
+                        <a href="privacy.html" class="footer-link" style="color: var(--color-primary);">Privacy Policy</a>
+                        <a href="terms.html" class="footer-link">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">
+                    &copy; 2026 PassChef. Open source under MIT License.
+                </p>
+                <div class="footer-social">
+                    <a href="#" class="social-link" aria-label="GitHub">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Nav toggle for mobile
+        const navToggle = document.getElementById('nav-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (navToggle && mobileMenu) {
+            navToggle.addEventListener('click', () => {
+                navToggle.classList.toggle('active');
+                mobileMenu.classList.toggle('active');
+            });
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navToggle.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                });
+            });
+        }
+    </script>
+</body>
+</html>

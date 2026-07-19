@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PassChef Terms of Service - Open-source Chrome Extension provided as-is. No warranty. User is responsible for master password safety.">
+    <meta name="author" content="PassChef">
+    <meta name="theme-color" content="#00FF41">
+
+    <title>Terms of Service - PassChef</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
+
+    <style>
+        /* Legal page-specific styles (same as privacy.html) */
+        .legal-page {
+            padding: 120px 0 var(--space-24);
+            min-height: 100vh;
+        }
+
+        .legal-header {
+            margin-bottom: var(--space-16);
+            padding-bottom: var(--space-8);
+            border-bottom: 1px solid var(--border-primary);
+        }
+
+        .legal-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-2);
+            padding: var(--space-2) var(--space-4);
+            background: var(--bg-glass);
+            border: 1px solid var(--border-primary);
+            border-radius: var(--radius-full);
+            font-size: var(--text-sm);
+            font-weight: 500;
+            color: var(--color-primary);
+            margin-bottom: var(--space-4);
+        }
+
+        .legal-title {
+            font-family: var(--font-heading);
+            font-size: clamp(var(--text-3xl), 4vw, var(--text-5xl));
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            margin-bottom: var(--space-4);
+        }
+
+        .legal-meta {
+            font-size: var(--text-sm);
+            color: var(--text-tertiary);
+            display: flex;
+            gap: var(--space-6);
+            flex-wrap: wrap;
+        }
+
+        .legal-meta-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-2);
+        }
+
+        .legal-summary-box {
+            background: rgba(var(--color-primary-rgb), 0.05);
+            border: 1px solid rgba(var(--color-primary-rgb), 0.2);
+            border-radius: var(--radius-xl);
+            padding: var(--space-8);
+            margin-bottom: var(--space-12);
+        }
+
+        .legal-summary-box h3 {
+            font-family: var(--font-heading);
+            font-size: var(--text-lg);
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: var(--space-4);
+        }
+
+        .legal-summary-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-3);
+        }
+
+        .legal-summary-item {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-3);
+            font-size: var(--text-base);
+            color: var(--text-secondary);
+        }
+
+        .legal-summary-item svg {
+            width: 18px;
+            height: 18px;
+            color: var(--color-primary);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .legal-body {
+            max-width: 800px;
+        }
+
+        .legal-section {
+            margin-bottom: var(--space-12);
+        }
+
+        .legal-section h2 {
+            font-family: var(--font-heading);
+            font-size: var(--text-2xl);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: var(--space-6);
+            padding-bottom: var(--space-3);
+            border-bottom: 1px solid var(--border-secondary);
+        }
+
+        .legal-section h3 {
+            font-family: var(--font-heading);
+            font-size: var(--text-lg);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-3);
+            margin-top: var(--space-6);
+        }
+
+        .legal-section p {
+            font-size: var(--text-base);
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: var(--space-4);
+        }
+
+        .legal-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .legal-section ul, .legal-section ol {
+            margin: var(--space-4) 0;
+            padding-left: var(--space-6);
+            list-style: disc;
+        }
+
+        .legal-section ol {
+            list-style: decimal;
+        }
+
+        .legal-section li {
+            font-size: var(--text-base);
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: var(--space-2);
+        }
+
+        .legal-section a {
+            color: var(--color-primary);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        .legal-section a:hover {
+            color: var(--color-primary-dark);
+        }
+
+        .highlight-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border-primary);
+            border-left: 3px solid var(--color-primary);
+            border-radius: var(--radius-md);
+            padding: var(--space-5) var(--space-6);
+            margin: var(--space-6) 0;
+        }
+
+        .highlight-box p {
+            margin: 0;
+            font-size: var(--text-base);
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .warning-box {
+            background: rgba(var(--color-danger-rgb), 0.05);
+            border: 1px solid rgba(var(--color-danger-rgb), 0.25);
+            border-left: 3px solid var(--color-danger);
+            border-radius: var(--radius-md);
+            padding: var(--space-5) var(--space-6);
+            margin: var(--space-6) 0;
+        }
+
+        .warning-box p {
+            margin: 0;
+            font-size: var(--text-base);
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .warning-box strong {
+            color: var(--color-danger);
+        }
+
+        .warranty-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-primary);
+            border-radius: var(--radius-xl);
+            padding: var(--space-8);
+            margin-top: var(--space-6);
+            backdrop-filter: blur(10px);
+        }
+
+        .warranty-card p {
+            font-size: var(--text-sm);
+            color: var(--text-tertiary);
+            line-height: 1.8;
+            margin: 0;
+            font-style: italic;
+        }
+
+        .contact-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-primary);
+            border-radius: var(--radius-xl);
+            padding: var(--space-8);
+            text-align: center;
+            margin-top: var(--space-8);
+        }
+
+        .contact-card h3 {
+            font-family: var(--font-heading);
+            font-size: var(--text-xl);
+            font-weight: 600;
+            margin-bottom: var(--space-3);
+        }
+
+        .contact-card p {
+            color: var(--text-secondary);
+            margin-bottom: var(--space-4);
+        }
+
+        .contact-card a {
+            color: var(--color-primary);
+            font-family: var(--font-mono);
+            text-decoration: none;
+        }
+
+        .contact-card a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Effects -->
+    <div class="bg-grid"></div>
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+
+    <!-- Navigation -->
+    <nav class="nav scrolled" id="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <svg class="nav-logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="2" y="2" width="28" height="28" rx="6" stroke="currentColor" stroke-width="2"/>
+                    <path d="M16 8V24M10 16H22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <circle cx="16" cy="16" r="4" stroke="currentColor" stroke-width="2"/>
+                </svg>
+                <span>PassChef</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html#core-concept" class="nav-link">How It Works</a>
+                <a href="index.html#features" class="nav-link">Features</a>
+                <a href="index.html#security" class="nav-link">Security</a>
+                <a href="index.html#faq" class="nav-link">FAQ</a>
+            </div>
+            <a href="index.html#install" class="btn btn-primary btn-sm">
+                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="7 10 12 15 17 10"/>
+                    <line x1="12" y1="15" x2="12" y2="3"/>
+                </svg>
+                Install Extension
+            </a>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-content">
+            <a href="index.html#core-concept" class="mobile-menu-link">How It Works</a>
+            <a href="index.html#features" class="mobile-menu-link">Features</a>
+            <a href="index.html#security" class="mobile-menu-link">Security</a>
+            <a href="index.html#faq" class="mobile-menu-link">FAQ</a>
+            <a href="index.html#install" class="btn btn-primary btn-lg mobile-menu-cta">Install Extension</a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="legal-page" role="main">
+        <div class="container">
+            <div class="legal-header">
+                <span class="legal-badge">Legal</span>
+                <h1 class="legal-title">Terms of Service</h1>
+                <div class="legal-meta">
+                    <span class="legal-meta-item">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2"/>
+                            <line x1="16" y1="2" x2="16" y2="6"/>
+                            <line x1="8" y1="2" x2="8" y2="6"/>
+                            <line x1="3" y1="10" x2="21" y2="10"/>
+                        </svg>
+                        Last updated: June 13, 2026
+                    </span>
+                    <span class="legal-meta-item">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                            <circle cx="12" cy="7" r="4"/>
+                        </svg>
+                        PassChef / passchef.io
+                    </span>
+                </div>
+            </div>
+
+            <!-- TL;DR Summary -->
+            <div class="legal-summary-box">
+                <h3>The short version</h3>
+                <div class="legal-summary-list">
+                    <div class="legal-summary-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 6L9 17l-5-5"/>
+                        </svg>
+                        <span>PassChef is provided free of charge, as-is, with no warranty of any kind.</span>
+                    </div>
+                    <div class="legal-summary-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 6L9 17l-5-5"/>
+                        </svg>
+                        <span>You are solely responsible for your master password. There is no recovery mechanism — ever.</span>
+                    </div>
+                    <div class="legal-summary-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 6L9 17l-5-5"/>
+                        </svg>
+                        <span>The developer is not liable for data loss, security incidents, or damages arising from your use of the extension.</span>
+                    </div>
+                    <div class="legal-summary-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 6L9 17l-5-5"/>
+                        </svg>
+                        <span>Use PassChef only for lawful purposes.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="legal-body">
+
+                <!-- 1. Acceptance -->
+                <div class="legal-section">
+                    <h2>1. Acceptance of Terms</h2>
+                    <p>
+                        By installing or using the PassChef Chrome Extension ("PassChef", "the extension", "the software"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree with any part of these Terms, do not install or use the extension.
+                    </p>
+                    <p>
+                        These Terms constitute the entire agreement between you and the PassChef developer regarding your use of the extension. PassChef is developed and maintained by an individual developer, not a company.
+                    </p>
+                </div>
+
+                <!-- 2. Description -->
+                <div class="legal-section">
+                    <h2>2. Description of the Service</h2>
+                    <p>
+                        PassChef is a free, open-source Chrome Extension that generates passwords on demand from "recipe" formulas stored in your own Google Sheets. The extension combines a recipe (a formula you define) with an encrypted secret (a phrase known only to you) to derive a unique password client-side — entirely within your browser.
+                    </p>
+                    <p>
+                        Key characteristics of the service:
+                    </p>
+                    <ul>
+                        <li>All password generation occurs client-side. No passwords are transmitted to any server.</li>
+                        <li>Encrypted secrets are stored in <code>chrome.storage.sync</code> (Google's infrastructure). The developer has no access to this data.</li>
+                        <li>No account or registration is required.</li>
+                        <li>The extension is provided free of charge under the MIT open-source license.</li>
+                    </ul>
+                </div>
+
+                <!-- 3. No Warranty -->
+                <div class="legal-section">
+                    <h2>3. Disclaimer of Warranties</h2>
+                    <p>
+                        PassChef is provided "as is" and "as available", without warranty of any kind, express or implied.
+                    </p>
+
+                    <div class="warranty-card">
+                        <p>
+                            TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, THE DEVELOPER EXPRESSLY DISCLAIMS ALL WARRANTIES, WHETHER EXPRESS, IMPLIED, STATUTORY, OR OTHERWISE, INCLUDING WITHOUT LIMITATION ANY IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND NON-INFRINGEMENT. THE DEVELOPER DOES NOT WARRANT THAT THE EXTENSION WILL MEET YOUR REQUIREMENTS; THAT IT WILL OPERATE WITHOUT INTERRUPTION, BE ERROR-FREE, OR FREE OF HARMFUL COMPONENTS; OR THAT ANY DATA WILL BE SECURE OR NOT OTHERWISE LOST OR DAMAGED.
+                        </p>
+                    </div>
+
+                    <p>
+                        In plain language: while PassChef uses well-established cryptographic standards (Argon2id, AES-256-GCM), no software can guarantee absolute security. You should assess whether PassChef is appropriate for your security needs. The developer makes no representation that the extension is suitable for high-assurance or regulated environments.
+                    </p>
+                </div>
+
+                <!-- 4. Master Password -->
+                <div class="legal-section">
+                    <h2>4. Master Password Responsibility</h2>
+                    <p>
+                        Your master password is the single key to your encrypted secrets. You bear sole and complete responsibility for:
+                    </p>
+                    <ul>
+                        <li>Choosing a strong, memorable master password</li>
+                        <li>Keeping your master password confidential</li>
+                        <li>Securely backing up your master password and secret phrases offline</li>
+                        <li>Not sharing your master password with others</li>
+                    </ul>
+
+                    <div class="warning-box">
+                        <p><strong>There is no master password recovery mechanism.</strong> By design — and in keeping with zero-knowledge architecture — the developer cannot recover, reset, or bypass your master password under any circumstances. If you lose your master password, you will permanently lose access to your encrypted secrets and will need to reconfigure the extension from scratch. This is a fundamental feature, not a limitation to be worked around.</p>
+                    </div>
+
+                    <p>
+                        The developer strongly recommends writing down your master password and all secret phrases and storing them in a physically secure location (e.g., a locked safe or safety deposit box).
+                    </p>
+                </div>
+
+                <!-- 5. Limitation of Liability -->
+                <div class="legal-section">
+                    <h2>5. Limitation of Liability</h2>
+                    <p>
+                        To the maximum extent permitted by applicable law, the developer shall not be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits or revenues, whether incurred directly or indirectly, or any loss of data, use, goodwill, or other intangible losses, resulting from:
+                    </p>
+                    <ul>
+                        <li>Your use of or inability to use the extension</li>
+                        <li>Loss of access due to a forgotten master password</li>
+                        <li>Any security breach or unauthorized access to your accounts that occurs despite using the extension</li>
+                        <li>Any bugs, errors, or interruptions in the extension's operation</li>
+                        <li>Any action or inaction by Google or other third parties whose infrastructure the extension relies upon (including <code>chrome.storage.sync</code>)</li>
+                        <li>Any changes to Chrome's extension APIs that cause the extension to malfunction</li>
+                    </ul>
+                    <p>
+                        In no event shall the developer's total liability to you for all claims arising from or related to the use of the extension exceed zero dollars (USD $0.00), as the extension is provided at no charge.
+                    </p>
+                </div>
+
+                <!-- 6. Acceptable Use -->
+                <div class="legal-section">
+                    <h2>6. Acceptable Use</h2>
+                    <p>
+                        You agree to use PassChef only for lawful purposes and in accordance with these Terms. You agree not to use the extension:
+                    </p>
+                    <ul>
+                        <li>To violate any applicable local, national, or international law or regulation</li>
+                        <li>To gain unauthorized access to any system, network, or account</li>
+                        <li>To generate passwords for accounts you are not authorized to access</li>
+                        <li>To reverse-engineer, decompile, or attempt to extract the source code beyond what is already publicly available under the MIT license</li>
+                        <li>In any manner that could disable, overburden, or impair the extension or associated Chrome infrastructure</li>
+                    </ul>
+                    <p>
+                        PassChef is a personal productivity and security tool. It is intended for individual use by the person who installs it, to manage their own passwords and accounts.
+                    </p>
+                </div>
+
+                <!-- 7. Open Source License -->
+                <div class="legal-section">
+                    <h2>7. Open Source License</h2>
+                    <p>
+                        PassChef is open-source software released under the <strong>MIT License</strong>. This means:
+                    </p>
+                    <ul>
+                        <li>You are free to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the software</li>
+                        <li>The above rights are granted provided the original copyright notice and license text are included in all copies or substantial portions of the software</li>
+                        <li>The software is provided without warranty of any kind (as stated in these Terms and in the MIT License itself)</li>
+                    </ul>
+                    <p>
+                        These Terms of Service govern your use of the PassChef extension as a user. The MIT License governs your rights with respect to the underlying source code.
+                    </p>
+                    <div class="highlight-box">
+                        <p>You can review, audit, and fork the PassChef source code. We encourage security-minded users to review the code. If you find a vulnerability, please contact us at <a href="mailto:tetnu26@gmail.com">tetnu26@gmail.com</a> before public disclosure.</p>
+                    </div>
+                </div>
+
+                <!-- 8. Third-Party Services -->
+                <div class="legal-section">
+                    <h2>8. Third-Party Services</h2>
+                    <p>
+                        PassChef interacts with the following third-party services:
+                    </p>
+                    <ul>
+                        <li><strong>Google Chrome / chrome.storage.sync</strong> — used to persist and sync encrypted configuration. Governed by <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a> and Chrome's Terms of Service.</li>
+                        <li><strong>Google Sheets</strong> — the source of your recipe formulas. You use Google Sheets under Google's own Terms of Service. PassChef only reads selected cells; it does not modify your spreadsheet data.</li>
+                    </ul>
+                    <p>
+                        The developer is not responsible for the terms, policies, or practices of Google or any other third party. Changes to Google Chrome's APIs or policies may affect the extension's functionality without notice.
+                    </p>
+                </div>
+
+                <!-- 9. Updates and Changes -->
+                <div class="legal-section">
+                    <h2>9. Updates, Changes, and Discontinuation</h2>
+                    <p>
+                        The developer reserves the right to:
+                    </p>
+                    <ul>
+                        <li>Update or modify the extension at any time, with or without notice</li>
+                        <li>Change these Terms at any time. Continued use of the extension after Terms are updated constitutes acceptance of the new Terms.</li>
+                        <li>Discontinue the extension at any time, for any reason, without notice or liability</li>
+                    </ul>
+                    <p>
+                        Because PassChef stores all data locally in your own Chrome browser, discontinuation of the extension or its removal from the Chrome Web Store does not result in loss of your data — your encrypted secrets remain in <code>chrome.storage.sync</code> and your recipes remain in your Google Sheet.
+                    </p>
+                </div>
+
+                <!-- 10. Security Considerations -->
+                <div class="legal-section">
+                    <h2>10. Security Considerations and User Responsibility</h2>
+                    <p>
+                        PassChef is a security tool, and its effectiveness depends heavily on your own security practices. You are responsible for:
+                    </p>
+                    <ul>
+                        <li>Using a strong, unique master password that you do not use elsewhere</li>
+                        <li>Keeping your operating system, browser, and the extension itself up to date</li>
+                        <li>Not using PassChef on devices that may be compromised by malware or keyloggers</li>
+                        <li>Understanding that the generated password exists in your clipboard for up to 30 seconds and may be accessible to other applications during that window</li>
+                        <li>Understanding that if your master password is compromised, an attacker who also has access to your <code>chrome.storage.sync</code> data could potentially decrypt your secrets</li>
+                        <li>Storing your master password and secret phrases in a secure offline backup</li>
+                    </ul>
+                    <p>
+                        No password manager — however well-designed — is a substitute for good security hygiene.
+                    </p>
+                </div>
+
+                <!-- 11. Governing Law -->
+                <div class="legal-section">
+                    <h2>11. Governing Law</h2>
+                    <p>
+                        These Terms shall be governed by and construed in accordance with applicable law, without regard to conflict of law principles. Given that PassChef is a free, open-source project with no commercial transactions, the developer does not anticipate legal disputes. If you have a concern, please reach out directly before pursuing formal action.
+                    </p>
+                </div>
+
+                <!-- 12. Contact -->
+                <div class="legal-section">
+                    <h2>12. Contact</h2>
+                    <p>
+                        For questions about these Terms, to report a security vulnerability, or for any other matter related to PassChef:
+                    </p>
+                    <div class="contact-card">
+                        <h3>Contact</h3>
+                        <p>Questions about Terms of Service or security issues:</p>
+                        <a href="mailto:tetnu26@gmail.com">tetnu26@gmail.com</a>
+                    </div>
+
+                    <p style="margin-top: var(--space-8);">
+                        Also see: <a href="privacy.html">Privacy Policy</a>
+                    </p>
+                </div>
+
+            </div><!-- /legal-body -->
+        </div><!-- /container -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="index.html" class="footer-logo">
+                        <svg class="footer-logo-icon" viewBox="0 0 32 32" fill="none">
+                            <rect x="2" y="2" width="28" height="28" rx="6" stroke="currentColor" stroke-width="2"/>
+                            <path d="M16 8V24M10 16H22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="16" cy="16" r="4" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        <span>PassChef</span>
+                    </a>
+                    <p class="footer-tagline">
+                        Turn Google Sheets into a secure password manager.
+                    </p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4 class="footer-heading">Product</h4>
+                        <a href="index.html#core-concept" class="footer-link">How It Works</a>
+                        <a href="index.html#features" class="footer-link">Features</a>
+                        <a href="index.html#security" class="footer-link">Security</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4 class="footer-heading">Resources</h4>
+                        <a href="index.html#faq" class="footer-link">FAQ</a>
+                        <a href="index.html#install" class="footer-link">Install</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4 class="footer-heading">Legal</h4>
+                        <a href="privacy.html" class="footer-link">Privacy Policy</a>
+                        <a href="terms.html" class="footer-link" style="color: var(--color-primary);">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">
+                    &copy; 2026 PassChef. Open source under MIT License.
+                </p>
+                <div class="footer-social">
+                    <a href="#" class="social-link" aria-label="GitHub">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Nav toggle for mobile
+        const navToggle = document.getElementById('nav-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (navToggle && mobileMenu) {
+            navToggle.addEventListener('click', () => {
+                navToggle.classList.toggle('active');
+                mobileMenu.classList.toggle('active');
+            });
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navToggle.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                });
+            });
+        }
+    </script>
+</body>
+</html>
