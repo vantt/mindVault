@@ -32,14 +32,19 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "20"
+          cache: "pnpm"
+          cache-dependency-path: chrome-extension/pnpm-lock.yaml
 
       - name: Install Dependencies
         working-directory: chrome-extension
-        run: npm ci
+        run: pnpm install --frozen-lockfile
 
       - name: Zip Extension
         working-directory: chrome-extension/src

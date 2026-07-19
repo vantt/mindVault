@@ -15,26 +15,26 @@ The password is never stored anywhere. It is cooked fresh each time. Without you
 
 ## Unique Selling Points
 
-| # | USP | Detail |
-|---|-----|--------|
-| 1 | **Zero stored passwords** | Passwords are derived on-demand, never persisted anywhere |
-| 2 | **Spreadsheet as ledger** | Recipes live in plain sight in Google Sheets; without secret spices they reveal nothing |
-| 3 | **Military-grade encryption** | Argon2id (OWASP 2024) + AES-256-GCM protects all secrets at rest |
-| 4 | **Cross-device sync** | Encrypted blob syncs via your Chrome account — no server, no cloud vendor |
-| 5 | **One-click workflow** | Select recipe cell → click icon → copy password (< 3 clicks, < 2 seconds) |
-| 6 | **Multi-profile sharing** *(v2)* | Share access with teammates without exposing your master password |
+| # | USP                                      | Detail                                                                                  |
+| - | ---------------------------------------- | --------------------------------------------------------------------------------------- |
+| 1 | **Zero stored passwords**          | Passwords are derived on-demand, never persisted anywhere                               |
+| 2 | **Spreadsheet as ledger**          | Recipes live in plain sight in Google Sheets; without secret spices they reveal nothing |
+| 3 | **Military-grade encryption**      | Argon2id (OWASP 2024) + AES-256-GCM protects all secrets at rest                        |
+| 4 | **Cross-device sync**              | Encrypted blob syncs via your Chrome account — no server, no cloud vendor              |
+| 5 | **One-click workflow**             | Select recipe cell → click icon → copy password (< 3 clicks, < 2 seconds)             |
+| 6 | **Multi-profile sharing** *(v2)* | Share access with teammates without exposing your master password                       |
 
 ---
 
 ## The Chef Metaphor
 
-| Culinary Term | PassChef Concept | Example |
-|---|---|---|
-| **Recipe** | Formula stored in Google Sheet | `r4nd0m#1` |
-| **Secret Spice** | One of 5 private phrases | `Basic*` |
-| **Cooking Style** | How recipe + secret are combined | `#` = prefix |
-| **Topping** | Modifier that transforms the output | `!` = uppercase |
-| **Dish** | The generated password | `Basic*r4nd0m` |
+| Culinary Term           | PassChef Concept                    | Example           |
+| ----------------------- | ----------------------------------- | ----------------- |
+| **Recipe**        | Formula stored in Google Sheet      | `r4nd0m#1`      |
+| **Secret Spice**  | One of 5 private phrases            | `Basic*`        |
+| **Cooking Style** | How recipe + secret are combined    | `#` = prefix    |
+| **Topping**       | Modifier that transforms the output | `!` = uppercase |
+| **Dish**          | The generated password              | `Basic*r4nd0m`  |
 
 ---
 
@@ -87,13 +87,13 @@ Verification tag (v2.2+):
 
 ## Security Model
 
-| Layer | Mechanism |
-|---|---|
-| Key derivation | Argon2id primary (64 MB, 3 iterations) / PBKDF2-SHA256-600k fallback |
-| Encryption | AES-256-GCM, 256-bit key, 12-byte random IV per write |
-| Secret storage | `chrome.storage.sync` — encrypted blob only, salt/IV in plaintext |
-| Session key | `chrome.storage.session` — RAM only, never written to disk |
-| Clipboard | Auto-clear after 30s |
+| Layer           | Mechanism                                                                |
+| --------------- | ------------------------------------------------------------------------ |
+| Key derivation  | Argon2id primary (64 MB, 3 iterations) / PBKDF2-SHA256-600k fallback     |
+| Encryption      | AES-256-GCM, 256-bit key, 12-byte random IV per write                    |
+| Secret storage  | `chrome.storage.sync` — encrypted blob only, salt/IV in plaintext     |
+| Session key     | `chrome.storage.session` — RAM only, never written to disk            |
+| Clipboard       | Auto-clear after 30s                                                     |
 | Profile sharing | Separate sharing password with independent PBKDF2 salt; raw secrets only |
 
 **Known limitations (transparent):** JS memory cannot be securely zeroed; DevTools can inspect decrypted data while unlocked; malicious extensions can read the clipboard. PassChef is suitable for everyday convenience, not high-security environments.
@@ -104,9 +104,9 @@ Verification tag (v2.2+):
 
 All detailed PRDs live in [`docs/prd/`](./prd/).
 
-| Version | File | Status |
-| ------- | ---- | ------ |
-| v1.x MVP | [`prd/v1-mvp.md`](./prd/v1-mvp.md) | Active — grammar in use |
+| Version            | File                                                                | Status                                  |
+| ------------------ | ------------------------------------------------------------------- | --------------------------------------- |
+| v1.x MVP           | [`prd/v1-mvp.md`](./prd/v1-mvp.md)                                   | Active — grammar in use                |
 | v2.x Multi-Profile | [`prd/v2-multi-sheet-profiles.md`](./prd/v2-multi-sheet-profiles.md) | Draft — design finalized, pending impl |
 
 ---

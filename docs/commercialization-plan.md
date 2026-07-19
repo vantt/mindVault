@@ -123,21 +123,28 @@ Password managers require extraordinary trust. Without it, no marketing matters.
 
 ## 5. Revenue Model
 
-### Recommended: Freemium
+### Freemium — **DECIDED: Option A2** (2026-06-13)
 
-Free tier covers core use case. Paid tier unlocks power features.
+Free = perfect for personal + work (2 Sheets). Pro = power user / team / multi-context.
 
 | Feature | Free | Pro |
 |---------|:---:|:---:|
-| Password generation from recipes | Yes | Yes |
-| Up to 1 profile, 5 secrets | Yes | Yes |
-| Recipe verification tags | Yes | Yes |
-| Hotkey support (Ctrl+Shift+L) | Yes | Yes |
-| Auto-lock, clipboard clear | Yes | Yes |
-| **Multiple profiles** | 1 | **Unlimited** |
-| **Profile export/import (sharing)** | - | **Yes** |
-| **Per-sheet profile routing** | - | **Yes** |
-| **Priority support** | - | **Yes** |
+| Password generation — all cooking styles | ✓ | ✓ |
+| All modifiers (`_` `!` `?` `~`) | ✓ | ✓ |
+| Recipe verification tags | ✓ | ✓ |
+| Recipe Builder UI | ✓ | ✓ |
+| Hotkey (Ctrl+Shift+L) | ✓ | ✓ |
+| Auto-lock, clipboard clear (30s) | ✓ | ✓ |
+| **2 profiles** (personal + work covered) | ✓ | ✓ |
+| **Unlimited profiles (3+)** | ✗ | ✓ |
+| **Per-sheet auto-routing** | ✗ | ✓ |
+| **Profile Export/Import (sharing)** | ✗ | ✓ |
+| **Session timeout — configurable** | fixed 5/10 min | ✓ up to 60 min |
+| **Priority support** | ✗ | ✓ |
+
+**Rationale:** 2 profiles covers the most common free use case (personal + work). Wall appears naturally at the 3rd profile (team / family / banking separation), not at initial setup. Closed-source model supports this gate.
+
+> **Note:** Verification tags and Recipe Builder stay free — gating safety/core UX features would undermine trust with a security-conscious audience.
 
 ### Pricing Options
 
@@ -148,7 +155,10 @@ Free tier covers core use case. Paid tier unlocks power features.
 | **Lifetime license** | $49 one-time | Users love it, simple | No recurring revenue |
 | **Pay-what-you-want** | $5+ suggested | Low barrier, good will | Unpredictable revenue |
 
-**Recommendation for launch:** Start with **lifetime license ($29-49)** to maximize early adoption. Switch to subscription later when user base grows and features justify ongoing payment.
+**DECIDED (2026-06-13):** Lifetime license with tiered launch pricing:
+- **Phase 1 (soft launch):** Free — collect reviews + installs
+- **Phase 2 (early bird):** $9 lifetime — "Founding price, cheaper than 1 month of 1Password"
+- **Phase 3 (after 500+ installs, 20+ reviews):** Raise to $14-19 lifetime
 
 ### Payment Infrastructure
 - **Stripe** or **LemonSqueezy** (handles taxes, invoicing, Chrome extension licensing)
@@ -160,13 +170,15 @@ Free tier covers core use case. Paid tier unlocks power features.
 ## 6. Launch Sequence — Phased Approach
 
 ### Phase 0: Pre-launch (1-2 weeks)
-- [ ] Finalize product name (see [naming-decision.md](./naming-decision.md))
-- [ ] Execute rebrand across codebase (manifest, locales, README, landing page, docs)
-- [ ] Write Privacy Policy + Terms of Service
-- [ ] Create Chrome Web Store developer account ($5 one-time fee)
-- [ ] Prepare screenshots and promo images (440x280, 920x680, 1400x560)
-- [ ] Write Chrome Web Store listing copy
-- [ ] Set up support channel (GitHub Issues or simple email)
+- [x] Finalize product name → **PassChef** (2026-05-25, unanimous council decision)
+- [x] Execute rebrand across codebase (manifest, locales, README, landing page, docs) → done 2026-05-25
+- [x] Write Privacy Policy + Terms of Service → `landing-page/privacy.html`, `landing-page/terms.html` (2026-06-13)
+- [x] Write Chrome Web Store listing copy → `docs/marketing/cws-listing-copy.md` (2026-06-13)
+- [x] Manifest version updated to 2.3.0, CWS-optimized description (2026-06-13)
+- [ ] **[USER ACTION]** Create Chrome Web Store developer account ($5 one-time fee)
+- [ ] **[USER ACTION]** Register domain — passchef.com recommended (all 4 variants appear unclaimed; verify via registrar)
+- [ ] **[USER DECISION]** Set up support channel (GitHub Issues / email / Discord)
+- [ ] Prepare screenshots and promo images (440x280, 920x680, 1400x560) — see `docs/marketing/cws-listing-copy.md` for specs
 
 ### Phase 1: Soft Launch — Free (week 3-4)
 - [ ] Publish to Chrome Web Store (free, all features unlocked)
@@ -286,16 +298,18 @@ Free tier covers core use case. Paid tier unlocks power features.
 
 | Decision | Options | Status |
 |----------|---------|--------|
-| Product name | PassChef / SpiceKey — SheetVault eliminated (see naming doc) | In progress |
+| Product name | PassChef / SpiceKey — SheetVault eliminated (see naming doc) | **DECIDED: PassChef** |
 | Brand tone | Consumer/approachable (not enterprise/corporate) | **Decided** |
 | Google Sheets in name? | No — subtitle/description only, not in title | **Decided** |
 | Recipe mechanism as core identity? | Yes — cooking metaphor is durable, defines the product | **Decided** |
-| Open-source model | MIT / Source-available / Closed | Not started |
-| Revenue model | Lifetime / Subscription / Pay-what-you-want | Leaning lifetime |
-| Free tier feature split | Which features to gate? | Not started |
-| Analytics tool | None / Plausible / Umami (landing page only) | Not started |
-| Support channel | GitHub Issues / Email / Discord | Not started |
-| Demo video | Screen recording / Animated explainer | Not started |
+| Privacy Policy + ToS | — | **Done** (2026-06-13) |
+| CWS listing copy | — | **Done** (2026-06-13) |
+| Open-source model | MIT / Source-available / Closed | **DECIDED: Closed source** |
+| Revenue model | Lifetime license — launch $9 → raise to $14-19 after 500+ installs / 20+ reviews | **DECIDED** (2026-06-13) |
+| Free tier feature split | Option A2 — 2 profiles free, gate at 3+ + routing + sharing + configurable timeout | **DECIDED: A2** (2026-06-13) |
+| Analytics tool | None / Plausible / Umami (landing page only) | **USER DECISION NEEDED** |
+| Support channel | GitHub Issues / Email / Discord | **USER DECISION NEEDED** |
+| Demo video | Screen recording / Animated explainer | **USER DECISION NEEDED** |
 
 ---
 

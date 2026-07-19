@@ -2,8 +2,8 @@
 {
   "manifest_version": 3,
   "name": "PassChef Password Generator",
-  "version": "1.0.0",
-  "description": "Generate passwords from recipes stored in Google Sheets",
+  "version": "2.3.0",
+  "description": "Cook passwords from recipes in Google Sheets. Zero-knowledge. Nothing stored. Argon2id encrypted.",
   "permissions": [
     "storage",
     "clipboardWrite",

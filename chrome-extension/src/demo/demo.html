@@ -50,34 +50,54 @@
       <div class="section-text">
         <div class="section-label">Section 01</div>
         <h2 data-i18n="demoIdeaTitle">The Idea</h2>
-        <p>Storing passwords in a spreadsheet means one breach exposes everything.
-           <strong>PassChef flips this</strong> — you store <em>recipes</em>, not passwords.
-           A recipe is a short code that tells the extension <em>how</em> to build your password,
-           using a secret only you know.</p>
+        <p>We don't store your password. We store a <em>recipe</em> —
+           a formula that builds it by combining a random text
+           with a secret only you know.</p>
+        <p>The recipe tells the extension <em>which</em> secret to use
+           and <em>where</em> to place it. Your secrets never appear
+           on the sheet — they're encrypted on your machine.</p>
       </div>
 
       <div class="section-visual">
-        <!-- Idea visual: in your head + in your sheet → derived -->
-        <div class="idea-box">
-          <div class="idea-row">
-            <div class="idea-piece-label">in your head</div>
-            <div class="idea-value idea-value--dashed">five private phrases</div>
+        <!-- Block 1: Sheet screenshot -->
+        <div class="sheet-preview">
+          <img src="sheet-recipes.png" alt="Google Sheet with recipe codes like fb#1, gm$2" class="sheet-img">
+          <p class="sheet-caption">This is all anyone sees — even if your sheet is public.</p>
+        </div>
+
+        <!-- Block 2: Construction box -->
+        <div class="construction-box">
+          <div class="construct-label">How a password is built</div>
+
+          <div class="construct-anatomy">
+            <span class="construct-char anat-hash">fb</span>
+            <span class="construct-char anat-pos">#</span>
+            <span class="construct-char anat-idx">1</span>
+            <span class="construct-part-label">salt</span>
+            <span class="construct-part-label">prefix secret</span>
+            <span class="construct-part-label">use first secret</span>
           </div>
-          <div class="idea-plus">+</div>
-          <div class="idea-row">
-            <div class="idea-piece-label">in your sheet</div>
-            <div class="idea-value idea-value--code">fb#1</div>
+
+          <div class="construct-secret-row">
+            <span class="construct-secret-label">+ Your first secret:</span>
+            <span class="construct-secret-value">S3cret</span>
+            <span class="construct-secret-note">(only you know this)</span>
           </div>
-          <div class="idea-plus">↓</div>
-          <div class="idea-row">
-            <div class="idea-piece-label">derived</div>
-            <div class="idea-value idea-value--result">f7nQp2!vXm9kR$8B</div>
+
+          <div class="construct-divider"></div>
+
+          <div class="construct-result-row">
+            <span class="construct-result-label">Password:</span>
+            <span class="construct-result-value">
+              <span class="result-secret">S3cret</span><span class="result-text">fb</span>
+            </span>
           </div>
         </div>
 
+        <!-- Block 3: Insight note -->
         <p class="insight-note">
-          Your spreadsheet can be public. The password is never stored anywhere —
-          it's computed fresh each time from the recipe + your secret.
+          The sheet holds the text and the formula. The secret stays in your head.
+          Without it, the recipe is just letters.
         </p>
       </div>
     </section>
@@ -87,9 +107,8 @@
       <div class="section-text">
         <div class="section-label">Section 02</div>
         <h2 data-i18n="demoAnatomyTitle">Anatomy of a Recipe</h2>
-        <p>A recipe looks like <code>fb#1</code> — a hash you choose, a position symbol, and a secret
-           index from 1 to 5. The hash is the only public part; the index points at one of your five
-           phrases, never spelling it out.</p>
+        <p>Section 01 showed a quick example. Here's the full syntax —
+           every recipe follows this pattern.</p>
       </div>
 
       <div class="section-visual">
@@ -103,29 +122,29 @@
           <div class="anatomy-annot-grid">
             <span class="anat-hash anat-part-sym">fb</span>
             <div class="anat-detail">
-              <div class="anat-detail-label anat-hash">hash</div>
-              <div class="anat-detail-sub">any ASCII text you choose</div>
+              <div class="anat-detail-label anat-hash">salt</div>
+              <div class="anat-detail-sub">any text you pick for each account — like salt, it makes every password unique even when using the same secret</div>
             </div>
             <span class="anat-pos anat-part-sym">#</span>
             <div class="anat-detail">
-              <div class="anat-detail-label anat-pos">position</div>
-              <div class="anat-detail-sub">where the secret is woven in</div>
+              <div class="anat-detail-label anat-pos">placement</div>
+              <div class="anat-detail-sub">where to place your secret (see table below)</div>
             </div>
             <span class="anat-idx anat-part-sym">1</span>
             <div class="anat-detail">
-              <div class="anat-detail-label anat-idx">secret index</div>
-              <div class="anat-detail-sub">1 – 5, picks one of your phrases</div>
+              <div class="anat-detail-label anat-idx">secret number</div>
+              <div class="anat-detail-sub">which of your 5 secrets to use (1 – 5)</div>
             </div>
             <span class="anat-mod anat-part-sym">_</span>
             <div class="anat-detail">
               <div class="anat-detail-label anat-mod">modifier</div>
-              <div class="anat-detail-sub">optional — transforms the combination</div>
+              <div class="anat-detail-sub">optional — e.g. uppercase, reverse</div>
             </div>
           </div>
         </div>
 
         <!-- Position symbols table -->
-        <p class="subsection-label">Position symbols — <em>hash = <code>abc</code>, secret = <code>XYZ</code></em></p>
+        <p class="subsection-label">Placement symbols — <em>salt = <code>abc</code>, secret = <code>XYZ</code></em></p>
         <table class="demo-table">
           <thead>
             <tr>
@@ -137,27 +156,27 @@
           <tbody>
             <tr>
               <td><code>#</code></td>
-              <td>Prefix — secret first</td>
+              <td>Prefix — secret before salt</td>
               <td><code>XYZ<span class="dim">abc</span></code></td>
             </tr>
             <tr>
               <td><code>$</code></td>
-              <td>Suffix — secret last</td>
+              <td>Suffix — secret after salt</td>
               <td><code><span class="dim">abc</span>XYZ</code></td>
             </tr>
             <tr>
               <td><code>@</code></td>
-              <td>Middle — secret in centre</td>
+              <td>Middle — secret inside salt</td>
               <td><code><span class="dim">a</span>XYZ<span class="dim">bc</span></code></td>
             </tr>
             <tr>
               <td><code>%</code></td>
-              <td>Interleave 1-by-1</td>
+              <td>Weave — alternate one by one</td>
               <td><code><span class="dim">a</span>X<span class="dim">b</span>Y<span class="dim">c</span>Z</code></td>
             </tr>
             <tr>
               <td><code>^</code></td>
-              <td>Interleave 2-by-2</td>
+              <td>Weave — alternate in pairs</td>
               <td><code><span class="dim">ab</span>XY<span class="dim">c</span>Z</code></td>
             </tr>
           </tbody>
