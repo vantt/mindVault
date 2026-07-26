@@ -86,3 +86,10 @@ We keep all important docs in `./docs` folder and keep updating them, structure 
 ```
 
 **IMPORTANT:** *MUST READ* and *MUST COMPLY* all *INSTRUCTIONS* in project `./CLAUDE.md`, especially *WORKFLOWS* section is *CRITICALLY IMPORTANT*, this rule is *MANDATORY. NON-NEGOTIABLE. NO EXCEPTIONS. MUST REMEMBER AT ALL TIMES!!!*
+
+## bee
+
+This repo uses bee. The bare import below loads the BEE operating block from
+AGENTS.md at context-load time. Never wrap it in backticks; that disables it.
+
+@AGENTS.md
