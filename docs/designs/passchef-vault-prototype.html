@@ -109,7 +109,8 @@
   .vtop{display:flex;justify-content:space-between;align-items:center}
   .vtitle{font-size:22px;font-weight:800;letter-spacing:-.02em;display:flex;align-items:center;gap:9px}
   .sync{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:600;color:var(--muted);
-    background:var(--surface-2);border:1px solid var(--hairline);padding:4px 9px;border-radius:999px}
+    background:var(--surface-2);border:1px solid var(--hairline);padding:4px 9px;border-radius:999px;
+    font-family:inherit;cursor:pointer}
   .sync .d{width:7px;height:7px;border-radius:50%;background:var(--verify)}
   .sync.off .d{background:var(--faint)}
   .iconbtn{width:36px;height:36px;border-radius:50%;border:1px solid var(--hairline-strong);background:var(--surface);
@@ -228,6 +229,75 @@
   .caption b{color:var(--text)}
   .caption span{display:inline-flex;gap:7px;align-items:center}
 
+  /* ---------- ONBOARDING (choice / import / setup-new) ---------- */
+  .ob-body{padding:26px 24px;display:flex;flex-direction:column;gap:16px;flex:1;overflow-y:auto}
+  .ob-head{text-align:center;margin-bottom:6px}
+  .ob-head h2{margin:0 0 6px;font-size:20px;font-weight:800;letter-spacing:-.01em}
+  .ob-head p{margin:0;font-size:13px;color:var(--muted);line-height:1.5}
+  .ob-card{display:flex;align-items:center;gap:14px;text-align:left;width:100%;font:inherit;
+    background:var(--surface);border:1px solid var(--hairline-strong);border-radius:16px;padding:16px;cursor:pointer;transition:.15s}
+  .ob-card:hover{border-color:var(--accent)}
+  .ob-card:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .ob-card .ic{width:44px;height:44px;border-radius:12px;flex:none;display:grid;place-items:center;font-size:20px;
+    background:var(--accent-soft);color:var(--accent)}
+  .ob-card .tt{font-size:15px;font-weight:700;color:var(--text)}
+  .ob-card .dd{font-size:12.5px;color:var(--muted);margin-top:2px;line-height:1.4}
+  .ob-card .chev{margin-left:auto}
+  .ob-back{align-self:flex-start}
+  .qr-box{width:180px;height:180px;margin:6px auto 4px;border-radius:16px;background:
+      repeating-conic-gradient(var(--text) 0% 25%, var(--surface) 0% 50%) 50%/16px 16px, var(--surface-2);
+    border:1px solid var(--hairline-strong);display:grid;place-items:center;font-size:12px;color:var(--muted)}
+  .check-list{display:flex;flex-direction:column;gap:10px;margin:4px 0}
+  .check-list .ci{display:flex;align-items:center;gap:10px;font-size:14px}
+  .check-list .ci .tick{width:22px;height:22px;border-radius:50%;background:var(--verify-soft);color:var(--verify);
+    display:grid;place-items:center;font-size:12px;flex:none}
+  .spinner{width:22px;height:22px;border-radius:50%;border:3px solid var(--hairline-strong);border-top-color:var(--accent);
+    animation:spin .8s linear infinite;margin:0 auto}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .primary-btn{width:100%;background:linear-gradient(150deg,var(--accent-2),var(--accent));color:var(--accent-ink);
+    border:none;font:inherit;font-weight:800;font-size:16px;padding:16px;border-radius:15px;cursor:pointer}
+  .primary-btn:active{transform:translateY(1px)}
+  .primary-btn:disabled{opacity:.5;cursor:not-allowed}
+  .ghost-btn{width:100%;background:none;color:var(--text);border:1px solid var(--hairline-strong);
+    font:inherit;font-weight:700;font-size:14.5px;padding:13px;border-radius:13px;cursor:pointer}
+  .ghost-btn:hover{border-color:var(--accent)}
+
+  /* ---------- CONNECT SHEET ---------- */
+  .stepper{display:flex;gap:6px;justify-content:center;margin-bottom:4px}
+  .stepper .dot{width:26px;height:4px;border-radius:99px;background:var(--hairline-strong)}
+  .stepper .dot.on{background:var(--accent)}
+  .sheet-pick{display:flex;flex-direction:column;gap:9px}
+  .sheet-opt{display:flex;align-items:center;gap:12px;padding:13px 14px;border-radius:13px;
+    border:1px solid var(--hairline-strong);background:var(--surface);cursor:pointer;font:inherit;text-align:left;width:100%}
+  .sheet-opt:hover{border-color:var(--accent)}
+  .sheet-opt.picked{border-color:var(--accent);background:var(--accent-soft)}
+  .sheet-opt .ic{font-size:18px}
+  .sheet-opt .nm{font-size:14.5px;font-weight:650}
+  .sheet-opt .sb{font-size:12px;color:var(--muted)}
+  .map-row{display:flex;align-items:center;gap:10px;padding:11px 0;border-top:1px solid var(--hairline)}
+  .map-row .col{font-size:13.5px;font-weight:650;flex:1}
+  .map-row .arrow{color:var(--faint)}
+  .map-row select{flex:1}
+  .match-badge{align-self:center;font-size:11.5px;font-weight:700;color:var(--verify);background:var(--verify-soft);
+    padding:5px 11px;border-radius:999px}
+
+  /* ---------- ADD ACCOUNT (recipe builder) ---------- */
+  .toggle-row{display:flex;gap:7px;flex-wrap:wrap}
+  .tbtn{font:inherit;font-size:14px;font-weight:700;color:var(--muted);background:var(--surface-2);
+    border:1px solid var(--hairline);border-radius:11px;padding:9px 14px;cursor:pointer;font-family:var(--font-mono)}
+  .tbtn[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+  .inp{width:100%;font:inherit;font-size:15px;color:var(--text);background:var(--surface-2);
+    border:1px solid var(--hairline-strong);border-radius:13px;padding:13px}
+  .inp:focus{border-color:var(--accent);background:var(--surface);outline:none}
+  .inline-btn{display:inline-flex;align-items:center;gap:6px}
+  .rotate-nudge{border-top:1px solid var(--hairline);padding:14px 0 2px;display:flex;gap:12px;align-items:flex-start}
+  .rotate-nudge .ic{width:34px;height:34px;border-radius:10px;background:var(--warn-soft);color:var(--warn);
+    display:grid;place-items:center;flex:none;font-size:18px}
+  .rotate-nudge .tx{font-size:13px;line-height:1.5}
+  .rotate-nudge .tx b{color:var(--warn)}
+  .actrow{display:flex;gap:9px}
+  .actrow .ghost-btn{flex:1}
+
   @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 
@@ -251,8 +321,232 @@
       <span class="dots">●●● &nbsp;PassChef&nbsp; ▮▮▮</span>
     </div>
 
+    <!-- ===== ONBOARDING: chọn nhánh ===== -->
+    <section class="screen active" id="onboard-choice">
+      <div class="ob-body">
+        <div class="ob-head">
+          <h2>Chào bạn 👋</h2>
+          <p>Bạn đã dùng PassChef trên trình duyệt (extension) chưa?</p>
+        </div>
+        <button class="ob-card" id="obImportBtn" type="button">
+          <span class="ic">🔗</span>
+          <span><span class="tt">Rồi — nhập từ máy tính</span><br><span class="dd">Quét QR từ extension, không cần gõ lại spice. ~4 chạm.</span></span>
+          <span class="chev">›</span>
+        </button>
+        <button class="ob-card" id="obNewBtn" type="button">
+          <span class="ic">🍳</span>
+          <span><span class="tt">Chưa — thiết lập mới</span><br><span class="dd">Tự tạo hồ sơ + kết nối Google Sheet trên điện thoại.</span></span>
+          <span class="chev">›</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ===== ONBOARDING: nhập từ extension (QR) ===== -->
+    <section class="screen" id="onboard-import">
+      <div class="ob-body">
+        <button class="iconbtn ob-back" id="obImportBack" type="button" aria-label="Quay lại">←</button>
+        <div class="ob-head">
+          <h2>Quét QR trên extension</h2>
+          <p>Mở PassChef trên trình duyệt → Options → “Kết nối app điện thoại”.</p>
+        </div>
+        <div class="qr-box" id="obQrBox">Khung camera (mô phỏng)</div>
+        <button class="ghost-btn" id="obScannedBtn" type="button">Tôi đã quét xong →</button>
+        <div id="obPwStep" style="display:none">
+          <div style="margin-bottom:8px"><label class="flabel">Mật khẩu chia sẻ (sharing password)</label></div>
+          <input class="inp" id="obSharingPw" type="password" placeholder="Nhập mật khẩu bạn đặt lúc tạo QR" autocomplete="off">
+          <button class="primary-btn" id="obDecryptBtn" type="button" style="margin-top:14px">Giải mã &amp; tiếp tục</button>
+        </div>
+        <div id="obDecrypting" style="display:none;text-align:center;padding:20px 0">
+          <div class="spinner"></div>
+          <div style="margin-top:10px;font-size:13.5px;color:var(--muted)">Đang giải mã bundle…</div>
+        </div>
+        <div id="obImportDone" style="display:none">
+          <div class="check-list">
+            <div class="ci"><span class="tick">✓</span> Đã nhập 7 tài khoản</div>
+            <div class="ci"><span class="tick">✓</span> Đã kết nối Sheet “Cá nhân”</div>
+            <div class="ci"><span class="tick">✓</span> Đã bật mở khóa sinh trắc</div>
+          </div>
+          <button class="primary-btn" id="obImportGo" type="button">Vào Két →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ONBOARDING: thiết lập mới ===== -->
+    <section class="screen" id="onboard-setup-new">
+      <div class="ob-body">
+        <button class="iconbtn ob-back" id="obNewBack" type="button" aria-label="Quay lại">←</button>
+        <div class="ob-head">
+          <h2>Thiết lập hồ sơ mới</h2>
+          <p>Đặt tên hồ sơ, sau đó kết nối Google Sheet để lưu công thức.</p>
+        </div>
+        <div>
+          <label class="flabel" for="obProfileName">Tên hồ sơ</label>
+          <input class="inp" id="obProfileName" type="text" placeholder="vd: Cá nhân" style="margin-top:7px">
+        </div>
+        <button class="primary-btn" id="obToConnectBtn" type="button" style="margin-top:6px">Kết nối Google Sheet →</button>
+        <button class="link-btn" id="obSkipConnect" type="button">Bỏ qua, kết nối sau</button>
+      </div>
+    </section>
+
+    <!-- ===== KẾT NỐI SHEET + XÁC NHẬN MAPPING ===== -->
+    <section class="screen" id="connect-sheet">
+      <div class="ob-body">
+        <button class="iconbtn ob-back" id="csBack" type="button" aria-label="Quay lại">←</button>
+        <div class="stepper"><span class="dot on" id="csDot1"></span><span class="dot" id="csDot2"></span></div>
+
+        <div id="csStepPick">
+          <div class="ob-head"><h2>Chọn Google Sheet</h2><p>Chọn tệp trong Drive đang lưu công thức của bạn.</p></div>
+          <div class="sheet-pick" id="csSheetList">
+            <button class="sheet-opt" data-name="PassChef · Két cá nhân" type="button"><span class="ic">📗</span><span><div class="nm">PassChef · Két cá nhân</div><div class="sb">Sửa đổi 2 ngày trước</div></span></button>
+            <button class="sheet-opt" data-name="Công thức — Work" type="button"><span class="ic">📗</span><span><div class="nm">Công thức — Work</div><div class="sb">Sửa đổi 3 tuần trước</div></span></button>
+          </div>
+        </div>
+
+        <div id="csStepMap" style="display:none">
+          <div class="ob-head"><h2>Xác nhận mapping cột</h2><p>PassChef tự nhận diện cột — kiểm tra lại trước khi nhập.</p></div>
+          <div class="match-badge" style="align-self:center;display:inline-block;margin:0 auto 4px">Tỉ lệ ô parse khớp: 92%</div>
+          <div class="map-row"><span class="col">Tên tài khoản</span><span class="arrow">→</span><select class="sel" style="flex:1"><option>Cột A · “Tên”</option><option>Cột B</option></select></div>
+          <div class="map-row"><span class="col">Công thức</span><span class="arrow">→</span><select class="sel" style="flex:1"><option>Cột B · “Recipe”</option><option>Cột A</option></select></div>
+          <div class="map-row"><span class="col">Domain (tuỳ chọn)</span><span class="arrow">→</span><select class="sel" style="flex:1"><option>Cột C · “Domain”</option><option>— không có —</option></select></div>
+          <button class="primary-btn" id="csConfirmBtn" type="button" style="margin-top:16px">Xác nhận · Nhập 7 tài khoản</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== THÊM TÀI KHOẢN (recipe builder) ===== -->
+    <section class="screen" id="add-account">
+      <div class="cook-bar">
+        <button class="iconbtn" id="aaBack" type="button" aria-label="Quay lại">←</button>
+        <h2>Thêm tài khoản</h2>
+      </div>
+      <div class="cook-body">
+        <div>
+          <label for="aaName">Tên hiển thị</label>
+          <input class="inp" id="aaName" type="text" placeholder="vd: Shopee" style="margin-top:7px">
+        </div>
+        <div>
+          <label for="aaHash">Nguyên liệu <span class="inline-btn" style="font-weight:400;color:var(--faint)">(nút 🎲 để random)</span></label>
+          <div style="display:flex;gap:8px;margin-top:7px">
+            <input class="inp" id="aaHash" type="text" value="x7k2m9p4" style="font-family:var(--font-mono)">
+            <button class="mbtn" id="aaRandom" type="button" aria-label="Random" style="width:48px;height:48px;border-radius:13px">🎲</button>
+          </div>
+        </div>
+        <div>
+          <label>Kiểu nấu</label>
+          <div class="toggle-row" id="aaPos" style="margin-top:8px">
+            <button class="tbtn" data-v="#" aria-pressed="true" type="button">#</button>
+            <button class="tbtn" data-v="@" aria-pressed="false" type="button">@</button>
+            <button class="tbtn" data-v="$" aria-pressed="false" type="button">$</button>
+            <button class="tbtn" data-v="%" aria-pressed="false" type="button">%</button>
+            <button class="tbtn" data-v="^" aria-pressed="false" type="button">^</button>
+          </div>
+        </div>
+        <div>
+          <label>Hũ spice</label>
+          <div class="toggle-row" id="aaSpice" style="margin-top:8px">
+            <button class="tbtn" data-v="1" aria-pressed="true" type="button">1</button>
+            <button class="tbtn" data-v="2" aria-pressed="false" type="button">2</button>
+            <button class="tbtn" data-v="3" aria-pressed="false" type="button">3</button>
+            <button class="tbtn" data-v="4" aria-pressed="false" type="button">4</button>
+            <button class="tbtn" data-v="5" aria-pressed="false" type="button">5</button>
+          </div>
+        </div>
+        <div>
+          <label for="aaDomain">Domain (để verify tag)</label>
+          <input class="inp" id="aaDomain" type="text" placeholder="vd: shopee.vn" style="margin-top:7px">
+        </div>
+
+        <div class="field" style="border-top:1px solid var(--hairline);padding-top:14px">
+          <div class="flabel">Công thức</div>
+          <div class="recipe-line" id="aaRecipe">x7k2m9p4#1</div>
+        </div>
+
+        <button class="ghost-btn" id="aaCookBtn" type="button">🍳 Nấu thử</button>
+        <div class="cook-result" id="aaResult">
+          <div class="flabel">Dịch thử</div>
+          <div class="fval"><span class="val pw" id="aaPw"></span></div>
+        </div>
+
+        <div class="rotate-nudge">
+          <div class="ic">⚠️</div>
+          <div class="tx"><b>Nhớ đổi mật khẩu trên trang sang giá trị này (rotate).</b><br>PassChef không "nhập" được password cũ — công thức này sinh ra một mật khẩu <i>mới</i>. Đổi mật khẩu trên trang thì công thức mới có tác dụng.</div>
+        </div>
+
+        <div class="actrow">
+          <button class="ghost-btn" id="aaCopyBtn" type="button">📋 Copy công thức</button>
+          <button class="ghost-btn" id="aaSaveBtn" type="button">💾 Lưu vào Sheet</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SỬA TÀI KHOẢN ĐÃ TỒN TẠI ===== -->
+    <section class="screen" id="edit-account">
+      <div class="cook-bar">
+        <button class="iconbtn" id="eaBack" type="button" aria-label="Quay lại">←</button>
+        <h2>Sửa tài khoản</h2>
+      </div>
+      <div class="cook-body">
+        <div>
+          <label for="eaName">Tên hiển thị</label>
+          <input class="inp" id="eaName" type="text" placeholder="vd: Shopee" style="margin-top:7px">
+        </div>
+        <div>
+          <label for="eaHash">Nguyên liệu <span class="inline-btn" style="font-weight:400;color:var(--faint)">(nút 🎲 để random)</span></label>
+          <div style="display:flex;gap:8px;margin-top:7px">
+            <input class="inp" id="eaHash" type="text" value="" style="font-family:var(--font-mono)">
+            <button class="mbtn" id="eaRandom" type="button" aria-label="Random" style="width:48px;height:48px;border-radius:13px">🎲</button>
+          </div>
+        </div>
+        <div>
+          <label>Kiểu nấu</label>
+          <div class="toggle-row" id="eaPos" style="margin-top:8px">
+            <button class="tbtn" data-v="#" aria-pressed="true" type="button">#</button>
+            <button class="tbtn" data-v="@" aria-pressed="false" type="button">@</button>
+            <button class="tbtn" data-v="$" aria-pressed="false" type="button">$</button>
+            <button class="tbtn" data-v="%" aria-pressed="false" type="button">%</button>
+            <button class="tbtn" data-v="^" aria-pressed="false" type="button">^</button>
+          </div>
+        </div>
+        <div>
+          <label>Hũ spice</label>
+          <div class="toggle-row" id="eaSpice" style="margin-top:8px">
+            <button class="tbtn" data-v="1" aria-pressed="true" type="button">1</button>
+            <button class="tbtn" data-v="2" aria-pressed="false" type="button">2</button>
+            <button class="tbtn" data-v="3" aria-pressed="false" type="button">3</button>
+            <button class="tbtn" data-v="4" aria-pressed="false" type="button">4</button>
+            <button class="tbtn" data-v="5" aria-pressed="false" type="button">5</button>
+          </div>
+        </div>
+        <div>
+          <label for="eaDomain">Domain (để verify tag)</label>
+          <input class="inp" id="eaDomain" type="text" placeholder="vd: shopee.vn" style="margin-top:7px">
+        </div>
+
+        <div class="field" style="border-top:1px solid var(--hairline);padding-top:14px">
+          <div class="flabel">Công thức</div>
+          <div class="recipe-line" id="eaRecipe"></div>
+        </div>
+
+        <button class="ghost-btn" id="eaCookBtn" type="button">🍳 Nấu thử</button>
+        <div class="cook-result" id="eaResult">
+          <div class="flabel">Dịch thử</div>
+          <div class="fval"><span class="val pw" id="eaPw"></span></div>
+        </div>
+
+        <div class="rotate-nudge">
+          <div class="ic">⚠️</div>
+          <div class="tx"><b>Sửa xong nhớ đổi mật khẩu trên trang sang giá trị mới (rotate).</b><br>Đổi bất kỳ trường nào ở trên đều sinh ra một công thức khác → password khác. PassChef chỉ cập nhật công thức trong Sheet, không tự đổi mật khẩu trên trang.</div>
+        </div>
+
+        <div class="actrow">
+          <button class="ghost-btn" id="eaCopyBtn" type="button">📋 Copy công thức</button>
+          <button class="ghost-btn" id="eaUpdateBtn" type="button">💾 Cập nhật vào Sheet</button>
+        </div>
+      </div>
+    </section>
+
     <!-- ===== UNLOCK ===== -->
-    <section class="screen active" id="unlock">
+    <section class="screen" id="unlock">
       <div class="brand">
         <div class="logo">🍳</div>
         <h2>PassChef</h2>
@@ -271,8 +565,11 @@
     <section class="screen" id="vault">
       <div class="vhead">
         <div class="vtop">
-          <div class="vtitle">Két <span class="sync" id="syncPill"><span class="d"></span>Đã đồng bộ</span></div>
-          <button class="iconbtn" id="lockBtn" type="button" aria-label="Khóa" title="Khóa lại">🔒</button>
+          <div class="vtitle">Két <button class="sync" id="syncPill" type="button" title="Quản lý nguồn sheet"><span class="d"></span>Đã đồng bộ</button></div>
+          <div style="display:flex;gap:8px">
+            <button class="iconbtn" id="addBtn" type="button" aria-label="Thêm tài khoản" title="Thêm tài khoản">＋</button>
+            <button class="iconbtn" id="lockBtn" type="button" aria-label="Khóa" title="Khóa lại">🔒</button>
+          </div>
         </div>
         <div class="search">
           <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
@@ -330,6 +627,7 @@
     <span>📴 <b>Offline‑first</b> — recipe cache local, duyệt không cần mạng</span>
     <span>⏱ <b>Copy tự‑xóa 30s</b></span>
     <span>🛡 <b>Verify‑tag</b> — từ chối nấu khi lệch profile/sheet</span>
+    <span>🧭 <b>Onboarding 2 nhánh</b> — nhập từ extension (QR) hoặc thiết lập mới</span>
   </div>
 </div>
 
@@ -415,7 +713,8 @@
       body='<div class="grip"></div>'+
         '<div class="sheet-head">'+faviHTML(e)+'<div><div class="nm">'+e.name+'</div><div class="src">Nguồn: Sheet “'+e.profile+'”</div></div></div>'+
         '<div class="mismatch"><div class="ic">🛡</div><div class="tx"><b>Không nấu an toàn ở đây được.</b><br>Công thức này gắn verify‑tag của một profile/sheet khác. PassChef từ chối tạo password thay vì sinh ra một mật khẩu sai âm thầm.</div></div>'+
-        '<div class="field"><div class="flabel">Công thức</div><div class="recipe-line">'+e.recipe+'</div></div>';
+        '<div class="field"><div class="flabel">Công thức</div><div class="recipe-line">'+e.recipe+'</div></div>'+
+        '<button class="ghost-btn" id="sheetEditBtn" type="button" style="margin-top:14px">✏️ Sửa tài khoản</button>';
     }else{
       body='<div class="grip"></div>'+
         '<div class="sheet-head">'+faviHTML(e)+'<div><div class="nm">'+e.name+'</div><div class="src">Nguồn: Sheet “'+e.profile+'”'+(e.verify?' · đã verify tag':'')+'</div></div></div>'+
@@ -423,7 +722,8 @@
         '<div class="field"><div class="flabel">Mật khẩu</div><div class="fval"><span class="val pw dots" id="pwVal">••••••••••</span>'+
           '<div class="miniact"><button class="mbtn" id="revealBtn" aria-label="Hiện mật khẩu">👁</button><button class="mbtn" data-copy="'+e.pw+'" aria-label="Copy mật khẩu">📋</button></div></div>'+
           '<div class="autohide" id="autohide">Tự ẩn sau <b id="ahsec">10</b>s · đã nấu tại chỗ</div></div>'+
-        '<div class="field"><div class="flabel">Công thức</div><div class="recipe-line">'+e.recipe+'</div></div>';
+        '<div class="field"><div class="flabel">Công thức</div><div class="recipe-line">'+e.recipe+'</div></div>'+
+        '<button class="ghost-btn" id="sheetEditBtn" type="button" style="margin-top:14px">✏️ Sửa tài khoản</button>';
     }
     sheet.innerHTML=body;
     scrim.classList.add("show");sheet.classList.add("show");
@@ -433,6 +733,7 @@
     [].forEach.call(sheet.querySelectorAll("[data-copy]"),function(btn){
       btn.addEventListener("click",function(){copyToast();});
     });
+    document.getElementById("sheetEditBtn").addEventListener("click",function(){closeSheet();openEditAccount(e);});
   }
   function revealPw(e){
     var val=document.getElementById("pwVal"),ah=document.getElementById("autohide");
@@ -469,6 +770,12 @@
     },120);
     toastTimer=setTimeout(function(){toast.classList.remove("show");clearInterval(copyToast._i);},4200);
   }
+  function actionToast(msg){
+    toastMsg.textContent=msg;
+    toast.classList.add("show");ring.style.strokeDashoffset=0;
+    clearInterval(copyToast._i);clearTimeout(toastTimer);
+    toastTimer=setTimeout(function(){toast.classList.remove("show");},1800);
+  }
 
   /* ---- navigation ---- */
   function show(id){[].forEach.call(document.querySelectorAll(".screen"),function(s){s.classList.toggle("active",s.id===id);});}
@@ -484,11 +791,141 @@
   document.getElementById("masterLink").addEventListener("click",doUnlock);
   function lock(){closeSheet();show("unlock");document.getElementById("searchIn").value="";curSearch="";}
   document.getElementById("lockBtn").addEventListener("click",lock);
-  document.getElementById("resetBtn").addEventListener("click",lock);
+  document.getElementById("resetBtn").addEventListener("click",function(){closeSheet();show("onboard-choice");});
 
   document.getElementById("cookFab").addEventListener("click",function(){closeSheet();show("cook");});
   document.getElementById("toCookFromEmpty").addEventListener("click",function(){show("cook");});
   document.getElementById("cookBack").addEventListener("click",function(){show("vault");});
+
+  /* ---- onboarding: chọn nhánh ---- */
+  document.getElementById("obImportBtn").addEventListener("click",function(){show("onboard-import");});
+  document.getElementById("obNewBtn").addEventListener("click",function(){show("onboard-setup-new");});
+  document.getElementById("obImportBack").addEventListener("click",function(){show("onboard-choice");});
+  document.getElementById("obNewBack").addEventListener("click",function(){show("onboard-choice");});
+
+  /* ---- onboarding: nhập từ extension (QR) ---- */
+  var obQrBox=document.getElementById("obQrBox"),obScannedBtn=document.getElementById("obScannedBtn"),
+      obPwStep=document.getElementById("obPwStep"),obDecrypting=document.getElementById("obDecrypting"),
+      obImportDone=document.getElementById("obImportDone"),obSharingPw=document.getElementById("obSharingPw"),
+      obDecryptBtn=document.getElementById("obDecryptBtn");
+  function resetImportScreen(){
+    obQrBox.style.display="";obScannedBtn.style.display="";obPwStep.style.display="none";
+    obDecrypting.style.display="none";obImportDone.style.display="none";obSharingPw.value="";
+  }
+  obScannedBtn.addEventListener("click",function(){obQrBox.style.display="none";obScannedBtn.style.display="none";obPwStep.style.display="block";});
+  obDecryptBtn.addEventListener("click",function(){
+    obPwStep.style.display="none";obDecrypting.style.display="block";
+    setTimeout(function(){obDecrypting.style.display="none";obImportDone.style.display="block";},1100);
+  });
+  document.getElementById("obImportGo").addEventListener("click",function(){resetImportScreen();show("vault");render();});
+
+  /* ---- onboarding: thiết lập mới ---- */
+  document.getElementById("obToConnectBtn").addEventListener("click",function(){csReturnTo="onboard-setup-new";resetConnectScreen();show("connect-sheet");});
+  document.getElementById("obSkipConnect").addEventListener("click",function(){show("vault");render();});
+
+  /* ---- kết nối sheet + xác nhận mapping ---- */
+  var csStepPick=document.getElementById("csStepPick"),csStepMap=document.getElementById("csStepMap"),
+      csDot1=document.getElementById("csDot1"),csDot2=document.getElementById("csDot2"),csReturnTo="vault";
+  function resetConnectScreen(){
+    csStepPick.style.display="";csStepMap.style.display="none";
+    csDot1.classList.add("on");csDot2.classList.remove("on");
+    [].forEach.call(document.querySelectorAll("#csSheetList .sheet-opt"),function(b){b.classList.remove("picked");});
+  }
+  document.getElementById("csBack").addEventListener("click",function(){
+    if(csStepMap.style.display!=="none"){resetConnectScreen();}else{show(csReturnTo);}
+  });
+  document.getElementById("syncPill").addEventListener("click",function(){csReturnTo="vault";resetConnectScreen();show("connect-sheet");});
+  document.getElementById("csSheetList").addEventListener("click",function(ev){
+    var b=ev.target.closest(".sheet-opt");if(!b)return;
+    [].forEach.call(this.querySelectorAll(".sheet-opt"),function(x){x.classList.remove("picked");});
+    b.classList.add("picked");
+    setTimeout(function(){csStepPick.style.display="none";csStepMap.style.display="block";csDot1.classList.remove("on");csDot2.classList.add("on");},220);
+  });
+  document.getElementById("csConfirmBtn").addEventListener("click",function(){show("vault");render();});
+
+  /* ---- thêm tài khoản (recipe builder) ---- */
+  document.getElementById("addBtn").addEventListener("click",function(){closeSheet();resetAddAccount();show("add-account");});
+  document.getElementById("aaBack").addEventListener("click",function(){show("vault");});
+  var aaName=document.getElementById("aaName"),aaHash=document.getElementById("aaHash"),
+      aaDomain=document.getElementById("aaDomain"),aaRecipe=document.getElementById("aaRecipe"),
+      aaResult=document.getElementById("aaResult"),aaPw=document.getElementById("aaPw"),
+      aaPosVal="#",aaSpiceVal="1";
+  function wireToggleGroup(id,onSet,onChange){
+    document.getElementById(id).addEventListener("click",function(ev){
+      var b=ev.target.closest(".tbtn");if(!b)return;
+      [].forEach.call(this.querySelectorAll(".tbtn"),function(x){x.setAttribute("aria-pressed","false");});
+      b.setAttribute("aria-pressed","true");onSet(b.dataset.v);onChange();
+    });
+  }
+  function setToggleGroup(id,val){
+    [].forEach.call(document.querySelectorAll("#"+id+" .tbtn"),function(b){b.setAttribute("aria-pressed",b.dataset.v===val?"true":"false");});
+  }
+  wireToggleGroup("aaPos",function(v){aaPosVal=v;},updateAaRecipe);
+  wireToggleGroup("aaSpice",function(v){aaSpiceVal=v;},updateAaRecipe);
+  function updateAaRecipe(){
+    var hash=(aaHash.value.trim()||"hash").replace(/[^a-zA-Z0-9]/g,"")||"hash";
+    aaRecipe.textContent=hash+aaPosVal+aaSpiceVal;
+    aaResult.classList.remove("show");
+  }
+  aaHash.addEventListener("input",updateAaRecipe);
+  document.getElementById("aaRandom").addEventListener("click",function(){
+    var chars="abcdefghijklmnopqrstuvwxyz0123456789",s="";
+    for(var i=0;i<8;i++)s+=chars[Math.floor(Math.random()*chars.length)];
+    aaHash.value=s;updateAaRecipe();
+  });
+  document.getElementById("aaCookBtn").addEventListener("click",function(){
+    var hash=aaHash.value.trim()||"hash";
+    aaPw.innerHTML=colorPw(cookFormula(hash,aaPosVal,aaSpiceVal));aaResult.classList.add("show");
+  });
+  document.getElementById("aaCopyBtn").addEventListener("click",copyToast);
+  document.getElementById("aaSaveBtn").addEventListener("click",function(){
+    actionToast("Đã thêm vào Sheet");
+    setTimeout(function(){show("vault");render();},900);
+  });
+  function resetAddAccount(){
+    aaName.value="";aaHash.value="x7k2m9p4";aaDomain.value="";aaPosVal="#";aaSpiceVal="1";
+    setToggleGroup("aaPos","#");setToggleGroup("aaSpice","1");
+    updateAaRecipe();
+  }
+
+  /* ---- sửa tài khoản đã tồn tại (edit-existing, chốt Q10: update cho phép) ---- */
+  var eaName=document.getElementById("eaName"),eaHash=document.getElementById("eaHash"),
+      eaDomain=document.getElementById("eaDomain"),eaRecipe=document.getElementById("eaRecipe"),
+      eaResult=document.getElementById("eaResult"),eaPw=document.getElementById("eaPw"),
+      eaPosVal="#",eaSpiceVal="1",eaEditingEntry=null;
+  wireToggleGroup("eaPos",function(v){eaPosVal=v;},updateEaRecipe);
+  wireToggleGroup("eaSpice",function(v){eaSpiceVal=v;},updateEaRecipe);
+  function updateEaRecipe(){
+    var hash=(eaHash.value.trim()||"hash").replace(/[^a-zA-Z0-9]/g,"")||"hash";
+    eaRecipe.textContent=hash+eaPosVal+eaSpiceVal;
+    eaResult.classList.remove("show");
+  }
+  eaHash.addEventListener("input",updateEaRecipe);
+  document.getElementById("eaRandom").addEventListener("click",function(){
+    var chars="abcdefghijklmnopqrstuvwxyz0123456789",s="";
+    for(var i=0;i<8;i++)s+=chars[Math.floor(Math.random()*chars.length)];
+    eaHash.value=s;updateEaRecipe();
+  });
+  document.getElementById("eaCookBtn").addEventListener("click",function(){
+    var hash=eaHash.value.trim()||"hash";
+    eaPw.innerHTML=colorPw(cookFormula(hash,eaPosVal,eaSpiceVal));eaResult.classList.add("show");
+  });
+  document.getElementById("eaCopyBtn").addEventListener("click",copyToast);
+  document.getElementById("eaUpdateBtn").addEventListener("click",function(){
+    actionToast("Đã cập nhật vào Sheet");
+    setTimeout(function(){show("vault");render();},900);
+  });
+  document.getElementById("eaBack").addEventListener("click",function(){show("vault");});
+  function openEditAccount(e){
+    eaEditingEntry=e;
+    var m=RECIPE_RE.exec(e.recipe||"");
+    var hash=m?m[1]:(e.recipe||"hash"),pos=m?m[2]:"#",idx=m?m[3]:"1";
+    eaName.value=e.name||"";eaHash.value=hash;eaDomain.value="";
+    eaPosVal=pos;eaSpiceVal=idx;
+    setToggleGroup("eaPos",pos);setToggleGroup("eaSpice",idx);
+    updateEaRecipe();
+    show("edit-account");
+  }
 
   /* cook screen */
   var cookIn=document.getElementById("cookIn"),cookGo=document.getElementById("cookGo"),
@@ -497,12 +934,13 @@
   cookIn.addEventListener("input",function(){
     cookGo.disabled=!RECIPE_RE.test(this.value.trim());cookResult.classList.remove("show");
   });
+  function cookFormula(hash,pos,idx){
+    var spice={ "1":"Basic*","2":"S9!ce","3":"m9x","4":"T3am@","5":"Cold#" }[idx]||"Sp!ce";
+    return pos==="#" ? spice+hash : pos==="$" ? hash+spice : pos==="@" ? hash.slice(0,2)+spice+hash.slice(2) : spice+hash+idx;
+  }
   cookGo.addEventListener("click",function(){
     var m=cookIn.value.trim().match(RECIPE_RE);if(!m)return;
-    var hash=m[1],pos=m[2],idx=m[3];
-    var spice={ "1":"Basic*","2":"S9!ce","3":"m9x","4":"T3am@","5":"Cold#" }[idx]||"Sp!ce";
-    var pw = pos==="#" ? spice+hash : pos==="$" ? hash+spice : pos==="@" ? hash.slice(0,2)+spice+hash.slice(2) : spice+hash+idx;
-    cookPw.innerHTML=colorPw(pw);cookResult.classList.add("show");
+    cookPw.innerHTML=colorPw(cookFormula(m[1],m[2],m[3]));cookResult.classList.add("show");
   });
   document.getElementById("cookCopy").addEventListener("click",copyToast);
 
