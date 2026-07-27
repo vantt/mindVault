@@ -212,14 +212,78 @@ Chạy chính `RegexParserAdapter` lên từng ô: cột có **tỉ lệ ô pars
 
 ---
 
+## Q7 — Thiếu UI/UX add/import; tái dùng extension để onboard; thứ tự setup mobile-trước hay extension-trước?
+
+**Grounding mới (đọc code extension):** `ExportImportAdapter` đã dựng sẵn cơ chế handoff — có `createFullAccessBundle` (raw secrets + profileName + `sheetId` auto-route, mã hóa PBKDF2 100k + AES-GCM bằng "sharing password"). Extension đã xuất JSON (copy/download). → **Handoff ~80% đã có, chỉ thiếu transport QR.**
+
+**"Add/import" = 3 job khác nhau + 1 sự thật sản phẩm:**
+- **A. Kết nối/nhập sheet (bulk):** mobile *mạnh hơn* extension (Sheets API đọc cả sheet 1 lần vs extension đọc từng ô).
+- **B. Thêm 1 tài khoản (recipe builder):** extension *tự nhiên hơn* (đang nhìn sheet).
+- **C. "Nhập" password cũ:** **bất khả thi trực tiếp.**
+- **Sự thật:** PassChef không "nhập" password cũ được (password = combine(ingredient, secret), không ép mật khẩu tùy ý thành recipe). "Thêm account" = tạo recipe mới → cook → **rotate** (đổi mật khẩu trên trang sang giá trị mới). Ranh giới sản phẩm — UI phải nói rõ, không giả vờ là vault lưu-mọi-thứ.
+
+**UI/UX:**
+- *Job A:* [+ Kết nối Google Sheet] → OAuth read-only → Drive picker → chọn tab → confirm mapping (Q3) → "Đã nhập N tài khoản". Màn "Quản lý nguồn": list sheet · đồng bộ · sửa mapping · gỡ.
+- *Job B — recipe builder mobile:* form {Tên, Nguyên liệu (+🎲 random hash), Kiểu nấu #@$%^, Hũ spice 1-5, tùy chọn _!?~, Domain, Username} → sinh công thức+verify tag + cook thử → **[Lưu vào Sheet] (write scope) HOẶC [Copy để dán tay] (read-only)** → nudge "đổi mật khẩu account sang giá trị này". **Quyết định:** cho phép write opt-in + luôn có lối read-only.
+
+**Tái dùng extension để onboard:** payload = full-access bundle (đã có); thiếu transport. QR (offline, có thể >1 QR → động/nhiều mảnh) vs Drive appData (không giới hạn + lập kênh sync lâu dài) vs file .json (đã có). Luồng: extension "Kết nối app điện thoại" → sharing password → QR/Drive; mobile "Nhập từ máy tính" → quét/kéo Drive → nhập sharing password → giải mã → biometric → xong (~4 chạm, không gõ lại secret).
+
+**CHỐT thứ tự: Extension = mỏ neo, Mobile = vệ tinh (ưu tiên hướng Extension→Mobile).** Lý do: (1) export đã dựng sẵn → ít code/rủi ro nhất; (2) nhập secret chính xác cần bàn phím vật lý; (3) soạn recipe tự nhiên trên desktop; (4) existing users đã neo ở extension. **Phân vai theo thế mạnh:** crypto root→desktop; kết nối/duyệt sheet bulk→mobile mạnh hơn; soạn recipe→desktop ưu tiên; unlock→per-device. **Fallback bắt buộc:** mobile vẫn tự setup được (user mobile-only) nhưng nudge "setup ở desktop rồi quét cho dễ". Không ép thứ tự cứng — chỉ làm đường extension→mobile êm nhất thành mặc định. Onboarding chọn nhánh: [Đã dùng trên trình duyệt → Nhập] / [Chưa → Thiết lập mới].
+
+**Hội tụ:** Drive appData = onboard + sync + backup một công (khớp Phase 3). *Phụ thuộc:* extension hiện dùng Chrome Sync; Drive-canonical cần nâng cấp extension — Phase 1/3 chỉ cần export Drive một chiều.
+
+**Câu hỏi mở mới:** (1) write scope opt-in hay read-only-only? (2) transport QR hay Drive (kéo theo có nâng cấp extension sang Drive-sync)? (3) chấp nhận "thêm account = rotate" làm hành vi chuẩn? (4) extension có thêm nút "Kết nối app điện thoại" (QR) không?
+
+---
+
+## Q8 — Chốt tech stack (trả lời câu hỏi mở #9) + ràng buộc không có máy Mac
+
+**Quyết định:** tiêu chí chọn là "UX tốt nhất + security nhất" → **KMP** (Kotlin Multiplatform, core Kotlin dùng chung cho app + 2 autofill extension) + UI native (Compose/SwiftUI), đúng hướng Q5 đã phân tích. Loại RN/Flutter vì secret phải đi qua JS/Dart runtime (string bất biến, không zero-hoá được sau khi dùng) và autofill vẫn buộc viết lại native — chọn RN/Flutter là trả giá (rewrite core cho extension) mà không nhận lại lợi ích (không còn "1 lõi JS dùng chung" thật).
+
+**Ràng buộc mới: team không có máy Mac.** Build/sign/submit iOS bắt buộc macOS + Xcode — đúng với **mọi** stack (KMP, RN, Flutter, native), nên đây không phải lý do chọn lại RN. 4 đường có iOS: thuê Mac cloud (MacinCloud/Scaleway/MacStadium, ~$30-100/tháng, có simulator), CI macOS runner (build-only, không simulator để iterate UI), hoãn iOS, hoặc VM macOS (vi phạm EULA Apple — không dùng cho sản phẩm thương mại).
+
+**CHỐT Phase 1: KMP core (Kotlin) + Compose, Android-first.** Kotlin/Android toolchain chạy thuần trên Linux, không cần macOS. iOS (SwiftUI + Credential Provider Extension) thêm sau khi có Mac cloud, dùng lại nguyên `shared/` core — không rewrite. Chọn RN lúc này sẽ phải trả giá bảo mật/kiến trúc ngay (JS runtime, cook lệch nguồn ở extension) mà lợi ích "1 codebase 2 nền" chưa hiện thực hoá được (iOS hoãn dù chọn gì).
+
+**Xác nhận lại (đọc code, không phải giả định):** `generate_password.js` `_combine()` (cook) là thao tác chuỗi thuần (nối/chèn/interleave `hash`+`secret`), **không gọi Argon2** — khớp với ghi chú Q5 dòng "KHÔNG có Argon2 trong đường nấu". Argon2id (64MB, t=3, p=4) chỉ chạy ở `argon2_adapter.js` để derive key mở két từ master password. Điều này giảm nhẹ lo ngại RAM autofill iOS ở Q4 — autofill chỉ cần đọc secret đã cache sau unlock (biometric) + string-combine, không đụng Argon2 trên hot path.
+
+**Cần verify trước khi cam kết (đừng giả định):** thư viện Argon2id trên Kotlin/Native (iOS) + JVM (Android) phải cho **đúng cùng output** với `argon2-browser` WASM của extension, cùng params — nên làm spike nhỏ đối chiếu test vector trước khi port toàn bộ core.
+
+**Lưu ý dev loop:** repo đang chạy trên WSL2 — Android emulator dễ vướng nested-virtualization; nên chạy Android Studio trên Windows host hoặc dùng máy Android thật qua `adb`. Cần xác nhận thiết lập thực tế trước khi lên kế hoạch dev loop.
+
+---
+
+## Q9 — Chốt Q10–13 (write scope, transport handoff, chính sách rotate, nút kết nối trên extension)
+
+**Q10 — Write scope vào sheet: CHỐT — có, giới hạn `append` + `update`, không `delete`.**
+Mobile được ghi thẳng vào Google Sheet ở 2 dạng: **append** (thêm dòng — màn "Thêm tài khoản") và **update** (sửa dòng đã có). Không cấp quyền xoá dòng qua mobile.
+**Hệ quả kéo theo (mở rộng phạm vi so với lúc đăng ký PBI):** "update" nghĩa là mobile cần thêm **màn sửa tài khoản đã tồn tại**, không chỉ màn thêm-mới đã có trong prototype (nhóm A). Đã kiểm tra code: extension hiện tại (`popup-recipe-builder.js`) **cũng chưa có** luồng sửa recipe đã tồn tại — builder chỉ tạo mới (`initRecipeBuilder({onBack})` không có tham số nào để load 1 recipe có sẵn vào form). Vậy đây là năng lực **hoàn toàn mới**, không phải port từ extension — cần thêm 1 PBI riêng.
+**Ảnh hưởng OAuth (nhóm C-6):** cần scope `https://www.googleapis.com/auth/spreadsheets` (đọc+ghi), không chỉ readonly — review của Google có thể sẽ kỹ hơn với app đụng chữ "password".
+
+**Q11 — Transport handoff: CHỐT — hỗ trợ cả QR và Drive appData, không chọn 1.**
+QR: offline, không cần hạ tầng, dùng ngay được với `createFullAccessBundle` đã có. Drive: cần nâng cấp extension sang Drive-sync trước (việc lớn hơn), nhưng cho sync liên tục về sau. Làm QR trước (nhanh, độc lập); Drive sau như một lựa chọn bổ sung khi extension đã có Drive-sync (Phase 3, đã nói ở Q7).
+
+**Q12 — "Thêm account = rotate": CHỐT — xác nhận là hành vi chuẩn.**
+PassChef không thể "nhập" mật khẩu cũ (recipe tính ra password, không suy ngược được từ 1 password có sẵn). "Thêm tài khoản" luôn sinh ra 1 password *mới*; UI phải nudge người dùng tự đổi mật khẩu trên trang sang giá trị mới đó. Nudge này đã có trong prototype (màn Thêm tài khoản, nhóm A) — giữ nguyên làm chuẩn.
+
+**Q13 — Nút "Kết nối app điện thoại" trên extension: CHỐT — làm.**
+Thêm vào Options page, tái dùng `createFullAccessBundle` đã có sẵn (`export-import-adapter.js:95`), xuất ra QR cho mobile quét (nhóm B, PBI đã đăng ký, giờ hết chặn).
+
+**Tất cả 4 câu hỏi mở Q10–13 đã chốt.** Nhóm B (extension) hết bị chặn. Nhóm 0 đóng.
+
+---
+
 ## Câu hỏi mở tổng hợp (cần user quyết)
 
 1. Ưu tiên mobile: "tra cứu/copy" (Phase 1 đủ) hay "autofill tự động" (Phase 2, tốn gấp nhiều lần)?
 2. Cross-platform (React Native) hay làm 1 nền trước (iOS/Android)?
 3. Có sẵn lòng thêm cột `domain` vào sheet để autofill match chuẩn không?
 4. Secret sync qua Google Drive (mã hóa) có chấp nhận được về niềm tin/marketing không, hay bắt buộc "local-only"?
-5. App mobile có quyền **ghi** sheet không, hay chỉ read-only?
+5. ~~App mobile có quyền **ghi** sheet không, hay chỉ read-only?~~ **ĐÃ CHỐT (Q9/Q10):** có, giới hạn append+update, không delete.
 6. (Autofill) Chấp nhận kiến trúc **cache derived-key** trong Secure Enclave/Keystore để né giới hạn RAM extension iOS không? (ảnh hưởng vòng đời khóa & auto-lock)
 7. (Autofill) Có muốn **catalog alias** dựng sẵn (~200 service) không, hay chỉ dựa learn-by-use + fuzzy? (catalog cần bảo trì)
 8. (Autofill) Ưu tiên nền nào cho **spike Phase 2a** trước — iOS (khó vì RAM) hay Android (khó vì package-only)?
-9. (Stack) **Team có sẵn sàng học/dùng Kotlin không?** → yếu tố quyết định chính giữa **KMP** (nếu cam kết autofill) và **React Native** (nếu ưu tiên MVP nhanh, chấp nhận nợ Phase 2).
+9. ~~(Stack) Team có sẵn sàng học/dùng Kotlin không?~~ **ĐÃ CHỐT (Q8): KMP + Compose, Android-first** — không có máy Mac nên iOS hoãn tới khi có Mac cloud/thuê, không ảnh hưởng lựa chọn stack.
+10. ~~(Add/import) Mobile có **write scope** vào sheet...~~ **ĐÃ CHỐT (Q9):** có, append+update, không delete. Kéo theo: cần thêm màn sửa tài khoản đã tồn tại (năng lực mới, extension cũng chưa có).
+11. ~~(Onboard) Transport handoff: QR hay Drive?~~ **ĐÃ CHỐT (Q9):** cả hai — QR trước (độc lập, nhanh), Drive sau (gắn với Drive-sync Phase 3).
+12. ~~(Sản phẩm) Chấp nhận "thêm account = rotate"...~~ **ĐÃ CHỐT (Q9):** có, xác nhận là hành vi chuẩn, giữ nudge đã có trong prototype.
+13. ~~(Extension) Sẵn sàng thêm nút "Kết nối app điện thoại"...~~ **ĐÃ CHỐT (Q9):** có, làm.
