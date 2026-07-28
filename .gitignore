@@ -16,9 +16,17 @@ pnpm-debug.log*
 # OS
 .DS_Store
 Thumbs.db
-.claude 
+.claude
 .opencode
 chrome-extension/package-lock.json
+
+# Mobile (Kotlin Multiplatform) toolchain + build artifacts
+.toolchain/
+mobile/sheets-client/.gradle/
+mobile/sheets-client/build/
+mobile/sheets-client/**/build/
+mobile/sheets-client/local.properties
+mobile/sheets-client/sheets-secrets.properties
 
 # BEE:START
 .bee/state.json
