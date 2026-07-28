@@ -38,7 +38,16 @@ kotlin {
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:$kotlinxCoroutinesVersion")
             }
         }
-        val jvmMain by getting
+        val jvmMain by getting {
+            dependencies {
+                // jvmMain-only HTTP engine (oauth-sheets-4, E5): the JVM
+                // loopback OAuth smoke-test tool needs a real engine to make
+                // the token-exchange + Sheets API calls -- CIO is Ktor's
+                // plain-JVM engine, no Android/native dependency implied.
+                implementation("io.ktor:ktor-client-cio:$ktorVersion")
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinxCoroutinesVersion")
+            }
+        }
         val jvmTest by getting
     }
 }
@@ -51,4 +60,20 @@ tasks.register("test") {
     group = "verification"
     description = "Alias for allTests -- see comment above."
     dependsOn("allTests")
+}
+
+// Manual entrypoint for the JVM OAuth loopback smoke-test tool
+// (SheetsSmokeTest.kt, oauth-sheets-4 / D4 item 4). The Kotlin Multiplatform
+// plugin does not apply the `application` plugin's conventional
+// main-sourceSet wiring, so this JavaExec task builds its classpath directly
+// from the `jvm` target's "main" compilation. NOT wired into `test`/`check` --
+// this is the user's own follow-up step against real Google credentials, run
+// by hand: `./gradlew runSheetsSmokeTest`.
+tasks.register<JavaExec>("runSheetsSmokeTest") {
+    group = "application"
+    description = "Runs the JVM OAuth loopback smoke-test tool manually (real Google credentials required; never run by CI/tests)."
+    val jvmMainCompilation = kotlin.jvm().compilations.getByName("main")
+    dependsOn(jvmMainCompilation.compileTaskProvider)
+    mainClass.set("com.passchef.sheets.SheetsSmokeTestKt")
+    classpath = jvmMainCompilation.output.allOutputs + jvmMainCompilation.runtimeDependencyFiles
 }
