@@ -11,9 +11,21 @@
 | **Product Name**    | SecretHash Password Generator         |
 | **Version**         | MVP 1.1                               |
 | **Created Date**    | January 2025                          |
-| **Last Updated**    | January 2025                          |
+| **Last Updated**    | 2026-10-12                            |
 | **Status**          | Legacy roadmap; Partial implementation |
 | **Target Platform** | Google Chrome Extension (Manifest V3) |
+
+### Current KDF decision — 2026-10-12
+
+The owner delegated the choice to product quality and reliability. Keep the current
+Argon2id-only Cookbook format and fail closed when derivation is unavailable.
+The historical PBKDF2-SHA256600k vault fallback below is **Superseded**: deriving a
+new key with another KDF cannot open an existing Argon2id-encrypted Cookbook.
+Changing the encrypted format would require an explicit migration. Current Argon2
+parameters remain unchanged. Sharing-bundle PBKDF2 100k is a separate contract.
+Runtime reliability is addressed through bundled WASM in an offscreen Worker;
+implementation and acceptance evidence are tracked in
+[the current execution plan](../../plans/261012-extension-completion/plan.md).
 
 ### Changelog v1.1
 
@@ -473,9 +485,11 @@ async function deriveKeyArgon2(masterPassword, salt) {
 - **Winner of PHC**: Password Hashing Competition 2015
 - **Modern standard**: Khuyến nghị bởi OWASP 2024
 
-#### 5.4.2 Key Derivation (Fallback: PBKDF2)
+#### 5.4.2 Key Derivation (Historical PBKDF2 fallback — Superseded)
 
-Sử dụng khi Argon2 WASM không load được (hiếm):
+Historical proposal only. The 2026-10-12 decision keeps Argon2id-only Cookbook
+derivation and fails closed if bundled WASM cannot run. The table/code below
+preserve the original proposal; they are not the current failure path.
 
 | Requirement            | Specification                      |
 | ---------------------- | ---------------------------------- |
@@ -1201,22 +1215,34 @@ const testCases = [
 
 ## 11. Implementation Plan
 
-### Current implementation status / relevance — 2026-10-11
+### Current implementation status / relevance — 2026-10-12
 
-Baseline main `b5be3b0`. **Partial**, not a published/completed MVP. Original phase scope below is preserved; no missing security outcome is waived by this audit.
+**Full MVP: Partial.** The current extension completion scope is implemented and
+verified; publication and the broader acceptance matrix remain separate outcomes.
+The original roadmap below is historical. This table and the
+[current verification report](../../plans/261012-extension-completion/reports/verification.md)
+state the present scope; they supersede outdated mechanisms and audit gaps.
 
-| Phase | Current status | Relevant remaining / supersession evidence |
+| Phase | Current status | Evidence and remaining scope |
 |---|---|---|
-| 1 Core | Partial | MV3, Argon2id, AES-GCM, storage/parser/cooking implemented. Original vault PBKDF2-SHA256600k fallback absent; keep as **open design-validation requirement**, not an instruction to silently downgrade crypto. Bundle PBKDF2 100k in export-import-adapter.js is a separate sharing contract, not that fallback. |
-| 2 UI | Done implementation | Options/setup, toolbar popup, content popup and styling present. Current Precision layout replaces old wireframe mechanisms via644da28; v1.3 content-popup removal claim does not match current retained content UI. Current UI acceptance belongs to popup UX testing; no claim all historical layouts/manual tests passed. |
-| 3 Menu integration | Partial | content/content.js:43–82 reads focused input/formula bar on demand; an observer is not the current mechanism. Validate current real Menu extraction/hotkey/edge cases rather than adding an observer just to match the old diagram. Existing mock-Menu E2E can use SW fallback and does not prove ordinary real Google keyboard delivery. |
-| 4 Security/session | Partial | SW:130–164 implements idle300s and absolute10m locks. Failed-attempt limit/lockout not found in current unlock paths. content/content.js:175–178 clears copied dishes after30s, but popup/popup.js:332–338 toolbar copy does not. These remain relevant security/clipboard outcomes. |
-| 5 Testing/polish | Partial | Current independent77-unit pass, historical six-E2E report, and newer focused QR E2E exist. Real Menu/manual popup acceptance and original KDF timing/memory/performance/security verification are not established. Current golden tests remain unchanged by this audit. |
-| 6 Release | Partial | README/user guidance exists. Chrome Web Store submission/publication has no accepted evidence here; do not mark published. Local developer-mode installation is a different deliverable. |
+| 1 Core | **Done — current scope** | MV3 composition, Recipe parser/cooking, encrypted Chrome storage, Argon2id/AES-GCM and genuine bundled offscreen Worker authentication pass. The PBKDF2-SHA256 600k Cookbook fallback is **Superseded**; Argon2 parameters and encrypted format stay unchanged. Sharing-bundle PBKDF2 100k remains a separate contract. Actual cross-device Chrome-account Sync/conflict recovery is still unverified. |
+| 2 UI | **Done — current scope** | Real Options setup/edit/unlock/rotation, toolbar UI, Builder lifecycle, selected EN/VI Tag errors/legacy warnings and offline demo have headed E2E evidence. Native Google proof observed the real toolbar popover and Copy. Current UI retains the hotkey content popup; the historical v1.3 removal proposal is superseded. This does not certify every old wireframe or the user-effort metrics. |
+| 3 Menu integration | **Done — accepted provider scope** | Actual public synthetic Google Cookbook on Chromium143.0.7499.4: genuine native command, selected-cell/formula-bar extraction, visible Dish, Builder/live parity, matching Tag, wrong-profile refusal, empty-cell refusal and persisted fixture all passed (8/8). No direct-message fallback was used for native proof. On-demand extraction supersedes the proposed continuous observer. Other provider layouts, accounts/platforms and the >95% detection target are not measured. |
+| 4 Security/session | **Done — current scope** | One auth authority persists five failed attempts/five-minute lockout across popup closure and an actual service-worker restart. Serialized ten-minute deadline/idle-five-minute guards reject stale ownership. Guarded setup, profile writes and password rotation preserve encrypted Spices. Actual system clipboard clears the owned Dish after30s even when its page closes, preserves later user text, and never blindly clears after read denial. Unit controls cover lifecycle/expiry races; browser evidence does not establish continuous OS-idle/sleep traces, atomic clipboard compare-and-clear or guaranteed managed-memory erasure. |
+| 5 Testing/polish | **Partial — bounded suite Done** | Independent147 unit tests and22 headed E2E passed; original Golden tests stay unchanged. Native real-Google acceptance also passed8/8. Latest supplementary popup cases/counts belong to the verification report. Broad KDF timing/memory/performance measurements, cross-device Sync/conflict trials and a broader Chrome/OS/provider matrix remain unexecuted. |
+| 6 Release | **Partial** | Current developer-mode installation, documentation and user guidance exist. Store listing/privacy/packaging review, Chrome Web Store submission/publication and release acceptance have no execution proof here. |
 
-**Priority:** phase4 security/clipboard and phase1 fallback design validation first; combined current builder/tag/UX and real Menu acceptance next (phases2/3/5); verify release readiness/submission last. Old naming, typography, wireframes and implementation recipes can be superseded; security outcomes and publication proof cannot be silently discarded. No new implementation, tests or external release checks performed in this audit.
+**Next relevant work:** cross-device encrypted Cookbook Sync/conflict recovery;
+explicit performance/security and browser/provider measurements; release packaging,
+privacy/listing review and Chrome Web Store submission. None is implied Done by
+the local developer-mode or current native-Google pass. Ordinary core hotkey QA is
+now complete for the accepted public synthetic Cookbook; no duplicate core
+implementation or continuous observer is required.
 
 ### 11.1 Phases
+
+Historical sequence and estimates. Current status and superseded mechanisms are
+listed above; this diagram is not an active unchecked execution plan.
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
@@ -1364,7 +1390,7 @@ Baseline main `b5be3b0`. **Partial**, not a published/completed MVP. Original ph
 | User forgets master password | Medium     | High   | Clear warnings, no recovery by design                   |
 | Storage sync issues          | Low        | Medium | Local fallback, conflict resolution                     |
 | Performance on large sheets  | Medium     | Medium | Debounce, efficient selectors                           |
-| Argon2 WASM fails to load    | Low        | Medium | PBKDF2 600k fallback                                    |
+| Argon2 WASM fails to load    | Low        | Medium | Bundled offscreen Worker; fail closed without changing KDF |
 | Chrome account compromise    | Low        | High   | Argon2id makes offline brute-force very difficult       |
 | Malicious extensions         | Medium     | High   | Document limitations, recommend trusted extensions only |
 

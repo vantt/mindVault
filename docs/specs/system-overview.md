@@ -13,6 +13,12 @@ sequence of chunks. Actual canvas decoding verified the sender; a phone QR
 reader, reassembly and import screen are still separate work.
 See the [QR specification](qr-handoff.md).
 
+The browser now uses one setup/unlock authority, durable failed-attempt cooldown,
+session nonce/deadline checks and a bundled offscreen Worker for Argon2. Copied
+Dishes are compared before clearing after30 seconds, even when their popup closes.
+Builder and profile editing reject stale asynchronous results. See the
+[security/session contract](extension-security.md) for implementation and limits.
+
 ## Mobile foundation
 
 The Android/JVM shared kitchen ports recipe cooking/tag checks and decrypts the

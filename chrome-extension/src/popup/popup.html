@@ -259,6 +259,7 @@
                                            placeholder="Paste URL or Sheet ID"
                                            data-i18n-placeholder="placeholderSheetUrl">
                                     <p id="bld-sheet-url-error" class="builder-error hidden"></p>
+                                    <p id="bld-sheet-auto-hint" class="builder-hint hidden" data-i18n="hintSheetUrlAuto"></p>
                                     <p id="bld-sheet-warning" class="builder-warning hidden" data-i18n="warnNoSheetUrl">Without target sheet, this recipe won't verify on decode.</p>
                                 </div>
 
@@ -291,6 +292,8 @@
                     </div>
 
                     <!-- Preview blocks -->
+                    <p id="bld-legacy-warning" class="builder-warning hidden" data-i18n="warnLegacyNoTag"></p>
+                    <p id="bld-preview-error" class="builder-error hidden" role="alert"></p>
                     <div class="preview-block">
                         <div class="preview-row">
                             <div class="preview-label" data-i18n="builderRecipeOutput">Recipe</div>
@@ -305,7 +308,7 @@
 
                     <!-- Actions row -->
                     <div class="actions-row">
-                        <button id="btn-copy-recipe" class="btn primary" data-i18n="btnCopyRecipe">Copy Recipe</button>
+                        <button id="btn-copy-recipe" class="btn primary" data-i18n="btnCopyRecipe" disabled>Copy Recipe</button>
                     </div>
 
                 </div>

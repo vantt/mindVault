@@ -1,3 +1,4 @@
+import { requireSession } from './security/background-security.js';
 import { GeneratePassword } from "./core/usecases/generate_password.js";
 import { ChromeStorageAdapter } from "./adapters/infrastructure/chrome_storage_adapter.js";
 import { RegexParserAdapter } from "./adapters/infrastructure/regex_parser_adapter.js";
@@ -12,7 +13,7 @@ try {
     generatePasswordUseCase = new GeneratePassword(parserAdapter, storageAdapter);
     console.log("SW: Init complete");
 } catch (e) {
-    console.error("SW: Init error", e);
+    console.warn("Cookbook initialization unavailable");
 }
 
 // Run v1 → v2 migration on startup
@@ -23,13 +24,27 @@ async function runMigrationIfNeeded() {
             await chrome.storage.sync.set({ migrationNotified: false });
         }
     } catch (e) {
-        console.error("SW: Migration error", e);
+        console.warn("Cookbook migration unavailable");
     }
 }
 
 runMigrationIfNeeded();
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+
+    if (request.target === "offscreen") return;
+
+    if (request.action === "GET_CONTENT_LOCALE") {
+        if (sender.id !== chrome.runtime.id || !sender.tab?.url?.startsWith("https://docs.google.com/spreadsheets/")) return;
+        (async () => {
+            const { language } = await chrome.storage.sync.get("language");
+            const locale = language === "vi" ? "vi" : "en";
+            const response = await fetch(chrome.runtime.getURL(`_locales/${locale}/messages.json`));
+            if (!response.ok) throw new Error("Locale unavailable");
+            sendResponse({ success: true, messages: await response.json() });
+        })().catch(() => sendResponse({ success: false }));
+        return true;
+    }
 
     if (request.action === "GENERATE_PASSWORD") {
         handleGeneratePassword(request.text, request.sheetId || null, request.profileName || null, sendResponse);
@@ -49,7 +64,9 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 
 async function handleGeneratePassword(text, sheetId, profileName, sendResponse) {
     try {
+        const session = await requireSession();
         const result = await generatePasswordUseCase.execute(text, sheetId, profileName);
+        if ((await requireSession()).nonce !== session.nonce) throw new Error("Cookbook is locked");
         sendResponse({
             success: true,
             password: result.password,
@@ -59,9 +76,10 @@ async function handleGeneratePassword(text, sheetId, profileName, sendResponse) 
             warning: result.warning,
         });
     } catch (e) {
-        console.error("Password generation failed:", e);
-        const code = e instanceof RecipeProfileMismatchError ? "RECIPE_MISMATCH" : "GENERIC";
-        sendResponse({ success: false, error: e.message, code });
+
+        const code = e instanceof RecipeProfileMismatchError ? "RECIPE_MISMATCH" : (e.code ||
+            (e.message?.includes("not found") ? "SECRET_NOT_FOUND" : e.message === "Invalid recipe format" ? "INVALID_RECIPE" : "GENERIC"));
+        sendResponse({ success: false, error: code === "INVALID_RECIPE" ? "Invalid recipe format" : code === "SECRET_NOT_FOUND" ? "Secret not found" : "Cookbook could not cook this recipe", code });
     }
 }
 
@@ -72,6 +90,7 @@ async function handleGeneratePassword(text, sheetId, profileName, sendResponse) 
  */
 async function handleComputeRecipeTag(request, sendResponse) {
     try {
+        const session = await requireSession();
         const { recipeFields, sheetId, profileName } = request;
         if (!recipeFields || !sheetId || !profileName) {
             sendResponse({ success: false, error: "Missing recipeFields/sheetId/profileName" });
@@ -81,7 +100,7 @@ async function handleComputeRecipeTag(request, sendResponse) {
         // Tag computation then mixes in the build-time sheetId via HMAC message.
         const result = await storageAdapter.getSecretForGeneration(recipeFields.secretIndex, null, profileName);
         if (!result) {
-            sendResponse({ success: false, error: `Secret #${recipeFields.secretIndex} not found` });
+            sendResponse({ success: false, error: "Secret not found", code: "SECRET_NOT_FOUND" });
             return;
         }
         const tag = await computeRecipeTag({
@@ -92,10 +111,11 @@ async function handleComputeRecipeTag(request, sendResponse) {
             secret: result.rawSecret,
             sheetId,
         });
+        if ((await requireSession()).nonce !== session.nonce) throw new Error("Cookbook is locked");
         sendResponse({ success: true, tag });
     } catch (e) {
-        console.error("Tag computation failed:", e);
-        sendResponse({ success: false, error: e.message });
+
+        sendResponse({ success: false, error: "Cookbook could not verify this recipe", code: e.code || "GENERIC" });
     }
 }
 
@@ -125,43 +145,6 @@ async function getSheetIdFromActiveTab() {
 
         return { active, otherTabs };
     } catch { return { active: null, otherTabs: [] }; }
-}
-
-// Auto-Lock Constants
-const SESSION_TIMEOUT_MIN = 10;
-const IDLE_TIMEOUT_SEC = 300;
-
-chrome.idle.setDetectionInterval(IDLE_TIMEOUT_SEC);
-
-chrome.idle.onStateChanged.addListener((state) => {
-    if (state === 'idle' || state === 'locked') {
-        console.log(`State changed to ${state}, locking vault.`);
-        lockVault();
-    }
-});
-
-chrome.alarms.onAlarm.addListener((alarm) => {
-    if (alarm.name === "sessionTimeout") {
-        console.log("Absolute session timeout, locking vault.");
-        lockVault();
-    }
-});
-
-chrome.storage.onChanged.addListener((changes, area) => {
-    if (area === 'session' && changes.sessionKey) {
-        if (changes.sessionKey.newValue) {
-            // Only start timer if one isn't already running (avoid reset on redundant unlock)
-            chrome.alarms.get("sessionTimeout", existing => {
-                if (!existing) chrome.alarms.create("sessionTimeout", { delayInMinutes: SESSION_TIMEOUT_MIN });
-            });
-        } else {
-            chrome.alarms.clear("sessionTimeout");
-        }
-    }
-});
-
-async function lockVault() {
-    await chrome.storage.session.remove("sessionKey");
 }
 
 chrome.commands.onCommand.addListener((command) => {

@@ -1,5 +1,27 @@
 # Project Changelog
 
+## Complete prioritized browser slices (2026-10-12)
+
+One authentication authority now protects setup/unlock and encrypted profile commits.
+Durable five-attempt/five-minute cooldown and session nonce/deadline checks survive
+worker restarts. A bundled offscreen Worker runs real Argon2; offscreen clipboard
+ownership clears only the matching copied Dish after30 seconds, including popup
+closure. Existing Argon2id/AES format and sharing-bundle derivation stay compatible.
+Only offscreen/clipboardRead permissions added; minimum Chrome116 declared.
+
+Builder invalidates pending work on every edit/invalid state/close/lock. Profile
+editing preserves early changes and rejects stale decrypt/save results. Tag/content
+feedback follows selected EN/VI. Actual Google whitespace-only rich-text editor
+now falls back to the populated formula bar. Demo is static, fully EN/VI, bundled
+offline/responsive; current specs reflect accepted random defaults/collapsed options.
+
+Independent147 unit +25 distinct headed E2E passed; Golden unchanged. Separate
+actual Google/native8/8 proof uses no message fallback. Review found no remaining
+P1/P2. Builder/Tag/Core/Popup UX plans are Done/archived; full MVP remains Partial
+for Sync/platform/broad measurements and Store/release. No mobile/landing source
+changed. [Verification](../plans/261012-extension-completion/reports/verification.md)
+and [browser security contract](specs/extension-security.md) record boundaries.
+
 ## Reconcile plan status and relevance (2026-10-11)
 
 Rechecked missing phases against current source, later design commits and accepted

@@ -1,5 +1,17 @@
 # Security Assessment: Password System + Chrome Extension
 
+## Implemented controls — 2026-10-12
+
+The [current browser contract](specs/extension-security.md) supersedes historical
+implementation suggestions below: Argon2id-only fail-closed authentication, five
+failed attempts/five-minute cooldown, authoritative session deadlines, guarded
+encrypted writes and clipboard compare-and-clear after copying-page closure.
+Independent147-unit/25-E2E acceptance and separate real Google/native proof are
+recorded in the [verification report](../plans/261012-extension-completion/reports/verification.md).
+These controls do not establish universal safety: weak master passwords, offline
+attacks, compromised devices and OS clipboard history remain outside their protection.
+Cross-device Sync and broad platform/release verification remain pending.
+
 ## 1. Executive Summary
 
 The proposed system (Google Sheet + Chrome Extension) implements a **Split Knowledge** architecture. This is inherently more secure than storing plain text passwords, but slightly less secure than a "purely mental" approach due to the introduction of a digital artifact (the extension database) that stores the secrets.

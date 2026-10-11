@@ -1,12 +1,11 @@
-import { Argon2Adapter } from "../adapters/infrastructure/argon2_adapter.js";
-import { encryptWithKey, decryptWithKey } from "../adapters/infrastructure/aes-storage-crypto-helper.js";
+import { bindPasswordChange } from "./options-password-change.js";
+import { bindUnlock, securityRequest, securityMessage } from "../security/page-security.js";
 import { initProfilesTab } from "./options-profiles-tab.js";
 import { openExportWizard } from "./options-export-wizard.js";
 import { openImportWizard } from "./options-import-wizard.js";
 import { initSettingsTab } from "./options-settings-tab.js";
 import { loadLocale, t } from "../i18n-loader.js";
 
-const argon2 = new Argon2Adapter();
 let sessionKey = null;
 
 // ── DOM refs ──
@@ -79,11 +78,12 @@ async function handlePendingAction() {
 // ── Status check ──
 async function checkStatus() {
     const stored = await chrome.storage.sync.get(["salt", "defaultProfile", "migrationNotified"]);
+    const status = await securityRequest("AUTH_STATUS");
     const session = await chrome.storage.session.get("sessionKey");
 
     if (!stored.salt) {
         showSection(setupSection);
-    } else if (session.sessionKey) {
+    } else if (status.unlocked && session.sessionKey) {
         sessionKey = session.sessionKey;
         showSection(dashboardSection);
         await switchTab('profiles');
@@ -95,6 +95,9 @@ async function checkStatus() {
         // Pending action from popup (e.g. "Share this sheet")
         await handlePendingAction();
     } else {
+        sessionKey = null;
+        document.querySelectorAll("input[type=password], .secret-input, #edit-secrets-inputs input").forEach(input => { input.value = ""; });
+        document.querySelectorAll(".modal-overlay").forEach(modal => modal.classList.add("hidden"));
         showSection(unlockSection);
     }
 }
@@ -106,111 +109,47 @@ document.addEventListener("DOMContentLoaded", async () => {
     initTabBar();
     await checkStatus();
 
+    let setupBusy = false;
     // Setup
     document.getElementById("setup-form").addEventListener("submit", async (e) => {
         e.preventDefault();
+        if (setupBusy) return;
         const pwd = document.getElementById("setup-password").value;
         const confirm = document.getElementById("setup-confirm").value;
         if (pwd !== confirm) { showToast(t("toastPwdMismatch"), true); return; }
         if (pwd.length < 8) { showToast(t("toastPwdShort"), true); return; }
         if (!document.getElementById("setup-backup-confirm").checked) { showToast("Please confirm backup", true); return; }
+        setupBusy = true;
+        const button = document.querySelector('#setup-form button[type="submit"]'); button.disabled = true;
         try {
             showToast("Setting up…");
-            const salt = crypto.getRandomValues(new Uint8Array(16));
-            sessionKey = await argon2.deriveKey(pwd, salt);
-            const initial = { secrets: { "1": { base: "" }, "2": { base: "" }, "3": { base: "" }, "4": { base: "" }, "5": { base: "" } }, settings: {} };
-            const encrypted = await encryptWithKey(initial, sessionKey);
-            await chrome.storage.sync.set({
-                salt: Array.from(salt),
-                "profile:Default": encrypted,
-                defaultProfile: "Default",
-                sheetMapping: {}
-            });
-            await chrome.storage.session.set({ sessionKey });
+            const published = await securityRequest("AUTH_SETUP", { password: pwd });
+            if (!published.success) { showToast(securityMessage(published), true); await checkStatus(); return; }
+            document.getElementById("setup-form").reset();
             showToast(t("toastSetupComplete"));
-            showSection(dashboardSection);
-            await switchTab('profiles');
-        } catch (err) { showToast("Setup failed: " + err.message, true); }
+            await checkStatus();
+        } catch { sessionKey = null; showToast(securityMessage({ code: "CRYPTO_UNAVAILABLE" }), true); }
+        finally { setupBusy = false; button.disabled = false; }
     });
 
-    // Unlock
-    document.getElementById("unlock-form").addEventListener("submit", async (e) => {
-        e.preventDefault();
-        const pwd = document.getElementById("unlock-password").value;
-        try {
-            showToast("Unlocking…");
-            const stored = await chrome.storage.sync.get(["salt", "defaultProfile", "encryptedData", "iv"]);
-            if (!stored.salt) { showToast("Corrupted data.", true); return; }
-            const derivedKey = await argon2.deriveKey(pwd, new Uint8Array(stored.salt));
-            const defaultName = stored.defaultProfile || "Default";
-            const profileKey = `profile:${defaultName}`;
-            const { [profileKey]: profileData } = await chrome.storage.sync.get(profileKey);
-            const verifyData = profileData || { encryptedData: stored.encryptedData, iv: stored.iv };
-            if (!verifyData?.encryptedData) { showToast("No data found. Please reset.", true); return; }
-            await decryptWithKey(verifyData.encryptedData, verifyData.iv, derivedKey); // throws if wrong pwd
-            sessionKey = derivedKey;
-            await chrome.storage.session.set({ sessionKey });
-            showToast(t("toastUnlockSuccess"));
-            showSection(dashboardSection);
-            await switchTab('profiles');
-            await handlePendingAction();
-        } catch (err) {
-            showToast(err.message.includes("OperationError") ? "Invalid Password" : err.message, true);
-        }
-    });
+    // Both Options and toolbar use the same durable unlock authority.
+    bindUnlock({ input: document.getElementById("unlock-password"),
+        button: document.querySelector('#unlock-form button[type="submit"]'),
+        form: document.getElementById("unlock-form"), showError: message => showToast(message, true),
+        clearError: () => {}, onUnlocked: checkStatus });
 
     // Lock
     document.getElementById("btn-lock").addEventListener("click", async () => {
-        await chrome.storage.session.remove("sessionKey");
         sessionKey = null;
-        location.reload();
+        document.querySelectorAll("input[type=password], .secret-input, #edit-secrets-inputs input").forEach(input => { input.value = ""; });
+        document.querySelectorAll(".modal-overlay").forEach(modal => modal.classList.add("hidden"));
+        showSection(unlockSection);
+        const result = await securityRequest("AUTH_LOCK");
+        if (result.success) location.reload();
+        else showToast(securityMessage({ code: "LOCK_UNAVAILABLE" }), true);
     });
 
-    // Change password (Settings tab)
-    document.getElementById("change-password-form").addEventListener("submit", async (e) => {
-        e.preventDefault();
-        const oldPwd = document.getElementById("old-password").value;
-        const newPwd = document.getElementById("new-password").value;
-        const confirmPwd = document.getElementById("confirm-new-password").value;
-        if (newPwd !== confirmPwd) { showToast(t("toastPwdMismatch"), true); return; }
-        if (newPwd.length < 8) { showToast(t("toastPwdShort"), true); return; }
-        if (!document.getElementById("change-backup-confirm").checked) { showToast("Please confirm backup", true); return; }
-        try {
-            showToast("Re-encrypting…");
-            const { salt, defaultProfile } = await chrome.storage.sync.get(["salt", "defaultProfile"]);
-            const oldDerivedKey = await argon2.deriveKey(oldPwd, new Uint8Array(salt));
-            // Verify old password by decrypting default profile with the derived key
-            const verifyKey = `profile:${defaultProfile || "Default"}`;
-            const { [verifyKey]: verifyData } = await chrome.storage.sync.get(verifyKey);
-            if (verifyData?.encryptedData) {
-                await decryptWithKey(verifyData.encryptedData, verifyData.iv, oldDerivedKey); // throws OperationError if wrong
-            }
-            const newSalt = crypto.getRandomValues(new Uint8Array(16));
-            const newKey = await argon2.deriveKey(newPwd, newSalt);
-            // Re-encrypt ALL profiles
-            const all = await chrome.storage.sync.get(null);
-            const updates = { salt: Array.from(newSalt) };
-            for (const [k, v] of Object.entries(all)) {
-                if ((k.startsWith("profile:") || k.startsWith("shared:")) && v?.encryptedData) {
-                    const decrypted = await decryptWithKey(v.encryptedData, v.iv, oldDerivedKey);
-                    const reEncrypted = await encryptWithKey(decrypted, newKey);
-                    updates[k] = k.startsWith("shared:") ? { ...v, ...reEncrypted } : reEncrypted;
-                }
-            }
-            await chrome.storage.sync.set(updates);
-            sessionKey = newKey;
-            await chrome.storage.session.set({ sessionKey });
-            showToast(t("toastPwdUpdated"));
-            document.getElementById("change-password-form").reset();
-            document.getElementById("change-password-form").classList.add("hidden");
-            document.getElementById("pwd-summary").classList.remove("hidden");
-        } catch (err) {
-            let msg = err.message;
-            if (msg.includes("OperationError")) msg = "Incorrect current password";
-            else if (msg.includes("QUOTA_BYTES")) msg = "Storage quota exceeded. Delete unused profiles first.";
-            showToast(msg, true);
-        }
-    });
+    bindPasswordChange({ showToast, setSessionKey: key => { sessionKey = key; } });
 
     // Sync across tabs
     chrome.storage.onChanged.addListener((changes, area) => {

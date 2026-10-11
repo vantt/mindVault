@@ -8,7 +8,7 @@ Audit thực hiện bằng cách:
 3. Grep `chrome.i18n.getMessage(` trong mọi JS/TS
 4. So sánh 3 tập hợp: EN keys, VI keys, used-in-code keys
 
-**Counts (after v2.5):** 120 EN keys · 120 VI keys · **0 unused** · 0 EN/VI gaps
+**Historical v2.5 count:**120 EN/VI keys. Current rendered-demo audit below supersedes that snapshot; unused keys are not inferred solely from equal locale counts.
 
 ### Changelog v2.5
 
@@ -18,9 +18,9 @@ Audit thực hiện bằng cách:
 
 ---
 
-## (A) Active Keys — defined EN+VI, used in code
+## (A) Historical v2.4 key snapshot
 
-Sorted alphabetically. EN value shown; VI exists for all (v2.4 keys) or TBD (v2.5 additions).
+This retained snapshot explains older UI wording. Current strings and usage must be checked in the runtime locale files and source; the table does not certify current usage.
 
 | Key | EN Value |
 |---|---|
@@ -108,7 +108,7 @@ Sorted alphabetically. EN value shown; VI exists for all (v2.4 keys) or TBD (v2.
 
 ## (A2) New Keys — v2.5 Popup UX Redesign
 
-All 26 new keys added and wired. EN + VI translations complete.
+Historical v2.5 list. The current rendered demo uses the larger catalogue below; runtime values may supersede these examples.
 
 ### Home Screen — Contextual States (Phase 02)
 
@@ -161,66 +161,63 @@ All 26 new keys added and wired. EN + VI translations complete.
 
 ---
 
-## (B) Unused Keys
+## Current feedback and safe rendering
 
-**None.** All defined keys are referenced in code (either via static `data-i18n*` / `getMessage('literal')` or via dynamic `getMessage(variable)` lookup).
+The authoritative strings are `chrome-extension/src/_locales/{en,vi}/messages.json`.
+`loadLocale()` selects the stored preference; HTML markers and `t()` calls share it.
+Normal popup feedback and demo localization assign text, titles and placeholders
+without interpreting messages as markup. The popup bundle tooltip intentionally
+renders curated locale HTML; that trusted rich-tooltip exception is separate from
+provider/error feedback and user-supplied profile/Menu names.
 
-**Note on v2.5 new keys:** Keys in section A2 are defined in spec and will be wired in Phases 2–7. They should be added to `messages.json` in Phase 7 (i18n implementation phase).
+| Surface | Current keys and behavior |
+|---|---|
+| Home | `hintEmptyCell`, `hintInvalidRecipe`, `hintSecretNotFound`, `hintNeedsReload`, `hintCellError`, `errRecipeMismatch` select a safe visible outcome. `lblProfile`, `hintPepperReminder` localize the generated view. |
+| Builder | `errNoProfile`, `errBuilderPreview`, `errRecipeTag`, `errRecipeCopy`, `errRecipeMismatch`, `hintSecretNotFound`, `securityCancelled` cover cooking/tag/copy failures. Provider details are not displayed. |
+| Menu routing | `hintProfileFromMapping`, `hintProfileUnmapped`, `hintSheetUrlAuto`, `warnNoSheetUrl`, `warnLegacyNoTag` explain mapping, detection and intentional untagged Recipes. |
+| Unlock | `securityWrongPassword`, `securityLockedOut`, `securityBusy`, `securityCancelled`, `securityInvalidData`, `securityPasswordRequired`, `securityCryptoUnavailable`, `securityUnlocking` describe authority results and retry countdown. |
+| Dish copy | `securityClipboardUnavailable`, `lblCopied` distinguish an awaited successful clipboard request from failure. Clipboard cleanup is an attempt, not an unconditional promise. |
 
-Previously deleted keys (re-add when surfacing features):
-- `errSheetMismatch` — for profile routing error UI
-- `warnLegacyNoTag` — for pre-v2.2 recipe decode warning
-- `profileFallback` — for fallback routing label
-- `hintSheetUrlAuto` — for auto-fill confirmation hint
-- `noSheetTabsOpen` — for sheet-detector empty-state
+The Builder error/warning DOM uses `textContent`; its `Copy Recipe` success label
+appears only after the real clipboard promise resolves. The selected Menu cannot
+silently produce an untagged Recipe after a tag failure.
+Content presentation loads extension-local locale data and selects safe public
+feedback; it does not display arbitrary worker/provider exception strings.
 
----
+## Catalogue boundaries
 
-## (C) Missing Translations — EN/VI gaps
+Equal EN/VI key counts do not prove translation completeness or runtime usage.
+Legacy keys may remain for compatibility; an unused-key inventory must inspect
+both HTML markers and runtime calls before removal. `warnLegacyNoTag` and
+`hintSheetUrlAuto` are currently wired Builder behavior, not reserved future work.
+Symbols, deterministic Recipe examples, the wordmark and ingredient length numerals
+are language-neutral; visible explanatory prose and image alt text are localized.
 
-**v2.4 keys:** No gaps. Both locale files have identical key sets.
+The guide opens from extension pages with `chrome.runtime.getURL()` and
+`chrome.tabs.create()`. It requires no `web_accessible_resources` expansion.
+Demo styling uses local CSS and system font fallbacks. Other screens may still use
+shared typography; this bounded demo slice does not certify all extension screens offline.
 
-**v2.5 keys:** All 26 new keys have complete VI translations (added Phase 7).
+## Verification boundary
 
-**Vietnamese note for demo page:** Use "Công thức" (recipe/formula) — NOT "Công thức nấu ăn" (cooking recipe).
+`test/unit/demo-locale.spec.mjs` verifies all74 rendered guide keys in EN/VI,
+text-safe substitution and absence of unmarked explanatory text or remote demo
+resources. Builder locale/lifetime tests independently cover safe feedback;
+actual popup integration and native clipboard behavior require their headed suites.
+A completed locale catalogue is not evidence that every legacy UI flow passed.
 
----
+## Current demo locale audit — 2026-10-12
 
-## (D) Hardcoded Strings — i18n gaps in HTML/JS
+The standalone demo renders74 distinct locale keys (including its image alt).
+The exact EN/VI catalogue is in [16-demo-page.md](16-demo-page.md#rendered-keys).
+Runtime `messages.json` files are the source of strings; `loadLocale()` honors the
+stored language preference. Both locale sets must contain every rendered key.
+`data-i18n` uses safe text substitution and `data-i18n-alt` uses attribute assignment;
+no localized message is inserted with innerHTML. Recipe code/section numbers and
+the PassChef wordmark remain language-neutral.
 
-**Status after v2.5:** Same remaining items as v2.4 — no new hardcoded strings introduced.
-
-### Remaining hardcoded items (acceptable)
-
-| Location | Hardcoded Text | Reason kept |
-|---|---|---|
-| `options-profiles-tab.js` button labels | `'✏️ '`, `'↑ '`, `'★ '` emoji prefixes | Combined with i18n value at render |
-| `popup.js` pepper hint | `"🔑 Don't forget your pepper!"` | Optional UI hint, future i18n |
-| `content.js:104` fallback | `"Recipe verification failed — ..."` | Fallback when SW doesn't return localized message |
-| `popup.js` profile label prefix | `"Profile: "` and `"📥 "` literals | Composite string — future i18n with placeholder format |
-
-**Total: ~4 remaining hardcoded items. All are deferrable.**
-
----
-
-## Files to Modify in v2.5
-
-When implementing (Phases 2–7), update these files:
-
-- `chrome-extension/src/popup/popup.html` — add new DOM elements (`#home-quick-start`, `#home-sheet-context`, `#home-notice`, `#btn-how-it-works`, `#bld-more-options` `<details>`, `.builder-subtitle` paragraphs)
-- `chrome-extension/src/popup/popup.js` — Quick Start logic, state routing changes, sheet context display
-- `chrome-extension/src/popup/popup-recipe-builder.js` — smart defaults load/save, More Options auto-expand
-- `chrome-extension/src/popup/popup.css` — `.builder-subtitle`, `#home-notice`, `#home-sheet-context`, `.notice.warning` styles
-- `chrome-extension/src/demo/demo.html` — new demo page (Phase 6)
-- `chrome-extension/src/_locales/en/messages.json` — add 26 new keys
-- `chrome-extension/src/_locales/vi/messages.json` — add 26 new keys with VI translations (Phase 7)
-- `chrome-extension/manifest.json` — declare `demo/demo.html` as web-accessible resource
-
-## Future Work
-
-5 truly unused keys reserved for future UI features:
-- Surface `errSheetMismatch` in shared profile routing error UI
-- Surface `warnLegacyNoTag` toast in content script after decoding pre-v2.2 recipes
-- Surface `profileFallback` in popup when fallback routing kicks in
-- Wire `hintSheetUrlAuto` to display after auto-detect succeeds
-- Wire `noSheetTabsOpen` in sheet-detector picker for empty-state
+Historical demoTagline/demoBackLink and former key names may remain for compatibility;
+the guide uses demoCloseTab for both wired close controls and demoDailyUseTitle
+for its final section. Current tests cover actual rendered text and not merely
+matching overall key counts. Popup/content feedback keys are reconciled separately
+with their finished phase1–3 handlers; this catalogue does not certify live Google.

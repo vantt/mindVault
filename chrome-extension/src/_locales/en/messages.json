@@ -430,5 +430,263 @@
   "qrShow": { "message": "Show QR" },
   "qrCanvasLabel": { "message": "Encrypted cookbook QR" },
   "qrPreparing": { "message": "Preparing encrypted cookbook QR…" },
-  "qrDisplayError": { "message": "Cannot show QR. Download the cookbook bundle and try again." }
+  "qrDisplayError": { "message": "Cannot show QR. Download the cookbook bundle and try again." },
+  "demoPageTitle": {
+    "message": "PassChef — How it works"
+  },
+  "demoNavLabel": {
+    "message": "Demo · how it works"
+  },
+  "demoCloseTab": {
+    "message": "Close this tab"
+  },
+  "demoReadTime": {
+    "message": "Read time · ~3 min"
+  },
+  "demoHeroTitle": {
+    "message": "How PassChef works."
+  },
+  "demoHeroBody": {
+    "message": "Keep Recipes in your Cookbook and private Spices encrypted on your device. Cook each Dish when you need it."
+  },
+  "demoToc01": {
+    "message": "The idea"
+  },
+  "demoToc02": {
+    "message": "Anatomy of a recipe"
+  },
+  "demoToc03": {
+    "message": "Modifiers"
+  },
+  "demoToc04": {
+    "message": "Daily use"
+  },
+  "demoIdeaBody": {
+    "message": "A Recipe combines an ingredient with one of your private Spices to cook a Dish. The Cookbook holds Recipes, not the finished passwords."
+  },
+  "demoIdeaStorage": {
+    "message": "Your Spices are encrypted on the device and in Chrome Sync. You unlock the kitchen with your master password; Spices do not appear in the Cookbook."
+  },
+  "demoCookbookAlt": {
+    "message": "Synthetic Cookbook containing fb#1 and gm$2 Recipes"
+  },
+  "demoSheetCaption": {
+    "message": "Only Recipes are visible in the Cookbook."
+  },
+  "demoConstruction": {
+    "message": "How a Dish is cooked"
+  },
+  "demoIngredient": {
+    "message": "ingredient"
+  },
+  "demoPrefix": {
+    "message": "Spice first"
+  },
+  "demoFirstSpice": {
+    "message": "Spice jar 1"
+  },
+  "demoYourSpice": {
+    "message": "+ Example Spice:"
+  },
+  "demoSynthetic": {
+    "message": "synthetic example only"
+  },
+  "demoDish": {
+    "message": "Dish:"
+  },
+  "demoInsight": {
+    "message": "Anyone with only the Recipe still lacks the private Spice needed to cook your Dish. Use long, unpredictable ingredients and strong Spices."
+  },
+  "demoSection01": {
+    "message": "Section 01"
+  },
+  "demoAnatomyBody": {
+    "message": "Read a Recipe as ingredient, cooking style, Spice jar, then optional modifiers and verification tag."
+  },
+  "demoIngredientLabel": {
+    "message": "Ingredient"
+  },
+  "demoIngredientDetail": {
+    "message": "Unpredictable account text; change it when rotating a Dish."
+  },
+  "demoPlacementLabel": {
+    "message": "Cooking style"
+  },
+  "demoPlacementDetail": {
+    "message": "Where to mix the Spice into the ingredient."
+  },
+  "demoJarLabel": {
+    "message": "Spice jar"
+  },
+  "demoJarDetail": {
+    "message": "Choose one of up to five private Spices."
+  },
+  "demoModifierLabel": {
+    "message": "Optional modifier"
+  },
+  "demoModifierDetail": {
+    "message": "Transform the Spice or switch prefix/suffix placement."
+  },
+  "demoPlacementExample": {
+    "message": "Cooking styles: ingredient abc, Spice XYZ."
+  },
+  "demoSymbol": {
+    "message": "Symbol"
+  },
+  "demoMeaning": {
+    "message": "Meaning"
+  },
+  "demoResult": {
+    "message": "Dish"
+  },
+  "demoStyleTopping": {
+    "message": "Topping — Spice first"
+  },
+  "demoStyleBase": {
+    "message": "Base — Spice last"
+  },
+  "demoStyleFilling": {
+    "message": "Filling — Spice in the middle"
+  },
+  "demoStyleMix": {
+    "message": "Mix — alternate one unit"
+  },
+  "demoStyleSandwich": {
+    "message": "Sandwich — alternate pairs"
+  },
+  "demoTagNote": {
+    "message": "A Builder verification tag checks the Cookbook/profile match. It does not change the Dish; you can cook by hand without the tag."
+  },
+  "demoSection02": {
+    "message": "Section 02"
+  },
+  "demoModifiersBody": {
+    "message": "Place modifiers after the Spice jar number. They are deterministic, but stripping characters is not reversible. Combined Spice transformations run strip, reverse, then uppercase."
+  },
+  "demoModifierFlip": {
+    "message": "flip"
+  },
+  "demoEffectFlip": {
+    "message": "Switches topping # and base $; other styles stay the same."
+  },
+  "demoModifierUpper": {
+    "message": "upper"
+  },
+  "demoEffectUpper": {
+    "message": "Uppercases the Spice before cooking."
+  },
+  "demoModifierReverse": {
+    "message": "reverse"
+  },
+  "demoEffectReverse": {
+    "message": "Reverses the Spice before cooking."
+  },
+  "demoModifierStrip": {
+    "message": "strip"
+  },
+  "demoEffectStrip": {
+    "message": "Keeps only A–Z, a–z and 0–9 in the Spice."
+  },
+  "demoRecipeExample": {
+    "message": "Recipe with modifiers:"
+  },
+  "demoModifierExample": {
+    "message": "Spice jar 1 is reversed, then uppercased, before being placed first."
+  },
+  "demoSection03": {
+    "message": "Section 03"
+  },
+  "demoDailyBody": {
+    "message": "Unlock PassChef, select a Recipe cell in your Google Cookbook, then open the extension. A valid Recipe cooks a Dish; missing data or a mismatch stays on Home with guidance."
+  },
+  "demoStepOpen": {
+    "message": "Open your Cookbook"
+  },
+  "demoStepOpenBody": {
+    "message": "Keep Recipes in cells; private Spices stay encrypted separately."
+  },
+  "demoStepSelect": {
+    "message": "Select a Recipe cell"
+  },
+  "demoStepSelectBody": {
+    "message": "Click a cell such as fb#1 or gh$2!, then open PassChef with its toolbar icon."
+  },
+  "demoStepUnlock": {
+    "message": "Unlock and cook"
+  },
+  "demoStepUnlockBody": {
+    "message": "The icon opens the popup. Ctrl+Shift+L cooks the selected cell through the page flow; it is not the popup opener."
+  },
+  "demoStepCopy": {
+    "message": "Copy and paste"
+  },
+  "demoStepCopyBody": {
+    "message": "Use Copy to put the Dish on the clipboard. PassChef attempts to clear it after 30 seconds; closing the popup alone does not clear the system clipboard."
+  },
+  "demoSessionNote": {
+    "message": "The unlocked session locks after 5 idle minutes or 10 total minutes. Encrypted Spices can remain in Chrome Sync; this static demo reads no Cookbook or private Spice."
+  },
+  "demoRotateTitle": {
+    "message": "Rotating a Dish?"
+  },
+  "demoRotateBody": {
+    "message": "Change the ingredient, for example fb#1 to fb2#1, then update the password on the account website yourself. Your Spice can stay the same."
+  },
+  "demoSection04": {
+    "message": "Section 04"
+  },
+  "demoClosingTitle": {
+    "message": "Ready to cook."
+  },
+  "demoClosingBody": {
+    "message": "Close this guide and open Recipe Builder from the popup. The Builder starts with random picks and keeps More options collapsed."
+  },
+  "warnLegacyNoTag": {
+    "message": "Legacy recipe: no verification tag."
+  },
+  "hintSheetUrlAuto": {
+    "message": "Menu detected from an open tab. Edit it to target another Menu."
+  },
+  "errRecipeTag": {
+    "message": "Could not verify this recipe. Retry or check the Menu and profile."
+  },
+  "errBuilderPreview": {
+    "message": "Could not cook this recipe. Check the ingredients and spice."
+  },
+  "errRecipeCopy": {
+    "message": "Could not copy the recipe. Try again."
+  },
+  "securityUnlocking": {
+    "message": "Unlocking…"
+  },
+  "securityWrongPassword": {
+    "message": "Invalid Password. $1 attempts remaining."
+  },
+  "securityLockedOut": {
+    "message": "Too many attempts. Try again in $1 seconds."
+  },
+  "securityBusy": {
+    "message": "Another Cookbook unlock is in progress."
+  },
+  "securityCancelled": {
+    "message": "Cookbook locked. Unlock again."
+  },
+  "securityInvalidData": {
+    "message": "Cookbook data is unavailable. Check Options."
+  },
+  "securityPasswordRequired": {
+    "message": "Enter your master password."
+  },
+  "securityCryptoUnavailable": {
+    "message": "Cookbook could not unlock. Please try again."
+  },
+  "securityClipboardUnavailable": {
+    "message": "Copy failed. Your clipboard was kept unchanged."
+  },
+  "securityLockUnavailable": {
+    "message": "Cookbook lock could not be confirmed. Close this window and try again."
+  },
+  "securitySetupExists": {
+    "message": "Cookbook already exists. Unlock it in Options."
+  }
 }

@@ -2,12 +2,10 @@
 
 ## In progress
 
-- [Prioritized active plans](../plans/README.md): eight plans retain relevant
-  unfinished outcomes after a code/decision audit. Start with extension security,
-  stale builder previews and mismatch verification; use one real Cookbook/hotkey
-  proof across the overlapping Core/MVP/builder plans. UX/mobile and launch work
-  follow their dependencies. Old randomized/collapsed builder design replaces
-  obsolete restoration/auto-expand steps; no missing verification is called Done.
+- [Prioritized active plans](../plans/README.md): the five browser slices passed
+  independent acceptance. Next: remaining MVP Sync/platform/performance verification
+  and release readiness, followed by mobile/website/commercialization dependencies.
+  Full MVP remains Partial; closed Builder/Tag/Core/Popup UX plans are archived.
 - Real Google OAuth setup and one live Cookbook read remain pending; local
   client verification does not certify an account connection.
 - [Keystore physical coverage follow-up](../archive/plans/261011-keystore-recovery/reports/current-device-acceptance.md):
@@ -18,6 +16,13 @@
 
 
 ## Completed
+
+- 2026-10-12 — Extension security, Builder/Tag lifetime repairs, current Google
+  integration QA and offline EN/VI Demo/spec polish complete. Independent147 unit
+  and25 distinct headed E2E passed; actual public synthetic Google/native8/8 passed
+  without keyboard fallback. Golden unchanged. All current Builder/Tag/Core/Popup
+  UX phases Done and archived. See [verification](../plans/261012-extension-completion/reports/verification.md);
+  delivery to main is tracked in the completion dossier.
 
 - 2026-10-11 — Plan-status/relevance audit: per-phase evidence and explicit
   Superseded/Deferred outcomes reconciled; closed recovery/foundation plans moved

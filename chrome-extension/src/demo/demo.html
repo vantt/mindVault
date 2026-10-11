@@ -1,309 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>PassChef — How it works</title>
-  <!-- v2 Precision tokens: fonts (Fraunces, Geist, Geist Mono) + CSS custom props -->
-  <link rel="stylesheet" href="../styles/tokens.css">
-  <link rel="stylesheet" href="demo.css">
-</head>
-<body>
-  <!-- Atmospheric vignette (amber glow, top-right) -->
-  <div class="demo-vignette" aria-hidden="true"></div>
-
-  <!-- ── Top nav strip ── -->
-  <nav class="demo-nav">
-    <div class="demo-nav-inner">
-      <!-- Wordmark: "Pass" ink/600 + "Chef" ink/900 italic (Fraunces) + amber dot -->
-      <div class="demo-wordmark">
-        <span class="wordmark-pass">Pass</span><span class="wordmark-chef">Chef</span><span class="wordmark-dot" aria-hidden="true"></span>
-      </div>
-      <div class="demo-nav-label">Demo · how it works</div>
-      <button id="btn-close-top" class="btn-close-tab" type="button">Close this tab</button>
-    </div>
-  </nav>
-
-  <div class="demo-container">
-
-    <!-- ── Hero ── -->
-    <header class="demo-hero">
-      <div class="demo-hero-caption">Read time · ~3 min</div>
-      <h1 class="demo-hero-title">
-        How <em>Pass</em><em>Chef</em> works.
-      </h1>
-      <p class="demo-hero-sub">
-        A short recipe in a spreadsheet, five private phrases in your head —
-        every password derived on demand, nothing at rest.
-      </p>
-      <!-- Table of contents chips -->
-      <div class="demo-toc">
-        <span class="demo-toc-chip"><span class="demo-toc-n">01</span> The idea</span>
-        <span class="demo-toc-chip"><span class="demo-toc-n">02</span> Anatomy of a recipe</span>
-        <span class="demo-toc-chip"><span class="demo-toc-n">03</span> Modifiers</span>
-        <span class="demo-toc-chip"><span class="demo-toc-n">04</span> Daily use</span>
-      </div>
-    </header>
-
-    <!-- ── Section 1: The Idea ── -->
-    <section id="section-idea" class="demo-section">
-      <div class="section-text">
-        <div class="section-label">Section 01</div>
-        <h2 data-i18n="demoIdeaTitle">The Idea</h2>
-        <p>We don't store your password. We store a <em>recipe</em> —
-           a formula that builds it by combining a random text
-           with a secret only you know.</p>
-        <p>The recipe tells the extension <em>which</em> secret to use
-           and <em>where</em> to place it. Your secrets never appear
-           on the sheet — they're encrypted on your machine.</p>
-      </div>
-
-      <div class="section-visual">
-        <!-- Block 1: Sheet screenshot -->
-        <div class="sheet-preview">
-          <img src="sheet-recipes.png" alt="Google Sheet with recipe codes like fb#1, gm$2" class="sheet-img">
-          <p class="sheet-caption">This is all anyone sees — even if your sheet is public.</p>
-        </div>
-
-        <!-- Block 2: Construction box -->
-        <div class="construction-box">
-          <div class="construct-label">How a password is built</div>
-
-          <div class="construct-anatomy">
-            <span class="construct-char anat-hash">fb</span>
-            <span class="construct-char anat-pos">#</span>
-            <span class="construct-char anat-idx">1</span>
-            <span class="construct-part-label">salt</span>
-            <span class="construct-part-label">prefix secret</span>
-            <span class="construct-part-label">use first secret</span>
-          </div>
-
-          <div class="construct-secret-row">
-            <span class="construct-secret-label">+ Your first secret:</span>
-            <span class="construct-secret-value">S3cret</span>
-            <span class="construct-secret-note">(only you know this)</span>
-          </div>
-
-          <div class="construct-divider"></div>
-
-          <div class="construct-result-row">
-            <span class="construct-result-label">Password:</span>
-            <span class="construct-result-value">
-              <span class="result-secret">S3cret</span><span class="result-text">fb</span>
-            </span>
-          </div>
-        </div>
-
-        <!-- Block 3: Insight note -->
-        <p class="insight-note">
-          The sheet holds the text and the formula. The secret stays in your head.
-          Without it, the recipe is just letters.
-        </p>
-      </div>
-    </section>
-
-    <!-- ── Section 2: Anatomy of a Recipe ── -->
-    <section id="section-anatomy" class="demo-section">
-      <div class="section-text">
-        <div class="section-label">Section 02</div>
-        <h2 data-i18n="demoAnatomyTitle">Anatomy of a Recipe</h2>
-        <p>Section 01 showed a quick example. Here's the full syntax —
-           every recipe follows this pattern.</p>
-      </div>
-
-      <div class="section-visual">
-        <!-- Recipe anatomy visual -->
-        <div class="anatomy-box">
-          <!-- Large recipe display -->
-          <div class="anatomy-recipe-display">
-            <span class="anat-hash">fb</span><span class="anat-pos">#</span><span class="anat-idx">1</span><span class="anat-mod">_</span>
-          </div>
-          <!-- Annotation list -->
-          <div class="anatomy-annot-grid">
-            <span class="anat-hash anat-part-sym">fb</span>
-            <div class="anat-detail">
-              <div class="anat-detail-label anat-hash">salt</div>
-              <div class="anat-detail-sub">any text you pick for each account — like salt, it makes every password unique even when using the same secret</div>
-            </div>
-            <span class="anat-pos anat-part-sym">#</span>
-            <div class="anat-detail">
-              <div class="anat-detail-label anat-pos">placement</div>
-              <div class="anat-detail-sub">where to place your secret (see table below)</div>
-            </div>
-            <span class="anat-idx anat-part-sym">1</span>
-            <div class="anat-detail">
-              <div class="anat-detail-label anat-idx">secret number</div>
-              <div class="anat-detail-sub">which of your 5 secrets to use (1 – 5)</div>
-            </div>
-            <span class="anat-mod anat-part-sym">_</span>
-            <div class="anat-detail">
-              <div class="anat-detail-label anat-mod">modifier</div>
-              <div class="anat-detail-sub">optional — e.g. uppercase, reverse</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Position symbols table -->
-        <p class="subsection-label">Placement symbols — <em>salt = <code>abc</code>, secret = <code>XYZ</code></em></p>
-        <table class="demo-table">
-          <thead>
-            <tr>
-              <th>Symbol</th>
-              <th>Meaning</th>
-              <th>Result</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><code>#</code></td>
-              <td>Prefix — secret before salt</td>
-              <td><code>XYZ<span class="dim">abc</span></code></td>
-            </tr>
-            <tr>
-              <td><code>$</code></td>
-              <td>Suffix — secret after salt</td>
-              <td><code><span class="dim">abc</span>XYZ</code></td>
-            </tr>
-            <tr>
-              <td><code>@</code></td>
-              <td>Middle — secret inside salt</td>
-              <td><code><span class="dim">a</span>XYZ<span class="dim">bc</span></code></td>
-            </tr>
-            <tr>
-              <td><code>%</code></td>
-              <td>Weave — alternate one by one</td>
-              <td><code><span class="dim">a</span>X<span class="dim">b</span>Y<span class="dim">c</span>Z</code></td>
-            </tr>
-            <tr>
-              <td><code>^</code></td>
-              <td>Weave — alternate in pairs</td>
-              <td><code><span class="dim">ab</span>XY<span class="dim">c</span>Z</code></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <!-- ── Section 3: Modifiers ── -->
-    <section id="section-modifiers" class="demo-section">
-      <div class="section-text">
-        <div class="section-label">Section 03</div>
-        <h2 data-i18n="demoModifiersTitle">Modifiers</h2>
-        <p>Append optional modifier symbols after the position symbol to transform the output.
-           Each modifier is deterministic and reversible — same recipe, same output, every time.
-           Modifiers can be combined.</p>
-      </div>
-
-      <div class="section-visual">
-        <!-- Modifier table -->
-        <div class="modifier-table-box">
-          <div class="modifier-row">
-            <span class="modifier-sym">_</span>
-            <span class="modifier-name">flip</span>
-            <span class="modifier-eff">Reverses how the secret combines with the hash</span>
-          </div>
-          <div class="modifier-row">
-            <span class="modifier-sym">!</span>
-            <span class="modifier-name">upper</span>
-            <span class="modifier-eff">Uppercases the secret before combining</span>
-          </div>
-          <div class="modifier-row">
-            <span class="modifier-sym">?</span>
-            <span class="modifier-name">reverse</span>
-            <span class="modifier-eff">Reverses the secret before combining</span>
-          </div>
-          <div class="modifier-row">
-            <span class="modifier-sym">~</span>
-            <span class="modifier-name">strip</span>
-            <span class="modifier-eff">Strips spaces and punctuation from the secret</span>
-          </div>
-        </div>
-
-        <!-- Modifier example row -->
-        <div class="recipe-example modifier-example">
-          <span class="recipe-label">Recipe with modifiers:</span>
-          <code>r4nd0m#1!?</code>
-          <span class="modifier-breakdown">← hash <code>r4nd0m</code>, position <code>#</code>, secret <code>1</code>, then modifiers <code>!</code><code>?</code></span>
-        </div>
-      </div>
-    </section>
-
-    <!-- ── Section 4: Daily Use ── -->
-    <section id="section-daily-use" class="demo-section">
-      <div class="section-text">
-        <div class="section-label">Section 04</div>
-        <h2 data-i18n="demoDailyUseTitle">Daily Use</h2>
-        <p>Open a spreadsheet, click the cell with your recipe, then open PassChef.
-           The popup auto-detects the cell and generates the password. Paste it, then close.
-           Nothing was written to disk, nothing was sent over the network.</p>
-      </div>
-
-      <div class="section-visual">
-        <!-- Steps -->
-        <div class="daily-flow-box">
-          <div class="flow-step">
-            <div class="step-num">01</div>
-            <div class="step-body">
-              <strong>Open your Google Sheet</strong>
-              <p>Your spreadsheet holds recipes — short codes like <code>fb#1</code> or <code>gh$2!</code>.</p>
-            </div>
-          </div>
-          <div class="flow-step">
-            <div class="step-num">02</div>
-            <div class="step-body">
-              <strong>Click a recipe cell</strong>
-              <p>Anywhere on the spreadsheet — PassChef reads the active cell.</p>
-            </div>
-          </div>
-          <div class="flow-step">
-            <div class="step-num">03</div>
-            <div class="step-body">
-              <strong>Open the extension</strong>
-              <p>Click the icon or press <kbd>Ctrl+Shift+L</kbd> (Mac: <kbd>⌃⇧L</kbd>). The popup auto-routes to the Generated screen.</p>
-            </div>
-          </div>
-          <div class="flow-step">
-            <div class="step-num">04</div>
-            <div class="step-body">
-              <strong>Copy &amp; paste</strong>
-              <p>The password is on the clipboard. Close the popup and it disappears.</p>
-            </div>
-          </div>
-
-          <div class="flow-note">
-            <span class="flow-note-dot" aria-hidden="true"></span>
-            Nothing is stored, transmitted, or logged outside your device.
-          </div>
-        </div>
-
-        <!-- Tip box -->
-        <div class="tip-box">
-          <div class="tip-box-inner">
-            <strong>Rotating a password?</strong>
-            Update only the recipe hash — e.g. change <code>fb#1</code> to <code>fb2#1</code>.
-            Same secrets, completely different password. No secret changes needed.
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ── Closing ── -->
-    <div class="demo-closing">
-      <div class="closing-text">
-        <div class="closing-title">That's it.</div>
-        <div class="closing-sub">
-          The rest is detail — profile routing, sheet locking, shared bundles.
-          Worth knowing later. Not worth knowing today.
-        </div>
-      </div>
-      <div class="closing-actions">
-        <button id="btn-open-builder" class="btn-secondary" type="button">Open Recipe Builder</button>
-        <button id="btn-close-demo" class="btn-primary" data-i18n="demoBackLink" type="button">Close this tab</button>
-      </div>
-    </div>
-
-  </div>
-
-  <script src="demo.js" type="module"></script>
-</body>
-</html>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title data-i18n="demoPageTitle">PassChef — How it works</title>
+<link rel="stylesheet" href="demo.css"></head>
+<body><div class="demo-vignette" aria-hidden="true"></div>
+<nav class="demo-nav"><div class="demo-nav-inner">
+<div class="demo-wordmark"><span class="wordmark-pass">Pass</span><span class="wordmark-chef">Chef</span><span class="wordmark-dot" aria-hidden="true"></span></div>
+<div class="demo-nav-label" data-i18n="demoNavLabel">Demo · how it works</div>
+<button id="btn-close-top" class="btn-close-tab" type="button"><span data-i18n="demoCloseTab">Close this tab</span></button>
+</div></nav><main class="demo-container">
+<header class="demo-hero">
+<div class="demo-hero-caption" data-i18n="demoReadTime">Read time · ~3 min</div>
+<h1 class="demo-hero-title" data-i18n="demoHeroTitle">How PassChef works.</h1>
+<p class="demo-hero-sub" data-i18n="demoHeroBody">Keep Recipes in your Cookbook and private Spices encrypted on your device. Cook each Dish when you need it.</p>
+<div class="demo-toc">
+<a class="demo-toc-chip" href="#section-idea"><span class="demo-toc-n">01</span><span data-i18n="demoToc01">The idea</span></a>
+<a class="demo-toc-chip" href="#section-anatomy"><span class="demo-toc-n">02</span><span data-i18n="demoToc02">Anatomy of a recipe</span></a>
+<a class="demo-toc-chip" href="#section-modifiers"><span class="demo-toc-n">03</span><span data-i18n="demoToc03">Modifiers</span></a>
+<a class="demo-toc-chip" href="#section-daily-use"><span class="demo-toc-n">04</span><span data-i18n="demoToc04">Daily use</span></a>
+</div></header>
+<section id="section-idea" class="demo-section">
+<div class="section-text"><div class="section-label"><span data-i18n="demoSection01">Section 01</span></div><h2 data-i18n="demoIdeaTitle">The Idea</h2>
+<p data-i18n="demoIdeaBody">A Recipe combines an ingredient with one of your private Spices to cook a Dish. The Cookbook holds Recipes, not the finished passwords.</p>
+<p data-i18n="demoIdeaStorage">Your Spices are encrypted on the device and in Chrome Sync. You unlock the kitchen with your master password; Spices do not appear in the Cookbook.</p></div>
+<div class="section-visual">
+<div class="sheet-preview"><img src="sheet-recipes.png" data-i18n-alt="demoCookbookAlt" alt="Synthetic Cookbook containing fb#1 and gm$2 Recipes" class="sheet-img"><p class="sheet-caption" data-i18n="demoSheetCaption">Only Recipes are visible in the Cookbook.</p></div>
+<div class="construction-box"><div class="construct-label" data-i18n="demoConstruction">How a Dish is cooked</div>
+<div class="construct-anatomy"><span class="construct-char anat-hash">fb</span><span class="construct-char anat-pos">#</span><span class="construct-char anat-idx">1</span><span class="construct-part-label" data-i18n="demoIngredient">ingredient</span><span class="construct-part-label" data-i18n="demoPrefix">Spice first</span><span class="construct-part-label" data-i18n="demoFirstSpice">Spice jar 1</span></div>
+<div class="construct-secret-row"><span class="construct-secret-label" data-i18n="demoYourSpice">+ Example Spice:</span><code class="construct-secret-value">S3cret</code><span class="construct-secret-note" data-i18n="demoSynthetic">synthetic example only</span></div>
+<div class="construct-divider"></div><div class="construct-result-row"><span class="construct-result-label" data-i18n="demoDish">Dish:</span><code class="construct-result-value"><span class="result-secret">S3cret</span><span class="result-text">fb</span></code></div></div>
+<p class="insight-note" data-i18n="demoInsight">Anyone with only the Recipe still lacks the private Spice needed to cook your Dish. Use long, unpredictable ingredients and strong Spices.</p>
+</div></section>
+<section id="section-anatomy" class="demo-section">
+<div class="section-text"><div class="section-label"><span data-i18n="demoSection02">Section 02</span></div><h2 data-i18n="demoAnatomyTitle">Anatomy of a Recipe</h2>
+<p data-i18n="demoAnatomyBody">Read a Recipe as ingredient, cooking style, Spice jar, then optional modifiers and verification tag.</p></div>
+<div class="section-visual">
+<div class="anatomy-box"><div class="anatomy-recipe-display"><span class="anat-hash">fb</span><span class="anat-pos">#</span><span class="anat-idx">1</span><span class="anat-mod">_</span></div><div class="anatomy-annot-grid">
+<span class="anat-hash anat-part-sym">fb</span><div class="anat-detail"><div class="anat-detail-label" data-i18n="demoIngredientLabel">Ingredient</div><div class="anat-detail-sub" data-i18n="demoIngredientDetail">Unpredictable account text; change it when rotating a Dish.</div></div>
+<span class="anat-pos anat-part-sym">#</span><div class="anat-detail"><div class="anat-detail-label" data-i18n="demoPlacementLabel">Cooking style</div><div class="anat-detail-sub" data-i18n="demoPlacementDetail">Where to mix the Spice into the ingredient.</div></div>
+<span class="anat-idx anat-part-sym">1</span><div class="anat-detail"><div class="anat-detail-label" data-i18n="demoJarLabel">Spice jar</div><div class="anat-detail-sub" data-i18n="demoJarDetail">Choose one of up to five private Spices.</div></div>
+<span class="anat-mod anat-part-sym">_</span><div class="anat-detail"><div class="anat-detail-label" data-i18n="demoModifierLabel">Optional modifier</div><div class="anat-detail-sub" data-i18n="demoModifierDetail">Transform the Spice or switch prefix/suffix placement.</div></div></div></div>
+<p class="subsection-label" data-i18n="demoPlacementExample">Cooking styles: ingredient abc, Spice XYZ.</p>
+<table class="demo-table"><thead><tr><th data-i18n="demoSymbol">Symbol</th><th data-i18n="demoMeaning">Meaning</th><th data-i18n="demoResult">Dish</th></tr></thead><tbody>
+<tr><td><code>#</code></td><td data-i18n="demoStyleTopping">Topping — Spice first</td><td><code>XYZabc</code></td></tr>
+<tr><td><code>$</code></td><td data-i18n="demoStyleBase">Base — Spice last</td><td><code>abcXYZ</code></td></tr>
+<tr><td><code>@</code></td><td data-i18n="demoStyleFilling">Filling — Spice in the middle</td><td><code>aXYZbc</code></td></tr>
+<tr><td><code>%</code></td><td data-i18n="demoStyleMix">Mix — alternate one unit</td><td><code>aXbYcZ</code></td></tr>
+<tr><td><code>^</code></td><td data-i18n="demoStyleSandwich">Sandwich — alternate pairs</td><td><code>abXYcZ</code></td></tr></tbody></table>
+<p class="insight-note" data-i18n="demoTagNote">A Builder verification tag checks the Cookbook/profile match. It does not change the Dish; you can cook by hand without the tag.</p>
+</div></section>
+<section id="section-modifiers" class="demo-section">
+<div class="section-text"><div class="section-label"><span data-i18n="demoSection03">Section 03</span></div><h2 data-i18n="demoModifiersTitle">Modifiers</h2>
+<p data-i18n="demoModifiersBody">Place modifiers after the Spice jar number. They are deterministic, but stripping characters is not reversible. Combined Spice transformations run strip, reverse, then uppercase.</p></div>
+<div class="section-visual">
+<div class="modifier-table-box">
+<div class="modifier-row"><span class="modifier-sym">_</span><span class="modifier-name" data-i18n="demoModifierFlip">flip</span><span class="modifier-eff" data-i18n="demoEffectFlip">Switches topping # and base $; other styles stay the same.</span></div>
+<div class="modifier-row"><span class="modifier-sym">!</span><span class="modifier-name" data-i18n="demoModifierUpper">upper</span><span class="modifier-eff" data-i18n="demoEffectUpper">Uppercases the Spice before cooking.</span></div>
+<div class="modifier-row"><span class="modifier-sym">?</span><span class="modifier-name" data-i18n="demoModifierReverse">reverse</span><span class="modifier-eff" data-i18n="demoEffectReverse">Reverses the Spice before cooking.</span></div>
+<div class="modifier-row"><span class="modifier-sym">~</span><span class="modifier-name" data-i18n="demoModifierStrip">strip</span><span class="modifier-eff" data-i18n="demoEffectStrip">Keeps only A–Z, a–z and 0–9 in the Spice.</span></div></div>
+<div class="recipe-example modifier-example"><span class="recipe-label" data-i18n="demoRecipeExample">Recipe with modifiers:</span><code>r4nd0m#1!?</code><span class="modifier-breakdown" data-i18n="demoModifierExample">Spice jar 1 is reversed, then uppercased, before being placed first.</span></div>
+</div></section>
+<section id="section-daily-use" class="demo-section">
+<div class="section-text"><div class="section-label"><span data-i18n="demoSection04">Section 04</span></div><h2 data-i18n="demoDailyUseTitle">Daily Use</h2>
+<p data-i18n="demoDailyBody">Unlock PassChef, select a Recipe cell in your Google Cookbook, then open the extension. A valid Recipe cooks a Dish; missing data or a mismatch stays on Home with guidance.</p></div>
+<div class="section-visual">
+<div class="daily-flow-box">
+<div class="flow-step"><div class="step-num">01</div><div class="step-body"><strong data-i18n="demoStepOpen">Open your Cookbook</strong><p data-i18n="demoStepOpenBody">Keep Recipes in cells; private Spices stay encrypted separately.</p></div></div>
+<div class="flow-step"><div class="step-num">02</div><div class="step-body"><strong data-i18n="demoStepSelect">Select a Recipe cell</strong><p data-i18n="demoStepSelectBody">Click a cell such as fb#1 or gh$2!, then open PassChef with its toolbar icon.</p></div></div>
+<div class="flow-step"><div class="step-num">03</div><div class="step-body"><strong data-i18n="demoStepUnlock">Unlock and cook</strong><p data-i18n="demoStepUnlockBody">The icon opens the popup. Ctrl+Shift+L cooks the selected cell through the page flow; it is not the popup opener.</p></div></div>
+<div class="flow-step"><div class="step-num">04</div><div class="step-body"><strong data-i18n="demoStepCopy">Copy and paste</strong><p data-i18n="demoStepCopyBody">Use Copy to put the Dish on the clipboard. PassChef attempts to clear it after 30 seconds; closing the popup alone does not clear the system clipboard.</p></div></div>
+<div class="flow-note"><span class="flow-note-dot" aria-hidden="true"></span><span data-i18n="demoSessionNote">The unlocked session locks after 5 idle minutes or 10 total minutes. Encrypted Spices can remain in Chrome Sync; this static demo reads no Cookbook or private Spice.</span></div></div>
+<div class="tip-box"><div class="tip-box-inner"><strong data-i18n="demoRotateTitle">Rotating a Dish?</strong><span data-i18n="demoRotateBody">Change the ingredient, for example fb#1 to fb2#1, then update the password on the account website yourself. Your Spice can stay the same.</span></div></div>
+</div></section>
+<div class="demo-closing"><div class="closing-text"><div class="closing-title" data-i18n="demoClosingTitle">Ready to cook.</div><div class="closing-sub" data-i18n="demoClosingBody">Close this guide and open Recipe Builder from the popup. The Builder starts with random picks and keeps More options collapsed.</div></div>
+<div class="closing-actions"><button id="btn-close-demo" class="btn-primary" type="button"><span data-i18n="demoCloseTab">Close this tab</span></button></div></div>
+</main><script src="demo.js" type="module"></script></body></html>

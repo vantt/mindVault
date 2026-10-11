@@ -1,0 +1,32 @@
+{
+  "purpose": "Current-source actual public synthetic Google Cookbook/native keyboard acceptance",
+  "url": "https://docs.google.com/spreadsheets/d/129-4u0fRtayCVQWUYLEhhy24e4fb7I68wI1sNgV8DoY/edit?gid=0",
+  "nativeFallback": false,
+  "cases": {
+    "nativeSelectedCell": true,
+    "actualToolbarPopover": true,
+    "actualToolbarCopy": true,
+    "builderLiveMenuParity": true,
+    "taggedNativeMatch": true,
+    "sameMenuWrongProfileRefuses": true,
+    "emptyCellDoesNotCook": true,
+    "syntheticFixturePersisted": true
+  },
+  "startedAt": "2026-10-11T18:00:21.011Z",
+  "setupObservedMs": 928,
+  "focusedEditorBeforeNative": {
+    "id": "waffle-rich-text-editor",
+    "whitespaceOnly": true
+  },
+  "focusedEditorWhitespace": true,
+  "toolbarTargetType": "page",
+  "nativeCommands": [
+    "generate-password",
+    "generate-password",
+    "generate-password",
+    "generate-password"
+  ],
+  "browser": "143.0.7499.4",
+  "success": true,
+  "finishedAt": "2026-10-11T18:00:35.046Z"
+}

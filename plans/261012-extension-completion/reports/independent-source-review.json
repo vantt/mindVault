@@ -1,0 +1,52 @@
+{
+  "captured_utc": "2026-10-11T18:00:18.839794+00:00",
+  "reviewer": "worktree_inventory",
+  "verdict": "No remaining P1/P2 in reviewed production scope; final full suites pending native focus release.",
+  "reviewed_scope": [
+    "authoritative auth admission/reservations/5-attempt lockout/restart recovery",
+    "serialized session start/check/clear/nonce/deadline and expired-access invalidation",
+    "first-setup single writer and existing-vault preservation",
+    "rotation encrypted snapshot and old-session retirement",
+    "profile modal lifetime/current-session key and encrypted nonce commit",
+    "offscreen narrow sender boundary/actual crypto worker/timeout cleanup",
+    "clipboard RAM ownership/read denial/compare-and-clear/API non-atomic limitation",
+    "manifest narrow permissions/no WAR expansion",
+    "actual Options .modal-overlay cleanup selectors"
+  ],
+  "resolved_findings": [
+    "Builder initial metadata edit race",
+    "session expired-read/new-publication race",
+    "expired-access pending-auth cancellation",
+    "first Setup concurrent/stale overwrite",
+    "profile late decrypt/save after lock/close/reopen",
+    "offscreen timeout idle notification",
+    "Options modal selector mismatch"
+  ],
+  "proof_limitations": [
+    "full independent unit and headed suites pending",
+    "native actual Google/toolbar owned and separately evidenced by root",
+    "clipboard comparison/write cannot be atomic against unrelated concurrent writes"
+  ],
+  "source_hashes": {
+    "chrome-extension/src/security/session-authority.js": "2f03d6728973ebc7e2c19274209851130b6477b5989b16c78b29909bca93edc6",
+    "chrome-extension/src/security/auth-coordinator.js": "f62cc74380a3994d4df116c47d1e325b6d3750c1a08751fcff3390188511ac30",
+    "chrome-extension/src/security/rotation-writer.js": "68ac9bc0c4138b2e980f2556859e188fbf265055e5f6a90ebd99ef0b94749e98",
+    "chrome-extension/src/security/serial-queue.js": "67791e788e811bedefdd1d7a7662648d20c8e5a50e20e20d2822974fb126e3c0",
+    "chrome-extension/src/security/offscreen-client.js": "a22d6ddb4d5a7a480565bd02ceda10736b248ad11421f5da3ddb46f99d5110c9",
+    "chrome-extension/src/security/session-guard.js": "4a08727e8c289577f8837438eceaaa9a21c4d0ab12a820b67f1cf06d358d64e9",
+    "chrome-extension/src/security/page-security.js": "4ba8dacd074d8c78a2625ed2e62a97222f395fafb718da1114f118d9aa08d580",
+    "chrome-extension/src/security/background-security.js": "8878c9f66246ff9af2b6822c4c29215c60cc7d84f7ae36f65428bb46838795b4",
+    "chrome-extension/src/security/profile-record-writer.js": "eb66ec77059ae73d2a02a96dac3973f7aaf74299d7124868970305475c47d5d0",
+    "chrome-extension/src/security/clipboard-owner.js": "3c62847ab7f4992660e1b0bdccc968a74750b576929826b9b5348c480997642c",
+    "chrome-extension/src/offscreen/clipboard-dom.js": "17cc47dc4dbe7769e3133db2f845f88e0f0e98d2a819df4a516835f065b40874",
+    "chrome-extension/src/offscreen/offscreen.js": "5568dc400f3c453fd146b7bdc2f993d704fa6872241a4a9325a513f8c878af85",
+    "chrome-extension/src/offscreen/crypto-worker.js": "cd4f64d585cd4cecea320ae7e0d82464d535601d336632ed6c8d7993d160b984",
+    "chrome-extension/src/manifest.json": "0a8d20053a13dfd6bda522caab2f4950f7026a2543a01eeb2b8bf4e1e3a78bf3",
+    "chrome-extension/src/options/options.js": "3fa7c0cd9eb2ef4082413b7ad7bd9dd60f1635089052edcad38d3c483c01cc0d",
+    "chrome-extension/src/options/options-password-change.js": "592b76fd0c8b4ef64b78814469cb59db09fb6165ec0957d77fe165a97aefc04a",
+    "chrome-extension/src/options/profile-editor.js": "e02c5163cf71dbad3e348d89829b8d25f64776fc3633217eeb5545c8690a0d07",
+    "chrome-extension/src/options/profile-session.js": "88ab9d81b5d35a6df6080ced8486237b1ff831fe00279a53caf5b7010d6dc201",
+    "chrome-extension/src/options/profile-management.js": "923dc6260d948cc8e4bc30a60813112cbfbc8ccd82ef8548f4b9ea6a60068238",
+    "chrome-extension/src/options/options-profiles-tab.js": "61c782e92a97ca7f38bc2cc39efaa30834c4e4904a88f6789e11b611e15bbb41"
+  }
+}

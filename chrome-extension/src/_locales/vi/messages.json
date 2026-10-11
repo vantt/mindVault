@@ -375,13 +375,13 @@
     "message": "Ý tưởng"
   },
   "demoAnatomyTitle": {
-    "message": "Cấu trúc Công thức"
+    "message": "Cấu trúc Recipe"
   },
   "demoModifiersTitle": {
-    "message": "Biến đổi"
+    "message": "Biến thể"
   },
   "demoDailyUseTitle": {
-    "message": "Sử dụng hàng ngày"
+    "message": "Sử dụng hằng ngày"
   },
   "demoBackLink": {
     "message": "← Quay lại tiện ích"
@@ -482,5 +482,263 @@
   "qrShow": { "message": "Hiện QR" },
   "qrCanvasLabel": { "message": "QR sách nấu ăn đã mã hóa" },
   "qrPreparing": { "message": "Đang chuẩn bị QR sách nấu ăn đã mã hóa…" },
-  "qrDisplayError": { "message": "Không thể hiện QR. Tải gói sách nấu ăn rồi thử lại." }
+  "qrDisplayError": { "message": "Không thể hiện QR. Tải gói sách nấu ăn rồi thử lại." },
+  "demoPageTitle": {
+    "message": "PassChef — Cách hoạt động"
+  },
+  "demoNavLabel": {
+    "message": "Minh họa · cách hoạt động"
+  },
+  "demoCloseTab": {
+    "message": "Đóng tab này"
+  },
+  "demoReadTime": {
+    "message": "Thời gian đọc · khoảng 3 phút"
+  },
+  "demoHeroTitle": {
+    "message": "PassChef hoạt động thế nào."
+  },
+  "demoHeroBody": {
+    "message": "Giữ Recipe trong Menu và mã hóa gia vị riêng trên thiết bị. Nấu món ăn mỗi khi cần."
+  },
+  "demoToc01": {
+    "message": "Ý tưởng"
+  },
+  "demoToc02": {
+    "message": "Cấu trúc Recipe"
+  },
+  "demoToc03": {
+    "message": "Biến thể"
+  },
+  "demoToc04": {
+    "message": "Sử dụng hằng ngày"
+  },
+  "demoIdeaBody": {
+    "message": "Recipe kết hợp nguyên liệu với một gia vị riêng để nấu món ăn. Menu chứa Recipe, không chứa mật khẩu hoàn chỉnh."
+  },
+  "demoIdeaStorage": {
+    "message": "Gia vị được mã hóa trên thiết bị và trong Chrome Sync. Bạn mở bếp bằng mật khẩu chính; gia vị không xuất hiện trong Menu."
+  },
+  "demoCookbookAlt": {
+    "message": "Menu minh họa chứa Recipe fb#1 và gm$2"
+  },
+  "demoSheetCaption": {
+    "message": "Menu chỉ hiển thị Recipe."
+  },
+  "demoConstruction": {
+    "message": "Cách nấu món ăn"
+  },
+  "demoIngredient": {
+    "message": "nguyên liệu"
+  },
+  "demoPrefix": {
+    "message": "gia vị trước"
+  },
+  "demoFirstSpice": {
+    "message": "hũ gia vị 1"
+  },
+  "demoYourSpice": {
+    "message": "+ Gia vị minh họa:"
+  },
+  "demoSynthetic": {
+    "message": "chỉ là ví dụ minh họa"
+  },
+  "demoDish": {
+    "message": "món ăn:"
+  },
+  "demoInsight": {
+    "message": "Chỉ có Recipe thì vẫn thiếu gia vị riêng để nấu món ăn của bạn. Hãy dùng nguyên liệu dài, khó đoán và gia vị mạnh."
+  },
+  "demoSection01": {
+    "message": "Phần 01"
+  },
+  "demoAnatomyBody": {
+    "message": "Đọc Recipe theo thứ tự: nguyên liệu, kiểu nấu, hũ gia vị, rồi các biến thể và thẻ kiểm chứng tùy chọn."
+  },
+  "demoIngredientLabel": {
+    "message": "Nguyên liệu"
+  },
+  "demoIngredientDetail": {
+    "message": "Chuỗi khó đoán cho tài khoản; đổi chuỗi này khi thay món ăn."
+  },
+  "demoPlacementLabel": {
+    "message": "Kiểu nấu"
+  },
+  "demoPlacementDetail": {
+    "message": "Vị trí trộn gia vị vào nguyên liệu."
+  },
+  "demoJarLabel": {
+    "message": "Hũ gia vị"
+  },
+  "demoJarDetail": {
+    "message": "Chọn một trong tối đa năm gia vị riêng."
+  },
+  "demoModifierLabel": {
+    "message": "Biến thể tùy chọn"
+  },
+  "demoModifierDetail": {
+    "message": "Biến đổi gia vị hoặc đổi vị trí trước/sau."
+  },
+  "demoPlacementExample": {
+    "message": "Kiểu nấu: nguyên liệu abc, gia vị XYZ."
+  },
+  "demoSymbol": {
+    "message": "Ký hiệu"
+  },
+  "demoMeaning": {
+    "message": "Ý nghĩa"
+  },
+  "demoResult": {
+    "message": "món ăn"
+  },
+  "demoStyleTopping": {
+    "message": "Phủ — gia vị trước"
+  },
+  "demoStyleBase": {
+    "message": "Lót — gia vị sau"
+  },
+  "demoStyleFilling": {
+    "message": "Nhồi — gia vị ở giữa"
+  },
+  "demoStyleMix": {
+    "message": "Trộn — xen kẽ từng ký tự"
+  },
+  "demoStyleSandwich": {
+    "message": "Kẹp — xen kẽ từng cặp"
+  },
+  "demoTagNote": {
+    "message": "Thẻ kiểm chứng từ Builder kiểm tra Menu/hồ sơ có khớp không. Thẻ không đổi món ăn; bạn có thể tự nấu mà bỏ qua thẻ."
+  },
+  "demoSection02": {
+    "message": "Phần 02"
+  },
+  "demoModifiersBody": {
+    "message": "Đặt biến thể sau số hũ gia vị. Kết quả xác định, nhưng lọc ký tự không thể đảo ngược. Khi kết hợp, gia vị được lọc, đảo rồi viết hoa."
+  },
+  "demoModifierFlip": {
+    "message": "đổi vị trí"
+  },
+  "demoEffectFlip": {
+    "message": "Đổi kiểu phủ # và lót $; các kiểu khác giữ nguyên."
+  },
+  "demoModifierUpper": {
+    "message": "viết hoa"
+  },
+  "demoEffectUpper": {
+    "message": "Viết hoa gia vị trước khi nấu."
+  },
+  "demoModifierReverse": {
+    "message": "đảo"
+  },
+  "demoEffectReverse": {
+    "message": "Đảo gia vị trước khi nấu."
+  },
+  "demoModifierStrip": {
+    "message": "lọc"
+  },
+  "demoEffectStrip": {
+    "message": "Chỉ giữ A–Z, a–z và 0–9 trong gia vị."
+  },
+  "demoRecipeExample": {
+    "message": "Recipe có biến thể:"
+  },
+  "demoModifierExample": {
+    "message": "Gia vị hũ 1 được đảo rồi viết hoa, sau đó đặt trước nguyên liệu."
+  },
+  "demoSection03": {
+    "message": "Phần 03"
+  },
+  "demoDailyBody": {
+    "message": "Mở khóa PassChef, chọn ô Recipe trong Google Menu, rồi mở extension. Recipe hợp lệ nấu món ăn; thiếu dữ liệu hoặc không khớp sẽ ở Home với hướng dẫn."
+  },
+  "demoStepOpen": {
+    "message": "Mở Menu"
+  },
+  "demoStepOpenBody": {
+    "message": "Giữ Recipe trong ô; gia vị riêng được mã hóa ở nơi khác."
+  },
+  "demoStepSelect": {
+    "message": "Chọn ô Recipe"
+  },
+  "demoStepSelectBody": {
+    "message": "Chọn ô như fb#1 hoặc gh$2!, rồi mở PassChef bằng biểu tượng trên thanh công cụ."
+  },
+  "demoStepUnlock": {
+    "message": "Mở khóa và nấu"
+  },
+  "demoStepUnlockBody": {
+    "message": "Biểu tượng mở popup. Ctrl+Shift+L nấu ô đã chọn qua luồng trên trang; phím này không mở popup."
+  },
+  "demoStepCopy": {
+    "message": "Sao chép và dán"
+  },
+  "demoStepCopyBody": {
+    "message": "Dùng Sao chép để đưa món ăn vào clipboard. PassChef thử xóa sau 30 giây; chỉ đóng popup không xóa clipboard của hệ thống."
+  },
+  "demoSessionNote": {
+    "message": "Phiên mở khóa khóa sau 5 phút không hoạt động hoặc 10 phút tổng cộng. Gia vị mã hóa có thể nằm trong Chrome Sync; trang minh họa tĩnh này không đọc Menu hay gia vị riêng."
+  },
+  "demoRotateTitle": {
+    "message": "Đổi món ăn?"
+  },
+  "demoRotateBody": {
+    "message": "Đổi nguyên liệu, ví dụ fb#1 thành fb2#1, rồi tự đổi mật khẩu trên website tài khoản. Gia vị có thể giữ nguyên."
+  },
+  "demoSection04": {
+    "message": "Phần 04"
+  },
+  "demoClosingTitle": {
+    "message": "Sẵn sàng nấu."
+  },
+  "demoClosingBody": {
+    "message": "Đóng hướng dẫn rồi mở Recipe Builder trong popup. Builder bắt đầu với lựa chọn ngẫu nhiên và thu gọn Tùy chọn khác."
+  },
+  "warnLegacyNoTag": {
+    "message": "Recipe cũ: chưa có mã xác minh."
+  },
+  "hintSheetUrlAuto": {
+    "message": "Đã nhận diện Menu từ tab đang mở. Sửa để chọn Menu khác."
+  },
+  "errRecipeTag": {
+    "message": "Không thể xác minh Recipe. Thử lại hoặc kiểm tra Menu và hồ sơ."
+  },
+  "errBuilderPreview": {
+    "message": "Không thể nấu Recipe. Kiểm tra nguyên liệu và gia vị."
+  },
+  "errRecipeCopy": {
+    "message": "Không thể sao chép Recipe. Hãy thử lại."
+  },
+  "securityUnlocking": {
+    "message": "Đang mở Cookbook…"
+  },
+  "securityWrongPassword": {
+    "message": "Sai mật khẩu. Còn $1 lần thử."
+  },
+  "securityLockedOut": {
+    "message": "Thử sai quá nhiều lần. Thử lại sau $1 giây."
+  },
+  "securityBusy": {
+    "message": "Cookbook đang được mở trong một cửa sổ khác."
+  },
+  "securityCancelled": {
+    "message": "Cookbook đã khóa. Hãy mở lại."
+  },
+  "securityInvalidData": {
+    "message": "Không đọc được dữ liệu Cookbook. Kiểm tra Cài đặt."
+  },
+  "securityPasswordRequired": {
+    "message": "Nhập mật khẩu chính."
+  },
+  "securityCryptoUnavailable": {
+    "message": "Chưa mở được Cookbook. Hãy thử lại."
+  },
+  "securityClipboardUnavailable": {
+    "message": "Chưa sao chép được. Clipboard được giữ nguyên."
+  },
+  "securityLockUnavailable": {
+    "message": "Chưa xác nhận được Cookbook đã khóa. Đóng cửa sổ này rồi thử lại."
+  },
+  "securitySetupExists": {
+    "message": "Cookbook đã tồn tại. Mở khóa trong Cài đặt."
+  }
 }

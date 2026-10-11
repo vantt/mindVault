@@ -1,16 +1,17 @@
-
 {
   "manifest_version": 3,
   "name": "PassChef Password Generator",
   "version": "2.3.0",
-  "description": "Cook passwords from recipes in Google Sheets. Zero-knowledge. Nothing stored. Argon2id encrypted.",
+  "description": "Cook passwords from Recipes in Google Sheets. Keep private Spices encrypted with Argon2id and AES-GCM.",
   "permissions": [
     "storage",
     "clipboardWrite",
     "activeTab",
     "tabs",
     "idle",
-    "alarms"
+    "alarms",
+    "offscreen",
+    "clipboardRead"
   ],
   "host_permissions": [
     "https://docs.google.com/spreadsheets/*"
@@ -20,7 +21,7 @@
     "type": "module"
   },
   "action": {
-      "default_popup": "popup/popup.html"
+    "default_popup": "popup/popup.html"
   },
   "options_page": "options/options.html",
   "content_scripts": [
@@ -29,6 +30,8 @@
         "https://docs.google.com/spreadsheets/*"
       ],
       "js": [
+        "content/content-ui.js",
+        "content/content-presenter.js",
         "content/content.js"
       ],
       "run_at": "document_idle"
@@ -52,5 +55,6 @@
   "default_locale": "en",
   "content_security_policy": {
     "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'"
-  }
+  },
+  "minimum_chrome_version": "116"
 }

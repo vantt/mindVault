@@ -6,6 +6,7 @@ an area changes; it does not require a workflow tool or generated state.
 | Area | Specification | Code entry points |
 |---|---|---|
 | Browser recipe kitchen | [Product requirements](../prd.md), [password system](../password-system-design.md) | `chrome-extension/src/` |
+| Browser Cookbook authentication/session/clipboard | [Extension security](extension-security.md) | `chrome-extension/src/security/`, `chrome-extension/src/offscreen/` |
 | Mobile recipe kitchen | [Core](mobile-core.md) | `shared/` |
 | Mobile Menu connection | [Menu client](mobile-sheets-client.md) | `mobile/sheets-client/` |
 | Android Cookbook storage/unlock | [Keystore](mobile-keystore.md) | `app/`, `shared/` |

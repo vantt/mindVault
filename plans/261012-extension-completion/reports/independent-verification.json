@@ -1,0 +1,73 @@
+{
+  "captured_utc": "2026-10-11T18:07:38.472616+00:00",
+  "baseline_commit": "e195a9d39cf15f3d4884dffae33c396a3c69257b",
+  "branch": "codex/extension-completion",
+  "unit": {
+    "command": "PATH=/home/vantt/.nvm/versions/node/v24.18.0/bin:$PATH pnpm test:unit",
+    "exit": 0,
+    "tests_passed": 147,
+    "test_files_passed": 20,
+    "failed": 0,
+    "skipped": 0,
+    "duration_seconds": 3.72,
+    "log": "/tmp/passchef-extension-final-unit.log",
+    "log_sha256": "c1778b81b2092703c930a84ee1d0d4661a753eecad4dc3a4d41ce1510c07ab43"
+  },
+  "headed": {
+    "command": "PATH=/home/vantt/.nvm/versions/node/v24.18.0/bin:$PATH DISPLAY=:0 pnpm exec playwright test --workers=1 --reporter=line",
+    "exit": 0,
+    "tests_passed": 22,
+    "failed": 0,
+    "skipped": 0,
+    "duration_reported": "5.2m",
+    "log": "/tmp/passchef-extension-final-e2e.log",
+    "sequential_clipboard": true,
+    "log_sha256": "4e0a56efd994203da4226b3886891c3a9e3611a05a80f839510584cb97ff40fb"
+  },
+  "reviewed_security_source_count": 20,
+  "reviewed_security_source_changed": [],
+  "owned_demo_source_changed": [],
+  "modernized_legacy_test_changed_during_run": [],
+  "protected_baseline_unchanged": {
+    "chrome-extension/test/unit/generate_password.spec.mjs": true,
+    "chrome-extension/test/e2e/recipe-mismatch.spec.ts": true,
+    "chrome-extension/test/e2e/export_qr.spec.ts": true,
+    "chrome-extension/test/e2e/fixtures.ts": true
+  },
+  "source_review": "No remaining P1/P2 in reviewed frozen auth/session/setup/rotation/profile-editor/offscreen/clipboard/manifest scope.",
+  "separate_root_live_native_proof": "/tmp/passchef-live-current-proof.json; root-observed, separate from local routed DOM/message contracts.",
+  "additional_new_popup_cases": {
+    "command": "PATH=/home/vantt/.nvm/versions/node/v24.18.0/bin:$PATH DISPLAY=:0 pnpm exec playwright test test/e2e/popup-acceptance.spec.ts --workers=1 --reporter=line",
+    "exit": 0,
+    "tests_passed": 3,
+    "failed": 0,
+    "skipped": 0,
+    "duration_seconds": 13.2,
+    "log": "/tmp/passchef-popup-acceptance-final-rerun.log",
+    "log_sha256": "221fe276430bbe9a90e143263fd94050a48309804cbf7a911a08ce906ba904f1",
+    "initial_harness_failure": {
+      "log": "/tmp/passchef-popup-acceptance-final.log",
+      "exit": 1,
+      "passed": 2,
+      "failed": 1,
+      "cause": "Bare /spreadsheets URL had an actual receiver; assumption invalid. Changed only synthetic fixture URL to explicit unmatched path and required exact active URL plus genuine missing receiver sendMessage rejection before toolbar. Same localized reload notice/no-Dish assertions retained."
+    },
+    "scope": "Actual Chrome action popover with explicitly routed synthetic Menu DOM; connection-error contract, not a claim of actual provider reload/install proof."
+  },
+  "total_distinct_e2e_passed": 25,
+  "total_e2e_scope": "22 full-suite cases plus 3 new focused cases; not one 25-case full-suite invocation.",
+  "final_hash_checks": {
+    "nonextension_baseline_files": 112,
+    "nonextension_mismatches": [],
+    "unrelated_caveman_skillslock_files": 23,
+    "unrelated_mismatches": [],
+    "final_production_source_files": 41,
+    "final_production_source_changed": [],
+    "new_test_start_hashes": {
+      "chrome-extension/test/e2e/popup-acceptance.spec.ts": "99d705213e5083686fd77ec55a6e3fe1a7f714841705e8604c7615e81c759ead",
+      "chrome-extension/test/e2e/actual-toolbar-popover.ts": "94bf23d4cdd1f7915ccf50ebe0217e0c6f9dd95759b98d80b6685bad3d159207"
+    },
+    "new_test_changed_during_rerun": []
+  },
+  "final_updated_utc": "2026-10-11T18:10:39.581406+00:00"
+}

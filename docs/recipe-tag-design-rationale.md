@@ -2,7 +2,7 @@
 
 **Date:** 2026-05-22
 **Status:** Accepted — Option B
-**Related plan:** [`plans/260522-1314-recipe-verification-tag-sheet-binding/`](../plans/260522-1314-recipe-verification-tag-sheet-binding/plan.md)
+**Related plan:** [`plans/260522-1314-recipe-verification-tag-sheet-binding/`](../archive/plans/260522-1314-recipe-verification-tag-sheet-binding/plan.md)
 **Relates to:** [PRD v2.1 §2.4](./prd/v2-multi-sheet-profiles.md) Sheet-Bound Generation
 
 ---
@@ -136,7 +136,7 @@ Tagged (new, with verification):
 
 ## 8. Implementation
 
-Xem chi tiết tại [`plans/260522-1314-recipe-verification-tag-sheet-binding/`](../plans/260522-1314-recipe-verification-tag-sheet-binding/plan.md).
+Xem chi tiết tại [`plans/260522-1314-recipe-verification-tag-sheet-binding/`](../archive/plans/260522-1314-recipe-verification-tag-sheet-binding/plan.md).
 
 **Phải update plan:** Phase 03 (generation usecase) và Phase 04 (storage adapter) trong plan hiện tại đang dựa trên Option A — cần điều chỉnh xoá phần HKDF sheet binding cho own profiles, giữ secret raw cho generation, chỉ áp dụng tag verify.
 

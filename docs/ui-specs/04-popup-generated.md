@@ -1,152 +1,65 @@
 # 04 — Generated Screen (Popup)
 
-Reverse-engineered từ [`popup.html`](../../chrome-extension/src/popup/popup.html) (`#status-generated`) và [`popup.js`](../../chrome-extension/src/popup/popup.js) lines 121–161, 224–238.
+Current contract — 2026-10-12. Sources: [popup shell](../../chrome-extension/src/popup/popup.js),
+[Home controller](../../chrome-extension/src/popup/popup-home.js),
+[security controller](../../chrome-extension/src/popup/popup-security.js) and
+[copy/auth binding](../../chrome-extension/src/security/page-security.js).
+Precision styling and the single header status pill remain unchanged.
 
-**Triggered bởi:** Auto-route từ [03-popup-home.md](./03-popup-home.md) **SUCCESS ONLY** — `response.success === true`. This screen is reached only when a valid recipe cell is detected and a password is generated successfully.
+## Entry
 
-**NOT triggered by:** Error responses. All error states (empty cell, connection error, parse error) remain on the Home screen with an amber inline notice. See [03-popup-home.md](./03-popup-home.md) for error handling.
+Only a successful current-cell cooking response, with an authoritative session
+still unlocked, enters `#status-generated`. Empty cell, invalid Recipe, missing
+Spice, mismatch and unavailable content bridge remain on [Home](03-popup-home.md)
+with localized notices. Do not treat a previous Dish as proof a later request worked.
 
-**Precondition:** Setup done + unlocked + active tab matches `docs.google.com/spreadsheets` + `response.success === true`.
+## Visible elements
 
----
+| Selector | Content |
+|---|---|
+| `#gen-password` | Readonly Dish; clear when the authoritative session locks. |
+| `#gen-profile-label` | Optional localized profile prefix plus own/shared profile name, assigned as text. |
+| `#gen-hint` | Optional localized pepper reminder; copy failure can also show honest localized feedback here. |
+| `#btn-copy` | Copy Dish, with successful/failed feedback. |
+| `#btn-build-recipe-gen` | Enter the same Builder available from Home. |
+| `#btn-back` | Return to Home, requery the active tab, rerun detection. |
+| `#btn-lock-gen` | Authoritative lock request, same security contract as Home. |
 
-## Layout
+## Copy and session safety
 
-```
-┌──────────────────────────────────────────┐
-│ 🔐 PassChef                🟢 Ready ⚙️ │
-│ ─────────────────────────────────────── │
-│                                          │
-│  Profile: Default              ← hidden if no profileName
-│                                          │
-│  ┌───────────────────────┐  [Copy]      │
-│  │ XyZ4kP9mNqRsTu        │              │
-│  └───────────────────────┘              │
-│  🔑 Don't forget your pepper!           │  ← optional hint (success only)
-│                                          │
-│  [     Build Recipe     ]                │
-│                                          │
-│  [Back]                       [Lock]    │
-└──────────────────────────────────────────┘
-```
+`bindDishCopy()` sends `COPY_DISH` to the trusted security path instead of assuming
+an unchecked clipboard write succeeded. Busy work disables duplicate submission.
+Only a successful response flashes localized Copied for1500ms; failed copy shows
+localized guidance and does not replace it with a false success indicator.
 
----
+The clipboard is a system resource. Closing the popup alone does not clear it.
+The shared security path attempts expiry after30 seconds and respects ownership:
+it must not erase unrelated clipboard text that replaced the copied Dish.
+Clipboard permissions or browser conditions can prevent a write/clear; report those
+truthfully. Demo text explains this limitation rather than promising automatic
+clear on close.
 
-## DOM Elements
+An unlocked session locks after5 idle minutes or10 total minutes. On session-key
+removal the popup clears the visible Dish, invalidates Builder work and displays
+Locked. This does not delete encrypted Cookbook/profile storage in Chrome Sync.
 
-| ID / Selector | Type | Notes |
-|--------------|------|-------|
-| `#status-generated` | `<div>` | Section container |
-| `.recipe-meta` (inside `#status-generated`) | `<div>` | Wrapper for profile label |
-| `#gen-profile-label` `.profile-label` | `<span>` | `hidden` class by default; shown when `response.profileName` present |
-| `.pwd-container` | `<div>` | Flex row wrapping `#gen-password` + `#btn-copy` |
-| `#gen-password` | `<input type="text" readonly>` | Generated password output |
-| `#btn-copy` | `<button class="btn primary">` | `data-i18n="btnCopy"` → "Copy" |
-| `#gen-hint` | `<p class="hint">` | Status hint text (pepper reminder only); empty by default |
-| `#btn-build-recipe-gen` | `<button class="btn primary">` | `data-i18n="btnBuildRecipe"` |
-| `.actions-row` (inside `#status-generated`) | `<div>` | Flex row wrapping Back + Lock |
-| `#btn-back` | `<button class="btn secondary">` | `data-i18n="btnBuilderBack"` → "Back" |
-| `#btn-lock-gen` | `<button class="btn secondary">` | `data-i18n="btnLock"` → "Lock" |
+## Navigation and lock
 
----
+- Builder empties the ingredient and resets random style/Spice choices, then loads the current
+  own profiles and Cookbook context. More options remains collapsed; no restored
+  last-used picks/history.
+- Back re-detects the active Cookbook. A valid unchanged cell may immediately
+  return to Generated; a new invalid/empty context remains on Home with guidance.
+- Successful explicit lock closes the popup after the authoritative lock request;
+  failed delivery must show localized guidance, not pretend the Cookbook locked.
+  Actual failure-path acceptance belongs to the combined UI verification report.
+- Ready pill: `statusReady`, green/active; no separate per-view status indicator.
 
-## Profile Indicator
+## Verification boundary
 
-`#gen-profile-label` content format (set entirely in JS):
+The static demo's offline/rendering checks do not establish this whole state
+matrix. Report real native Google/shortcut results separately from mocked provider
+fixtures; preserve existing approved cooking tests and QR regressions.
 
-```js
-const prefix = response.isShared ? '📥 ' : '';
-genProfileLabel.textContent = `Profile: ${prefix}${response.profileName}`;
-```
-
-- Own profile: `Profile: Default`
-- Shared profile: `Profile: 📥 TeamFromB`
-- Hidden (`class="hidden"`) when `response.profileName` is absent
-
-Styling: class `profile-label`, font-size 0.85rem.
-
----
-
-## Password Display & Copy
-
-- `#gen-password` is `readonly` — user cannot edit
-- Value is always non-empty on this screen (error paths no longer route here)
-- Click `[Copy]`:
-  1. `navigator.clipboard.writeText(password)`
-  2. Button label → `data-i18n="lblCopied"` ("Copied!"), after 1500ms → restored to `data-i18n="btnCopy"` ("Copy")
-
----
-
-## Hint Text States
-
-On this screen `#gen-hint` is **success-only** — it shows the pepper reminder or nothing:
-
-| Condition | Hint text | `style.color` |
-|-----------|-----------|---------------|
-| `response.settings?.pepperingHint` truthy | `"🔑 Don't forget your pepper!"` | `""` (cleared to default) |
-| No pepper hint (normal success) | `""` (empty) | — |
-
-**All error states have been removed from this screen.** The following error hint rows are no longer rendered here:
-
-- ~~Empty cell error~~ → moved to Home `#home-notice`
-- ~~Recipe parse error~~ → moved to Home `#home-notice`
-- ~~Connection error~~ → moved to Home `#home-notice`
-- ~~Other JS exception~~ → moved to Home `#home-notice`
-
----
-
-## Actions
-
-| Button | Handler | Behavior |
-|--------|---------|----------|
-| `[Copy]` | Inline click | Clipboard write → flash "Copied!" 1500ms |
-| `[Build Recipe]` | `openBuilder` (shared with `#btn-build-recipe` on Home) | `builder.reset()` → `builder.loadProfiles()` → `showSection('status-builder')` |
-| `[Back]` | Inline click | `tryAutoDetect()` re-runs → if success still detected, stays on Generated; otherwise `showSection('status-unlocked')` |
-| `[Lock]` | Inline click | `chrome.storage.session.remove("sessionKey")` → `window.close()` |
-
-**Back button behavior change (Phase 4):** `[Back]` now calls `tryAutoDetect()` rather than directly calling `showSection('status-unlocked')`. This re-runs the auto-routing logic so the user ends up in the correct state (Generated if cell is still valid, Home otherwise).
-
----
-
-## Status Pill
-
-SECTION_STATUS config for `'status-generated'`:
-
-```js
-{ i18nKey: 'statusReady', dot: 'green', active: true }
-```
-
-- Green dot, label = i18n `statusReady` ("Ready" / "Sẵn sàng")
-- `globalStatusEl.classList` gets `active` class (pill highlighted)
-
----
-
-## i18n Keys Used
-
-| Key | EN | VI | Usage |
-|-----|----|----|-------|
-| `statusReady` | "Ready" | "Sẵn sàng" | Header status pill |
-| `btnBuildRecipe` | "Build Recipe" | "Tạo Recipe" | `#btn-build-recipe-gen` via `data-i18n` |
-| `btnCopy` | "Copy" | "Sao chép" | `#btn-copy` label |
-| `lblCopied` | "Copied!" | "Đã sao chép!" | `#btn-copy` flash state |
-| `btnBuilderBack` | "Back" | "Quay lại" | `#btn-back` label |
-| `btnLock` | "Lock" | "Khóa" | `#btn-lock-gen` label |
-
-**Remaining hardcoded strings (acceptable, future i18n):**
-
-| String | Location |
-|--------|----------|
-| `"Profile: "` prefix | `genProfileLabel.textContent` template literal |
-| `"📥 "` shared prefix | `genProfileLabel.textContent` template literal |
-| `"🔑 Don't forget your pepper!"` | `genHint.textContent` |
-
-`profileFallback` key exists (`"Using default profile"`) but is **not used** anywhere in this screen.
-
----
-
-## Related Screens
-
-- [03-popup-home.md](./03-popup-home.md) — Parent; auto-routes here on SUCCESS ONLY from Sheets tab
-- [05-recipe-builder.md](./05-recipe-builder.md) — Forward via `[Build Recipe]`
-- [13-error-states.md](./13-error-states.md) — Cross-cutting error rules (sheet mismatch, fallback)
-- [02-popup-unlock.md](./02-popup-unlock.md) — Precondition (must be unlocked)
+Related: [Home](03-popup-home.md), [Builder](05-recipe-builder.md),
+[locale catalogue](15-i18n-keys.md), [demo](16-demo-page.md).
