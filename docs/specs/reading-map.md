@@ -6,4 +6,5 @@ search — it answers "where does X live" without a grep.
 
 | Area | Spec | Code entry points |
 |---|---|---|
-| (none mapped yet — run a bee-scribing bootstrap pass) | | |
+| Mobile Sheets Connection | `docs/specs/mobile-sheets-client.md` | `mobile/sheets-client/` |
+| *(other areas — chrome-extension, landing-page — not yet mapped; run a bee-scribing bootstrap/harvest pass)* | | |

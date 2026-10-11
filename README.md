@@ -129,6 +129,25 @@ If you paste a tagged recipe into a sheet bound to a different profile (or copy 
 
 ## Development
 
+### Mobile foundation
+
+The independent [Kotlin Menu client](mobile/sheets-client) reads and updates
+recipes through Google Sheets API. The [OAuth setup guide](docs/runbooks/google-oauth-sheets-setup.md)
+explains the manual Google connection. Current integration progress and the
+remaining mobile tracks are recorded in [worktree recovery](docs/worktree-recovery.md).
+Real Google setup and the live connection check remain pending.
+
+Build and test with **JDK 21**, replacing the example JDK path:
+
+```bash
+export JAVA_HOME=/path/to/jdk-21
+export PATH="$JAVA_HOME/bin:$PATH"
+cd mobile/sheets-client
+./gradlew build test
+```
+
+### Extension development
+
 - **Architecture**: Domain-Driven Design (DDD) with Clean Architecture.
 - **Tech Stack**: Vanilla JS, Chrome Extensions Manifest V3.
 - **Security**: Argon2 (WASM), Web Crypto API.

@@ -1,0 +1,98 @@
+{
+  "id": "oauth-sheets-1",
+  "feature": "passchef-mobile-oauth-sheets",
+  "title": "Toolchain bring-up + KMP module scaffold",
+  "lane": "high-risk",
+  "status": "capped",
+  "deps": [],
+  "decisions": [
+    "D2"
+  ],
+  "files": [
+    ".gitignore",
+    "mobile/sheets-client/settings.gradle.kts",
+    "mobile/sheets-client/build.gradle.kts",
+    "mobile/sheets-client/gradle.properties",
+    "mobile/sheets-client/gradle/wrapper/*",
+    "mobile/sheets-client/gradlew",
+    "mobile/sheets-client/gradlew.bat",
+    "mobile/sheets-client/src/commonMain/kotlin/com/passchef/sheets/*",
+    "mobile/sheets-client/src/jvmMain/kotlin/com/passchef/sheets/*",
+    "docs/mobile-kmp-toolchain-setup.md"
+  ],
+  "read_first": [
+    "docs/history/passchef-mobile-oauth-sheets/plan.md",
+    "docs/history/passchef-mobile-oauth-sheets/approach.md"
+  ],
+  "action": "Per D2 and plan.md Epic E1/E2: install a user-writable JDK and Gradle at FIXED, repo-root-relative paths `.toolchain/jdk/` and `.toolchain/gradle/` (proven feasible by spike .bee/spikes/passchef-mobile-oauth-sheets/ -- no root/sudo needed). Proven recipe: (1) download a Temurin JDK 21 tarball via the Adoptium API (`curl -sL \"https://api.adoptium.net/v3/assets/latest/21/hotspot?os=linux&architecture=x64&image_type=jdk\"` for the current release link); (2) extract with `tar xzf` then rename/move the extracted `jdk-*` dir to `.toolchain/jdk` (fixed name, no version suffix, so later commands never hardcode a version); (3) download Gradle 8.10 from `https://services.gradle.org/distributions/gradle-8.10-bin.zip`; (4) this sandbox has NO `unzip` binary -- extract with `python3 -m zipfile -e gradle.zip .` then move `gradle-8.10` to `.toolchain/gradle`; (5) `chmod +x .toolchain/gradle/bin/gradle .toolchain/jdk/bin/*` (archives do not preserve exec bits); (6) add `.toolchain/` to the root `.gitignore` (it holds ~330MB of downloaded binaries that must never be committed). Then scaffold a minimal Gradle Kotlin-Multiplatform module at mobile/sheets-client/ with commonMain and jvmMain source sets, and generate a REAL Gradle wrapper by running `JAVA_HOME=\"$(pwd)/.toolchain/jdk\" PATH=\"$JAVA_HOME/bin:$PATH\" .toolchain/gradle/bin/gradle -p mobile/sheets-client wrapper --gradle-version 8.10` -- this writes the actual wrapper jar/properties so the committed `./mobile/sheets-client/gradlew` works standalone for every later cell and future session/CI without needing `.toolchain/gradle` again (only `.toolchain/jdk` is still needed, since gradlew still needs a JDK on the machine running it). The module may be empty/skeletal (no Sheets logic yet -- that is oauth-sheets-3). Record the exact JDK/Gradle/Kotlin versions and this install recipe in docs/mobile-kmp-toolchain-setup.md, including the fixed `.toolchain/jdk` path convention so later cells' verify commands stay valid. Do not add an Android target or app module (out of scope, p-c46b217c).",
+  "must_haves": {
+    "truths": [
+      "`java -version` succeeds in this environment",
+      "`./gradlew tasks` succeeds from mobile/sheets-client/"
+    ],
+    "artifacts": [
+      {
+        "path": "mobile/sheets-client/build.gradle.kts",
+        "substantive": "declares the kotlin-multiplatform plugin with a jvm() target and commonMain/jvmMain source sets"
+      },
+      {
+        "path": "docs/mobile-kmp-toolchain-setup.md",
+        "substantive": "documents the exact JDK/Gradle/Kotlin versions and install steps used, reusable by a future session or CI"
+      }
+    ],
+    "key_links": [],
+    "prohibitions": [
+      "No Android target or app module added",
+      "No secrets or credentials written anywhere"
+    ]
+  },
+  "verify": "JAVA_HOME=\"$(pwd)/.toolchain/jdk\" PATH=\"$JAVA_HOME/bin:$PATH\" ./mobile/sheets-client/gradlew tasks",
+  "behavior_change": false,
+  "trace": {
+    "worker": "w-toolchain",
+    "outcome": "Bootstrapped a user-writable JDK 21 (Temurin) + Gradle 8.10 toolchain at fixed .toolchain/jdk and .toolchain/gradle (copied from the already-verified spike, no re-download), scaffolded a standalone Gradle KMP module at mobile/sheets-client (commonMain/jvmMain/commonTest/jvmTest source sets, jvm() target, jvmToolchain(21)), generated a real Gradle wrapper (8.10) committed at mobile/sheets-client/gradlew, and documented the exact recipe + versions + a gradlew cwd-resolution gotcha in docs/mobile-kmp-toolchain-setup.md. ./gradlew tasks and ./gradlew build both succeed.",
+    "files_changed": [
+      ".gitignore",
+      "mobile/sheets-client/settings.gradle.kts",
+      "mobile/sheets-client/build.gradle.kts",
+      "mobile/sheets-client/gradle.properties",
+      "mobile/sheets-client/gradle/wrapper/gradle-wrapper.jar",
+      "mobile/sheets-client/gradle/wrapper/gradle-wrapper.properties",
+      "mobile/sheets-client/gradlew",
+      "mobile/sheets-client/gradlew.bat",
+      "mobile/sheets-client/src/commonMain/kotlin/com/passchef/sheets/SheetsClientPlaceholder.kt",
+      "mobile/sheets-client/src/jvmMain/kotlin/com/passchef/sheets/JvmPlaceholder.kt",
+      "docs/mobile-kmp-toolchain-setup.md"
+    ],
+    "deviations": [
+      {
+        "type": "blocking-issue-autofix",
+        "summary": "Cell verify field's literal command (./mobile/sheets-client/gradlew tasks invoked from repo root) fails because every standard Gradle wrapper script resolves the Gradle project directory from the process's current working directory, not the script's own location -- confirmed by reading the generated gradlew (no cd to APP_HOME occurs; APP_HOME is computed in a subshell only, used solely for the wrapper-jar classpath). Ran the corrected equivalent (cd mobile/sheets-client && ... ./gradlew tasks) which succeeds (BUILD SUCCESSFUL). Documented this gradlew invocation requirement in docs/mobile-kmp-toolchain-setup.md so later cells' verify commands don't repeat the mistake."
+      }
+    ],
+    "friction": null,
+    "capped_at": "2026-07-28T11:07:49.845Z",
+    "behavior_change": false,
+    "verification_evidence": null,
+    "verify_output": "BUILD SUCCESSFUL in 1s, 1 actionable task: 1 executed. Full task list printed under Build/Build Setup/Help/Ide/Run/Verification groups (sheets-client root project). Also ran ./gradlew build separately as a deeper sanity check: BUILD SUCCESSFUL in 14s, 5 actionable tasks: 5 executed (compileKotlinJvm, jvmMainClasses, jvmJar, assemble, check all passed).",
+    "verify_passed": true,
+    "claim_session": "feed40c6-5316-4425-9e2c-a4d5c923c439",
+    "claimed_at": "2026-07-28T10:44:03.436Z",
+    "verify_command": "cd mobile/sheets-client && JAVA_HOME=\"<repo-root>/.toolchain/jdk\" PATH=\"$JAVA_HOME/bin:$PATH\" ./gradlew tasks  (corrected from cell verify field: the literal ./mobile/sheets-client/gradlew invoked from repo root fails because the standard Gradle wrapper resolves the project dir from process cwd, not script location -- must cd into the module dir first; same JDK/JAVA_HOME, same intent, same net effect)",
+    "verified_at": "2026-07-28T11:07:24.241Z",
+    "attempts": [
+      {
+        "n": 1,
+        "at": "2026-07-28T11:07:24.241Z",
+        "claim_session": "feed40c6-5316-4425-9e2c-a4d5c923c439",
+        "claimed_at": "2026-07-28T11:02:08.421Z",
+        "acquired_at": "2026-07-28T10:44:03.432Z",
+        "worker": "w-toolchain",
+        "verdict": "pass",
+        "failure_signature": null,
+        "note": null
+      }
+    ],
+    "warnings": []
+  }
+}

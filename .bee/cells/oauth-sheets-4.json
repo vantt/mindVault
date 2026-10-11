@@ -1,0 +1,84 @@
+{
+  "id": "oauth-sheets-4",
+  "feature": "passchef-mobile-oauth-sheets",
+  "title": "JVM OAuth loopback smoke-test tool",
+  "lane": "high-risk",
+  "status": "capped",
+  "deps": [
+    "oauth-sheets-3",
+    "oauth-sheets-2"
+  ],
+  "decisions": [
+    "D1",
+    "D4"
+  ],
+  "files": [
+    "mobile/sheets-client/build.gradle.kts",
+    "mobile/sheets-client/src/jvmMain/kotlin/com/passchef/sheets/*",
+    "mobile/sheets-client/src/jvmTest/kotlin/com/passchef/sheets/*",
+    "mobile/sheets-client/.gitignore"
+  ],
+  "read_first": [
+    "docs/runbooks/google-oauth-sheets-setup.md",
+    "docs/history/passchef-mobile-oauth-sheets/approach.md"
+  ],
+  "action": "Per D1/D4 item 4 and approach.md Q2: implement a JVM CLI smoke-test entrypoint in mobile/sheets-client's jvmMain that performs the OAuth 2.0 Desktop-app loopback flow (start a local loopback HTTP server, open the consent URL, exchange the returned code for an access token), then calls oauth-sheets-3's SheetsClient once to read a configured sheet range and prints the result. Add any jvmMain-only dependency (e.g. a Ktor CIO engine, application/mainClass config) to build.gradle.kts. Read Client ID/Secret and the target spreadsheet id from a local config file that is gitignored (add the pattern to mobile/sheets-client/.gitignore) and never committed. On a 401/403 from the client, print the specific re-auth/re-consent instruction from oauth-sheets-2's runbook (docs/runbooks/google-oauth-sheets-setup.md) rather than a raw stack trace. Write one jvmTest that runs the tool's config-loading step with no config file present and asserts it prints/returns the clear missing-config message rather than throwing an uncaught exception -- this is the only part of this cell's behavior that can be verified without real Google credentials. This cell caps on the CODE existing, compiling, and that one jvmTest passing, per D4's code-only DoD -- do not attempt to run the actual OAuth+Sheets flow against real Google credentials; that real run is the user's own follow-up step, tracked separately per D4.",
+  "must_haves": {
+    "truths": [
+      "Running the tool with no local credentials file present prints a clear, actionable message instead of crashing uninformatively -- proven by the jvmTest, not by manual inspection"
+    ],
+    "artifacts": [
+      {
+        "path": "mobile/sheets-client/src/jvmMain/kotlin/com/passchef/sheets/SheetsSmokeTest.kt",
+        "substantive": "real loopback-OAuth + SheetsClient wiring, not a stub"
+      }
+    ],
+    "key_links": [
+      "SheetsSmokeTest uses oauth-sheets-3's SheetsClient",
+      "the 401/403 re-auth message text is sourced from or matches oauth-sheets-2's runbook"
+    ],
+    "prohibitions": [
+      "No real Client ID/Secret committed anywhere",
+      "The worker must not attempt to run this against real Google credentials",
+      "Never print or log a real access token or refresh token value, even in error paths"
+    ]
+  },
+  "verify": "cd mobile/sheets-client && JAVA_HOME=\"$(pwd)/../../.toolchain/jdk\" PATH=\"$JAVA_HOME/bin:$PATH\" ./gradlew jvmTest",
+  "behavior_change": false,
+  "trace": {
+    "worker": "w-smoketest",
+    "outcome": "Implemented the JVM OAuth loopback smoke-test tool (SheetsSmokeTest.kt): loopback HTTP server + token exchange + one SheetsClient.getValues call, config loaded from a gitignored local properties file, distinct 401/403 messages sourced from the runbook's Step 6/3. Added ktor-client-cio + kotlinx-coroutines-core to jvmMain and a manual runSheetsSmokeTest JavaExec task. One jvmTest (config-loading missing-file path) passes; real OAuth run against Google not attempted, per D4.",
+    "files_changed": [
+      "mobile/sheets-client/build.gradle.kts",
+      "mobile/sheets-client/src/jvmMain/kotlin/com/passchef/sheets/SheetsSmokeTest.kt",
+      "mobile/sheets-client/src/jvmTest/kotlin/com/passchef/sheets/SheetsSmokeTestConfigTest.kt",
+      "mobile/sheets-client/.gitignore"
+    ],
+    "deviations": [],
+    "friction": null,
+    "capped_at": "2026-07-28T11:21:15.389Z",
+    "behavior_change": false,
+    "verification_evidence": null,
+    "verify_output": "BUILD SUCCESSFUL in 8s; 4 actionable tasks: 4 executed. TEST-com.passchef.sheets.SheetsSmokeTestConfigTest.xml: tests=1 failures=0 errors=0 (loadSmokeTestConfig_noConfigFilePresent_returnsMissingWithClearMessage[jvm] passed).",
+    "verify_passed": true,
+    "claim_session": "feed40c6-5316-4425-9e2c-a4d5c923c439",
+    "claimed_at": "2026-07-28T11:17:34.080Z",
+    "verify_command": "cd mobile/sheets-client && JAVA_HOME=\"$(pwd)/../../.toolchain/jdk\" PATH=\"$JAVA_HOME/bin:$PATH\" ./gradlew jvmTest",
+    "verified_at": "2026-07-28T11:21:05.572Z",
+    "attempts": [
+      {
+        "n": 1,
+        "at": "2026-07-28T11:21:05.572Z",
+        "claim_session": "feed40c6-5316-4425-9e2c-a4d5c923c439",
+        "claimed_at": "2026-07-28T11:17:34.078Z",
+        "acquired_at": "2026-07-28T11:17:34.078Z",
+        "worker": "w-smoketest",
+        "verdict": "pass",
+        "failure_signature": null,
+        "note": null
+      }
+    ],
+    "warnings": []
+  },
+  "tier": "ceiling"
+}

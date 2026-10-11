@@ -1,0 +1,89 @@
+{
+  "id": "oauth-sheets-3",
+  "feature": "passchef-mobile-oauth-sheets",
+  "title": "Sheets API v4 client (Ktor) with unit tests",
+  "lane": "high-risk",
+  "status": "capped",
+  "deps": [
+    "oauth-sheets-1"
+  ],
+  "decisions": [
+    "D2",
+    "D3"
+  ],
+  "files": [
+    "mobile/sheets-client/build.gradle.kts",
+    "mobile/sheets-client/src/commonMain/kotlin/com/passchef/sheets/*",
+    "mobile/sheets-client/src/commonTest/kotlin/com/passchef/sheets/*"
+  ],
+  "read_first": [
+    "docs/history/passchef-mobile-oauth-sheets/approach.md",
+    "mobile/sheets-client/build.gradle.kts"
+  ],
+  "action": "Per D2/D3 and approach.md Q1: implement a Sheets API v4 client in mobile/sheets-client's commonMain using Ktor client + kotlinx.serialization (add the needed Ktor dependencies to build.gradle.kts). Cover spreadsheets.values.get (read) and .append/.update (write -- append+update only, no delete, per the locked Q10 decision) against the REST v4 endpoints, with @Serializable request/response models. The client accepts an already-obtained OAuth access token as input -- it must not perform the OAuth dance itself (that is oauth-sheets-4's job). Write unit tests in commonTest using a mocked/fake Ktor HTTP engine (MockEngine) with fixed JSON fixtures -- no real network call and no real credentials needed to pass. Cover at minimum: a successful read, an empty-sheet read, a 401 (expired/revoked token) response, and a 403 (scope/consent mismatch) response, each surfacing as a distinct, catchable error type.",
+  "must_haves": {
+    "truths": [
+      "A successful values.get call returns parsed rows from a fixture response",
+      "A 401 response surfaces as a distinct unauthorized/expired-token error, not a generic exception",
+      "A 403 response surfaces as a distinct scope/consent error, not a generic exception",
+      "An append/update call's outgoing request targets exactly the configured spreadsheet range (asserted against the MockEngine's captured request, per plan.md test matrix item 9)"
+    ],
+    "artifacts": [
+      {
+        "path": "mobile/sheets-client/src/commonMain/kotlin/com/passchef/sheets/SheetsClient.kt",
+        "substantive": "real Ktor-based implementation covering get/append/update, not a stub"
+      }
+    ],
+    "key_links": [
+      "SheetsClient's Ktor HttpClient and its ktor-client-* / kotlinx-serialization-json dependencies are declared in this cell's own edits to build.gradle.kts (oauth-sheets-1 leaves the module skeletal with no Ktor deps)"
+    ],
+    "prohibitions": [
+      "No delete/removal Sheets operation implemented",
+      "No real network calls inside the unit tests"
+    ]
+  },
+  "verify": "cd mobile/sheets-client && JAVA_HOME=\"$(pwd)/../../.toolchain/jdk\" PATH=\"$JAVA_HOME/bin:$PATH\" ./gradlew test",
+  "behavior_change": false,
+  "trace": {
+    "worker": "w-sheetsclient",
+    "outcome": "Implemented Sheets API v4 client (Ktor + kotlinx.serialization) in mobile/sheets-client commonMain: SheetsClient (get/append/update against spreadsheets.values REST endpoints, no delete), SheetsModels (ValueRange, Append/UpdateValuesResponse, GoogleApiErrorBody), and SheetsClientExceptions (SheetsUnauthorizedException/SheetsForbiddenException/SheetsApiException as distinct catchable types for 401/403/other). Added ktor-client-core/content-negotiation/serialization-kotlinx-json + kotlinx-serialization-json to build.gradle.kts commonMain, ktor-client-mock + kotlinx-coroutines-test to commonTest. 6 unit tests in commonTest/SheetsClientTest.kt against Ktor MockEngine (no real network/credentials): successful read, empty-sheet read, 401, 403, and append/update range-targeting via captured request URL -- all green.",
+    "files_changed": [
+      "mobile/sheets-client/build.gradle.kts",
+      "mobile/sheets-client/src/commonMain/kotlin/com/passchef/sheets/SheetsClient.kt",
+      "mobile/sheets-client/src/commonMain/kotlin/com/passchef/sheets/SheetsModels.kt",
+      "mobile/sheets-client/src/commonMain/kotlin/com/passchef/sheets/SheetsClientExceptions.kt",
+      "mobile/sheets-client/src/commonTest/kotlin/com/passchef/sheets/SheetsClientTest.kt"
+    ],
+    "deviations": [
+      {
+        "type": "blocking-issue-autofix",
+        "description": "Cell's verify command './gradlew test' referenced a task that does not exist in this Kotlin-Multiplatform (jvm-only) module -- the plugin only wires up 'jvmTest' and the aggregate 'allTests', confirmed via './gradlew tasks'. Added a thin 'test' task alias (dependsOn allTests) in mobile/sheets-client/build.gradle.kts so the recorded verify command is actually runnable, instead of substituting a different command or blocking on it."
+      }
+    ],
+    "friction": null,
+    "capped_at": "2026-07-28T11:16:08.181Z",
+    "behavior_change": false,
+    "verification_evidence": null,
+    "verify_output": "BUILD SUCCESSFUL in 24s, 5 actionable tasks: 5 executed. allTests/jvmTest/test all ran; SheetsClientTest: tests=6 skipped=0 failures=0 errors=0 (getValues_success_parsesRowsFromFixture, getValues_emptySheet_returnsNoRows, getValues_unauthorized_throwsDistinctUnauthorizedError, getValues_forbidden_throwsDistinctForbiddenError, appendValues_targetsExactlyTheConfiguredRange, updateValues_targetsExactlyTheConfiguredRange).",
+    "verify_passed": true,
+    "claim_session": "feed40c6-5316-4425-9e2c-a4d5c923c439",
+    "claimed_at": "2026-07-28T11:09:59.598Z",
+    "verify_command": "cd mobile/sheets-client && JAVA_HOME=\"$(pwd)/../../.toolchain/jdk\" PATH=\"$JAVA_HOME/bin:$PATH\" ./gradlew test",
+    "verified_at": "2026-07-28T11:15:43.281Z",
+    "attempts": [
+      {
+        "n": 1,
+        "at": "2026-07-28T11:15:43.281Z",
+        "claim_session": "feed40c6-5316-4425-9e2c-a4d5c923c439",
+        "claimed_at": "2026-07-28T11:10:14.986Z",
+        "acquired_at": "2026-07-28T11:09:59.596Z",
+        "worker": "w-sheetsclient",
+        "verdict": "pass",
+        "failure_signature": null,
+        "note": null
+      }
+    ],
+    "warnings": []
+  },
+  "tier": "ceiling"
+}

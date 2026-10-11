@@ -1,0 +1,6 @@
+# Local OAuth smoke-test credentials (oauth-sheets-4, D1/D4). This file is
+# never committed: it is where SheetsSmokeTest.kt reads a real Client
+# ID/Secret + spreadsheet id once you've completed
+# docs/runbooks/google-oauth-sheets-setup.md. See that runbook's Step 7 for
+# where to place it -- never paste real credentials into a tracked file.
+smoketest.local.properties
