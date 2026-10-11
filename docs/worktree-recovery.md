@@ -179,14 +179,19 @@ verification passed 39 JVM tests, Android packaging and app/test APK builds; lin
 has zero errors and eight warnings. Independent review has no remaining P1/P2.
 The original Core implementation and existing tooling WIP remain intact.
 
-The accepted E1–E5 physical checks remain pending, so the candidate stays
-unmerged. USB debugging now lists an authorized Xiaomi14TPro/API36; earlier
-transfer-only detection is resolved. Both app packages were absent at preflight.
-The device rejected installing the pinned demo APK with
-`INSTALL_FAILED_USER_RESTRICTED: Install canceled by user`. The owner was asked
-to enable Install via USB/accept the device prompt; no biometric test has run.
-Two actual CryptoObject prompts, enrollment invalidation/password recovery and
-physical lifecycle/restart checks are still required. A complete verified
+USB/install restrictions are resolved on the authorized Xiaomi14TPro/API36.
+Real hardware wrap/unwrap passed, and a separate four-fingerprint recovery proof
+passed with inspected StrongBox level2. The demo passed background/process locking,
+cancellation, wrong-password preservation and one original-password recovery.
+Adding a fingerprint invalidated the old key as required; subsequent fresh wraps
+have failed intermittently while preserving the complete encrypted Cookbook.
+One delayed demo prompt reproduced Android error15: an evacuated wrapping
+operation. Earlier attempts lacked numeric diagnostics. A bounded fresh-operation/
+new-biometric repair is in progress in the original worktree. Debug-only diagnostics
+and focused physical regressions are committed at `a9409ff`; independent debug/
+test/release builds, lint and two device sanitization tests pass. Authorization
+and storage policies remain unchanged. Complete enrollment recovery and physical
+timer/lifecycle acceptance still block merge and closure. A complete verified
 checkpoint exists at
 `/home/vantt/projects/passMan-recovery/20261011-keystore/checkpoint-e26bcd9/`;
 built APK hashes and candidate commit are recorded in `candidate-build.json`.

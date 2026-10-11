@@ -5,9 +5,16 @@
 Candidate `e26bcd9` remains in the original Keystore worktree. It implements
 biometric-gated device-key wrapping, encrypted spice storage, password recovery
 and a separate `.demo` app. Independent checks passed 39 JVM tests, app/test APK
-builds and review; lint has zero errors and eight warnings. Real device prompts,
-enrollment recovery and lifecycle acceptance remain pending, so no source merge
-or checkout closure is claimed. See [recovery status](worktree-recovery.md).
+builds and review; lint has zero errors and eight warnings. Actual hardware and
+four-fingerprint recovery proofs passed on Xiaomi14TPro/API36, including inspected
+StrongBox level2. Real enrollment invalidated the old key, but subsequent demo
+fresh wraps fail intermittently while preserving the encrypted Cookbook. Debug-only
+sanitized diagnostics and focused regressions at `a9409ff` pass independent builds,
+release isolation, lint and two device sanitization tests. One delayed demo prompt
+reproduced expired operation15; earlier failures lacked numeric diagnostics. A
+bounded fresh-operation/new-biometric repair is in progress. No authorization/
+storage policy changed in the diagnostic commit. Enrollment recovery and device
+acceptance block source merge and closure. See [recovery status](worktree-recovery.md).
 
 ## Phone QR cookbook handoff (2026-10-11)
 

@@ -6,7 +6,11 @@
   client verification does not certify an account connection.
 - Android Keystore candidate `e26bcd9` is implemented in its original worktree:
   39 JVM tests, app/test APK builds and independent review pass; lint has zero
-  errors. Physical-device acceptance remains pending; the branch stays unmerged.
+  errors. USB/install and real hardware wrap/unwrap now pass. Enrollment recovery
+  has intermittent fresh-wrap failures; debug-only diagnostics at `a9409ff` are
+  independently verified. A delayed demo prompt reproduced expired operation15;
+  a bounded fresh-operation/new-biometric repair is in progress. Physical acceptance
+  remains incomplete and unmerged.
 - Phone QR reading/reassembly remains a separate follow-up after existing
   worktrees are completed.
 
