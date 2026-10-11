@@ -12,7 +12,9 @@ worktree against its own plan, verify it, then merge and close that worktree.
 Rank work by product impact and dependencies: Mobile Core first, dependent
 Keystore/unlock second, independent QR transport third. A blocked physical-device
 check may allow QR work to proceed, but never licenses merging incomplete
-Keystore work. Start new work directly from main only after all three are done.
+Keystore work. After each verified worktree merge, commit the integration and
+push main before proceeding to the next tree, as requested by the owner. Start
+new work directly from main only after all three are done.
 
 ## Worktrees and their plans
 
@@ -151,8 +153,10 @@ Private configuration must never be displayed in the recovery report.
 - Real Google OAuth client creation and live connection check: **pending**.
 
 Local verification uses mocked Google responses and local loopback HTTP only.
-It does not certify a real Google token exchange or Cookbook read. No remote
-push was performed. Complete the remaining plans in their existing worktrees,
+It does not certify a real Google token exchange or Cookbook read. At OAuth
+closure, no remote push had yet been performed. On 2026-10-11, main through
+`ad1aec6`, including the completed OAuth, Mobile Core and QR integrations, was
+pushed to origin and its remote commit verified. Keystore remains unmerged. Complete the remaining plans in their existing worktrees,
 beginning with Mobile Core and reconciliation of the Keystore scaffold. New
 main-based plans wait until all remaining worktrees have been completed.
 
