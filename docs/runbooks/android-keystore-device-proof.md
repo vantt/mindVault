@@ -4,13 +4,63 @@ Date: 2026-10-11. Debug demo package `dev.passchef.mobile.demo`; test package `d
 Release identity stays `dev.passchef.mobile`; debug has a separate UID/private data.
 Build/compile evidence is separate from physical acceptance. Do not count a JVM,
 emulator, compiled APK, or merely reopened repository as physical process-restart proof.
-Current native Windows adb sees the authorized Xiaomi14TPro/API36 over USB.
-APK installation is blocked by INSTALL_FAILED_USER_RESTRICTED; physical steps
-below remain pending until the owner permits installation on the device.
-Latest USB observation: Xiaomi14TPro, VID2717/PIDFF40, WPD transfer-files interface
-only; no ADB interface after two USB-debug toggle/replug attempts. Wireless pairing
-has been requested but is not yet adopted/verified; commands below remain the
-verified native Windows adb route once an authorized physical serial is available.
+Physical acceptance is **IN PROGRESS**. Installed repair candidate is `d2a76ca`,
+over diagnostic `a9409ff` and baseline `e26bcd9`; authentication/StrongBox policy
+unchanged. Pinned APK installation preserved the original Cookbook and matches
+[candidate metadata](/home/vantt/projects/passMan-recovery/20261011-keystore/expired-wrap-candidate-build.json).
+Native Windows adb now sees the owner-authorized Xiaomi14TPro/2407FPN8EG, API36,
+over USB. Neither release nor demo package existed at preflight. Both pinned APKs
+installed successfully; the earlier install restriction and missing-ADB state are
+resolved. Wireless pairing was not needed or adopted.
+
+The physical runner passed **1 test in12.431s**, host exit0: real CryptoObject
+wrap/unwrap, `hardwareProtected=true`, nonexportable key and authenticated cache.
+This boolean does not distinguish TEE from StrongBox. Manual synthetic setup,
+biometric unlock, cancellation, background-return locking, actual force-stop/
+new-process restart locking and wrong-password no-mutation passed. Correct-password
+re-wrap **failed twice after actual owner authorization**: the demo reported
+"Could not save biometric wrap; prior data preserved" and the entire old record
+and alias stayed unchanged. Genuine Android existing-record atomic replacement
+passed its separate regression (1 test,0.013s); this does not establish successful
+recovery. Focused real recovery instrumentation also failed at its first fresh
+setup wrap after owner authorization: `IllegalBlockSizeException` caused by
+`android.security.KeyStoreException`, before record commit. The evidence therefore
+does not isolate the failure to recovery. The next diagnostic run then **passed
+all four owner fingerprint prompts in17.193s**, including fresh wrap, password
+recovery, replacement commit/retirement and final same-cache unlock. Actual setup
+and recovery key security levels were2 (StrongBox). No product source changed;
+the earlier failure's numeric cause was not captured or reproduced in this pass.
+The demo subsequently completed correct-password fresh wrap with unchanged
+encrypted cache and empty retirement metadata. Owner then added a fingerprint:
+the old key was refused and the original-password path offered, with record
+preserved. Wrong password after enrollment also preserved the entire record/alias.
+Correct-password recovery after enrollment reached real owner-authorized wrap but
+failed again with the same sanitized UI outcome; prior record stayed unchanged.
+Complete enrollment recovery and new biometric unlock remain mandatory and open.
+Feature/worktree is not closed or merge-ready; the recovery defect is unresolved.
+
+Current local evidence:
+[progress](/home/vantt/projects/passMan-recovery/20261011-keystore/physical-progress.json),
+[manual cases](/home/vantt/projects/passMan-recovery/20261011-keystore/manual-evidence.json),
+[physical runner](/home/vantt/projects/passMan-recovery/20261011-keystore/physical-instrumentation.log),
+[atomic replacement regression](/home/vantt/projects/passMan-recovery/20261011-keystore/atomic-regression-physical.log),
+[focused wrap failure](/home/vantt/projects/passMan-recovery/20261011-keystore/recovery-regression-physical.log),
+[four-prompt diagnostic pass](/home/vantt/projects/passMan-recovery/20261011-keystore/recovery-numeric-physical.log),
+[probe sanitization tests](/home/vantt/projects/passMan-recovery/20261011-keystore/actual-controller-probe-test.log).
+Root owns device commands and updates these artifacts as further cases complete.
+Actual-controller failure after the held prompt now has a numeric diagnosis:
+`wrap-doFinal`, StrongBox level2, public code15 (`ERROR_KEY_OPERATION_EXPIRED`),
+system/transient=true, authRequired=false, retry2. The provider operation expired;
+owner authentication is not the reported problem. The accepted wrap-only repair
+is now implemented over `a9409ff`: one cancellable5s delay, then a fresh Cipher
+and fresh real strong-biometric prompt using the same authenticated prepared
+Cookbook/disposable alias. Only API33+ typed public code15 at doFinal retries;
+other errors/second expiry preserve prior data and guide manual password recovery.
+Per-attempt identity and ownership guards cover cancellation/stale callbacks.
+Builder48 JVM tests and debug/test/release/lint passed; independent fresh48-test
+build/review passed with no P1/P2. Actual-controller delayed-prompt/new-prompt proof
+remains open; current owner prompt is being held. Implementation
+and local control tests do not establish successful physical repair.
 
 ## Platform and security boundary
 
@@ -49,6 +99,18 @@ JVM tests exercise real Argon/AES-GCM, bounds, tampering, password no-write,
 interrupted temp-file replacement, failed retirement retry, owned-buffer cleanup,
 clock limits and late queued results. Fault injection tests model storage failures;
 they do not emulate Keystore hardware or authenticate a biometric.
+Earlier diagnostic debug/test/release build and lint independently passed in16s,
+0 errors/8 known warnings. Release APK has no proof Activity/log tag. Actual
+`WrapFailureProbeTest` passed2 sanitization tests in0.026s. Debug diagnostics whitelist
+constant stages and emit only classes, guarded public numeric flags/retry and key
+security level; no throwable messages/aliases/bytes. Release helper is a no-op.
+Repair candidate independently reran150 tasks in1m18s:48 JVM tests with0 failures,
+errors/skips; shared assembly, debug/test/release packaging and lint0errors8knownwarnings.
+All53 source/build files retained their frozen hashes; release dex excludes proof
+Activity/log tag. Actual2 negative-classifier +2 probe tests passed together on
+the phone in0.032s; these four tests do not authorize a biometric or prove wrap recovery.
+[Independent build](/home/vantt/projects/passMan-recovery/20261011-keystore/independent-expired-wrap-build.json),
+[four physical control tests](/home/vantt/projects/passMan-recovery/20261011-keystore/expired-wrap-negative-classifier-physical.log).
 
 ## Safe native Windows adb route
 
@@ -110,6 +172,14 @@ Use only synthetic master password/spices and record outcomes without their valu
 8. Check screenshot/recents protections and review app-scoped logcat after flows:
    no plaintext seasoning, master password, derived key or raw exception content.
 
-Owner fingerprint/enrollment actions need explicit participation; agents must not
-manufacture acceptance. Instrumented real hardware and manual enrollment/lockout/
-process/timer cases remain pending until their evidence is recorded.
+Owner fingerprint/enrollment actions need explicit participation. Remaining evidence:
+repair the diagnosed expired-operation enrollment recovery wrap failure, then prove complete
+original-password same-cache recovery and new biometric unlock;
+failed-biometric/lockout and no-enrollment path; pending-operation lifecycle;
+real idle5min/total10min and screenshot/recents/logcat checks. The owned MainActivity
+window's FLAG_SECURE is confirmed; screenshot/recents behavior remains separate.
+API26–27 behavior has guarded-source/build evidence, not physical coverage from
+this API36 device.
+The recorded temporary keep-awake setting is active for testing; restore its
+original0 value before closing device work. Record new results before declaring
+physical acceptance complete; prior runner/manual passes do not close these cases.

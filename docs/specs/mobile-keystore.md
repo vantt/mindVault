@@ -49,5 +49,15 @@ The [physical runbook](../runbooks/android-keystore-device-proof.md) requires
 owner-authorized hardware wrap/unwrap, actual enrollment invalidation/recovery,
 lockout/no enrollment, process restart, lifecycle/timers and logcat checks. The
 [recovery report](../history/passchef-mobile-android-keystore/reports/keystore-recovery.md)
-records observed outcomes. Pending hardware acceptance keeps this feature incomplete. The current physical
-USB connection is established; device-side APK installation is still blocked.
+records observed outcomes. USB/install and actual hardware wrap/unwrap passed on
+Xiaomi14TPro/API36. StrongBox level2 was inspected in the four-prompt recovery
+proof. Background/process locking, cancellation, wrong-password preservation and
+one original-password demo recovery also passed. Real enrollment invalidated the
+prior key, but subsequent fresh wrapping has failed intermittently; the original
+encrypted Cookbook remains intact. Debug-only sanitized diagnostics established an expired wrapping operation (public
+code15). Repair `d2a76ca` allows one cancellable five-second retry on API33+ before
+commit, with a fresh Cipher and genuine strong-biometric prompt; retained owned
+data is wiped on cancellation and no committed alias is retired. Independent
+48 JVM tests, debug/test/release builds and lint pass; four physical classifier/
+probe tests pass. Actual retry success remains unproved. Complete enrollment recovery and remaining lifecycle/
+timer checks are pending, so this feature remains incomplete and unmerged.

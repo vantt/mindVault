@@ -1,26 +1,22 @@
 # Android Cookbook recovery — independent review
 
-Date: 2026-10-11. Original checkout:
-`/home/vantt/projects/passMan--wt--passchef-mobile-android-keystore`.
-Comparison base: `3532c160`. Source freeze confirmed by the builder after the
-ownership-safe shutdown repair and sanitized physical-proof assertions.
+Date: 2026-10-11. Checkout: `passMan--wt--passchef-mobile-android-keystore`.
+Comparison base: `3532c160`; latest reviewed repair commit: `d2a76ca`.
 This reviewer changed only this report; no product source, workflow state,
 staging, commit, device configuration, or merge was changed.
 
-**Code result: no remaining P1/P2 findings in the reviewed implementation.**
-Physical E2–E5 acceptance remains blocked without an authorized real device and
-owner participation. Code review and compiled APKs do not certify biometric
-hardware, enrollment invalidation, or completion of the original feature.
+**Code review: no identified P1/P2 source findings after the reviewed repairs.**
+Later owner-assisted Xiaomi API36 instrumentation and manual flows passed as
+recorded below. A later actual-controller fault is now classified as public
+code15; earlier failures without numeric evidence remain unclassified. The
+reviewed retry source still needs device acceptance and enrollment recovery.
 
 ## Scope
 
-Read original locked D1–D6 and E1–E5 plan, recovery execution plan, all new vault
-backend modules and tests, Android Keystore actual/JVM unsupported actual,
-controller, Compose screen, Activity lifecycle/prompt callbacks, manifests,
-backup exclusions, debug proof Activity, instrumentation test and device runbook.
-Core recipe/crypto was consumed from its integrated prerequisite, not redesigned.
-Full mobile screens, real spice authoring, OAuth, QR reader and autofill remain
-outside this demo. Existing golden/parity tests were not changed for recovery.
+Read locked D1–D6/E1–E5, recovery plan, vault/backend tests, Keystore actuals,
+controller/Compose/lifecycle/prompts, manifests/backups, debug harness and runbook.
+Core recipe/crypto consumes its integrated prerequisite; golden tests unchanged.
+Full screens, real spice authoring, OAuth, QR reader and autofill remain excluded.
 
 ## Repairs verified
 
@@ -35,10 +31,9 @@ outside this demo. Existing golden/parity tests were not changed for recovery.
 - Password fallback checks generation and `OwnedWork.submit` closes its prepared
   key/cache session when executor shutdown rejects delivery. A real shutdown
   regression asserts key and spice arrays are zeroed.
-- The physical proof Activity resides only in the debug target APK and launches
-  through `targetContext`, sharing the instrumented app process/Keystore UID.
-  AndroidX core1.6.1 source was checked: its ordinary ActivityScenario invoker
-  uses Instrumentation.startActivitySync, so a test-APK Activity is unsuitable.
+- Debug target-APK proof Activity uses `targetContext` and the instrumented UID.
+  AndroidX core1.6.1 ActivityScenario uses startActivitySync, so test-APK hosting
+  is unsuitable; official source was checked.
   [Official source artifact](https://dl.google.com/dl/android/maven2/androidx/test/core/1.6.1/core-1.6.1-sources.jar).
 - Physical key/cache equality uses sanitized boolean assertions; the expected
   synthetic key copy is wiped in finally. The test accurately names disk reopen,
@@ -77,15 +72,9 @@ outside this demo. Existing golden/parity tests were not changed for recovery.
 
 ## Independent build/test evidence
 
-Independent tester owns the fresh clean run after the builder released Gradle:
-
-```sh
-export JAVA_HOME=/home/vantt/dev-tools/jdk-17.0.20+8
-export ANDROID_HOME=/home/vantt/dev-tools/android-sdk
-export PATH="$JAVA_HOME/bin:$PATH"
-./gradlew --no-daemon --console=plain clean :shared:jvmTest :shared:assemble \
-  :app:assembleDebug :app:assembleDebugAndroidTest :app:lintDebug
-```
+Independent tester ran clean JVM tests, shared assembly, app/test APKs and lint
+with JDK17.0.20+8/SDK36 after the builder released Gradle; exact commands are
+recorded in the recovery report and device runbook.
 
 Independent tester observed **BUILD SUCCESSFUL, exit0, 1m13s**, 107 tasks with
 105 executed. Fresh six XML suites contain **39 tests, zero failures/errors/skips**
@@ -103,24 +92,108 @@ target `dev.passchef.mobile.demo`. Compiled backup resource excludes all listed
 data domains in cloud backup and device transfer. Proof Activity is compiled
 debug-only and nonexported. Whitespace validation passes.
 
-## Physical acceptance and limits
+Unique synthetic proof files/aliases isolate user Cookbooks. Two real owner
+prompts authorize wrap/unwrap; assertions cover absent-auth refusal, hardware/
+exportability, key/cache equality, disk reopen, wiping and wrong-password no-write.
+Only proof assets are deleted.
 
-The test creates unique synthetic `physical-proof-UUID.json` and `passchef-UUID`
-alias; it never opens production `cookbook-v1.json` or user spices. Two real
-owner biometric prompts authorize wrap then unwrap. Assertions cover absent-auth
-refusal, nonexportability, actual hardware flag, key/cache equality, disk reopen,
-lock wiping and wrong-password record preservation; only proof assets are deleted.
+## Later physical evidence and focused regression review
 
-Native Windows adb invoked from WSL is the selected route, without all-interface
-TCP exposure. The last observed device list was empty. No device installation,
-physical test, fingerprint/enrollment change, hardware claim or device pass was
-performed by this reviewer.
+On 2026-10-11 root established native Windows adb USB access and ran the actual
+APK on Xiaomi14TPro/2407FPN8EG, API36, with owner biometric participation. This
+reviewer ran no ADB/device actions, and independently read the saved logs under
+`/home/vantt/projects/passMan-recovery/20261011-keystore/`.
 
-Manual enrollment invalidation, password recovery of the same cache, cancellation/
-lockout, actual process death/relaunch, background/timer behavior and device log
-checks remain required. API26/StrongBox absence needs honest device coverage;
-one modern phone cannot certify all older API/device branches. Manual demo must
-use a fresh synthetic installation/record and must not replace or recover an
-existing user Cookbook. See the [device runbook](../../../runbooks/android-keystore-device-proof.md).
+- `physical-instrumentation.log`: **OK (1 test), 12.431s**, genuine wrap/unwrap,
+  hardwareProtected=true, nonexportable=true, cache equality. This supersedes
+  the earlier absent-device/install-blocker status, not those historical events.
+- `atomic-regression-physical.log`: **OK (1 test), 0.013s**, actual Android
+  first-create, existing-file replacement and exact reopened bytes. This proves
+  successful replacement on this filesystem, not every crash timing.
+- `recovery-regression-physical.log`: **FAIL (1 test), 23.151s**, first setup-wrap
+  doFinal after owner authentication raised IllegalBlockSizeException caused by
+  android.security.KeyStoreException. Numeric cause was not recorded; do not
+  classify this as transient, authentication failure, or fixed source defect.
+- `recovery-numeric-physical.log`: later **OK (1 test), 17.193s**, all four real
+  prompts, old-cache authentication, fresh alias, committed replacement, prior
+  retirement and final new-key/cache equality. Setup/recovery KeyInfo security
+  level=2, which is StrongBox. [Platform constant](https://developer.android.com/reference/android/security/keystore/KeyProperties#SECURITY_LEVEL_STRONGBOX).
+- `manual-evidence.json`: real demo setup/unlock, background locking, actual
+  force-stop/relaunch locked, cancel and wrong-password no-mutation passed.
+  It preserves **two correct-password re-wrap failures**, both retaining the
+  entire old record. The later successful demo re-wrap has a different alias,
+  unchanged salt/cache-IV/cache hashes, and an empty retirement queue. These
+  comparisons were independently checked; no password/key/spice values needed.
 
-**Completion remains blocked on physical evidence. No merge-ready verdict.**
+Reviewed new AtomicRecordStorePhysicalTest/KeystoreRecoveryPhysicalTest plus
+generic debug harness label and API-guarded test-only numeric diagnostics.
+Unique synthetic filenames/aliases isolate user Cookbooks; four operations wait
+for actual same-cipher BiometricPrompt success, never inject authorization.
+Owned sessions, expected key, password and spices close/zero in finally. Failure
+diagnostics contain constant phases, exception classes, method/line frames and
+API33+ numeric/boolean flags; no original exception message/cause is chained.
+API31 KeyInfo calls are guarded; retryPolicy is read only for transient errors.
+At this four-prompt run the production vault/prompt source remained `e26bcd9`;
+no production fix explains the later pass. Root-owned physical evidence includes manual UI re-wrap, so
+backend-only regression success is not substituted for the demo path.
+
+Independent tester rebuilt the final physical diagnostic delta: app/test APKs
+and lint **passed, exit0, 32s, 93 tasks/eight executed**, zero lint errors and the
+same eight warnings. APK hashes match `recovery-numeric-build.json`; no production
+shared/app-main/Gradle changes occurred, so prior 39 JVM tests remain applicable.
+
+## Actual-controller diagnostic probe review
+
+Reviewed the subsequent VaultController phase/catch delta, debug WrapFailureProbe,
+release no-op and two Android formatter tests: **no identified P1/P2 findings**.
+The controller tracks constant phases and preserves existing authorization,
+storage, retirement and cleanup behavior. Debug output contains whitelisted phase,
+bounded exception class chain, guarded API31 security level and API33 numeric/
+boolean flags only. It excludes exception messages, aliases, bytes and Throwable
+logging; diagnostic failure is contained. Release never invokes key inspection.
+
+Independent tester debug/test/release APK and lint verification passed: **exit0,
+16s, 140 tasks/three executed**, zero lint errors/eight known warnings. Release
+APK inspection found neither the diagnostic log tag nor debug proof Activity.
+`actual-controller-probe-test.log` records **OK (2 tests), 0.026s** on the real
+device; APK identities are recorded in `actual-controller-probe-build.json`.
+These assertions prove formatter sanitization, not biometric recovery success.
+The subsequent `actual-controller-numeric.log` captured wrap-doFinal code15,
+system/transient=true, authRequired=false, retry2 and StrongBox level2. This
+identifies an expired KeyMint operation for that attempt, not earlier failures.
+[Official code15 definition](https://developer.android.com/reference/android/security/KeyStoreException#ERROR_KEY_OPERATION_EXPIRED).
+
+## Frozen expired-operation repair — source review
+
+Reviewed VaultWrapping, WrapOperationState, typed bounded WrapFailureCauses/
+ExpiredWrapFailure, controller extraction and new tests against the focused plan.
+**No identified P1/P2 source findings.** API33+ public code15 only at doFinal
+permits one retry after a cancellable5s delay. It recreates Cipher/IV on the same
+disposable alias and requires a new genuine strong-biometric CryptoObject prompt.
+Prompt nonce/cipher identity are one-shot; old/duplicate callbacks cannot authorize
+the retry. PreparedVault ownership survives waiting; synchronized working state
+defers cancellation wiping until its worker releases input. Rejected submission/
+post/delay, stale delivery and cancel dispose ownership; committed alias survives
+concurrent lock. Atomic replacement precedes old retirement; exhausted/other-code/
+postcommit errors never rewrap or downgrade. Initial hardware-unavailable password
+fallback remains. Nine JVM control regressions cover these policy/ownership edges;
+two Android negative classifier tests do not claim simulated biometric success.
+Reviewed source committed `d2a76ca`. Independent tester's fresh `--rerun-tasks`
+verification passed: **48 JVM tests, zero failures/errors/skips; exit0, 78s,
+150/150 tasks executed**, debug/test/release/shared artifacts and lint0errors/8warnings.
+APK SHA256 identities are in `independent-expired-wrap-build.json` beside its log;
+53 frozen source/build files remained unchanged; release excludes proof/tag.
+Parent installed pinned APKs preserving the existing invalidated synthetic demo.
+`expired-wrap-negative-classifier-physical.log`: **OK (4 tests), 0.032s**.
+These prove classifier/diagnostic controls, not actual-controller retry/E4 success.
+
+Real enrollment invalidation/recovery, repeated-failure/lockout, late background
+callbacks, timer UI and device log checks remain pending unless separately
+recorded later. API26–29/no-biometric/StrongBox-absent are unverified device-matrix
+branches; this phone certifies neither those nor every OEM. Manual demo must
+remain synthetic and isolated. See the [device runbook](../../../runbooks/android-keystore-device-proof.md).
+
+**Partial physical acceptance only; no completed-feature/merge-ready verdict.**
+
+Unresolved: does fresh-Cipher retry pass actual-controller delayed-fault/cancel/
+exhaustion probes, and can real enrollment invalidation/password recovery pass?
