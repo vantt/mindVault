@@ -2,6 +2,7 @@ package dev.passchef.mobile
 
 import android.content.Context
 import android.os.Handler
+import android.os.Build
 import android.os.Looper
 import android.os.SystemClock
 import androidx.biometric.BiometricManager
@@ -107,15 +108,24 @@ class VaultController(
                             pending = null; pendingAlias = ""
                             worker.execute {
                                 var committed = false
+                                var phase = "wrap-doFinal"
                                 try {
                                     if (!epoch.accepts(token)) return@execute
                                     val wrapped = authorized.doFinal(prepared.session.key)
+                                    phase = "record-commit"
                                     repository.commitWrap(prepared, alias, authorized.iv, wrapped)
                                     committed = true
+                                    phase = "key-retirement"
                                     val retired = runCatching { repository.retireKeys(crypto::deleteKey) }.getOrDefault(false)
                                     val cleanup = if (retired) "" else "; prior device key cleanup pending"
+                                    phase = "session-delivery"
                                     finish(token, prepared.session, "Round trip ready; device key hardware protected: $hardware$cleanup")
-                                } catch (_: Exception) { fail(token, "Could not save biometric wrap; prior data preserved") }
+                                } catch (error: Exception) {
+                                    WrapFailureProbe.record(phase, error) {
+                                        if (Build.VERSION.SDK_INT >= 31) crypto.info(alias).securityLevel else -1
+                                    }
+                                    fail(token, "Could not save biometric wrap; prior data preserved")
+                                }
                                 finally {
                                     if (!committed) { prepared.close(); runCatching { crypto.deleteKey(alias) } }
                                 }

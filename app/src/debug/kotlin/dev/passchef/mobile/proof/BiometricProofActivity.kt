@@ -17,7 +17,7 @@ class BiometricProofActivity : FragmentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         window.addFlags(WindowManager.LayoutParams.FLAG_SECURE)
-        setContentView(TextView(this).apply { text = "PassChef physical proof: authorize two biometric prompts. Synthetic Cookbook only." })
+        setContentView(TextView(this).apply { text = "PassChef physical proof: authorize the indicated biometric prompts. Synthetic Cookbook only." })
     }
     fun authorize(cipher: Cipher, phase: String, output: AtomicReference<Cipher?>, done: CountDownLatch) {
         prompt = BiometricPrompt(this, ContextCompat.getMainExecutor(this), object : BiometricPrompt.AuthenticationCallback() {
