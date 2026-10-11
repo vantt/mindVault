@@ -19,7 +19,9 @@ the unexecuted physical matrix as follow-up; full original matrix is not claimed
 See [scope and remaining checks](../plans/261011-keystore-recovery/reports/current-device-acceptance.md)
 and [device evidence](runbooks/android-keystore-device-proof.md).
 Fresh main verification passed:56 JVM tests rerun,150/150 tasks executed,
-all APK builds/lint0errors8warnings. Integration commit/push/closure pending.
+all APK builds/lint0errors8warnings. Merged/pushed at `b959aca`, remote SHA
+verified;149 main WIP paths restored exactly. Complete checkout archived and
+closed; branch/recovery refs retained. All original feature checkouts are closed.
 
 ## Phone QR cookbook handoff (2026-10-11)
 
@@ -45,7 +47,7 @@ and [verification report](../plans/261011-qr-handoff-worktree-recovery/reports/v
 
 **Changes:** Android/JVM shared recipe cooking, tag verification, original
 full-access bundle decrypt, and a test-only Argon2id parity proof. A single
-root `:shared` module aligns with the remaining Keystore plan.
+root `:shared` module is used by the integrated Keystore storage.
 
 **Verification:** 26 JVM tests pass; Android AAR/JVM JAR compile; 22 original
 extension recipe tests pass. The actual Chromium extension supplies 56 vectors

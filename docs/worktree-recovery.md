@@ -5,8 +5,9 @@ local `main` at `ef720b1`. OAuth/Menu recovery commit `0f93c7d` is now in main;
 its worktree is closed after verification and a complete recovery archive.
 Mobile Core `7d8808c` and QR sender `4a4395c` (merge `3d3239d`) are also
 in main and origin, independently verified there, archived and closed. Keystore
-current-Xiaomi scope was explicitly accepted on 2026-10-11; fresh main verification
-passed. Only that checkout remains open until verified push/closure.
+current-Xiaomi scope was explicitly accepted on 2026-10-11, merged/pushed at
+`b959aca`, independently verified on main, archived and closed. All four original
+feature checkouts are closed; only main remains. No new feature work has started.
 
 Recovery policy: complete each of the three remaining features in its existing
 worktree against its own plan, verify it, then merge and close that worktree.
@@ -23,7 +24,7 @@ new work directly from main only after all three are done.
 |---|---|---|---|
 | `wt/passchef-mobile-oauth-sheets` | [Track D: OAuth/Menu client](history/passchef-mobile-oauth-sheets/plan.md), approved 2026-07-28 | Original five commits and recovery commit `0f93c7d` integrated into main | Code scope complete; worktree archived and closed; live Google check pending |
 | `wt/passchef-mobile` | [Track B: Mobile Core](history/passchef-mobile/implement-plan.md), updated 2026-07-28 | Full accepted Core slice implemented; 26 JVM tests and Android packaging pass | Complete; `7d8808c` in main, fresh integration passed, archived and closed |
-| `wt/passchef-mobile-android-keystore` | [Android Keystore + biometric unlock](history/passchef-mobile-android-keystore/plan.md), approved 2026-07-30 | Core reconciled; genuine storage/unlock and repairs frozen at source `0d38e62`, acceptance documented at `fc38197` | 56 JVM tests/builds and agreed Xiaomi physical scope passed; fresh main56-JVM/build/lint passed; commit/push/closure pending |
+| `wt/passchef-mobile-android-keystore` | [Android Keystore + biometric unlock](history/passchef-mobile-android-keystore/plan.md), approved 2026-07-30 | Core reconciled; genuine storage/unlock and repairs frozen at source `0d38e62`, acceptance documented at `fc38197` | 56 JVM tests/builds and agreed Xiaomi physical scope passed; Complete within accepted Xiaomi scope; merged/pushed at `b959aca`, fresh main verification passed, archived and closed |
 | `wt/qr-handoff` | [Extension QR handoff](history/qr-handoff/plan.md), approved 2026-07-27; [recovery execution](../plans/261011-qr-handoff-worktree-recovery/plan.md) | Sender implemented in original checkout; 15 QR + 22 golden unit tests and two headed canvas-decoding E2E passed | Complete; `4a4395c` merged at `3d3239d`, fresh integration passed, archived and closed; phone reader excluded |
 
 The linked Markdown planning dossiers are preserved unchanged here from their
@@ -43,10 +44,9 @@ build independently of an Android UI or physical device. Recovering it first
 establishes a tested recipe-reading/writing foundation without expanding scope.
 See the [recovery plan](../plans/261011-oauth-sheets-worktree-recovery/plan.md).
 
-The accepted boundary remains an OAuth Console runbook, a standalone Kotlin
-client for Google Menu reads/append/update, and a compiled JVM connection check.
-Creating a real OAuth client and running that check with a real Google Menu
-remain the account owner's follow-up; both are pending.
+The accepted OAuth boundary is a Console runbook, standalone Kotlin Menu client
+and compiled JVM connection check. Real OAuth client creation and a live Google
+Menu read remain the owner's pending follow-up.
 
 Recovery addresses these product defects before integration:
 
@@ -79,9 +79,6 @@ neither current slice supplies a complete phone import flow.
 `mobile/sheets-client/`. One repository-root build combines verified `:shared`
 and Keystore `:app`, preserving Core code. Fresh main verification passed.
 
-The Keystore plan requires a physical Android device; a JVM test or scaffold
-build alone does not prove biometric or hardware-backed storage behavior.
-
 ## QR sender recovery record
 
 The accepted extension sender scope is complete in its original worktree:
@@ -103,8 +100,8 @@ Product commit `4a4395c` merged into main at `3d3239d`. Fresh main checks passed
 main WIP paths were restored with exact hashes. The complete QR checkout archive
 contains 3,237 verified files and 212 symlinks (65,099,951 bytes), at
 `/home/vantt/projects/passMan-recovery/20261011-qr-handoff/`. The checkout is
-closed; its branch and recovery refs remain. Keystore physical acceptance remains
-recorded within its separately accepted current-device scope.
+closed; its branch and recovery refs remain. Keystore physical evidence is recorded
+within its separately accepted current-device scope.
 
 ## Preserve existing work and integrate
 
@@ -150,8 +147,8 @@ It does not certify a real Google token exchange or Cookbook read. At OAuth
 closure, no remote push had yet been performed. On 2026-10-11, main through
 `ad1aec6`, including the completed OAuth, Mobile Core and QR integrations, was
 pushed to origin and its remote commit verified. Before final Keystore integration,
-main/origin both point to `3f4cda3`. New main-based plans wait only for this
-accepted Keystore scope to pass fresh integration, push and checkout closure.
+main/origin both pointed to `3f4cda3`; accepted Keystore scope merged/pushed at
+`b959aca`. All original worktrees are now closed; future plans can start from main.
 
 ## Mobile Core current recovery
 
@@ -186,10 +183,17 @@ or missing numeric error was relabeled as a physical pass.
 The complete final checkout archive at
 `/home/vantt/projects/passMan-recovery/20261011-keystore/final-checkout/`
 contains3,464 verified files (234,260,698 bytes), including deferred tooling WIP
-and ignored build/runtime files. Branch and recovery refs will remain after closure.
+and ignored build/runtime files. Branch and recovery refs remain after verified checkout closure.
 Main's149 existing WIP paths are retained through recovery stash
 `refs/recovery/passchef-keystore-final-main-wip-20261011` (`d2ea315`).
 Fresh main verification passed:56 JVM0fail/errors/skips,150/150 tasks executed,
 debug/test/release builds and lint0errors8warnings. Demo/test APKs match the pinned
-physical candidates byte-for-byte. Integration commit/push, exact WIP restoration
-and closure are pending. No new feature work has started.
+physical candidates byte-for-byte. Merge `b959aca` was pushed and its remote SHA
+verified. All149 original main WIP statuses/hashes were restored exactly; the
+final archive matched every file and directory mode before checkout removal.
+All four original feature checkouts are closed; only main remains.
+
+Remaining follow-ups: live Google setup/read, mobile screens/QR reader, and the
+accepted physical coverage limits above. No CI run was visible for merge
+`b959aca`; the older Build and Deploy failure at `ad1aec6` is separate from this
+locally verified integration. No new feature implementation has started.

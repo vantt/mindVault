@@ -1,4 +1,4 @@
-# Current-Xiaomi completion accepted — main integration pending
+# Current-Xiaomi completion accepted — integrated and closed
 
 Date: 2026-10-11. Original Keystore worktree; current Xiaomi14TPro/2407FPN8EG
 API36, source `0d38e62e6f9c67b80ac8f585dd0c8ab8807e1716`, pinned isolated demo/test APKs.
@@ -60,9 +60,13 @@ Direct owner reply: **"Merge/push hôm nay, ghi rõ bài kiểm tra còn thiếu
 Owner accepted completion of the validated current-Xiaomi scope with the above
 unexecuted physical matrix retained as tracked coverage limits, not passing tests.
 
-Root is authorized to complete documentation/merge, independently verify integrated
-main, then push/close. Source `0d38e62` unchanged/frozen; no actual merge, main
-verification, push or worktree closure is claimed by this report.
+## Integration and closure
 
-Outstanding verification: independent main integration. Additional-device/matrix
-coverage remains tracked for later work; owner scope decision is resolved.
+Source `0d38e62` unchanged/frozen. Main merge `b959aca` pushed/remote SHA verified;
+independent fresh main56JVM/150tasks/debug/test/release/lint passed,0errors8warnings.
+Demo/test APKs match the physical candidate byte-for-byte. All149 original main
+WIP statuses/hashes restored exactly. Full final checkout archive verified
+3,464 files/234,260,698 bytes plus all directory modes before checkout removal.
+Branch/archive/recovery refs remain. All original feature checkouts are closed.
+
+Additional-device/matrix coverage remains tracked above; owner scope is resolved.

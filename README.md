@@ -2,10 +2,11 @@
 
 **Turn Google Sheets into a Secure Password Manager**
 
-> **Note:** This repository contains two projects:
+> **Note:** This repository contains:
 >
 > 1. **[Chrome Extension](./chrome-extension)**: The main password manager tool.
-> 2. **[Landing Page](./landing-page)**: Marketing website.
+> 2. **[Android foundation](./app)**: Cookbook storage/unlock demo and shared recipe kitchen; the [Menu client](./mobile/sheets-client) builds independently.
+> 3. **[Landing Page](./landing-page)**: Marketing website.
 
 PassChef is a Chrome Extension that allows you to generate strong, consistent passwords directly from your Google Sheets cells using a formula-based approach (e.g., `r4nd0m#1`). It uses **Argon2id** and **AES-256-GCM** to ensure your master secrets are secure.
 

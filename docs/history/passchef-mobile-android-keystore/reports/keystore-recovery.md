@@ -1,12 +1,12 @@
-# Android Keystore — agreed Xiaomi scope complete; integration pending
+# Android Keystore — agreed Xiaomi scope integrated and closed
 
 Scope: accepted original E2–E5 plus preserved E1; Core integrated at3532c160.
 Status: source independently reviewed/tested; actual expired-operation repair and
 post-enrollment original-password recovery/new-key unlock now passed on `d2a76ca`.
-Owner2026-10-11: "Merge/push hôm nay, ghi rõ bài kiểm tra còn thiếu". Agreed Xiaomi scope **COMPLETE**; main integration pending.
+Owner2026-10-11: "Merge/push hôm nay, ghi rõ bài kiểm tra còn thiếu". Agreed Xiaomi scope **COMPLETE**; main56-JVM/build/lint passed; merged/pushed `b959aca`, archived/closed.
 Installed diagnostic `0d38e62`: independent debug/test hashes verified, whole Cookbook
 preserved, cold start locked. Prior `0a99d636` real biometric1jar/idle5 and `d2a76ca`
-E4 proofs stand; agreed scope complete, worktree unmerged awaiting independent main integration.
+E4 proofs stand; agreed scope complete; merged/pushed `b959aca`, checkout archived/closed.
 Authentication/StrongBox unchanged; SDK `local.properties` untracked, ignored build file retained.
 Debug `.demo` isolation followed independent clean39; release unchanged. Builder38s/
 independent14s app/test/lint confirmed `.demo`/`.demo.test`, shared unchanged.
@@ -196,4 +196,4 @@ Owner exact reports "screenshot không cho, quay bị đen", then "riêng pasche
 Root ownforeground exit→ordinary return(no force-stop) locked+FLAG_SECURE13433.53–13436.77; fullcipherrecord894f73…/APKpins unchanged.
 Final bounded ownUID10422 snapshot7lines/sixknownliterals0hits, not comprehensive absence; keep-awake original0 RESTORED verified, ADB workers ended/phone free.
 No-enrollment/noHW/API26/noStrongBox/typed7&9/exactkill/retryexhaustion unexecuted, accepted limits tracked—not passed; older unwrap numeric unknown, not a new defect.
-[Accepted scope](../../../../plans/261011-keystore-recovery/reports/current-device-acceptance.md): completion within agreed scope, original matrix incomplete; source frozen, independent main integration pending/no merge claim.
+[Accepted scope](../../../../plans/261011-keystore-recovery/reports/current-device-acceptance.md): completion within agreed scope, original matrix incomplete; source frozen; main56-JVM/build/lint passed, merged/pushed `b959aca`, archived/closed.

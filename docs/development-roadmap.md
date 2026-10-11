@@ -4,17 +4,19 @@
 
 - Real Google OAuth setup and one live Cookbook read remain pending; local
   client verification does not certify an account connection.
-- Android Keystore: owner accepted the verified Xiaomi/API36 scope on
-  2026-10-11; fresh main56-JVM/build/lint passed, commit/push/closure pending.
-  [Unexecuted physical checks](../plans/261011-keystore-recovery/reports/current-device-acceptance.md)
-  remain tracked: API26/no hardware/no enrollment, typed7/9 callbacks,
-  exact process-kill/retry-exhaustion windows and precise Recents observation.
-- Phone QR reading/reassembly remains a separate follow-up after existing
-  worktrees are completed.
+- [Keystore physical coverage follow-up](../plans/261011-keystore-recovery/reports/current-device-acceptance.md):
+  API26/no hardware/no enrollment, typed7/9 callbacks, exact process-kill/
+  retry-exhaustion windows and precise Recents observation remain unexecuted.
+- Phone QR reading/reassembly and broader mobile screens are separate follow-ups
+  from main; all original feature checkouts are closed.
 
 
 ## Completed
 
+- 2026-10-11 — Android Keystore integrated/pushed at `b959aca`, archived and
+  closed within owner-accepted Xiaomi/API36 scope. Fresh main56-JVM/build/lint
+  passed; device hardware/recovery and real idle5/total10 evidence retained.
+  All four original feature checkouts are closed; future plans start from main.
 - 2026-10-11 — Mobile Core integrated into local main at `7d8808c`: 26 JVM
   tests, Android packaging, 22 unchanged extension tests, and 56 actual browser
   Recipe/HMAC vectors passed independent verification. See
