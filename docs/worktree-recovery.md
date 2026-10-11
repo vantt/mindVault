@@ -9,6 +9,10 @@ current-Xiaomi scope was explicitly accepted on 2026-10-11, merged/pushed at
 `b959aca`, independently verified on main, archived and closed. All four original
 feature checkouts are closed; only main remains. No new feature work has started.
 
+The former workflow tooling was subsequently removed at the owner's request;
+see [cleanup](project-changelog.md#retire-bee-tooling-2026-10-11).
+WIP counts below describe the preserved state at each historical merge.
+
 Recovery policy: complete each of the three remaining features in its existing
 worktree against its own plan, verify it, then merge and close that worktree.
 Rank work by product impact and dependencies: Mobile Core first, dependent

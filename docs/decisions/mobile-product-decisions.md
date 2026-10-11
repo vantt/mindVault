@@ -1,0 +1,88 @@
+# Mobile product decisions
+
+Preserved on 2026-10-11 when the retired workflow was removed. The10 original
+records below retain IDs, dates, scopes, choices, rationale and alternatives.
+Original wording is historical evidence; references to gates describe past
+approvals, not a current execution workflow. Unrecorded alternatives remain null.
+
+Current implementation and accepted limits: [reading map](../specs/reading-map.md),
+[product backlog](../backlog.md), [worktree recovery](../worktree-recovery.md).
+Live Google verification, full phone screens/reader and Drive remain separate
+follow-ups; historical completion criteria do not certify their execution.
+
+## 1. 493cf91c-0305-47ca-a6ca-c323039f7c4f
+
+- Date: 2026-07-26T15:54:22.265Z; scope: repo; source: user; confidence: null.
+- Decision: Mobile stack = KMP (Kotlin Multiplatform) core + Compose UI, Android-first; iOS deferred until Mac (cloud/rented) available
+- Rationale: Criteria = best UX + best security. Autofill (iOS Credential Provider / Android Autofill Service) forces native code regardless of stack, so RN/Flutter's shared-JS-core benefit is illusory once autofill is committed; RN also routes secrets through immutable JS strings that cannot be zeroed after use. No-Mac constraint applies equally to every stack (iOS build/sign requires Xcode+macOS no matter what) so it does not favor RN back; Kotlin/Android toolchain runs on Linux without macOS, letting Phase 1 start now. Verified generate_password.js _combine() has no Argon2 call (pure string ops); Argon2id only derives the unlock key in argon2_adapter.js, reducing iOS autofill RAM risk noted in Q4.
+- Alternatives: React Native (shared JS core illusion once autofill native rewrite needed; secrets in JS runtime); Flutter (same native-rewrite problem, worse team fit); fully-native x2 (safe but duplicates cook/crypto logic, highest drift risk)
+- Tags: mobile, stack, kmp, autofill, security.
+
+## 2. 9aed82c9-30a0-490d-8d02-241528749103
+
+- Date: 2026-07-26T16:42:36.139Z; scope: repo; source: user; confidence: null.
+- Decision: Mobile write scope vao Google Sheet = append + update, khong delete. Can them man sua tai khoan da ton tai (nang luc moi, extension hien tai cung chua co).
+- Rationale: Q10: mobile phai support ca them-moi va sua recipe da luu, khong chi doc/copy. Da kiem tra popup-recipe-builder.js: extension chi tao moi, khong co luong load recipe co san vao form de sua -> day la scope moi cho ca 2 nen, khong phai port.
+- Alternatives: Read-only + copy-de-dan (an toan hon nhung kho dung tren dien thoai); write khong gioi han ke ca delete (rui ro mat du lieu cao hon)
+- Tags: mobile, sheets, oauth, write-scope.
+
+## 3. 97118ee8-abf8-4169-a776-9cb975551a47
+
+- Date: 2026-07-26T16:42:36.214Z; scope: repo; source: user; confidence: null.
+- Decision: Transport handoff extension->mobile: support ca QR va Drive appData, khong chon 1. QR lam truoc (doc lap, dung ngay createFullAccessBundle), Drive lam sau khi extension co Drive-sync (Phase 3).
+- Rationale: Q11: QR offline khong can ha tang; Drive can nang cap extension truoc nhung cho sync lau dai. Lam ca hai thay vi ep chon 1 duong.
+- Alternatives: Chi QR (don gian hon nhung mat loi ich sync lien tuc); chi Drive (block boi viec nang cap extension truoc, cham hon)
+- Tags: mobile, onboarding, transport, qr, drive.
+
+## 4. 066dacfc-d786-4320-81f0-57257872a109
+
+- Date: 2026-07-26T16:42:36.289Z; scope: repo; source: user; confidence: null.
+- Decision: 'Them tai khoan' = luon sinh recipe moi + nudge rotate (doi mat khau tren trang sang gia tri moi) la hanh vi chuan cua san pham. Khong co duong nhap password cu.
+- Rationale: Q12: recipe tinh ra password tu ingredient+secret, khong suy nguoc duoc tu 1 password co san (bat kha thi ve toan hoc). User xac nhan sau vi du cu the (Shopee) rang UI phai noi ro buoc rotate thu cong nay.
+- Alternatives: An bot nudge (rui ro user hieu nham la da luu duoc password cu); tu dong hoa rotate qua API cua tung dich vu (khong kha thi, moi dich vu khac nhau)
+- Tags: product, recipe, rotate, ux.
+
+## 5. deb89c4a-6563-4b8c-bc3e-492c5180c9e8
+
+- Date: 2026-07-26T16:42:36.374Z; scope: repo; source: user; confidence: null.
+- Decision: Them nut 'Ket noi app dien thoai' vao Options page cua extension, tai dung createFullAccessBundle da co, xuat QR cho mobile quet.
+- Rationale: Q13: tai dung ham da co san (export-import-adapter.js:95), chi thieu UI entry point + QR rendering.
+- Alternatives: Khong lam, chi cho xuat file JSON thu cong (kem UX hon tren dien thoai)
+- Tags: extension, qr, onboarding.
+
+## 6. c7e5bf34-57b7-4bbf-9f26-7c814c18cde0
+
+- Date: 2026-07-27T09:15:15.135Z; scope: passchef-mobile-oauth-sheets; source: user; confidence: null.
+- Decision: D1: OAuth setup lam bang tay tren GCP Console (agent viet runbook), khong tu dong hoa bang gcloud CLI; code phia client doc Client ID/Secret tu config/env.
+- Rationale: Repo khong co gcloud CLI cai/dang nhap san; tao GCP project + OAuth consent la hanh dong cua chu tai khoan Google.
+- Alternatives: null
+
+## 7. 301bb61e-6032-49a4-b0a0-a6a85cf29d3e
+
+- Date: 2026-07-27T09:15:15.404Z; scope: passchef-mobile-oauth-sheets; source: user; confidence: null.
+- Decision: D2: Sheets API client scaffold thanh 1 module KMP/Gradle moi, toi gian, build+test doc lap, chua dung UI/app day du.
+- Rationale: Repo chua co project mobile/KMP nao; 6 man that (p-c46b217c) la PBI rieng lam sau.
+- Alternatives: null
+
+## 8. 14dcb28e-1a5d-4404-8d63-20b3aedeb762
+
+- Date: 2026-07-27T09:15:15.653Z; scope: passchef-mobile-oauth-sheets; source: user; confidence: null.
+- Decision: D3: Xin OAuth scope https://www.googleapis.com/auth/spreadsheets (doc+ghi), khong phai readonly.
+- Rationale: Khop quyet dinh da chot Q10 (docs/mobile-app-brainstorm-qa.md dong 257-260): mobile duoc ghi sheet (append+update); xin scope rong tranh re-consent sau.
+- Alternatives: null
+
+## 9. 15a63fff-bd80-4091-8785-8ddcba22e2d4
+
+- Date: 2026-07-27T09:15:15.966Z; scope: passchef-mobile-oauth-sheets; source: user; confidence: null.
+- Decision: D4: DoD p-7df5bb05 = runbook day du + code doc credentials tu config/env san sang + smoke-test goi Sheets API thanh cong 1 lan voi credentials that. Google verification review la tien trinh ngoai, khong chan cap cell.
+- Rationale: Phan lon OAuth setup la thao tac ngoai code, co the mat ngay/tuan cho Google review.
+- Alternatives: null
+
+## 10. 94c96361-c199-4aa1-b434-833eeda5bbee
+
+- Date: 2026-07-27T10:43:49.625Z; scope: repo; source: user; confidence: null.
+- Decision: Gate 2 approved cho feature qr-handoff: vendor qrcodegen.js + reuse export wizard cho QR button (phase 1), qr-chunking.js cho oversized bundle (phase 2).
+- Rationale: User duyet plan.md standard-lane, 2 cell noi tiep, xem docs/history/qr-handoff/plan.md
+- Alternatives: null
+
+Unresolved implementation work is tracked in the product backlog; no new decisions were introduced by this migration.

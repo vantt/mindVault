@@ -1,12 +1,18 @@
 # Reading Map
 
-Where each area of this project lives. bee-scribing owns this file: it is
-updated whenever an area spec is created or moved. Read this before any broad
-search — it answers "where does X live" without a grep.
+Current specifications and implementation entry points. Maintain this map when
+an area changes; it does not require a workflow tool or generated state.
 
-| Area | Spec | Code entry points |
+| Area | Specification | Code entry points |
 |---|---|---|
-| Mobile recipe kitchen | `docs/specs/mobile-core.md` | `shared/` |
-| Mobile Sheets Connection | `docs/specs/mobile-sheets-client.md` | `mobile/sheets-client/` |
-| Phone QR Cookbook Handoff (extension sender) | `docs/specs/qr-handoff.md` | `chrome-extension/src/options/options-export-wizard.js`, `options-qr-display.js`; `chrome-extension/src/adapters/infrastructure/qr-serialization.js`, `qr-chunking.js` |
-| *(other areas — chrome-extension, landing-page — not yet mapped; run a bee-scribing bootstrap/harvest pass)* | | |
+| Browser recipe kitchen | [Product requirements](../prd.md), [password system](../password-system-design.md) | `chrome-extension/src/` |
+| Mobile recipe kitchen | [Core](mobile-core.md) | `shared/` |
+| Mobile Menu connection | [Menu client](mobile-sheets-client.md) | `mobile/sheets-client/` |
+| Android Cookbook storage/unlock | [Keystore](mobile-keystore.md) | `app/`, `shared/` |
+| Phone QR Cookbook handoff: extension sender | [QR sender](qr-handoff.md) | `chrome-extension/src/options/options-qr-display.js`, `chrome-extension/src/adapters/infrastructure/qr-serialization.js`, `chrome-extension/src/adapters/infrastructure/qr-chunking.js` |
+| Marketing landing page | Area specification not yet consolidated | `landing-page/` |
+
+Start with [system overview](system-overview.md). Product choices and remaining
+work are maintained in [decisions](../decisions/mobile-product-decisions.md) and
+[backlog](../backlog.md). [Historical plans/reports](../history/README.md)
+preserve earlier implementation evidence; their former automation is retired.

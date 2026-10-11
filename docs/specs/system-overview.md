@@ -1,20 +1,43 @@
 # System Overview
 
-One-page, technology-agnostic description of what this system does and how its
-areas fit together. bee-scribing owns this file; it is the first read for any
-human or agent new to the repository.
+PassChef stores recipes in a Google Menu and mixes them with the Chef's private
+spices to cook each dish when needed. The Menu holds recipes rather than cooked
+passwords. The browser extension protects stored spices with its encrypted
+profile and keeps existing recipe/tag behavior covered by approved tests.
 
-*(Full system map not yet written — most areas, including the browser
-extension and the landing page, have not gone through a bee-scribing
-bootstrap/harvest pass. The section below covers only the one area scribed so
-far.)*
+## Browser and QR sender
 
-## Mobile Sheets Connection
+The extension provides recipe cooking, tagged recipe checks and encrypted
+full-access bundle export. Its QR sender displays a bundle as one QR or a
+sequence of chunks. Actual canvas decoding verified the sender; a phone QR
+reader, reassembly and import screen are still separate work.
+See the [QR specification](qr-handoff.md).
 
-A foundational connection layer for a not-yet-built mobile app: it lets code
-read and update the account owner's Google Sheet (the same sheet the browser
-extension already works with) using a permission the owner grants once, by
-hand, outside this product. See `docs/specs/mobile-sheets-client.md` for the
-full spec. No mobile app screens consume it yet — today it is the connection
-itself, a one-time setup guide, and a one-time check that proves the
-connection works.
+## Mobile foundation
+
+The Android/JVM shared kitchen ports recipe cooking/tag checks and decrypts the
+extension's full-access bundles. Its parity proof is pinned to the tested browser
+behavior; iOS/Kotlin-Native remains deferred. See [Core](mobile-core.md).
+
+A separate Kotlin Menu client reads and appends/updates recipes through Google
+Sheets API. It has a manual OAuth setup guide and a JVM connection check;
+synthetic responses/loopback tests verify client behavior. Real Google client
+creation and a live Cookbook read remain the account owner's follow-up.
+No full phone UI consumes this standalone connection yet.
+See [Menu connection](mobile-sheets-client.md).
+
+The minimal Android demo keeps an encrypted Cookbook, authorizes device-key
+wrap/open operations with strong biometrics and recovers with the original
+master password. It locks on background, after five idle minutes or ten total
+minutes. The owner accepted tested Xiaomi/API36 coverage; unexecuted device
+matrix and typed lockout callback paths remain tracked.
+See [storage/unlock](mobile-keystore.md) and
+[accepted limits](../../plans/261011-keystore-recovery/reports/current-device-acceptance.md).
+
+## Remaining product areas
+
+Production mobile screens/edit-existing, phone QR import, Drive transport and
+autofill are separate work. The marketing landing page is another subproject.
+Use the [reading map](reading-map.md), [product backlog](../backlog.md) and
+[preserved decisions](../decisions/mobile-product-decisions.md) for current scope.
+[History](../history/README.md) records earlier plans and verification.

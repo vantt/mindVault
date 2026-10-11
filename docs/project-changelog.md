@@ -1,5 +1,20 @@
 # Project Changelog
 
+## Retire Bee tooling (2026-10-11)
+
+Removed the repository's Bee runtime, skills, agent definitions, Codex hooks,
+Claude hook registrations, managed instructions and ignore rules. Existing
+Claude hooks and unrelated skills remain intact.
+
+Product decisions and backlog criteria are retained in ordinary maintained
+documents. Original PassChef plans/reports and external recovery archives remain
+historical evidence; their former runtime references no longer activate work.
+Product source, golden tests and build configuration are unchanged.
+
+Verification: all77 existing extension unit tests pass; the focused37 Recipe/QR
+subset also passes. Product/history file hashes and unrelated tooling are
+preserved; retained hook JSON and whitespace checks pass.
+
 ## Android Keystore accepted current-device scope (2026-10-11)
 
 **Changes:** Persistent encrypted Cookbook, per-operation strong biometric
