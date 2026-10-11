@@ -2,8 +2,12 @@
 
 **Audience:** you, the project owner, doing this by hand in the Google Cloud Console web UI.
 **Purpose:** create a Google Cloud project and an OAuth client so the PassChef mobile Sheets
-client (a JVM/desktop smoke-test today, an Android app later) can read and write your
+client (the independent JVM/desktop tool) can read and write your
 password-recipe Google Sheet on your behalf.
+
+The Android Cookbook adapter is being implemented separately. Its package/signing
+registration and live acceptance are in the [Android checklist](android-cookbook-acceptance.md).
+Desktop Client ID/Secret below are not Android app configuration.
 
 **What this is not:** this runbook does not touch any code, and no `gcloud` CLI commands are
 used anywhere in it — every step below is a click-path in the Console web UI, done manually by
@@ -211,20 +215,16 @@ remain the account owner's follow-up, outside this track's completed code delive
 
 ---
 
-## Step 8 — Forward pointer: a second OAuth client for the real Android app (not built now)
+## Step 8 — Separate Android package/signing registration
 
-This step is a note, not an action — nothing to do today.
+Android uses its own **Android** OAuth client, registered with the candidate's
+package and signing-certificate SHA-1. Debug is `dev.passchef.mobile.demo`; release
+is `dev.passchef.mobile`. Keep the Desktop client for this independent JVM tool.
+No desktop secret or loopback flow is bundled in Android.
 
-When the real Android app (a separate PBI, not part of this track) is built later, it will
-need its **own**, second OAuth client of type **Android** (requiring a SHA-1 signing
-fingerprint and the app's package name) created in the **same** Google Cloud project used
-above. That Android-type client is a different credential from the Desktop-app client created
-in Step 5 — the Desktop client stays in place for the JVM smoke-test tool and does not get
-replaced or deleted when the Android client is added later. Do not attempt to create the
-Android-type client now; there is no Android app yet to receive its redirect.
-
-**Done when:** N/A (informational; nothing to check off today — revisit this step only when
-the Android app track begins).
+Follow the [Android candidate checklist](android-cookbook-acceptance.md) when the
+candidate is ready. Registration, consent and a real Android Menu read remain
+Pending. A public Menu URL is not an Android permission grant.
 
 ---
 
@@ -242,5 +242,5 @@ Use this to confirm the whole runbook is complete:
       refresh-token expiry (or that it doesn't apply, if you're on the Internal path).
 - [ ] Step 7 — Client ID/Secret are wired into the client tool's local config, confirmed not
       committed to git.
-- [ ] Step 8 — Noted for later: a separate Android-type OAuth client is still needed when the
-      real Android app is built; not needed yet.
+- [ ] Step 8 — Separate Android package/signing registration and live check remain
+      Pending in the Android checklist; this desktop run alone does not satisfy them.

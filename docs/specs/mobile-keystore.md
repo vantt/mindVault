@@ -5,8 +5,10 @@ Android8/API26 remains the supported minimum; unexecuted physical matrix is expl
 The debug demo uses `dev.passchef.mobile.demo`, with a separate UID/private data
 from the release application `dev.passchef.mobile`. Its proof file is distinct from
 the demo Cookbook, and existing demo data must be preserved during device preflight.
-This foundation has one demo screen; broader mobile screens, QR, Menu connection
-and autofill remain their separate plans.
+The accepted foundation originally had one demo screen. The new
+[Cookbook screens/connection](mobile-cookbook.md) are being implemented separately;
+their local verification passed; new physical/live acceptance remains Pending.
+QR receiving and autofill stay separate follow-ups.
 
 The Chef sets a master password and1–5 spice jars. The device derives a32-byte
 master key using Argon2id v19,time3,64MiB,parallelism4 and a random16-byte salt.

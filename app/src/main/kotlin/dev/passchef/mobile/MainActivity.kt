@@ -12,16 +12,23 @@ import javax.crypto.Cipher
 import dev.passchef.mobile.vault.BiometricPromptFailure
 
 /** No session state is restored across Activity/process recreation. */
-class MainActivity : FragmentActivity() {
+open class MainActivity : FragmentActivity() {
     private lateinit var controller: VaultController
+    private lateinit var cookbook: dev.passchef.mobile.cookbook.CookbookController
+    private lateinit var clipboard: dev.passchef.mobile.cookbook.OwnedClipboard
+    protected open fun storageContext(): android.content.Context = this
     private var prompt: BiometricPrompt? = null
     private var promptEpoch = 0L
     private var clearInputs: () -> Unit = {}
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         window.addFlags(WindowManager.LayoutParams.FLAG_SECURE)
-        controller = VaultController(this, ::authenticate) { promptEpoch++; prompt?.cancelAuthentication(); prompt = null }
-        setContent { VaultScreen(controller) { clearInputs = it } }
+        controller = VaultController(storageContext(), ::authenticate) { promptEpoch++; prompt?.cancelAuthentication(); prompt = null }
+        clipboard = dev.passchef.mobile.cookbook.OwnedClipboard.obtain(this)
+        cookbook = dev.passchef.mobile.cookbook.CookbookController(controller, clipboard,
+            dev.passchef.mobile.cookbook.AndroidSheetsAuthorization(this), java.io.File(storageContext().noBackupFilesDir,"menus"))
+        controller.onLocked = cookbook::lock
+        setContent { dev.passchef.mobile.cookbook.MainCookbookScreen(controller,cookbook) { clearInputs = it } }
     }
     private fun authenticate(cipher: Cipher, success: (Cipher) -> Unit, failure: (BiometricPromptFailure) -> Unit) {
         val token = ++promptEpoch
@@ -50,9 +57,13 @@ class MainActivity : FragmentActivity() {
         try { prompt!!.authenticate(info, BiometricPrompt.CryptoObject(cipher)) }
         catch (_: Exception) { prompt = null; failure(BiometricPromptFailure.OTHER) }
     }
-    override fun onStart() { super.onStart(); controller.start() }
-    override fun onStop() { clearInputs(); controller.lock(); super.onStop() }
-    override fun onDestroy() { controller.destroy(); super.onDestroy() }
+    override fun onStart() { super.onStart(); controller.start(); clipboard.setForeground(true) }
+    override fun onWindowFocusChanged(hasFocus: Boolean) {
+        super.onWindowFocusChanged(hasFocus)
+        if (hasFocus && ::clipboard.isInitialized) clipboard.reconcile()
+    }
+    override fun onStop() { clearInputs(); controller.lock(); clipboard.setForeground(false); super.onStop() }
+    override fun onDestroy() { cookbook.destroy(); controller.destroy(); super.onDestroy() }
     override fun dispatchTouchEvent(event: MotionEvent): Boolean {
         if (::controller.isInitialized && event.action == MotionEvent.ACTION_DOWN) controller.touch()
         return super.dispatchTouchEvent(event)

@@ -1,5 +1,29 @@
 # Project Changelog
 
+## Implement Android Cookbook Phase1 code (2026-10-12)
+
+Production session-owned cooking now serves manual Recipes and cached Menu entries.
+Private atomic snapshots preserve literal source/tab/row and confirmed columns;
+Compose adds lookup/search/favorites, explicit mapping, EN/VI and masked reveal/copy.
+Clipboard cleanup belongs to the process and compares its own label/content digest.
+Existing encrypted jars, Recipe algorithms, Golden tests and Keystore policy remain
+compatible. Metadata is private/backup-excluded but is not encrypted.
+
+Google AuthorizationClient and the actual Android Ktor engine consume canonical
+Sheets code through a root Android/JVM bridge. Tokens remain in RAM; source/write
+ownership prevents stale replies or concurrent cache updates replacing newer work.
+The client now bounds streamed HTTP bodies before decoding; append/update regressions
+remain supported, while account-write screens remain later scope.
+
+Independent shared74, bridge16, app4 and standalone29 tests passed; debug/test/release
+APK builds passed. Lint:0 errors,11 warnings,1 hint; no unresolved P1/P2. See [verification](../plans/261012-mobile-cookbook-phase1/reports/verification.md)
+and [review](../plans/261012-mobile-cookbook-phase1/reports/independent-review.md).
+Real Android Google setup/consent/read and new phone UI/clipboard/lifecycle/timers
+remain Pending. Instrumentation compilation is not executed device proof. Whole
+mobile Phase1 remains Partial; the plan stays active. QR receiver, Autofill, Drive
+and account authoring remain separate follow-ups. The five browser slices were
+independently rechecked:147 units and25 headed E2E passed with no source changes.
+
 ## Complete prioritized browser slices (2026-10-12)
 
 One authentication authority now protects setup/unlock and encrypted profile commits.

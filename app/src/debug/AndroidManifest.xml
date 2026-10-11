@@ -2,5 +2,7 @@
     <application>
         <activity android:name="dev.passchef.mobile.proof.BiometricProofActivity"
             android:exported="false" android:theme="@android:style/Theme.Material.Light.NoActionBar" />
+        <activity android:name="dev.passchef.mobile.proof.CookbookProofActivity"
+            android:exported="false" android:theme="@android:style/Theme.Material.Light.NoActionBar" />
     </application>
 </manifest>

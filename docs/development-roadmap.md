@@ -6,12 +6,14 @@
   independent acceptance. Next: remaining MVP Sync/platform/performance verification
   and release readiness, followed by mobile/website/commercialization dependencies.
   Full MVP remains Partial; closed Builder/Tag/Core/Popup UX plans are archived.
-- Real Google OAuth setup and one live Cookbook read remain pending; local
-  client verification does not certify an account connection.
+- [Android Cookbook Phase1](../plans/261012-mobile-cookbook-phase1/plan.md): real
+  manual cooking, private cache/confirmed columns, Compose lookup/reveal/copy and
+  Android authorization/Sheets engine are implemented and locally verified. Owner
+  Android Google setup/grant/read and new physical acceptance remain Pending. Local protocol fixtures do not certify an account connection.
 - [Keystore physical coverage follow-up](../archive/plans/261011-keystore-recovery/reports/current-device-acceptance.md):
   API26/no hardware/no enrollment, typed7/9 callbacks, exact process-kill/
   retry-exhaustion windows and precise Recents observation remain unexecuted.
-- Phone QR reading/reassembly and broader mobile screens are separate follow-ups
+- Phone QR reading/reassembly, Autofill and account-authoring screens are separate follow-ups
   from main; all original feature checkouts are closed.
 
 

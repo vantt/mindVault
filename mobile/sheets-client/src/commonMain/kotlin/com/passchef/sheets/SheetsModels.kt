@@ -49,3 +49,11 @@ data class GoogleApiErrorDetail(
     val message: String,
     val status: String? = null
 )
+
+
+@Serializable data class SpreadsheetMetadata(val spreadsheetId: String, val properties: SpreadsheetTitle,
+    val sheets: List<SpreadsheetTab>)
+@Serializable data class SpreadsheetTitle(val title: String)
+@Serializable data class SpreadsheetTab(val properties: TabProperties)
+@Serializable data class TabProperties(val sheetId: Int, val title: String, val gridProperties: GridSize)
+@Serializable data class GridSize(val rowCount: Int, val columnCount: Int)

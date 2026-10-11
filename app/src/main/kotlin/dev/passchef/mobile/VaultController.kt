@@ -33,6 +33,18 @@ class VaultController(
     private var session: VaultSession? = null
     private val epoch = OperationEpoch()
     private var active = false
+    var onLocked: () -> Unit = {}
+    private val cooking = VaultCooking(worker, main, ::readyForCooking)
+    fun readyForCooking(): Boolean = active && unlocked && !clock.expired(SystemClock.elapsedRealtime())
+    fun invalidateDish() { cooking.invalidate() }
+    fun cook(text: String, menuId: String?, callback: (dev.passchef.mobile.recipe.CookingResult?, String?) -> Unit) {
+        cooking.invalidate()
+        if (!readyForCooking()) { callback(null, "LOCKED"); return }
+        val recipe = dev.passchef.mobile.recipe.RecipeParser.parse(text)
+        if (recipe == null) { callback(null, "INVALID_RECIPE"); return }
+        val jar = session?.spices?.get(recipe.spiceIndex)?.copyOf()
+        cooking.cook(text, menuId, jar, callback)
+    }
     private val tickCallback = Runnable { tick() }
     private val wrapping = VaultWrapping(context, crypto, repository, worker, main, authenticate,
         { active && epoch.accepts(it) }, ::retire, ::passwordOnly, ::passwordLockout, ::finish, ::fail, { status = it })
@@ -40,10 +52,11 @@ class VaultController(
     fun start() { active = true; tick() }
     fun touch() { clock.touch(SystemClock.elapsedRealtime()) }
     fun lock() {
-        active = false; epoch.invalidate(); cancelPrompt(); main.removeCallbacks(tickCallback)
+        active = false; cooking.invalidate(); epoch.invalidate(); cancelPrompt(); main.removeCallbacks(tickCallback)
         wrapping.cancel()
         session?.close(); session = null; clock.lock()
         unlocked = false; busy = false; status = "Cookbook locked"
+        runCatching { onLocked() }
     }
     fun explicitLock() { lock(); start() }
     fun destroy() { lock(); worker.shutdown() }

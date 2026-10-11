@@ -1,14 +1,18 @@
 package com.passchef.sheets
 
 import io.ktor.client.HttpClient
-import io.ktor.client.call.body
+import io.ktor.client.plugins.HttpTimeout
+import io.ktor.client.statement.bodyAsChannel
+import io.ktor.utils.io.readRemaining
+import io.ktor.utils.io.core.readBytes
+import kotlinx.serialization.decodeFromString
 import io.ktor.client.engine.HttpClientEngine
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.request.HttpRequestBuilder
-import io.ktor.client.request.get
+import io.ktor.client.request.prepareGet
 import io.ktor.client.request.header
-import io.ktor.client.request.post
-import io.ktor.client.request.put
+import io.ktor.client.request.preparePost
+import io.ktor.client.request.preparePut
 import io.ktor.client.request.setBody
 import io.ktor.client.statement.HttpResponse
 import io.ktor.http.ContentType
@@ -39,17 +43,30 @@ class SheetsClient(
 ) {
     private val httpClient = HttpClient(engine) {
         expectSuccess = false
+        install(HttpTimeout) { requestTimeoutMillis = 20_000; connectTimeoutMillis = 10_000; socketTimeoutMillis = 20_000 }
         install(ContentNegotiation) {
             json(Json { ignoreUnknownKeys = true })
         }
     }
 
+    /** Only requested metadata; the caller confirms a tab before reading rows. */
+    suspend fun getSpreadsheet(spreadsheetId: String): SpreadsheetMetadata {
+        val statement = httpClient.prepareGet("$SHEETS_API_BASE/${spreadsheetId.encodeAsPathSegment()}") {
+            bearerAuth()
+            url.parameters.append("fields", "spreadsheetId,properties(title),sheets(properties(sheetId,title,gridProperties))")
+        }
+        return statement.execute { it.decodeOrThrow<SpreadsheetMetadata>() }.also {
+            require(it.spreadsheetId == spreadsheetId && it.properties.title.length in 1..200 && it.sheets.size <= 50)
+            require(it.sheets.all { tab -> tab.properties.title.length in 1..200 && tab.properties.sheetId >= 0 })
+        }
+    }
+
     /** Reads [range] (A1 notation, e.g. `"Sheet1!A1:B2"`) from [spreadsheetId]. */
     suspend fun getValues(spreadsheetId: String, range: String): ValueRange {
-        val response = httpClient.get(valuesUrl(spreadsheetId, range)) {
+        val statement = httpClient.prepareGet(valuesUrl(spreadsheetId, range)) {
             bearerAuth()
         }
-        return response.decodeOrThrow()
+        return statement.execute { it.decodeOrThrow<ValueRange>() }
     }
 
     /**
@@ -63,14 +80,14 @@ class SheetsClient(
         valueInputOption: String = "RAW"
     ): AppendValuesResponse {
         validateInputOption(valueInputOption)
-        val response = httpClient.post(
+        val statement = httpClient.preparePost(
             "${valuesUrl(spreadsheetId, range)}:append?valueInputOption=$valueInputOption"
         ) {
             bearerAuth()
             contentType(ContentType.Application.Json)
             setBody(ValueRange(range = range, values = values))
         }
-        return response.decodeOrThrow()
+        return statement.execute { it.decodeOrThrow<AppendValuesResponse>() }
     }
 
     /**
@@ -84,14 +101,14 @@ class SheetsClient(
         valueInputOption: String = "RAW"
     ): UpdateValuesResponse {
         validateInputOption(valueInputOption)
-        val response = httpClient.put(
+        val statement = httpClient.preparePut(
             "${valuesUrl(spreadsheetId, range)}?valueInputOption=$valueInputOption"
         ) {
             bearerAuth()
             contentType(ContentType.Application.Json)
             setBody(ValueRange(range = range, values = values))
         }
-        return response.decodeOrThrow()
+        return statement.execute { it.decodeOrThrow<UpdateValuesResponse>() }
     }
 
     fun close() {
@@ -118,12 +135,22 @@ class SheetsClient(
      * exception (plan.md test matrix item 7/8) -- 401 and 403 each get their
      * own type so callers can tell "re-auth" apart from "re-consent".
      */
+    private suspend fun HttpResponse.boundedText(): String {
+        val channel = bodyAsChannel()
+        try {
+            require((headers[HttpHeaders.ContentLength]?.toLongOrNull() ?: 0) <= 200_000)
+            val bytes = channel.readRemaining(200_001).readBytes()
+            require(bytes.size <= 200_000)
+            return bytes.decodeToString(throwOnInvalidSequence = true)
+        } finally { channel.cancel(null) }
+    }
+
     private suspend inline fun <reified T> HttpResponse.decodeOrThrow(): T {
         val httpStatus = status.value
         if (httpStatus in 200..299) {
-            return body()
+            return Json { ignoreUnknownKeys = true }.decodeFromString<T>(boundedText())
         }
-        val message = runCatching { body<GoogleApiErrorBody>().error.message }
+        val message = runCatching { Json { ignoreUnknownKeys = true }.decodeFromString<GoogleApiErrorBody>(boundedText()).error.message }
             .getOrElse { "Sheets API request failed with status $httpStatus" }
         throw when (httpStatus) {
             401 -> SheetsUnauthorizedException(message)
@@ -131,25 +158,4 @@ class SheetsClient(
             else -> SheetsApiException(httpStatus, message)
         }
     }
-}
-
-/**
- * Minimal, dependency-free percent-encoding for a single URL path segment.
- * Sheets A1-notation ranges (e.g. `"Sheet 1!A1:B2"`) contain spaces, `!`, and
- * `:` that are not safe unencoded in a path segment; this avoids pulling in a
- * JVM-only encoder so the client stays usable from `commonMain`.
- */
-private fun String.encodeAsPathSegment(): String {
-    val safe = ('a'..'z') + ('A'..'Z') + ('0'..'9') + listOf('-', '_', '.', '~')
-    val builder = StringBuilder()
-    for (byte in encodeToByteArray()) {
-        val value = byte.toInt() and 0xFF
-        if (value.toChar() in safe) {
-            builder.append(value.toChar())
-        } else {
-            val hex = value.toString(16).uppercase()
-            builder.append('%').append(if (hex.length == 1) "0$hex" else hex)
-        }
-    }
-    return builder.toString()
 }

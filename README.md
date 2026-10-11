@@ -5,7 +5,7 @@
 > **Note:** This repository contains:
 >
 > 1. **[Chrome Extension](./chrome-extension)**: The main password manager tool.
-> 2. **[Android foundation](./app)**: Cookbook storage/unlock demo and shared recipe kitchen; the [Menu client](./mobile/sheets-client) builds independently.
+> 2. **[Android Cookbook](./app)**: Manual cooking, offline Menu cache/mapping and Google connection code; the [Menu client](./mobile/sheets-client) also builds independently.
 > 3. **[Landing Page](./landing-page)**: Marketing website.
 
 PassChef is a Chrome Extension that allows you to generate strong, consistent passwords directly from your Google Sheets cells using a formula-based approach (e.g., `r4nd0m#1`). It uses **Argon2id** and **AES-256-GCM** to ensure your master secrets are secure.
@@ -152,7 +152,7 @@ cd mobile/sheets-client
 The Android/JVM [shared kitchen](shared/) ports recipe cooking and opens the
 extension's full-access bundles. Its [spec](docs/specs/mobile-core.md) and
 [recovery report](archive/plans/passchef-mobile/reports/mobile-core-recovery.md)
-record acceptance and limits. The Menu client above remains an independent build.
+record acceptance and limits. The Menu client above retains its independent build; the root Android bridge reuses its canonical common sources.
 
 From the repo root with JDK 17 and Android SDK platform 36 installed:
 
@@ -163,25 +163,34 @@ export PATH="$JAVA_HOME/bin:$PATH"
 ./gradlew :shared:jvmTest :shared:assemble
 ```
 
-### Android Cookbook storage
+### Android Cookbook
 
-The minimal [Android demo](app/) stores an encrypted Cookbook, authorizes each
-device-key wrap/open with strong biometrics, and recovers using the original
-master password. It locks on background, after five idle minutes or ten total
-minutes. Debug uses the isolated `dev.passchef.mobile.demo` package.
+The [Android app](app/) connects its encrypted Cookbook to manual Recipe cooking,
+confirmed Menu columns, private offline snapshots, search/favorites and masked
+reveal/copy. The root `:sheets-android` bridge shares the portable Menu client;
+explicit Connect uses Google's Android authorization flow. Cached account metadata
+is app-private and excluded from backup, but is not encrypted.
 
-The owner accepted the verified Xiaomi/API36 scope on 2026-10-11. See the
-[device runbook](docs/runbooks/android-keystore-device-proof.md) and
-[remaining physical checks](archive/plans/261011-keystore-recovery/reports/current-device-acceptance.md).
-Android packaging alone does not establish device behavior; this demo is the
-storage/unlock foundation, with the full mobile screens and QR reader still pending.
+The existing strong-biometric/original-password foundation and five-minute idle /
+ten-minute total lock remain. Debug uses `dev.passchef.mobile.demo` separately from
+release. Historical Xiaomi/API36 acceptance covers the storage foundation only;
+new phone UI/clipboard/timer checks and an actual Android Google grant/read remain
+Pending. See the [Cookbook contract](docs/specs/mobile-cookbook.md),
+[execution evidence](plans/261012-mobile-cookbook-phase1/reports/verification.md),
+[owner acceptance checklist](docs/runbooks/android-cookbook-acceptance.md) and
+[remaining Keystore matrix](archive/plans/261011-keystore-recovery/reports/current-device-acceptance.md).
+QR receiving, Autofill and account authoring remain later work.
 
 With the same JDK17/SDK36 setup above:
 
 ```bash
-./gradlew :shared:jvmTest :shared:assemble :app:assembleDebug \
+./gradlew :shared:jvmTest :shared:assemble :sheets-android:jvmTest \
+  :sheets-android:assemble :app:testDebugUnitTest :app:assembleDebug \
   :app:assembleDebugAndroidTest :app:assembleRelease :app:lintDebug
 ```
+
+The test APK compiles real Compose/device assertions; compilation does not execute
+those assertions. No unattended task grants Google access or installs on the owner phone.
 
 ### Extension development
 

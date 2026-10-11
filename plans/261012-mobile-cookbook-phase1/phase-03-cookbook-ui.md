@@ -1,6 +1,6 @@
 # Phase03 — Compose Cookbook, reveal and owned clipboard
 
-Status: **Pending**. Priority:3. Depends on phases01–02; physical acceptance Pending.
+Status: **Partial — code complete; physical acceptance Pending**. Priority:3.
 
 ## Context and key insight
 
@@ -30,30 +30,30 @@ username Copy is separate and must not be erased by an old Dish cleanup.
 
 ## Implementation steps / TODO
 
-- [ ] Split navigation/setup/unlock/list/Cook/mapping/detail into focused components<200lines;
+- [x] Split navigation/setup/unlock/list/Cook/mapping/detail into focused components<200lines;
   provide EN/VI strings, accessibility labels and loading/empty/no-results states.
-- [ ] Use manual Cookbook source ID/URL + tab selection rather than add Drive picker scope;
+- [x] Use manual Cookbook source ID/URL + tab selection rather than add Drive picker scope;
   uncertain column roles show the confirmation preview from phase02.
-- [ ] Display verified-tag badge only as Recipe metadata, not prevalidated cooking proof.
+- [x] Display verified-tag badge only as Recipe metadata, not prevalidated cooking proof.
   Show friendly mismatch/missing-context errors with no stale Dish or usable Copy.
-- [ ] Mask by default; explicit reveal/copy checks session ownership; timeout, navigation,
+- [x] Mask by default; explicit reveal/copy checks session ownership; timeout, navigation,
   edit, lock, background or new entry clears/hides the previous result.
-- [ ] Implement real Android ClipboardManager adapter with sensitive-content marker
+- [x] Implement real Android ClipboardManager adapter with sensitive-content marker
   where available. Confirm successful write before toast; only clear matching owned
   text/generation, and never write after inaccessible read or replacement text.
-- [ ] Keep cleanup ownership outside the closing detail screen, schedule bounded30s
+- [x] Keep cleanup ownership outside the closing detail screen, schedule bounded30s
   work and reconcile when foreground access is legal. Android background clipboard
   restrictions mean no promise of exact background/history-wide removal.
-- [ ] Maintain5-minute idle/10-minute total monotonic clock; no navigation/reveal/copy
+- [x] Maintain5-minute idle/10-minute total monotonic clock; no navigation/reveal/copy
   grants a new absolute window. OnStop hides Dish and locks jars immediately.
 
 ## Success criteria and positive proof
 
-- [ ] JVM deferred-result/reveal/clipboard tests cover10s/30s edges, new copy, replacement
+- [x] JVM deferred-result/reveal/clipboard tests cover10s/30s edges, new copy, replacement
   text, denied read, screen close, lock/reopen and unchanged absolute session deadline.
-- [ ] Debug/release/test APKs compile and lint passes; no unmasked saved state, sensitive
+- [x] Debug/release/test APKs compile and lint passes; no unmasked saved state, sensitive
   logging, remote favicon request or release proof harness is introduced.
-- [ ] Compiled UI tests assert actual setup→paste→Cook, mapping/list/search, exact Dish,
+- [x] Compiled UI tests assert actual setup→paste→Cook, mapping/list/search, exact Dish,
   mismatch refusal, reveal timeout, username/Dish copy and lock/background cleanup.
   Record them as **not run** until authorized device/runtime executes them.
 - [ ] Physical phone observes layout/accessibility, biometric/password fallback,
@@ -66,3 +66,7 @@ need honest platform limits ([Android clipboard](https://developer.android.com/d
 Recent/favorites contain entry IDs only; remote icons/swipe conveniences/settings
 extras are later UI refinement, not a claim that every Q6 sketch shipped.
 Continue to real connection code; offline screens remain usable while disconnected.
+
+Implementation exists in the production app/shared/client paths above. Final local
+results and unchanged Golden evidence are recorded in [verification](reports/verification.md);
+compiled physical tests remain unexecuted. No phone/account grant was used tonight.

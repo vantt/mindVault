@@ -1,13 +1,13 @@
 # Phase01 — Session-owned manual Recipe cooking
 
-Status: **Pending**. Priority:1. No source change or test run recorded.
+Status: **Done — implemented and independently verified locally**. Priority:1.
 
 ## Context and key insight
 
 [Core](../../docs/specs/mobile-core.md), [Keystore](../../docs/specs/mobile-keystore.md),
 [Q6 fallback](../../docs/mobile-app-brainstorm-qa.md#q6--đi-sâu-ui-vault-phase-1).
 `VaultController` owns a private `VaultSession`, serial worker, operation epoch and
-`SessionClock`; the screen cannot yet cook. The kitchen already parses/transforms
+`SessionClock`; the new screen now uses guarded session-owned cooking. The kitchen already parses/transforms
 and verifies tags. Keep the existing encrypted record and device-key recovery.
 
 ## Requirements and architecture
@@ -30,24 +30,24 @@ Cooking must not derive Argon2 again or reset the absolute session deadline.
 
 ## Implementation steps / TODO
 
-- [ ] Define safe `Locked/Ready/Busy/Refused` result state, typed errors and request ownership.
-- [ ] Add a bounded session accessor/action that checks foreground, epoch and monotonic
+- [x] Define safe `Locked/Ready/Busy/Refused` result state, typed errors and request ownership.
+- [x] Add a bounded session accessor/action that checks foreground, epoch and monotonic
   expiry before reading jars, and checks again before publishing a Dish.
-- [ ] Decode only required jar bytes for the kitchen call; discard temporary buffers
+- [x] Decode only required jar bytes for the kitchen call; discard temporary buffers
   and result references on invalidation. Do not claim immutable-string zeroization.
-- [ ] Connect manual paste + optional saved Menu context to the existing kitchen.
-- [ ] Clear old Dish/Copy immediately on every edit, invalid Recipe, lock or newer request.
-- [ ] Route background/recreation/explicit lock/timeout through one cleanup callback;
+- [x] Connect manual paste + optional saved Menu context to the existing kitchen.
+- [x] Clear old Dish/Copy immediately on every edit, invalid Recipe, lock or newer request.
+- [x] Route background/recreation/explicit lock/timeout through one cleanup callback;
   no result or Spice value goes into rememberSaveable, saved state, logs or disk.
-- [ ] Keep existing setup/recovery and code15/lockout behavior; preserve old record bytes.
+- [x] Keep existing setup/recovery and code15/lockout behavior; preserve old record bytes.
 
 ## Success criteria and positive proof
 
-- [ ] Real existing kitchen returns literal expected Dishes for known synthetic inputs;
+- [x] Real existing kitchen returns literal expected Dishes for known synthetic inputs;
   exact tagged match succeeds, wrong/missing Menu refuses, missing jar/invalid Recipe refuses.
-- [ ] Deferred old cook completion after edit/lock/background/reopen cannot publish/copy.
-- [ ] Expiry is checked before access and publication; cooking cannot extend total lifetime.
-- [ ] Original shared cooking/Unicode/cache/security tests remain unchanged and pass.
+- [x] Deferred old cook completion after edit/lock/background/reopen cannot publish/copy.
+- [x] Expiry is checked before access and publication; cooking cannot extend total lifetime.
+- [x] Original shared cooking/Unicode/cache/security tests remain unchanged and pass.
 Use phase5 `:shared:jvmTest :shared:assemble` and app compile, with real kitchen
 and pure clock/ownership regressions. These do not prove physical authentication.
 
@@ -57,3 +57,7 @@ Never move key ownership into a Compose screen or pass raw jars to a saved model
 The worker/session cleanup must serialize access to avoid wiping a jar during use.
 Physical background/timer acceptance stays Pending. Continue with cached Menu
 entries and Compose presentation; one owned cooking path serves both paste and list.
+
+Implementation exists in the production app/shared/client paths above. Final local
+results and unchanged Golden evidence are recorded in [verification](reports/verification.md);
+compiled physical tests remain unexecuted. No phone/account grant was used tonight.

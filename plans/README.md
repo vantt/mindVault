@@ -8,7 +8,7 @@ Partial because its release and broad verification scope extends beyond those sl
 | Order | Platform | Plan | Status | Next relevant work / dependency |
 |---|---|---|---|---|
 |1|Browser extension|[Extension MVP](../docs/prd/v1-mvp.md)|Partial; phases1–4 Done|Phase5: cross-device Chrome Sync/conflicts, broad platform/security/performance measurements. Phase6: release readiness/Chrome Web Store. Argon2-only fail-closed settled; vault PBKDF2 fallback Superseded.|
-|2|Mobile (Android)|[Mobile roadmap](../docs/mobile-app-brainstorm-qa.md); [Phase1 execution plan](261012-mobile-cookbook-phase1/plan.md)|Partial; execution plan prepared|Offline Cook/cache/mapping/Compose code and JVM/APK/lint can proceed without phone; physical/Google acceptance Pending. Real OAuth connection → production onboarding/Cookbook screens and receiver/import → cache/mapping/copy integration. Autofill follows working Cookbook; Drive/advanced authoring later. Browser Google acceptance does not prove the mobile account connection.|
+|2|Mobile (Android)|[Mobile roadmap](../docs/mobile-app-brainstorm-qa.md); [Phase1 execution plan](261012-mobile-cookbook-phase1/plan.md)|Partial; code/local verification Done|Offline Cook/cache/mapping/Compose and Android connection code implemented, independently tested/reviewed; physical/Google acceptance Pending. Autofill follows working Cookbook; QR receiver/Drive/advanced authoring later. Browser Google acceptance does not prove the mobile account connection.|
 |3|Website|[Landing improvements](../landing-page-improve.md)|Partial|OG asset, actual product captures, responsive/performance verification, truthful social proof. Light mode optional. Extension UI now stable enough for captures.|
 |4|Browser extension + Website / Release|[Commercialization](../docs/commercialization-plan.md)|Partial / Pending|Account/domain/support/screenshots, release and outreach. Depends on product verification and launch assets; growth follows release evidence.|
 
@@ -28,7 +28,7 @@ Precision styling and runtime locale selection supersede older design mechanisms
 
 ## Preserved boundaries
 
-Native/iOS, mobile Google account connection, full phone screens, QR receiver,
+Native/iOS, mobile Google account acceptance, new phone UI/device verification, QR receiver,
 Drive and residual Keystore physical matrix remain follow-ups. Store publication
 and a broad Sync/platform matrix were not certified by browser acceptance.
 No unfinished outcome is discarded merely because its plan is old.

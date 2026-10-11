@@ -1,6 +1,6 @@
 # Phase04 — Android platform bridge and real Google connection
 
-Status: **Pending**. Priority:4. Code/test packaging can proceed without owner;
+Status: **Partial — code/local verification Done; owner Google acceptance Pending**. Priority:4;
 real authorization and successful owner Sheets read remain Pending.
 
 ## Context and key insight
@@ -35,32 +35,32 @@ Phase1 only consumes read paths; retain RAW append/update client regression beha
 
 ## Implementation steps / TODO
 
-- [ ] First prove root Android bridge compile/portable protocol tests; document target,
+- [x] First prove root Android bridge compile/portable protocol tests; document target,
   source-set ownership and standalone build preservation. If this layout fails,
   revise the bridge before app wiring; do not silently upgrade all roots.
-- [ ] Add bounded spreadsheet metadata/tab discovery and bounded value reads (explicit range chunking when needed),
+- [x] Add bounded spreadsheet metadata/tab discovery and bounded value reads (explicit range chunking when needed),
   quoted A1 tab names, Unicode encoding, literal value preservation and client closing.
-- [ ] Define authorization/provider boundary and genuine Android callback code using
+- [x] Define authorization/provider boundary and genuine Android callback code using
   the supported Google user-data authorization flow ([official guide](https://developer.android.com/identity/authorization)).
   Desktop client secret/loopback exchange is not bundled in the app.
-- [ ] Request the settled Sheets scope at explicit Connect; use Activity-result and
+- [x] Request the settled Sheets scope at explicit Connect; use Activity-result and
   lifetime/epoch guards. Cancelled/stale account/permission replies cannot publish a
   token or refresh another source after lock/background/source change.
-- [ ] Keep tokens in RAM, out of disk/logs/saved state; reacquire/reconnect when needed.
+- [x] Keep tokens in RAM, out of disk/logs/saved state; reacquire/reconnect when needed.
   Missing configuration/services/grant is explicit disconnected state, never fake success.
-- [ ] Parse user-selected Menu URL/ID, retrieve title/tabs, preview and confirm mapping;
+- [x] Parse user-selected Menu URL/ID, retrieve title/tabs, preview and confirm mapping;
   refresh atomically.401 asks reconnect,403 explains access, network failure retains cache.
-- [ ] Add Android-specific manual setup addendum: package `.demo`/release and signing
+- [x] Add Android-specific manual setup addendum: package `.demo`/release and signing
   SHA registration, consent/test-user setup, permitted scope and dedicated test Menu.
   Existing public browser URL is not proof of an API authorization grant.
 
 ## Success criteria and proof boundary
 
-- [ ] Portable HTTP protocol tests cover empty read, metadata/tabs, Unicode ranges,
+- [x] Portable HTTP protocol tests cover empty read, metadata/tabs, Unicode ranges,
  401/403/malformed/timeouts/engine close and original RAW append/update/no delete.
-- [ ] Deferred callback tests prove cancelled/stale auth/refresh cannot replace token,
+- [x] Deferred callback tests prove cancelled/stale auth/refresh cannot replace token,
   source, mapping or cache. APK/release/lint positive compile evidence recorded.
-- [ ] Independent standalone JVM21 build/test still passes original connection tests.
+- [x] Independent standalone JVM21 build/test still passes original connection tests.
 - [ ] **Owner Pending:** manual Android client configuration, real account consent,
   actual selected-Menu/tab API read and cache reload after disconnect; no mock credit.
 
@@ -70,3 +70,7 @@ OAuth prompts may background the Activity: existing background lock still applie
 resume reconnect result safely and require local unlock before cooking. Token access
 is unrelated to Spice authorization. No backend/refresh-secret/service-account shortcut.
 After code freeze, phase05 independently checks code while retaining owner Pending.
+
+Implementation exists in the production app/shared/client paths above. Final local
+results and unchanged Golden evidence are recorded in [verification](reports/verification.md);
+compiled physical tests remain unexecuted. No phone/account grant was used tonight.

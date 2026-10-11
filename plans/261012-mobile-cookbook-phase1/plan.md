@@ -1,8 +1,10 @@
 # Android Cookbook — first production slice
 
-Date: 2026-10-12 (Asia/Saigon). Status: **Pending — planning only**.
-Baseline: main `ae9a702ba04ff37b316cba89634ba474d6de27a0`.
-No implementation, approval, build, device run or completion is implied by this dossier.
+Date: 2026-10-12 (Asia/Saigon). Status: **Partial — code/local checks Done; owner acceptance Pending**.
+Baseline: main `2579e29044924e1582b78414b0314baffc72abe5`.
+Owner authorized two agents: recheck the five browser slices and implement mobile.
+Production code is implemented and independently verified locally.
+Device/live Google acceptance remains Pending.
 
 ## Outcome and settled scope
 
@@ -20,25 +22,28 @@ Q6's historical read-only wording is superseded by Q9 and the retained decisions
 
 | # | Detailed work | Status | Dependency / proof boundary |
 |---|---|---|---|
-| 1 | [Session-owned manual cooking](phase-01-session-cooking.md) | Pending | First useful offline path; shared JVM regressions + Android compile |
-| 2 | [Private cache and column mapping](phase-02-cache-mapping.md) | Pending | Pure model/storage tests; no Google credential required |
-| 3 | [Cookbook Compose screens and clipboard](phase-03-cookbook-ui.md) | Pending | Uses1–2; APK/test-APK/lint autonomous, actual UI/device proof Pending |
-| 4 | [Android Sheets/authorization integration](phase-04-android-sheets-connection.md) | Pending | Root-platform bridge and real connection code; owner grant still required |
-| 5 | [Independent verification and delivery](phase-05-verification-delivery.md) | Pending | Evidence separates code/build acceptance from physical/live acceptance |
+| 1 | [Session-owned manual cooking](phase-01-session-cooking.md) | Done (local scope) | First useful offline path; shared JVM regressions + Android compile |
+| 2 | [Private cache and column mapping](phase-02-cache-mapping.md) | Done (local scope) | Pure model/storage tests; no Google credential required |
+| 3 | [Cookbook Compose screens and clipboard](phase-03-cookbook-ui.md) | Partial | Uses1–2; APK/test-APK/lint autonomous, actual UI/device proof Pending |
+| 4 | [Android Sheets/authorization integration](phase-04-android-sheets-connection.md) | Partial | Root-platform bridge and real connection code; owner grant still required |
+| 5 | [Independent verification and delivery](phase-05-verification-delivery.md) | Partial | Evidence separates code/build acceptance from physical/live acceptance |
 
 Phases1–3 can produce useful real offline code without a phone/account. Phase4
 can be built and tested against explicit protocol fixtures; such fixtures never
-certify an Android Google connection. Overnight work has no guaranteed finish time.
+certify an Android Google connection. [Verification](reports/verification.md) and
+[independent review](reports/independent-review.md) record exact local evidence.
 
-## Current implementation constraints
+## Verified integration choices
 
 - `MainActivity` already secures the window and locks on background/recreation;
-  `VaultController` keeps its owned session private; `VaultScreen` only sets up/unlocks.
+  `VaultController` keeps its owned session private; Cookbook screens now call the
+  guarded kitchen after unlock.
 - Root uses Kotlin2.4.10/AGP9, JDK17 and SDK36. The standalone Sheets client uses
-  Kotlin1.9.24/JVM21, has no Android target and is absent from root settings.
-  Its desktop loopback OAuth tool is not an Android authorization adapter.
-- App manifest currently has biometrics only; networking needs explicit INTERNET.
-  Dependency versions/Android engine compatibility must be verified during phase4.
+  Kotlin1.9.24/JVM21 and keeps its independent build.
+  The root `:sheets-android` bridge now reuses canonical common sources/tests;
+  its desktop loopback OAuth tool is not bundled in Android.
+- App manifest adds INTERNET for the real Android Sheets engine. AuthorizationClient
+  and Compose test dependencies are pinned and compile in the actual app.
 - Available SDK has no verified emulator executable. Compiling instrumentation
   is feasible; running it cannot be claimed without an authorized device/runtime.
 

@@ -1,6 +1,6 @@
 ---
 area: mobile-sheets-client
-updated: 2026-10-11
+updated: 2026-10-12
 sources: [passchef-mobile-oauth-sheets]
 decisions: [D1, D2, D3, D4]
 coverage: partial
@@ -12,19 +12,22 @@ Lets the mobile app read and update the account owner's Google Sheet that stores
 their password recipes — the same sheet the browser extension already reads —
 without scraping the page like the extension does. Today this area is a
 foundational connection layer plus a one-time manual setup and a one-time
-verification tool; no end-user mobile screens consume it yet (see Open Gaps).
+verification tool. The [Android Cookbook](mobile-cookbook.md) now integrates its
+canonical common sources through `:sheets-android`; independent local verification
+passed. Real Android Google acceptance remains Pending.
 
 ## Entry Points & Triggers
 
 - **Google account setup runbook** (followed once, by hand, by the account
   owner, outside this product, in their Google account's own settings pages) →
-  grants this connection permission to read and update one Google Sheet on the
-  owner's behalf.
+  grants Sheets read/write permission on the owner's behalf; the app explicitly
+  selects the Menu/tab to read. The scope is not limited to that selected Menu.
 - **One-time connection check** (a command-line tool run once by the person who
   just completed the setup) → proves the granted permission actually works by
   performing one real read of the sheet.
-- *(Not yet built: the mobile app's own screens invoking a read or an update
-  during normal use — see Open Gaps.)*
+- **Android Cookbook Connect/tab selection** → canonical metadata/read client
+  through an Android engine. Code/local checks Done; live acceptance Pending. Update
+  authoring screens remain deferred.
 
 ## Data Dictionary
 
@@ -65,7 +68,7 @@ insufficient" outcome, separate from "expired."
 | Actor | Access |
 |---|---|
 | Account owner | The only actor. Performs the one-time setup and, currently, the one-time connection check. Owns the sheet and the permission grant. |
-| Mobile app (future) | Will act on the account owner's behalf using the granted permission, once the app itself exists (Open Gap — not built yet). |
+| Android Cookbook (code complete) | Requests explicit Google authorization and reads a selected Menu/tab; real owner grant and phone acceptance Pending. |
 
 ## Business Rules
 
@@ -74,7 +77,7 @@ insufficient" outcome, separate from "expired."
 - **R3** — Setting up the permission grant (creating the connection, choosing what it can access) is always a manual, one-time action the account owner takes themselves in their own Google account settings — this product never automates that setup. (D1)
 - **R4** — Proving the connection actually works (the one-time connection check) is verified against simulated responses as part of building this area; running it for real, with the account owner's real permission grant, is the account owner's own follow-up action, separate from building the connection itself. (D4)
 
-- **R5** — Each sign-in uses fresh state and PKCE S256; only a matching, valid callback
+- **R5** — Each standalone desktop sign-in uses fresh state and PKCE S256; only a matching, valid callback
   completes it. Codes and tokens are never printed. Connection-check failures exit nonzero.
 - **R6** — Local connection configuration uses UTF-8; Vietnamese and supplementary
   characters in tab names are preserved. Owned HTTP clients and engines are closed
@@ -93,13 +96,18 @@ insufficient" outcome, separate from "expired."
 
 ## Open Gaps
 
-- No mobile app screens exist yet that surface a read or an update to an end user during normal use — today this area is only the connection layer, the setup runbook, and the one-time connection check; the real mobile app (a separate, not-yet-built effort) will be the first consumer.
+- Android metadata/read screens and the genuine authorization/engine adapter are
+  implemented and locally verified in the Cookbook slice. Append/update authoring UI remains later work.
 - The account owner has not yet actually completed the one-time setup, and the one-time connection check has not yet been run against a real permission grant — everything proven so far uses simulated responses, not a live connection.
-- No screen exists yet to show the account owner an in-app prompt when their permission grant expires; today that guidance only appears in the written setup instructions and in the connection check's own console output.
+- Android401 reconnect/403 access feedback is implemented but still needs the
+  live owner/device acceptance; the local build passed. The desktop tool retains
+  its existing distinct sanitized outcomes.
 
 ## Pointers (implementation)
 
 - `mobile/sheets-client/` — Kotlin Multiplatform module (Gradle build: `settings.gradle.kts`, `build.gradle.kts`)
+- `mobile/sheets-android/` — root Android/JVM bridge, compiling canonical common sources/tests;
+  Android app's `cookbook/` supplies genuine authorization and engine adapters.
 - `src/commonMain/kotlin/com/passchef/sheets/SheetsClient.kt`, `SheetsModels.kt`, `SheetsClientExceptions.kt` — the connection client (read/update, distinct expired/insufficient error types)
 - `src/commonTest/kotlin/com/passchef/sheets/SheetsClientTest.kt` — unit tests against simulated responses
 - `src/jvmMain/kotlin/com/passchef/sheets/SheetsSmokeTest.kt` — the one-time connection check tool

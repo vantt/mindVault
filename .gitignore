@@ -30,7 +30,11 @@ mobile/sheets-client/sheets-secrets.properties
 
 # Android/JVM mobile build outputs and machine-local SDK configuration
 .gradle/
+.kotlin/
 build/
 shared/build/
 app/build/
 local.properties
+
+# Android bridge builds the canonical portable Menu source.
+mobile/sheets-android/build/

@@ -1,6 +1,6 @@
 # Phase02 — Private offline Menu cache and confirmed columns
 
-Status: **Pending**. Priority:2. Depends on phase01 for cooking, not on Google consent.
+Status: **Done — implemented and independently verified locally**. Priority:2.
 
 ## Context and key insight
 
@@ -30,27 +30,27 @@ Do not infer account identity from URL text or implement Autofill/domain trust h
 
 ## Implementation steps / TODO
 
-- [ ] Model source/tab/confirmed column roles/header offset and stable original row ID.
-- [ ] Score candidate Recipe columns using parse-valid/nonempty ratio and sufficient
+- [x] Model source/tab/confirmed column roles/header offset and stable original row ID.
+- [x] Score candidate Recipe columns using parse-valid/nonempty ratio and sufficient
   examples (Q3 suggests≥0.6 and≥3); ties/low evidence require explicit column choice.
-- [ ] Use EN/VI header hints only as secondary evidence; support no-header/ragged rows,
+- [x] Use EN/VI header hints only as secondary evidence; support no-header/ragged rows,
   non-first data row, duplicate labels and single Recipe-only columns.
-- [ ] Offer live3–5-row preview and assign Recipe/label/username/URL/notes/ignored roles;
+- [x] Offer live3–5-row preview and assign Recipe/label/username/URL/notes/ignored roles;
   one column cannot silently serve incompatible roles. Manual labels stay possible.
-- [ ] Persist versioned, size-bounded mappings/snapshots atomically; reject corrupt,
+- [x] Persist versioned, size-bounded mappings/snapshots atomically; reject corrupt,
   unsupported or traversal-shaped identifiers without overwriting a good cache.
-- [ ] Refresh into a staged snapshot, detect mapping drift before replacement and
+- [x] Refresh into a staged snapshot, detect mapping drift before replacement and
   keep last good offline data on network/token/server failure or interrupted write.
-- [ ] Preserve source/tab origin across search/favorites; never cook an entry against
+- [x] Preserve source/tab origin across search/favorites; never cook an entry against
   another Menu's selected context. Empty successful ranges have explicit empty state.
 
 ## Success criteria and positive proof
 
-- [ ] Real parser tests cover headers/no headers, ambiguous/tied columns, sparse/ragged
+- [x] Real parser tests cover headers/no headers, ambiguous/tied columns, sparse/ragged
   rows, Unicode usernames, leading zeroes, duplicates, invalid cells and tagged context.
-- [ ] Real temporary-file tests prove reload, bounded decoding, failed atomic replacement,
+- [x] Real temporary-file tests prove reload, bounded decoding, failed atomic replacement,
   corrupt snapshot refusal and independent mapping per Menu/tab; no Dish/jar/token persisted.
-- [ ] Search uses labels/usernames, not ingredient strings; clear-source removes only
+- [x] Search uses labels/usernames, not ingredient strings; clear-source removes only
   selected local cache/mapping, never Google rows or encrypted jars.
 Use phase5 shared JVM tests; supplied synthetic table fixtures are explicit protocol
 inputs, never a claim that the real owner Google data was fetched.
@@ -61,3 +61,7 @@ Fail closed on mapping drift; a plausible label is not authorization to cook.
 Private cache is protected by sandbox/backup exclusion; do not promise plaintext
 metadata is cryptographically encrypted. UI stays gated by Cookbook unlock.
 Continue to phase03 screens; phase04 supplies real network snapshots later.
+
+Implementation exists in the production app/shared/client paths above. Final local
+results and unchanged Golden evidence are recorded in [verification](reports/verification.md);
+compiled physical tests remain unexecuted. No phone/account grant was used tonight.

@@ -1,0 +1,96 @@
+# Independent Cookbook verification
+
+Status: **Local code verification passed**; owner/device acceptance Pending.
+Date:2026-10-11 UTC. Reviewer agent A is independent of product author B.
+
+## Final results
+
+| Check | Result |
+| --- | --- |
+| Shared JVM | 74 tests: original56 + builder5 + independent13; zero failures/errors/skips |
+| Canonical Sheets through Android bridge JVM | 16 tests: original9 + new7; zero failures/errors/skips |
+| Production app coordinator/range JVM | 4 tests: deferred IO/cache/auth busy boundaries and quoted/grid-bounded ranges; zero failures/errors/skips |
+| Standalone Sheets JVM21 | 29 tests: original22 + new7; zero failures/errors/skips |
+| Root packaging/lint | Exit0;87s;179 tasks executed; shared/bridge AAR/JAR, debug/test/release APKs built |
+| Lint | 0 errors,11 warnings,1 hint |
+| Final source/build stability | 99 paths byte/mode unchanged before/after; all51 builder frozen source hashes match |
+| Protected baseline | 75 original tests/fixtures/recipe/crypto/vault paths unchanged |
+| Extension/unrelated preservation | 128 extension paths byte/mode unchanged;23 Cave/skills-lock hashes unchanged |
+| New Kotlin size | 27 new files, all<200 lines; max193 independent regression file |
+
+Shared74 was independently rerun before the final app/client delta and remains valid:
+all shared sources/tests stayed unchanged. Bridge/app and standalone were rerun after
+the actual streaming-client repair. These separate roots reuse common protocol tests;
+the counts are not a claim of distinct test cases across all roots.
+
+## Actual commands and environment
+
+Root JDK17:`/home/vantt/dev-tools/jdk-17.0.20+8`; SDK36:
+`/home/vantt/dev-tools/android-sdk`.
+
+```sh
+./gradlew --no-daemon :shared:jvmTest :sheets-android:jvmTest --rerun-tasks
+```
+
+Initial independent shared run exit0;38s;11 tasks executed. Its bridge15 result is
+superseded by the final bridge16 rerun after adding non-EOF streaming regression.
+
+```sh
+./gradlew --no-daemon :shared:assemble :sheets-android:assemble :sheets-android:jvmTest :app:testDebugUnitTest :app:assembleDebug :app:assembleDebugAndroidTest :app:assembleRelease :app:lintDebug --rerun-tasks
+```
+
+Final root exit0;87s;179 tasks executed. XML counts and lint XML independently parsed.
+
+Standalone JDK21.0.12:`/home/vantt/projects/passMan/.toolchain/jdk`;
+working directory:`mobile/sheets-client`.
+
+```sh
+./gradlew --no-daemon build test --rerun-tasks
+```
+
+Final standalone exit0;21s;8 tasks executed,29 tests. Original loopback/configuration
+and portable read/RAW append/update regressions pass. No real smoke tool invoked.
+
+Evidence outside repository:
+`/tmp/passchef-mobile-independent-jvm.json` and `.log`,
+`/tmp/passchef-mobile-independent-final.json` and `.log`,
+`/tmp/passchef-mobile-independent-standalone-final.json` and `.log`.
+Earlier standalone28/bridge15 artifacts describe intermediate source only.
+
+## Actual APKs and release isolation
+
+| APK | Package | Bytes | SHA256 |
+| --- | --- | ---: | --- |
+| Debug | dev.passchef.mobile.demo | 18416447 | 32454b5fc7e3a72ab75a2663604f6d822bdbbccdb95ff8b20e1510f32eb0f739 |
+| Instrumentation | dev.passchef.mobile.demo.test | 1146149 | d475460cd54a1a68823a1469a3819a1c5a948a8394993d5796c6db5c53d6927c |
+| Unsigned release | dev.passchef.mobile | 14176301 | 84f788db2f0fbc56c39dfc1bf7622130134bb9a5388770f6730ec7e4dcc3b820 |
+
+Actual manifest/DEX checks confirm release contains no BiometricProofActivity,
+CookbookProofActivity, PassChefProof log tag or desktop loopback/smoke classes.
+Release diagnostics helper remains a no-op that does not invoke the key inspector.
+Debug proof activities remain unexported. Debug and release disable backups.
+Release permissions:INTERNET,USE_BIOMETRIC,USE_FINGERPRINT and the app's generated
+DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION; no camera/Autofill/Accessibility permission.
+New production Cookbook/worker source has no print/log or token persistence path.
+
+Lint warnings concern existing target/plugin/dependency versions and missing app icon;
+the hint concerns boxed Compose state. They are recorded, not silently treated as zero.
+Final independent debug/test APKs differ from prior builder packages; use the hashes
+above for future device acceptance. Unsigned release matches the builder hash.
+
+## Proof limits and verdict
+
+HTTP mocks prove protocol behavior, ownership/close and non-EOF byte-budget refusal.
+The injected timeout case proves exception propagation, not a real20second deadline.
+JVM cache tests exercise actual private filesystem failure/corruption; app tests use
+actual production coordinator with deferred IO. They are not Google consent proof.
+Android UI test APK compiles a genuine owner-authenticated, storage-isolated harness;
+**it was not executed**. No phone/emulator, OAuth grant, real provider read, clipboard,
+biometric, reveal timer or lifecycle/UX physical job ran in this verification.
+Owner configuration/physical acceptance remains Pending; mobile Phase1 is Partial.
+Local checks do not imply Android CI coverage. No unresolved P1/P2 found in code review.
+
+Extension [recheck](../../reports/261012-extension-recheck.md):147 units and25 E2E
+passed on unchanged extension source. It grants no mobile live-provider proof.
+
+Unresolved: owner Android OAuth configuration/consent and actual phone acceptance.
