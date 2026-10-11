@@ -1,5 +1,17 @@
 # Project Changelog
 
+## Reconcile plan status and relevance (2026-10-11)
+
+Rechecked missing phases against current source, later design commits and accepted
+scope. Eight plans retain relevant work and now have an ordered active index.
+Random initial builder picks/collapsed options supersede the old restoration and
+auto-expand design; real Cookbook/UI verification and security gaps remain open.
+
+Closed foundation/recovery plans move to `archive/plans/`; three extension plans
+with remaining outcomes return from the old archive to active `plans/`. Original
+criteria, scope limits and physical-proof gaps remain explicit. Documentation and
+links change only; product source/build inputs and golden tests are unchanged.
+
 ## Retire Bee tooling (2026-10-11)
 
 Removed the repository's Bee runtime, skills, agent definitions, Codex hooks,
@@ -31,7 +43,7 @@ the precise Recents/video category was not independently established.
 
 **Scope:** The owner explicitly accepted this current-device scope and retained
 the unexecuted physical matrix as follow-up; full original matrix is not claimed.
-See [scope and remaining checks](../plans/261011-keystore-recovery/reports/current-device-acceptance.md)
+See [scope and remaining checks](../archive/plans/261011-keystore-recovery/reports/current-device-acceptance.md)
 and [device evidence](runbooks/android-keystore-device-proof.md).
 Fresh main verification passed:56 JVM tests rerun,150/150 tasks executed,
 all APK builds/lint0errors8warnings. Merged/pushed at `b959aca`, remote SHA
@@ -54,9 +66,9 @@ recovered the actual canvas payloads and original byte fields exactly. The phone
 reader and Drive transport remain outside this plan.
 
 **Contract:** [Phone handoff](specs/qr-handoff.md).
-**Plan and proof:** [Recovery plan](../plans/261011-qr-handoff-worktree-recovery/plan.md)
-and [verification report](../plans/261011-qr-handoff-worktree-recovery/reports/verification.md).
-**Review:** [Independent product review](history/qr-handoff/reports/recovery-independent-review.md).
+**Plan and proof:** [Recovery plan](../archive/plans/261011-qr-handoff-worktree-recovery/plan.md)
+and [verification report](../archive/plans/261011-qr-handoff-worktree-recovery/reports/verification.md).
+**Review:** [Independent product review](../archive/plans/qr-handoff/reports/recovery-independent-review.md).
 
 ## Mobile Core recovery integrated (2026-10-11)
 
@@ -72,7 +84,7 @@ was test-only in the Core slice; Keystore subsequently promotes production
 Argon2id for encrypted Cookbook storage. Golden assertions are unchanged. Local main integrated `7d8808c`; a fresh main
 build and browser parity check passed. The checkout was archived and closed.
 
-**Evidence:** [Core recovery report](history/passchef-mobile/reports/mobile-core-recovery.md).
+**Evidence:** [Core recovery report](../archive/plans/passchef-mobile/reports/mobile-core-recovery.md).
 
 
 ## OAuth/Menu client code recovery (2026-10-11)
@@ -90,7 +102,7 @@ Real Google OAuth client creation and a live connection check remain the
 account owner's pending follow-up. OAuth, Core and QR were subsequently pushed
 to origin on 2026-10-11; their original closure reports retain the historical result.
 
-**Plan:** [Recovery plan](../plans/261011-oauth-sheets-worktree-recovery/plan.md).
+**Plan:** [Recovery plan](../archive/plans/261011-oauth-sheets-worktree-recovery/plan.md).
 **Tracking:** [Worktree recovery](worktree-recovery.md).
 
 ## v2.3 — Full Access Sharing (2026-05-25)

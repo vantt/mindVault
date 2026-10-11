@@ -51,7 +51,7 @@ used BouncyCastle only in tests. Integrated [Keystore storage](mobile-keystore.m
 promotes the proven backend for production Cookbook key derivation; the Core
 recipe-cooking API and its original parity proof retain their accepted scope.
 
-See [current recovery report](../history/passchef-mobile/reports/mobile-core-recovery.md)
+See [current recovery report](../../archive/plans/passchef-mobile/reports/mobile-core-recovery.md)
 for observed build/tests and limitations. Android compilation establishes package
 compatibility; hardware-backed storage and biometric behavior need their own
 physical-device acceptance in the Keystore worktree.

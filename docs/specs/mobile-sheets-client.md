@@ -108,4 +108,4 @@ insufficient" outcome, separate from "expired."
 - `src/jvmTest/kotlin/com/passchef/sheets/SheetsSmokeTestConfigTest.kt`
 - `docs/runbooks/google-oauth-sheets-setup.md` — the one-time setup runbook
 - `docs/mobile-kmp-toolchain-setup.md` — local toolchain install notes for building this module
-- `docs/history/passchef-mobile-oauth-sheets/{CONTEXT.md,approach.md,plan.md}` — design history and locked decisions D1-D4
+- `archive/plans/passchef-mobile-oauth-sheets/{CONTEXT.md,approach.md,plan.md}` — design history and locked decisions D1-D4

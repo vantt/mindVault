@@ -151,7 +151,7 @@ cd mobile/sheets-client
 
 The Android/JVM [shared kitchen](shared/) ports recipe cooking and opens the
 extension's full-access bundles. Its [spec](docs/specs/mobile-core.md) and
-[recovery report](docs/history/passchef-mobile/reports/mobile-core-recovery.md)
+[recovery report](archive/plans/passchef-mobile/reports/mobile-core-recovery.md)
 record acceptance and limits. The Menu client above remains an independent build.
 
 From the repo root with JDK 17 and Android SDK platform 36 installed:
@@ -172,7 +172,7 @@ minutes. Debug uses the isolated `dev.passchef.mobile.demo` package.
 
 The owner accepted the verified Xiaomi/API36 scope on 2026-10-11. See the
 [device runbook](docs/runbooks/android-keystore-device-proof.md) and
-[remaining physical checks](plans/261011-keystore-recovery/reports/current-device-acceptance.md).
+[remaining physical checks](archive/plans/261011-keystore-recovery/reports/current-device-acceptance.md).
 Android packaging alone does not establish device behavior; this demo is the
 storage/unlock foundation, with the full mobile screens and QR reader still pending.
 

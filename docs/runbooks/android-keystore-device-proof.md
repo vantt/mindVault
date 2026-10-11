@@ -40,7 +40,7 @@ a fresh alias/wrap IV while keeping cache/salt/cache IV unchanged and retirement
 metadata empty. Owner locked the Cookbook, then genuine new-key biometric unlock
 authenticated the same1 jar with the full record unchanged. Owner reported **one
 visible recovery prompt**, so two distinct prompts are not directly confirmed.
-[Reviewed control flow](../history/passchef-mobile-android-keystore/reports/recovery-independent-review.md)
+[Reviewed control flow](../../archive/plans/passchef-mobile-android-keystore/reports/recovery-independent-review.md)
 requires a fresh CryptoObject and identity-checked real
 callback after code15 before success; that is a source-based inference supported
 by the recorded error→commit/new-key-unlock outcome. Source/APK pin unchanged.
@@ -102,7 +102,7 @@ export PATH="$JAVA_HOME/bin:$PATH"
 Lockout builder71s/independent78s150tasks:56 JVM0fail/errors/skips, debug/test/release/lint0errors8warnings;
 61 frozen hashes unchanged; release excludes proof Activity/log tag.
 Real Argon/cache/ownership tests; control tests do not simulate biometric hardware. Earlier physical2probe(0.026s)/4control(0.032s)
-results remain in [full report](../history/passchef-mobile-android-keystore/reports/keystore-recovery.md).
+results remain in [full report](../../archive/plans/passchef-mobile-android-keystore/reports/keystore-recovery.md).
 Only actual initial BiometricPrompt error7/9 may transfer a correct-password,
 cache-authenticated session. Existing record and retirement queue remain byte-for-byte
 unchanged: zero writes/retirement; only the disposable fresh alias is deleted.
@@ -196,4 +196,4 @@ Intentional runner-auth rejection was NOT a test pass; unique probe cleanup comp
 Main3+2 failures emitted only5,5; initial7/9 not delivered, route remains56JVM/source coverage. Installed `0d38e62` frozen.
 Final ownUID10422 snapshot7lines: six known literals0hits, no comprehensive log guarantee; wholecipherrecord894f73…/APKpins unchanged.
 Keep-awake original0 RESTORED/verified; ADB workers ended/phone free. No-enrollment/noHW/API26/noStrongBox/typed7&9/exactkill/retryexhaustion unexecuted, accepted limits tracked—not passed.
-[Accepted scope](../../plans/261011-keystore-recovery/reports/current-device-acceptance.md): source frozen/completion within agreed scope; main56-JVM/build/lint passed; merged/pushed `b959aca`, archived/closed.
+[Accepted scope](../../archive/plans/261011-keystore-recovery/reports/current-device-acceptance.md): source frozen/completion within agreed scope; main56-JVM/build/lint passed; merged/pushed `b959aca`, archived/closed.

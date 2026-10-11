@@ -60,6 +60,32 @@ Ba sự thật quyết định toàn bộ thiết kế mobile:
 - Phase 3 — Handoff QR + secret blob trên Drive + multi-profile.
 - Phase 4 — Authoring recipe + ghi sheet + quản lý mapping.
 
+### Trạng thái hiện tại — đối chiếu 2026-10-11
+
+Đây là roadmap sản phẩm, không đồng nghĩa với bốn track nền tảng đã hoàn tất.
+Core Android/JVM, client Sheets/runbook, QR sender và Keystore trong phạm vi Xiaomi
+được owner chấp nhận đều Done; live Google, app đầy đủ và receiver còn riêng.
+Các quyết định/Q&A bên dưới được giữ như lịch sử; phần này cập nhật trạng thái.
+
+| Phase | Trạng thái | Phần đã có / phần còn cần làm |
+|---|---|---|
+| 1 — Vault đọc MVP | Partial | Core nấu/decrypt, client Sheets và storage/unlock demo Done. Còn Google thật, production onboarding/Menu mapping/danh sách recipe/cache offline/cook/tap-to-copy. |
+| 2a — Autofill feasibility spike | Pending | Chưa có native autofill prototype, RAM/latency và luồng lock→biometric→cook được kiểm chứng. Spike Argon/Core không thay thế spike này. |
+| 2 — Autofill/domain mapping | Pending | Còn native service/provider, OS-verified domain/package mapping và authorization trong autofill; phụ thuộc nền Vault và spike2a. |
+| 3 — QR + Drive + multi-profile | Partial | Extension QR sender/chunking Done. Còn camera reader/reassembly/compact decoding/import UI, Drive transport và multi-profile production. Drive phụ thuộc extension Drive-sync. |
+| 4 — Authoring/write/mapping | Partial (nền tảng) | Client append/update Done; production Recipe Builder/edit-existing/ghi đúng dòng/mapping chưa có. Prototype/design không chứng minh mobile UI chạy thật. |
+
+Ưu tiên theo phụ thuộc: (1) Google thật + Phase1 production; (2) phone QR import
+song song sau khi nối Core decrypt với storage, hoàn tất handoff từ sender đã có;
+(3) Phase2a rồi Autofill; (4) authoring/edit-existing sau read/mapping UI;
+(5) Drive/multi-profile sau nền mobile và extension Drive-sync. Native/iOS hoãn;
+coverage thiết bị Keystore còn thiếu được theo dõi riêng, không mở lại scope đã nhận.
+
+Bằng chứng/phạm vi hiện tại: [backlog](backlog.md), [Core](specs/mobile-core.md),
+[Sheets](specs/mobile-sheets-client.md), [QR](specs/qr-handoff.md),
+[Keystore acceptance và matrix còn thiếu](../archive/plans/261011-keystore-recovery/reports/current-device-acceptance.md).
+
+
 **Câu hỏi mở (chưa chốt):** ưu tiên "tra cứu/copy" hay "autofill"? cross-platform hay 1 nền trước? có sẵn lòng thêm cột `domain`? secret sync qua Drive có OK không? app có quyền ghi sheet không?
 
 ---

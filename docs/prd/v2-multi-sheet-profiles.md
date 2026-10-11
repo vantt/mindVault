@@ -3,7 +3,16 @@
 **Product:** PassChef Password Generator  
 **Version:** 2.3 (Revised)  
 **Date:** 2026-05-25  
-**Status:** Draft — Design Finalized, Pending Implementation
+**Status:** Current specification — v2.3 source implemented; full sharing UX acceptance remains Partial (audit 2026-10-11).
+
+The original §9 change list is no longer wholly pending: the export wizard calls
+`createFullAccessBundle`, import distinguishes both bundle types, and Full Access
+imports create own profiles plus optional Cookbook mapping. See
+`chrome-extension/src/adapters/infrastructure/export-import-adapter.js` and
+`chrome-extension/src/options/options-export-wizard.js` and its import sibling. Legacy HKDF
+compatibility remains intentional. The tag plan tracks remaining localized
+mismatch/real UI verification; its closure does not certify every sharing flow.
+Retain this specification; it is not an unfinished implementation plan to archive.
 
 ### Changelog v2.3 (2026-05-25)
 - **Full Access Sharing replaces HKDF Derived Secrets:** §2.3 rewritten — bundle now encrypts **raw secrets** (S_i), not HKDF-derived DS_i. Consumer gets identical secrets → generates identical passwords as Owner.

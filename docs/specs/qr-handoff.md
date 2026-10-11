@@ -52,8 +52,8 @@ The four-module white quiet zone surrounds every QR; rendering uses integer pixe
 
 ## Evidence and implementation
 
-- Existing accepted plan: `docs/history/qr-handoff/plan.md`.
-- Recovery execution plan: `plans/261011-qr-handoff-worktree-recovery/plan.md`.
+- Existing accepted plan: `archive/plans/qr-handoff/plan.md`.
+- Recovery execution plan: `archive/plans/261011-qr-handoff-worktree-recovery/plan.md`.
 - `chrome-extension/src/adapters/infrastructure/qr-serialization.js` and
   `qr-chunking.js`: reversible transport and fitted framing.
 - `chrome-extension/src/options/options-qr-display.js`: canvas and timer owner.

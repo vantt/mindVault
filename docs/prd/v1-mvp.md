@@ -12,7 +12,7 @@
 | **Version**         | MVP 1.1                               |
 | **Created Date**    | January 2025                          |
 | **Last Updated**    | January 2025                          |
-| **Status**          | Draft                                 |
+| **Status**          | Legacy roadmap; Partial implementation |
 | **Target Platform** | Google Chrome Extension (Manifest V3) |
 
 ### Changelog v1.1
@@ -1200,6 +1200,21 @@ const testCases = [
 ---
 
 ## 11. Implementation Plan
+
+### Current implementation status / relevance — 2026-10-11
+
+Baseline main `b5be3b0`. **Partial**, not a published/completed MVP. Original phase scope below is preserved; no missing security outcome is waived by this audit.
+
+| Phase | Current status | Relevant remaining / supersession evidence |
+|---|---|---|
+| 1 Core | Partial | MV3, Argon2id, AES-GCM, storage/parser/cooking implemented. Original vault PBKDF2-SHA256600k fallback absent; keep as **open design-validation requirement**, not an instruction to silently downgrade crypto. Bundle PBKDF2 100k in export-import-adapter.js is a separate sharing contract, not that fallback. |
+| 2 UI | Done implementation | Options/setup, toolbar popup, content popup and styling present. Current Precision layout replaces old wireframe mechanisms via644da28; v1.3 content-popup removal claim does not match current retained content UI. Current UI acceptance belongs to popup UX testing; no claim all historical layouts/manual tests passed. |
+| 3 Menu integration | Partial | content/content.js:43–82 reads focused input/formula bar on demand; an observer is not the current mechanism. Validate current real Menu extraction/hotkey/edge cases rather than adding an observer just to match the old diagram. Existing mock-Menu E2E can use SW fallback and does not prove ordinary real Google keyboard delivery. |
+| 4 Security/session | Partial | SW:130–164 implements idle300s and absolute10m locks. Failed-attempt limit/lockout not found in current unlock paths. content/content.js:175–178 clears copied dishes after30s, but popup/popup.js:332–338 toolbar copy does not. These remain relevant security/clipboard outcomes. |
+| 5 Testing/polish | Partial | Current independent77-unit pass, historical six-E2E report, and newer focused QR E2E exist. Real Menu/manual popup acceptance and original KDF timing/memory/performance/security verification are not established. Current golden tests remain unchanged by this audit. |
+| 6 Release | Partial | README/user guidance exists. Chrome Web Store submission/publication has no accepted evidence here; do not mark published. Local developer-mode installation is a different deliverable. |
+
+**Priority:** phase4 security/clipboard and phase1 fallback design validation first; combined current builder/tag/UX and real Menu acceptance next (phases2/3/5); verify release readiness/submission last. Old naming, typography, wireframes and implementation recipes can be superseded; security outcomes and publication proof cannot be silently discarded. No new implementation, tests or external release checks performed in this audit.
 
 ### 11.1 Phases
 

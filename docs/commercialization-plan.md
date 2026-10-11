@@ -1,8 +1,8 @@
 # Commercialization Plan
 
-> **Status:** Draft
-> **Last updated:** 2026-05-25
-> **Product:** PassChef Password Generator (name pending — see [naming-decision.md](./naming-decision.md))
+> **Status:** Partial — pre-launch material exists; publication and later launch phases pending
+> **Last updated:** 2026-10-11 (status/relevance audit; historical estimates retained)
+> **Product:** PassChef Password Generator (name decided — see [naming-decision.md](marketing/naming-decision.md))
 > **Current version:** v2.3 (Full Access Sharing)
 
 ---
@@ -12,25 +12,25 @@
 ### What Exists
 | Area | Status | Detail |
 |------|--------|--------|
-| Core extension | Done | Recipe parsing, password generation, Argon2id + AES-256-GCM |
-| Multi-profile | Done | Named profiles, per-sheet routing, export/import |
-| Sharing | Done | Full Access bundle (v2.3) |
-| Verification tag | Done | Recipe integrity validation (v2.2) |
-| i18n | Done | English + Vietnamese |
-| Tests | Done | 55 unit + 6 E2E (Vitest + Playwright) |
-| Landing page | Exists | Basic, needs conversion optimization |
-| Chrome Web Store | **Not published** | No listing, no screenshots, no privacy policy |
+| Core extension | Implemented; security/acceptance gaps remain | Recipe kitchen and Argon2id + AES-256-GCM exist; MVP roadmap tracks remaining unlock/clipboard/real Menu checks |
+| Multi-profile | Implemented | Named profiles, per-sheet routing, export/import; current UI acceptance remains tracked |
+| Sharing | Implemented | Full Access bundle (v2.3); source implementation does not close all sharing UX checks |
+| Verification tag | Core Done; UI verification Partial | Recipe integrity validation (v2.2); active tag plan retains warnings/localization/UI tests |
+| i18n | Partial | EN/VI core messages exist; active tag/popup plans retain missing warnings and full demo Vietnamese |
+| Tests | Existing verification | Latest tooling-removal check:77 unit tests passed; historical E2E evidence retained, no new full E2E run in this audit |
+| Landing page | Partial launch readiness | Recipe demos/FAQ/testimonial UI/responsive implementation exist; assets, content alignment and QA remain |
+| Chrome Web Store | **Publication unverified / pending** | Listing copy + privacy/terms files exist; screenshot assets and actual listing URL not established in repo |
 
 ### What's Missing for Commercial Launch
 | Area | Priority | Effort |
 |------|----------|--------|
-| Privacy Policy + Terms of Service | **Blocker** | Low |
+| Privacy Policy + Terms of Service | Files complete; pre-publication content review | Low |
 | Chrome Web Store listing (screenshots, description, promo images) | **Blocker** | Medium |
-| Brand name finalization | **Blocker** | In progress (see naming doc) |
+| Brand name finalization | Done | PassChef decided/rebranded |
 | Landing page upgrade (conversion-focused) | High | Medium |
 | Analytics (privacy-respecting) | High | Low |
 | Payment integration (if freemium) | Medium | Medium |
-| Demo page / onboarding video | Medium | Medium |
+| Demo page / onboarding video | Demo implemented; video optional/format undecided | Medium |
 | Support channel | Medium | Low |
 
 ---
@@ -170,6 +170,10 @@ Free = perfect for personal + work (2 Sheets). Pro = power user / team / multi-c
 ## 6. Launch Sequence — Phased Approach
 
 ### Phase 0: Pre-launch (1-2 weeks)
+
+**Status: Partial.** Name/rebrand/legal files/listing copy exist; owner actions and
+release assets below have no completion proof here. Historic domain/pricing/fee
+estimates are not a current availability or price check.
 - [x] Finalize product name → **PassChef** (2026-05-25, unanimous council decision)
 - [x] Execute rebrand across codebase (manifest, locales, README, landing page, docs) → done 2026-05-25
 - [x] Write Privacy Policy + Terms of Service → `landing-page/privacy.html`, `landing-page/terms.html` (2026-06-13)
@@ -181,13 +185,20 @@ Free = perfect for personal + work (2 Sheets). Pro = power user / team / multi-c
 - [ ] Prepare screenshots and promo images (440x280, 920x680, 1400x560) — see `docs/marketing/cws-listing-copy.md` for specs
 
 ### Phase 1: Soft Launch — Free (week 3-4)
+
+**Status: Pending release; CTA implementation Partial.** Existing CTA links to
+the generic Chrome store (`landing-page/index.html`:1355), not a verified PassChef
+listing. No actual publication/install/review result is established by this audit.
 - [ ] Publish to Chrome Web Store (free, all features unlocked)
-- [ ] Update landing page with install CTA
+- [ ] Connect existing landing-page install CTA to the real PassChef listing after publication
 - [ ] Share in Vietnamese tech communities (personal network)
 - [ ] Collect feedback, fix bugs, iterate
 - [ ] **Goal:** 50-100 installs, 5+ reviews
 
 ### Phase 2: Public Launch (week 5-6)
+
+**Status: Pending.** No campaign publication or adoption evidence in repo. These
+are launch goals, not authority to publish posts or contact communities now.
 - [ ] Product Hunt launch
 - [ ] Reddit posts (genuine, valuable content — not ads)
 - [ ] YouTube tutorial video
@@ -195,6 +206,10 @@ Free = perfect for personal + work (2 Sheets). Pro = power user / team / multi-c
 - [ ] **Goal:** 500+ installs, 4.5+ star rating
 
 ### Phase 3: Monetization (week 8+)
+
+**Status: Pending implementation.** A2/lifetime decisions below remain accepted;
+no payment/license integration or production tier enforcement is established here.
+Selecting a provider and implementing billing requires its own scoped work.
 - [ ] Implement free/pro tier split
 - [ ] Integrate payment (LemonSqueezy or Stripe)
 - [ ] License key system in extension
@@ -202,6 +217,9 @@ Free = perfect for personal + work (2 Sheets). Pro = power user / team / multi-c
 - [ ] **Goal:** First paying customers
 
 ### Phase 4: Growth (ongoing)
+
+**Status: Deferred / exploratory.** Depends on real launch/feedback. Consider/
+explore/localization ideas are not approved commitments or blockers for Phase0/1.
 - [ ] Content marketing (blog, YouTube, community)
 - [ ] Feature development based on user feedback
 - [ ] Consider third-party security audit
@@ -323,3 +341,24 @@ Free = perfect for personal + work (2 Sheets). Pro = power user / team / multi-c
 | Landing page hosting | Free | GitHub Pages / Cloudflare Pages |
 | Analytics (Plausible) | $9/month or self-host free | Optional, landing page only |
 | **Total to launch** | **~$20** | Extension + domain only |
+
+## 13. Relevance and next work — audited 2026-10-11
+
+| Priority | Remaining work | Evidence / boundary |
+|---|---|---|
+| 1 | Complete Phase0 release readiness, then actual Phase1 publication | Listing copy [exists](marketing/cws-listing-copy.md); legal files exist. Account/domain/support completion is not established; asset prompts are not screenshots. Keep original user actions open. |
+| 2 | Finish launch-facing landing content/assets and QA | [Landing task](../landing-page-improve.md): real CWS/OG assets, actual install URL, responsive/performance evidence and testimonial provenance pending. |
+| 3 | Execute Phase2 promotion after release; implement Phase3 monetization as separate work | Preserve decided A2/lifetime model; no external publication, spending or provider choice occurs in this audit. |
+| 4 | Phase4 optional growth work after feedback | No requirement to implement every speculative idea before finishing an earlier phase. |
+
+Pre-launch content mismatch: this plan records **Closed source** as decided, while
+`landing-page/index.html`:1335/1434 currently claims MIT/open source. Section3's
+source-available recommendation predates the settled Section11 decision; it is
+superseded as a recommendation. Resolve public wording before release without
+inventing a new licensing decision. Existing testimonial cards have no verified
+provenance in this audit; UI presence is not customer-validation evidence.
+
+This remains an active Partial plan. Phase0–4 are not wholly Done; do not archive
+the entire launch plan because development foundation or copy writing is done.
+No publishing/account check, browser QA, performance measurement or product test
+was performed for this documentation-only status audit.

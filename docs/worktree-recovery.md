@@ -26,10 +26,10 @@ new work directly from main only after all three are done.
 
 | Worktree branch | Latest relevant plan | Recorded progress | Recovery status |
 |---|---|---|---|
-| `wt/passchef-mobile-oauth-sheets` | [Track D: OAuth/Menu client](history/passchef-mobile-oauth-sheets/plan.md), approved 2026-07-28 | Original five commits and recovery commit `0f93c7d` integrated into main | Code scope complete; worktree archived and closed; live Google check pending |
-| `wt/passchef-mobile` | [Track B: Mobile Core](history/passchef-mobile/implement-plan.md), updated 2026-07-28 | Full accepted Core slice implemented; 26 JVM tests and Android packaging pass | Complete; `7d8808c` in main, fresh integration passed, archived and closed |
-| `wt/passchef-mobile-android-keystore` | [Android Keystore + biometric unlock](history/passchef-mobile-android-keystore/plan.md), approved 2026-07-30 | Core reconciled; genuine storage/unlock and repairs frozen at source `0d38e62`, acceptance documented at `fc38197` | 56 JVM tests/builds and agreed Xiaomi physical scope passed; Complete within accepted Xiaomi scope; merged/pushed at `b959aca`, fresh main verification passed, archived and closed |
-| `wt/qr-handoff` | [Extension QR handoff](history/qr-handoff/plan.md), approved 2026-07-27; [recovery execution](../plans/261011-qr-handoff-worktree-recovery/plan.md) | Sender implemented in original checkout; 15 QR + 22 golden unit tests and two headed canvas-decoding E2E passed | Complete; `4a4395c` merged at `3d3239d`, fresh integration passed, archived and closed; phone reader excluded |
+| `wt/passchef-mobile-oauth-sheets` | [Track D: OAuth/Menu client](../archive/plans/passchef-mobile-oauth-sheets/plan.md), approved 2026-07-28 | Original five commits and recovery commit `0f93c7d` integrated into main | Code scope complete; worktree archived and closed; live Google check pending |
+| `wt/passchef-mobile` | [Track B: Mobile Core](../archive/plans/passchef-mobile/implement-plan.md), updated 2026-07-28 | Full accepted Core slice implemented; 26 JVM tests and Android packaging pass | Complete; `7d8808c` in main, fresh integration passed, archived and closed |
+| `wt/passchef-mobile-android-keystore` | [Android Keystore + biometric unlock](../archive/plans/passchef-mobile-android-keystore/plan.md), approved 2026-07-30 | Core reconciled; genuine storage/unlock and repairs frozen at source `0d38e62`, acceptance documented at `fc38197` | 56 JVM tests/builds and agreed Xiaomi physical scope passed; Complete within accepted Xiaomi scope; merged/pushed at `b959aca`, fresh main verification passed, archived and closed |
+| `wt/qr-handoff` | [Extension QR handoff](../archive/plans/qr-handoff/plan.md), approved 2026-07-27; [recovery execution](../archive/plans/261011-qr-handoff-worktree-recovery/plan.md) | Sender implemented in original checkout; 15 QR + 22 golden unit tests and two headed canvas-decoding E2E passed | Complete; `4a4395c` merged at `3d3239d`, fresh integration passed, archived and closed; phone reader excluded |
 
 The linked Markdown planning dossiers are preserved unchanged here from their
 respective worktrees so remaining work can be continued from main after merge.
@@ -46,7 +46,7 @@ was subsequently completed in its original checkout before integration.
 This branch already contains the accepted Track D code deliverable and can
 build independently of an Android UI or physical device. Recovering it first
 establishes a tested recipe-reading/writing foundation without expanding scope.
-See the [recovery plan](../plans/261011-oauth-sheets-worktree-recovery/plan.md).
+See the [recovery plan](../archive/plans/261011-oauth-sheets-worktree-recovery/plan.md).
 
 The accepted OAuth boundary is a Console runbook, standalone Kotlin Menu client
 and compiled JVM connection check. Real OAuth client creation and a live Google
@@ -91,14 +91,14 @@ reversible compact byte fields, real encoder capacity fitting, and animated
 frames. Close, Done, Back during cooking, and reopen reject obsolete results
 and clear the canvas/timer. No phone reader or Drive transport was added.
 See the [sender contract](specs/qr-handoff.md) and
-[verification report](../plans/261011-qr-handoff-worktree-recovery/reports/verification.md).
+[verification report](../archive/plans/261011-qr-handoff-worktree-recovery/reports/verification.md).
 
 Independent review found no P1/P2: **37/37 scoped unit tests** (15 QR plus 22
 unchanged recipe golden tests) and **2/2 real headed extension E2E** passed.
 The E2E decoder independently reconstructs actual canvas payloads, including
 every animated frame and original byte arrays. Actual vendor boundary and
 Unicode roundtrip checks also passed. See the
-[independent review](history/qr-handoff/reports/recovery-independent-review.md).
+[independent review](../archive/plans/qr-handoff/reports/recovery-independent-review.md).
 Product commit `4a4395c` merged into main at `3d3239d`. Fresh main checks passed:
 37 scoped unit tests and two headed canvas-decoding E2E scenarios. All 149 prior
 main WIP paths were restored with exact hashes. The complete QR checkout archive
@@ -166,7 +166,7 @@ archive contains 3,700 verified files and 211 symlinks (69,441,512 bytes), at
 `/home/vantt/projects/passMan-recovery/20261011-mobile-core/`. The checkout is
 closed; its branch and recovery refs remain. Core was merged into the original
 Keystore checkout at `3532c16`, preserving that checkout’s deferred WIP.
-See [the Core report](history/passchef-mobile/reports/mobile-core-recovery.md).
+See [the Core report](../archive/plans/passchef-mobile/reports/mobile-core-recovery.md).
 
 ## Final Keystore integration
 
@@ -178,7 +178,7 @@ no P1/P2 remained. Real device evidence covers hardware/nonexportability,
 enrollment invalidation/original-password recovery, wrong-password preservation,
 cancellation/background/cold locking, idle5/total10 and OS-lockout availability fallback.
 
-[Scope and remaining checks](../plans/261011-keystore-recovery/reports/current-device-acceptance.md)
+[Scope and remaining checks](../archive/plans/261011-keystore-recovery/reports/current-device-acceptance.md)
 retain API26/no-biometric hardware/no enrollment/StrongBox absent, typed7/9,
 exact kill/retry-exhaustion windows and precise Recents observation as unexecuted.
 Owner screen reports and all earlier failed probes remain recorded; no simulation

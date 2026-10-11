@@ -32,7 +32,7 @@ master password. It locks on background, after five idle minutes or ten total
 minutes. The owner accepted tested Xiaomi/API36 coverage; unexecuted device
 matrix and typed lockout callback paths remain tracked.
 See [storage/unlock](mobile-keystore.md) and
-[accepted limits](../../plans/261011-keystore-recovery/reports/current-device-acceptance.md).
+[accepted limits](../../archive/plans/261011-keystore-recovery/reports/current-device-acceptance.md).
 
 ## Remaining product areas
 

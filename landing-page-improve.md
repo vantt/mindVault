@@ -1,5 +1,11 @@
 # Prompt: Tiếp tục cải tiến Landing Page cho PassChef
 
+**Audit 2026-10-11 — Partial, còn phù hợp cho việc chuẩn bị phát hành.**
+Các checkbox ban đầu bên dưới là danh sách ý tưởng; không tự động biến mọi ý
+tưởng thành yêu cầu đã duyệt. Trạng thái hiện tại và việc còn cần làm ở bảng cuối.
+Chưa có bằng chứng QA responsive, đo hiệu năng hay xác thực lời chứng thực.
+
+
 ## Project Context
 
 **PassChef** là Chrome Extension biến Google Sheets thành Password Manager an toàn:
@@ -8,10 +14,10 @@
 - **Zero-Knowledge**: Secrets không rời device, mã hóa với Argon2id + AES-256-GCM
 - **Features**: Auto-generate passwords, clipboard auto-clear (30s), auto-lock (5 min idle/10 min total), cross-device sync via Chrome
 
-## Current Landing Page Status
+## Original landing-page snapshot (current audit below)
 
 - Đã tạo landing page với cyberpunk + glassmorphism style tại `landing-page/`.
-- Code của extension tại `extension/`.
+- Code của extension tại `chrome-extension/` (tên `extension/` trong prompt cũ đã lỗi thời).
 
 ### Files
 
@@ -69,3 +75,29 @@ Những mục tiêu có thể cải tiến:
 5. Sử dụng `ai-multimodal` skill nếu cần generate images/assets
 6. Implement improvements step by step
 7. Test responsive trên multiple breakpoints
+
+## Rà soát từng mục — 2026-10-11
+
+| Mục | Trạng thái / bằng chứng trong repo | Việc còn phù hợp |
+|---|---|---|
+| 1. Giải thích giá trị Recipe | Implemented: `landing-page/index.html`:169/292/529/709 có giải thích Cookbook/Recipe/Spice, so sánh và ẩn dụ Chef; builder tương tác tại423, `script.js`:473–552 | Kiểm tra người dùng có hiểu cách tự nấu Dish; chưa có bằng chứng usability. Không cần thêm section chỉ vì checkbox cũ chưa tick. |
+| 2. Animation/micro-interaction | Implemented: `script.js`:113–134/196/243, animation CSS và reduced-motion | QA khi kiểm tra trang; không có tính năng animation mới cụ thể đã duyệt. |
+| 3. Screenshot/mockup sản phẩm | Partial: demo minh họa bằng HTML đã có; `landing-page/assets/` chỉ có favicon, chưa có ảnh chụp sản phẩm | 5 screenshot/promo phục vụ CWS theo [launch plan](docs/commercialization-plan.md); prompt ảnh chưa phải asset đã tạo. |
+| 4. Testimonials/social proof | Section implemented: `index.html`:1157–1239, `styles.css`:2390 | Xác minh nguồn/quyền sử dụng các lời trích dẫn trước công bố; mã nguồn không chứng minh đây là phản hồi người dùng thật. |
+| 5. Hiệu năng/lazy loading | Partial: lazy-loader `script.js`:338–359 và rAF đã có; index không có ảnh lazy để chạy nhánh đó | Đo hiệu năng trang/ảnh thực tế trước tối ưu tiếp; chưa có benchmark hay QA. |
+| 6. FAQ | Implemented: `index.html`:1244 và accordion `script.js`:557–581 | Rà soát nội dung khi phát hành. FAQ hiện nói MIT/open source, khác quyết định Closed source trong launch plan; cần thống nhất trước công bố. |
+| 7. Mobile experience | Partial: mobile menu `script.js`:49–82; CSS có breakpoint1024/768/640 | QA responsive nhiều viewport; không ghi Done QA chỉ từ CSS. |
+| 8. Dark/light toggle | Optional, unapproved: trang hiện chỉ có dark theme; không thấy quyết định yêu cầu light mode | Không chặn hoàn thành/phát hành; chỉ thực hiện nếu được chọn thành yêu cầu riêng. |
+| 9. OG image | Pending release asset: `index.html`:15 đang tham chiếu `assets/og-image.png`, file không tồn tại | Tạo asset thực hoặc điều chỉnh metadata trước chia sẻ/phát hành; link hỏng hiện tại vẫn liên quan. |
+| 10. Khác (đề xuất) | Unscoped, optional | Không phải deliverable đã duyệt; không giữ plan mở chỉ vì mục này. |
+
+## Thứ tự việc còn cần làm
+
+1. Chuẩn bị asset CWS + OG, trỏ CTA tới listing thực sau publish, thống nhất
+   lời hứa giấy phép và chỉ dùng lời chứng thực có nguồn xác minh.
+2. QA responsive/keyboard/reduced-motion và đo hiệu năng trên trang thật.
+3. Kiểm tra mức dễ hiểu của Recipe/Spice/Dish; chỉ thêm nội dung khi có thiếu hụt.
+
+Giữ kế hoạch này Partial đến khi các việc phát hành/QA liên quan có bằng chứng.
+Light mode và ý tưởng khác không phải điều kiện hoàn thành. Không có product test
+hay browser QA mới được chạy trong lần kiểm kê tài liệu này.

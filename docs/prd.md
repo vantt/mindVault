@@ -107,7 +107,7 @@ All detailed PRDs live in [`docs/prd/`](./prd/).
 | Version            | File                                                                | Status                                  |
 | ------------------ | ------------------------------------------------------------------- | --------------------------------------- |
 | v1.x MVP           | [`prd/v1-mvp.md`](./prd/v1-mvp.md)                                   | Active — grammar in use                |
-| v2.x Multi-Profile | [`prd/v2-multi-sheet-profiles.md`](./prd/v2-multi-sheet-profiles.md) | Draft — design finalized, pending impl |
+| v2.x Multi-Profile | [`prd/v2-multi-sheet-profiles.md`](./prd/v2-multi-sheet-profiles.md) | Source implemented — sharing UX acceptance partial |
 
 ---
 

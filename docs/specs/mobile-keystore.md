@@ -54,7 +54,7 @@ Android APKs do not prove actual Keystore or biometric behavior.
 The [physical runbook](../runbooks/android-keystore-device-proof.md) requires
 owner-authorized hardware wrap/unwrap, actual enrollment invalidation/recovery,
 lockout/no enrollment, process restart, lifecycle/timers and logcat checks. The
-[recovery report](../history/passchef-mobile-android-keystore/reports/keystore-recovery.md)
+[recovery report](../../archive/plans/passchef-mobile-android-keystore/reports/keystore-recovery.md)
 records observed outcomes. USB/install and actual hardware wrap/unwrap passed on Xiaomi14TPro/API36.
 StrongBox level2 was inspected. Real enrollment invalidated the prior key;
 original-password recovery on `d2a76ca` then preserved the cache while committing
@@ -91,6 +91,6 @@ Owner reported blocked screenshot/only PassChef black; the precise Recents/video
 category was not independently established. Ordinary app return was locked;
 final bounded own-app log check found none of six known synthetic literals.
 The owner accepted this current-device scope for merge/push and retained
-[unexecuted physical checks](../../plans/261011-keystore-recovery/reports/current-device-acceptance.md):
+[unexecuted physical checks](../../archive/plans/261011-keystore-recovery/reports/current-device-acceptance.md):
 API26/no hardware/no enrollment/StrongBox absent, typed7/9, exact kill/retry
 windows and precise Recents observation. Those limits do not claim matrix passes.
