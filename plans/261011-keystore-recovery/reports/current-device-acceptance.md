@@ -1,8 +1,8 @@
-# Current-device acceptance — owner scope decision pending
+# Current-Xiaomi completion accepted — main integration pending
 
 Date: 2026-10-11. Original Keystore worktree; current Xiaomi14TPro/2407FPN8EG
 API36, source `0d38e62e6f9c67b80ac8f585dd0c8ab8807e1716`, pinned isolated demo/test APKs.
-Current-device feasible checks accepted; original physical matrix is not complete.
+Feature complete within owner-agreed current-Xiaomi scope; original physical matrix incomplete.
 No source/auth/storage policy change or simulated biometric proof is proposed.
 
 ## Verified implementation and current-device evidence
@@ -54,14 +54,15 @@ and [recovery acceptance](../plan.md):70–71 remain the reference requirements:
   Earlier held unwrap numeric cause remains unknown; fresh unwrap succeeded with
   no captured numeric error. No new defect or unwrap retry is inferred.
 
-## Owner decision — pending
+## Owner decision — accepted 2026-10-11
 
-1. Complete the validated current-phone scope, explicitly accept/track the above
-   physical coverage limits, then root completes documentation/integration.
-2. Keep this worktree open until additional devices and remaining matrix evidence
-   are available. No merge/closure while this decision is pending.
+Direct owner reply: **"Merge/push hôm nay, ghi rõ bài kiểm tra còn thiếu"**.
+Owner accepted completion of the validated current-Xiaomi scope with the above
+unexecuted physical matrix retained as tracked coverage limits, not passing tests.
 
-Existing authorization allows root merge/push after accepted completion; this
-report does not supply that acceptance or claim any merge result. Source frozen.
+Root is authorized to complete documentation/merge, independently verify integrated
+main, then push/close. Source `0d38e62` unchanged/frozen; no actual merge, main
+verification, push or worktree closure is claimed by this report.
 
-Open question: accept current-phone scope/coverage limits, or keep worktree open for the remaining matrix?
+Outstanding verification: independent main integration. Additional-device/matrix
+coverage remains tracked for later work; owner scope decision is resolved.

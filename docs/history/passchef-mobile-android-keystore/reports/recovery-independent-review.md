@@ -172,8 +172,7 @@ Total10 before-start FAIL (`timer-total-20261011T071305213998Z.json`): key unava
 
 ## Installed unwrap diagnostic delta — partial physical acceptance
 
-Three-file probe review: **no P1/P2**; repository ownership/failure wiping and fixed phases remain accurate.
-No retry/auth/storage change; release never logs/invokes inspector. Four reviewed file hashes remained stable.
+Three-file probe review: **no P1/P2**; ownership/wiping/fixed phases accurate, retry/auth/storage unchanged; release logs/inspector absent, four hashes stable.
 Independent app rerun passed69s/140tasks all executed, lint0/8;61 files stable/shared unchanged, prior56 JVM tests applicable.
 `independent-unwrap-diagnostic-build.json` pins tester APKs, superseding different builder incremental identities.
 Committed0d38e62 installed-r with exact tester hashes/unchanged Cookbook; Android formatter **5 passed/0.027s**, no hardware assertions.
@@ -193,7 +192,8 @@ Native screen evidence (`manual-evidence.json/native_screen_protection`): owner 
 Root confirmed own app left foreground without reading foreign UI; ordinary same-Main launch/no force-stop returned locked/FLAG_SECURE at13433.53–13436.77.
 Whole ciphertext record SHA894f… unchanged; installed0d APK pins matched. No app/data clear occurred.
 Final UID10422 bounded snapshot7 lines/six synthetic literals/no hits; not whole-flow absence. Keepawake0 restored/all ADB workers ended.
-API26–29/no hardware/no enrollment/StrongBox-absent and exact process-kill/retry exhaustion unexecuted; force-stop evidence above remains distinct. See [device runbook](../../../runbooks/android-keystore-device-proof.md).
-**Validated Xiaomi checks only; owner scope acceptance pending, no original full-matrix-complete/merge-ready verdict.**
+**2026-10-11 owner accepted current-Xiaomi scope:** “Merge/push hôm nay, ghi rõ bài kiểm tra còn thiếu”. No P1/P2; source0d/56 JVM tests and independent diagnostic builds verified. Ready for root integration within these accepted limits; no full-original-matrix or actual-merge claim.
 
-Unresolved: owner acceptance, actual typed7/9, remaining matrix/retry/lifecycle and exact Recents-category observation. Two distinct visible retry dialogs were not observed or claimed.
+- [ ] Actual typed initial7/9; API26–29/no hardware/no enrollment/StrongBox-absent physical branches.
+- [ ] Exact process-kill, retry exhaustion/cancellation and remaining stale/lifecycle probes; existing force-stop/background evidence remains distinct.
+- [ ] Exact Recents-category observation/two distinct visible retry dialogs remain unconfirmed; owner screenshot/PassChef-black reports above stand. [Device runbook](../../../runbooks/android-keystore-device-proof.md).

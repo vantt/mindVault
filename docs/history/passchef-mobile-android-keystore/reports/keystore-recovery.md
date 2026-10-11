@@ -1,12 +1,12 @@
-# Android Keystore — current-device checks accepted; coverage pending
+# Android Keystore — agreed Xiaomi scope complete; integration pending
 
 Scope: accepted original E2–E5 plus preserved E1; Core integrated at3532c160.
 Status: source independently reviewed/tested; actual expired-operation repair and
 post-enrollment original-password recovery/new-key unlock now passed on `d2a76ca`.
-Current-device feasible checks **ACCEPTED**; original-matrix coverage decision pending.
+Owner2026-10-11: "Merge/push hôm nay, ghi rõ bài kiểm tra còn thiếu". Agreed Xiaomi scope **COMPLETE**; main integration pending.
 Installed diagnostic `0d38e62`: independent debug/test hashes verified, whole Cookbook
 preserved, cold start locked. Prior `0a99d636` real biometric1jar/idle5 and `d2a76ca`
-E4 proofs stand; worktree stays open/unmerged, remaining matrix pending.
+E4 proofs stand; agreed scope complete, worktree unmerged awaiting independent main integration.
 Authentication/StrongBox unchanged; SDK `local.properties` untracked, ignored build file retained.
 Debug `.demo` isolation followed independent clean39; release unchanged. Builder38s/
 independent14s app/test/lint confirmed `.demo`/`.demo.test`, shared unchanged.
@@ -155,7 +155,7 @@ Actual2 negative-classifier +2 probe sanitization tests passed together in0.032s
 these are control tests, separate from the actual-controller E4 pass above.
 No unauthenticated retry or StrongBox policy change.
 
-## Typed lockout fallback candidate — physical proof pending
+## Typed lockout fallback — callback coverage remains unexecuted
 
 `0a99d636` accepts only actual initial BiometricPrompt error7/9 after correct-password
 cache authentication. Existing-record session transfer performs zero writes/retirement,
@@ -168,7 +168,7 @@ repository/cache/ownership cases),0failures/errors/skips; debug/test/release bui
 lint0errors8knownwarnings;61 frozen files unchanged and release excludes proof code.
 Independent review has no new P1/P2; prior lockout P2 is addressed in source.
 [Pinned build](/home/vantt/projects/passMan-recovery/20261011-keystore/lockout-candidate-build.json)
-was installed and hash-verified; actual OS7/9 fallback remains pending.
+was installed/hash-verified; typed7/9 callbacks unexecuted, OS availability fallback passed below.
 `d2a76ca` manual cancel, wrong password, pending-wrap background(return locked after6s)
 and force-stop/new-PID restart passed with whole-record preservation; see manual artifact.
 Earlier231.14s lock lacked confirmed input/session start. [Prior idle attempt](/home/vantt/projects/passMan-recovery/20261011-keystore/timer-idle-20261011T062931212610Z.json)
@@ -195,5 +195,5 @@ Main3+2 failed fingers logged only5,5; initial7/9 not delivered,56JVM/source rou
 Owner exact reports "screenshot không cho, quay bị đen", then "riêng paschef đen": screenshot blocked/only PassChef black, no root visual or definitive Recents category claim.
 Root ownforeground exit→ordinary return(no force-stop) locked+FLAG_SECURE13433.53–13436.77; fullcipherrecord894f73…/APKpins unchanged.
 Final bounded ownUID10422 snapshot7lines/sixknownliterals0hits, not comprehensive absence; keep-awake original0 RESTORED verified, ADB workers ended/phone free.
-No-enrollment/noHW/API26/noStrongBox/typed7&9/exactkill/retryexhaustion matrix coverage decision pending; older unwrap numeric remains unknown, not a new defect.
-[Scope decision](../../../../plans/261011-keystore-recovery/reports/current-device-acceptance.md); original matrix not complete, source frozen/worktree unmerged.
+No-enrollment/noHW/API26/noStrongBox/typed7&9/exactkill/retryexhaustion unexecuted, accepted limits tracked—not passed; older unwrap numeric unknown, not a new defect.
+[Accepted scope](../../../../plans/261011-keystore-recovery/reports/current-device-acceptance.md): completion within agreed scope, original matrix incomplete; source frozen, independent main integration pending/no merge claim.

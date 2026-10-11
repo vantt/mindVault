@@ -1,9 +1,9 @@
-# Android Cookbook — current-device checks accepted; coverage pending
+# Android Cookbook — agreed Xiaomi scope complete; integration pending
 
 Date: 2026-10-11. Debug demo package `dev.passchef.mobile.demo`; test package `dev.passchef.mobile.demo.test`.
 Release identity stays `dev.passchef.mobile`; debug has a separate UID/private data.
 Build/JVM/emulator/repository reopen do not establish physical acceptance/process restart.
-Current-device feasible checks **ACCEPTED**; original-matrix coverage decision pending. Installed `0d38e62`:
+Owner2026-10-11: "Merge/push hôm nay, ghi rõ bài kiểm tra còn thiếu". Agreed Xiaomi scope **COMPLETE**; main integration pending. Installed `0d38e62`:
 independent debug/test APK hashes verified, entire Cookbook preserved
 ([metadata](/home/vantt/projects/passMan-recovery/20261011-keystore/unwrap-diagnostic-candidate-build.json)); incremental builder hashes superseded.
 Prior `0a99d636` idle5 and `d2a76ca` E4 proofs remain below.
@@ -44,7 +44,7 @@ visible recovery prompt**, so two distinct prompts are not directly confirmed.
 requires a fresh CryptoObject and identity-checked real
 callback after code15 before success; that is a source-based inference supported
 by the recorded error→commit/new-key-unlock outcome. Source/APK pin unchanged.
-Feature/worktree remains open/unmerged; full physical acceptance is incomplete.
+Agreed current-Xiaomi scope complete; main integration still pending. Full original physical matrix remains incomplete.
 
 Current local evidence:
 [progress](/home/vantt/projects/passMan-recovery/20261011-keystore/physical-progress.json),
@@ -195,5 +195,5 @@ Current wrong-password `password_open_failed` preserved entire ciphertext Cookbo
 Intentional runner-auth rejection was NOT a test pass; unique probe cleanup completed. Whole record/alias/retirement/salt/cache IV/cache unchanged; no same-jar UI-count claim.
 Main3+2 failures emitted only5,5; initial7/9 not delivered, route remains56JVM/source coverage. Installed `0d38e62` frozen.
 Final ownUID10422 snapshot7lines: six known literals0hits, no comprehensive log guarantee; wholecipherrecord894f73…/APKpins unchanged.
-Keep-awake original0 RESTORED/verified; all ADB workers ended, phone free. No-enrollment/noHW/API26/noStrongBox/typed7&9/exactkill/retryexhaustion coverage decision pending.
-[Scope decision](../../plans/261011-keystore-recovery/reports/current-device-acceptance.md): source frozen, feature open/unmerged; no full-matrix completion claim.
+Keep-awake original0 RESTORED/verified; ADB workers ended/phone free. No-enrollment/noHW/API26/noStrongBox/typed7&9/exactkill/retryexhaustion unexecuted, accepted limits tracked—not passed.
+[Accepted scope](../../plans/261011-keystore-recovery/reports/current-device-acceptance.md): source frozen/completion within agreed scope; independent main integration pending, no merge/closure claim.
