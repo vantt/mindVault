@@ -4,8 +4,9 @@
 
 - Real Google OAuth setup and one live Cookbook read remain pending; local
   client verification does not certify an account connection.
-- Android Keystore and biometric unlock are being completed in their original
-  worktree using the verified Mobile Core. Physical-device acceptance is required.
+- Android Keystore candidate `e26bcd9` is implemented in its original worktree:
+  39 JVM tests, app/test APK builds and independent review pass; lint has zero
+  errors. Physical-device acceptance remains pending; the branch stays unmerged.
 - Phone QR reading/reassembly remains a separate follow-up after existing
   worktrees are completed.
 

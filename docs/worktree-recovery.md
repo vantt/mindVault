@@ -20,7 +20,7 @@ Keystore work. Start new work directly from main only after all three are done.
 |---|---|---|---|
 | `wt/passchef-mobile-oauth-sheets` | [Track D: OAuth/Menu client](history/passchef-mobile-oauth-sheets/plan.md), approved 2026-07-28 | Original five commits and recovery commit `0f93c7d` integrated into main | Code scope complete; worktree archived and closed; live Google check pending |
 | `wt/passchef-mobile` | [Track B: Mobile Core](history/passchef-mobile/implement-plan.md), updated 2026-07-28 | Full accepted Core slice implemented; 26 JVM tests and Android packaging pass | Complete; `7d8808c` in main, fresh integration passed, archived and closed |
-| `wt/passchef-mobile-android-keystore` | [Android Keystore + biometric unlock](history/passchef-mobile-android-keystore/plan.md), approved 2026-07-30 | Scaffold `a1c57c9` reconciled with Core in `3532c16`; storage/unlock implementation underway | Implementation and independent checks ongoing; physical acceptance pending |
+| `wt/passchef-mobile-android-keystore` | [Android Keystore + biometric unlock](history/passchef-mobile-android-keystore/plan.md), approved 2026-07-30 | Core reconciled at `3532c16`; genuine storage/unlock implemented in candidate `e26bcd9` | 39 JVM tests, app/test APKs and independent review passed; physical acceptance pending; not merged |
 | `wt/qr-handoff` | [Extension QR handoff](history/qr-handoff/plan.md), approved 2026-07-27; [recovery execution](../plans/261011-qr-handoff-worktree-recovery/plan.md) | Sender implemented in original checkout; 15 QR + 22 golden unit tests and two headed canvas-decoding E2E passed | Complete; `4a4395c` merged at `3d3239d`, fresh integration passed, archived and closed; phone reader excluded |
 
 The linked Markdown planning dossiers are preserved unchanged here from their
@@ -172,8 +172,20 @@ See [the Core report](history/passchef-mobile/reports/mobile-core-recovery.md).
 
 ## Remaining checkout
 
-Only `wt/passchef-mobile-android-keystore` remains open. Finish its accepted
-E1–E5 implementation, independent verification and real-device acceptance before
-merge and closure. The owner confirmed USB participation, but the latest Windows
-ADB check still listed no device. Original biometric enrollment and recovery
-checks remain required; successful JVM/build results cannot replace them.
+Only `wt/passchef-mobile-android-keystore` remains open. Candidate `e26bcd9`
+contains genuine persistent storage, per-operation biometric wrap/unwrap,
+original-password recovery and a minimal isolated `.demo` app. Independent clean
+verification passed 39 JVM tests, Android packaging and app/test APK builds; lint
+has zero errors and eight warnings. Independent review has no remaining P1/P2.
+The original Core implementation and existing tooling WIP remain intact.
+
+The accepted E1–E5 physical checks remain pending, so the candidate stays
+unmerged. Windows recognizes Xiaomi 14T Pro as a transfer device but exposes no
+ADB interface after the owner's USB debugging retries. Wireless pairing details
+were requested; no alternative connection or biometric success is assumed.
+Two actual CryptoObject prompts, enrollment invalidation/password recovery and
+physical lifecycle/restart checks are still required. A complete verified
+checkpoint exists at
+`/home/vantt/projects/passMan-recovery/20261011-keystore/checkpoint-e26bcd9/`;
+built APK hashes and candidate commit are recorded in `candidate-build.json`.
+Finish device acceptance before merge and closure; new main-based plans wait.

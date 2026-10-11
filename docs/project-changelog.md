@@ -1,5 +1,14 @@
 # Project Changelog
 
+## Android Keystore candidate awaiting physical proof (2026-10-11)
+
+Candidate `e26bcd9` remains in the original Keystore worktree. It implements
+biometric-gated device-key wrapping, encrypted spice storage, password recovery
+and a separate `.demo` app. Independent checks passed 39 JVM tests, app/test APK
+builds and review; lint has zero errors and eight warnings. Real device prompts,
+enrollment recovery and lifecycle acceptance remain pending, so no source merge
+or checkout closure is claimed. See [recovery status](worktree-recovery.md).
+
 ## Phone QR cookbook handoff (2026-10-11)
 
 **Scope:** Complete the accepted extension sender plan. Own profiles open the
