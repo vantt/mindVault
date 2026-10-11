@@ -2,7 +2,6 @@ package dev.passchef.mobile
 
 import android.content.Context
 import android.os.Handler
-import android.os.Build
 import android.os.Looper
 import android.os.SystemClock
 import androidx.biometric.BiometricManager
@@ -11,7 +10,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import dev.passchef.mobile.vault.*
 import java.io.File
-import java.util.UUID
 import java.util.concurrent.Executors
 import javax.crypto.Cipher
 
@@ -33,19 +31,17 @@ class VaultController(
     private val crypto = KeystoreCrypto()
     private val clock = SessionClock()
     private var session: VaultSession? = null
-    private var pending: PreparedVault? = null
-    private var pendingAlias = ""
     private val epoch = OperationEpoch()
     private var active = false
     private val tickCallback = Runnable { tick() }
+    private val wrapping = VaultWrapping(context, crypto, repository, worker, main, authenticate,
+        { active && epoch.accepts(it) }, ::retire, ::passwordOnly, ::finish, ::fail, { status = it })
 
     fun start() { active = true; tick() }
     fun touch() { clock.touch(SystemClock.elapsedRealtime()) }
     fun lock() {
         active = false; epoch.invalidate(); cancelPrompt(); main.removeCallbacks(tickCallback)
-        pending?.close(); pending = null
-        val alias = pendingAlias; pendingAlias = ""
-        if (alias.isNotEmpty()) retire(alias)
+        wrapping.cancel()
         session?.close(); session = null; clock.lock()
         unlocked = false; busy = false; status = "Cookbook locked"
     }
@@ -71,13 +67,13 @@ class VaultController(
         worker.execute {
             try {
                 val prepared = if (repository.record() == null) repository.setup(password, spices) else repository.recover(password)
-                main.post {
+                if (!main.post {
                     epoch.deliver(token, {
                         if (!active) prepared.close()
                         else if (!biometricAvailable()) passwordOnly(prepared, token)
-                        else prepareWrap(prepared, token)
+                        else wrapping.start(prepared, token)
                     }, { prepared.close() })
-                }
+                }) prepared.close()
             } catch (_: Exception) { fail(token, "Could not open Cookbook. Check your master password; stored data was preserved.") }
             finally { password.fill(0); spices.values.forEach { it.fill(0) } }
         }
@@ -92,60 +88,6 @@ class VaultController(
                 finish(token, prepared.session, "Cookbook open by password; strong biometric unavailable")
             } catch (_: Exception) { prepared.close(); fail(token, "Could not save Cookbook; prior data preserved") }
         }
-    }
-    private fun prepareWrap(prepared: PreparedVault, token: Long) {
-        worker.execute {
-            val alias = "passchef-${UUID.randomUUID()}"
-            try {
-                val hardware = crypto.createKey(alias, context.packageManager.hasSystemFeature("android.hardware.strongbox_keystore"))
-                val cipher = crypto.wrapCipher(alias)
-                main.post {
-                    if (!active || !epoch.accepts(token)) { prepared.close(); retire(alias) }
-                    else {
-                        pending = prepared; pendingAlias = alias
-                        authenticate(cipher, { authorized ->
-                            if (!active || !epoch.accepts(token)) return@authenticate
-                            pending = null; pendingAlias = ""
-                            worker.execute {
-                                var committed = false
-                                var phase = "wrap-doFinal"
-                                try {
-                                    if (!epoch.accepts(token)) return@execute
-                                    val wrapped = authorized.doFinal(prepared.session.key)
-                                    phase = "record-commit"
-                                    repository.commitWrap(prepared, alias, authorized.iv, wrapped)
-                                    committed = true
-                                    phase = "key-retirement"
-                                    val retired = runCatching { repository.retireKeys(crypto::deleteKey) }.getOrDefault(false)
-                                    val cleanup = if (retired) "" else "; prior device key cleanup pending"
-                                    phase = "session-delivery"
-                                    finish(token, prepared.session, "Round trip ready; device key hardware protected: $hardware$cleanup")
-                                } catch (error: Exception) {
-                                    WrapFailureProbe.record(phase, error) {
-                                        if (Build.VERSION.SDK_INT >= 31) crypto.info(alias).securityLevel else -1
-                                    }
-                                    fail(token, "Could not save biometric wrap; prior data preserved")
-                                }
-                                finally {
-                                    if (!committed) { prepared.close(); runCatching { crypto.deleteKey(alias) } }
-                                }
-                            }
-                        }, { cancelPending(token) })
-                    }
-                }
-            } catch (_: Exception) {
-                runCatching { crypto.deleteKey(alias) }
-                // Password authentication already succeeded; retain a usable password-only Cookbook.
-                passwordOnly(prepared, token)
-            }
-        }
-    }
-    private fun cancelPending(token: Long) {
-        if (!epoch.accepts(token)) return
-        pending?.close(); pending = null
-        val alias = pendingAlias; pendingAlias = ""
-        retire(alias)
-        fail(token, "Biometric cancelled or unavailable. Use your master password.")
     }
     fun biometric() {
         if (!active || busy || unlocked) return
@@ -173,13 +115,13 @@ class VaultController(
         }
     }
     private fun finish(token: Long, opened: VaultSession, message: String) {
-        main.post {
+        if (!main.post {
             epoch.deliver(token, {
                 if (!active) opened.close()
                 else { session?.close(); session = opened; clock.begin(SystemClock.elapsedRealtime())
                     unlocked = true; busy = false; status = message }
             }, { opened.close() })
-        }
+        }) opened.close()
     }
     private fun fail(token: Long, message: String) {
         main.post { if (active && epoch.accepts(token)) { busy = false; status = message } }
