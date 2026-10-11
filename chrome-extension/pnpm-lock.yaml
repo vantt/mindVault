@@ -18,6 +18,9 @@ importers:
       jsdom:
         specifier: ^27.4.0
         version: 27.4.0
+      jsqr:
+        specifier: 1.4.0
+        version: 1.4.0
       vitest:
         specifier: ^4.0.17
         version: 4.0.17(jsdom@27.4.0)
@@ -510,6 +513,9 @@ packages:
     peerDependenciesMeta:
       canvas:
         optional: true
+
+  jsqr@1.4.0:
+    resolution: {integrity: sha512-dxLob7q65Xg2DvstYkRpkYtmKm2sPJ9oFhrhmudT1dZvNFFTlroai3AWSpLey/w5vMcLBXRgOJsbXpdN9HzU/A==}
 
   lru-cache@11.2.4:
     resolution: {integrity: sha512-B5Y16Jr9LB9dHVkh6ZevG+vAbOsNOYCX+sXvFWFu7B3Iz5mijW3zdbMyhsh8ANd2mSWBYdJgnqi+mL7/LrOPYg==}
@@ -1124,6 +1130,8 @@ snapshots:
       - bufferutil
       - supports-color
       - utf-8-validate
+
+  jsqr@1.4.0: {}
 
   lru-cache@11.2.4: {}
 

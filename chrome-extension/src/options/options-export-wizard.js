@@ -1,5 +1,6 @@
 import { ExportImportAdapter } from "../adapters/infrastructure/export-import-adapter.js";
 import { decryptWithKey } from "../adapters/infrastructure/aes-storage-crypto-helper.js";
+import { createQrDisplay } from "./options-qr-display.js";
 import { t } from "../i18n-loader.js";
 
 const adapter = new ExportImportAdapter();
@@ -7,8 +8,9 @@ const adapter = new ExportImportAdapter();
 /** @type {{ profileName: string, profileKey: string, sessionKey: object, sheetId: string|null, onComplete: function }} */
 let state = {};
 
-export function openExportWizard(profileName, profileKey, sessionKey, onComplete, prefilledSheetId = null) {
-    state = { profileName, profileKey, sessionKey, onComplete, step: 1, sheetId: prefilledSheetId || '' };
+export function openExportWizard(profileName, profileKey, sessionKey, onComplete, prefilledSheetId = null, phoneMode = false) {
+    state.qr?.close();
+    state = { profileName, profileKey, sessionKey, onComplete, step: 1, phoneMode, sheetId: prefilledSheetId || '' };
     document.querySelector('#export-modal-title .modal-title-em').textContent = profileName;
     document.getElementById('btn-close-export').onclick = () => confirmClose('modal-export');
     renderStep(1);
@@ -16,6 +18,8 @@ export function openExportWizard(profileName, profileKey, sessionKey, onComplete
 }
 
 function renderStep(step) {
+    state.qr?.close();
+    state.renderVersion = (state.renderVersion || 0) + 1;
     state.step = step;
     updateDots('exp', step, 2);
     const content = document.getElementById('export-step-content');
@@ -87,6 +91,8 @@ function renderStep(step) {
 }
 
 async function generateBundle() {
+    const current = state;
+    const version = current.renderVersion;
     const pwd = document.getElementById('exp-sharing-pwd').value;
     const confirm = document.getElementById('exp-sharing-pwd-confirm').value;
     const statusEl = document.getElementById('exp-step3-status');
@@ -100,13 +106,16 @@ async function generateBundle() {
 
     try {
         // Decrypt profile secrets
-        const stored = await chrome.storage.sync.get(state.profileKey);
-        const profileData = stored[state.profileKey];
+        const stored = await chrome.storage.sync.get(current.profileKey);
+        const profileData = stored[current.profileKey];
+        if (current !== state || current.renderVersion !== version) return;
         if (!profileData) throw new Error("Profile data not found");
-        const decrypted = await decryptWithKey(profileData.encryptedData, profileData.iv, state.sessionKey);
+        const decrypted = await decryptWithKey(profileData.encryptedData, profileData.iv, current.sessionKey);
 
+        if (current !== state || current.renderVersion !== version) return;
         // Create Full Access bundle — raw secrets, no HKDF derivation
-        const bundle = await adapter.createFullAccessBundle(state.profileName, decrypted.secrets, state.sheetId, pwd);
+        const bundle = await adapter.createFullAccessBundle(current.profileName, decrypted.secrets, current.sheetId, pwd);
+        if (current !== state || current.renderVersion !== version) return;
         const bundleJson = JSON.stringify(bundle, null, 2);
 
         // Show result
@@ -116,9 +125,16 @@ async function generateBundle() {
             <div style="display:flex;gap:.5rem;margin-top:.75rem">
                 <button class="btn sm secondary" id="btn-copy-bundle">📋 Copy Bundle</button>
                 <button class="btn sm secondary" id="btn-download-bundle">⬇️ Download .json</button>
+                <button class="btn sm secondary" id="btn-show-qr">📱 ${t("qrShow") || "Show QR"}</button>
             </div>
+            <div id="exp-qr-panel" class="export-qr-panel"></div>
             <div class="warning-box">⚠️ ${t('exportNextStep') || "Use this extension on the shared sheet to generate and set account passwords using the shared profile's secrets."}<br><br>⚠️ Transmit via encrypted channel only.</div>`;
         document.getElementById('export-modal-footer').innerHTML = `<span></span><div class="right"><button id="exp-done" class="btn sm primary" style="width:auto">Done</button></div>`;
+
+        state.step = 3;
+        state.qr = createQrDisplay(document.getElementById("exp-qr-panel"), bundle);
+        document.getElementById("btn-show-qr").onclick = () => state.qr?.show();
+        if (current.phoneMode) state.qr.show();
 
         document.getElementById('btn-copy-bundle').onclick = () => {
             navigator.clipboard.writeText(bundleJson);
@@ -128,15 +144,18 @@ async function generateBundle() {
             const blob = new Blob([bundleJson], { type: 'application/json' });
             const a = document.createElement('a');
             a.href = URL.createObjectURL(blob);
-            a.download = `passchef-bundle-${state.profileName}.json`;
+            a.download = `passchef-bundle-${current.profileName}.json`;
             a.click();
+            setTimeout(() => URL.revokeObjectURL(a.href), 0);
         };
         document.getElementById('exp-done').onclick = () => {
-            document.getElementById('modal-export').classList.add('hidden');
-            state.onComplete?.();
+            const onComplete = state.onComplete;
+            closeExport();
+            onComplete?.();
         };
         updateDots('exp', 3, 2); // all done
     } catch (e) {
+        if (current !== state || current.renderVersion !== version) return;
         btn.textContent = "Generate Bundle";
         btn.disabled = false;
         document.getElementById('exp-step3-status').innerHTML = `<p class="text-danger">Error: ${escHtml(e.message)}</p>`;
@@ -157,7 +176,15 @@ function confirmClose(modalId) {
     if (state.step > 1 && state.step <= 2) {
         if (!confirm("Discard export?")) return;
     }
-    document.getElementById(modalId).classList.add('hidden');
+    closeExport();
+}
+
+function closeExport() {
+    state.qr?.close();
+    state = {};
+    document.getElementById('modal-export').classList.add('hidden');
+    document.getElementById('export-step-content').replaceChildren();
+    document.getElementById('export-modal-footer').replaceChildren();
 }
 
 function extractSheetId(input) {

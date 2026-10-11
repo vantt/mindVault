@@ -1582,3 +1582,8 @@ select.o-input:focus,
   line-height: 1.5;
   margin-top: var(--sp-3);
 }
+
+/* Encrypted cookbook QR: integer-pixel modules and a four-module quiet zone. */
+.export-qr-panel { text-align: center; margin-top: var(--sp-3); }
+.export-qr-panel canvas { max-width: 100%; height: auto; image-rendering: pixelated; }
+.export-qr-panel p { font-size: 13px; color: var(--ink-700); margin-top: var(--sp-2); }

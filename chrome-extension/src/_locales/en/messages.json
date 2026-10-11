@@ -425,5 +425,10 @@
   },
   "shareSheetNotice": {
     "message": "Opens the export wizard in Settings — share your profile locked to this sheet."
-  }
+  },
+  "qrConnectPhone": { "message": "Connect phone app" },
+  "qrShow": { "message": "Show QR" },
+  "qrCanvasLabel": { "message": "Encrypted cookbook QR" },
+  "qrPreparing": { "message": "Preparing encrypted cookbook QR…" },
+  "qrDisplayError": { "message": "Cannot show QR. Download the cookbook bundle and try again." }
 }
