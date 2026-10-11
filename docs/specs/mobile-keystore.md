@@ -70,8 +70,16 @@ Biometric/password-wrap cancellation, wrong-password preservation, pending-wrap
 background locking and actual new-process restart also passed. A later review
 found the lockout password-loop defect; its typed fallback repair is implemented
 and source-reviewed. Builder and fresh independent56 JVM tests, debug/test/release/lint passed.
-Candidate `0a99d63` is installed with exact Cookbook bytes preserved; genuine
-biometric opening authenticated the same1 jar. A later held unlock failed with
-"Device key unavailable"; its numeric cause was not recorded. No physical5/10min
-pass is recorded. Actual lockout fallback, timers and native screen protections
-remain pending; worktree stays open/unmerged.
+Candidate `0a99d63` preserved exact Cookbook bytes and genuinely authenticated
+the same1 jar; debug-only unwrap diagnostic `0d38e62` is now installed and pinned.
+Its independent app builds/lint and five actual Android formatter tests passed;
+release remains silent, with authentication/storage/session behavior unchanged. A later held unlock failed with
+"Device key unavailable"; its numeric cause was not recorded. After Xiaomi reboot,
+a fresh real biometric session passed idle5min: last observed open292.74s, first
+observed locked305.95s, with no post-setup touch. Bounded own-app log checks found
+none of six known synthetic literals; foreground/awake/FLAG_SECURE were sampled.
+A fresh total10min probe then locked309.84s after four requested ADB header taps;
+their delivery was unverified. The next owner-touch probe timed out before unlock.
+Demo was safely restarted cold/locked; encrypted record stayed exact and temporary
+keep-awake was restored. Actual lockout fallback, manual total10min and native
+screen protections remain pending; worktree stays open/unmerged.

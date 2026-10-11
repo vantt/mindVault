@@ -4,10 +4,10 @@ Date: 2026-10-11. Debug demo package `dev.passchef.mobile.demo`; test package `d
 Release identity stays `dev.passchef.mobile`; debug has a separate UID/private data.
 Build/compile evidence is separate from physical acceptance. Do not count a JVM,
 emulator, compiled APK, or merely reopened repository as physical process-restart proof.
-Physical acceptance is **IN PROGRESS**. Committed candidate `0a99d636` is installed:
-debug/test APK hashes verified; the entire Cookbook stayed unchanged
-([metadata](/home/vantt/projects/passMan-recovery/20261011-keystore/lockout-candidate-build.json)).
-One genuine biometric open authenticated1 jar on this candidate; prior `d2a76ca` E4 proof remains below.
+Physical acceptance is **IN PROGRESS**. Installed debug-only diagnosis `0d38e62`:
+independent debug/test APK hashes verified, entire Cookbook preserved
+([metadata](/home/vantt/projects/passMan-recovery/20261011-keystore/unwrap-diagnostic-candidate-build.json)); incremental builder hashes superseded.
+Prior `0a99d636` idle5 and `d2a76ca` E4 proofs remain below.
 Native Windows adb now sees the owner-authorized Xiaomi14TPro/2407FPN8EG, API36,
 over USB. Neither release nor demo package existed at preflight. Both pinned APKs
 installed successfully; the earlier install restriction and missing-ADB state are
@@ -75,12 +75,10 @@ places the current-process code15 after the owner's held-prompt confirmation.
 ## Platform and security boundary
 
 - Android8/API26 minimum; compile36, target34 retained from scaffold.
-- Enrolled Class3/strong biometric needed for CryptoObject proof. No enrollment or
-  no hardware retains the original master-password-only path.
+- Class3/strong enrollment needed for CryptoObject proof; unavailable retains password-only path.
 - Android Keystore AES256/GCM; authentication on every wrap and unwrap. API30+
   uses `(0, AUTH_BIOMETRIC_STRONG)`; API26–29 uses validity `-1`.
-- Enrollment invalidation enabled. StrongBox opportunistic on API28+ with feature
-  check and `StrongBoxUnavailableException` fallback; hardware level inspected,
+- Enrollment invalidation enabled; API28+ StrongBox feature/Unavailable fallback, hardware level inspected,
   not assumed. JVM actual explicitly refuses Android hardware operations.
 - Master key: Argon2id v19,t3,65536KiB,p4,32 bytes; real BouncyCastle1.85, matching
   proven extension WASM bytes. UTF-8 follows Web TextEncoder surrogate handling.
@@ -180,16 +178,22 @@ Use only synthetic master password/spices and record outcomes without their valu
 8. Check screenshot/recents protections and review app-scoped logcat after flows:
    no plaintext seasoning, master password, derived key or raw exception content.
 
-Owner participation remains required: actual OS7/9 fallback, retry cancellation/
-exhaustion, remaining lifecycle/matrix, real5min idle/10min total, native screenshot/
-Recents checks. `d2a76ca` cancellation, pending-wrap background and process-restart
+Pending: actual OS7/9, retry cancellation/exhaustion, lifecycle/matrix, total10min,
+native screenshot/Recents. `d2a76ca` cancellation, pending-wrap background/restart
 passes remain in [manual evidence](/home/vantt/projects/passMan-recovery/20261011-keystore/manual-evidence.json).
 FLAG_SECURE is confirmed; it does not establish screenshot/Recents behavior.
-No timer pass: existing-session lock231.14s after requested tap lacks confirmed
-input delivery/session start. Latest [idle attempt](/home/vantt/projects/passMan-recovery/20261011-keystore/timer-idle-20261011T062931212610Z.json)
-was INTERRUPTED before `timer_started`. After real owner fingerprint the UI showed
+Earlier231.14s lock lacked confirmed input/session start. [Prior idle attempt](/home/vantt/projects/passMan-recovery/20261011-keystore/timer-idle-20261011T062931212610Z.json)
+was INTERRUPTED before `timer_started`; real owner fingerprint then showed
 "Device key unavailable"; numeric cause is unobserved, so expired unwrap is not inferred.
-Root awaits owner Xiaomi reboot after enabling USB debugging(Security settings),
-then fresh unlock/open. Temporary keep-awake was restored to original0.
-API26–27 has guarded-source/build evidence only, not physical proof on API36.
-Record new evidence before closing the feature; worktree remains open/unmerged.
+Post-reboot(uptime380s), old `0a99d636` real-owner idle5 **PASS**: open292.74s/locked305.95s from biometric status;
+no post-setup touches ([proof](/home/vantt/projects/passMan-recovery/20261011-keystore/timer-idle-20261011T070708433357Z.json)).
+Sampled foreground/awake/FLAG_SECURE; six known literals had no bounded own-UID hits, not continuous/comprehensive absence.
+[Earlier total](/home/vantt/projects/passMan-recovery/20261011-keystore/timer-total-20261011T071305213998Z.json) FAILED before timer start after ~194s held real-owner prompt: device-key
+unavailable, numeric cause unknown; whole Cookbook unchanged; that observer stopped/keep-awake0.
+Diagnosis builder46s/independent140tasks69s,lint0/8; Android5formatter-only tests passed.
+[Latest total](/home/vantt/projects/passMan-recovery/20261011-keystore/timer-total-20261011T072607082007Z.json) FAIL on `0d38e62`: real fresh unwrap/open, lastopen296.45s/firstlocked309.84s.
+Four ADB tap requests67.52/122.08/189.21/242.98s lack proven delivery: no10min pass/bug classification.
+[Manual total](/home/vantt/projects/passMan-recovery/20261011-keystore/timer-total-20261011T073313499790Z.json) FAIL: owner unlock unobserved600s, last `prompt_pending`; timer NEVER started.
+Root force-stopped/restarted own demo COLD locked, whole Cookbook preserved; keep-awake0 verified, observers ended.
+Next: owner-ready fresh fingerprint, then manual inert-header activity for total10; source `0d38e62` frozen/installed unchanged.
+Actual7/9/native screenshot/Recents pending; API26–27 source/build only. Feature open/unmerged, no closure.

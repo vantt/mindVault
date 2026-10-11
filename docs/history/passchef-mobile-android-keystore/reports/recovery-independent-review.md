@@ -1,7 +1,7 @@
 # Android Cookbook recovery — independent review
 
 Date: 2026-10-11. Checkout: `passMan--wt--passchef-mobile-android-keystore`.
-Comparison base: `3532c160`; latest reviewed repair commit: `0a99d63`.
+Comparison base: `3532c160`; latest reviewed probe commit: `0d38e62`.
 Reviewer changed only this report; no source/state/staging/commit/device/merge actions.
 
 **Lockout P2 fixed in source; no P1/P2 findings. Physical7/9 verification pending.**
@@ -26,8 +26,7 @@ Full screens, real spice authoring, OAuth, QR reader and autofill remain exclude
 - Lock removes only its timer; stale owned-result callbacks still execute cleanup.
 - Password fallback checks epoch; shutdown rejection closes owned session.
   Real shutdown regression asserts key/spice zeroing.
-- Debug target-APK proof Activity uses `targetContext` and the instrumented UID.
-  AndroidX core1.6.1 startActivitySync makes test-APK hosting unsuitable.
+- Debug target-APK/targetContext owns UID; AndroidX startActivitySync forbids test-APK hosting.
   [Official source artifact](https://dl.google.com/dl/android/maven2/androidx/test/core/1.6.1/core-1.6.1-sources.jar).
 - Physical comparisons sanitize failures and wipe copies; disk reopen is named accurately.
 - Debug `.demo` isolates release UID/files/keys; runbook uses its full component/
@@ -35,20 +34,15 @@ Full screens, real spice authoring, OAuth, QR reader and autofill remain exclude
 
 ## Security and correctness checks
 
-- Real Argon2id v19, t3, 65536KiB, p4, 32-byte derivation and Web UTF-8 surrogate
-  handling reuse the proven Core boundary and actual BouncyCastle1.85.
-- Cache AES-GCM authentication completes before caller creates a rotation alias;
-  wrong password/tampering never writes the record or retires an existing alias.
-- Version/byte lengths/jar indexes and sizes are bounded. No master key, password
-  or plaintext seasoning is persisted. Ciphertext records use noBackupFilesDir;
-  cloud backup and device-transfer exclusions are explicit.
-- Atomic complete-record replacement precedes old-alias retirement. Failed write
-  preserves old data and disposes only the new alias. Bounded retired-alias
-  metadata survives interruptions and retries after successful authentication.
-- Android generates nonexportable AES256/GCM keys requiring per-use strong
-  biometric authentication and enrollment invalidation. API30 auth parameters,
-  API26–29 duration -1, and API28 StrongBox calls have explicit guards. StrongBox
-  failures retry normal Keystore; hardware protection is inspected, not assumed.
+- Core Argon2id v19/t3/65536KiB/p4/32bytes/Web UTF-8 uses genuine BC1.85.
+- Cache authenticates before new alias; wrong password/tampering cause no record/key mutation.
+- Version/length/index/size bounds enforced; no key/password/plain spices persisted.
+  Ciphertext uses noBackupFilesDir, explicit cloud/device-transfer exclusions.
+- Atomic replacement precedes old retirement; failed write preserves old record,
+  deletes only new alias. Bounded retirement queue persists/retries after authentication.
+- Nonexportable AES256/GCM uses per-use strong biometrics/enrollment invalidation.
+  API30 auth parameters,26–29 duration-1 and28 StrongBox are guarded; StrongBox
+  failures retry normal Keystore. Actual hardware protection is inspected.
 - Each authorized callback must supply the same cipher and current prompt/operation
   generation. Repeat taps cannot initiate parallel unlocks; stale callbacks cannot
   publish sessions. Session buffers zero on lock/background; idle5min/total10min
@@ -57,18 +51,15 @@ Full screens, real spice authoring, OAuth, QR reader and autofill remain exclude
   no product key/password/spice logging found. FLAG_SECURE is applied. UI inputs
   use remember rather than saveable state and clear on submission/background.
   Immutable managed strings/provider copies cannot be promised erased.
-- JVM actual explicitly throws unsupported for Android hardware operations;
-  fault-injection storage tests do not claim to simulate biometric hardware.
+- JVM hardware is unsupported; fault-injection storage tests make no hardware claim.
 
 ## Independent build/test evidence
 
 Initial clean JDK17/SDK36 run passed39 tests (Core26/vault13), zero failures/skips,
 107 tasks/105 executed in73s; shared/app/test artifacts built, lint0errors/8warnings.
-Isolated-package rerun passed in14s,93tasks/two executed. Independent APK checks
-confirm `.demo`/`.demo.test` and correct runner target, backup/transfer exclusions,
-debug-only nonexported proof Activity. Final48-test rerun is recorded below.
-Unique synthetic proof files/aliases isolate user Cookbooks. Genuine wrap/unwrap
-tests cover absent-auth, key/cache equality, hardware, persistence and cleanup.
+Isolated-package rerun passed14s/93tasks; APKs confirm `.demo`/`.demo.test`, runner,
+backup exclusions and debug-only proof. Synthetic isolated tests exercise actual
+wrap/unwrap, absent-auth, equality, hardware, persistence and cleanup.
 
 ## Later physical evidence and focused regression review
 
@@ -105,20 +96,16 @@ identities are in `recovery-numeric-build.json`, with product then still `e26bcd
 
 ## Actual-controller diagnostic probe review
 
-Probe delta preserves authorization/storage policy; bounded class chain, whitelisted
-phase and guarded numeric flags exclude messages/aliases/bytes. Release is no-op.
-Independent debug/test/release/lint passed16s,140tasks/three executed,0errors/8warnings;
-release lacks proof Activity/log tag. Formatter tests passed2/0.026s on device;
-`actual-controller-probe-build.json` records identities. This proves sanitization only.
-The subsequent `actual-controller-numeric.log` captured wrap-doFinal code15,
-system/transient=true, authRequired=false, retry2 and StrongBox level2. This
-identifies an expired KeyMint operation for that attempt, not earlier failures.
+Safe debug probe leaves policy unchanged; release is no-op/proof-tag excluded.
+Build passed16s/140tasks,0errors/8warnings; formatter2/0.026s device pass proves
+sanitization only (`actual-controller-probe-build.json`). Later real wrap log
+captured code15, system/transient=true, authRequired=false, retry2/StrongBox2:
+expired operation for that attempt, not a retrospective cause for earlier failures.
 [Official code15 definition](https://developer.android.com/reference/android/security/KeyStoreException#ERROR_KEY_OPERATION_EXPIRED).
 
 ## Frozen expired-operation repair — source review
 
-Reviewed VaultWrapping, WrapOperationState, typed bounded WrapFailureCauses/
-ExpiredWrapFailure, controller extraction and new tests against the focused plan.
+Reviewed wrapping/state/typed classifier/controller/test scope against focused plan.
 **No identified P1/P2 source findings.** API33+ public code15 only at doFinal
 permits one retry after a cancellable5s delay. It recreates Cipher/IV on the same
 disposable alias and requires a new genuine strong-biometric CryptoObject prompt.
@@ -130,8 +117,7 @@ tests do not claim simulated biometric success.
 Reviewed source committed `d2a76ca`. Independent tester's fresh `--rerun-tasks`
 verification passed: **48 JVM tests, zero failures/errors/skips; exit0, 78s,
 150/150 tasks executed**, debug/test/release/shared artifacts and lint0errors/8warnings.
-APK SHA256 identities are in `independent-expired-wrap-build.json` beside its log;
-53 frozen source/build files remained unchanged; release excludes proof/tag.
+`independent-expired-wrap-build.json` pins identities;53 files stable/release isolated.
 Parent installed pinned APKs preserving the existing invalidated synthetic demo.
 `expired-wrap-negative-classifier-physical.log`: **OK (4 tests), 0.032s**.
 These prove classifier/diagnostic controls, not actual-controller retry/E4 success.
@@ -154,19 +140,16 @@ Continuous sensor/OEM presentation remains an unverified explanation.
 Latest d2a76ca manual `retry_candidate_*` keys record real bio/wrap cancel, wrong
 password, pending-wrap Home→locked after6s and force-stop/newPID/restart locked;
 all preserve exact record. Generic unavailable UI is not typed7/9 proof or retry-delay cancel.
-No5/10-minute physical pass: root observed lock231s after requested tap without
-verified session delivery/start. `timer-idle-20261011T062931212610Z.json` was
-interrupted before timer start; later owner authentication showed Device key
-unavailable, numeric cause unobserved. This does not classify a timer/code defect.
+Earlier231s lock lacked a session-start anchor; `timer-idle-20261011T062931212610Z.json`
+was interrupted before timer start. Later Device key unavailable had no numeric
+diagnosis. Failed probes remain; neither establishes a timer/code defect.
 
 ## Lockout fallback defect and candidate source review
 
-CONTEXT D3 and original plan:61 require a working master-password fallback for
-ERROR_LOCKOUT/ERROR_LOCKOUT_PERMANENT. In reviewed d2a76ca MainActivity:35–36 loses
-the reason; Controller:71–74 sends correct passwords back to wrapping whenever
-canAuthenticate succeeds; VaultWrapping:58–60 closes the authenticated session
-and repeats password advice on error. AOSP explicitly permits canAuthenticate
-success during both lockouts, so this supported state can trap password recovery.
+CONTEXT D3/plan:61 require lockout password fallback. In d2a76ca MainActivity:35–36
+loses error reason; Controller:71–74 re-prompts correct passwords; VaultWrapping:58–60
+closes authenticated data on prompt error. AOSP permits canAuthenticate success
+during both lockouts, so this supported state can trap password recovery.
 [Official platform tests](https://android.googlesource.com/platform/frameworks/base/+/9759067e38ee5aa7c8ba62201f619cc0bc97bc40/services/tests/servicestests/src/com/android/server/biometrics/BiometricServiceTest.java#1240).
 Root accepted the [focused plan](../../../../plans/261011-keystore-recovery/reports/lockout-fallback-fix.md).
 Reviewed candidate delta over e4692d0: **prior P2 addressed; no new P1/P2 findings**.
@@ -185,15 +168,32 @@ debug/test/release/shared artifacts and lint0errors/8warnings;61 files/hashes/mo
 release excludes proof Activity/tag. Debug/test APKs installed-r; actual hashes
 match pinned identities and complete Cookbook bytes remain unchanged. Root observed
 one genuine new-candidate biometric unlock with one jar; actual7/9 remains unproven.
-Owner reboot/security setup pending; keepawake restored0; screenshot/Recents/timers unproven.
+Postreboot installed0a idle5 **PASS**: `timer-idle-20261011T070708433357Z.json`.
+Fresh owner biometric status, no later taps; last open292.74s/first locked305.95s.
+Before/after APK hashes equal; bounded own-UID checks of six synthetic literals
+had no hits. Awake/owned foreground/FLAG_SECURE were sampled, not continuously traced.
+Total10 before-start FAIL (`timer-total-20261011T071305213998Z.json`): key unavailable, no numeric cause;7/9/screens pending.
 
-Repeated-failure/lockout, retry cancel/exhaustion, late background
-callbacks, timer UI and device log checks remain pending unless separately
-recorded later. API26–29/no-biometric/StrongBox-absent are unverified device-matrix
-branches; this phone certifies neither those nor every OEM. Manual demo must
-remain synthetic and isolated. See the [device runbook](../../../runbooks/android-keystore-device-proof.md).
+## Installed unwrap diagnostic delta — cause pending
+
+Three-file probe review: **no P1/P2**; immediate repository ownership of unwrapped
+key and failure wiping remain; exact unwrap-doFinal/unwrap-cache plus existing
+retirement/delivery phases are accurate. No retry/auth/storage change; release
+never logs or invokes inspector. Four reviewed file hashes remained stable.
+Independent app rerun passed69s/140tasks all executed, lint0/8;61 files stable/shared unchanged, prior56 JVM tests applicable.
+`independent-unwrap-diagnostic-build.json` pins actual tester APKs, superseding
+different builder incremental identities. Committed0d38e62 installed-r with exact
+tester hashes/unchanged Cookbook; actual Android formatter **5 passed/0.027s**, no hardware assertions.
+Current0d total10 FAIL: `timer-total-20261011T072607082007Z.json`, last open296.45s/locked309.84s.
+Four requested header taps67.52/122.08/189.21/242.98s have unverified delivery; no total acceptance/product bug claim.
+Owner-touch073313 timed out600s at prompt_pending; no timer started. Force-stop/new Main cold locked; full encrypted record unchanged, keepawake0 verified, all device sessions ended. Work paused.
+Fresh unwrap succeeded without numeric error; older held unwrap failures remain unclassified.
+Idle5 remains evidence for prior0a, not a timer pass on this diagnostic candidate.
+
+Repeated-failure/lockout, retry cancel/exhaustion, late background callbacks and total10 remain pending; idle5/bounded logs passed above.
+API26–29/no-biometric/StrongBox-absent remain unverified. Synthetic isolated demo only; see [device runbook](../../../runbooks/android-keystore-device-proof.md).
 
 **Partial physical acceptance only; no completed-feature/merge-ready verdict.**
 
-Unresolved: actual7/9 acceptance and remaining retry/lifecycle/timer physical probes.
+Unresolved: actual7/9, retry/lifecycle, total10 and screenshot/Recents physical probes.
 Two distinct visible retry dialogs were not independently observed or claimed.

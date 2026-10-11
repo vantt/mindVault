@@ -4,11 +4,10 @@ Scope: accepted original E2–E5 plus preserved E1; Core integrated at3532c160.
 Status: source independently reviewed/tested; actual expired-operation repair and
 post-enrollment original-password recovery/new-key unlock now passed on `d2a76ca`.
 Physical acceptance: **IN PROGRESS**; remaining lifecycle/limits/fallback cases open.
-Committed candidate `0a99d636` is installed; debug/test hashes match pinned metadata
-and the entire Cookbook remained unchanged. One genuine biometric open authenticated
-1 jar. Prior `d2a76ca` E4 proof stands; worktree stays open/unmerged, matrix pending.
-No authentication/StrongBox policy changes. Inherited SDK-path
-`local.properties` was untracked while its ignored local build file stayed intact.
+Installed diagnostic `0d38e62`: independent debug/test hashes verified, whole Cookbook
+preserved, cold start locked. Prior `0a99d636` real biometric1jar/idle5 and `d2a76ca`
+E4 proofs stand; worktree stays open/unmerged, remaining matrix pending.
+Authentication/StrongBox unchanged; SDK `local.properties` untracked, ignored build file retained.
 Debug identity isolation `.demo` implemented after independent clean39-test pass;
 release identity stays unchanged. Final impacted app/testAPK/lint builder check
 passed in38s; APK metadata confirms `.demo` and `.demo.test` packages. Independent
@@ -56,10 +55,8 @@ lint task exists. Source stays under200 lines; whitespace check passes.
 
 Executor-shutdown rejection wipes prepared buffers. Physical assertions use sanitized
 constant-time equality and finally-wipe expected key copy; test-only compile passed25s.
-Post-isolation independent app/testAPK/lint run exit0 in14s; APK metadata confirms demo
-package, test instrumentation target, disabled backup/extraction exclusions and
-nonexported debug-only proof Activity. Reviewer has no remaining source P1/P2;
-its separate report records the independent verdict and physical limitations.
+Post-isolation independent app/testAPK/lint14s: demo package/test target, backup
+exclusions and nonexported debug-only proof Activity confirmed; baseline review noP1/P2.
 
 Diagnostic debug/test/release/lint builder49s, independent16s:0errors8warnings;
 API31 guard fixed initial NewApi lint; release excludes proof Activity/log tag.
@@ -68,11 +65,9 @@ matches installed hashes. Actual probe2tests passed0.026s: no messages/unknown p
 
 ## Observed physical proof — baseline and diagnostic follow-up
 
-Native Windows adb36.0.2 now connects to the owner-authorized physical Xiaomi14TPro,
-model2407FPN8EG, API36 over USB. Both release and demo packages were absent at
-preflight; both isolated app/test APK installations succeeded. Earlier WPD-only/
-missing-ADB and `INSTALL_FAILED_USER_RESTRICTED` observations are historical and
-resolved. No wireless-pairing transport was needed/adopted.
+Windows adb36.0.2 connects owner-authorized Xiaomi14TPro/2407FPN8EG API36 over USB;
+release/demo absent at preflight, isolated APK install passed. Earlier WPD-only/
+missingADB/installrestriction resolved; wireless pairing not adopted.
 
 - Actual `KeystorePhysicalTest`: **OK(1 test)** in12.431s, host exit0; real strong
   biometric CryptoObject wrap/unwrap, absent-auth refusal, owned lock wiping,
@@ -143,8 +138,7 @@ success; this is control-flow inference, supported by actual error→commit and
 subsequent new-key unlock, not a claim that two prompts were directly observed.
 Pinned source/APK unchanged; previous failures remain historical evidence.
 
-Current debug controller emits only constant phase, class chain, public API33
-numeric/system/transient/auth/retry fields and API31 key level; release is a no-op.
+Debug emits constant phase/classes, API33 numeric/system/transient/auth/retry and API31 key level; release no-op.
 After the held prompt's owner fingerprint,
 [numeric log](/home/vantt/projects/passMan-recovery/20261011-keystore/actual-controller-numeric.log)
 records `phase=wrap-doFinal`, level2, code15, system/transient=true,
@@ -182,16 +176,24 @@ repository/cache/ownership cases),0failures/errors/skips; debug/test/release bui
 lint0errors8knownwarnings;61 frozen files unchanged and release excludes proof code.
 Independent review has no new P1/P2; prior lockout P2 is addressed in source.
 [Pinned build](/home/vantt/projects/passMan-recovery/20261011-keystore/lockout-candidate-build.json)
-is installed and hash-verified; actual OS7/9 fallback remains pending.
+was installed and hash-verified; actual OS7/9 fallback remains pending.
 `d2a76ca` manual cancel, wrong password, pending-wrap background(return locked after6s)
 and force-stop/new-PID restart passed with whole-record preservation; see manual artifact.
-No timer pass: existing session locked231.14s after requested tap, but input delivery/
-session start were unobserved. Latest [idle attempt](/home/vantt/projects/passMan-recovery/20261011-keystore/timer-idle-20261011T062931212610Z.json)
-was INTERRUPTED before `timer_started`. Real owner fingerprint then produced UI
+Earlier231.14s lock lacked confirmed input/session start. [Prior idle attempt](/home/vantt/projects/passMan-recovery/20261011-keystore/timer-idle-20261011T062931212610Z.json)
+was INTERRUPTED before `timer_started`; real owner fingerprint then produced UI
 "Device key unavailable"; numeric cause unobserved, no code15 unwrap inference.
-Root awaits owner reboot after Xiaomi USB debugging(Security settings) enablement;
-temporary keep-awake restored0. No source fault follows from uncertain input delivery.
-Remaining: actual7/9, retry cancel/exhaustion, remaining lifecycle/no-enrollment matrix,
-real5min idle/10min total, native screenshot/Recents and sanitized-log coverage.
-API36 does not establish physical API26–27 behavior. [Runbook](../../../runbooks/android-keystore-device-proof.md)
-has commands/manual sequence; partial passes do not close E2–E5. Worktree open/unmerged.
+Post-reboot(uptime380s) `0a99d636` real-owner idle5 **PASS**: open292.74s/locked305.95s from biometric status, no later touches
+([proof](/home/vantt/projects/passMan-recovery/20261011-keystore/timer-idle-20261011T070708433357Z.json)).
+Sampled foreground/awake/FLAG_SECURE; six known literals had no bounded own-UID hits, not continuous/comprehensive absence.
+[Earlier total](/home/vantt/projects/passMan-recovery/20261011-keystore/timer-total-20261011T071305213998Z.json) FAILED before timer start: ~194s held real-owner prompt/device-key
+unavailable; numeric cause unobserved, whole Cookbook unchanged; that observer stopped/keep-awake0.
+Diagnostic `0d38e62` builder46s/independent140tasks69s,lint0/8; Android5formatter-only PASS; shared/release-noop unchanged, no retry.
+[New pinned metadata](/home/vantt/projects/passMan-recovery/20261011-keystore/unwrap-diagnostic-candidate-build.json):
+installed independent outputs supersede incremental hashes; older held-unwrap numeric cause unclassified.
+[Latest total](/home/vantt/projects/passMan-recovery/20261011-keystore/timer-total-20261011T072607082007Z.json) FAIL: real fresh unwrap/open, lastopen296.45s/firstlocked309.84s.
+ADB requests67.52/122.08/189.21/242.98s lack proven delivery; no10pass/productbug classification.
+[Manual total](/home/vantt/projects/passMan-recovery/20261011-keystore/timer-total-20261011T073313499790Z.json) FAIL: owner unlock unobserved600s, last `prompt_pending`; timer NEVER started.
+Root force-stop/new-process COLD locked, whole Cookbook preserved(SHA894f73…); keep-awake0 verified, observers ended.
+Saved next: owner-ready freshFP then manual inert-header activity; installed `0d38e62` source frozen/unchanged.
+Idle5 pass belongs to old `0a99d636` pin. Pending7/9,total10,remaining lifecycle/matrix,
+native screenshot/Recents; API26–27 no physical proof. [Runbook](../../../runbooks/android-keystore-device-proof.md); E2–E5 open/unmerged.
