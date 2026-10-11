@@ -4,8 +4,13 @@
 
 - Real Google OAuth setup and one live Cookbook read remain pending; local
   client verification does not certify an account connection.
-- Next: Mobile Core recipe/decrypt/Argon2 parity; complete Argon2 proof before
-  dependent Keystore unlock work. Extension QR handoff can proceed independently.
+- 2026-10-11 — Mobile Core implemented in its original worktree: recipe/tag
+  parity, synthetic bundle decrypt and Argon2 proof; 26 JVM tests and Android
+  packaging pass. Browser-derived Unicode parity passed independent review;
+  local merge remains pending. See
+  [Core recovery report](history/passchef-mobile/reports/mobile-core-recovery.md).
+- After Core completion: dependent Keystore unlock work; physical-device acceptance
+  required. Extension QR handoff remains independent.
 
 ## Completed
 

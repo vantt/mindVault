@@ -16,7 +16,7 @@ Keystore work. Start new work directly from main only after all three are done.
 | Worktree branch | Latest relevant plan | Recorded progress | Recovery status |
 |---|---|---|---|
 | `wt/passchef-mobile-oauth-sheets` | [Track D: OAuth/Menu client](history/passchef-mobile-oauth-sheets/plan.md), approved 2026-07-28 | Original five commits and recovery commit `0f93c7d` integrated into main | Code scope complete; worktree archived and closed; live Google check pending |
-| `wt/passchef-mobile` | [Track B: Mobile Core](history/passchef-mobile/implement-plan.md), updated 2026-07-28 | Five planned tasks; no feature commits beyond main | Next product priority; recipe parity, bundle decrypt, Argon2 proof pending |
+| `wt/passchef-mobile` | [Track B: Mobile Core](history/passchef-mobile/implement-plan.md), updated 2026-07-28 | Full accepted Core slice implemented; 26 JVM tests and Android packaging pass | Independent review passed; commit and merge pending |
 | `wt/passchef-mobile-android-keystore` | [Android Keystore + biometric unlock](history/passchef-mobile-android-keystore/plan.md), approved 2026-07-30 | Scaffold commit `a1c57c9`; physical-device bridge verification recorded as blocked | Real device verification and later storage/unlock implementation pending |
 | `wt/qr-handoff` | [Extension QR handoff](history/qr-handoff/plan.md), approved 2026-07-27 | QR button and animated chunking planned; no feature commits beyond main | Independent extension work; implementation pending |
 
@@ -72,11 +72,12 @@ that item to decrypt only. Reader ownership and acceptance need reconciliation;
 neither current slice supplies a complete phone import flow.
 
 **Gradle structure needs reconciliation before combining the mobile tracks.**
-The Menu client lives in standalone `mobile/sheets-client/` with its own wrapper
-and settings. Mobile Core plans `mobile/shared/` under a new `mobile/` Gradle
-root. Keystore currently scaffolds root-level `:app` and `:shared`. Do not assume
-these three structures already form one Android application or share compatible
-plugin/toolchain versions. Keep the Menu client standalone for this recovery.
+The Menu client remains standalone in `mobile/sheets-client/`. Core recovery
+uses one repository-root Gradle build and `:shared` in `shared/`, matching the
+existing Keystore layout under the historical naming/layout discretion. The
+Keystore recovery must combine its Android storage boundary and `:app` with
+this verified shared module; it must not replace Core code or create a duplicate
+root. Core packaging is verified; the combined app/device behavior is pending.
 
 The Keystore plan requires a physical Android device; a JVM test or scaffold
 build alone does not prove biometric or hardware-backed storage behavior.
@@ -125,3 +126,12 @@ It does not certify a real Google token exchange or Cookbook read. No remote
 push was performed. Complete the remaining plans in their existing worktrees,
 beginning with Mobile Core and reconciliation of the Keystore scaffold. New
 main-based plans wait until all remaining worktrees have been completed.
+
+## Mobile Core current recovery
+
+The accepted Track B slice is implemented in its original worktree and verified
+locally: 26 JVM tests, Android packaging, and 22 unchanged extension recipe tests
+pass. Independent review verified 56 real extension vectors and the full Unicode
+scalar mapping against Chromium 143.0.7499.4; no blocking findings remain.
+Commit, main integration, archival and closure remain pending.
+See [the Core report](history/passchef-mobile/reports/mobile-core-recovery.md).

@@ -1,5 +1,19 @@
 # Project Changelog
 
+## Mobile Core recovery ready for integration (2026-10-11)
+
+**Changes:** Android/JVM shared recipe cooking, tag verification, original
+full-access bundle decrypt, and a test-only Argon2id parity proof. A single
+root `:shared` module aligns with the remaining Keystore plan.
+
+**Verification:** 26 JVM tests pass; Android AAR/JVM JAR compile; 22 original
+extension recipe tests pass. The actual Chromium extension supplies 56 vectors
+and a complete scalar case-mapping oracle. Independent review closed the Unicode
+parity defect; compatibility is pinned to Chromium 143.0.7499.4. BouncyCastle
+remains test-only. Golden assertions are unchanged; main integration pending.
+
+**Evidence:** [Core recovery report](history/passchef-mobile/reports/mobile-core-recovery.md).
+
 ## OAuth/Menu client code recovery (2026-10-11)
 
 **Scope:** Recover the standalone Kotlin recipe-reading/writing client and JVM

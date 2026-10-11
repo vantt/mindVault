@@ -28,6 +28,13 @@ mobile/sheets-client/**/build/
 mobile/sheets-client/local.properties
 mobile/sheets-client/sheets-secrets.properties
 
+# Android/JVM mobile build outputs and machine-local SDK configuration
+.gradle/
+build/
+shared/build/
+app/build/
+local.properties
+
 # BEE:START
 .bee/state.json
 .bee/reservations.json
