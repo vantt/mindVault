@@ -4,15 +4,16 @@ Updated: 2026-10-11. The initial snapshot compared four feature branches with
 local `main` at `ef720b1`. OAuth/Menu recovery commit `0f93c7d` is now in main;
 its worktree is closed after verification and a complete recovery archive.
 Mobile Core `7d8808c` and QR sender `4a4395c` (merge `3d3239d`) are also
-in local main, independently verified there, archived and closed. Only the
-Keystore worktree remains open; no new main-based feature work has started.
+in main and origin, independently verified there, archived and closed. Keystore
+current-Xiaomi scope was explicitly accepted on 2026-10-11; fresh main verification
+passed. Only that checkout remains open until verified push/closure.
 
 Recovery policy: complete each of the three remaining features in its existing
 worktree against its own plan, verify it, then merge and close that worktree.
 Rank work by product impact and dependencies: Mobile Core first, dependent
 Keystore/unlock second, independent QR transport third. A blocked physical-device
-check may allow QR work to proceed, but never licenses merging incomplete
-Keystore work. After each verified worktree merge, commit the integration and
+check allowed QR work to proceed. The owner subsequently accepted the verified
+current-Xiaomi Keystore scope with the unexecuted physical matrix recorded. After each verified worktree merge, commit the integration and
 push main before proceeding to the next tree, as requested by the owner. Start
 new work directly from main only after all three are done.
 
@@ -22,7 +23,7 @@ new work directly from main only after all three are done.
 |---|---|---|---|
 | `wt/passchef-mobile-oauth-sheets` | [Track D: OAuth/Menu client](history/passchef-mobile-oauth-sheets/plan.md), approved 2026-07-28 | Original five commits and recovery commit `0f93c7d` integrated into main | Code scope complete; worktree archived and closed; live Google check pending |
 | `wt/passchef-mobile` | [Track B: Mobile Core](history/passchef-mobile/implement-plan.md), updated 2026-07-28 | Full accepted Core slice implemented; 26 JVM tests and Android packaging pass | Complete; `7d8808c` in main, fresh integration passed, archived and closed |
-| `wt/passchef-mobile-android-keystore` | [Android Keystore + biometric unlock](history/passchef-mobile-android-keystore/plan.md), approved 2026-07-30 | Core reconciled at `3532c16`; genuine storage/unlock implemented in candidate `e26bcd9` | 48 JVM tests, app/test/release APKs and independent review passed at `d2a76ca`; installed; physical acceptance pending; not merged |
+| `wt/passchef-mobile-android-keystore` | [Android Keystore + biometric unlock](history/passchef-mobile-android-keystore/plan.md), approved 2026-07-30 | Core reconciled; genuine storage/unlock and repairs frozen at source `0d38e62`, acceptance documented at `fc38197` | 56 JVM tests/builds and agreed Xiaomi physical scope passed; fresh main56-JVM/build/lint passed; commit/push/closure pending |
 | `wt/qr-handoff` | [Extension QR handoff](history/qr-handoff/plan.md), approved 2026-07-27; [recovery execution](../plans/261011-qr-handoff-worktree-recovery/plan.md) | Sender implemented in original checkout; 15 QR + 22 golden unit tests and two headed canvas-decoding E2E passed | Complete; `4a4395c` merged at `3d3239d`, fresh integration passed, archived and closed; phone reader excluded |
 
 The linked Markdown planning dossiers are preserved unchanged here from their
@@ -30,12 +31,10 @@ respective worktrees so remaining work can be continued from main after merge.
 They are archived planning evidence from **2026-07-27 through 2026-07-30**;
 historical validation reports do not prove current environment/device
 availability or completed code. QR sender now has separate current verification
-and independent review recorded below; the other remaining dossiers remain
-planning evidence.
-Only planning documents were consolidated; unfinished product code and runtime
-state for the three unfinished tracks remain in their original checkouts.
-These dossiers are now available from main for reference; implementation stays
-in each original worktree until its plan is complete and verified.
+and independent review recorded below. Historical dossiers remain planning
+evidence; current recovery reports record actual implementation/acceptance.
+At initial dossier consolidation, only planning files moved to main. Each feature
+was subsequently completed in its original checkout before integration.
 
 ## Why OAuth/Menu client goes first
 
@@ -62,13 +61,11 @@ Recovery addresses these product defects before integration:
 Synthetic regression tests exercise these paths without real account credentials.
 No new extension or landing-page dependencies are required.
 
-## Next priority and integration gaps
+## Dependency order and remaining product gaps
 
-After the selected client is verified and merged, prioritize **Mobile Core**:
-the shared scaffold, recipe parity with the extension, a real synthetic bundle
-fixture, bundle decrypt, and Argon2id parity proof. The Argon2 proof must precede
-the dependent Keystore master-key/fallback work. The existing Android scaffold
-and device bridge can be reconciled in parallel with that prerequisite.
+Recovery completed **Mobile Core** before dependent Keystore master-key/fallback
+work: recipe parity, real synthetic bundle decrypt and Argon2id parity were
+verified. QR sender proceeded while physical Keystore acceptance was blocked.
 
 **Extension QR handoff is independent** of OAuth and the core implementation.
 Its internal order is QR button, then oversized-bundle chunking. A complete
@@ -78,13 +75,9 @@ bundle decrypt, storage, and device verification. The QR plan labels
 that item to decrypt only. Reader ownership and acceptance need reconciliation;
 neither current slice supplies a complete phone import flow.
 
-**Gradle structure needs reconciliation before combining the mobile tracks.**
-The Menu client remains standalone in `mobile/sheets-client/`. Core recovery
-uses one repository-root Gradle build and `:shared` in `shared/`, matching the
-existing Keystore layout under the historical naming/layout discretion. The
-Keystore recovery must combine its Android storage boundary and `:app` with
-this verified shared module; it must not replace Core code or create a duplicate
-root. Core packaging is verified; the combined app/device behavior is pending.
+**Gradle structure is reconciled.** The Menu client remains standalone in
+`mobile/sheets-client/`. One repository-root build combines verified `:shared`
+and Keystore `:app`, preserving Core code. Fresh main verification passed.
 
 The Keystore plan requires a physical Android device; a JVM test or scaffold
 build alone does not prove biometric or hardware-backed storage behavior.
@@ -111,14 +104,14 @@ main WIP paths were restored with exact hashes. The complete QR checkout archive
 contains 3,237 verified files and 212 symlinks (65,099,951 bytes), at
 `/home/vantt/projects/passMan-recovery/20261011-qr-handoff/`. The checkout is
 closed; its branch and recovery refs remain. Keystore physical acceptance remains
-a requirement for that separate feature.
+recorded within its separately accepted current-device scope.
 
 ## Preserve existing work and integrate
 
 Main has unrelated tracked/untracked edits. The selected checkout also has
 deferred tooling edits; preserve these separately from product commits.
-Current overlapping dirty paths are `.gitignore` and `.bee/decisions.jsonl`.
-Preserve both ignore-rule groups and distinct existing decision events.
+OAuth recovery originally reconciled `.gitignore` and `.bee/decisions.jsonl`.
+The final Keystore integration has no incoming collision with existing main WIP.
 
 Record recovery refs and save main's tracked/untracked changes before merging.
 Retain the recovery refs while restoring main's work. Before closing the
@@ -149,16 +142,16 @@ Private configuration must never be displayed in the recovery report.
   1,581 files, 526,740,907 bytes. Deferred tooling changes and ignored runtime
   files remain recoverable; the JDK was also relocated to main's `.toolchain/`.
 - Worktree closure: selected OAuth checkout removed from Git's worktree list;
-  its branch is retained. Three unfinished feature worktrees remain.
+  its branch is retained. At that closure, three unfinished feature worktrees remained.
 - Real Google OAuth client creation and live connection check: **pending**.
 
 Local verification uses mocked Google responses and local loopback HTTP only.
 It does not certify a real Google token exchange or Cookbook read. At OAuth
 closure, no remote push had yet been performed. On 2026-10-11, main through
 `ad1aec6`, including the completed OAuth, Mobile Core and QR integrations, was
-pushed to origin and its remote commit verified. Keystore remains unmerged. Complete the remaining plans in their existing worktrees,
-beginning with Mobile Core and reconciliation of the Keystore scaffold. New
-main-based plans wait until all remaining worktrees have been completed.
+pushed to origin and its remote commit verified. Before final Keystore integration,
+main/origin both point to `3f4cda3`. New main-based plans wait only for this
+accepted Keystore scope to pass fresh integration, push and checkout closure.
 
 ## Mobile Core current recovery
 
@@ -174,32 +167,29 @@ closed; its branch and recovery refs remain. Core was merged into the original
 Keystore checkout at `3532c16`, preserving that checkout’s deferred WIP.
 See [the Core report](history/passchef-mobile/reports/mobile-core-recovery.md).
 
-## Remaining checkout
+## Final Keystore integration
 
-Only `wt/passchef-mobile-android-keystore` remains open. Candidate `e26bcd9`
-contains genuine persistent storage, per-operation biometric wrap/unwrap,
-original-password recovery and a minimal isolated `.demo` app. Independent clean
-verification passed 39 JVM tests, Android packaging and app/test APK builds; lint
-has zero errors and eight warnings. Independent review has no remaining P1/P2.
-The original Core implementation and existing tooling WIP remain intact.
+Owner acceptance: **“Merge/push hôm nay, ghi rõ bài kiểm tra còn thiếu”**, 2026-10-11.
+The validated Xiaomi14TPro/API36 scope is complete; full original matrix is not.
+Source `0d38e62` and accepted scope docs `fc38197` are preserved in the branch.
+Independent checks passed56 JVM tests, app/test/release APKs and lint0errors8warnings;
+no P1/P2 remained. Real device evidence covers hardware/nonexportability,
+enrollment invalidation/original-password recovery, wrong-password preservation,
+cancellation/background/cold locking, idle5/total10 and OS-lockout availability fallback.
 
-USB/install restrictions are resolved on the authorized Xiaomi14TPro/API36.
-Real hardware wrap/unwrap passed, and a separate four-fingerprint recovery proof
-passed with inspected StrongBox level2. The demo passed background/process locking,
-cancellation, wrong-password preservation and one original-password recovery.
-Adding a fingerprint invalidated the old key as required; subsequent fresh wraps
-have failed intermittently while preserving the complete encrypted Cookbook.
-One delayed demo prompt reproduced Android error15: an evacuated wrapping
-operation. Earlier attempts lacked numeric diagnostics. A bounded fresh-operation/
-new-biometric repair is committed at `d2a76ca` in the original worktree and installed
-with the old record preserved. Independent fresh checks pass 48 JVM tests, all APK
-builds and lint; review found no P1/P2. Four Android classifier/probe tests pass.
-Actual retry/new-prompt and enrollment recovery remain pending. Debug-only diagnostics
-and focused physical regressions are committed at `a9409ff`; independent debug/
-test/release builds, lint and two device sanitization tests pass. Authorization
-and storage policies remain unchanged. Complete enrollment recovery and physical
-timer/lifecycle acceptance still block merge and closure. A complete verified
-checkpoint exists at
-`/home/vantt/projects/passMan-recovery/20261011-keystore/checkpoint-e26bcd9/`;
-built APK hashes and candidate commit are recorded in `candidate-build.json`.
-Finish device acceptance before merge and closure; new main-based plans wait.
+[Scope and remaining checks](../plans/261011-keystore-recovery/reports/current-device-acceptance.md)
+retain API26/no-biometric hardware/no enrollment/StrongBox absent, typed7/9,
+exact kill/retry-exhaustion windows and precise Recents observation as unexecuted.
+Owner screen reports and all earlier failed probes remain recorded; no simulation
+or missing numeric error was relabeled as a physical pass.
+
+The complete final checkout archive at
+`/home/vantt/projects/passMan-recovery/20261011-keystore/final-checkout/`
+contains3,464 verified files (234,260,698 bytes), including deferred tooling WIP
+and ignored build/runtime files. Branch and recovery refs will remain after closure.
+Main's149 existing WIP paths are retained through recovery stash
+`refs/recovery/passchef-keystore-final-main-wip-20261011` (`d2ea315`).
+Fresh main verification passed:56 JVM0fail/errors/skips,150/150 tasks executed,
+debug/test/release builds and lint0errors8warnings. Demo/test APKs match the pinned
+physical candidates byte-for-byte. Integration commit/push, exact WIP restoration
+and closure are pending. No new feature work has started.

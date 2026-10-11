@@ -5,4 +5,4 @@ dependencyResolutionManagement {
     repositories { google(); mavenCentral() }
 }
 rootProject.name = "passchef-mobile"
-include(":shared")
+include(":app", ":shared")

@@ -4,15 +4,11 @@
 
 - Real Google OAuth setup and one live Cookbook read remain pending; local
   client verification does not certify an account connection.
-- Android Keystore candidate `e26bcd9` is implemented in its original worktree:
-  39 JVM tests, app/test APK builds and independent review pass; lint has zero
-  errors. USB/install and real hardware wrap/unwrap now pass. Enrollment recovery
-  has intermittent fresh-wrap failures; debug-only diagnostics at `a9409ff` are
-  independently verified. A delayed demo prompt reproduced expired operation15;
-  the bounded fresh-Cipher/new-biometric repair `d2a76ca` is installed. Independent
-  checks pass 48 JVM tests and app/test/release builds; four Android classifier/probe
-  tests pass. Actual retry/enrollment proof is pending. Physical acceptance
-  remains incomplete and unmerged.
+- Android Keystore: owner accepted the verified Xiaomi/API36 scope on
+  2026-10-11; fresh main56-JVM/build/lint passed, commit/push/closure pending.
+  [Unexecuted physical checks](../plans/261011-keystore-recovery/reports/current-device-acceptance.md)
+  remain tracked: API26/no hardware/no enrollment, typed7/9 callbacks,
+  exact process-kill/retry-exhaustion windows and precise Recents observation.
 - Phone QR reading/reassembly remains a separate follow-up after existing
   worktrees are completed.
 

@@ -46,9 +46,10 @@ surrogates, tags, and modifier behavior. A synthetic full-access fixture is
 produced by the real extension adapter before decrypt implementation.
 
 Argon2id correctness is a test-only proof against the real browser WASM package:
-v0x13,32-byte result,time3,memory65536KiB,parallelism4,UTF-8 input. BouncyCastle
-is confined to the test dependency; no production Argon2 cooking API ships here.
-The later Keystore plan consumes this backend proof and adds production storage.
+v0x13,32-byte result,time3,memory65536KiB,parallelism4,UTF-8 input. The Core slice
+used BouncyCastle only in tests. Integrated [Keystore storage](mobile-keystore.md)
+promotes the proven backend for production Cookbook key derivation; the Core
+recipe-cooking API and its original parity proof retain their accepted scope.
 
 See [current recovery report](../history/passchef-mobile/reports/mobile-core-recovery.md)
 for observed build/tests and limitations. Android compilation establishes package

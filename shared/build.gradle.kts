@@ -18,6 +18,7 @@ kotlin {
         }
         val jvmAndroidMain by creating {
             dependsOn(commonMain)
+            dependencies { implementation("org.bouncycastle:bcprov-jdk18on:1.85") }
         }
         val androidMain by getting { dependsOn(jvmAndroidMain) }
         val jvmMain by getting { dependsOn(jvmAndroidMain) }

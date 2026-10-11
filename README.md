@@ -162,7 +162,25 @@ export PATH="$JAVA_HOME/bin:$PATH"
 ./gradlew :shared:jvmTest :shared:assemble
 ```
 
-Android packaging does not verify physical-device Keystore or biometric behavior.
+### Android Cookbook storage
+
+The minimal [Android demo](app/) stores an encrypted Cookbook, authorizes each
+device-key wrap/open with strong biometrics, and recovers using the original
+master password. It locks on background, after five idle minutes or ten total
+minutes. Debug uses the isolated `dev.passchef.mobile.demo` package.
+
+The owner accepted the verified Xiaomi/API36 scope on 2026-10-11. See the
+[device runbook](docs/runbooks/android-keystore-device-proof.md) and
+[remaining physical checks](plans/261011-keystore-recovery/reports/current-device-acceptance.md).
+Android packaging alone does not establish device behavior; this demo is the
+storage/unlock foundation, with the full mobile screens and QR reader still pending.
+
+With the same JDK17/SDK36 setup above:
+
+```bash
+./gradlew :shared:jvmTest :shared:assemble :app:assembleDebug \
+  :app:assembleDebugAndroidTest :app:assembleRelease :app:lintDebug
+```
 
 ### Extension development
 

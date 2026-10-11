@@ -1,24 +1,25 @@
 # Project Changelog
 
-## Android Keystore candidate awaiting physical proof (2026-10-11)
+## Android Keystore accepted current-device scope (2026-10-11)
 
-Candidate `e26bcd9` remains in the original Keystore worktree. It implements
-biometric-gated device-key wrapping, encrypted spice storage, password recovery
-and a separate `.demo` app. Independent checks passed 39 JVM tests, app/test APK
-builds and review; lint has zero errors and eight warnings. Actual hardware and
-four-fingerprint recovery proofs passed on Xiaomi14TPro/API36, including inspected
-StrongBox level2. Real enrollment invalidated the old key, but subsequent demo
-fresh wraps fail intermittently while preserving the encrypted Cookbook. Debug-only
-sanitized diagnostics and focused regressions at `a9409ff` pass independent builds,
-release isolation, lint and two device sanitization tests. One delayed demo prompt
-reproduced expired operation15; earlier failures lacked numeric diagnostics. A
-bounded fresh-Cipher/new-biometric repair is committed at `d2a76ca` and installed.
-It permits one cancellable five-second retry for typed API33+ code15 before record
-commit, with genuine fresh biometric authorization and guarded owned-data cleanup.
-Independent fresh checks pass 48 JVM tests, app/test/release builds and lint; review
-found no P1/P2. Four Android classifier/probe tests pass, but actual retry/enrollment
-proof remains pending. No authorization/storage policy changed in the diagnostic commit. Enrollment recovery and device
-acceptance block source merge and closure. See [recovery status](worktree-recovery.md).
+**Changes:** Persistent encrypted Cookbook, per-operation strong biometric
+device-key wrapping/opening, original-password recovery, bounded code15 wrapping
+repair and password fallback during biometric lockout. The minimal debug demo
+has its own package/UID; release excludes the proof Activity and diagnostics.
+
+**Verification:** Independent56 JVM tests and debug/test/release builds passed;
+lint0 errors/8 known warnings. Xiaomi/API36 physical proof covered hardware
+wrap/unwrap, enrollment invalidation/recovery, wrong-password preservation,
+cancellation/background/cold locking, real idle5/total10 and OS-lockout
+availability fallback. Owner reported blocked screenshot/only PassChef black;
+the precise Recents/video category was not independently established.
+
+**Scope:** The owner explicitly accepted this current-device scope and retained
+the unexecuted physical matrix as follow-up; full original matrix is not claimed.
+See [scope and remaining checks](../plans/261011-keystore-recovery/reports/current-device-acceptance.md)
+and [device evidence](runbooks/android-keystore-device-proof.md).
+Fresh main verification passed:56 JVM tests rerun,150/150 tasks executed,
+all APK builds/lint0errors8warnings. Integration commit/push/closure pending.
 
 ## Phone QR cookbook handoff (2026-10-11)
 
@@ -50,7 +51,8 @@ root `:shared` module aligns with the remaining Keystore plan.
 extension recipe tests pass. The actual Chromium extension supplies 56 vectors
 and a complete scalar case-mapping oracle. Independent review closed the Unicode
 parity defect; compatibility is pinned to Chromium 143.0.7499.4. BouncyCastle
-remains test-only. Golden assertions are unchanged. Local main integrated `7d8808c`; a fresh main
+was test-only in the Core slice; Keystore subsequently promotes production
+Argon2id for encrypted Cookbook storage. Golden assertions are unchanged. Local main integrated `7d8808c`; a fresh main
 build and browser parity check passed. The checkout was archived and closed.
 
 **Evidence:** [Core recovery report](history/passchef-mobile/reports/mobile-core-recovery.md).
@@ -68,7 +70,8 @@ and recovery commit `0f93c7d` are in local main. Wrapper executable mode is
 explicitly tracked for fresh checkouts. The selected worktree is archived and
 closed; existing main changes were preserved and remaining plans consolidated.
 Real Google OAuth client creation and a live connection check remain the
-account owner's pending follow-up. No remote push was performed.
+account owner's pending follow-up. OAuth, Core and QR were subsequently pushed
+to origin on 2026-10-11; their original closure reports retain the historical result.
 
 **Plan:** [Recovery plan](../plans/261011-oauth-sheets-worktree-recovery/plan.md).
 **Tracking:** [Worktree recovery](worktree-recovery.md).
