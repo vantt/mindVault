@@ -49,4 +49,5 @@ The [physical runbook](../runbooks/android-keystore-device-proof.md) requires
 owner-authorized hardware wrap/unwrap, actual enrollment invalidation/recovery,
 lockout/no enrollment, process restart, lifecycle/timers and logcat checks. The
 [recovery report](../history/passchef-mobile-android-keystore/reports/keystore-recovery.md)
-records observed outcomes. Pending hardware acceptance keeps this feature incomplete.
+records observed outcomes. Pending hardware acceptance keeps this feature incomplete. The current physical
+USB connection is established; device-side APK installation is still blocked.

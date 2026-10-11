@@ -4,7 +4,9 @@ Date: 2026-10-11. Debug demo package `dev.passchef.mobile.demo`; test package `d
 Release identity stays `dev.passchef.mobile`; debug has a separate UID/private data.
 Build/compile evidence is separate from physical acceptance. Do not count a JVM,
 emulator, compiled APK, or merely reopened repository as physical process-restart proof.
-Current native Windows adb lists no device; physical steps below are pending.
+Current native Windows adb sees the authorized Xiaomi14TPro/API36 over USB.
+APK installation is blocked by INSTALL_FAILED_USER_RESTRICTED; physical steps
+below remain pending until the owner permits installation on the device.
 Latest USB observation: Xiaomi14TPro, VID2717/PIDFF40, WPD transfer-files interface
 only; no ADB interface after two USB-debug toggle/replug attempts. Wireless pairing
 has been requested but is not yet adopted/verified; commands below remain the

@@ -79,3 +79,14 @@ and unmerged until accepted physical proof. No merge-ready claim yet.
 
 Outstanding: real authorized physical serial; two biometric prompts; induced
 invalidation/recovery, lockout/no enrollment, lifecycle/process/timers and logcat.
+
+## Actual USB connection established
+
+Later on2026-10-11, native Windows adb listed an authorized physical Xiaomi14TPro
+(model2407FPN8EG, API36) over USB. Both release and isolated demo packages were
+absent during preflight. Installing the pinned demo APK failed with
+`INSTALL_FAILED_USER_RESTRICTED: Install canceled by user`; the owner was asked
+to enable Install via USB/accept the device prompt. No APK/instrumentation was
+successfully installed, no biometric prompt ran, and no physical pass is claimed.
+Transport is established; device-side installation and acceptance remain pending.
+Local evidence: `/home/vantt/projects/passMan-recovery/20261011-keystore/physical-progress.json`.
