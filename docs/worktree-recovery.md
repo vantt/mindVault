@@ -180,9 +180,11 @@ has zero errors and eight warnings. Independent review has no remaining P1/P2.
 The original Core implementation and existing tooling WIP remain intact.
 
 The accepted E1–E5 physical checks remain pending, so the candidate stays
-unmerged. Windows recognizes Xiaomi 14T Pro as a transfer device but exposes no
-ADB interface after the owner's USB debugging retries. Wireless pairing details
-were requested; no alternative connection or biometric success is assumed.
+unmerged. USB debugging now lists an authorized Xiaomi14TPro/API36; earlier
+transfer-only detection is resolved. Both app packages were absent at preflight.
+The device rejected installing the pinned demo APK with
+`INSTALL_FAILED_USER_RESTRICTED: Install canceled by user`. The owner was asked
+to enable Install via USB/accept the device prompt; no biometric test has run.
 Two actual CryptoObject prompts, enrollment invalidation/password recovery and
 physical lifecycle/restart checks are still required. A complete verified
 checkpoint exists at
