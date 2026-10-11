@@ -27,7 +27,13 @@ rejected; they never trigger replacement setup.
 On device-key invalidation, missing key, cancellation, lockout or unavailable
 biometrics, the Chef can enter the original master password. Cache authentication
 must succeed before any device alias changes; wrong passwords preserve both data
-and existing alias. Correct recovery authorizes wrapping with a fresh alias, then
+and existing alias. During actual Android biometric lockout (typed prompt7/9), a correct password
+opens the authenticated cache session. An existing encrypted record and all its
+alias/retirement metadata stay byte-for-byte unchanged; only the disposable new
+wrap alias is removed. Fresh wrapping is deferred until biometrics become usable.
+First setup may persist the encrypted password-only cache. Generic cancellation
+and a code15 retry never take this lockout fallback. Correct biometric recovery
+authorizes wrapping with a fresh alias, then
 atomically commits the new complete record before retiring prior aliases. Failed
 commit removes only the new disposable alias; failed retirement stays explicitly
 retryable after a later successful cache authentication.
@@ -49,15 +55,23 @@ The [physical runbook](../runbooks/android-keystore-device-proof.md) requires
 owner-authorized hardware wrap/unwrap, actual enrollment invalidation/recovery,
 lockout/no enrollment, process restart, lifecycle/timers and logcat checks. The
 [recovery report](../history/passchef-mobile-android-keystore/reports/keystore-recovery.md)
-records observed outcomes. USB/install and actual hardware wrap/unwrap passed on
-Xiaomi14TPro/API36. StrongBox level2 was inspected in the four-prompt recovery
-proof. Background/process locking, cancellation, wrong-password preservation and
-one original-password demo recovery also passed. Real enrollment invalidated the
-prior key, but subsequent fresh wrapping has failed intermittently; the original
-encrypted Cookbook remains intact. Debug-only sanitized diagnostics established an expired wrapping operation (public
-code15). Repair `d2a76ca` allows one cancellable five-second retry on API33+ before
-commit, with a fresh Cipher and genuine strong-biometric prompt; retained owned
-data is wiped on cancellation and no committed alias is retired. Independent
-48 JVM tests, debug/test/release builds and lint pass; four physical classifier/
-probe tests pass. Actual retry success remains unproved. Complete enrollment recovery and remaining lifecycle/
-timer checks are pending, so this feature remains incomplete and unmerged.
+records observed outcomes. USB/install and actual hardware wrap/unwrap passed on Xiaomi14TPro/API36.
+StrongBox level2 was inspected. Real enrollment invalidated the prior key;
+original-password recovery on `d2a76ca` then preserved the cache while committing
+a fresh alias/IV, followed by genuine new-key biometric unlock. A held prompt
+produced typed wrapping code15 before recovery succeeded. The owner saw one
+visible prompt; the fresh retry CryptoObject callback is inferred from reviewed
+control flow and outcome, rather than two separately observed dialogs.
+
+The bounded repair permits one cancellable five-second API33+ wrap-only retry
+before commit, with a fresh Cipher and genuine strong-biometric authorization.
+Cancellation wipes retained owned data and never deletes a committed alias.
+Biometric/password-wrap cancellation, wrong-password preservation, pending-wrap
+background locking and actual new-process restart also passed. A later review
+found the lockout password-loop defect; its typed fallback repair is implemented
+and source-reviewed. Builder and fresh independent56 JVM tests, debug/test/release/lint passed.
+Candidate `0a99d63` is installed with exact Cookbook bytes preserved; genuine
+biometric opening authenticated the same1 jar. A later held unlock failed with
+"Device key unavailable"; its numeric cause was not recorded. No physical5/10min
+pass is recorded. Actual lockout fallback, timers and native screen protections
+remain pending; worktree stays open/unmerged.

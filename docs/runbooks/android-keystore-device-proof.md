@@ -4,10 +4,10 @@ Date: 2026-10-11. Debug demo package `dev.passchef.mobile.demo`; test package `d
 Release identity stays `dev.passchef.mobile`; debug has a separate UID/private data.
 Build/compile evidence is separate from physical acceptance. Do not count a JVM,
 emulator, compiled APK, or merely reopened repository as physical process-restart proof.
-Physical acceptance is **IN PROGRESS**. Installed repair candidate is `d2a76ca`,
-over diagnostic `a9409ff` and baseline `e26bcd9`; authentication/StrongBox policy
-unchanged. Pinned APK installation preserved the original Cookbook and matches
-[candidate metadata](/home/vantt/projects/passMan-recovery/20261011-keystore/expired-wrap-candidate-build.json).
+Physical acceptance is **IN PROGRESS**. Committed candidate `0a99d636` is installed:
+debug/test APK hashes verified; the entire Cookbook stayed unchanged
+([metadata](/home/vantt/projects/passMan-recovery/20261011-keystore/lockout-candidate-build.json)).
+One genuine biometric open authenticated1 jar on this candidate; prior `d2a76ca` E4 proof remains below.
 Native Windows adb now sees the owner-authorized Xiaomi14TPro/2407FPN8EG, API36,
 over USB. Neither release nor demo package existed at preflight. Both pinned APKs
 installed successfully; the earlier install restriction and missing-ADB state are
@@ -36,8 +36,17 @@ the old key was refused and the original-password path offered, with record
 preserved. Wrong password after enrollment also preserved the entire record/alias.
 Correct-password recovery after enrollment reached real owner-authorized wrap but
 failed again with the same sanitized UI outcome; prior record stayed unchanged.
-Complete enrollment recovery and new biometric unlock remain mandatory and open.
-Feature/worktree is not closed or merge-ready; the recovery defect is unresolved.
+After the repair, **E4 enrollment recovery passed on `d2a76ca`**: a prompt held
+at least327s produced current-process code15 at05:44:42Z, then recovery committed
+a fresh alias/wrap IV while keeping cache/salt/cache IV unchanged and retirement
+metadata empty. Owner locked the Cookbook, then genuine new-key biometric unlock
+authenticated the same1 jar with the full record unchanged. Owner reported **one
+visible recovery prompt**, so two distinct prompts are not directly confirmed.
+[Reviewed control flow](../history/passchef-mobile-android-keystore/reports/recovery-independent-review.md)
+requires a fresh CryptoObject and identity-checked real
+callback after code15 before success; that is a source-based inference supported
+by the recorded error→commit/new-key-unlock outcome. Source/APK pin unchanged.
+Feature/worktree remains open/unmerged; full physical acceptance is incomplete.
 
 Current local evidence:
 [progress](/home/vantt/projects/passMan-recovery/20261011-keystore/physical-progress.json),
@@ -58,9 +67,10 @@ Cookbook/disposable alias. Only API33+ typed public code15 at doFinal retries;
 other errors/second expiry preserve prior data and guide manual password recovery.
 Per-attempt identity and ownership guards cover cancellation/stale callbacks.
 Builder48 JVM tests and debug/test/release/lint passed; independent fresh48-test
-build/review passed with no P1/P2. Actual-controller delayed-prompt/new-prompt proof
-remains open; current owner prompt is being held. Implementation
-and local control tests do not establish successful physical repair.
+build/review passed with no P1/P2. Actual-controller delayed-expiry recovery and
+subsequent real new-key unlock now passed as described above; prior failures remain
+recorded. [Error timing](/home/vantt/projects/passMan-recovery/20261011-keystore/retry-timestamp-diagnosis.json)
+places the current-process code15 after the owner's held-prompt confirmation.
 
 ## Platform and security boundary
 
@@ -95,22 +105,20 @@ export PATH="$JAVA_HOME/bin:$PATH"
   :app:assembleDebug :app:assembleDebugAndroidTest :app:lintDebug
 ```
 
-JVM tests exercise real Argon/AES-GCM, bounds, tampering, password no-write,
-interrupted temp-file replacement, failed retirement retry, owned-buffer cleanup,
-clock limits and late queued results. Fault injection tests model storage failures;
-they do not emulate Keystore hardware or authenticate a biometric.
-Earlier diagnostic debug/test/release build and lint independently passed in16s,
-0 errors/8 known warnings. Release APK has no proof Activity/log tag. Actual
-`WrapFailureProbeTest` passed2 sanitization tests in0.026s. Debug diagnostics whitelist
-constant stages and emit only classes, guarded public numeric flags/retry and key
-security level; no throwable messages/aliases/bytes. Release helper is a no-op.
-Repair candidate independently reran150 tasks in1m18s:48 JVM tests with0 failures,
-errors/skips; shared assembly, debug/test/release packaging and lint0errors8knownwarnings.
-All53 source/build files retained their frozen hashes; release dex excludes proof
-Activity/log tag. Actual2 negative-classifier +2 probe tests passed together on
-the phone in0.032s; these four tests do not authorize a biometric or prove wrap recovery.
-[Independent build](/home/vantt/projects/passMan-recovery/20261011-keystore/independent-expired-wrap-build.json),
-[four physical control tests](/home/vantt/projects/passMan-recovery/20261011-keystore/expired-wrap-negative-classifier-physical.log).
+Current candidate: builder71s and independent fresh78s/150 executed tasks passed;
+56 JVM tests,0 failures/errors/skips, debug/test/release APKs and lint0errors8knownwarnings.
+All61 frozen files retained hashes; release excludes proof Activity/log tag.
+Tests use real Argon/AES-GCM/cache and ownership/transaction failures; control
+tests do not simulate Keystore hardware or biometric authorization. Earlier
+physical2 probe tests(0.026s) and4 classifier/probe tests(0.032s) remain historical
+([full report](../history/passchef-mobile-android-keystore/reports/keystore-recovery.md)).
+Only actual initial BiometricPrompt error7/9 may transfer a correct-password,
+cache-authenticated session. Existing record and retirement queue remain byte-for-byte
+unchanged: zero writes/retirement; only the disposable fresh alias is deleted.
+New setup uses actual record absence and may atomically save encrypted password-only
+cache. Cancellation/other errors and code15 retry→7/9 remain closed; no remembered
+lockout bypass or authentication-policy downgrade. Debug logs actual callback
+numeric code only; release is a no-op. Actual OS7/9 fallback proof is still pending.
 
 ## Safe native Windows adb route
 
@@ -156,9 +164,9 @@ Use only synthetic master password/spices and record outcomes without their valu
 
 1. Launch `dev.passchef.mobile.demo/dev.passchef.mobile.MainActivity`; setup1–5 spice jars + master password.
    Authorize setup wrap; lock; biometric unlock must show authenticated jar count.
-2. Cancel prompt and try failed biometrics/lockout; original password path must stay
-   available. Wrong password preserves record/aliases; correct password authenticates
-   the same cache and authorizes a fresh wrap without reenrolling the Cookbook.
+2. Cancel/failed biometrics must stay closed with original-password guidance.
+   Real initial error7/9 plus correct password opens the same cache without changing
+   an existing record/retirement queue; wrong password preserves it. Retry15→7/9 stays closed.
 3. Induce real enrollment invalidation in Android settings (owner adds/removes a
    fingerprint). Biometric must route to password; correct original password must
    recover the same cache, then authorize a fresh device key. Old aliases retire.
@@ -172,14 +180,16 @@ Use only synthetic master password/spices and record outcomes without their valu
 8. Check screenshot/recents protections and review app-scoped logcat after flows:
    no plaintext seasoning, master password, derived key or raw exception content.
 
-Owner fingerprint/enrollment actions need explicit participation. Remaining evidence:
-repair the diagnosed expired-operation enrollment recovery wrap failure, then prove complete
-original-password same-cache recovery and new biometric unlock;
-failed-biometric/lockout and no-enrollment path; pending-operation lifecycle;
-real idle5min/total10min and screenshot/recents/logcat checks. The owned MainActivity
-window's FLAG_SECURE is confirmed; screenshot/recents behavior remains separate.
-API26–27 behavior has guarded-source/build evidence, not physical coverage from
-this API36 device.
-The recorded temporary keep-awake setting is active for testing; restore its
-original0 value before closing device work. Record new results before declaring
-physical acceptance complete; prior runner/manual passes do not close these cases.
+Owner participation remains required: actual OS7/9 fallback, retry cancellation/
+exhaustion, remaining lifecycle/matrix, real5min idle/10min total, native screenshot/
+Recents checks. `d2a76ca` cancellation, pending-wrap background and process-restart
+passes remain in [manual evidence](/home/vantt/projects/passMan-recovery/20261011-keystore/manual-evidence.json).
+FLAG_SECURE is confirmed; it does not establish screenshot/Recents behavior.
+No timer pass: existing-session lock231.14s after requested tap lacks confirmed
+input delivery/session start. Latest [idle attempt](/home/vantt/projects/passMan-recovery/20261011-keystore/timer-idle-20261011T062931212610Z.json)
+was INTERRUPTED before `timer_started`. After real owner fingerprint the UI showed
+"Device key unavailable"; numeric cause is unobserved, so expired unwrap is not inferred.
+Root awaits owner Xiaomi reboot after enabling USB debugging(Security settings),
+then fresh unlock/open. Temporary keep-awake was restored to original0.
+API26–27 has guarded-source/build evidence only, not physical proof on API36.
+Record new evidence before closing the feature; worktree remains open/unmerged.

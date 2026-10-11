@@ -1,14 +1,13 @@
 # Android Keystore recovery — 2026-10-11
 
 Scope: accepted original E2–E5 plus preserved E1; Core integrated at3532c160.
-Status: candidate source implemented and independently reviewed/tested; actual
-manual recovery now exposes an unresolved defect. Focused test diagnostics added.
-Physical acceptance: **IN PROGRESS**; enrollment invalidation proven, complete
-original-password recovery/new unlock still failing or pending.
-Repair candidate `d2a76ca` over diagnostic `a9409ff`/baseline `e26bcd9` is committed,
-pinned and installed, preserving the original Cookbook. Worktree remains open/
-unmerged, not merge-ready; actual expiry/retry and complete enrollment recovery
-await proof. No authentication/StrongBox policy changes. Inherited SDK-path
+Status: source independently reviewed/tested; actual expired-operation repair and
+post-enrollment original-password recovery/new-key unlock now passed on `d2a76ca`.
+Physical acceptance: **IN PROGRESS**; remaining lifecycle/limits/fallback cases open.
+Committed candidate `0a99d636` is installed; debug/test hashes match pinned metadata
+and the entire Cookbook remained unchanged. One genuine biometric open authenticated
+1 jar. Prior `d2a76ca` E4 proof stands; worktree stays open/unmerged, matrix pending.
+No authentication/StrongBox policy changes. Inherited SDK-path
 `local.properties` was untracked while its ignored local build file stayed intact.
 Debug identity isolation `.demo` implemented after independent clean39-test pass;
 release identity stays unchanged. Final impacted app/testAPK/lint builder check
@@ -51,33 +50,21 @@ Activity is debug-only/nonexported in app process, not test APK's separate UID.
 
 ## Evidence and remaining proof
 
-Builder final run: `./gradlew --no-daemon :shared:jvmTest :app:assembleDebug
-:app:assembleDebugAndroidTest :app:lintDebug`, JDK17.0.20+8/SDK36: exit0,
-BUILD SUCCESSFUL in53s;39 JVM tests,0 failures/errors/skips (26 inherited Core,
-13 vault/security/transaction tests). Android app and test APKs built. Earlier
-`:shared:assemble` passed alongside full build. App lint has0 errors,8 warnings
-(existing target/version upgrade suggestions and missing icon); no shared lint
-task exists. Source files remain under200 lines; whitespace check passes.
+Baseline builder53s/independent clean73s:39 JVM tests(26 Core+13 vault),0 failures/
+errors/skips; shared/app/test assembly and app lint0errors8knownwarnings. No shared
+lint task exists. Source stays under200 lines; whitespace check passes.
 
-Freeze includes a real executor-shutdown
-rejection regression: rejected fallback closes prepared master-key/spice buffers.
-No local app build is presented as physical acceptance. Final physical-test equality
-assertions use sanitized constant-time comparisons; their expected key copy is
-wiped in finally. This test-only delta recompiled successfully in25s.
-Independent tester: clean run exit0 in1m13s,107 tasks/105 executed,39 fresh JVM
-tests0 failures/errors/skips plus app/testAPK/lint. Post-isolation impacted app/
-testAPK/lint run exit0 in14s; actual APK badging/binary manifest confirms demo
+Executor-shutdown rejection wipes prepared buffers. Physical assertions use sanitized
+constant-time equality and finally-wipe expected key copy; test-only compile passed25s.
+Post-isolation independent app/testAPK/lint run exit0 in14s; APK metadata confirms demo
 package, test instrumentation target, disabled backup/extraction exclusions and
 nonexported debug-only proof Activity. Reviewer has no remaining source P1/P2;
 its separate report records the independent verdict and physical limitations.
 
-Diagnostic delta builder: debug/test/release APKs and lint passed49s after an
-explicit API31 caller guard corrected initial NewApi lint failure. Independent
-same build passed16s,0 errors/8 known warnings; release dex excludes the debug
-proof Activity/log tag. Installed hashes match
-[a9409ff build metadata](/home/vantt/projects/passMan-recovery/20261011-keystore/actual-controller-probe-build.json).
-Actual `WrapFailureProbeTest`: **OK(2 tests)** in0.026s, asserting exception
-messages/unknown phases never enter summaries. No diagnosed cause or fix claim.
+Diagnostic debug/test/release/lint builder49s, independent16s:0errors8warnings;
+API31 guard fixed initial NewApi lint; release excludes proof Activity/log tag.
+[a9409ff metadata](/home/vantt/projects/passMan-recovery/20261011-keystore/actual-controller-probe-build.json)
+matches installed hashes. Actual probe2tests passed0.026s: no messages/unknown phases.
 
 ## Observed physical proof — baseline and diagnostic follow-up
 
@@ -122,11 +109,10 @@ resolved. No wireless-pairing transport was needed/adopted.
   unchanged record. Post-enrollment wrong password also preserved record/alias.
 - Post-enrollment correct password authenticated the cache and reached real
   owner-authorized new wrap, then failed with the same preservation message.
-  Entire prior record remained unchanged. Complete enrollment recovery is unproven.
+  Entire prior record remained unchanged; enrollment recovery was unproven at that point.
 
-Observed baseline record SHA256:
-`a2daf4a96dd4372f2c2ecb5203dd11da3c32f97a6067ae9c8dd14e87bb3144fc`.
-Only ciphertext/digests and sanitized UI outcomes are recorded; no input values.
+Baseline record SHA256 `a2daf4a96dd4372f2c2ecb5203dd11da3c32f97a6067ae9c8dd14e87bb3144fc`.
+Only ciphertext/digests and sanitized outcomes recorded; no input values.
 
 Evidence:
 [physical progress](/home/vantt/projects/passMan-recovery/20261011-keystore/physical-progress.json),
@@ -139,10 +125,24 @@ Evidence:
 Runner timestamp:2026-10-11T04:13:05.418792Z. Root owns ADB and subsequent proof;
 this documentation snapshot does not predict later results.
 
-## Remaining acceptance
+## Expired wrap repair and remaining acceptance
 
-E4 remains open: repair actual demo's diagnosed post-enrollment wrap failure,
-then prove original-password same-cache recovery and new biometric unlock.
+E4 enrollment recovery now **PASS on pinned `d2a76ca`**. Following a genuine owner
+prompt held at least327s, current-process12308 code15 was recorded at05:44:42Z;
+[safe timing diagnosis](/home/vantt/projects/passMan-recovery/20261011-keystore/retry-timestamp-diagnosis.json)
+places it after held-prompt owner confirmation. The app then committed fresh alias/
+wrap IV with identical encrypted cache, salt and cache IV; retired list empty.
+Owner Lock→real new-key biometric unlock authenticated the same1 jar and preserved
+the entire new record. Evidence keys: `enrollment_recovery_fixed_candidate`,
+`enrollment_recovered_key_biometric_unlock` in the linked manual artifact.
+
+Owner reported **one visible recovery prompt** (`recovery_retry_owner_observation`);
+separate visual confirmation of two prompts is absent. [Reviewed source](recovery-independent-review.md) requires
+fresh Cipher/CryptoObject and identity-checked genuine callback after code15 before
+success; this is control-flow inference, supported by actual error→commit and
+subsequent new-key unlock, not a claim that two prompts were directly observed.
+Pinned source/APK unchanged; previous failures remain historical evidence.
+
 Current debug controller emits only constant phase, class chain, public API33
 numeric/system/transient/auth/retry fields and API31 key level; release is a no-op.
 After the held prompt's owner fingerprint,
@@ -166,16 +166,32 @@ APK hashes match
 [independent results](/home/vantt/projects/passMan-recovery/20261011-keystore/independent-expired-wrap-build.json).
 Actual2 negative-classifier +2 probe sanitization tests passed together in0.032s on API36
 ([log](/home/vantt/projects/passMan-recovery/20261011-keystore/expired-wrap-negative-classifier-physical.log));
-these are control tests, not biometric-retry proof. Current owner prompt is being
-held; actual-controller delayed-expiry/fresh-prompt proof remains open.
-No unauthenticated retry, StrongBox policy change or physical repair claim.
-Remaining matrix cases:
-lockout/failed biometrics, no enrollment, pending-operation lifecycle, actual
-idle5min/total10min, screenshot/recents protection and sanitized app logcat.
-This API36 device does not establish physical API26–27 behavior.
+these are control tests, separate from the actual-controller E4 pass above.
+No unauthenticated retry or StrongBox policy change.
 
-Temporary keep-awake is active during testing; recorded original value0 must be
-restored before closing device work. [Runbook](../../../runbooks/android-keystore-device-proof.md)
-contains exact commands/manual sequence. Source/build/runner and partial manual
-passes do not close E2–E5 acceptance. Keep this original worktree open/unmerged
-until the required remaining evidence is recorded; no completion claim yet.
+## Typed lockout fallback candidate — physical proof pending
+
+`0a99d636` accepts only actual initial BiometricPrompt error7/9 after correct-password
+cache authentication. Existing-record session transfer performs zero writes/retirement,
+preserving the whole record and retirement queue; only its disposable fresh alias is
+deleted. New setup checks actual record absence, then may save encrypted password-only
+cache atomically. Cancel/other errors and code15 retry→7/9 stay closed; no remembered
+lockout bypass. Debug emits callback numeric code only; release helper remains a no-op.
+Builder71s and independent fresh78s/150 executed tasks:56 JVM tests(48+8 new real
+repository/cache/ownership cases),0failures/errors/skips; debug/test/release build,
+lint0errors8knownwarnings;61 frozen files unchanged and release excludes proof code.
+Independent review has no new P1/P2; prior lockout P2 is addressed in source.
+[Pinned build](/home/vantt/projects/passMan-recovery/20261011-keystore/lockout-candidate-build.json)
+is installed and hash-verified; actual OS7/9 fallback remains pending.
+`d2a76ca` manual cancel, wrong password, pending-wrap background(return locked after6s)
+and force-stop/new-PID restart passed with whole-record preservation; see manual artifact.
+No timer pass: existing session locked231.14s after requested tap, but input delivery/
+session start were unobserved. Latest [idle attempt](/home/vantt/projects/passMan-recovery/20261011-keystore/timer-idle-20261011T062931212610Z.json)
+was INTERRUPTED before `timer_started`. Real owner fingerprint then produced UI
+"Device key unavailable"; numeric cause unobserved, no code15 unwrap inference.
+Root awaits owner reboot after Xiaomi USB debugging(Security settings) enablement;
+temporary keep-awake restored0. No source fault follows from uncertain input delivery.
+Remaining: actual7/9, retry cancel/exhaustion, remaining lifecycle/no-enrollment matrix,
+real5min idle/10min total, native screenshot/Recents and sanitized-log coverage.
+API36 does not establish physical API26–27 behavior. [Runbook](../../../runbooks/android-keystore-device-proof.md)
+has commands/manual sequence; partial passes do not close E2–E5. Worktree open/unmerged.
