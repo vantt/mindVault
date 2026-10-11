@@ -13,7 +13,8 @@ object WrapFailureProbe {
         runCatching { Log.i("PassChefProof", summary(phase, error, securityLevel)) }
     }
     fun summary(phase: String, error: Throwable, securityLevel: () -> Int): String {
-        val safePhase = phase.takeIf { it in setOf("wrap-doFinal", "record-commit", "key-retirement", "session-delivery") } ?: "unknown"
+        val safePhase = phase.takeIf { it in setOf("wrap-doFinal", "unwrap-doFinal", "unwrap-cache",
+            "record-commit", "key-retirement", "session-delivery") } ?: "unknown"
         val causes = generateSequence(error) { it.cause }.take(5).toList()
         val level = if (Build.VERSION.SDK_INT >= 31) runCatching { securityLevel().toString() }.getOrDefault("unavailable") else "unsupported"
         val numeric = if (Build.VERSION.SDK_INT >= 33) causes.filterIsInstance<KeyStoreException>().joinToString(";") {

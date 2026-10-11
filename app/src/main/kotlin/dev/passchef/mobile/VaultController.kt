@@ -113,12 +113,22 @@ class VaultController(
                     if (active && epoch.accepts(token)) authenticate(cipher, { authorized ->
                         if (!active || !epoch.accepts(token)) return@authenticate
                         worker.execute {
+                            var phase = "unwrap-doFinal"
                             try {
                                 if (!epoch.accepts(token)) return@execute
-                                val opened = repository.unwrap(authorized.doFinal(record.wrappedKey))
+                                val unwrapped = authorized.doFinal(record.wrappedKey)
+                                phase = "unwrap-cache"
+                                val opened = repository.unwrap(unwrapped)
+                                phase = "key-retirement"
                                 runCatching { repository.retireKeys(crypto::deleteKey) }
+                                phase = "session-delivery"
                                 finish(token, opened, "Biometric round trip succeeded; ${opened.spices.size} spice jars authenticated")
-                            } catch (_: Exception) { fail(token, "Device key unavailable. Use your original master password.") }
+                            } catch (error: Exception) {
+                                WrapFailureProbe.record(phase, error) {
+                                    if (android.os.Build.VERSION.SDK_INT >= 31) crypto.info(record.alias).securityLevel else -1
+                                }
+                                fail(token, "Device key unavailable. Use your original master password.")
+                            }
                         }
                     }, { fail(token, "Biometric failed or cancelled. Use your master password.") })
                 }
