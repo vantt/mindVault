@@ -9,7 +9,9 @@
   errors. USB/install and real hardware wrap/unwrap now pass. Enrollment recovery
   has intermittent fresh-wrap failures; debug-only diagnostics at `a9409ff` are
   independently verified. A delayed demo prompt reproduced expired operation15;
-  a bounded fresh-operation/new-biometric repair is in progress. Physical acceptance
+  the bounded fresh-Cipher/new-biometric repair `d2a76ca` is installed. Independent
+  checks pass 48 JVM tests and app/test/release builds; four Android classifier/probe
+  tests pass. Actual retry/enrollment proof is pending. Physical acceptance
   remains incomplete and unmerged.
 - Phone QR reading/reassembly remains a separate follow-up after existing
   worktrees are completed.

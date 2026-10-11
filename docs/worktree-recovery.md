@@ -20,7 +20,7 @@ Keystore work. Start new work directly from main only after all three are done.
 |---|---|---|---|
 | `wt/passchef-mobile-oauth-sheets` | [Track D: OAuth/Menu client](history/passchef-mobile-oauth-sheets/plan.md), approved 2026-07-28 | Original five commits and recovery commit `0f93c7d` integrated into main | Code scope complete; worktree archived and closed; live Google check pending |
 | `wt/passchef-mobile` | [Track B: Mobile Core](history/passchef-mobile/implement-plan.md), updated 2026-07-28 | Full accepted Core slice implemented; 26 JVM tests and Android packaging pass | Complete; `7d8808c` in main, fresh integration passed, archived and closed |
-| `wt/passchef-mobile-android-keystore` | [Android Keystore + biometric unlock](history/passchef-mobile-android-keystore/plan.md), approved 2026-07-30 | Core reconciled at `3532c16`; genuine storage/unlock implemented in candidate `e26bcd9` | 39 JVM tests, app/test APKs and independent review passed; physical acceptance pending; not merged |
+| `wt/passchef-mobile-android-keystore` | [Android Keystore + biometric unlock](history/passchef-mobile-android-keystore/plan.md), approved 2026-07-30 | Core reconciled at `3532c16`; genuine storage/unlock implemented in candidate `e26bcd9` | 48 JVM tests, app/test/release APKs and independent review passed at `d2a76ca`; installed; physical acceptance pending; not merged |
 | `wt/qr-handoff` | [Extension QR handoff](history/qr-handoff/plan.md), approved 2026-07-27; [recovery execution](../plans/261011-qr-handoff-worktree-recovery/plan.md) | Sender implemented in original checkout; 15 QR + 22 golden unit tests and two headed canvas-decoding E2E passed | Complete; `4a4395c` merged at `3d3239d`, fresh integration passed, archived and closed; phone reader excluded |
 
 The linked Markdown planning dossiers are preserved unchanged here from their
@@ -187,7 +187,10 @@ Adding a fingerprint invalidated the old key as required; subsequent fresh wraps
 have failed intermittently while preserving the complete encrypted Cookbook.
 One delayed demo prompt reproduced Android error15: an evacuated wrapping
 operation. Earlier attempts lacked numeric diagnostics. A bounded fresh-operation/
-new-biometric repair is in progress in the original worktree. Debug-only diagnostics
+new-biometric repair is committed at `d2a76ca` in the original worktree and installed
+with the old record preserved. Independent fresh checks pass 48 JVM tests, all APK
+builds and lint; review found no P1/P2. Four Android classifier/probe tests pass.
+Actual retry/new-prompt and enrollment recovery remain pending. Debug-only diagnostics
 and focused physical regressions are committed at `a9409ff`; independent debug/
 test/release builds, lint and two device sanitization tests pass. Authorization
 and storage policies remain unchanged. Complete enrollment recovery and physical

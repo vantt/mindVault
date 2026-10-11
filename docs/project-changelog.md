@@ -12,8 +12,12 @@ fresh wraps fail intermittently while preserving the encrypted Cookbook. Debug-o
 sanitized diagnostics and focused regressions at `a9409ff` pass independent builds,
 release isolation, lint and two device sanitization tests. One delayed demo prompt
 reproduced expired operation15; earlier failures lacked numeric diagnostics. A
-bounded fresh-operation/new-biometric repair is in progress. No authorization/
-storage policy changed in the diagnostic commit. Enrollment recovery and device
+bounded fresh-Cipher/new-biometric repair is committed at `d2a76ca` and installed.
+It permits one cancellable five-second retry for typed API33+ code15 before record
+commit, with genuine fresh biometric authorization and guarded owned-data cleanup.
+Independent fresh checks pass 48 JVM tests, app/test/release builds and lint; review
+found no P1/P2. Four Android classifier/probe tests pass, but actual retry/enrollment
+proof remains pending. No authorization/storage policy changed in the diagnostic commit. Enrollment recovery and device
 acceptance block source merge and closure. See [recovery status](worktree-recovery.md).
 
 ## Phone QR cookbook handoff (2026-10-11)
