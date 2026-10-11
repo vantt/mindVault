@@ -5,6 +5,9 @@ Worktree: `/home/vantt/projects/passMan--wt--passchef-mobile-oauth-sheets`
 Branch: `wt/passchef-mobile-oauth-sheets`
 Base: local `main`, currently `ef720b1`.
 
+Result: completed 2026-10-11; integrated at `0f93c7d`, verified in main with
+22 passing tests, archived and closed. See [recovery record](../../docs/worktree-recovery.md).
+
 ## Outcome and boundary
 
 Finish the accepted Track D code deliverable: an independent Kotlin module

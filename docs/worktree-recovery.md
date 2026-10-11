@@ -1,13 +1,14 @@
 # Mobile foundation worktree recovery
 
-Updated: 2026-10-11. Snapshot compares the four feature branches with local
-`main` at `ef720b1`; this report records recovery work in progress.
+Updated: 2026-10-11. The initial snapshot compared four feature branches with
+local `main` at `ef720b1`. OAuth/Menu recovery commit `0f93c7d` is now in main;
+its worktree is closed after verification and a complete recovery archive.
 
 ## Worktrees and their plans
 
 | Worktree branch | Latest relevant plan | Recorded progress | Recovery status |
 |---|---|---|---|
-| `wt/passchef-mobile-oauth-sheets` | [Track D: OAuth/Menu client](history/passchef-mobile-oauth-sheets/plan.md), approved 2026-07-28 | Five commits beyond main; independent client, setup guide, JVM connection-check tool | Selected; product repairs, current validation, and merge pending |
+| `wt/passchef-mobile-oauth-sheets` | [Track D: OAuth/Menu client](history/passchef-mobile-oauth-sheets/plan.md), approved 2026-07-28 | Original five commits and recovery commit `0f93c7d` integrated into main | Code scope complete; worktree archived and closed; live Google check pending |
 | `wt/passchef-mobile` | [Track B: Mobile Core](history/passchef-mobile/implement-plan.md), updated 2026-07-28 | Five planned tasks; no feature commits beyond main | Next product priority; recipe parity, bundle decrypt, Argon2 proof pending |
 | `wt/passchef-mobile-android-keystore` | [Android Keystore + biometric unlock](history/passchef-mobile-android-keystore/plan.md), approved 2026-07-30 | Scaffold commit `a1c57c9`; physical-device bridge verification recorded as blocked | Real device verification and later storage/unlock implementation pending |
 | `wt/qr-handoff` | [Extension QR handoff](history/qr-handoff/plan.md), approved 2026-07-27 | QR button and animated chunking planned; no feature commits beyond main | Independent extension work; implementation pending |
@@ -18,8 +19,8 @@ They are archived planning evidence from **2026-07-27 through 2026-07-30**;
 current implementation readiness has not been certified. Historical validation
 reports do not prove current environment/device availability or completed code.
 Only planning documents were consolidated; unfinished product code and runtime
-state remain in their original checkouts. This report will remain in main when
-the selected branch is integrated.
+state for the three unfinished tracks remain in their original checkouts.
+These dossiers are now available from main for continuation.
 
 ## Why OAuth/Menu client goes first
 
@@ -93,9 +94,25 @@ Private configuration must never be displayed in the recovery report.
 - Independent product review: no blocking findings after repairs. The original
   seven tests are unchanged; added tests use mocked Google HTTP and local
   loopback callbacks without contacting Google.
-- Local merge into main and restored-work preservation check: **pending**.
-- Recovery archive and selected worktree closure: **pending**.
+- Local merge: fast-forward to `0f93c7d`; all original OAuth commits are ancestors
+  of main. Main integration build/test passed with 22 tests and no failures.
+- Existing main work: all 149 dirty paths restored; 147 exact content hashes
+  verified, with original ignore rules and decision events preserved in the two
+  merged files. A retained Git recovery ref points to stash `c92a3379`:
+  `refs/recovery/passchef-oauth-main-wip-20261011`.
+- Fresh checkout exposed an untracked executable-mode assumption. The wrapper
+  is now explicitly recorded as mode `100755`; direct `./gradlew` execution
+  succeeds. A check in a guaranteed empty temporary configuration directory
+  correctly exits 1 with setup instructions, without starting Google sign-in.
+- Recovery archive: `/home/vantt/projects/passMan-recovery/20261011-oauth-sheets/`.
+  The complete checkout archive was checked byte-for-byte and by file mode:
+  1,581 files, 526,740,907 bytes. Deferred tooling changes and ignored runtime
+  files remain recoverable; the JDK was also relocated to main's `.toolchain/`.
+- Worktree closure: selected OAuth checkout removed from Git's worktree list;
+  its branch is retained. Three unfinished feature worktrees remain.
 - Real Google OAuth client creation and live connection check: **pending**.
 
-Replace these placeholders only with observed results and recorded commit/ref
-identifiers. Historical progress above does not substitute for current checks.
+Local verification uses mocked Google responses and local loopback HTTP only.
+It does not certify a real Google token exchange or Cookbook read. No remote
+push was performed. Continue the remaining plans from main, beginning with
+Mobile Core and reconciliation of the existing Keystore scaffold.
