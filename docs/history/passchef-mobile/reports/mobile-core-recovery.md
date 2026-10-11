@@ -1,7 +1,8 @@
 # Mobile Core recovery — 2026-10-11
 
 Status: implementation and final browser-derived repair passed independent
-review; commit, merge and worktree closure pending. Base at start: main `b097b9c`.
+review. Integrated `7d8808c`, fresh main checks passed, checkout archived and
+closed. Base at start: main `b097b9c`.
 
 ## Delivered
 
@@ -123,3 +124,10 @@ Next: integration by the orchestrator after passing independent review, while
 preserving deferred tooling WIP. No commit, merge, remote push or worktree closure
 performed by this builder. Dependent Keystore work follows Core completion;
 QR transport remains independent. No unresolved Core scope question.
+
+## Final integration record
+
+Root committed `7d8808c` and integrated it into local main. An independent fresh
+main run passed 26 JVM tests, Android/JVM packaging and both headed browser oracle
+checks. Full checkout archive was verified before closure; branch and recovery
+refs retained. See [recovery ledger](../../../worktree-recovery.md).

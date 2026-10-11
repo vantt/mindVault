@@ -194,3 +194,9 @@ git diff --check
 Browser-version refresh needs explicit oracle regeneration and independent review.
 Physical-device Keystore/biometrics remain pending in their separate plan; these
 build/tests do not certify hardware behavior. No unresolved Core scope question.
+
+## Integration follow-up (2026-10-11)
+
+Core `7d8808c` integrated into main; independent fresh-main JVM/build and
+actual-browser parity checks passed. Complete archive verified; checkout closed.
+Branch and recovery refs retained; no remote push.

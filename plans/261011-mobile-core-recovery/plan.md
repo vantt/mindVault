@@ -72,4 +72,5 @@ biometric/hardware acceptance to the separate Keystore plan.
 Feasibility proven outside repo in `/tmp/passchef-core-feasibility-03uvfl_6`:
 Android AAR+JVM compile/test succeeded, BC resolves on both targets, and BC matches
 the real WASM Unicode test vector. Real JS bundle round trip also passed. Current
-Core product implementation/verification is still pending. No scope answer needed.
+Core complete: `7d8808c` integrated, fresh main checks passed, checkout archived
+and closed. No scope answer needed.

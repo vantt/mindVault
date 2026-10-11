@@ -16,10 +16,11 @@
   tests, Android packaging, 22 unchanged extension tests, and 56 actual browser
   Recipe/HMAC vectors passed independent verification. See
   [Core recovery report](history/passchef-mobile/reports/mobile-core-recovery.md).
+  Fresh main checks passed; checkout archived and closed.
 - 2026-10-11 — Extension QR sender implemented and independently reviewed:
   15 QR plus 22 unchanged recipe golden tests and two headed E2E scenarios
-  passed with independent canvas decoding; no P1/P2 found. Integrated by this
-  merge; fresh main verification and checkout closure follow. See
+  passed with independent canvas decoding; no P1/P2 found. Integrated at `3d3239d`; fresh main checks passed and the checkout is
+  archived and closed. See
   [verification report](../plans/261011-qr-handoff-worktree-recovery/reports/verification.md).
 
 - 2026-10-11 — OAuth/Menu client code recovered and integrated into local main:

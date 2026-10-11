@@ -77,3 +77,10 @@ decodes intrinsic canvas pixels; camera distance, screen scaling and glare were
 not measured. Clipboard contents and downloaded-file IO were inspected in code,
 not exercised by the two scoped E2E cases. Broad legacy E2E was not run. Other
 unrelated tooling WIP was excluded. No unresolved P1/P2 or scope question found.
+
+## Integration follow-up (2026-10-11)
+
+QR commit `4a4395c` merged into local main at `3d3239d`. Independent fresh-main
+checks passed 37 scoped unit tests and two headed canvas-decoding E2E scenarios.
+Complete archive verified; checkout closed.
+Branch and recovery refs retained; no remote push.

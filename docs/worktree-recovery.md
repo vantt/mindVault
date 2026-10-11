@@ -3,6 +3,9 @@
 Updated: 2026-10-11. The initial snapshot compared four feature branches with
 local `main` at `ef720b1`. OAuth/Menu recovery commit `0f93c7d` is now in main;
 its worktree is closed after verification and a complete recovery archive.
+Mobile Core `7d8808c` and QR sender `4a4395c` (merge `3d3239d`) are also
+in local main, independently verified there, archived and closed. Only the
+Keystore worktree remains open; no new main-based feature work has started.
 
 Recovery policy: complete each of the three remaining features in its existing
 worktree against its own plan, verify it, then merge and close that worktree.
@@ -16,9 +19,9 @@ Keystore work. Start new work directly from main only after all three are done.
 | Worktree branch | Latest relevant plan | Recorded progress | Recovery status |
 |---|---|---|---|
 | `wt/passchef-mobile-oauth-sheets` | [Track D: OAuth/Menu client](history/passchef-mobile-oauth-sheets/plan.md), approved 2026-07-28 | Original five commits and recovery commit `0f93c7d` integrated into main | Code scope complete; worktree archived and closed; live Google check pending |
-| `wt/passchef-mobile` | [Track B: Mobile Core](history/passchef-mobile/implement-plan.md), updated 2026-07-28 | Full accepted Core slice implemented; 26 JVM tests and Android packaging pass | Independent review passed; commit and merge pending |
-| `wt/passchef-mobile-android-keystore` | [Android Keystore + biometric unlock](history/passchef-mobile-android-keystore/plan.md), approved 2026-07-30 | Scaffold commit `a1c57c9`; physical-device bridge verification recorded as blocked | Real device verification and later storage/unlock implementation pending |
-| `wt/qr-handoff` | [Extension QR handoff](history/qr-handoff/plan.md), approved 2026-07-27; [recovery execution](../plans/261011-qr-handoff-worktree-recovery/plan.md) | Sender implemented in original checkout; 15 QR + 22 golden unit tests and two headed canvas-decoding E2E passed | Independent review complete, no P1/P2; product commit and main merge pending; phone reader excluded |
+| `wt/passchef-mobile` | [Track B: Mobile Core](history/passchef-mobile/implement-plan.md), updated 2026-07-28 | Full accepted Core slice implemented; 26 JVM tests and Android packaging pass | Complete; `7d8808c` in main, fresh integration passed, archived and closed |
+| `wt/passchef-mobile-android-keystore` | [Android Keystore + biometric unlock](history/passchef-mobile-android-keystore/plan.md), approved 2026-07-30 | Scaffold `a1c57c9` reconciled with Core in `3532c16`; storage/unlock implementation underway | Implementation and independent checks ongoing; physical acceptance pending |
+| `wt/qr-handoff` | [Extension QR handoff](history/qr-handoff/plan.md), approved 2026-07-27; [recovery execution](../plans/261011-qr-handoff-worktree-recovery/plan.md) | Sender implemented in original checkout; 15 QR + 22 golden unit tests and two headed canvas-decoding E2E passed | Complete; `4a4395c` merged at `3d3239d`, fresh integration passed, archived and closed; phone reader excluded |
 
 The linked Markdown planning dossiers are preserved unchanged here from their
 respective worktrees so remaining work can be continued from main after merge.
@@ -100,8 +103,13 @@ The E2E decoder independently reconstructs actual canvas payloads, including
 every animated frame and original byte arrays. Actual vendor boundary and
 Unicode roundtrip checks also passed. See the
 [independent review](history/qr-handoff/reports/recovery-independent-review.md).
-Product commit and main merge remain pending; Core and Keystore priority and
-their device acceptance are unaffected by this independent sender completion.
+Product commit `4a4395c` merged into main at `3d3239d`. Fresh main checks passed:
+37 scoped unit tests and two headed canvas-decoding E2E scenarios. All 149 prior
+main WIP paths were restored with exact hashes. The complete QR checkout archive
+contains 3,237 verified files and 212 symlinks (65,099,951 bytes), at
+`/home/vantt/projects/passMan-recovery/20261011-qr-handoff/`. The checkout is
+closed; its branch and recovery refs remain. Keystore physical acceptance remains
+a requirement for that separate feature.
 
 ## Preserve existing work and integrate
 
@@ -154,5 +162,18 @@ The accepted Track B slice is implemented in its original worktree and verified
 locally: 26 JVM tests, Android packaging, and 22 unchanged extension recipe tests
 pass. Independent review verified 56 real extension vectors and the full Unicode
 scalar mapping against Chromium 143.0.7499.4; no blocking findings remain.
-Commit, main integration, archival and closure remain pending.
+Product commit `7d8808c` is in main. Fresh main build/test passed with all
+26 JVM tests and actual-browser scalar/vector checks. Its complete checkout
+archive contains 3,700 verified files and 211 symlinks (69,441,512 bytes), at
+`/home/vantt/projects/passMan-recovery/20261011-mobile-core/`. The checkout is
+closed; its branch and recovery refs remain. Core was merged into the original
+Keystore checkout at `3532c16`, preserving that checkout’s deferred WIP.
 See [the Core report](history/passchef-mobile/reports/mobile-core-recovery.md).
+
+## Remaining checkout
+
+Only `wt/passchef-mobile-android-keystore` remains open. Finish its accepted
+E1–E5 implementation, independent verification and real-device acceptance before
+merge and closure. The owner confirmed USB participation, but the latest Windows
+ADB check still listed no device. Original biometric enrollment and recovery
+checks remain required; successful JVM/build results cannot replace them.

@@ -55,3 +55,10 @@ Existing unrelated untracked Bee skill directories
 were not changed and must stay outside this commit. Phone reader acceptance
 requires its own later work; no phone transport end-to-end claim is made here.
 No unresolved product questions within this accepted sender scope.
+
+## Integration follow-up (2026-10-11)
+
+QR commit `4a4395c` merged into local main at `3d3239d`. Independent fresh-main
+checks passed 37 scoped unit tests and two headed canvas-decoding E2E scenarios.
+Complete archive verified; checkout closed.
+Branch and recovery refs retained; no remote push.

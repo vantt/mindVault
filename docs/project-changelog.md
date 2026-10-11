@@ -8,8 +8,8 @@ one QR or a fitted, animated sequence. Copy/Download and encryption stay intact.
 Closing, going Back during cooking, or reopening clears the previous session.
 
 **Status:** Implementation and independent review complete in the original QR
-worktree and integrated by this merge. Fresh main verification and checkout
-closure follow. Fifteen QR unit regressions plus 22
+worktree; commit `4a4395c` merged into main at `3d3239d`. Fresh main checks
+passed and the checkout was archived and closed. Fifteen QR unit regressions plus 22
 unchanged recipe golden tests and two real headed extension E2E scenarios passed.
 Independent review found no P1/P2. A separate test-only decoder
 recovered the actual canvas payloads and original byte fields exactly. The phone
@@ -31,7 +31,7 @@ extension recipe tests pass. The actual Chromium extension supplies 56 vectors
 and a complete scalar case-mapping oracle. Independent review closed the Unicode
 parity defect; compatibility is pinned to Chromium 143.0.7499.4. BouncyCastle
 remains test-only. Golden assertions are unchanged. Local main integrated `7d8808c`; a fresh main
-build and browser parity check passed.
+build and browser parity check passed. The checkout was archived and closed.
 
 **Evidence:** [Core recovery report](history/passchef-mobile/reports/mobile-core-recovery.md).
 

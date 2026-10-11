@@ -26,3 +26,10 @@ by the user. Finish this work before integration; phone reader and Drive remain 
 Verification uses test-only `jsqr@1.4.0`, pinned as a dev dependency, to independently
 decode the rendered canvas. This is evidence for the sender contract, not phone
 reader product code. The extension runtime remains dependency-free for QR.
+
+## Integration follow-up (2026-10-11)
+
+QR commit `4a4395c` merged into local main at `3d3239d`. Independent fresh-main
+checks passed 37 scoped unit tests and two headed canvas-decoding E2E scenarios.
+Complete archive verified; checkout closed.
+Branch and recovery refs retained; no remote push.
