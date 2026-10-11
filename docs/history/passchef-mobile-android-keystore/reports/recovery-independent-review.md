@@ -162,38 +162,38 @@ Eight regressions cover real cache/record bytes, setup/failures and control owne
 not hardware proof. Debug logs only source/numeric real prompt code;
 no errString/messages/bytes, release no-op. All45 Kotlin hashes matched before/after
 review. Source committed0a99d63; builder and independent fresh rerun both passed.
-Independent result: **56 JVM tests, zero failures/errors/skips,150/150 tasks,78s**;
-debug/test/release/shared artifacts and lint0errors/8warnings;61 files/hashes/modes stable.
+Independent: **56 JVM tests, zero failures/errors/skips,150/150 tasks,78s**; debug/test/release/shared artifacts, lint0/8,61 files/hashes/modes stable.
 `independent-lockout-build.json` and `lockout-candidate-build.json` pin APK identities;
-release excludes proof Activity/tag. Debug/test APKs installed-r; actual hashes
-match pinned identities and complete Cookbook bytes remain unchanged. Root observed
-one genuine new-candidate biometric unlock with one jar; actual7/9 remains unproven.
-Postreboot installed0a idle5 **PASS**: `timer-idle-20261011T070708433357Z.json`.
-Fresh owner biometric status, no later taps; last open292.74s/first locked305.95s.
-Before/after APK hashes equal; bounded own-UID checks of six synthetic literals
-had no hits. Awake/owned foreground/FLAG_SECURE were sampled, not continuously traced.
+Release excludes proof Activity/tag. Debug/test installed-r; hashes match pins/whole Cookbook unchanged.
+Root observed one genuine new-candidate biometric unlock with one jar; actual7/9 remains unproven.
+Installed0a idle5 **PASS**: `timer-idle-20261011T070708433357Z.json`; fresh owner biometric/no later taps, open292.74s/locked305.95s.
+APKs equal; six synthetic literals had no bounded own-UID hits. Awake/foreground/FLAG_SECURE sampled, not continuously traced.
 Total10 before-start FAIL (`timer-total-20261011T071305213998Z.json`): key unavailable, no numeric cause;7/9/screens pending.
 
-## Installed unwrap diagnostic delta — cause pending
+## Installed unwrap diagnostic delta — partial physical acceptance
 
-Three-file probe review: **no P1/P2**; immediate repository ownership of unwrapped
-key and failure wiping remain; exact unwrap-doFinal/unwrap-cache plus existing
-retirement/delivery phases are accurate. No retry/auth/storage change; release
-never logs or invokes inspector. Four reviewed file hashes remained stable.
+Three-file probe review: **no P1/P2**; repository ownership/failure wiping and fixed phases remain accurate.
+No retry/auth/storage change; release never logs/invokes inspector. Four reviewed file hashes remained stable.
 Independent app rerun passed69s/140tasks all executed, lint0/8;61 files stable/shared unchanged, prior56 JVM tests applicable.
-`independent-unwrap-diagnostic-build.json` pins actual tester APKs, superseding
-different builder incremental identities. Committed0d38e62 installed-r with exact
-tester hashes/unchanged Cookbook; actual Android formatter **5 passed/0.027s**, no hardware assertions.
-Current0d total10 FAIL: `timer-total-20261011T072607082007Z.json`, last open296.45s/locked309.84s.
-Four requested header taps67.52/122.08/189.21/242.98s have unverified delivery; no total acceptance/product bug claim.
-Owner-touch073313 timed out600s at prompt_pending; no timer started. Force-stop/new Main cold locked; full encrypted record unchanged, keepawake0 verified, all device sessions ended. Work paused.
-Fresh unwrap succeeded without numeric error; older held unwrap failures remain unclassified.
-Idle5 remains evidence for prior0a, not a timer pass on this diagnostic candidate.
+`independent-unwrap-diagnostic-build.json` pins tester APKs, superseding different builder incremental identities.
+Committed0d38e62 installed-r with exact tester hashes/unchanged Cookbook; Android formatter **5 passed/0.027s**, no hardware assertions.
+Earlier total10 FAIL: `timer-total-20261011T072607082007Z.json`, last open296.45s/locked309.84s.
+Four requested header taps67.52/122.08/189.21/242.98s lack delivery proof; no product-bug classification.
+Owner-touch073313 timed out600s/prompt_pending before timer start; force-stop/cold restart locked, record unchanged/keepawake0 restored.
+Fresh unwrap succeeded without numeric error; older held unwrap failures remain unclassified. Prior0a idle5 PASS retained above.
+**Actual0d total10 PASS**: `timer-total-20261011T100657992502Z.json`, last open597.21s/first locked610.30s; APKs before/after identical.
+`manual-total-20261011T100657992502Z-owner.json`: trusted direct owner confirmation of regular manual title touches until lock; individual touch times unmeasured.
+Actual0d wrong-password terminal failure preserved whole encrypted record. Main3+2 rejected scans yielded callbacks[5,5], not7.
+Existing proof harness first-wrap five unenrolled-finger scans seeded owner-confirmed “too many attempts”; intentional auth rejection/cleanup, not a runner pass.
+Root submitted ordinary correct password10.10s after runner completion, PID21987; `actual-lockout-seed.json` records the result.
+**Physical OS-lockout availability fallback PASS**: UI “Cookbook open by password; strong biometric unavailable”; no jar count displayed.
+Whole record SHA894f73e51e316b6a369368ad4cebbc901609ccfe7eabe855aa73c2cbf4e7a4d6 unchanged; installed0d APK identities matched.
+Callback codes empty/numeric cause unknown: availability/passwordOnly path passed; typed initial7/9 path remains source/JVM-reviewed only. Seed JSON status INCONCLUSIVE refers to typed-code proof.
+Native screen evidence (`manual-evidence.json/native_screen_protection`): owner “screenshot không cho, quay bị đen”, then “riêng paschef đen”; screenshot blocked/only PassChef black reported, no root visual/video capture or exact Recents-category claim.
+Root confirmed own app left foreground without reading foreign UI; ordinary same-Main launch/no force-stop returned locked/FLAG_SECURE at13433.53–13436.77.
+Whole ciphertext record SHA894f… unchanged; installed0d APK pins matched. No app/data clear occurred.
+Final UID10422 bounded snapshot7 lines/six synthetic literals/no hits; not whole-flow absence. Keepawake0 restored/all ADB workers ended.
+API26–29/no hardware/no enrollment/StrongBox-absent and exact process-kill/retry exhaustion unexecuted; force-stop evidence above remains distinct. See [device runbook](../../../runbooks/android-keystore-device-proof.md).
+**Validated Xiaomi checks only; owner scope acceptance pending, no original full-matrix-complete/merge-ready verdict.**
 
-Repeated-failure/lockout, retry cancel/exhaustion, late background callbacks and total10 remain pending; idle5/bounded logs passed above.
-API26–29/no-biometric/StrongBox-absent remain unverified. Synthetic isolated demo only; see [device runbook](../../../runbooks/android-keystore-device-proof.md).
-
-**Partial physical acceptance only; no completed-feature/merge-ready verdict.**
-
-Unresolved: actual7/9, retry/lifecycle, total10 and screenshot/Recents physical probes.
-Two distinct visible retry dialogs were not independently observed or claimed.
+Unresolved: owner acceptance, actual typed7/9, remaining matrix/retry/lifecycle and exact Recents-category observation. Two distinct visible retry dialogs were not observed or claimed.

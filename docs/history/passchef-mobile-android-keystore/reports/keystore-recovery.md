@@ -1,17 +1,15 @@
-# Android Keystore recovery — 2026-10-11
+# Android Keystore — current-device checks accepted; coverage pending
 
 Scope: accepted original E2–E5 plus preserved E1; Core integrated at3532c160.
 Status: source independently reviewed/tested; actual expired-operation repair and
 post-enrollment original-password recovery/new-key unlock now passed on `d2a76ca`.
-Physical acceptance: **IN PROGRESS**; remaining lifecycle/limits/fallback cases open.
+Current-device feasible checks **ACCEPTED**; original-matrix coverage decision pending.
 Installed diagnostic `0d38e62`: independent debug/test hashes verified, whole Cookbook
 preserved, cold start locked. Prior `0a99d636` real biometric1jar/idle5 and `d2a76ca`
 E4 proofs stand; worktree stays open/unmerged, remaining matrix pending.
 Authentication/StrongBox unchanged; SDK `local.properties` untracked, ignored build file retained.
-Debug identity isolation `.demo` implemented after independent clean39-test pass;
-release identity stays unchanged. Final impacted app/testAPK/lint builder check
-passed in38s; APK metadata confirms `.demo` and `.demo.test` packages. Independent
-post-isolation app/testAPK/lint pass completed in14s; no shared source change in this delta.
+Debug `.demo` isolation followed independent clean39; release unchanged. Builder38s/
+independent14s app/test/lint confirmed `.demo`/`.demo.test`, shared unchanged.
 Bee state, original tooling WIP and golden tests remain unchanged.
 
 ## Implemented
@@ -22,8 +20,7 @@ Bee state, original tooling WIP and golden tests remain unchanged.
 - Proven BC1.85 Argon2id moved from Core spike into this feature's production
   source set; same WASM vector and Web UTF-8 encoding verified in production test.
   This promotion belongs to accepted Keystore scope, not a change to Core history.
-- Versioned bounded ciphertext-only record, <=5 seasoning jars, AES-GCM cache,
-  random salt/IVs, app-private backup-excluded persistence and atomic replacement.
+- Bounded ciphertext-only record, <=5 jars/AES-GCM cache, random salt/IVs, backup-excluded private atomic persistence.
 - Original-password cache authentication before alias mutation. New wrap commits
   before prior alias retirement; failures preserve old record, disposable alias
   is removed, bounded retirement metadata retries failed deletion after auth.
@@ -36,7 +33,7 @@ Bee state, original tooling WIP and golden tests remain unchanged.
 - Real interactive physical instrumentation APK: actual Class3 prompts for wrap
   and unwrap, nonexportable/hardware inspection, unauthenticated refusal, cache/
   key equality after on-disk reopen, wrong-password preservation and cleanup.
-  Actual process kill/relaunch and induced enrollment invalidation are manual cases.
+  Process kill/relaunch and enrollment invalidation are manual.
 
 ## Review fixes before freeze
 
@@ -49,19 +46,16 @@ Activity is debug-only/nonexported in app process, not test APK's separate UID.
 
 ## Evidence and remaining proof
 
-Baseline builder53s/independent clean73s:39 JVM tests(26 Core+13 vault),0 failures/
-errors/skips; shared/app/test assembly and app lint0errors8knownwarnings. No shared
-lint task exists. Source stays under200 lines; whitespace check passes.
+Baseline builder53s/independent73s:39 JVM(26 Core+13 vault)0fail/errors/skips, shared/app/test/lint0errors8warnings;
+no shared lint task. Source under200 lines; whitespace check passes.
 
 Executor-shutdown rejection wipes prepared buffers. Physical assertions use sanitized
 constant-time equality and finally-wipe expected key copy; test-only compile passed25s.
 Post-isolation independent app/testAPK/lint14s: demo package/test target, backup
 exclusions and nonexported debug-only proof Activity confirmed; baseline review noP1/P2.
 
-Diagnostic debug/test/release/lint builder49s, independent16s:0errors8warnings;
-API31 guard fixed initial NewApi lint; release excludes proof Activity/log tag.
-[a9409ff metadata](/home/vantt/projects/passMan-recovery/20261011-keystore/actual-controller-probe-build.json)
-matches installed hashes. Actual probe2tests passed0.026s: no messages/unknown phases.
+Diagnostic builder49s/independent16s,lint0/8; API31 corrected NewApi, release excludes proof tag/Activity.
+[a9409ff metadata](/home/vantt/projects/passMan-recovery/20261011-keystore/actual-controller-probe-build.json) matched install; probe2PASS0.026s excludes messages/unknown phases.
 
 ## Observed physical proof — baseline and diagnostic follow-up
 
@@ -72,8 +66,7 @@ missingADB/installrestriction resolved; wireless pairing not adopted.
 - Actual `KeystorePhysicalTest`: **OK(1 test)** in12.431s, host exit0; real strong
   biometric CryptoObject wrap/unwrap, absent-auth refusal, owned lock wiping,
   master-key/cache equality after disk reopen and wrong-password no-write.
-- Key inspection: `hardwareProtected=true`, `nonexportable=true`, `cache=true`.
-  No exact TEE/StrongBox classification is claimed by this boolean evidence.
+- HardwareProtected/nonexportable/cache=true; boolean alone does not classify TEE/StrongBox.
 - Manual synthetic setup/real wrap and demo biometric unlock passed; one spice jar
   authenticated. Background→return and actual force-stop→new-process launch were
   locked; encrypted data remained unchanged.
@@ -87,7 +80,7 @@ missingADB/installrestriction resolved; wireless pairing not adopted.
   atomic existing-record replacement and exact new-instance reopen passed. This
   focused storage pass does not prove the failing demo recovery path.
 - MainActivity's owned window has FLAG_SECURE; physical screenshot/recents
-  behavior remains to be checked.
+  behavior was still unchecked at this earlier stage; final owner reports below.
 - Focused `KeystoreRecoveryPhysicalTest` failed at its first fresh setup wrap
   after owner authorization, before record commit: `IllegalBlockSizeException`
   caused by `android.security.KeyStoreException`. One test/one failure in23.151s.
@@ -106,8 +99,7 @@ missingADB/installrestriction resolved; wireless pairing not adopted.
   owner-authorized new wrap, then failed with the same preservation message.
   Entire prior record remained unchanged; enrollment recovery was unproven at that point.
 
-Baseline record SHA256 `a2daf4a96dd4372f2c2ecb5203dd11da3c32f97a6067ae9c8dd14e87bb3144fc`.
-Only ciphertext/digests and sanitized outcomes recorded; no input values.
+Baseline SHA256 `a2daf4a96dd4372f2c2ecb5203dd11da3c32f97a6067ae9c8dd14e87bb3144fc`; only ciphertext/digests/sanitized outcomes, no input values.
 
 Evidence:
 [physical progress](/home/vantt/projects/passMan-recovery/20261011-keystore/physical-progress.json),
@@ -190,10 +182,18 @@ unavailable; numeric cause unobserved, whole Cookbook unchanged; that observer s
 Diagnostic `0d38e62` builder46s/independent140tasks69s,lint0/8; Android5formatter-only PASS; shared/release-noop unchanged, no retry.
 [New pinned metadata](/home/vantt/projects/passMan-recovery/20261011-keystore/unwrap-diagnostic-candidate-build.json):
 installed independent outputs supersede incremental hashes; older held-unwrap numeric cause unclassified.
-[Latest total](/home/vantt/projects/passMan-recovery/20261011-keystore/timer-total-20261011T072607082007Z.json) FAIL: real fresh unwrap/open, lastopen296.45s/firstlocked309.84s.
+[Prior automated total](/home/vantt/projects/passMan-recovery/20261011-keystore/timer-total-20261011T072607082007Z.json) FAIL: real fresh unwrap/open, lastopen296.45s/firstlocked309.84s.
 ADB requests67.52/122.08/189.21/242.98s lack proven delivery; no10pass/productbug classification.
 [Manual total](/home/vantt/projects/passMan-recovery/20261011-keystore/timer-total-20261011T073313499790Z.json) FAIL: owner unlock unobserved600s, last `prompt_pending`; timer NEVER started.
 Root force-stop/new-process COLD locked, whole Cookbook preserved(SHA894f73…); keep-awake0 verified, observers ended.
-Saved next: owner-ready freshFP then manual inert-header activity; installed `0d38e62` source frozen/unchanged.
-Idle5 pass belongs to old `0a99d636` pin. Pending7/9,total10,remaining lifecycle/matrix,
-native screenshot/Recents; API26–27 no physical proof. [Runbook](../../../runbooks/android-keystore-device-proof.md); E2–E5 open/unmerged.
+[Actual total10](/home/vantt/projects/passMan-recovery/20261011-keystore/timer-total-20261011T100657992502Z.json) **PASS** on `0d38e62`: bioanchor11850.32,open597.21s/locked610.30s; pins unchanged/secure samples/bounded logs clean.
+Owner confirmed touches through lock ([exact trusted reply](/home/vantt/projects/passMan-recovery/20261011-keystore/manual-total-20261011T100657992502Z-owner.json)); individual touch uptimes unmeasured.
+Current wrong-password visible `password_open_failed`, whole ciphertext Cookbook unchanged.
+[Physical OS-lockout availability fallback](/home/vantt/projects/passMan-recovery/20261011-keystore/actual-lockout-seed.json) **PASS**: owner5failed/"too many attempts"; password submitted10.10s after probe, then Main opened "strong biometric unavailable".
+Intentional runner refusal NOTtestPASS; unique file/alias cleaned. Whole record+alias/retirement/salt/cache IV/cache unchanged; no same-jar UIcount claimed.
+Main3+2 failed fingers logged only5,5; initial7/9 not delivered,56JVM/source route proof only. Current `0d38e62` frozen; idle5 prior `0a99d636`.
+Owner exact reports "screenshot không cho, quay bị đen", then "riêng paschef đen": screenshot blocked/only PassChef black, no root visual or definitive Recents category claim.
+Root ownforeground exit→ordinary return(no force-stop) locked+FLAG_SECURE13433.53–13436.77; fullcipherrecord894f73…/APKpins unchanged.
+Final bounded ownUID10422 snapshot7lines/sixknownliterals0hits, not comprehensive absence; keep-awake original0 RESTORED verified, ADB workers ended/phone free.
+No-enrollment/noHW/API26/noStrongBox/typed7&9/exactkill/retryexhaustion matrix coverage decision pending; older unwrap numeric remains unknown, not a new defect.
+[Scope decision](../../../../plans/261011-keystore-recovery/reports/current-device-acceptance.md); original matrix not complete, source frozen/worktree unmerged.
