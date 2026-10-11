@@ -67,6 +67,7 @@ function renderOwnProfiles(profiles, defaultName, sheetMapping, deps) {
             <div class="profile-actions">
                 <button class="btn sm secondary btn-edit-secrets">✏️ ${t('btnEditSecrets') || 'Edit Secrets'}</button>
                 <button class="btn sm secondary btn-export">↑ ${t('btnExportProfile') || 'Export'}</button>
+                <button class="btn sm secondary btn-connect-phone">📱 ${t('qrConnectPhone') || 'Connect phone app'}</button>
                 ${!isDefault ? `<button class="btn sm secondary btn-set-default">★ ${t('btnSetDefault') || 'Set Default'}</button>` : ''}
                 ${!isDefault ? `<button class="btn sm danger btn-delete">${t('btnRemoveProfile') || 'Remove'}</button>` : ''}
                 <span class="warn-text hidden" data-key="${key}"></span>
@@ -74,6 +75,7 @@ function renderOwnProfiles(profiles, defaultName, sheetMapping, deps) {
         container.appendChild(card);
 
         card.querySelector('.btn-edit-secrets').onclick = () => openEditSecretsModal(key, name, deps);
+        card.querySelector('.btn-connect-phone').onclick = () => deps.onExport(name, key, deps.sessionKey, () => {}, null, true);
         card.querySelector('.btn-export').onclick = () => deps.onExport(name, key, deps.sessionKey, () => {});
         if (!isDefault) {
             card.querySelector('.btn-set-default').onclick = () => setDefaultProfile(name, deps);

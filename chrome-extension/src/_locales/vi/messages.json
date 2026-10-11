@@ -477,5 +477,10 @@
   },
   "settingsStorageWarn": {
     "message": "đã dùng. Xóa hồ sơ hoặc gói nhập không dùng để giải phóng dung lượng — Chrome từ chối ghi vượt 100 KB."
-  }
+  },
+  "qrConnectPhone": { "message": "Kết nối app điện thoại" },
+  "qrShow": { "message": "Hiện QR" },
+  "qrCanvasLabel": { "message": "QR sách nấu ăn đã mã hóa" },
+  "qrPreparing": { "message": "Đang chuẩn bị QR sách nấu ăn đã mã hóa…" },
+  "qrDisplayError": { "message": "Không thể hiện QR. Tải gói sách nấu ăn rồi thử lại." }
 }

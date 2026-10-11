@@ -1,5 +1,24 @@
 # Project Changelog
 
+## Phone QR cookbook handoff (2026-10-11)
+
+**Scope:** Complete the accepted extension sender plan. Own profiles open the
+existing export wizard through **Connect phone app**; the cooked bundle displays
+one QR or a fitted, animated sequence. Copy/Download and encryption stay intact.
+Closing, going Back during cooking, or reopening clears the previous session.
+
+**Status:** Implementation and independent review complete in the original QR
+worktree; local main integration is pending. Fifteen QR unit regressions plus 22
+unchanged recipe golden tests and two real headed extension E2E scenarios passed.
+Independent review found no P1/P2. A separate test-only decoder
+recovered the actual canvas payloads and original byte fields exactly. The phone
+reader and Drive transport remain outside this plan.
+
+**Contract:** [Phone handoff](specs/qr-handoff.md).
+**Plan and proof:** [Recovery plan](../plans/261011-qr-handoff-worktree-recovery/plan.md)
+and [verification report](../plans/261011-qr-handoff-worktree-recovery/reports/verification.md).
+**Review:** [Independent product review](history/qr-handoff/reports/recovery-independent-review.md).
+
 ## OAuth/Menu client code recovery (2026-10-11)
 
 **Scope:** Recover the standalone Kotlin recipe-reading/writing client and JVM

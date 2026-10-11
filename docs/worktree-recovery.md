@@ -18,13 +18,15 @@ Keystore work. Start new work directly from main only after all three are done.
 | `wt/passchef-mobile-oauth-sheets` | [Track D: OAuth/Menu client](history/passchef-mobile-oauth-sheets/plan.md), approved 2026-07-28 | Original five commits and recovery commit `0f93c7d` integrated into main | Code scope complete; worktree archived and closed; live Google check pending |
 | `wt/passchef-mobile` | [Track B: Mobile Core](history/passchef-mobile/implement-plan.md), updated 2026-07-28 | Five planned tasks; no feature commits beyond main | Next product priority; recipe parity, bundle decrypt, Argon2 proof pending |
 | `wt/passchef-mobile-android-keystore` | [Android Keystore + biometric unlock](history/passchef-mobile-android-keystore/plan.md), approved 2026-07-30 | Scaffold commit `a1c57c9`; physical-device bridge verification recorded as blocked | Real device verification and later storage/unlock implementation pending |
-| `wt/qr-handoff` | [Extension QR handoff](history/qr-handoff/plan.md), approved 2026-07-27 | QR button and animated chunking planned; no feature commits beyond main | Independent extension work; implementation pending |
+| `wt/qr-handoff` | [Extension QR handoff](history/qr-handoff/plan.md), approved 2026-07-27; [recovery execution](../plans/261011-qr-handoff-worktree-recovery/plan.md) | Sender implemented in original checkout; 15 QR + 22 golden unit tests and two headed canvas-decoding E2E passed | Independent review complete, no P1/P2; product commit and main merge pending; phone reader excluded |
 
 The linked Markdown planning dossiers are preserved unchanged here from their
 respective worktrees so remaining work can be continued from main after merge.
 They are archived planning evidence from **2026-07-27 through 2026-07-30**;
-current implementation readiness has not been certified. Historical validation
-reports do not prove current environment/device availability or completed code.
+historical validation reports do not prove current environment/device
+availability or completed code. QR sender now has separate current verification
+and independent review recorded below; the other remaining dossiers remain
+planning evidence.
 Only planning documents were consolidated; unfinished product code and runtime
 state for the three unfinished tracks remain in their original checkouts.
 These dossiers are now available from main for reference; implementation stays
@@ -80,6 +82,25 @@ plugin/toolchain versions. Keep the Menu client standalone for this recovery.
 
 The Keystore plan requires a physical Android device; a JVM test or scaffold
 build alone does not prove biometric or hardware-backed storage behavior.
+
+## QR sender recovery record
+
+The accepted extension sender scope is complete in its original worktree:
+own-profile **Connect phone app**, unchanged encrypted JSON Copy/Download,
+reversible compact byte fields, real encoder capacity fitting, and animated
+frames. Close, Done, Back during cooking, and reopen reject obsolete results
+and clear the canvas/timer. No phone reader or Drive transport was added.
+See the [sender contract](specs/qr-handoff.md) and
+[verification report](../plans/261011-qr-handoff-worktree-recovery/reports/verification.md).
+
+Independent review found no P1/P2: **37/37 scoped unit tests** (15 QR plus 22
+unchanged recipe golden tests) and **2/2 real headed extension E2E** passed.
+The E2E decoder independently reconstructs actual canvas payloads, including
+every animated frame and original byte arrays. Actual vendor boundary and
+Unicode roundtrip checks also passed. See the
+[independent review](history/qr-handoff/reports/recovery-independent-review.md).
+Product commit and main merge remain pending; Core and Keystore priority and
+their device acceptance are unaffected by this independent sender completion.
 
 ## Preserve existing work and integrate
 

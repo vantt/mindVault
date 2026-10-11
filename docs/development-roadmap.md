@@ -5,7 +5,12 @@
 - Real Google OAuth setup and one live Cookbook read remain pending; local
   client verification does not certify an account connection.
 - Next: Mobile Core recipe/decrypt/Argon2 parity; complete Argon2 proof before
-  dependent Keystore unlock work. Extension QR handoff can proceed independently.
+  dependent Keystore unlock work.
+- Extension QR sender completed and independently reviewed in its original
+  worktree: 15 QR plus 22 unchanged recipe golden tests and two headed E2E
+  scenarios pass with independent canvas decoding; no P1/P2 found. Awaiting
+  integration. Phone reader remains a separate follow-up.
+  See [verification report](../plans/261011-qr-handoff-worktree-recovery/reports/verification.md).
 
 ## Completed
 
