@@ -4,6 +4,13 @@ Updated: 2026-10-11. The initial snapshot compared four feature branches with
 local `main` at `ef720b1`. OAuth/Menu recovery commit `0f93c7d` is now in main;
 its worktree is closed after verification and a complete recovery archive.
 
+Recovery policy: complete each of the three remaining features in its existing
+worktree against its own plan, verify it, then merge and close that worktree.
+Rank work by product impact and dependencies: Mobile Core first, dependent
+Keystore/unlock second, independent QR transport third. A blocked physical-device
+check may allow QR work to proceed, but never licenses merging incomplete
+Keystore work. Start new work directly from main only after all three are done.
+
 ## Worktrees and their plans
 
 | Worktree branch | Latest relevant plan | Recorded progress | Recovery status |
@@ -20,7 +27,8 @@ current implementation readiness has not been certified. Historical validation
 reports do not prove current environment/device availability or completed code.
 Only planning documents were consolidated; unfinished product code and runtime
 state for the three unfinished tracks remain in their original checkouts.
-These dossiers are now available from main for continuation.
+These dossiers are now available from main for reference; implementation stays
+in each original worktree until its plan is complete and verified.
 
 ## Why OAuth/Menu client goes first
 
@@ -114,5 +122,6 @@ Private configuration must never be displayed in the recovery report.
 
 Local verification uses mocked Google responses and local loopback HTTP only.
 It does not certify a real Google token exchange or Cookbook read. No remote
-push was performed. Continue the remaining plans from main, beginning with
-Mobile Core and reconciliation of the existing Keystore scaffold.
+push was performed. Complete the remaining plans in their existing worktrees,
+beginning with Mobile Core and reconciliation of the Keystore scaffold. New
+main-based plans wait until all remaining worktrees have been completed.
