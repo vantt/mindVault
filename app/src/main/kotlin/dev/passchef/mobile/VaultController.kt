@@ -16,7 +16,7 @@ import javax.crypto.Cipher
 /** One serial worker owns derivation/storage; stale results are always wiped. */
 class VaultController(
     private val context: Context,
-    private val authenticate: (Cipher, (Cipher) -> Unit, () -> Unit) -> Unit,
+    private val authenticate: (Cipher, (Cipher) -> Unit, (BiometricPromptFailure) -> Unit) -> Unit,
     private val cancelPrompt: () -> Unit
 ) {
     var status by mutableStateOf("Cookbook locked")
@@ -35,7 +35,7 @@ class VaultController(
     private var active = false
     private val tickCallback = Runnable { tick() }
     private val wrapping = VaultWrapping(context, crypto, repository, worker, main, authenticate,
-        { active && epoch.accepts(it) }, ::retire, ::passwordOnly, ::finish, ::fail, { status = it })
+        { active && epoch.accepts(it) }, ::retire, ::passwordOnly, ::passwordLockout, ::finish, ::fail, { status = it })
 
     fun start() { active = true; tick() }
     fun touch() { clock.touch(SystemClock.elapsedRealtime()) }
@@ -66,12 +66,13 @@ class VaultController(
         val token = epoch.begin()
         worker.execute {
             try {
-                val prepared = if (repository.record() == null) repository.setup(password, spices) else repository.recover(password)
+                val firstSetup = repository.record() == null
+                val prepared = if (firstSetup) repository.setup(password, spices) else repository.recover(password)
                 if (!main.post {
                     epoch.deliver(token, {
                         if (!active) prepared.close()
                         else if (!biometricAvailable()) passwordOnly(prepared, token)
-                        else wrapping.start(prepared, token)
+                        else wrapping.start(prepared, token, firstSetup)
                     }, { prepared.close() })
                 }) prepared.close()
             } catch (_: Exception) { fail(token, "Could not open Cookbook. Check your master password; stored data was preserved.") }
@@ -86,6 +87,16 @@ class VaultController(
                 repository.commitPasswordOnly(prepared)
                 runCatching { repository.retireKeys(crypto::deleteKey) }
                 finish(token, prepared.session, "Cookbook open by password; strong biometric unavailable")
+            } catch (_: Exception) { prepared.close(); fail(token, "Could not save Cookbook; prior data preserved") }
+        }
+    }
+    private fun passwordLockout(prepared: PreparedVault, token: Long, firstSetup: Boolean) {
+        if (!active || !epoch.accepts(token)) { prepared.close(); return }
+        OwnedWork.submit(worker, prepared) {
+            try {
+                if (!epoch.accepts(token)) { prepared.close(); return@submit }
+                val opened = PasswordLockoutSession.open(repository, prepared, firstSetup)
+                finish(token, opened, "Cookbook open by password; biometrics are locked. Try them again later.")
             } catch (_: Exception) { prepared.close(); fail(token, "Could not save Cookbook; prior data preserved") }
         }
     }

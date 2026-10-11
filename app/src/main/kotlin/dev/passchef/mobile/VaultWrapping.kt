@@ -12,9 +12,10 @@ import javax.crypto.Cipher
 class VaultWrapping(
     private val context: Context, private val crypto: KeystoreCrypto,
     private val repository: VaultRepository, private val worker: Executor, private val main: Handler,
-    private val authenticate: (Cipher, (Cipher) -> Unit, () -> Unit) -> Unit,
+    private val authenticate: (Cipher, (Cipher) -> Unit, (BiometricPromptFailure) -> Unit) -> Unit,
     private val current: (Long) -> Boolean, private val retire: (String) -> Unit,
     private val passwordOnly: (PreparedVault, Long) -> Unit,
+    private val passwordLockout: (PreparedVault, Long, Boolean) -> Unit,
     private val finish: (Long, VaultSession, String) -> Unit,
     private val fail: (Long, String) -> Unit, private val status: (String) -> Unit
 ) {
@@ -30,7 +31,7 @@ class VaultWrapping(
     private fun post(op: WrapOperationState, action: () -> Unit) {
         op.postOwned({ main.post(it) }, action)
     }
-    fun start(prepared: PreparedVault, token: Long) {
+    fun start(prepared: PreparedVault, token: Long, firstSetup: Boolean) {
         val alias = "passchef-${UUID.randomUUID()}"
         val op = WrapOperationState(prepared) { retire(alias) }
         pending = op
@@ -39,7 +40,7 @@ class VaultWrapping(
             try {
                 val hardware = crypto.createKey(alias, context.packageManager.hasSystemFeature("android.hardware.strongbox_keystore"))
                 val cipher = crypto.wrapCipher(alias)
-                prompt(op, prepared, alias, token, hardware, cipher)
+                prompt(op, prepared, alias, token, hardware, cipher, firstSetup)
             } catch (_: Exception) {
                 // Preserve the established initial hardware-unavailable password fallback.
                 if (live(op, token) && op.transferOwned()) { op.close(); passwordOnly(prepared, token) }
@@ -47,7 +48,7 @@ class VaultWrapping(
             }
         }
     }
-    private fun prompt(op: WrapOperationState, prepared: PreparedVault, alias: String, token: Long, hardware: Boolean, cipher: Cipher) {
+    private fun prompt(op: WrapOperationState, prepared: PreparedVault, alias: String, token: Long, hardware: Boolean, cipher: Cipher, firstSetup: Boolean) {
         post(op) {
             if (!live(op, token)) { op.close(); return@post }
             try {
@@ -55,9 +56,10 @@ class VaultWrapping(
                 authenticate(cipher, { authorized ->
                     if (!live(op, token) || !op.authorize(id, authorized)) return@authenticate
                     submit(op) { complete(op, prepared, alias, token, hardware, authorized) }
-                }, {
+                }, { reason ->
                     if (live(op, token) && op.authorize(id, cipher)) {
-                        op.close(); fail(token, "Biometric cancelled or unavailable. Use your master password.")
+                        if (op.transferForLockout(reason)) { op.close(); passwordLockout(prepared, token, firstSetup) }
+                        else { op.close(); fail(token, "Biometric cancelled or unavailable. Use your master password.") }
                     }
                 })
             } catch (_: Exception) { op.close(); fail(token, "Biometric unavailable. Use your master password.") }
@@ -93,7 +95,7 @@ class VaultWrapping(
                 if (!live(op, token)) { op.close(); return@delayOwned }
                 submit(op) {
                     if (!live(op, token)) { op.close(); return@submit }
-                    try { prompt(op, prepared, alias, token, hardware, crypto.wrapCipher(alias)) }
+                    try { prompt(op, prepared, alias, token, hardware, crypto.wrapCipher(alias), false) }
                     catch (_: Exception) { op.close(); fail(token, "Device operation unavailable. Use your master password; prior data preserved.") }
                 }
             }

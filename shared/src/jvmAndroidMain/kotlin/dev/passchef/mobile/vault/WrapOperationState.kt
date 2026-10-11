@@ -47,8 +47,12 @@ class WrapOperationState(private val owned: AutoCloseable, private val retireDis
     @Synchronized fun markCommitted() { committed = true }
     /** Caller takes responsibility for session delivery or password-only fallback. */
     @Synchronized fun transferOwned(): Boolean {
-        if (cancelled) return false
+        if (cancelled || !ownsResource) return false
         ownsResource = false; return true
+    }
+    @Synchronized fun transferForLockout(reason: BiometricPromptFailure): Boolean {
+        if (!accepted || retries != 0 || !reason.isLockout()) return false
+        return transferOwned()
     }
     @Synchronized override fun close() {
         cancelled = true; prompt++; cipher = null; previousCipher = null

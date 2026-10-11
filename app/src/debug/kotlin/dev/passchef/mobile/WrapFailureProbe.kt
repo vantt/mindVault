@@ -6,6 +6,9 @@ import android.util.Log
 
 /** Debug physical diagnosis only: no exception messages, aliases or owned bytes. */
 object WrapFailureProbe {
+    fun biometricError(code: Int) {
+        runCatching { Log.i("PassChefProof", "source=BiometricPrompt.onAuthenticationError code=$code") }
+    }
     fun record(phase: String, error: Throwable, securityLevel: () -> Int) {
         runCatching { Log.i("PassChefProof", summary(phase, error, securityLevel)) }
     }

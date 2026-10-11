@@ -9,6 +9,7 @@ import androidx.biometric.BiometricManager.Authenticators.BIOMETRIC_STRONG
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentActivity
 import javax.crypto.Cipher
+import dev.passchef.mobile.vault.BiometricPromptFailure
 
 /** No session state is restored across Activity/process recreation. */
 class MainActivity : FragmentActivity() {
@@ -22,7 +23,7 @@ class MainActivity : FragmentActivity() {
         controller = VaultController(this, ::authenticate) { promptEpoch++; prompt?.cancelAuthentication(); prompt = null }
         setContent { VaultScreen(controller) { clearInputs = it } }
     }
-    private fun authenticate(cipher: Cipher, success: (Cipher) -> Unit, failure: () -> Unit) {
+    private fun authenticate(cipher: Cipher, success: (Cipher) -> Unit, failure: (BiometricPromptFailure) -> Unit) {
         val token = ++promptEpoch
         var failedAttempts = 0
         prompt = BiometricPrompt(this, ContextCompat.getMainExecutor(this), object : BiometricPrompt.AuthenticationCallback() {
@@ -30,10 +31,14 @@ class MainActivity : FragmentActivity() {
                 if (token != promptEpoch) return
                 prompt = null
                 val authorized = result.cryptoObject?.cipher
-                if (authorized === cipher) success(authorized) else failure()
+                if (authorized === cipher) success(authorized) else failure(BiometricPromptFailure.OTHER)
             }
             override fun onAuthenticationError(errorCode: Int, errString: CharSequence) {
-                if (token == promptEpoch) { prompt = null; failure() }
+                if (token == promptEpoch) {
+                    prompt = null
+                    WrapFailureProbe.biometricError(errorCode)
+                    failure(BiometricPromptFailure.fromAndroidError(errorCode))
+                }
             }
             override fun onAuthenticationFailed() {
                 if (token == promptEpoch && ++failedAttempts >= 3) { prompt?.cancelAuthentication() }
@@ -43,7 +48,7 @@ class MainActivity : FragmentActivity() {
             .setSubtitle("Authorize this device key operation")
             .setAllowedAuthenticators(BIOMETRIC_STRONG).setNegativeButtonText("Use master password").build()
         try { prompt!!.authenticate(info, BiometricPrompt.CryptoObject(cipher)) }
-        catch (_: Exception) { prompt = null; failure() }
+        catch (_: Exception) { prompt = null; failure(BiometricPromptFailure.OTHER) }
     }
     override fun onStart() { super.onStart(); controller.start() }
     override fun onStop() { clearInputs(); controller.lock(); super.onStop() }
