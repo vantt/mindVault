@@ -81,6 +81,14 @@ song song sau khi nối Core decrypt với storage, hoàn tất handoff từ sen
 (5) Drive/multi-profile sau nền mobile và extension Drive-sync. Native/iOS hoãn;
 coverage thiết bị Keystore còn thiếu được theo dõi riêng, không mở lại scope đã nhận.
 
+**Plan thực thi mới — 2026-10-12:** [Android Cookbook Phase1](../plans/261012-mobile-cookbook-phase1/plan.md)
+đã tách thành5 phase chi tiết: nối phiên unlock với Cook, cache/mapping offline,
+giao diện Compose/reveal/copy, Android Sheets/OAuth và kiểm chứng độc lập.
+Hiện chỉ chuẩn bị plan; chưa triển khai hay chạy build/test cho phạm vi mới.
+Code/JVM/APK/lint có thể làm không cần phone. Google Android thật và kiểm chứng
+UI/sinh trắc/clipboard/lifecycle cần owner/thiết bị; mọi ca này vẫn Pending.
+QR receiver, Autofill, Drive và authoring nằm ở các giai đoạn sau.
+
 Bằng chứng/phạm vi hiện tại: [backlog](backlog.md), [Core](specs/mobile-core.md),
 [Sheets](specs/mobile-sheets-client.md), [QR](specs/qr-handoff.md),
 [Keystore acceptance và matrix còn thiếu](../archive/plans/261011-keystore-recovery/reports/current-device-acceptance.md).
