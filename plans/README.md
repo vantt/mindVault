@@ -1,8 +1,8 @@
 # PassChef — active plans in execution order
 
 Reconciled against code and independent acceptance2026-10-12. The five prioritized
-browser slices are implemented and verified; main integration/push is tracked in
-the [completion dossier](261012-extension-completion/plan.md). The full MVP remains
+browser slices are complete, integrated and pushed to main. Evidence is retained in
+the [completion dossier](../archive/plans/261012-extension-completion/plan.md). The full MVP remains
 Partial because its release and broad verification scope extends beyond those slices.
 
 | Order | Platform | Plan | Status | Next relevant work / dependency |
@@ -21,7 +21,7 @@ Partial because its release and broad verification scope extends beyond those sl
 |4|[Core infrastructure](../archive/plans/legacy-core-infrastructure/plan.md)|Done: current ports/adapters and genuine Google/native shortcut acceptance.|
 |5|[Popup UX](../archive/plans/260524-2127-popup-ux-redesign/plan.md)|All8 phases Done: current specs, offline EN/VI Demo, real action-popover/Builder/content acceptance.|
 
-[Combined verification](261012-extension-completion/reports/verification.md):
+[Combined verification](../archive/plans/261012-extension-completion/reports/verification.md):
 147 unit,25 distinct headed E2E,8 actual Google/native cases. Golden tests unchanged.
 Random initial picks/collapsed options supersede old stored-pick/auto-expand steps;
 Precision styling and runtime locale selection supersede older design mechanisms.

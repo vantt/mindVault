@@ -2,7 +2,7 @@
 
 ## Completion audit — 2026-10-12
 
-- Current status: **Done**; evidence: [completion verification](../../../plans/261012-extension-completion/reports/verification.md) (independent 147 units  + 22 full headed E2E; real Google/native 8/8 separately).
+- Current status: **Done**; evidence: [completion verification](../261012-extension-completion/reports/verification.md) (independent 147 units  + 22 full headed E2E; real Google/native 8/8 separately).
 - Independent147-unit suite passes, including immutable original cooking Golden cases and added lifecycle/locale/session ownership regressions. No new coverage-percentage claim; historical Golden edits remain history, while this completion leaves marked tests unchanged.
 - Original criteria and prior audit are retained below. Headed automation exercises the actual extension UI; neither routed fixtures nor SW-only checks are presented as live-provider or human-manual signoff.
 

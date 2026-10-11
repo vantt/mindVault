@@ -4,7 +4,7 @@
 
 - Current status: **Done**.
 - Independent147 units and22 headed E2E passed. Three focused action-popover cases passed and finalize A/B/D/I/J; live Google/native8/8 separately passed without message fallback. Current acceptance matrix is in the execution verification report; historical checks below are not reopened requirements.
-- Evidence: [combined verification](../../../plans/261012-extension-completion/reports/verification.md).
+- Evidence: [combined verification](../261012-extension-completion/reports/verification.md).
 - Original dated requirements/failures remain below as history. Random picks,
   collapsed options, runtime locale selection and Precision styling supersede
   conflicting historical mechanisms; none is reintroduced to tick an old box.

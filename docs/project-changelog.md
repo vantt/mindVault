@@ -19,8 +19,9 @@ Independent147 unit +25 distinct headed E2E passed; Golden unchanged. Separate
 actual Google/native8/8 proof uses no message fallback. Review found no remaining
 P1/P2. Builder/Tag/Core/Popup UX plans are Done/archived; full MVP remains Partial
 for Sync/platform/broad measurements and Store/release. No mobile/landing source
-changed. [Verification](../plans/261012-extension-completion/reports/verification.md)
+changed. [Verification](../archive/plans/261012-extension-completion/reports/verification.md)
 and [browser security contract](specs/extension-security.md) record boundaries.
+Integrated/pushed to main at `0cba85b`; remote SHA independently verified.
 
 ## Reconcile plan status and relevance (2026-10-11)
 

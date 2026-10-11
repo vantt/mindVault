@@ -4,7 +4,7 @@
 
 - Current status: **Done**.
 - Locale key sets remain symmetric; current user-selected language is honored by popup/Demo/content. New security/Builder feedback is text-safe. Catalogue records the existing Len abbreviation and trusted bundled tooltip HTML exception rather than claiming universal translation or text-only HTML.
-- Evidence: [combined verification](../../../plans/261012-extension-completion/reports/verification.md).
+- Evidence: [combined verification](../261012-extension-completion/reports/verification.md).
 - Original dated requirements/failures remain below as history. Random picks,
   collapsed options, runtime locale selection and Precision styling supersede
   conflicting historical mechanisms; none is reintroduced to tick an old box.

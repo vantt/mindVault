@@ -2,7 +2,7 @@
 
 ## Completion audit — 2026-10-12
 
-- Current status: **Done**; evidence: [completion verification](../../../plans/261012-extension-completion/reports/verification.md) (independent 147 units  + 22 full headed E2E; real Google/native 8/8 separately).
+- Current status: **Done**; evidence: [completion verification](../261012-extension-completion/reports/verification.md) (independent 147 units  + 22 full headed E2E; real Google/native 8/8 separately).
 - Verify-before-cooking, wrong/missing Menu refusal, unchanged own-profile dishes and legacy warnings pass units. Headed Tag UI covers wrong Menu/profile; real Google tagged-match and same-Menu wrong-profile refusal pass.
 - Original criteria and prior audit are retained below. Headed automation exercises the actual extension UI; neither routed fixtures nor SW-only checks are presented as live-provider or human-manual signoff.
 

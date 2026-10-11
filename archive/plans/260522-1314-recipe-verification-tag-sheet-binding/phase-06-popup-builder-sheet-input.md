@@ -2,7 +2,7 @@
 
 ## Completion audit — 2026-10-12
 
-- Current status: **Done**; evidence: [completion verification](../../../plans/261012-extension-completion/reports/verification.md) (independent 147 units  + 22 full headed E2E; real Google/native 8/8 separately).
+- Current status: **Done**; evidence: [completion verification](../261012-extension-completion/reports/verification.md) (independent 147 units  + 22 full headed E2E; real Google/native 8/8 separately).
 - Builder is split into 73/81/69/37-line modules plus 42-line detector. Every edit invalidates pending tag/Dish/detection; late profile metadata preserves early input; tag failure refuses copy. Units and headed Builder/Tag cover reset, invalid forms, coherent snapshots and warnings; actual Google preview/native Dish parity and toolbar Copy pass.
 - Original criteria and prior audit are retained below. Headed automation exercises the actual extension UI; neither routed fixtures nor SW-only checks are presented as live-provider or human-manual signoff.
 - Superseded mechanics: tag failure returning an untagged Recipe is now fail-closed; direct active-tab endpoint is replaced by guarded Menu detection/picker. Current bare-ID normalization accepts full URLs and keeps default-on detection.

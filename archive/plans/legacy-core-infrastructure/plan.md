@@ -30,7 +30,7 @@ the old proposed recipe-version rotation mechanism.
   completion. No merge/publication action is claimed by this completion entry.
 
 Canonical source/test/provider evidence and current verification counts:
-[current extension verification](../../../plans/261012-extension-completion/reports/verification.md).
+[current extension verification](../261012-extension-completion/reports/verification.md).
 The earlier 2026-10-11 audit correctly recorded native Google acceptance as
 pending at that time; the new genuine native proof closes that specific gap.
 

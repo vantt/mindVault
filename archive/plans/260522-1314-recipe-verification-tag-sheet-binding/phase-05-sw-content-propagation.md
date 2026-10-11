@@ -2,7 +2,7 @@
 
 ## Completion audit — 2026-10-12
 
-- Current status: **Done**; evidence: [completion verification](../../../plans/261012-extension-completion/reports/verification.md) (independent 147 units  + 22 full headed E2E; real Google/native 8/8 separately).
+- Current status: **Done**; evidence: [completion verification](../261012-extension-completion/reports/verification.md) (independent 147 units  + 22 full headed E2E; real Google/native 8/8 separately).
 - Stable mismatch codes now reach localized Builder/content UI; content also displays legacy warnings. EN/VI wrong-Menu/wrong-profile refusal and no-Dish assertions pass headed tests; real Google/native tagged match and profile refusal pass.
 - Original criteria and prior audit are retained below. Headed automation exercises the actual extension UI; neither routed fixtures nor SW-only checks are presented as live-provider or human-manual signoff.
 - Superseded mechanism: string-matched raw errors/ignored legacy warnings; current stable localized codes and visible legacy warning fulfill the outcome. DevTools-only smoke is replaced by actual endpoint/UI acceptance.

@@ -25,7 +25,7 @@ Unlock → Build Recipe → fill ingredient/position/spice/modifiers/own profile
 Modify popup.html/css/js, service_worker.js, core/usecases/generate_password.js, adapters/infrastructure/chrome_storage_adapter.js and both locale JSON files. Create popup/popup-recipe-builder.js to isolate builder logic. All paths under `chrome-extension/src/`.
 ## Completion audit — 2026-10-12
 
-Evidence: [completion verification](../../../plans/261012-extension-completion/reports/verification.md): independent 147 units  + 22 full headed E2E, separate 8/8 real Google/native cases. Original cooking Golden tests unchanged.
+Evidence: [completion verification](../261012-extension-completion/reports/verification.md): independent 147 units  + 22 full headed E2E, separate 8/8 real Google/native cases. Original cooking Golden tests unchanged.
 Historical 2026-10-11 baseline `b5be3b0` found Phase3 Partial (invalid-form stale requests,455-line module) and Phase6 Pending (popup parity/modifier/profile/rapid-edit signoff). Those gaps are now closed by the current evidence; historical requirements remain below.
 
 | Phase | Current status | Evidence / superseded mechanism |

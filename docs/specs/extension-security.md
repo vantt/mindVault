@@ -52,7 +52,7 @@ Chrome can delay cleanup, and OS clipboard history is outside this contract.
 
 ## Evidence and remaining scope
 
-[Current verification](../../plans/261012-extension-completion/reports/verification.md)
+[Current verification](../../archive/plans/261012-extension-completion/reports/verification.md)
 separates deterministic regressions, headed extension UI, actual system clipboard
 and native Google Cookbook proof. Cross-device Sync/conflicts, the broad browser/OS
 matrix, release benchmarks and Store publication remain in the active MVP roadmap.

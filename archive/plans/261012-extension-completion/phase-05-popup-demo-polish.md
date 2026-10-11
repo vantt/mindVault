@@ -49,7 +49,7 @@ Locale/demo work may parallel2–3; combined acceptance depends on1–4.
 - [x] Independent final review + affected unit/headed suites; preserve original
   approved tests and QR regressions. Report live Google/native shortcut separately.
 - [x] Update original phase statuses with observed evidence.
-- [ ] Delivery tracked in overview: root commits/pushes
+- [x] Delivery recorded in reports/delivery.md: root committed/pushed
   scoped work only. Whole-plan closure requires no remaining relevant outcome;
   current UI tests do not establish Store publication or full legacy MVP release.
 

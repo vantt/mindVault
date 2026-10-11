@@ -21,8 +21,8 @@
   integration QA and offline EN/VI Demo/spec polish complete. Independent147 unit
   and25 distinct headed E2E passed; actual public synthetic Google/native8/8 passed
   without keyboard fallback. Golden unchanged. All current Builder/Tag/Core/Popup
-  UX phases Done and archived. See [verification](../plans/261012-extension-completion/reports/verification.md);
-  delivery to main is tracked in the completion dossier.
+  UX phases Done and archived. See [verification](../archive/plans/261012-extension-completion/reports/verification.md);
+  integrated/pushed to main at0cba85b; remote SHA verified.
 
 - 2026-10-11 — Plan-status/relevance audit: per-phase evidence and explicit
   Superseded/Deferred outcomes reconciled; closed recovery/foundation plans moved

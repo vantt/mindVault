@@ -4,7 +4,7 @@
 
 - Current status: **Done**.
 - Home context/navigation ownership reviewed; delayed results cannot overwrite Builder or newer Home detection. Actual action-popover routing and live Google Generated result are evidenced separately.
-- Evidence: [combined verification](../../../plans/261012-extension-completion/reports/verification.md).
+- Evidence: [combined verification](../261012-extension-completion/reports/verification.md).
 - Original dated requirements/failures remain below as history. Random picks,
   collapsed options, runtime locale selection and Precision styling supersede
   conflicting historical mechanisms; none is reintroduced to tick an old box.

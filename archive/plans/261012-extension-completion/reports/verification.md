@@ -1,7 +1,8 @@
 # Extension completion verification
 
 Accepted2026-10-12 (Asia/Saigon); baseline main `e195a9d`.
-Implementation/QA complete; main delivery is recorded separately after pushing.
+Implementation/QA complete; [main delivery](delivery.md) records the pushed commit
+and independently queried remote SHA.
 
 ## Results
 
@@ -87,7 +88,7 @@ only newlines; normalizing that text before formula-bar fallback fixed the actua
 baseline detection failure. A real action popover was read through its Chrome CDP
 target; Copy and Builder/Google parity were independently compared to exact
 synthetic expected Dishes. CSV reread confirmed fixture persistence. Temporary
-browser context/profile and copied synthetic clipboard data were cleaned up.
+browser context/profile were cleaned up.
 
 Routed HTML tests dispatch explicit tab messages and establish extension contracts;
 they are never represented as Google provider/native-shortcut proof.

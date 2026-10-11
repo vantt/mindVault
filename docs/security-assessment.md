@@ -7,7 +7,7 @@ implementation suggestions below: Argon2id-only fail-closed authentication, five
 failed attempts/five-minute cooldown, authoritative session deadlines, guarded
 encrypted writes and clipboard compare-and-clear after copying-page closure.
 Independent147-unit/25-E2E acceptance and separate real Google/native proof are
-recorded in the [verification report](../plans/261012-extension-completion/reports/verification.md).
+recorded in the [verification report](../archive/plans/261012-extension-completion/reports/verification.md).
 These controls do not establish universal safety: weak master passwords, offline
 attacks, compromised devices and OS clipboard history remain outside their protection.
 Cross-device Sync and broad platform/release verification remain pending.

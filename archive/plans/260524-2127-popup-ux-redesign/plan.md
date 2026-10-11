@@ -16,7 +16,7 @@ beads_id: ""
 
 All8 phases **Done** in their current relevant scope.
 Independent147 unit +25 distinct headed E2E passed; actual Google/native8/8 passed.
-[Verification and current A–J matrix](../../../plans/261012-extension-completion/reports/verification.md)
+[Verification and current A–J matrix](../261012-extension-completion/reports/verification.md)
 separate routed contract tests, actual popovers and real Google/native delivery.
 
 Specs now match current IDs, random picks/collapsed options and Precision styling.

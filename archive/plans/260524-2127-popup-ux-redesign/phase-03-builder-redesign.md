@@ -4,7 +4,7 @@
 
 - Current status: **Done**.
 - Actual headed Builder verifies random one-position/one-Spice defaults, collapsed options, all16 modifier subsets, all5 positions, profile change, rapid edits, invalid clearing and reset. Stored-pick restoration and auto-expand are Superseded by18b13eb.
-- Evidence: [combined verification](../../../plans/261012-extension-completion/reports/verification.md).
+- Evidence: [combined verification](../261012-extension-completion/reports/verification.md).
 - Original dated requirements/failures remain below as history. Random picks,
   collapsed options, runtime locale selection and Precision styling supersede
   conflicting historical mechanisms; none is reintroduced to tick an old box.

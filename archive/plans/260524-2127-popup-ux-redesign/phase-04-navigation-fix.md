@@ -4,7 +4,7 @@
 
 - Current status: **Done**.
 - Generated Back re-queries current tab; stale detection canceled on navigation. Chrome closes a physical popover on tab switching: reopening on a non-Menu tab is the meaningful current behavior; a Back button in a closed popover is not a user flow.
-- Evidence: [combined verification](../../../plans/261012-extension-completion/reports/verification.md).
+- Evidence: [combined verification](../261012-extension-completion/reports/verification.md).
 - Original dated requirements/failures remain below as history. Random picks,
   collapsed options, runtime locale selection and Precision styling supersede
   conflicting historical mechanisms; none is reintroduced to tick an old box.

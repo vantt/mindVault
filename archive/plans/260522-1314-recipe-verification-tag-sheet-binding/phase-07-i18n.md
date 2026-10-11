@@ -2,7 +2,7 @@
 
 ## Completion audit — 2026-10-12
 
-- Current status: **Done**; evidence: [completion verification](../../../plans/261012-extension-completion/reports/verification.md) (independent 147 units  + 22 full headed E2E; real Google/native 8/8 separately).
+- Current status: **Done**; evidence: [completion verification](../261012-extension-completion/reports/verification.md) (independent 147 units  + 22 full headed E2E; real Google/native 8/8 separately).
 - Both locale files contain all 6 originally requested keys, including warnLegacyNoTag and hintSheetUrlAuto. Selected EN/VI JSON localization is verified in actual headed Builder/content warnings and mismatch UI; four locale-contract unit tests pass.
 - Original criteria and prior audit are retained below. Headed automation exercises the actual extension UI; neither routed fixtures nor SW-only checks are presented as live-provider or human-manual signoff.
 - Superseded locale mechanism: direct chrome.i18n/browser locale is replaced by the selected EN/VI loader and trusted worker-served content locale.

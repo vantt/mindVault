@@ -2,7 +2,7 @@
 
 ## Completion audit — 2026-10-12
 
-- Current status: **Done**; evidence: [completion verification](../../../plans/261012-extension-completion/reports/verification.md) (independent 147 units  + 22 full headed E2E; real Google/native 8/8 separately).
+- Current status: **Done**; evidence: [completion verification](../261012-extension-completion/reports/verification.md) (independent 147 units  + 22 full headed E2E; real Google/native 8/8 separately).
 - Independent22-test real headed extension suite passes: popup-built tags, wrong Menu, same-Menu wrong profile, absent Menu and legacy warnings in EN/VI; exact Dish/absence assertions. Routed HTML is a Menu contract fixture with real manifest/content/worker/UI, not live Google. Separate8/8 anonymous real Google/native cases pass without message-injection fallback.
 - Original criteria and prior audit are retained below. Headed automation exercises the actual extension UI; neither routed fixtures nor SW-only checks are presented as live-provider or human-manual signoff.
 - Superseded test mode: the current accepted extension harness is headed Chromium 143.0.7499.4; no headless run or human-manual signoff is claimed. Auth setup is genuine Argon2/AES, replacing historical pre-set session-key suggestions.

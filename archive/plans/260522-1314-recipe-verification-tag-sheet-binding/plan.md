@@ -13,7 +13,7 @@ created: 2026-05-22
 
 ## Completion audit — 2026-10-12
 
-Status **Done** for all 10 phases. Evidence: [completion verification](../../../plans/261012-extension-completion/reports/verification.md): independent 147 units  + 22 full headed E2E; separate 8/8 real anonymous Google/native cases. Domain/parser/cooking/storage remain unchanged, original Golden tests untouched.
+Status **Done** for all 10 phases. Evidence: [completion verification](../261012-extension-completion/reports/verification.md): independent 147 units  + 22 full headed E2E; separate 8/8 real anonymous Google/native cases. Domain/parser/cooking/storage remain unchanged, original Golden tests untouched.
 
 Prior 2026-10-11 baseline `b5be3b0` found phases 05/06/07/09 Partial: localized content acceptance, stale preview ownership and missing legacy/auto-fill warnings. Those gaps are now closed; each phase retains its original criteria and historical audit. Headed fixtures prove real extension UI contracts; they are not represented as live Google. Actual provider/native proof is recorded separately; no headless or human-manual signoff claim.
 

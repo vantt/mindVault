@@ -8,6 +8,7 @@ is listed in the
 
 | Platform | Archived plan | Closure / retained boundary |
 |---|---|---|
+|Browser extension|[Five-slice completion](261012-extension-completion/plan.md)|Done implementation/independent acceptance and main integration/push at0cba85b; detailed proof retained.|
 |Browser extension|[Recipe Builder](260522-0832-recipe-builder-popup/plan.md)|All6 current phases Done: race repair, literal modifier/profile QA and real Google parity.|
 |Browser extension|[Verification Tag](260522-1314-recipe-verification-tag-sheet-binding/plan.md)|All10 phases Done; actual EN/VI refusal/warnings, compatibility preserved.|
 |Browser extension|[Popup UX](260524-2127-popup-ux-redesign/plan.md)|All8 current phases Done: specs, bundled offline EN/VI Demo and popup/Builder/content acceptance.|

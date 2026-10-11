@@ -1,6 +1,6 @@
 # Complete the five remaining extension slices
 
-Date: 2026-10-12 (Asia/Saigon). Status: Verified — main integration/push pending.
+Date: 2026-10-12 (Asia/Saigon). Status: Done — integrated and pushed to main.
 Scope: current extension security, Builder, Tag UI, Menu QA and popup/demo polish.
 This executes remaining outcomes of existing plans; it does not recreate completed
 Core/QR/mobile work or include Chrome Web Store publication.
@@ -45,8 +45,7 @@ Core/QR/mobile work or include Chrome Web Store publication.
    or silently skipping accepted outcomes.
 7. [x] Update existing five plan/phase statuses and current specs only from actual
    evidence. Archive a whole plan only when no relevant outcome remains.
-8. [ ] Root commits/pushes scoped reviewed work; verify remote SHA. Keep real
-   Google/native hotkey acceptance Pending if actual proof is absent.
+8. [x] Root commits/pushes scoped reviewed work; verify remote SHA. Actual Google/native hotkey acceptance is complete.
 
 ## Verification entry points
 
@@ -64,6 +63,7 @@ establish deterministic control behavior only. No overnight completion guarantee
 
 ## Unresolved questions
 
-Implementation and independent acceptance complete; integration/push remain.
+Implementation and independent acceptance complete; main commit0cba85b pushed
+and remote SHA verified. See [delivery](reports/delivery.md).
 See [verification](reports/verification.md) and [review](reports/independent-review.md).
 Full MVP release/Sync/platform measurements remain outside this bounded closure.

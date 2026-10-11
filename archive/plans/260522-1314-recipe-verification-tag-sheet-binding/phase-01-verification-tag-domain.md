@@ -2,7 +2,7 @@
 
 ## Completion audit — 2026-10-12
 
-- Current status: **Done**; evidence: [completion verification](../../../plans/261012-extension-completion/reports/verification.md) (independent 147 units  + 22 full headed E2E; real Google/native 8/8 separately).
+- Current status: **Done**; evidence: [completion verification](../261012-extension-completion/reports/verification.md) (independent 147 units  + 22 full headed E2E; real Google/native 8/8 separately).
 - Recipe/tag/error domain retained; tag-codec units verify deterministic HMAC/base32, alphabet and sorted modifiers. Current147-unit suite passes; domain files were not changed for UI completion.
 - Original criteria and prior audit are retained below. Headed automation exercises the actual extension UI; neither routed fixtures nor SW-only checks are presented as live-provider or human-manual signoff.
 - Original <100-line codec estimate is Superseded by the current <200-line source rule (codec 113 lines); no user outcome deferred.

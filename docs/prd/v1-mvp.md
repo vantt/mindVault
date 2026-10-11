@@ -25,7 +25,7 @@ Changing the encrypted format would require an explicit migration. Current Argon
 parameters remain unchanged. Sharing-bundle PBKDF2 100k is a separate contract.
 Runtime reliability is addressed through bundled WASM in an offscreen Worker;
 implementation and acceptance evidence are tracked in
-[the current execution plan](../../plans/261012-extension-completion/plan.md).
+[the current execution plan](../../archive/plans/261012-extension-completion/plan.md).
 
 ### Changelog v1.1
 
@@ -1220,7 +1220,7 @@ const testCases = [
 **Full MVP: Partial.** The current extension completion scope is implemented and
 verified; publication and the broader acceptance matrix remain separate outcomes.
 The original roadmap below is historical. This table and the
-[current verification report](../../plans/261012-extension-completion/reports/verification.md)
+[current verification report](../../archive/plans/261012-extension-completion/reports/verification.md)
 state the present scope; they supersede outdated mechanisms and audit gaps.
 
 | Phase | Current status | Evidence and remaining scope |
