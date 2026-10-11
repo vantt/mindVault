@@ -146,6 +146,24 @@ cd mobile/sheets-client
 ./gradlew build test
 ```
 
+### Shared recipe kitchen
+
+The Android/JVM [shared kitchen](shared/) ports recipe cooking and opens the
+extension's full-access bundles. Its [spec](docs/specs/mobile-core.md) and
+[recovery report](docs/history/passchef-mobile/reports/mobile-core-recovery.md)
+record acceptance and limits. The Menu client above remains an independent build.
+
+From the repo root with JDK 17 and Android SDK platform 36 installed:
+
+```bash
+export JAVA_HOME=/path/to/jdk-17
+export ANDROID_HOME=/path/to/android-sdk
+export PATH="$JAVA_HOME/bin:$PATH"
+./gradlew :shared:jvmTest :shared:assemble
+```
+
+Android packaging does not verify physical-device Keystore or biometric behavior.
+
 ### Extension development
 
 - **Architecture**: Domain-Driven Design (DDD) with Clean Architecture.

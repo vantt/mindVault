@@ -1,0 +1,11 @@
+{
+  "_warning": "SYNTHETIC TEST DATA ONLY",
+  "password": "SYNTHETIC_ARGON2_VECTOR_🍳",
+  "salt": "SYNTHETIC_SALT16",
+  "version": 19,
+  "hashLength": 32,
+  "time": 3,
+  "memoryKiB": 65536,
+  "parallelism": 4,
+  "expectedHex": "d2dba0254ed99b7f209639a23f2edc31a49c8c2956883caa67b5b56898c7d40a"
+}

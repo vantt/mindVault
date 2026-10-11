@@ -1,0 +1,398 @@
+{
+  "_warning": "SYNTHETIC TEST DATA ONLY",
+  "browserVersion": "143.0.7499.4",
+  "rows": [
+    {
+      "recipeText": "mix#1",
+      "spice": "SYNTHETIC_Món🍳ß",
+      "menuId": "synthetic-menu-id",
+      "tag": "42xe",
+      "password": "SYNTHETIC_Món🍳ßmix"
+    },
+    {
+      "recipeText": "mix@1",
+      "spice": "SYNTHETIC_Món🍳ß",
+      "menuId": "synthetic-menu-id",
+      "tag": "fqw6",
+      "password": "mSYNTHETIC_Món🍳ßix"
+    },
+    {
+      "recipeText": "mix%1",
+      "spice": "SYNTHETIC_Món🍳ß",
+      "menuId": "synthetic-menu-id",
+      "tag": "r7ci",
+      "password": "mSiYxNTHETIC_Món🍳ß"
+    },
+    {
+      "recipeText": "mix^1",
+      "spice": "SYNTHETIC_Món🍳ß",
+      "menuId": "synthetic-menu-id",
+      "tag": "4cqq",
+      "password": "miSYxNTHETIC_Món🍳ß"
+    },
+    {
+      "recipeText": "mix#1?",
+      "spice": "SYNTHETIC_Món🍳ß",
+      "menuId": "synthetic-menu-id",
+      "tag": "u6ki",
+      "password": "ß\udf73\ud83cnóM_CITEHTNYSmix"
+    },
+    {
+      "recipeText": "mix#1!",
+      "spice": "SYNTHETIC_Món🍳ß",
+      "menuId": "synthetic-menu-id",
+      "tag": "ku8z",
+      "password": "SYNTHETIC_MÓN🍳SSmix"
+    },
+    {
+      "recipeText": "mix#1~?!",
+      "spice": "SYNTHETIC_Món🍳ß",
+      "menuId": "synthetic-menu-id",
+      "tag": "3tqy",
+      "password": "NMCITEHTNYSmix"
+    },
+    {
+      "recipeText": "mix#1",
+      "spice": "SYNTHETIC_\ud800_tail",
+      "menuId": "synthetic-menu-id",
+      "tag": "p7c2",
+      "password": "SYNTHETIC_\ud800_tailmix"
+    },
+    {
+      "recipeText": "mix@1",
+      "spice": "SYNTHETIC_\ud800_tail",
+      "menuId": "synthetic-menu-id",
+      "tag": "sgka",
+      "password": "mSYNTHETIC_\ud800_tailix"
+    },
+    {
+      "recipeText": "mix%1",
+      "spice": "SYNTHETIC_\ud800_tail",
+      "menuId": "synthetic-menu-id",
+      "tag": "ii5j",
+      "password": "mSiYxNTHETIC_\ud800_tail"
+    },
+    {
+      "recipeText": "mix^1",
+      "spice": "SYNTHETIC_\ud800_tail",
+      "menuId": "synthetic-menu-id",
+      "tag": "p29s",
+      "password": "miSYxNTHETIC_\ud800_tail"
+    },
+    {
+      "recipeText": "mix#1?",
+      "spice": "SYNTHETIC_\ud800_tail",
+      "menuId": "synthetic-menu-id",
+      "tag": "xugi",
+      "password": "liat_\ud800_CITEHTNYSmix"
+    },
+    {
+      "recipeText": "mix#1!",
+      "spice": "SYNTHETIC_\ud800_tail",
+      "menuId": "synthetic-menu-id",
+      "tag": "rw54",
+      "password": "SYNTHETIC_\ud800_TAILmix"
+    },
+    {
+      "recipeText": "mix#1~?!",
+      "spice": "SYNTHETIC_\ud800_tail",
+      "menuId": "synthetic-menu-id",
+      "tag": "rai9",
+      "password": "LIATCITEHTNYSmix"
+    },
+    {
+      "recipeText": "mix#1",
+      "spice": "SYNTHETIC_Vithkuqi_𐖗",
+      "menuId": "synthetic-menu-id",
+      "tag": "gybx",
+      "password": "SYNTHETIC_Vithkuqi_𐖗mix"
+    },
+    {
+      "recipeText": "mix@1",
+      "spice": "SYNTHETIC_Vithkuqi_𐖗",
+      "menuId": "synthetic-menu-id",
+      "tag": "c2ii",
+      "password": "mSYNTHETIC_Vithkuqi_𐖗ix"
+    },
+    {
+      "recipeText": "mix%1",
+      "spice": "SYNTHETIC_Vithkuqi_𐖗",
+      "menuId": "synthetic-menu-id",
+      "tag": "mvny",
+      "password": "mSiYxNTHETIC_Vithkuqi_𐖗"
+    },
+    {
+      "recipeText": "mix^1",
+      "spice": "SYNTHETIC_Vithkuqi_𐖗",
+      "menuId": "synthetic-menu-id",
+      "tag": "cfb4",
+      "password": "miSYxNTHETIC_Vithkuqi_𐖗"
+    },
+    {
+      "recipeText": "mix#1?",
+      "spice": "SYNTHETIC_Vithkuqi_𐖗",
+      "menuId": "synthetic-menu-id",
+      "tag": "jn6w",
+      "password": "\udd97\ud801_iqukhtiV_CITEHTNYSmix"
+    },
+    {
+      "recipeText": "mix#1!",
+      "spice": "SYNTHETIC_Vithkuqi_𐖗",
+      "menuId": "synthetic-menu-id",
+      "tag": "4wyx",
+      "password": "SYNTHETIC_VITHKUQI_𐕰mix"
+    },
+    {
+      "recipeText": "mix#1~?!",
+      "spice": "SYNTHETIC_Vithkuqi_𐖗",
+      "menuId": "synthetic-menu-id",
+      "tag": "9rmv",
+      "password": "IQUKHTIVCITEHTNYSmix"
+    },
+    {
+      "recipeText": "mix#1",
+      "spice": "SYNTHETIC_Garay_𐵰",
+      "menuId": "synthetic-menu-id",
+      "tag": "y9by",
+      "password": "SYNTHETIC_Garay_𐵰mix"
+    },
+    {
+      "recipeText": "mix@1",
+      "spice": "SYNTHETIC_Garay_𐵰",
+      "menuId": "synthetic-menu-id",
+      "tag": "fc68",
+      "password": "mSYNTHETIC_Garay_𐵰ix"
+    },
+    {
+      "recipeText": "mix%1",
+      "spice": "SYNTHETIC_Garay_𐵰",
+      "menuId": "synthetic-menu-id",
+      "tag": "dwgw",
+      "password": "mSiYxNTHETIC_Garay_𐵰"
+    },
+    {
+      "recipeText": "mix^1",
+      "spice": "SYNTHETIC_Garay_𐵰",
+      "menuId": "synthetic-menu-id",
+      "tag": "ipme",
+      "password": "miSYxNTHETIC_Garay_𐵰"
+    },
+    {
+      "recipeText": "mix#1?",
+      "spice": "SYNTHETIC_Garay_𐵰",
+      "menuId": "synthetic-menu-id",
+      "tag": "igjh",
+      "password": "\udd70\ud803_yaraG_CITEHTNYSmix"
+    },
+    {
+      "recipeText": "mix#1!",
+      "spice": "SYNTHETIC_Garay_𐵰",
+      "menuId": "synthetic-menu-id",
+      "tag": "sp79",
+      "password": "SYNTHETIC_GARAY_𐵐mix"
+    },
+    {
+      "recipeText": "mix#1~?!",
+      "spice": "SYNTHETIC_Garay_𐵰",
+      "menuId": "synthetic-menu-id",
+      "tag": "igtx",
+      "password": "YARAGCITEHTNYSmix"
+    },
+    {
+      "recipeText": "mix#1",
+      "spice": "SYNTHETIC_SPECIAL_ßﬃΐŉǰςıi",
+      "menuId": "synthetic-menu-id",
+      "tag": "ibhm",
+      "password": "SYNTHETIC_SPECIAL_ßﬃΐŉǰςıimix"
+    },
+    {
+      "recipeText": "mix@1",
+      "spice": "SYNTHETIC_SPECIAL_ßﬃΐŉǰςıi",
+      "menuId": "synthetic-menu-id",
+      "tag": "ynes",
+      "password": "mSYNTHETIC_SPECIAL_ßﬃΐŉǰςıiix"
+    },
+    {
+      "recipeText": "mix%1",
+      "spice": "SYNTHETIC_SPECIAL_ßﬃΐŉǰςıi",
+      "menuId": "synthetic-menu-id",
+      "tag": "pqdb",
+      "password": "mSiYxNTHETIC_SPECIAL_ßﬃΐŉǰςıi"
+    },
+    {
+      "recipeText": "mix^1",
+      "spice": "SYNTHETIC_SPECIAL_ßﬃΐŉǰςıi",
+      "menuId": "synthetic-menu-id",
+      "tag": "55j3",
+      "password": "miSYxNTHETIC_SPECIAL_ßﬃΐŉǰςıi"
+    },
+    {
+      "recipeText": "mix#1?",
+      "spice": "SYNTHETIC_SPECIAL_ßﬃΐŉǰςıi",
+      "menuId": "synthetic-menu-id",
+      "tag": "ix97",
+      "password": "iıςǰŉΐﬃß_LAICEPS_CITEHTNYSmix"
+    },
+    {
+      "recipeText": "mix#1!",
+      "spice": "SYNTHETIC_SPECIAL_ßﬃΐŉǰςıi",
+      "menuId": "synthetic-menu-id",
+      "tag": "cmcq",
+      "password": "SYNTHETIC_SPECIAL_SSFFIΪ́ʼNJ̌ΣIImix"
+    },
+    {
+      "recipeText": "mix#1~?!",
+      "spice": "SYNTHETIC_SPECIAL_ßﬃΐŉǰςıi",
+      "menuId": "synthetic-menu-id",
+      "tag": "ji46",
+      "password": "ILAICEPSCITEHTNYSmix"
+    },
+    {
+      "recipeText": "mix#1",
+      "spice": "SYNTHETIC_BROWSER_IDENTITY_꟏𖻀",
+      "menuId": "synthetic-menu-id",
+      "tag": "xq46",
+      "password": "SYNTHETIC_BROWSER_IDENTITY_꟏𖻀mix"
+    },
+    {
+      "recipeText": "mix@1",
+      "spice": "SYNTHETIC_BROWSER_IDENTITY_꟏𖻀",
+      "menuId": "synthetic-menu-id",
+      "tag": "q7y9",
+      "password": "mSYNTHETIC_BROWSER_IDENTITY_꟏𖻀ix"
+    },
+    {
+      "recipeText": "mix%1",
+      "spice": "SYNTHETIC_BROWSER_IDENTITY_꟏𖻀",
+      "menuId": "synthetic-menu-id",
+      "tag": "r9d3",
+      "password": "mSiYxNTHETIC_BROWSER_IDENTITY_꟏𖻀"
+    },
+    {
+      "recipeText": "mix^1",
+      "spice": "SYNTHETIC_BROWSER_IDENTITY_꟏𖻀",
+      "menuId": "synthetic-menu-id",
+      "tag": "f3r6",
+      "password": "miSYxNTHETIC_BROWSER_IDENTITY_꟏𖻀"
+    },
+    {
+      "recipeText": "mix#1?",
+      "spice": "SYNTHETIC_BROWSER_IDENTITY_꟏𖻀",
+      "menuId": "synthetic-menu-id",
+      "tag": "vzhk",
+      "password": "\udec0\ud81b꟏_YTITNEDI_RESWORB_CITEHTNYSmix"
+    },
+    {
+      "recipeText": "mix#1!",
+      "spice": "SYNTHETIC_BROWSER_IDENTITY_꟏𖻀",
+      "menuId": "synthetic-menu-id",
+      "tag": "8tu5",
+      "password": "SYNTHETIC_BROWSER_IDENTITY_꟏𖻀mix"
+    },
+    {
+      "recipeText": "mix#1~?!",
+      "spice": "SYNTHETIC_BROWSER_IDENTITY_꟏𖻀",
+      "menuId": "synthetic-menu-id",
+      "tag": "3n6z",
+      "password": "YTITNEDIRESWORBCITEHTNYSmix"
+    },
+    {
+      "recipeText": "mix#1",
+      "spice": "SYNTHETIC_COMBINING_ᾴ_ᾴ_́ͅ_ᾀᾷ",
+      "menuId": "synthetic-menu-id",
+      "tag": "a5zk",
+      "password": "SYNTHETIC_COMBINING_ᾴ_ᾴ_́ͅ_ᾀᾷmix"
+    },
+    {
+      "recipeText": "mix@1",
+      "spice": "SYNTHETIC_COMBINING_ᾴ_ᾴ_́ͅ_ᾀᾷ",
+      "menuId": "synthetic-menu-id",
+      "tag": "a3qj",
+      "password": "mSYNTHETIC_COMBINING_ᾴ_ᾴ_́ͅ_ᾀᾷix"
+    },
+    {
+      "recipeText": "mix%1",
+      "spice": "SYNTHETIC_COMBINING_ᾴ_ᾴ_́ͅ_ᾀᾷ",
+      "menuId": "synthetic-menu-id",
+      "tag": "n4fw",
+      "password": "mSiYxNTHETIC_COMBINING_ᾴ_ᾴ_́ͅ_ᾀᾷ"
+    },
+    {
+      "recipeText": "mix^1",
+      "spice": "SYNTHETIC_COMBINING_ᾴ_ᾴ_́ͅ_ᾀᾷ",
+      "menuId": "synthetic-menu-id",
+      "tag": "rjf5",
+      "password": "miSYxNTHETIC_COMBINING_ᾴ_ᾴ_́ͅ_ᾀᾷ"
+    },
+    {
+      "recipeText": "mix#1?",
+      "spice": "SYNTHETIC_COMBINING_ᾴ_ᾴ_́ͅ_ᾀᾷ",
+      "menuId": "synthetic-menu-id",
+      "tag": "khwk",
+      "password": "ᾷᾀ_́ͅ_́ͅα_́ͅα_GNINIBMOC_CITEHTNYSmix"
+    },
+    {
+      "recipeText": "mix#1!",
+      "spice": "SYNTHETIC_COMBINING_ᾴ_ᾴ_́ͅ_ᾀᾷ",
+      "menuId": "synthetic-menu-id",
+      "tag": "ndna",
+      "password": "SYNTHETIC_COMBINING_ΑΊ_ΆΙ_Ί_ἈΙΑ͂Ιmix"
+    },
+    {
+      "recipeText": "mix#1~?!",
+      "spice": "SYNTHETIC_COMBINING_ᾴ_ᾴ_́ͅ_ᾀᾷ",
+      "menuId": "synthetic-menu-id",
+      "tag": "yz7e",
+      "password": "GNINIBMOCCITEHTNYSmix"
+    },
+    {
+      "recipeText": "mix#1",
+      "spice": "SYNTHETIC_UTF16_a\ud800ß\udc00z_🍳\ud800",
+      "menuId": "synthetic-menu-id",
+      "tag": "9ppz",
+      "password": "SYNTHETIC_UTF16_a\ud800ß\udc00z_🍳\ud800mix"
+    },
+    {
+      "recipeText": "mix@1",
+      "spice": "SYNTHETIC_UTF16_a\ud800ß\udc00z_🍳\ud800",
+      "menuId": "synthetic-menu-id",
+      "tag": "7sgm",
+      "password": "mSYNTHETIC_UTF16_a\ud800ß\udc00z_🍳\ud800ix"
+    },
+    {
+      "recipeText": "mix%1",
+      "spice": "SYNTHETIC_UTF16_a\ud800ß\udc00z_🍳\ud800",
+      "menuId": "synthetic-menu-id",
+      "tag": "6zqf",
+      "password": "mSiYxNTHETIC_UTF16_a\ud800ß\udc00z_🍳\ud800"
+    },
+    {
+      "recipeText": "mix^1",
+      "spice": "SYNTHETIC_UTF16_a\ud800ß\udc00z_🍳\ud800",
+      "menuId": "synthetic-menu-id",
+      "tag": "579v",
+      "password": "miSYxNTHETIC_UTF16_a\ud800ß\udc00z_🍳\ud800"
+    },
+    {
+      "recipeText": "mix#1?",
+      "spice": "SYNTHETIC_UTF16_a\ud800ß\udc00z_🍳\ud800",
+      "menuId": "synthetic-menu-id",
+      "tag": "xdbf",
+      "password": "𐍳\ud83c_z\udc00ß\ud800a_61FTU_CITEHTNYSmix"
+    },
+    {
+      "recipeText": "mix#1!",
+      "spice": "SYNTHETIC_UTF16_a\ud800ß\udc00z_🍳\ud800",
+      "menuId": "synthetic-menu-id",
+      "tag": "43wc",
+      "password": "SYNTHETIC_UTF16_A\ud800SS\udc00Z_🍳\ud800mix"
+    },
+    {
+      "recipeText": "mix#1~?!",
+      "spice": "SYNTHETIC_UTF16_a\ud800ß\udc00z_🍳\ud800",
+      "menuId": "synthetic-menu-id",
+      "tag": "curu",
+      "password": "ZA61FTUCITEHTNYSmix"
+    }
+  ]
+}

@@ -1,0 +1,6216 @@
+{
+  "_warning": "SYNTHETIC TEST DATA ONLY",
+  "browserVersion": "143.0.7499.4",
+  "mappingSha256": "c8ae1f25f65551713e9dff9b77f723a4507171e584dc9f56a721215f5b4ae90a",
+  "scalarCount": 1112064,
+  "mappings": [
+    {
+      "codePoint": 97,
+      "uppercase": "A"
+    },
+    {
+      "codePoint": 98,
+      "uppercase": "B"
+    },
+    {
+      "codePoint": 99,
+      "uppercase": "C"
+    },
+    {
+      "codePoint": 100,
+      "uppercase": "D"
+    },
+    {
+      "codePoint": 101,
+      "uppercase": "E"
+    },
+    {
+      "codePoint": 102,
+      "uppercase": "F"
+    },
+    {
+      "codePoint": 103,
+      "uppercase": "G"
+    },
+    {
+      "codePoint": 104,
+      "uppercase": "H"
+    },
+    {
+      "codePoint": 105,
+      "uppercase": "I"
+    },
+    {
+      "codePoint": 106,
+      "uppercase": "J"
+    },
+    {
+      "codePoint": 107,
+      "uppercase": "K"
+    },
+    {
+      "codePoint": 108,
+      "uppercase": "L"
+    },
+    {
+      "codePoint": 109,
+      "uppercase": "M"
+    },
+    {
+      "codePoint": 110,
+      "uppercase": "N"
+    },
+    {
+      "codePoint": 111,
+      "uppercase": "O"
+    },
+    {
+      "codePoint": 112,
+      "uppercase": "P"
+    },
+    {
+      "codePoint": 113,
+      "uppercase": "Q"
+    },
+    {
+      "codePoint": 114,
+      "uppercase": "R"
+    },
+    {
+      "codePoint": 115,
+      "uppercase": "S"
+    },
+    {
+      "codePoint": 116,
+      "uppercase": "T"
+    },
+    {
+      "codePoint": 117,
+      "uppercase": "U"
+    },
+    {
+      "codePoint": 118,
+      "uppercase": "V"
+    },
+    {
+      "codePoint": 119,
+      "uppercase": "W"
+    },
+    {
+      "codePoint": 120,
+      "uppercase": "X"
+    },
+    {
+      "codePoint": 121,
+      "uppercase": "Y"
+    },
+    {
+      "codePoint": 122,
+      "uppercase": "Z"
+    },
+    {
+      "codePoint": 181,
+      "uppercase": "Μ"
+    },
+    {
+      "codePoint": 223,
+      "uppercase": "SS"
+    },
+    {
+      "codePoint": 224,
+      "uppercase": "À"
+    },
+    {
+      "codePoint": 225,
+      "uppercase": "Á"
+    },
+    {
+      "codePoint": 226,
+      "uppercase": "Â"
+    },
+    {
+      "codePoint": 227,
+      "uppercase": "Ã"
+    },
+    {
+      "codePoint": 228,
+      "uppercase": "Ä"
+    },
+    {
+      "codePoint": 229,
+      "uppercase": "Å"
+    },
+    {
+      "codePoint": 230,
+      "uppercase": "Æ"
+    },
+    {
+      "codePoint": 231,
+      "uppercase": "Ç"
+    },
+    {
+      "codePoint": 232,
+      "uppercase": "È"
+    },
+    {
+      "codePoint": 233,
+      "uppercase": "É"
+    },
+    {
+      "codePoint": 234,
+      "uppercase": "Ê"
+    },
+    {
+      "codePoint": 235,
+      "uppercase": "Ë"
+    },
+    {
+      "codePoint": 236,
+      "uppercase": "Ì"
+    },
+    {
+      "codePoint": 237,
+      "uppercase": "Í"
+    },
+    {
+      "codePoint": 238,
+      "uppercase": "Î"
+    },
+    {
+      "codePoint": 239,
+      "uppercase": "Ï"
+    },
+    {
+      "codePoint": 240,
+      "uppercase": "Ð"
+    },
+    {
+      "codePoint": 241,
+      "uppercase": "Ñ"
+    },
+    {
+      "codePoint": 242,
+      "uppercase": "Ò"
+    },
+    {
+      "codePoint": 243,
+      "uppercase": "Ó"
+    },
+    {
+      "codePoint": 244,
+      "uppercase": "Ô"
+    },
+    {
+      "codePoint": 245,
+      "uppercase": "Õ"
+    },
+    {
+      "codePoint": 246,
+      "uppercase": "Ö"
+    },
+    {
+      "codePoint": 248,
+      "uppercase": "Ø"
+    },
+    {
+      "codePoint": 249,
+      "uppercase": "Ù"
+    },
+    {
+      "codePoint": 250,
+      "uppercase": "Ú"
+    },
+    {
+      "codePoint": 251,
+      "uppercase": "Û"
+    },
+    {
+      "codePoint": 252,
+      "uppercase": "Ü"
+    },
+    {
+      "codePoint": 253,
+      "uppercase": "Ý"
+    },
+    {
+      "codePoint": 254,
+      "uppercase": "Þ"
+    },
+    {
+      "codePoint": 255,
+      "uppercase": "Ÿ"
+    },
+    {
+      "codePoint": 257,
+      "uppercase": "Ā"
+    },
+    {
+      "codePoint": 259,
+      "uppercase": "Ă"
+    },
+    {
+      "codePoint": 261,
+      "uppercase": "Ą"
+    },
+    {
+      "codePoint": 263,
+      "uppercase": "Ć"
+    },
+    {
+      "codePoint": 265,
+      "uppercase": "Ĉ"
+    },
+    {
+      "codePoint": 267,
+      "uppercase": "Ċ"
+    },
+    {
+      "codePoint": 269,
+      "uppercase": "Č"
+    },
+    {
+      "codePoint": 271,
+      "uppercase": "Ď"
+    },
+    {
+      "codePoint": 273,
+      "uppercase": "Đ"
+    },
+    {
+      "codePoint": 275,
+      "uppercase": "Ē"
+    },
+    {
+      "codePoint": 277,
+      "uppercase": "Ĕ"
+    },
+    {
+      "codePoint": 279,
+      "uppercase": "Ė"
+    },
+    {
+      "codePoint": 281,
+      "uppercase": "Ę"
+    },
+    {
+      "codePoint": 283,
+      "uppercase": "Ě"
+    },
+    {
+      "codePoint": 285,
+      "uppercase": "Ĝ"
+    },
+    {
+      "codePoint": 287,
+      "uppercase": "Ğ"
+    },
+    {
+      "codePoint": 289,
+      "uppercase": "Ġ"
+    },
+    {
+      "codePoint": 291,
+      "uppercase": "Ģ"
+    },
+    {
+      "codePoint": 293,
+      "uppercase": "Ĥ"
+    },
+    {
+      "codePoint": 295,
+      "uppercase": "Ħ"
+    },
+    {
+      "codePoint": 297,
+      "uppercase": "Ĩ"
+    },
+    {
+      "codePoint": 299,
+      "uppercase": "Ī"
+    },
+    {
+      "codePoint": 301,
+      "uppercase": "Ĭ"
+    },
+    {
+      "codePoint": 303,
+      "uppercase": "Į"
+    },
+    {
+      "codePoint": 305,
+      "uppercase": "I"
+    },
+    {
+      "codePoint": 307,
+      "uppercase": "Ĳ"
+    },
+    {
+      "codePoint": 309,
+      "uppercase": "Ĵ"
+    },
+    {
+      "codePoint": 311,
+      "uppercase": "Ķ"
+    },
+    {
+      "codePoint": 314,
+      "uppercase": "Ĺ"
+    },
+    {
+      "codePoint": 316,
+      "uppercase": "Ļ"
+    },
+    {
+      "codePoint": 318,
+      "uppercase": "Ľ"
+    },
+    {
+      "codePoint": 320,
+      "uppercase": "Ŀ"
+    },
+    {
+      "codePoint": 322,
+      "uppercase": "Ł"
+    },
+    {
+      "codePoint": 324,
+      "uppercase": "Ń"
+    },
+    {
+      "codePoint": 326,
+      "uppercase": "Ņ"
+    },
+    {
+      "codePoint": 328,
+      "uppercase": "Ň"
+    },
+    {
+      "codePoint": 329,
+      "uppercase": "ʼN"
+    },
+    {
+      "codePoint": 331,
+      "uppercase": "Ŋ"
+    },
+    {
+      "codePoint": 333,
+      "uppercase": "Ō"
+    },
+    {
+      "codePoint": 335,
+      "uppercase": "Ŏ"
+    },
+    {
+      "codePoint": 337,
+      "uppercase": "Ő"
+    },
+    {
+      "codePoint": 339,
+      "uppercase": "Œ"
+    },
+    {
+      "codePoint": 341,
+      "uppercase": "Ŕ"
+    },
+    {
+      "codePoint": 343,
+      "uppercase": "Ŗ"
+    },
+    {
+      "codePoint": 345,
+      "uppercase": "Ř"
+    },
+    {
+      "codePoint": 347,
+      "uppercase": "Ś"
+    },
+    {
+      "codePoint": 349,
+      "uppercase": "Ŝ"
+    },
+    {
+      "codePoint": 351,
+      "uppercase": "Ş"
+    },
+    {
+      "codePoint": 353,
+      "uppercase": "Š"
+    },
+    {
+      "codePoint": 355,
+      "uppercase": "Ţ"
+    },
+    {
+      "codePoint": 357,
+      "uppercase": "Ť"
+    },
+    {
+      "codePoint": 359,
+      "uppercase": "Ŧ"
+    },
+    {
+      "codePoint": 361,
+      "uppercase": "Ũ"
+    },
+    {
+      "codePoint": 363,
+      "uppercase": "Ū"
+    },
+    {
+      "codePoint": 365,
+      "uppercase": "Ŭ"
+    },
+    {
+      "codePoint": 367,
+      "uppercase": "Ů"
+    },
+    {
+      "codePoint": 369,
+      "uppercase": "Ű"
+    },
+    {
+      "codePoint": 371,
+      "uppercase": "Ų"
+    },
+    {
+      "codePoint": 373,
+      "uppercase": "Ŵ"
+    },
+    {
+      "codePoint": 375,
+      "uppercase": "Ŷ"
+    },
+    {
+      "codePoint": 378,
+      "uppercase": "Ź"
+    },
+    {
+      "codePoint": 380,
+      "uppercase": "Ż"
+    },
+    {
+      "codePoint": 382,
+      "uppercase": "Ž"
+    },
+    {
+      "codePoint": 383,
+      "uppercase": "S"
+    },
+    {
+      "codePoint": 384,
+      "uppercase": "Ƀ"
+    },
+    {
+      "codePoint": 387,
+      "uppercase": "Ƃ"
+    },
+    {
+      "codePoint": 389,
+      "uppercase": "Ƅ"
+    },
+    {
+      "codePoint": 392,
+      "uppercase": "Ƈ"
+    },
+    {
+      "codePoint": 396,
+      "uppercase": "Ƌ"
+    },
+    {
+      "codePoint": 402,
+      "uppercase": "Ƒ"
+    },
+    {
+      "codePoint": 405,
+      "uppercase": "Ƕ"
+    },
+    {
+      "codePoint": 409,
+      "uppercase": "Ƙ"
+    },
+    {
+      "codePoint": 410,
+      "uppercase": "Ƚ"
+    },
+    {
+      "codePoint": 411,
+      "uppercase": "Ƛ"
+    },
+    {
+      "codePoint": 414,
+      "uppercase": "Ƞ"
+    },
+    {
+      "codePoint": 417,
+      "uppercase": "Ơ"
+    },
+    {
+      "codePoint": 419,
+      "uppercase": "Ƣ"
+    },
+    {
+      "codePoint": 421,
+      "uppercase": "Ƥ"
+    },
+    {
+      "codePoint": 424,
+      "uppercase": "Ƨ"
+    },
+    {
+      "codePoint": 429,
+      "uppercase": "Ƭ"
+    },
+    {
+      "codePoint": 432,
+      "uppercase": "Ư"
+    },
+    {
+      "codePoint": 436,
+      "uppercase": "Ƴ"
+    },
+    {
+      "codePoint": 438,
+      "uppercase": "Ƶ"
+    },
+    {
+      "codePoint": 441,
+      "uppercase": "Ƹ"
+    },
+    {
+      "codePoint": 445,
+      "uppercase": "Ƽ"
+    },
+    {
+      "codePoint": 447,
+      "uppercase": "Ƿ"
+    },
+    {
+      "codePoint": 453,
+      "uppercase": "Ǆ"
+    },
+    {
+      "codePoint": 454,
+      "uppercase": "Ǆ"
+    },
+    {
+      "codePoint": 456,
+      "uppercase": "Ǉ"
+    },
+    {
+      "codePoint": 457,
+      "uppercase": "Ǉ"
+    },
+    {
+      "codePoint": 459,
+      "uppercase": "Ǌ"
+    },
+    {
+      "codePoint": 460,
+      "uppercase": "Ǌ"
+    },
+    {
+      "codePoint": 462,
+      "uppercase": "Ǎ"
+    },
+    {
+      "codePoint": 464,
+      "uppercase": "Ǐ"
+    },
+    {
+      "codePoint": 466,
+      "uppercase": "Ǒ"
+    },
+    {
+      "codePoint": 468,
+      "uppercase": "Ǔ"
+    },
+    {
+      "codePoint": 470,
+      "uppercase": "Ǖ"
+    },
+    {
+      "codePoint": 472,
+      "uppercase": "Ǘ"
+    },
+    {
+      "codePoint": 474,
+      "uppercase": "Ǚ"
+    },
+    {
+      "codePoint": 476,
+      "uppercase": "Ǜ"
+    },
+    {
+      "codePoint": 477,
+      "uppercase": "Ǝ"
+    },
+    {
+      "codePoint": 479,
+      "uppercase": "Ǟ"
+    },
+    {
+      "codePoint": 481,
+      "uppercase": "Ǡ"
+    },
+    {
+      "codePoint": 483,
+      "uppercase": "Ǣ"
+    },
+    {
+      "codePoint": 485,
+      "uppercase": "Ǥ"
+    },
+    {
+      "codePoint": 487,
+      "uppercase": "Ǧ"
+    },
+    {
+      "codePoint": 489,
+      "uppercase": "Ǩ"
+    },
+    {
+      "codePoint": 491,
+      "uppercase": "Ǫ"
+    },
+    {
+      "codePoint": 493,
+      "uppercase": "Ǭ"
+    },
+    {
+      "codePoint": 495,
+      "uppercase": "Ǯ"
+    },
+    {
+      "codePoint": 496,
+      "uppercase": "J̌"
+    },
+    {
+      "codePoint": 498,
+      "uppercase": "Ǳ"
+    },
+    {
+      "codePoint": 499,
+      "uppercase": "Ǳ"
+    },
+    {
+      "codePoint": 501,
+      "uppercase": "Ǵ"
+    },
+    {
+      "codePoint": 505,
+      "uppercase": "Ǹ"
+    },
+    {
+      "codePoint": 507,
+      "uppercase": "Ǻ"
+    },
+    {
+      "codePoint": 509,
+      "uppercase": "Ǽ"
+    },
+    {
+      "codePoint": 511,
+      "uppercase": "Ǿ"
+    },
+    {
+      "codePoint": 513,
+      "uppercase": "Ȁ"
+    },
+    {
+      "codePoint": 515,
+      "uppercase": "Ȃ"
+    },
+    {
+      "codePoint": 517,
+      "uppercase": "Ȅ"
+    },
+    {
+      "codePoint": 519,
+      "uppercase": "Ȇ"
+    },
+    {
+      "codePoint": 521,
+      "uppercase": "Ȉ"
+    },
+    {
+      "codePoint": 523,
+      "uppercase": "Ȋ"
+    },
+    {
+      "codePoint": 525,
+      "uppercase": "Ȍ"
+    },
+    {
+      "codePoint": 527,
+      "uppercase": "Ȏ"
+    },
+    {
+      "codePoint": 529,
+      "uppercase": "Ȑ"
+    },
+    {
+      "codePoint": 531,
+      "uppercase": "Ȓ"
+    },
+    {
+      "codePoint": 533,
+      "uppercase": "Ȕ"
+    },
+    {
+      "codePoint": 535,
+      "uppercase": "Ȗ"
+    },
+    {
+      "codePoint": 537,
+      "uppercase": "Ș"
+    },
+    {
+      "codePoint": 539,
+      "uppercase": "Ț"
+    },
+    {
+      "codePoint": 541,
+      "uppercase": "Ȝ"
+    },
+    {
+      "codePoint": 543,
+      "uppercase": "Ȟ"
+    },
+    {
+      "codePoint": 547,
+      "uppercase": "Ȣ"
+    },
+    {
+      "codePoint": 549,
+      "uppercase": "Ȥ"
+    },
+    {
+      "codePoint": 551,
+      "uppercase": "Ȧ"
+    },
+    {
+      "codePoint": 553,
+      "uppercase": "Ȩ"
+    },
+    {
+      "codePoint": 555,
+      "uppercase": "Ȫ"
+    },
+    {
+      "codePoint": 557,
+      "uppercase": "Ȭ"
+    },
+    {
+      "codePoint": 559,
+      "uppercase": "Ȯ"
+    },
+    {
+      "codePoint": 561,
+      "uppercase": "Ȱ"
+    },
+    {
+      "codePoint": 563,
+      "uppercase": "Ȳ"
+    },
+    {
+      "codePoint": 572,
+      "uppercase": "Ȼ"
+    },
+    {
+      "codePoint": 575,
+      "uppercase": "Ȿ"
+    },
+    {
+      "codePoint": 576,
+      "uppercase": "Ɀ"
+    },
+    {
+      "codePoint": 578,
+      "uppercase": "Ɂ"
+    },
+    {
+      "codePoint": 583,
+      "uppercase": "Ɇ"
+    },
+    {
+      "codePoint": 585,
+      "uppercase": "Ɉ"
+    },
+    {
+      "codePoint": 587,
+      "uppercase": "Ɋ"
+    },
+    {
+      "codePoint": 589,
+      "uppercase": "Ɍ"
+    },
+    {
+      "codePoint": 591,
+      "uppercase": "Ɏ"
+    },
+    {
+      "codePoint": 592,
+      "uppercase": "Ɐ"
+    },
+    {
+      "codePoint": 593,
+      "uppercase": "Ɑ"
+    },
+    {
+      "codePoint": 594,
+      "uppercase": "Ɒ"
+    },
+    {
+      "codePoint": 595,
+      "uppercase": "Ɓ"
+    },
+    {
+      "codePoint": 596,
+      "uppercase": "Ɔ"
+    },
+    {
+      "codePoint": 598,
+      "uppercase": "Ɖ"
+    },
+    {
+      "codePoint": 599,
+      "uppercase": "Ɗ"
+    },
+    {
+      "codePoint": 601,
+      "uppercase": "Ə"
+    },
+    {
+      "codePoint": 603,
+      "uppercase": "Ɛ"
+    },
+    {
+      "codePoint": 604,
+      "uppercase": "Ɜ"
+    },
+    {
+      "codePoint": 608,
+      "uppercase": "Ɠ"
+    },
+    {
+      "codePoint": 609,
+      "uppercase": "Ɡ"
+    },
+    {
+      "codePoint": 611,
+      "uppercase": "Ɣ"
+    },
+    {
+      "codePoint": 612,
+      "uppercase": "Ɤ"
+    },
+    {
+      "codePoint": 613,
+      "uppercase": "Ɥ"
+    },
+    {
+      "codePoint": 614,
+      "uppercase": "Ɦ"
+    },
+    {
+      "codePoint": 616,
+      "uppercase": "Ɨ"
+    },
+    {
+      "codePoint": 617,
+      "uppercase": "Ɩ"
+    },
+    {
+      "codePoint": 618,
+      "uppercase": "Ɪ"
+    },
+    {
+      "codePoint": 619,
+      "uppercase": "Ɫ"
+    },
+    {
+      "codePoint": 620,
+      "uppercase": "Ɬ"
+    },
+    {
+      "codePoint": 623,
+      "uppercase": "Ɯ"
+    },
+    {
+      "codePoint": 625,
+      "uppercase": "Ɱ"
+    },
+    {
+      "codePoint": 626,
+      "uppercase": "Ɲ"
+    },
+    {
+      "codePoint": 629,
+      "uppercase": "Ɵ"
+    },
+    {
+      "codePoint": 637,
+      "uppercase": "Ɽ"
+    },
+    {
+      "codePoint": 640,
+      "uppercase": "Ʀ"
+    },
+    {
+      "codePoint": 642,
+      "uppercase": "Ʂ"
+    },
+    {
+      "codePoint": 643,
+      "uppercase": "Ʃ"
+    },
+    {
+      "codePoint": 647,
+      "uppercase": "Ʇ"
+    },
+    {
+      "codePoint": 648,
+      "uppercase": "Ʈ"
+    },
+    {
+      "codePoint": 649,
+      "uppercase": "Ʉ"
+    },
+    {
+      "codePoint": 650,
+      "uppercase": "Ʊ"
+    },
+    {
+      "codePoint": 651,
+      "uppercase": "Ʋ"
+    },
+    {
+      "codePoint": 652,
+      "uppercase": "Ʌ"
+    },
+    {
+      "codePoint": 658,
+      "uppercase": "Ʒ"
+    },
+    {
+      "codePoint": 669,
+      "uppercase": "Ʝ"
+    },
+    {
+      "codePoint": 670,
+      "uppercase": "Ʞ"
+    },
+    {
+      "codePoint": 837,
+      "uppercase": "Ι"
+    },
+    {
+      "codePoint": 881,
+      "uppercase": "Ͱ"
+    },
+    {
+      "codePoint": 883,
+      "uppercase": "Ͳ"
+    },
+    {
+      "codePoint": 887,
+      "uppercase": "Ͷ"
+    },
+    {
+      "codePoint": 891,
+      "uppercase": "Ͻ"
+    },
+    {
+      "codePoint": 892,
+      "uppercase": "Ͼ"
+    },
+    {
+      "codePoint": 893,
+      "uppercase": "Ͽ"
+    },
+    {
+      "codePoint": 912,
+      "uppercase": "Ϊ́"
+    },
+    {
+      "codePoint": 940,
+      "uppercase": "Ά"
+    },
+    {
+      "codePoint": 941,
+      "uppercase": "Έ"
+    },
+    {
+      "codePoint": 942,
+      "uppercase": "Ή"
+    },
+    {
+      "codePoint": 943,
+      "uppercase": "Ί"
+    },
+    {
+      "codePoint": 944,
+      "uppercase": "Ϋ́"
+    },
+    {
+      "codePoint": 945,
+      "uppercase": "Α"
+    },
+    {
+      "codePoint": 946,
+      "uppercase": "Β"
+    },
+    {
+      "codePoint": 947,
+      "uppercase": "Γ"
+    },
+    {
+      "codePoint": 948,
+      "uppercase": "Δ"
+    },
+    {
+      "codePoint": 949,
+      "uppercase": "Ε"
+    },
+    {
+      "codePoint": 950,
+      "uppercase": "Ζ"
+    },
+    {
+      "codePoint": 951,
+      "uppercase": "Η"
+    },
+    {
+      "codePoint": 952,
+      "uppercase": "Θ"
+    },
+    {
+      "codePoint": 953,
+      "uppercase": "Ι"
+    },
+    {
+      "codePoint": 954,
+      "uppercase": "Κ"
+    },
+    {
+      "codePoint": 955,
+      "uppercase": "Λ"
+    },
+    {
+      "codePoint": 956,
+      "uppercase": "Μ"
+    },
+    {
+      "codePoint": 957,
+      "uppercase": "Ν"
+    },
+    {
+      "codePoint": 958,
+      "uppercase": "Ξ"
+    },
+    {
+      "codePoint": 959,
+      "uppercase": "Ο"
+    },
+    {
+      "codePoint": 960,
+      "uppercase": "Π"
+    },
+    {
+      "codePoint": 961,
+      "uppercase": "Ρ"
+    },
+    {
+      "codePoint": 962,
+      "uppercase": "Σ"
+    },
+    {
+      "codePoint": 963,
+      "uppercase": "Σ"
+    },
+    {
+      "codePoint": 964,
+      "uppercase": "Τ"
+    },
+    {
+      "codePoint": 965,
+      "uppercase": "Υ"
+    },
+    {
+      "codePoint": 966,
+      "uppercase": "Φ"
+    },
+    {
+      "codePoint": 967,
+      "uppercase": "Χ"
+    },
+    {
+      "codePoint": 968,
+      "uppercase": "Ψ"
+    },
+    {
+      "codePoint": 969,
+      "uppercase": "Ω"
+    },
+    {
+      "codePoint": 970,
+      "uppercase": "Ϊ"
+    },
+    {
+      "codePoint": 971,
+      "uppercase": "Ϋ"
+    },
+    {
+      "codePoint": 972,
+      "uppercase": "Ό"
+    },
+    {
+      "codePoint": 973,
+      "uppercase": "Ύ"
+    },
+    {
+      "codePoint": 974,
+      "uppercase": "Ώ"
+    },
+    {
+      "codePoint": 976,
+      "uppercase": "Β"
+    },
+    {
+      "codePoint": 977,
+      "uppercase": "Θ"
+    },
+    {
+      "codePoint": 981,
+      "uppercase": "Φ"
+    },
+    {
+      "codePoint": 982,
+      "uppercase": "Π"
+    },
+    {
+      "codePoint": 983,
+      "uppercase": "Ϗ"
+    },
+    {
+      "codePoint": 985,
+      "uppercase": "Ϙ"
+    },
+    {
+      "codePoint": 987,
+      "uppercase": "Ϛ"
+    },
+    {
+      "codePoint": 989,
+      "uppercase": "Ϝ"
+    },
+    {
+      "codePoint": 991,
+      "uppercase": "Ϟ"
+    },
+    {
+      "codePoint": 993,
+      "uppercase": "Ϡ"
+    },
+    {
+      "codePoint": 995,
+      "uppercase": "Ϣ"
+    },
+    {
+      "codePoint": 997,
+      "uppercase": "Ϥ"
+    },
+    {
+      "codePoint": 999,
+      "uppercase": "Ϧ"
+    },
+    {
+      "codePoint": 1001,
+      "uppercase": "Ϩ"
+    },
+    {
+      "codePoint": 1003,
+      "uppercase": "Ϫ"
+    },
+    {
+      "codePoint": 1005,
+      "uppercase": "Ϭ"
+    },
+    {
+      "codePoint": 1007,
+      "uppercase": "Ϯ"
+    },
+    {
+      "codePoint": 1008,
+      "uppercase": "Κ"
+    },
+    {
+      "codePoint": 1009,
+      "uppercase": "Ρ"
+    },
+    {
+      "codePoint": 1010,
+      "uppercase": "Ϲ"
+    },
+    {
+      "codePoint": 1011,
+      "uppercase": "Ϳ"
+    },
+    {
+      "codePoint": 1013,
+      "uppercase": "Ε"
+    },
+    {
+      "codePoint": 1016,
+      "uppercase": "Ϸ"
+    },
+    {
+      "codePoint": 1019,
+      "uppercase": "Ϻ"
+    },
+    {
+      "codePoint": 1072,
+      "uppercase": "А"
+    },
+    {
+      "codePoint": 1073,
+      "uppercase": "Б"
+    },
+    {
+      "codePoint": 1074,
+      "uppercase": "В"
+    },
+    {
+      "codePoint": 1075,
+      "uppercase": "Г"
+    },
+    {
+      "codePoint": 1076,
+      "uppercase": "Д"
+    },
+    {
+      "codePoint": 1077,
+      "uppercase": "Е"
+    },
+    {
+      "codePoint": 1078,
+      "uppercase": "Ж"
+    },
+    {
+      "codePoint": 1079,
+      "uppercase": "З"
+    },
+    {
+      "codePoint": 1080,
+      "uppercase": "И"
+    },
+    {
+      "codePoint": 1081,
+      "uppercase": "Й"
+    },
+    {
+      "codePoint": 1082,
+      "uppercase": "К"
+    },
+    {
+      "codePoint": 1083,
+      "uppercase": "Л"
+    },
+    {
+      "codePoint": 1084,
+      "uppercase": "М"
+    },
+    {
+      "codePoint": 1085,
+      "uppercase": "Н"
+    },
+    {
+      "codePoint": 1086,
+      "uppercase": "О"
+    },
+    {
+      "codePoint": 1087,
+      "uppercase": "П"
+    },
+    {
+      "codePoint": 1088,
+      "uppercase": "Р"
+    },
+    {
+      "codePoint": 1089,
+      "uppercase": "С"
+    },
+    {
+      "codePoint": 1090,
+      "uppercase": "Т"
+    },
+    {
+      "codePoint": 1091,
+      "uppercase": "У"
+    },
+    {
+      "codePoint": 1092,
+      "uppercase": "Ф"
+    },
+    {
+      "codePoint": 1093,
+      "uppercase": "Х"
+    },
+    {
+      "codePoint": 1094,
+      "uppercase": "Ц"
+    },
+    {
+      "codePoint": 1095,
+      "uppercase": "Ч"
+    },
+    {
+      "codePoint": 1096,
+      "uppercase": "Ш"
+    },
+    {
+      "codePoint": 1097,
+      "uppercase": "Щ"
+    },
+    {
+      "codePoint": 1098,
+      "uppercase": "Ъ"
+    },
+    {
+      "codePoint": 1099,
+      "uppercase": "Ы"
+    },
+    {
+      "codePoint": 1100,
+      "uppercase": "Ь"
+    },
+    {
+      "codePoint": 1101,
+      "uppercase": "Э"
+    },
+    {
+      "codePoint": 1102,
+      "uppercase": "Ю"
+    },
+    {
+      "codePoint": 1103,
+      "uppercase": "Я"
+    },
+    {
+      "codePoint": 1104,
+      "uppercase": "Ѐ"
+    },
+    {
+      "codePoint": 1105,
+      "uppercase": "Ё"
+    },
+    {
+      "codePoint": 1106,
+      "uppercase": "Ђ"
+    },
+    {
+      "codePoint": 1107,
+      "uppercase": "Ѓ"
+    },
+    {
+      "codePoint": 1108,
+      "uppercase": "Є"
+    },
+    {
+      "codePoint": 1109,
+      "uppercase": "Ѕ"
+    },
+    {
+      "codePoint": 1110,
+      "uppercase": "І"
+    },
+    {
+      "codePoint": 1111,
+      "uppercase": "Ї"
+    },
+    {
+      "codePoint": 1112,
+      "uppercase": "Ј"
+    },
+    {
+      "codePoint": 1113,
+      "uppercase": "Љ"
+    },
+    {
+      "codePoint": 1114,
+      "uppercase": "Њ"
+    },
+    {
+      "codePoint": 1115,
+      "uppercase": "Ћ"
+    },
+    {
+      "codePoint": 1116,
+      "uppercase": "Ќ"
+    },
+    {
+      "codePoint": 1117,
+      "uppercase": "Ѝ"
+    },
+    {
+      "codePoint": 1118,
+      "uppercase": "Ў"
+    },
+    {
+      "codePoint": 1119,
+      "uppercase": "Џ"
+    },
+    {
+      "codePoint": 1121,
+      "uppercase": "Ѡ"
+    },
+    {
+      "codePoint": 1123,
+      "uppercase": "Ѣ"
+    },
+    {
+      "codePoint": 1125,
+      "uppercase": "Ѥ"
+    },
+    {
+      "codePoint": 1127,
+      "uppercase": "Ѧ"
+    },
+    {
+      "codePoint": 1129,
+      "uppercase": "Ѩ"
+    },
+    {
+      "codePoint": 1131,
+      "uppercase": "Ѫ"
+    },
+    {
+      "codePoint": 1133,
+      "uppercase": "Ѭ"
+    },
+    {
+      "codePoint": 1135,
+      "uppercase": "Ѯ"
+    },
+    {
+      "codePoint": 1137,
+      "uppercase": "Ѱ"
+    },
+    {
+      "codePoint": 1139,
+      "uppercase": "Ѳ"
+    },
+    {
+      "codePoint": 1141,
+      "uppercase": "Ѵ"
+    },
+    {
+      "codePoint": 1143,
+      "uppercase": "Ѷ"
+    },
+    {
+      "codePoint": 1145,
+      "uppercase": "Ѹ"
+    },
+    {
+      "codePoint": 1147,
+      "uppercase": "Ѻ"
+    },
+    {
+      "codePoint": 1149,
+      "uppercase": "Ѽ"
+    },
+    {
+      "codePoint": 1151,
+      "uppercase": "Ѿ"
+    },
+    {
+      "codePoint": 1153,
+      "uppercase": "Ҁ"
+    },
+    {
+      "codePoint": 1163,
+      "uppercase": "Ҋ"
+    },
+    {
+      "codePoint": 1165,
+      "uppercase": "Ҍ"
+    },
+    {
+      "codePoint": 1167,
+      "uppercase": "Ҏ"
+    },
+    {
+      "codePoint": 1169,
+      "uppercase": "Ґ"
+    },
+    {
+      "codePoint": 1171,
+      "uppercase": "Ғ"
+    },
+    {
+      "codePoint": 1173,
+      "uppercase": "Ҕ"
+    },
+    {
+      "codePoint": 1175,
+      "uppercase": "Җ"
+    },
+    {
+      "codePoint": 1177,
+      "uppercase": "Ҙ"
+    },
+    {
+      "codePoint": 1179,
+      "uppercase": "Қ"
+    },
+    {
+      "codePoint": 1181,
+      "uppercase": "Ҝ"
+    },
+    {
+      "codePoint": 1183,
+      "uppercase": "Ҟ"
+    },
+    {
+      "codePoint": 1185,
+      "uppercase": "Ҡ"
+    },
+    {
+      "codePoint": 1187,
+      "uppercase": "Ң"
+    },
+    {
+      "codePoint": 1189,
+      "uppercase": "Ҥ"
+    },
+    {
+      "codePoint": 1191,
+      "uppercase": "Ҧ"
+    },
+    {
+      "codePoint": 1193,
+      "uppercase": "Ҩ"
+    },
+    {
+      "codePoint": 1195,
+      "uppercase": "Ҫ"
+    },
+    {
+      "codePoint": 1197,
+      "uppercase": "Ҭ"
+    },
+    {
+      "codePoint": 1199,
+      "uppercase": "Ү"
+    },
+    {
+      "codePoint": 1201,
+      "uppercase": "Ұ"
+    },
+    {
+      "codePoint": 1203,
+      "uppercase": "Ҳ"
+    },
+    {
+      "codePoint": 1205,
+      "uppercase": "Ҵ"
+    },
+    {
+      "codePoint": 1207,
+      "uppercase": "Ҷ"
+    },
+    {
+      "codePoint": 1209,
+      "uppercase": "Ҹ"
+    },
+    {
+      "codePoint": 1211,
+      "uppercase": "Һ"
+    },
+    {
+      "codePoint": 1213,
+      "uppercase": "Ҽ"
+    },
+    {
+      "codePoint": 1215,
+      "uppercase": "Ҿ"
+    },
+    {
+      "codePoint": 1218,
+      "uppercase": "Ӂ"
+    },
+    {
+      "codePoint": 1220,
+      "uppercase": "Ӄ"
+    },
+    {
+      "codePoint": 1222,
+      "uppercase": "Ӆ"
+    },
+    {
+      "codePoint": 1224,
+      "uppercase": "Ӈ"
+    },
+    {
+      "codePoint": 1226,
+      "uppercase": "Ӊ"
+    },
+    {
+      "codePoint": 1228,
+      "uppercase": "Ӌ"
+    },
+    {
+      "codePoint": 1230,
+      "uppercase": "Ӎ"
+    },
+    {
+      "codePoint": 1231,
+      "uppercase": "Ӏ"
+    },
+    {
+      "codePoint": 1233,
+      "uppercase": "Ӑ"
+    },
+    {
+      "codePoint": 1235,
+      "uppercase": "Ӓ"
+    },
+    {
+      "codePoint": 1237,
+      "uppercase": "Ӕ"
+    },
+    {
+      "codePoint": 1239,
+      "uppercase": "Ӗ"
+    },
+    {
+      "codePoint": 1241,
+      "uppercase": "Ә"
+    },
+    {
+      "codePoint": 1243,
+      "uppercase": "Ӛ"
+    },
+    {
+      "codePoint": 1245,
+      "uppercase": "Ӝ"
+    },
+    {
+      "codePoint": 1247,
+      "uppercase": "Ӟ"
+    },
+    {
+      "codePoint": 1249,
+      "uppercase": "Ӡ"
+    },
+    {
+      "codePoint": 1251,
+      "uppercase": "Ӣ"
+    },
+    {
+      "codePoint": 1253,
+      "uppercase": "Ӥ"
+    },
+    {
+      "codePoint": 1255,
+      "uppercase": "Ӧ"
+    },
+    {
+      "codePoint": 1257,
+      "uppercase": "Ө"
+    },
+    {
+      "codePoint": 1259,
+      "uppercase": "Ӫ"
+    },
+    {
+      "codePoint": 1261,
+      "uppercase": "Ӭ"
+    },
+    {
+      "codePoint": 1263,
+      "uppercase": "Ӯ"
+    },
+    {
+      "codePoint": 1265,
+      "uppercase": "Ӱ"
+    },
+    {
+      "codePoint": 1267,
+      "uppercase": "Ӳ"
+    },
+    {
+      "codePoint": 1269,
+      "uppercase": "Ӵ"
+    },
+    {
+      "codePoint": 1271,
+      "uppercase": "Ӷ"
+    },
+    {
+      "codePoint": 1273,
+      "uppercase": "Ӹ"
+    },
+    {
+      "codePoint": 1275,
+      "uppercase": "Ӻ"
+    },
+    {
+      "codePoint": 1277,
+      "uppercase": "Ӽ"
+    },
+    {
+      "codePoint": 1279,
+      "uppercase": "Ӿ"
+    },
+    {
+      "codePoint": 1281,
+      "uppercase": "Ԁ"
+    },
+    {
+      "codePoint": 1283,
+      "uppercase": "Ԃ"
+    },
+    {
+      "codePoint": 1285,
+      "uppercase": "Ԅ"
+    },
+    {
+      "codePoint": 1287,
+      "uppercase": "Ԇ"
+    },
+    {
+      "codePoint": 1289,
+      "uppercase": "Ԉ"
+    },
+    {
+      "codePoint": 1291,
+      "uppercase": "Ԋ"
+    },
+    {
+      "codePoint": 1293,
+      "uppercase": "Ԍ"
+    },
+    {
+      "codePoint": 1295,
+      "uppercase": "Ԏ"
+    },
+    {
+      "codePoint": 1297,
+      "uppercase": "Ԑ"
+    },
+    {
+      "codePoint": 1299,
+      "uppercase": "Ԓ"
+    },
+    {
+      "codePoint": 1301,
+      "uppercase": "Ԕ"
+    },
+    {
+      "codePoint": 1303,
+      "uppercase": "Ԗ"
+    },
+    {
+      "codePoint": 1305,
+      "uppercase": "Ԙ"
+    },
+    {
+      "codePoint": 1307,
+      "uppercase": "Ԛ"
+    },
+    {
+      "codePoint": 1309,
+      "uppercase": "Ԝ"
+    },
+    {
+      "codePoint": 1311,
+      "uppercase": "Ԟ"
+    },
+    {
+      "codePoint": 1313,
+      "uppercase": "Ԡ"
+    },
+    {
+      "codePoint": 1315,
+      "uppercase": "Ԣ"
+    },
+    {
+      "codePoint": 1317,
+      "uppercase": "Ԥ"
+    },
+    {
+      "codePoint": 1319,
+      "uppercase": "Ԧ"
+    },
+    {
+      "codePoint": 1321,
+      "uppercase": "Ԩ"
+    },
+    {
+      "codePoint": 1323,
+      "uppercase": "Ԫ"
+    },
+    {
+      "codePoint": 1325,
+      "uppercase": "Ԭ"
+    },
+    {
+      "codePoint": 1327,
+      "uppercase": "Ԯ"
+    },
+    {
+      "codePoint": 1377,
+      "uppercase": "Ա"
+    },
+    {
+      "codePoint": 1378,
+      "uppercase": "Բ"
+    },
+    {
+      "codePoint": 1379,
+      "uppercase": "Գ"
+    },
+    {
+      "codePoint": 1380,
+      "uppercase": "Դ"
+    },
+    {
+      "codePoint": 1381,
+      "uppercase": "Ե"
+    },
+    {
+      "codePoint": 1382,
+      "uppercase": "Զ"
+    },
+    {
+      "codePoint": 1383,
+      "uppercase": "Է"
+    },
+    {
+      "codePoint": 1384,
+      "uppercase": "Ը"
+    },
+    {
+      "codePoint": 1385,
+      "uppercase": "Թ"
+    },
+    {
+      "codePoint": 1386,
+      "uppercase": "Ժ"
+    },
+    {
+      "codePoint": 1387,
+      "uppercase": "Ի"
+    },
+    {
+      "codePoint": 1388,
+      "uppercase": "Լ"
+    },
+    {
+      "codePoint": 1389,
+      "uppercase": "Խ"
+    },
+    {
+      "codePoint": 1390,
+      "uppercase": "Ծ"
+    },
+    {
+      "codePoint": 1391,
+      "uppercase": "Կ"
+    },
+    {
+      "codePoint": 1392,
+      "uppercase": "Հ"
+    },
+    {
+      "codePoint": 1393,
+      "uppercase": "Ձ"
+    },
+    {
+      "codePoint": 1394,
+      "uppercase": "Ղ"
+    },
+    {
+      "codePoint": 1395,
+      "uppercase": "Ճ"
+    },
+    {
+      "codePoint": 1396,
+      "uppercase": "Մ"
+    },
+    {
+      "codePoint": 1397,
+      "uppercase": "Յ"
+    },
+    {
+      "codePoint": 1398,
+      "uppercase": "Ն"
+    },
+    {
+      "codePoint": 1399,
+      "uppercase": "Շ"
+    },
+    {
+      "codePoint": 1400,
+      "uppercase": "Ո"
+    },
+    {
+      "codePoint": 1401,
+      "uppercase": "Չ"
+    },
+    {
+      "codePoint": 1402,
+      "uppercase": "Պ"
+    },
+    {
+      "codePoint": 1403,
+      "uppercase": "Ջ"
+    },
+    {
+      "codePoint": 1404,
+      "uppercase": "Ռ"
+    },
+    {
+      "codePoint": 1405,
+      "uppercase": "Ս"
+    },
+    {
+      "codePoint": 1406,
+      "uppercase": "Վ"
+    },
+    {
+      "codePoint": 1407,
+      "uppercase": "Տ"
+    },
+    {
+      "codePoint": 1408,
+      "uppercase": "Ր"
+    },
+    {
+      "codePoint": 1409,
+      "uppercase": "Ց"
+    },
+    {
+      "codePoint": 1410,
+      "uppercase": "Ւ"
+    },
+    {
+      "codePoint": 1411,
+      "uppercase": "Փ"
+    },
+    {
+      "codePoint": 1412,
+      "uppercase": "Ք"
+    },
+    {
+      "codePoint": 1413,
+      "uppercase": "Օ"
+    },
+    {
+      "codePoint": 1414,
+      "uppercase": "Ֆ"
+    },
+    {
+      "codePoint": 1415,
+      "uppercase": "ԵՒ"
+    },
+    {
+      "codePoint": 4304,
+      "uppercase": "Ა"
+    },
+    {
+      "codePoint": 4305,
+      "uppercase": "Ბ"
+    },
+    {
+      "codePoint": 4306,
+      "uppercase": "Გ"
+    },
+    {
+      "codePoint": 4307,
+      "uppercase": "Დ"
+    },
+    {
+      "codePoint": 4308,
+      "uppercase": "Ე"
+    },
+    {
+      "codePoint": 4309,
+      "uppercase": "Ვ"
+    },
+    {
+      "codePoint": 4310,
+      "uppercase": "Ზ"
+    },
+    {
+      "codePoint": 4311,
+      "uppercase": "Თ"
+    },
+    {
+      "codePoint": 4312,
+      "uppercase": "Ი"
+    },
+    {
+      "codePoint": 4313,
+      "uppercase": "Კ"
+    },
+    {
+      "codePoint": 4314,
+      "uppercase": "Ლ"
+    },
+    {
+      "codePoint": 4315,
+      "uppercase": "Მ"
+    },
+    {
+      "codePoint": 4316,
+      "uppercase": "Ნ"
+    },
+    {
+      "codePoint": 4317,
+      "uppercase": "Ო"
+    },
+    {
+      "codePoint": 4318,
+      "uppercase": "Პ"
+    },
+    {
+      "codePoint": 4319,
+      "uppercase": "Ჟ"
+    },
+    {
+      "codePoint": 4320,
+      "uppercase": "Რ"
+    },
+    {
+      "codePoint": 4321,
+      "uppercase": "Ს"
+    },
+    {
+      "codePoint": 4322,
+      "uppercase": "Ტ"
+    },
+    {
+      "codePoint": 4323,
+      "uppercase": "Უ"
+    },
+    {
+      "codePoint": 4324,
+      "uppercase": "Ფ"
+    },
+    {
+      "codePoint": 4325,
+      "uppercase": "Ქ"
+    },
+    {
+      "codePoint": 4326,
+      "uppercase": "Ღ"
+    },
+    {
+      "codePoint": 4327,
+      "uppercase": "Ყ"
+    },
+    {
+      "codePoint": 4328,
+      "uppercase": "Შ"
+    },
+    {
+      "codePoint": 4329,
+      "uppercase": "Ჩ"
+    },
+    {
+      "codePoint": 4330,
+      "uppercase": "Ც"
+    },
+    {
+      "codePoint": 4331,
+      "uppercase": "Ძ"
+    },
+    {
+      "codePoint": 4332,
+      "uppercase": "Წ"
+    },
+    {
+      "codePoint": 4333,
+      "uppercase": "Ჭ"
+    },
+    {
+      "codePoint": 4334,
+      "uppercase": "Ხ"
+    },
+    {
+      "codePoint": 4335,
+      "uppercase": "Ჯ"
+    },
+    {
+      "codePoint": 4336,
+      "uppercase": "Ჰ"
+    },
+    {
+      "codePoint": 4337,
+      "uppercase": "Ჱ"
+    },
+    {
+      "codePoint": 4338,
+      "uppercase": "Ჲ"
+    },
+    {
+      "codePoint": 4339,
+      "uppercase": "Ჳ"
+    },
+    {
+      "codePoint": 4340,
+      "uppercase": "Ჴ"
+    },
+    {
+      "codePoint": 4341,
+      "uppercase": "Ჵ"
+    },
+    {
+      "codePoint": 4342,
+      "uppercase": "Ჶ"
+    },
+    {
+      "codePoint": 4343,
+      "uppercase": "Ჷ"
+    },
+    {
+      "codePoint": 4344,
+      "uppercase": "Ჸ"
+    },
+    {
+      "codePoint": 4345,
+      "uppercase": "Ჹ"
+    },
+    {
+      "codePoint": 4346,
+      "uppercase": "Ჺ"
+    },
+    {
+      "codePoint": 4349,
+      "uppercase": "Ჽ"
+    },
+    {
+      "codePoint": 4350,
+      "uppercase": "Ჾ"
+    },
+    {
+      "codePoint": 4351,
+      "uppercase": "Ჿ"
+    },
+    {
+      "codePoint": 5112,
+      "uppercase": "Ᏸ"
+    },
+    {
+      "codePoint": 5113,
+      "uppercase": "Ᏹ"
+    },
+    {
+      "codePoint": 5114,
+      "uppercase": "Ᏺ"
+    },
+    {
+      "codePoint": 5115,
+      "uppercase": "Ᏻ"
+    },
+    {
+      "codePoint": 5116,
+      "uppercase": "Ᏼ"
+    },
+    {
+      "codePoint": 5117,
+      "uppercase": "Ᏽ"
+    },
+    {
+      "codePoint": 7296,
+      "uppercase": "В"
+    },
+    {
+      "codePoint": 7297,
+      "uppercase": "Д"
+    },
+    {
+      "codePoint": 7298,
+      "uppercase": "О"
+    },
+    {
+      "codePoint": 7299,
+      "uppercase": "С"
+    },
+    {
+      "codePoint": 7300,
+      "uppercase": "Т"
+    },
+    {
+      "codePoint": 7301,
+      "uppercase": "Т"
+    },
+    {
+      "codePoint": 7302,
+      "uppercase": "Ъ"
+    },
+    {
+      "codePoint": 7303,
+      "uppercase": "Ѣ"
+    },
+    {
+      "codePoint": 7304,
+      "uppercase": "Ꙋ"
+    },
+    {
+      "codePoint": 7306,
+      "uppercase": "Ᲊ"
+    },
+    {
+      "codePoint": 7545,
+      "uppercase": "Ᵹ"
+    },
+    {
+      "codePoint": 7549,
+      "uppercase": "Ᵽ"
+    },
+    {
+      "codePoint": 7566,
+      "uppercase": "Ᶎ"
+    },
+    {
+      "codePoint": 7681,
+      "uppercase": "Ḁ"
+    },
+    {
+      "codePoint": 7683,
+      "uppercase": "Ḃ"
+    },
+    {
+      "codePoint": 7685,
+      "uppercase": "Ḅ"
+    },
+    {
+      "codePoint": 7687,
+      "uppercase": "Ḇ"
+    },
+    {
+      "codePoint": 7689,
+      "uppercase": "Ḉ"
+    },
+    {
+      "codePoint": 7691,
+      "uppercase": "Ḋ"
+    },
+    {
+      "codePoint": 7693,
+      "uppercase": "Ḍ"
+    },
+    {
+      "codePoint": 7695,
+      "uppercase": "Ḏ"
+    },
+    {
+      "codePoint": 7697,
+      "uppercase": "Ḑ"
+    },
+    {
+      "codePoint": 7699,
+      "uppercase": "Ḓ"
+    },
+    {
+      "codePoint": 7701,
+      "uppercase": "Ḕ"
+    },
+    {
+      "codePoint": 7703,
+      "uppercase": "Ḗ"
+    },
+    {
+      "codePoint": 7705,
+      "uppercase": "Ḙ"
+    },
+    {
+      "codePoint": 7707,
+      "uppercase": "Ḛ"
+    },
+    {
+      "codePoint": 7709,
+      "uppercase": "Ḝ"
+    },
+    {
+      "codePoint": 7711,
+      "uppercase": "Ḟ"
+    },
+    {
+      "codePoint": 7713,
+      "uppercase": "Ḡ"
+    },
+    {
+      "codePoint": 7715,
+      "uppercase": "Ḣ"
+    },
+    {
+      "codePoint": 7717,
+      "uppercase": "Ḥ"
+    },
+    {
+      "codePoint": 7719,
+      "uppercase": "Ḧ"
+    },
+    {
+      "codePoint": 7721,
+      "uppercase": "Ḩ"
+    },
+    {
+      "codePoint": 7723,
+      "uppercase": "Ḫ"
+    },
+    {
+      "codePoint": 7725,
+      "uppercase": "Ḭ"
+    },
+    {
+      "codePoint": 7727,
+      "uppercase": "Ḯ"
+    },
+    {
+      "codePoint": 7729,
+      "uppercase": "Ḱ"
+    },
+    {
+      "codePoint": 7731,
+      "uppercase": "Ḳ"
+    },
+    {
+      "codePoint": 7733,
+      "uppercase": "Ḵ"
+    },
+    {
+      "codePoint": 7735,
+      "uppercase": "Ḷ"
+    },
+    {
+      "codePoint": 7737,
+      "uppercase": "Ḹ"
+    },
+    {
+      "codePoint": 7739,
+      "uppercase": "Ḻ"
+    },
+    {
+      "codePoint": 7741,
+      "uppercase": "Ḽ"
+    },
+    {
+      "codePoint": 7743,
+      "uppercase": "Ḿ"
+    },
+    {
+      "codePoint": 7745,
+      "uppercase": "Ṁ"
+    },
+    {
+      "codePoint": 7747,
+      "uppercase": "Ṃ"
+    },
+    {
+      "codePoint": 7749,
+      "uppercase": "Ṅ"
+    },
+    {
+      "codePoint": 7751,
+      "uppercase": "Ṇ"
+    },
+    {
+      "codePoint": 7753,
+      "uppercase": "Ṉ"
+    },
+    {
+      "codePoint": 7755,
+      "uppercase": "Ṋ"
+    },
+    {
+      "codePoint": 7757,
+      "uppercase": "Ṍ"
+    },
+    {
+      "codePoint": 7759,
+      "uppercase": "Ṏ"
+    },
+    {
+      "codePoint": 7761,
+      "uppercase": "Ṑ"
+    },
+    {
+      "codePoint": 7763,
+      "uppercase": "Ṓ"
+    },
+    {
+      "codePoint": 7765,
+      "uppercase": "Ṕ"
+    },
+    {
+      "codePoint": 7767,
+      "uppercase": "Ṗ"
+    },
+    {
+      "codePoint": 7769,
+      "uppercase": "Ṙ"
+    },
+    {
+      "codePoint": 7771,
+      "uppercase": "Ṛ"
+    },
+    {
+      "codePoint": 7773,
+      "uppercase": "Ṝ"
+    },
+    {
+      "codePoint": 7775,
+      "uppercase": "Ṟ"
+    },
+    {
+      "codePoint": 7777,
+      "uppercase": "Ṡ"
+    },
+    {
+      "codePoint": 7779,
+      "uppercase": "Ṣ"
+    },
+    {
+      "codePoint": 7781,
+      "uppercase": "Ṥ"
+    },
+    {
+      "codePoint": 7783,
+      "uppercase": "Ṧ"
+    },
+    {
+      "codePoint": 7785,
+      "uppercase": "Ṩ"
+    },
+    {
+      "codePoint": 7787,
+      "uppercase": "Ṫ"
+    },
+    {
+      "codePoint": 7789,
+      "uppercase": "Ṭ"
+    },
+    {
+      "codePoint": 7791,
+      "uppercase": "Ṯ"
+    },
+    {
+      "codePoint": 7793,
+      "uppercase": "Ṱ"
+    },
+    {
+      "codePoint": 7795,
+      "uppercase": "Ṳ"
+    },
+    {
+      "codePoint": 7797,
+      "uppercase": "Ṵ"
+    },
+    {
+      "codePoint": 7799,
+      "uppercase": "Ṷ"
+    },
+    {
+      "codePoint": 7801,
+      "uppercase": "Ṹ"
+    },
+    {
+      "codePoint": 7803,
+      "uppercase": "Ṻ"
+    },
+    {
+      "codePoint": 7805,
+      "uppercase": "Ṽ"
+    },
+    {
+      "codePoint": 7807,
+      "uppercase": "Ṿ"
+    },
+    {
+      "codePoint": 7809,
+      "uppercase": "Ẁ"
+    },
+    {
+      "codePoint": 7811,
+      "uppercase": "Ẃ"
+    },
+    {
+      "codePoint": 7813,
+      "uppercase": "Ẅ"
+    },
+    {
+      "codePoint": 7815,
+      "uppercase": "Ẇ"
+    },
+    {
+      "codePoint": 7817,
+      "uppercase": "Ẉ"
+    },
+    {
+      "codePoint": 7819,
+      "uppercase": "Ẋ"
+    },
+    {
+      "codePoint": 7821,
+      "uppercase": "Ẍ"
+    },
+    {
+      "codePoint": 7823,
+      "uppercase": "Ẏ"
+    },
+    {
+      "codePoint": 7825,
+      "uppercase": "Ẑ"
+    },
+    {
+      "codePoint": 7827,
+      "uppercase": "Ẓ"
+    },
+    {
+      "codePoint": 7829,
+      "uppercase": "Ẕ"
+    },
+    {
+      "codePoint": 7830,
+      "uppercase": "H̱"
+    },
+    {
+      "codePoint": 7831,
+      "uppercase": "T̈"
+    },
+    {
+      "codePoint": 7832,
+      "uppercase": "W̊"
+    },
+    {
+      "codePoint": 7833,
+      "uppercase": "Y̊"
+    },
+    {
+      "codePoint": 7834,
+      "uppercase": "Aʾ"
+    },
+    {
+      "codePoint": 7835,
+      "uppercase": "Ṡ"
+    },
+    {
+      "codePoint": 7841,
+      "uppercase": "Ạ"
+    },
+    {
+      "codePoint": 7843,
+      "uppercase": "Ả"
+    },
+    {
+      "codePoint": 7845,
+      "uppercase": "Ấ"
+    },
+    {
+      "codePoint": 7847,
+      "uppercase": "Ầ"
+    },
+    {
+      "codePoint": 7849,
+      "uppercase": "Ẩ"
+    },
+    {
+      "codePoint": 7851,
+      "uppercase": "Ẫ"
+    },
+    {
+      "codePoint": 7853,
+      "uppercase": "Ậ"
+    },
+    {
+      "codePoint": 7855,
+      "uppercase": "Ắ"
+    },
+    {
+      "codePoint": 7857,
+      "uppercase": "Ằ"
+    },
+    {
+      "codePoint": 7859,
+      "uppercase": "Ẳ"
+    },
+    {
+      "codePoint": 7861,
+      "uppercase": "Ẵ"
+    },
+    {
+      "codePoint": 7863,
+      "uppercase": "Ặ"
+    },
+    {
+      "codePoint": 7865,
+      "uppercase": "Ẹ"
+    },
+    {
+      "codePoint": 7867,
+      "uppercase": "Ẻ"
+    },
+    {
+      "codePoint": 7869,
+      "uppercase": "Ẽ"
+    },
+    {
+      "codePoint": 7871,
+      "uppercase": "Ế"
+    },
+    {
+      "codePoint": 7873,
+      "uppercase": "Ề"
+    },
+    {
+      "codePoint": 7875,
+      "uppercase": "Ể"
+    },
+    {
+      "codePoint": 7877,
+      "uppercase": "Ễ"
+    },
+    {
+      "codePoint": 7879,
+      "uppercase": "Ệ"
+    },
+    {
+      "codePoint": 7881,
+      "uppercase": "Ỉ"
+    },
+    {
+      "codePoint": 7883,
+      "uppercase": "Ị"
+    },
+    {
+      "codePoint": 7885,
+      "uppercase": "Ọ"
+    },
+    {
+      "codePoint": 7887,
+      "uppercase": "Ỏ"
+    },
+    {
+      "codePoint": 7889,
+      "uppercase": "Ố"
+    },
+    {
+      "codePoint": 7891,
+      "uppercase": "Ồ"
+    },
+    {
+      "codePoint": 7893,
+      "uppercase": "Ổ"
+    },
+    {
+      "codePoint": 7895,
+      "uppercase": "Ỗ"
+    },
+    {
+      "codePoint": 7897,
+      "uppercase": "Ộ"
+    },
+    {
+      "codePoint": 7899,
+      "uppercase": "Ớ"
+    },
+    {
+      "codePoint": 7901,
+      "uppercase": "Ờ"
+    },
+    {
+      "codePoint": 7903,
+      "uppercase": "Ở"
+    },
+    {
+      "codePoint": 7905,
+      "uppercase": "Ỡ"
+    },
+    {
+      "codePoint": 7907,
+      "uppercase": "Ợ"
+    },
+    {
+      "codePoint": 7909,
+      "uppercase": "Ụ"
+    },
+    {
+      "codePoint": 7911,
+      "uppercase": "Ủ"
+    },
+    {
+      "codePoint": 7913,
+      "uppercase": "Ứ"
+    },
+    {
+      "codePoint": 7915,
+      "uppercase": "Ừ"
+    },
+    {
+      "codePoint": 7917,
+      "uppercase": "Ử"
+    },
+    {
+      "codePoint": 7919,
+      "uppercase": "Ữ"
+    },
+    {
+      "codePoint": 7921,
+      "uppercase": "Ự"
+    },
+    {
+      "codePoint": 7923,
+      "uppercase": "Ỳ"
+    },
+    {
+      "codePoint": 7925,
+      "uppercase": "Ỵ"
+    },
+    {
+      "codePoint": 7927,
+      "uppercase": "Ỷ"
+    },
+    {
+      "codePoint": 7929,
+      "uppercase": "Ỹ"
+    },
+    {
+      "codePoint": 7931,
+      "uppercase": "Ỻ"
+    },
+    {
+      "codePoint": 7933,
+      "uppercase": "Ỽ"
+    },
+    {
+      "codePoint": 7935,
+      "uppercase": "Ỿ"
+    },
+    {
+      "codePoint": 7936,
+      "uppercase": "Ἀ"
+    },
+    {
+      "codePoint": 7937,
+      "uppercase": "Ἁ"
+    },
+    {
+      "codePoint": 7938,
+      "uppercase": "Ἂ"
+    },
+    {
+      "codePoint": 7939,
+      "uppercase": "Ἃ"
+    },
+    {
+      "codePoint": 7940,
+      "uppercase": "Ἄ"
+    },
+    {
+      "codePoint": 7941,
+      "uppercase": "Ἅ"
+    },
+    {
+      "codePoint": 7942,
+      "uppercase": "Ἆ"
+    },
+    {
+      "codePoint": 7943,
+      "uppercase": "Ἇ"
+    },
+    {
+      "codePoint": 7952,
+      "uppercase": "Ἐ"
+    },
+    {
+      "codePoint": 7953,
+      "uppercase": "Ἑ"
+    },
+    {
+      "codePoint": 7954,
+      "uppercase": "Ἒ"
+    },
+    {
+      "codePoint": 7955,
+      "uppercase": "Ἓ"
+    },
+    {
+      "codePoint": 7956,
+      "uppercase": "Ἔ"
+    },
+    {
+      "codePoint": 7957,
+      "uppercase": "Ἕ"
+    },
+    {
+      "codePoint": 7968,
+      "uppercase": "Ἠ"
+    },
+    {
+      "codePoint": 7969,
+      "uppercase": "Ἡ"
+    },
+    {
+      "codePoint": 7970,
+      "uppercase": "Ἢ"
+    },
+    {
+      "codePoint": 7971,
+      "uppercase": "Ἣ"
+    },
+    {
+      "codePoint": 7972,
+      "uppercase": "Ἤ"
+    },
+    {
+      "codePoint": 7973,
+      "uppercase": "Ἥ"
+    },
+    {
+      "codePoint": 7974,
+      "uppercase": "Ἦ"
+    },
+    {
+      "codePoint": 7975,
+      "uppercase": "Ἧ"
+    },
+    {
+      "codePoint": 7984,
+      "uppercase": "Ἰ"
+    },
+    {
+      "codePoint": 7985,
+      "uppercase": "Ἱ"
+    },
+    {
+      "codePoint": 7986,
+      "uppercase": "Ἲ"
+    },
+    {
+      "codePoint": 7987,
+      "uppercase": "Ἳ"
+    },
+    {
+      "codePoint": 7988,
+      "uppercase": "Ἴ"
+    },
+    {
+      "codePoint": 7989,
+      "uppercase": "Ἵ"
+    },
+    {
+      "codePoint": 7990,
+      "uppercase": "Ἶ"
+    },
+    {
+      "codePoint": 7991,
+      "uppercase": "Ἷ"
+    },
+    {
+      "codePoint": 8000,
+      "uppercase": "Ὀ"
+    },
+    {
+      "codePoint": 8001,
+      "uppercase": "Ὁ"
+    },
+    {
+      "codePoint": 8002,
+      "uppercase": "Ὂ"
+    },
+    {
+      "codePoint": 8003,
+      "uppercase": "Ὃ"
+    },
+    {
+      "codePoint": 8004,
+      "uppercase": "Ὄ"
+    },
+    {
+      "codePoint": 8005,
+      "uppercase": "Ὅ"
+    },
+    {
+      "codePoint": 8016,
+      "uppercase": "Υ̓"
+    },
+    {
+      "codePoint": 8017,
+      "uppercase": "Ὑ"
+    },
+    {
+      "codePoint": 8018,
+      "uppercase": "Υ̓̀"
+    },
+    {
+      "codePoint": 8019,
+      "uppercase": "Ὓ"
+    },
+    {
+      "codePoint": 8020,
+      "uppercase": "Υ̓́"
+    },
+    {
+      "codePoint": 8021,
+      "uppercase": "Ὕ"
+    },
+    {
+      "codePoint": 8022,
+      "uppercase": "Υ̓͂"
+    },
+    {
+      "codePoint": 8023,
+      "uppercase": "Ὗ"
+    },
+    {
+      "codePoint": 8032,
+      "uppercase": "Ὠ"
+    },
+    {
+      "codePoint": 8033,
+      "uppercase": "Ὡ"
+    },
+    {
+      "codePoint": 8034,
+      "uppercase": "Ὢ"
+    },
+    {
+      "codePoint": 8035,
+      "uppercase": "Ὣ"
+    },
+    {
+      "codePoint": 8036,
+      "uppercase": "Ὤ"
+    },
+    {
+      "codePoint": 8037,
+      "uppercase": "Ὥ"
+    },
+    {
+      "codePoint": 8038,
+      "uppercase": "Ὦ"
+    },
+    {
+      "codePoint": 8039,
+      "uppercase": "Ὧ"
+    },
+    {
+      "codePoint": 8048,
+      "uppercase": "Ὰ"
+    },
+    {
+      "codePoint": 8049,
+      "uppercase": "Ά"
+    },
+    {
+      "codePoint": 8050,
+      "uppercase": "Ὲ"
+    },
+    {
+      "codePoint": 8051,
+      "uppercase": "Έ"
+    },
+    {
+      "codePoint": 8052,
+      "uppercase": "Ὴ"
+    },
+    {
+      "codePoint": 8053,
+      "uppercase": "Ή"
+    },
+    {
+      "codePoint": 8054,
+      "uppercase": "Ὶ"
+    },
+    {
+      "codePoint": 8055,
+      "uppercase": "Ί"
+    },
+    {
+      "codePoint": 8056,
+      "uppercase": "Ὸ"
+    },
+    {
+      "codePoint": 8057,
+      "uppercase": "Ό"
+    },
+    {
+      "codePoint": 8058,
+      "uppercase": "Ὺ"
+    },
+    {
+      "codePoint": 8059,
+      "uppercase": "Ύ"
+    },
+    {
+      "codePoint": 8060,
+      "uppercase": "Ὼ"
+    },
+    {
+      "codePoint": 8061,
+      "uppercase": "Ώ"
+    },
+    {
+      "codePoint": 8064,
+      "uppercase": "ἈΙ"
+    },
+    {
+      "codePoint": 8065,
+      "uppercase": "ἉΙ"
+    },
+    {
+      "codePoint": 8066,
+      "uppercase": "ἊΙ"
+    },
+    {
+      "codePoint": 8067,
+      "uppercase": "ἋΙ"
+    },
+    {
+      "codePoint": 8068,
+      "uppercase": "ἌΙ"
+    },
+    {
+      "codePoint": 8069,
+      "uppercase": "ἍΙ"
+    },
+    {
+      "codePoint": 8070,
+      "uppercase": "ἎΙ"
+    },
+    {
+      "codePoint": 8071,
+      "uppercase": "ἏΙ"
+    },
+    {
+      "codePoint": 8072,
+      "uppercase": "ἈΙ"
+    },
+    {
+      "codePoint": 8073,
+      "uppercase": "ἉΙ"
+    },
+    {
+      "codePoint": 8074,
+      "uppercase": "ἊΙ"
+    },
+    {
+      "codePoint": 8075,
+      "uppercase": "ἋΙ"
+    },
+    {
+      "codePoint": 8076,
+      "uppercase": "ἌΙ"
+    },
+    {
+      "codePoint": 8077,
+      "uppercase": "ἍΙ"
+    },
+    {
+      "codePoint": 8078,
+      "uppercase": "ἎΙ"
+    },
+    {
+      "codePoint": 8079,
+      "uppercase": "ἏΙ"
+    },
+    {
+      "codePoint": 8080,
+      "uppercase": "ἨΙ"
+    },
+    {
+      "codePoint": 8081,
+      "uppercase": "ἩΙ"
+    },
+    {
+      "codePoint": 8082,
+      "uppercase": "ἪΙ"
+    },
+    {
+      "codePoint": 8083,
+      "uppercase": "ἫΙ"
+    },
+    {
+      "codePoint": 8084,
+      "uppercase": "ἬΙ"
+    },
+    {
+      "codePoint": 8085,
+      "uppercase": "ἭΙ"
+    },
+    {
+      "codePoint": 8086,
+      "uppercase": "ἮΙ"
+    },
+    {
+      "codePoint": 8087,
+      "uppercase": "ἯΙ"
+    },
+    {
+      "codePoint": 8088,
+      "uppercase": "ἨΙ"
+    },
+    {
+      "codePoint": 8089,
+      "uppercase": "ἩΙ"
+    },
+    {
+      "codePoint": 8090,
+      "uppercase": "ἪΙ"
+    },
+    {
+      "codePoint": 8091,
+      "uppercase": "ἫΙ"
+    },
+    {
+      "codePoint": 8092,
+      "uppercase": "ἬΙ"
+    },
+    {
+      "codePoint": 8093,
+      "uppercase": "ἭΙ"
+    },
+    {
+      "codePoint": 8094,
+      "uppercase": "ἮΙ"
+    },
+    {
+      "codePoint": 8095,
+      "uppercase": "ἯΙ"
+    },
+    {
+      "codePoint": 8096,
+      "uppercase": "ὨΙ"
+    },
+    {
+      "codePoint": 8097,
+      "uppercase": "ὩΙ"
+    },
+    {
+      "codePoint": 8098,
+      "uppercase": "ὪΙ"
+    },
+    {
+      "codePoint": 8099,
+      "uppercase": "ὫΙ"
+    },
+    {
+      "codePoint": 8100,
+      "uppercase": "ὬΙ"
+    },
+    {
+      "codePoint": 8101,
+      "uppercase": "ὭΙ"
+    },
+    {
+      "codePoint": 8102,
+      "uppercase": "ὮΙ"
+    },
+    {
+      "codePoint": 8103,
+      "uppercase": "ὯΙ"
+    },
+    {
+      "codePoint": 8104,
+      "uppercase": "ὨΙ"
+    },
+    {
+      "codePoint": 8105,
+      "uppercase": "ὩΙ"
+    },
+    {
+      "codePoint": 8106,
+      "uppercase": "ὪΙ"
+    },
+    {
+      "codePoint": 8107,
+      "uppercase": "ὫΙ"
+    },
+    {
+      "codePoint": 8108,
+      "uppercase": "ὬΙ"
+    },
+    {
+      "codePoint": 8109,
+      "uppercase": "ὭΙ"
+    },
+    {
+      "codePoint": 8110,
+      "uppercase": "ὮΙ"
+    },
+    {
+      "codePoint": 8111,
+      "uppercase": "ὯΙ"
+    },
+    {
+      "codePoint": 8112,
+      "uppercase": "Ᾰ"
+    },
+    {
+      "codePoint": 8113,
+      "uppercase": "Ᾱ"
+    },
+    {
+      "codePoint": 8114,
+      "uppercase": "ᾺΙ"
+    },
+    {
+      "codePoint": 8115,
+      "uppercase": "ΑΙ"
+    },
+    {
+      "codePoint": 8116,
+      "uppercase": "ΆΙ"
+    },
+    {
+      "codePoint": 8118,
+      "uppercase": "Α͂"
+    },
+    {
+      "codePoint": 8119,
+      "uppercase": "Α͂Ι"
+    },
+    {
+      "codePoint": 8124,
+      "uppercase": "ΑΙ"
+    },
+    {
+      "codePoint": 8126,
+      "uppercase": "Ι"
+    },
+    {
+      "codePoint": 8130,
+      "uppercase": "ῊΙ"
+    },
+    {
+      "codePoint": 8131,
+      "uppercase": "ΗΙ"
+    },
+    {
+      "codePoint": 8132,
+      "uppercase": "ΉΙ"
+    },
+    {
+      "codePoint": 8134,
+      "uppercase": "Η͂"
+    },
+    {
+      "codePoint": 8135,
+      "uppercase": "Η͂Ι"
+    },
+    {
+      "codePoint": 8140,
+      "uppercase": "ΗΙ"
+    },
+    {
+      "codePoint": 8144,
+      "uppercase": "Ῐ"
+    },
+    {
+      "codePoint": 8145,
+      "uppercase": "Ῑ"
+    },
+    {
+      "codePoint": 8146,
+      "uppercase": "Ϊ̀"
+    },
+    {
+      "codePoint": 8147,
+      "uppercase": "Ϊ́"
+    },
+    {
+      "codePoint": 8150,
+      "uppercase": "Ι͂"
+    },
+    {
+      "codePoint": 8151,
+      "uppercase": "Ϊ͂"
+    },
+    {
+      "codePoint": 8160,
+      "uppercase": "Ῠ"
+    },
+    {
+      "codePoint": 8161,
+      "uppercase": "Ῡ"
+    },
+    {
+      "codePoint": 8162,
+      "uppercase": "Ϋ̀"
+    },
+    {
+      "codePoint": 8163,
+      "uppercase": "Ϋ́"
+    },
+    {
+      "codePoint": 8164,
+      "uppercase": "Ρ̓"
+    },
+    {
+      "codePoint": 8165,
+      "uppercase": "Ῥ"
+    },
+    {
+      "codePoint": 8166,
+      "uppercase": "Υ͂"
+    },
+    {
+      "codePoint": 8167,
+      "uppercase": "Ϋ͂"
+    },
+    {
+      "codePoint": 8178,
+      "uppercase": "ῺΙ"
+    },
+    {
+      "codePoint": 8179,
+      "uppercase": "ΩΙ"
+    },
+    {
+      "codePoint": 8180,
+      "uppercase": "ΏΙ"
+    },
+    {
+      "codePoint": 8182,
+      "uppercase": "Ω͂"
+    },
+    {
+      "codePoint": 8183,
+      "uppercase": "Ω͂Ι"
+    },
+    {
+      "codePoint": 8188,
+      "uppercase": "ΩΙ"
+    },
+    {
+      "codePoint": 8526,
+      "uppercase": "Ⅎ"
+    },
+    {
+      "codePoint": 8560,
+      "uppercase": "Ⅰ"
+    },
+    {
+      "codePoint": 8561,
+      "uppercase": "Ⅱ"
+    },
+    {
+      "codePoint": 8562,
+      "uppercase": "Ⅲ"
+    },
+    {
+      "codePoint": 8563,
+      "uppercase": "Ⅳ"
+    },
+    {
+      "codePoint": 8564,
+      "uppercase": "Ⅴ"
+    },
+    {
+      "codePoint": 8565,
+      "uppercase": "Ⅵ"
+    },
+    {
+      "codePoint": 8566,
+      "uppercase": "Ⅶ"
+    },
+    {
+      "codePoint": 8567,
+      "uppercase": "Ⅷ"
+    },
+    {
+      "codePoint": 8568,
+      "uppercase": "Ⅸ"
+    },
+    {
+      "codePoint": 8569,
+      "uppercase": "Ⅹ"
+    },
+    {
+      "codePoint": 8570,
+      "uppercase": "Ⅺ"
+    },
+    {
+      "codePoint": 8571,
+      "uppercase": "Ⅻ"
+    },
+    {
+      "codePoint": 8572,
+      "uppercase": "Ⅼ"
+    },
+    {
+      "codePoint": 8573,
+      "uppercase": "Ⅽ"
+    },
+    {
+      "codePoint": 8574,
+      "uppercase": "Ⅾ"
+    },
+    {
+      "codePoint": 8575,
+      "uppercase": "Ⅿ"
+    },
+    {
+      "codePoint": 8580,
+      "uppercase": "Ↄ"
+    },
+    {
+      "codePoint": 9424,
+      "uppercase": "Ⓐ"
+    },
+    {
+      "codePoint": 9425,
+      "uppercase": "Ⓑ"
+    },
+    {
+      "codePoint": 9426,
+      "uppercase": "Ⓒ"
+    },
+    {
+      "codePoint": 9427,
+      "uppercase": "Ⓓ"
+    },
+    {
+      "codePoint": 9428,
+      "uppercase": "Ⓔ"
+    },
+    {
+      "codePoint": 9429,
+      "uppercase": "Ⓕ"
+    },
+    {
+      "codePoint": 9430,
+      "uppercase": "Ⓖ"
+    },
+    {
+      "codePoint": 9431,
+      "uppercase": "Ⓗ"
+    },
+    {
+      "codePoint": 9432,
+      "uppercase": "Ⓘ"
+    },
+    {
+      "codePoint": 9433,
+      "uppercase": "Ⓙ"
+    },
+    {
+      "codePoint": 9434,
+      "uppercase": "Ⓚ"
+    },
+    {
+      "codePoint": 9435,
+      "uppercase": "Ⓛ"
+    },
+    {
+      "codePoint": 9436,
+      "uppercase": "Ⓜ"
+    },
+    {
+      "codePoint": 9437,
+      "uppercase": "Ⓝ"
+    },
+    {
+      "codePoint": 9438,
+      "uppercase": "Ⓞ"
+    },
+    {
+      "codePoint": 9439,
+      "uppercase": "Ⓟ"
+    },
+    {
+      "codePoint": 9440,
+      "uppercase": "Ⓠ"
+    },
+    {
+      "codePoint": 9441,
+      "uppercase": "Ⓡ"
+    },
+    {
+      "codePoint": 9442,
+      "uppercase": "Ⓢ"
+    },
+    {
+      "codePoint": 9443,
+      "uppercase": "Ⓣ"
+    },
+    {
+      "codePoint": 9444,
+      "uppercase": "Ⓤ"
+    },
+    {
+      "codePoint": 9445,
+      "uppercase": "Ⓥ"
+    },
+    {
+      "codePoint": 9446,
+      "uppercase": "Ⓦ"
+    },
+    {
+      "codePoint": 9447,
+      "uppercase": "Ⓧ"
+    },
+    {
+      "codePoint": 9448,
+      "uppercase": "Ⓨ"
+    },
+    {
+      "codePoint": 9449,
+      "uppercase": "Ⓩ"
+    },
+    {
+      "codePoint": 11312,
+      "uppercase": "Ⰰ"
+    },
+    {
+      "codePoint": 11313,
+      "uppercase": "Ⰱ"
+    },
+    {
+      "codePoint": 11314,
+      "uppercase": "Ⰲ"
+    },
+    {
+      "codePoint": 11315,
+      "uppercase": "Ⰳ"
+    },
+    {
+      "codePoint": 11316,
+      "uppercase": "Ⰴ"
+    },
+    {
+      "codePoint": 11317,
+      "uppercase": "Ⰵ"
+    },
+    {
+      "codePoint": 11318,
+      "uppercase": "Ⰶ"
+    },
+    {
+      "codePoint": 11319,
+      "uppercase": "Ⰷ"
+    },
+    {
+      "codePoint": 11320,
+      "uppercase": "Ⰸ"
+    },
+    {
+      "codePoint": 11321,
+      "uppercase": "Ⰹ"
+    },
+    {
+      "codePoint": 11322,
+      "uppercase": "Ⰺ"
+    },
+    {
+      "codePoint": 11323,
+      "uppercase": "Ⰻ"
+    },
+    {
+      "codePoint": 11324,
+      "uppercase": "Ⰼ"
+    },
+    {
+      "codePoint": 11325,
+      "uppercase": "Ⰽ"
+    },
+    {
+      "codePoint": 11326,
+      "uppercase": "Ⰾ"
+    },
+    {
+      "codePoint": 11327,
+      "uppercase": "Ⰿ"
+    },
+    {
+      "codePoint": 11328,
+      "uppercase": "Ⱀ"
+    },
+    {
+      "codePoint": 11329,
+      "uppercase": "Ⱁ"
+    },
+    {
+      "codePoint": 11330,
+      "uppercase": "Ⱂ"
+    },
+    {
+      "codePoint": 11331,
+      "uppercase": "Ⱃ"
+    },
+    {
+      "codePoint": 11332,
+      "uppercase": "Ⱄ"
+    },
+    {
+      "codePoint": 11333,
+      "uppercase": "Ⱅ"
+    },
+    {
+      "codePoint": 11334,
+      "uppercase": "Ⱆ"
+    },
+    {
+      "codePoint": 11335,
+      "uppercase": "Ⱇ"
+    },
+    {
+      "codePoint": 11336,
+      "uppercase": "Ⱈ"
+    },
+    {
+      "codePoint": 11337,
+      "uppercase": "Ⱉ"
+    },
+    {
+      "codePoint": 11338,
+      "uppercase": "Ⱊ"
+    },
+    {
+      "codePoint": 11339,
+      "uppercase": "Ⱋ"
+    },
+    {
+      "codePoint": 11340,
+      "uppercase": "Ⱌ"
+    },
+    {
+      "codePoint": 11341,
+      "uppercase": "Ⱍ"
+    },
+    {
+      "codePoint": 11342,
+      "uppercase": "Ⱎ"
+    },
+    {
+      "codePoint": 11343,
+      "uppercase": "Ⱏ"
+    },
+    {
+      "codePoint": 11344,
+      "uppercase": "Ⱐ"
+    },
+    {
+      "codePoint": 11345,
+      "uppercase": "Ⱑ"
+    },
+    {
+      "codePoint": 11346,
+      "uppercase": "Ⱒ"
+    },
+    {
+      "codePoint": 11347,
+      "uppercase": "Ⱓ"
+    },
+    {
+      "codePoint": 11348,
+      "uppercase": "Ⱔ"
+    },
+    {
+      "codePoint": 11349,
+      "uppercase": "Ⱕ"
+    },
+    {
+      "codePoint": 11350,
+      "uppercase": "Ⱖ"
+    },
+    {
+      "codePoint": 11351,
+      "uppercase": "Ⱗ"
+    },
+    {
+      "codePoint": 11352,
+      "uppercase": "Ⱘ"
+    },
+    {
+      "codePoint": 11353,
+      "uppercase": "Ⱙ"
+    },
+    {
+      "codePoint": 11354,
+      "uppercase": "Ⱚ"
+    },
+    {
+      "codePoint": 11355,
+      "uppercase": "Ⱛ"
+    },
+    {
+      "codePoint": 11356,
+      "uppercase": "Ⱜ"
+    },
+    {
+      "codePoint": 11357,
+      "uppercase": "Ⱝ"
+    },
+    {
+      "codePoint": 11358,
+      "uppercase": "Ⱞ"
+    },
+    {
+      "codePoint": 11359,
+      "uppercase": "Ⱟ"
+    },
+    {
+      "codePoint": 11361,
+      "uppercase": "Ⱡ"
+    },
+    {
+      "codePoint": 11365,
+      "uppercase": "Ⱥ"
+    },
+    {
+      "codePoint": 11366,
+      "uppercase": "Ⱦ"
+    },
+    {
+      "codePoint": 11368,
+      "uppercase": "Ⱨ"
+    },
+    {
+      "codePoint": 11370,
+      "uppercase": "Ⱪ"
+    },
+    {
+      "codePoint": 11372,
+      "uppercase": "Ⱬ"
+    },
+    {
+      "codePoint": 11379,
+      "uppercase": "Ⱳ"
+    },
+    {
+      "codePoint": 11382,
+      "uppercase": "Ⱶ"
+    },
+    {
+      "codePoint": 11393,
+      "uppercase": "Ⲁ"
+    },
+    {
+      "codePoint": 11395,
+      "uppercase": "Ⲃ"
+    },
+    {
+      "codePoint": 11397,
+      "uppercase": "Ⲅ"
+    },
+    {
+      "codePoint": 11399,
+      "uppercase": "Ⲇ"
+    },
+    {
+      "codePoint": 11401,
+      "uppercase": "Ⲉ"
+    },
+    {
+      "codePoint": 11403,
+      "uppercase": "Ⲋ"
+    },
+    {
+      "codePoint": 11405,
+      "uppercase": "Ⲍ"
+    },
+    {
+      "codePoint": 11407,
+      "uppercase": "Ⲏ"
+    },
+    {
+      "codePoint": 11409,
+      "uppercase": "Ⲑ"
+    },
+    {
+      "codePoint": 11411,
+      "uppercase": "Ⲓ"
+    },
+    {
+      "codePoint": 11413,
+      "uppercase": "Ⲕ"
+    },
+    {
+      "codePoint": 11415,
+      "uppercase": "Ⲗ"
+    },
+    {
+      "codePoint": 11417,
+      "uppercase": "Ⲙ"
+    },
+    {
+      "codePoint": 11419,
+      "uppercase": "Ⲛ"
+    },
+    {
+      "codePoint": 11421,
+      "uppercase": "Ⲝ"
+    },
+    {
+      "codePoint": 11423,
+      "uppercase": "Ⲟ"
+    },
+    {
+      "codePoint": 11425,
+      "uppercase": "Ⲡ"
+    },
+    {
+      "codePoint": 11427,
+      "uppercase": "Ⲣ"
+    },
+    {
+      "codePoint": 11429,
+      "uppercase": "Ⲥ"
+    },
+    {
+      "codePoint": 11431,
+      "uppercase": "Ⲧ"
+    },
+    {
+      "codePoint": 11433,
+      "uppercase": "Ⲩ"
+    },
+    {
+      "codePoint": 11435,
+      "uppercase": "Ⲫ"
+    },
+    {
+      "codePoint": 11437,
+      "uppercase": "Ⲭ"
+    },
+    {
+      "codePoint": 11439,
+      "uppercase": "Ⲯ"
+    },
+    {
+      "codePoint": 11441,
+      "uppercase": "Ⲱ"
+    },
+    {
+      "codePoint": 11443,
+      "uppercase": "Ⲳ"
+    },
+    {
+      "codePoint": 11445,
+      "uppercase": "Ⲵ"
+    },
+    {
+      "codePoint": 11447,
+      "uppercase": "Ⲷ"
+    },
+    {
+      "codePoint": 11449,
+      "uppercase": "Ⲹ"
+    },
+    {
+      "codePoint": 11451,
+      "uppercase": "Ⲻ"
+    },
+    {
+      "codePoint": 11453,
+      "uppercase": "Ⲽ"
+    },
+    {
+      "codePoint": 11455,
+      "uppercase": "Ⲿ"
+    },
+    {
+      "codePoint": 11457,
+      "uppercase": "Ⳁ"
+    },
+    {
+      "codePoint": 11459,
+      "uppercase": "Ⳃ"
+    },
+    {
+      "codePoint": 11461,
+      "uppercase": "Ⳅ"
+    },
+    {
+      "codePoint": 11463,
+      "uppercase": "Ⳇ"
+    },
+    {
+      "codePoint": 11465,
+      "uppercase": "Ⳉ"
+    },
+    {
+      "codePoint": 11467,
+      "uppercase": "Ⳋ"
+    },
+    {
+      "codePoint": 11469,
+      "uppercase": "Ⳍ"
+    },
+    {
+      "codePoint": 11471,
+      "uppercase": "Ⳏ"
+    },
+    {
+      "codePoint": 11473,
+      "uppercase": "Ⳑ"
+    },
+    {
+      "codePoint": 11475,
+      "uppercase": "Ⳓ"
+    },
+    {
+      "codePoint": 11477,
+      "uppercase": "Ⳕ"
+    },
+    {
+      "codePoint": 11479,
+      "uppercase": "Ⳗ"
+    },
+    {
+      "codePoint": 11481,
+      "uppercase": "Ⳙ"
+    },
+    {
+      "codePoint": 11483,
+      "uppercase": "Ⳛ"
+    },
+    {
+      "codePoint": 11485,
+      "uppercase": "Ⳝ"
+    },
+    {
+      "codePoint": 11487,
+      "uppercase": "Ⳟ"
+    },
+    {
+      "codePoint": 11489,
+      "uppercase": "Ⳡ"
+    },
+    {
+      "codePoint": 11491,
+      "uppercase": "Ⳣ"
+    },
+    {
+      "codePoint": 11500,
+      "uppercase": "Ⳬ"
+    },
+    {
+      "codePoint": 11502,
+      "uppercase": "Ⳮ"
+    },
+    {
+      "codePoint": 11507,
+      "uppercase": "Ⳳ"
+    },
+    {
+      "codePoint": 11520,
+      "uppercase": "Ⴀ"
+    },
+    {
+      "codePoint": 11521,
+      "uppercase": "Ⴁ"
+    },
+    {
+      "codePoint": 11522,
+      "uppercase": "Ⴂ"
+    },
+    {
+      "codePoint": 11523,
+      "uppercase": "Ⴃ"
+    },
+    {
+      "codePoint": 11524,
+      "uppercase": "Ⴄ"
+    },
+    {
+      "codePoint": 11525,
+      "uppercase": "Ⴅ"
+    },
+    {
+      "codePoint": 11526,
+      "uppercase": "Ⴆ"
+    },
+    {
+      "codePoint": 11527,
+      "uppercase": "Ⴇ"
+    },
+    {
+      "codePoint": 11528,
+      "uppercase": "Ⴈ"
+    },
+    {
+      "codePoint": 11529,
+      "uppercase": "Ⴉ"
+    },
+    {
+      "codePoint": 11530,
+      "uppercase": "Ⴊ"
+    },
+    {
+      "codePoint": 11531,
+      "uppercase": "Ⴋ"
+    },
+    {
+      "codePoint": 11532,
+      "uppercase": "Ⴌ"
+    },
+    {
+      "codePoint": 11533,
+      "uppercase": "Ⴍ"
+    },
+    {
+      "codePoint": 11534,
+      "uppercase": "Ⴎ"
+    },
+    {
+      "codePoint": 11535,
+      "uppercase": "Ⴏ"
+    },
+    {
+      "codePoint": 11536,
+      "uppercase": "Ⴐ"
+    },
+    {
+      "codePoint": 11537,
+      "uppercase": "Ⴑ"
+    },
+    {
+      "codePoint": 11538,
+      "uppercase": "Ⴒ"
+    },
+    {
+      "codePoint": 11539,
+      "uppercase": "Ⴓ"
+    },
+    {
+      "codePoint": 11540,
+      "uppercase": "Ⴔ"
+    },
+    {
+      "codePoint": 11541,
+      "uppercase": "Ⴕ"
+    },
+    {
+      "codePoint": 11542,
+      "uppercase": "Ⴖ"
+    },
+    {
+      "codePoint": 11543,
+      "uppercase": "Ⴗ"
+    },
+    {
+      "codePoint": 11544,
+      "uppercase": "Ⴘ"
+    },
+    {
+      "codePoint": 11545,
+      "uppercase": "Ⴙ"
+    },
+    {
+      "codePoint": 11546,
+      "uppercase": "Ⴚ"
+    },
+    {
+      "codePoint": 11547,
+      "uppercase": "Ⴛ"
+    },
+    {
+      "codePoint": 11548,
+      "uppercase": "Ⴜ"
+    },
+    {
+      "codePoint": 11549,
+      "uppercase": "Ⴝ"
+    },
+    {
+      "codePoint": 11550,
+      "uppercase": "Ⴞ"
+    },
+    {
+      "codePoint": 11551,
+      "uppercase": "Ⴟ"
+    },
+    {
+      "codePoint": 11552,
+      "uppercase": "Ⴠ"
+    },
+    {
+      "codePoint": 11553,
+      "uppercase": "Ⴡ"
+    },
+    {
+      "codePoint": 11554,
+      "uppercase": "Ⴢ"
+    },
+    {
+      "codePoint": 11555,
+      "uppercase": "Ⴣ"
+    },
+    {
+      "codePoint": 11556,
+      "uppercase": "Ⴤ"
+    },
+    {
+      "codePoint": 11557,
+      "uppercase": "Ⴥ"
+    },
+    {
+      "codePoint": 11559,
+      "uppercase": "Ⴧ"
+    },
+    {
+      "codePoint": 11565,
+      "uppercase": "Ⴭ"
+    },
+    {
+      "codePoint": 42561,
+      "uppercase": "Ꙁ"
+    },
+    {
+      "codePoint": 42563,
+      "uppercase": "Ꙃ"
+    },
+    {
+      "codePoint": 42565,
+      "uppercase": "Ꙅ"
+    },
+    {
+      "codePoint": 42567,
+      "uppercase": "Ꙇ"
+    },
+    {
+      "codePoint": 42569,
+      "uppercase": "Ꙉ"
+    },
+    {
+      "codePoint": 42571,
+      "uppercase": "Ꙋ"
+    },
+    {
+      "codePoint": 42573,
+      "uppercase": "Ꙍ"
+    },
+    {
+      "codePoint": 42575,
+      "uppercase": "Ꙏ"
+    },
+    {
+      "codePoint": 42577,
+      "uppercase": "Ꙑ"
+    },
+    {
+      "codePoint": 42579,
+      "uppercase": "Ꙓ"
+    },
+    {
+      "codePoint": 42581,
+      "uppercase": "Ꙕ"
+    },
+    {
+      "codePoint": 42583,
+      "uppercase": "Ꙗ"
+    },
+    {
+      "codePoint": 42585,
+      "uppercase": "Ꙙ"
+    },
+    {
+      "codePoint": 42587,
+      "uppercase": "Ꙛ"
+    },
+    {
+      "codePoint": 42589,
+      "uppercase": "Ꙝ"
+    },
+    {
+      "codePoint": 42591,
+      "uppercase": "Ꙟ"
+    },
+    {
+      "codePoint": 42593,
+      "uppercase": "Ꙡ"
+    },
+    {
+      "codePoint": 42595,
+      "uppercase": "Ꙣ"
+    },
+    {
+      "codePoint": 42597,
+      "uppercase": "Ꙥ"
+    },
+    {
+      "codePoint": 42599,
+      "uppercase": "Ꙧ"
+    },
+    {
+      "codePoint": 42601,
+      "uppercase": "Ꙩ"
+    },
+    {
+      "codePoint": 42603,
+      "uppercase": "Ꙫ"
+    },
+    {
+      "codePoint": 42605,
+      "uppercase": "Ꙭ"
+    },
+    {
+      "codePoint": 42625,
+      "uppercase": "Ꚁ"
+    },
+    {
+      "codePoint": 42627,
+      "uppercase": "Ꚃ"
+    },
+    {
+      "codePoint": 42629,
+      "uppercase": "Ꚅ"
+    },
+    {
+      "codePoint": 42631,
+      "uppercase": "Ꚇ"
+    },
+    {
+      "codePoint": 42633,
+      "uppercase": "Ꚉ"
+    },
+    {
+      "codePoint": 42635,
+      "uppercase": "Ꚋ"
+    },
+    {
+      "codePoint": 42637,
+      "uppercase": "Ꚍ"
+    },
+    {
+      "codePoint": 42639,
+      "uppercase": "Ꚏ"
+    },
+    {
+      "codePoint": 42641,
+      "uppercase": "Ꚑ"
+    },
+    {
+      "codePoint": 42643,
+      "uppercase": "Ꚓ"
+    },
+    {
+      "codePoint": 42645,
+      "uppercase": "Ꚕ"
+    },
+    {
+      "codePoint": 42647,
+      "uppercase": "Ꚗ"
+    },
+    {
+      "codePoint": 42649,
+      "uppercase": "Ꚙ"
+    },
+    {
+      "codePoint": 42651,
+      "uppercase": "Ꚛ"
+    },
+    {
+      "codePoint": 42787,
+      "uppercase": "Ꜣ"
+    },
+    {
+      "codePoint": 42789,
+      "uppercase": "Ꜥ"
+    },
+    {
+      "codePoint": 42791,
+      "uppercase": "Ꜧ"
+    },
+    {
+      "codePoint": 42793,
+      "uppercase": "Ꜩ"
+    },
+    {
+      "codePoint": 42795,
+      "uppercase": "Ꜫ"
+    },
+    {
+      "codePoint": 42797,
+      "uppercase": "Ꜭ"
+    },
+    {
+      "codePoint": 42799,
+      "uppercase": "Ꜯ"
+    },
+    {
+      "codePoint": 42803,
+      "uppercase": "Ꜳ"
+    },
+    {
+      "codePoint": 42805,
+      "uppercase": "Ꜵ"
+    },
+    {
+      "codePoint": 42807,
+      "uppercase": "Ꜷ"
+    },
+    {
+      "codePoint": 42809,
+      "uppercase": "Ꜹ"
+    },
+    {
+      "codePoint": 42811,
+      "uppercase": "Ꜻ"
+    },
+    {
+      "codePoint": 42813,
+      "uppercase": "Ꜽ"
+    },
+    {
+      "codePoint": 42815,
+      "uppercase": "Ꜿ"
+    },
+    {
+      "codePoint": 42817,
+      "uppercase": "Ꝁ"
+    },
+    {
+      "codePoint": 42819,
+      "uppercase": "Ꝃ"
+    },
+    {
+      "codePoint": 42821,
+      "uppercase": "Ꝅ"
+    },
+    {
+      "codePoint": 42823,
+      "uppercase": "Ꝇ"
+    },
+    {
+      "codePoint": 42825,
+      "uppercase": "Ꝉ"
+    },
+    {
+      "codePoint": 42827,
+      "uppercase": "Ꝋ"
+    },
+    {
+      "codePoint": 42829,
+      "uppercase": "Ꝍ"
+    },
+    {
+      "codePoint": 42831,
+      "uppercase": "Ꝏ"
+    },
+    {
+      "codePoint": 42833,
+      "uppercase": "Ꝑ"
+    },
+    {
+      "codePoint": 42835,
+      "uppercase": "Ꝓ"
+    },
+    {
+      "codePoint": 42837,
+      "uppercase": "Ꝕ"
+    },
+    {
+      "codePoint": 42839,
+      "uppercase": "Ꝗ"
+    },
+    {
+      "codePoint": 42841,
+      "uppercase": "Ꝙ"
+    },
+    {
+      "codePoint": 42843,
+      "uppercase": "Ꝛ"
+    },
+    {
+      "codePoint": 42845,
+      "uppercase": "Ꝝ"
+    },
+    {
+      "codePoint": 42847,
+      "uppercase": "Ꝟ"
+    },
+    {
+      "codePoint": 42849,
+      "uppercase": "Ꝡ"
+    },
+    {
+      "codePoint": 42851,
+      "uppercase": "Ꝣ"
+    },
+    {
+      "codePoint": 42853,
+      "uppercase": "Ꝥ"
+    },
+    {
+      "codePoint": 42855,
+      "uppercase": "Ꝧ"
+    },
+    {
+      "codePoint": 42857,
+      "uppercase": "Ꝩ"
+    },
+    {
+      "codePoint": 42859,
+      "uppercase": "Ꝫ"
+    },
+    {
+      "codePoint": 42861,
+      "uppercase": "Ꝭ"
+    },
+    {
+      "codePoint": 42863,
+      "uppercase": "Ꝯ"
+    },
+    {
+      "codePoint": 42874,
+      "uppercase": "Ꝺ"
+    },
+    {
+      "codePoint": 42876,
+      "uppercase": "Ꝼ"
+    },
+    {
+      "codePoint": 42879,
+      "uppercase": "Ꝿ"
+    },
+    {
+      "codePoint": 42881,
+      "uppercase": "Ꞁ"
+    },
+    {
+      "codePoint": 42883,
+      "uppercase": "Ꞃ"
+    },
+    {
+      "codePoint": 42885,
+      "uppercase": "Ꞅ"
+    },
+    {
+      "codePoint": 42887,
+      "uppercase": "Ꞇ"
+    },
+    {
+      "codePoint": 42892,
+      "uppercase": "Ꞌ"
+    },
+    {
+      "codePoint": 42897,
+      "uppercase": "Ꞑ"
+    },
+    {
+      "codePoint": 42899,
+      "uppercase": "Ꞓ"
+    },
+    {
+      "codePoint": 42900,
+      "uppercase": "Ꞔ"
+    },
+    {
+      "codePoint": 42903,
+      "uppercase": "Ꞗ"
+    },
+    {
+      "codePoint": 42905,
+      "uppercase": "Ꞙ"
+    },
+    {
+      "codePoint": 42907,
+      "uppercase": "Ꞛ"
+    },
+    {
+      "codePoint": 42909,
+      "uppercase": "Ꞝ"
+    },
+    {
+      "codePoint": 42911,
+      "uppercase": "Ꞟ"
+    },
+    {
+      "codePoint": 42913,
+      "uppercase": "Ꞡ"
+    },
+    {
+      "codePoint": 42915,
+      "uppercase": "Ꞣ"
+    },
+    {
+      "codePoint": 42917,
+      "uppercase": "Ꞥ"
+    },
+    {
+      "codePoint": 42919,
+      "uppercase": "Ꞧ"
+    },
+    {
+      "codePoint": 42921,
+      "uppercase": "Ꞩ"
+    },
+    {
+      "codePoint": 42933,
+      "uppercase": "Ꞵ"
+    },
+    {
+      "codePoint": 42935,
+      "uppercase": "Ꞷ"
+    },
+    {
+      "codePoint": 42937,
+      "uppercase": "Ꞹ"
+    },
+    {
+      "codePoint": 42939,
+      "uppercase": "Ꞻ"
+    },
+    {
+      "codePoint": 42941,
+      "uppercase": "Ꞽ"
+    },
+    {
+      "codePoint": 42943,
+      "uppercase": "Ꞿ"
+    },
+    {
+      "codePoint": 42945,
+      "uppercase": "Ꟁ"
+    },
+    {
+      "codePoint": 42947,
+      "uppercase": "Ꟃ"
+    },
+    {
+      "codePoint": 42952,
+      "uppercase": "Ꟈ"
+    },
+    {
+      "codePoint": 42954,
+      "uppercase": "Ꟊ"
+    },
+    {
+      "codePoint": 42957,
+      "uppercase": "Ꟍ"
+    },
+    {
+      "codePoint": 42961,
+      "uppercase": "Ꟑ"
+    },
+    {
+      "codePoint": 42967,
+      "uppercase": "Ꟗ"
+    },
+    {
+      "codePoint": 42969,
+      "uppercase": "Ꟙ"
+    },
+    {
+      "codePoint": 42971,
+      "uppercase": "Ꟛ"
+    },
+    {
+      "codePoint": 42998,
+      "uppercase": "Ꟶ"
+    },
+    {
+      "codePoint": 43859,
+      "uppercase": "Ꭓ"
+    },
+    {
+      "codePoint": 43888,
+      "uppercase": "Ꭰ"
+    },
+    {
+      "codePoint": 43889,
+      "uppercase": "Ꭱ"
+    },
+    {
+      "codePoint": 43890,
+      "uppercase": "Ꭲ"
+    },
+    {
+      "codePoint": 43891,
+      "uppercase": "Ꭳ"
+    },
+    {
+      "codePoint": 43892,
+      "uppercase": "Ꭴ"
+    },
+    {
+      "codePoint": 43893,
+      "uppercase": "Ꭵ"
+    },
+    {
+      "codePoint": 43894,
+      "uppercase": "Ꭶ"
+    },
+    {
+      "codePoint": 43895,
+      "uppercase": "Ꭷ"
+    },
+    {
+      "codePoint": 43896,
+      "uppercase": "Ꭸ"
+    },
+    {
+      "codePoint": 43897,
+      "uppercase": "Ꭹ"
+    },
+    {
+      "codePoint": 43898,
+      "uppercase": "Ꭺ"
+    },
+    {
+      "codePoint": 43899,
+      "uppercase": "Ꭻ"
+    },
+    {
+      "codePoint": 43900,
+      "uppercase": "Ꭼ"
+    },
+    {
+      "codePoint": 43901,
+      "uppercase": "Ꭽ"
+    },
+    {
+      "codePoint": 43902,
+      "uppercase": "Ꭾ"
+    },
+    {
+      "codePoint": 43903,
+      "uppercase": "Ꭿ"
+    },
+    {
+      "codePoint": 43904,
+      "uppercase": "Ꮀ"
+    },
+    {
+      "codePoint": 43905,
+      "uppercase": "Ꮁ"
+    },
+    {
+      "codePoint": 43906,
+      "uppercase": "Ꮂ"
+    },
+    {
+      "codePoint": 43907,
+      "uppercase": "Ꮃ"
+    },
+    {
+      "codePoint": 43908,
+      "uppercase": "Ꮄ"
+    },
+    {
+      "codePoint": 43909,
+      "uppercase": "Ꮅ"
+    },
+    {
+      "codePoint": 43910,
+      "uppercase": "Ꮆ"
+    },
+    {
+      "codePoint": 43911,
+      "uppercase": "Ꮇ"
+    },
+    {
+      "codePoint": 43912,
+      "uppercase": "Ꮈ"
+    },
+    {
+      "codePoint": 43913,
+      "uppercase": "Ꮉ"
+    },
+    {
+      "codePoint": 43914,
+      "uppercase": "Ꮊ"
+    },
+    {
+      "codePoint": 43915,
+      "uppercase": "Ꮋ"
+    },
+    {
+      "codePoint": 43916,
+      "uppercase": "Ꮌ"
+    },
+    {
+      "codePoint": 43917,
+      "uppercase": "Ꮍ"
+    },
+    {
+      "codePoint": 43918,
+      "uppercase": "Ꮎ"
+    },
+    {
+      "codePoint": 43919,
+      "uppercase": "Ꮏ"
+    },
+    {
+      "codePoint": 43920,
+      "uppercase": "Ꮐ"
+    },
+    {
+      "codePoint": 43921,
+      "uppercase": "Ꮑ"
+    },
+    {
+      "codePoint": 43922,
+      "uppercase": "Ꮒ"
+    },
+    {
+      "codePoint": 43923,
+      "uppercase": "Ꮓ"
+    },
+    {
+      "codePoint": 43924,
+      "uppercase": "Ꮔ"
+    },
+    {
+      "codePoint": 43925,
+      "uppercase": "Ꮕ"
+    },
+    {
+      "codePoint": 43926,
+      "uppercase": "Ꮖ"
+    },
+    {
+      "codePoint": 43927,
+      "uppercase": "Ꮗ"
+    },
+    {
+      "codePoint": 43928,
+      "uppercase": "Ꮘ"
+    },
+    {
+      "codePoint": 43929,
+      "uppercase": "Ꮙ"
+    },
+    {
+      "codePoint": 43930,
+      "uppercase": "Ꮚ"
+    },
+    {
+      "codePoint": 43931,
+      "uppercase": "Ꮛ"
+    },
+    {
+      "codePoint": 43932,
+      "uppercase": "Ꮜ"
+    },
+    {
+      "codePoint": 43933,
+      "uppercase": "Ꮝ"
+    },
+    {
+      "codePoint": 43934,
+      "uppercase": "Ꮞ"
+    },
+    {
+      "codePoint": 43935,
+      "uppercase": "Ꮟ"
+    },
+    {
+      "codePoint": 43936,
+      "uppercase": "Ꮠ"
+    },
+    {
+      "codePoint": 43937,
+      "uppercase": "Ꮡ"
+    },
+    {
+      "codePoint": 43938,
+      "uppercase": "Ꮢ"
+    },
+    {
+      "codePoint": 43939,
+      "uppercase": "Ꮣ"
+    },
+    {
+      "codePoint": 43940,
+      "uppercase": "Ꮤ"
+    },
+    {
+      "codePoint": 43941,
+      "uppercase": "Ꮥ"
+    },
+    {
+      "codePoint": 43942,
+      "uppercase": "Ꮦ"
+    },
+    {
+      "codePoint": 43943,
+      "uppercase": "Ꮧ"
+    },
+    {
+      "codePoint": 43944,
+      "uppercase": "Ꮨ"
+    },
+    {
+      "codePoint": 43945,
+      "uppercase": "Ꮩ"
+    },
+    {
+      "codePoint": 43946,
+      "uppercase": "Ꮪ"
+    },
+    {
+      "codePoint": 43947,
+      "uppercase": "Ꮫ"
+    },
+    {
+      "codePoint": 43948,
+      "uppercase": "Ꮬ"
+    },
+    {
+      "codePoint": 43949,
+      "uppercase": "Ꮭ"
+    },
+    {
+      "codePoint": 43950,
+      "uppercase": "Ꮮ"
+    },
+    {
+      "codePoint": 43951,
+      "uppercase": "Ꮯ"
+    },
+    {
+      "codePoint": 43952,
+      "uppercase": "Ꮰ"
+    },
+    {
+      "codePoint": 43953,
+      "uppercase": "Ꮱ"
+    },
+    {
+      "codePoint": 43954,
+      "uppercase": "Ꮲ"
+    },
+    {
+      "codePoint": 43955,
+      "uppercase": "Ꮳ"
+    },
+    {
+      "codePoint": 43956,
+      "uppercase": "Ꮴ"
+    },
+    {
+      "codePoint": 43957,
+      "uppercase": "Ꮵ"
+    },
+    {
+      "codePoint": 43958,
+      "uppercase": "Ꮶ"
+    },
+    {
+      "codePoint": 43959,
+      "uppercase": "Ꮷ"
+    },
+    {
+      "codePoint": 43960,
+      "uppercase": "Ꮸ"
+    },
+    {
+      "codePoint": 43961,
+      "uppercase": "Ꮹ"
+    },
+    {
+      "codePoint": 43962,
+      "uppercase": "Ꮺ"
+    },
+    {
+      "codePoint": 43963,
+      "uppercase": "Ꮻ"
+    },
+    {
+      "codePoint": 43964,
+      "uppercase": "Ꮼ"
+    },
+    {
+      "codePoint": 43965,
+      "uppercase": "Ꮽ"
+    },
+    {
+      "codePoint": 43966,
+      "uppercase": "Ꮾ"
+    },
+    {
+      "codePoint": 43967,
+      "uppercase": "Ꮿ"
+    },
+    {
+      "codePoint": 64256,
+      "uppercase": "FF"
+    },
+    {
+      "codePoint": 64257,
+      "uppercase": "FI"
+    },
+    {
+      "codePoint": 64258,
+      "uppercase": "FL"
+    },
+    {
+      "codePoint": 64259,
+      "uppercase": "FFI"
+    },
+    {
+      "codePoint": 64260,
+      "uppercase": "FFL"
+    },
+    {
+      "codePoint": 64261,
+      "uppercase": "ST"
+    },
+    {
+      "codePoint": 64262,
+      "uppercase": "ST"
+    },
+    {
+      "codePoint": 64275,
+      "uppercase": "ՄՆ"
+    },
+    {
+      "codePoint": 64276,
+      "uppercase": "ՄԵ"
+    },
+    {
+      "codePoint": 64277,
+      "uppercase": "ՄԻ"
+    },
+    {
+      "codePoint": 64278,
+      "uppercase": "ՎՆ"
+    },
+    {
+      "codePoint": 64279,
+      "uppercase": "ՄԽ"
+    },
+    {
+      "codePoint": 65345,
+      "uppercase": "Ａ"
+    },
+    {
+      "codePoint": 65346,
+      "uppercase": "Ｂ"
+    },
+    {
+      "codePoint": 65347,
+      "uppercase": "Ｃ"
+    },
+    {
+      "codePoint": 65348,
+      "uppercase": "Ｄ"
+    },
+    {
+      "codePoint": 65349,
+      "uppercase": "Ｅ"
+    },
+    {
+      "codePoint": 65350,
+      "uppercase": "Ｆ"
+    },
+    {
+      "codePoint": 65351,
+      "uppercase": "Ｇ"
+    },
+    {
+      "codePoint": 65352,
+      "uppercase": "Ｈ"
+    },
+    {
+      "codePoint": 65353,
+      "uppercase": "Ｉ"
+    },
+    {
+      "codePoint": 65354,
+      "uppercase": "Ｊ"
+    },
+    {
+      "codePoint": 65355,
+      "uppercase": "Ｋ"
+    },
+    {
+      "codePoint": 65356,
+      "uppercase": "Ｌ"
+    },
+    {
+      "codePoint": 65357,
+      "uppercase": "Ｍ"
+    },
+    {
+      "codePoint": 65358,
+      "uppercase": "Ｎ"
+    },
+    {
+      "codePoint": 65359,
+      "uppercase": "Ｏ"
+    },
+    {
+      "codePoint": 65360,
+      "uppercase": "Ｐ"
+    },
+    {
+      "codePoint": 65361,
+      "uppercase": "Ｑ"
+    },
+    {
+      "codePoint": 65362,
+      "uppercase": "Ｒ"
+    },
+    {
+      "codePoint": 65363,
+      "uppercase": "Ｓ"
+    },
+    {
+      "codePoint": 65364,
+      "uppercase": "Ｔ"
+    },
+    {
+      "codePoint": 65365,
+      "uppercase": "Ｕ"
+    },
+    {
+      "codePoint": 65366,
+      "uppercase": "Ｖ"
+    },
+    {
+      "codePoint": 65367,
+      "uppercase": "Ｗ"
+    },
+    {
+      "codePoint": 65368,
+      "uppercase": "Ｘ"
+    },
+    {
+      "codePoint": 65369,
+      "uppercase": "Ｙ"
+    },
+    {
+      "codePoint": 65370,
+      "uppercase": "Ｚ"
+    },
+    {
+      "codePoint": 66600,
+      "uppercase": "𐐀"
+    },
+    {
+      "codePoint": 66601,
+      "uppercase": "𐐁"
+    },
+    {
+      "codePoint": 66602,
+      "uppercase": "𐐂"
+    },
+    {
+      "codePoint": 66603,
+      "uppercase": "𐐃"
+    },
+    {
+      "codePoint": 66604,
+      "uppercase": "𐐄"
+    },
+    {
+      "codePoint": 66605,
+      "uppercase": "𐐅"
+    },
+    {
+      "codePoint": 66606,
+      "uppercase": "𐐆"
+    },
+    {
+      "codePoint": 66607,
+      "uppercase": "𐐇"
+    },
+    {
+      "codePoint": 66608,
+      "uppercase": "𐐈"
+    },
+    {
+      "codePoint": 66609,
+      "uppercase": "𐐉"
+    },
+    {
+      "codePoint": 66610,
+      "uppercase": "𐐊"
+    },
+    {
+      "codePoint": 66611,
+      "uppercase": "𐐋"
+    },
+    {
+      "codePoint": 66612,
+      "uppercase": "𐐌"
+    },
+    {
+      "codePoint": 66613,
+      "uppercase": "𐐍"
+    },
+    {
+      "codePoint": 66614,
+      "uppercase": "𐐎"
+    },
+    {
+      "codePoint": 66615,
+      "uppercase": "𐐏"
+    },
+    {
+      "codePoint": 66616,
+      "uppercase": "𐐐"
+    },
+    {
+      "codePoint": 66617,
+      "uppercase": "𐐑"
+    },
+    {
+      "codePoint": 66618,
+      "uppercase": "𐐒"
+    },
+    {
+      "codePoint": 66619,
+      "uppercase": "𐐓"
+    },
+    {
+      "codePoint": 66620,
+      "uppercase": "𐐔"
+    },
+    {
+      "codePoint": 66621,
+      "uppercase": "𐐕"
+    },
+    {
+      "codePoint": 66622,
+      "uppercase": "𐐖"
+    },
+    {
+      "codePoint": 66623,
+      "uppercase": "𐐗"
+    },
+    {
+      "codePoint": 66624,
+      "uppercase": "𐐘"
+    },
+    {
+      "codePoint": 66625,
+      "uppercase": "𐐙"
+    },
+    {
+      "codePoint": 66626,
+      "uppercase": "𐐚"
+    },
+    {
+      "codePoint": 66627,
+      "uppercase": "𐐛"
+    },
+    {
+      "codePoint": 66628,
+      "uppercase": "𐐜"
+    },
+    {
+      "codePoint": 66629,
+      "uppercase": "𐐝"
+    },
+    {
+      "codePoint": 66630,
+      "uppercase": "𐐞"
+    },
+    {
+      "codePoint": 66631,
+      "uppercase": "𐐟"
+    },
+    {
+      "codePoint": 66632,
+      "uppercase": "𐐠"
+    },
+    {
+      "codePoint": 66633,
+      "uppercase": "𐐡"
+    },
+    {
+      "codePoint": 66634,
+      "uppercase": "𐐢"
+    },
+    {
+      "codePoint": 66635,
+      "uppercase": "𐐣"
+    },
+    {
+      "codePoint": 66636,
+      "uppercase": "𐐤"
+    },
+    {
+      "codePoint": 66637,
+      "uppercase": "𐐥"
+    },
+    {
+      "codePoint": 66638,
+      "uppercase": "𐐦"
+    },
+    {
+      "codePoint": 66639,
+      "uppercase": "𐐧"
+    },
+    {
+      "codePoint": 66776,
+      "uppercase": "𐒰"
+    },
+    {
+      "codePoint": 66777,
+      "uppercase": "𐒱"
+    },
+    {
+      "codePoint": 66778,
+      "uppercase": "𐒲"
+    },
+    {
+      "codePoint": 66779,
+      "uppercase": "𐒳"
+    },
+    {
+      "codePoint": 66780,
+      "uppercase": "𐒴"
+    },
+    {
+      "codePoint": 66781,
+      "uppercase": "𐒵"
+    },
+    {
+      "codePoint": 66782,
+      "uppercase": "𐒶"
+    },
+    {
+      "codePoint": 66783,
+      "uppercase": "𐒷"
+    },
+    {
+      "codePoint": 66784,
+      "uppercase": "𐒸"
+    },
+    {
+      "codePoint": 66785,
+      "uppercase": "𐒹"
+    },
+    {
+      "codePoint": 66786,
+      "uppercase": "𐒺"
+    },
+    {
+      "codePoint": 66787,
+      "uppercase": "𐒻"
+    },
+    {
+      "codePoint": 66788,
+      "uppercase": "𐒼"
+    },
+    {
+      "codePoint": 66789,
+      "uppercase": "𐒽"
+    },
+    {
+      "codePoint": 66790,
+      "uppercase": "𐒾"
+    },
+    {
+      "codePoint": 66791,
+      "uppercase": "𐒿"
+    },
+    {
+      "codePoint": 66792,
+      "uppercase": "𐓀"
+    },
+    {
+      "codePoint": 66793,
+      "uppercase": "𐓁"
+    },
+    {
+      "codePoint": 66794,
+      "uppercase": "𐓂"
+    },
+    {
+      "codePoint": 66795,
+      "uppercase": "𐓃"
+    },
+    {
+      "codePoint": 66796,
+      "uppercase": "𐓄"
+    },
+    {
+      "codePoint": 66797,
+      "uppercase": "𐓅"
+    },
+    {
+      "codePoint": 66798,
+      "uppercase": "𐓆"
+    },
+    {
+      "codePoint": 66799,
+      "uppercase": "𐓇"
+    },
+    {
+      "codePoint": 66800,
+      "uppercase": "𐓈"
+    },
+    {
+      "codePoint": 66801,
+      "uppercase": "𐓉"
+    },
+    {
+      "codePoint": 66802,
+      "uppercase": "𐓊"
+    },
+    {
+      "codePoint": 66803,
+      "uppercase": "𐓋"
+    },
+    {
+      "codePoint": 66804,
+      "uppercase": "𐓌"
+    },
+    {
+      "codePoint": 66805,
+      "uppercase": "𐓍"
+    },
+    {
+      "codePoint": 66806,
+      "uppercase": "𐓎"
+    },
+    {
+      "codePoint": 66807,
+      "uppercase": "𐓏"
+    },
+    {
+      "codePoint": 66808,
+      "uppercase": "𐓐"
+    },
+    {
+      "codePoint": 66809,
+      "uppercase": "𐓑"
+    },
+    {
+      "codePoint": 66810,
+      "uppercase": "𐓒"
+    },
+    {
+      "codePoint": 66811,
+      "uppercase": "𐓓"
+    },
+    {
+      "codePoint": 66967,
+      "uppercase": "𐕰"
+    },
+    {
+      "codePoint": 66968,
+      "uppercase": "𐕱"
+    },
+    {
+      "codePoint": 66969,
+      "uppercase": "𐕲"
+    },
+    {
+      "codePoint": 66970,
+      "uppercase": "𐕳"
+    },
+    {
+      "codePoint": 66971,
+      "uppercase": "𐕴"
+    },
+    {
+      "codePoint": 66972,
+      "uppercase": "𐕵"
+    },
+    {
+      "codePoint": 66973,
+      "uppercase": "𐕶"
+    },
+    {
+      "codePoint": 66974,
+      "uppercase": "𐕷"
+    },
+    {
+      "codePoint": 66975,
+      "uppercase": "𐕸"
+    },
+    {
+      "codePoint": 66976,
+      "uppercase": "𐕹"
+    },
+    {
+      "codePoint": 66977,
+      "uppercase": "𐕺"
+    },
+    {
+      "codePoint": 66979,
+      "uppercase": "𐕼"
+    },
+    {
+      "codePoint": 66980,
+      "uppercase": "𐕽"
+    },
+    {
+      "codePoint": 66981,
+      "uppercase": "𐕾"
+    },
+    {
+      "codePoint": 66982,
+      "uppercase": "𐕿"
+    },
+    {
+      "codePoint": 66983,
+      "uppercase": "𐖀"
+    },
+    {
+      "codePoint": 66984,
+      "uppercase": "𐖁"
+    },
+    {
+      "codePoint": 66985,
+      "uppercase": "𐖂"
+    },
+    {
+      "codePoint": 66986,
+      "uppercase": "𐖃"
+    },
+    {
+      "codePoint": 66987,
+      "uppercase": "𐖄"
+    },
+    {
+      "codePoint": 66988,
+      "uppercase": "𐖅"
+    },
+    {
+      "codePoint": 66989,
+      "uppercase": "𐖆"
+    },
+    {
+      "codePoint": 66990,
+      "uppercase": "𐖇"
+    },
+    {
+      "codePoint": 66991,
+      "uppercase": "𐖈"
+    },
+    {
+      "codePoint": 66992,
+      "uppercase": "𐖉"
+    },
+    {
+      "codePoint": 66993,
+      "uppercase": "𐖊"
+    },
+    {
+      "codePoint": 66995,
+      "uppercase": "𐖌"
+    },
+    {
+      "codePoint": 66996,
+      "uppercase": "𐖍"
+    },
+    {
+      "codePoint": 66997,
+      "uppercase": "𐖎"
+    },
+    {
+      "codePoint": 66998,
+      "uppercase": "𐖏"
+    },
+    {
+      "codePoint": 66999,
+      "uppercase": "𐖐"
+    },
+    {
+      "codePoint": 67000,
+      "uppercase": "𐖑"
+    },
+    {
+      "codePoint": 67001,
+      "uppercase": "𐖒"
+    },
+    {
+      "codePoint": 67003,
+      "uppercase": "𐖔"
+    },
+    {
+      "codePoint": 67004,
+      "uppercase": "𐖕"
+    },
+    {
+      "codePoint": 68800,
+      "uppercase": "𐲀"
+    },
+    {
+      "codePoint": 68801,
+      "uppercase": "𐲁"
+    },
+    {
+      "codePoint": 68802,
+      "uppercase": "𐲂"
+    },
+    {
+      "codePoint": 68803,
+      "uppercase": "𐲃"
+    },
+    {
+      "codePoint": 68804,
+      "uppercase": "𐲄"
+    },
+    {
+      "codePoint": 68805,
+      "uppercase": "𐲅"
+    },
+    {
+      "codePoint": 68806,
+      "uppercase": "𐲆"
+    },
+    {
+      "codePoint": 68807,
+      "uppercase": "𐲇"
+    },
+    {
+      "codePoint": 68808,
+      "uppercase": "𐲈"
+    },
+    {
+      "codePoint": 68809,
+      "uppercase": "𐲉"
+    },
+    {
+      "codePoint": 68810,
+      "uppercase": "𐲊"
+    },
+    {
+      "codePoint": 68811,
+      "uppercase": "𐲋"
+    },
+    {
+      "codePoint": 68812,
+      "uppercase": "𐲌"
+    },
+    {
+      "codePoint": 68813,
+      "uppercase": "𐲍"
+    },
+    {
+      "codePoint": 68814,
+      "uppercase": "𐲎"
+    },
+    {
+      "codePoint": 68815,
+      "uppercase": "𐲏"
+    },
+    {
+      "codePoint": 68816,
+      "uppercase": "𐲐"
+    },
+    {
+      "codePoint": 68817,
+      "uppercase": "𐲑"
+    },
+    {
+      "codePoint": 68818,
+      "uppercase": "𐲒"
+    },
+    {
+      "codePoint": 68819,
+      "uppercase": "𐲓"
+    },
+    {
+      "codePoint": 68820,
+      "uppercase": "𐲔"
+    },
+    {
+      "codePoint": 68821,
+      "uppercase": "𐲕"
+    },
+    {
+      "codePoint": 68822,
+      "uppercase": "𐲖"
+    },
+    {
+      "codePoint": 68823,
+      "uppercase": "𐲗"
+    },
+    {
+      "codePoint": 68824,
+      "uppercase": "𐲘"
+    },
+    {
+      "codePoint": 68825,
+      "uppercase": "𐲙"
+    },
+    {
+      "codePoint": 68826,
+      "uppercase": "𐲚"
+    },
+    {
+      "codePoint": 68827,
+      "uppercase": "𐲛"
+    },
+    {
+      "codePoint": 68828,
+      "uppercase": "𐲜"
+    },
+    {
+      "codePoint": 68829,
+      "uppercase": "𐲝"
+    },
+    {
+      "codePoint": 68830,
+      "uppercase": "𐲞"
+    },
+    {
+      "codePoint": 68831,
+      "uppercase": "𐲟"
+    },
+    {
+      "codePoint": 68832,
+      "uppercase": "𐲠"
+    },
+    {
+      "codePoint": 68833,
+      "uppercase": "𐲡"
+    },
+    {
+      "codePoint": 68834,
+      "uppercase": "𐲢"
+    },
+    {
+      "codePoint": 68835,
+      "uppercase": "𐲣"
+    },
+    {
+      "codePoint": 68836,
+      "uppercase": "𐲤"
+    },
+    {
+      "codePoint": 68837,
+      "uppercase": "𐲥"
+    },
+    {
+      "codePoint": 68838,
+      "uppercase": "𐲦"
+    },
+    {
+      "codePoint": 68839,
+      "uppercase": "𐲧"
+    },
+    {
+      "codePoint": 68840,
+      "uppercase": "𐲨"
+    },
+    {
+      "codePoint": 68841,
+      "uppercase": "𐲩"
+    },
+    {
+      "codePoint": 68842,
+      "uppercase": "𐲪"
+    },
+    {
+      "codePoint": 68843,
+      "uppercase": "𐲫"
+    },
+    {
+      "codePoint": 68844,
+      "uppercase": "𐲬"
+    },
+    {
+      "codePoint": 68845,
+      "uppercase": "𐲭"
+    },
+    {
+      "codePoint": 68846,
+      "uppercase": "𐲮"
+    },
+    {
+      "codePoint": 68847,
+      "uppercase": "𐲯"
+    },
+    {
+      "codePoint": 68848,
+      "uppercase": "𐲰"
+    },
+    {
+      "codePoint": 68849,
+      "uppercase": "𐲱"
+    },
+    {
+      "codePoint": 68850,
+      "uppercase": "𐲲"
+    },
+    {
+      "codePoint": 68976,
+      "uppercase": "𐵐"
+    },
+    {
+      "codePoint": 68977,
+      "uppercase": "𐵑"
+    },
+    {
+      "codePoint": 68978,
+      "uppercase": "𐵒"
+    },
+    {
+      "codePoint": 68979,
+      "uppercase": "𐵓"
+    },
+    {
+      "codePoint": 68980,
+      "uppercase": "𐵔"
+    },
+    {
+      "codePoint": 68981,
+      "uppercase": "𐵕"
+    },
+    {
+      "codePoint": 68982,
+      "uppercase": "𐵖"
+    },
+    {
+      "codePoint": 68983,
+      "uppercase": "𐵗"
+    },
+    {
+      "codePoint": 68984,
+      "uppercase": "𐵘"
+    },
+    {
+      "codePoint": 68985,
+      "uppercase": "𐵙"
+    },
+    {
+      "codePoint": 68986,
+      "uppercase": "𐵚"
+    },
+    {
+      "codePoint": 68987,
+      "uppercase": "𐵛"
+    },
+    {
+      "codePoint": 68988,
+      "uppercase": "𐵜"
+    },
+    {
+      "codePoint": 68989,
+      "uppercase": "𐵝"
+    },
+    {
+      "codePoint": 68990,
+      "uppercase": "𐵞"
+    },
+    {
+      "codePoint": 68991,
+      "uppercase": "𐵟"
+    },
+    {
+      "codePoint": 68992,
+      "uppercase": "𐵠"
+    },
+    {
+      "codePoint": 68993,
+      "uppercase": "𐵡"
+    },
+    {
+      "codePoint": 68994,
+      "uppercase": "𐵢"
+    },
+    {
+      "codePoint": 68995,
+      "uppercase": "𐵣"
+    },
+    {
+      "codePoint": 68996,
+      "uppercase": "𐵤"
+    },
+    {
+      "codePoint": 68997,
+      "uppercase": "𐵥"
+    },
+    {
+      "codePoint": 71872,
+      "uppercase": "𑢠"
+    },
+    {
+      "codePoint": 71873,
+      "uppercase": "𑢡"
+    },
+    {
+      "codePoint": 71874,
+      "uppercase": "𑢢"
+    },
+    {
+      "codePoint": 71875,
+      "uppercase": "𑢣"
+    },
+    {
+      "codePoint": 71876,
+      "uppercase": "𑢤"
+    },
+    {
+      "codePoint": 71877,
+      "uppercase": "𑢥"
+    },
+    {
+      "codePoint": 71878,
+      "uppercase": "𑢦"
+    },
+    {
+      "codePoint": 71879,
+      "uppercase": "𑢧"
+    },
+    {
+      "codePoint": 71880,
+      "uppercase": "𑢨"
+    },
+    {
+      "codePoint": 71881,
+      "uppercase": "𑢩"
+    },
+    {
+      "codePoint": 71882,
+      "uppercase": "𑢪"
+    },
+    {
+      "codePoint": 71883,
+      "uppercase": "𑢫"
+    },
+    {
+      "codePoint": 71884,
+      "uppercase": "𑢬"
+    },
+    {
+      "codePoint": 71885,
+      "uppercase": "𑢭"
+    },
+    {
+      "codePoint": 71886,
+      "uppercase": "𑢮"
+    },
+    {
+      "codePoint": 71887,
+      "uppercase": "𑢯"
+    },
+    {
+      "codePoint": 71888,
+      "uppercase": "𑢰"
+    },
+    {
+      "codePoint": 71889,
+      "uppercase": "𑢱"
+    },
+    {
+      "codePoint": 71890,
+      "uppercase": "𑢲"
+    },
+    {
+      "codePoint": 71891,
+      "uppercase": "𑢳"
+    },
+    {
+      "codePoint": 71892,
+      "uppercase": "𑢴"
+    },
+    {
+      "codePoint": 71893,
+      "uppercase": "𑢵"
+    },
+    {
+      "codePoint": 71894,
+      "uppercase": "𑢶"
+    },
+    {
+      "codePoint": 71895,
+      "uppercase": "𑢷"
+    },
+    {
+      "codePoint": 71896,
+      "uppercase": "𑢸"
+    },
+    {
+      "codePoint": 71897,
+      "uppercase": "𑢹"
+    },
+    {
+      "codePoint": 71898,
+      "uppercase": "𑢺"
+    },
+    {
+      "codePoint": 71899,
+      "uppercase": "𑢻"
+    },
+    {
+      "codePoint": 71900,
+      "uppercase": "𑢼"
+    },
+    {
+      "codePoint": 71901,
+      "uppercase": "𑢽"
+    },
+    {
+      "codePoint": 71902,
+      "uppercase": "𑢾"
+    },
+    {
+      "codePoint": 71903,
+      "uppercase": "𑢿"
+    },
+    {
+      "codePoint": 93792,
+      "uppercase": "𖹀"
+    },
+    {
+      "codePoint": 93793,
+      "uppercase": "𖹁"
+    },
+    {
+      "codePoint": 93794,
+      "uppercase": "𖹂"
+    },
+    {
+      "codePoint": 93795,
+      "uppercase": "𖹃"
+    },
+    {
+      "codePoint": 93796,
+      "uppercase": "𖹄"
+    },
+    {
+      "codePoint": 93797,
+      "uppercase": "𖹅"
+    },
+    {
+      "codePoint": 93798,
+      "uppercase": "𖹆"
+    },
+    {
+      "codePoint": 93799,
+      "uppercase": "𖹇"
+    },
+    {
+      "codePoint": 93800,
+      "uppercase": "𖹈"
+    },
+    {
+      "codePoint": 93801,
+      "uppercase": "𖹉"
+    },
+    {
+      "codePoint": 93802,
+      "uppercase": "𖹊"
+    },
+    {
+      "codePoint": 93803,
+      "uppercase": "𖹋"
+    },
+    {
+      "codePoint": 93804,
+      "uppercase": "𖹌"
+    },
+    {
+      "codePoint": 93805,
+      "uppercase": "𖹍"
+    },
+    {
+      "codePoint": 93806,
+      "uppercase": "𖹎"
+    },
+    {
+      "codePoint": 93807,
+      "uppercase": "𖹏"
+    },
+    {
+      "codePoint": 93808,
+      "uppercase": "𖹐"
+    },
+    {
+      "codePoint": 93809,
+      "uppercase": "𖹑"
+    },
+    {
+      "codePoint": 93810,
+      "uppercase": "𖹒"
+    },
+    {
+      "codePoint": 93811,
+      "uppercase": "𖹓"
+    },
+    {
+      "codePoint": 93812,
+      "uppercase": "𖹔"
+    },
+    {
+      "codePoint": 93813,
+      "uppercase": "𖹕"
+    },
+    {
+      "codePoint": 93814,
+      "uppercase": "𖹖"
+    },
+    {
+      "codePoint": 93815,
+      "uppercase": "𖹗"
+    },
+    {
+      "codePoint": 93816,
+      "uppercase": "𖹘"
+    },
+    {
+      "codePoint": 93817,
+      "uppercase": "𖹙"
+    },
+    {
+      "codePoint": 93818,
+      "uppercase": "𖹚"
+    },
+    {
+      "codePoint": 93819,
+      "uppercase": "𖹛"
+    },
+    {
+      "codePoint": 93820,
+      "uppercase": "𖹜"
+    },
+    {
+      "codePoint": 93821,
+      "uppercase": "𖹝"
+    },
+    {
+      "codePoint": 93822,
+      "uppercase": "𖹞"
+    },
+    {
+      "codePoint": 93823,
+      "uppercase": "𖹟"
+    },
+    {
+      "codePoint": 125218,
+      "uppercase": "𞤀"
+    },
+    {
+      "codePoint": 125219,
+      "uppercase": "𞤁"
+    },
+    {
+      "codePoint": 125220,
+      "uppercase": "𞤂"
+    },
+    {
+      "codePoint": 125221,
+      "uppercase": "𞤃"
+    },
+    {
+      "codePoint": 125222,
+      "uppercase": "𞤄"
+    },
+    {
+      "codePoint": 125223,
+      "uppercase": "𞤅"
+    },
+    {
+      "codePoint": 125224,
+      "uppercase": "𞤆"
+    },
+    {
+      "codePoint": 125225,
+      "uppercase": "𞤇"
+    },
+    {
+      "codePoint": 125226,
+      "uppercase": "𞤈"
+    },
+    {
+      "codePoint": 125227,
+      "uppercase": "𞤉"
+    },
+    {
+      "codePoint": 125228,
+      "uppercase": "𞤊"
+    },
+    {
+      "codePoint": 125229,
+      "uppercase": "𞤋"
+    },
+    {
+      "codePoint": 125230,
+      "uppercase": "𞤌"
+    },
+    {
+      "codePoint": 125231,
+      "uppercase": "𞤍"
+    },
+    {
+      "codePoint": 125232,
+      "uppercase": "𞤎"
+    },
+    {
+      "codePoint": 125233,
+      "uppercase": "𞤏"
+    },
+    {
+      "codePoint": 125234,
+      "uppercase": "𞤐"
+    },
+    {
+      "codePoint": 125235,
+      "uppercase": "𞤑"
+    },
+    {
+      "codePoint": 125236,
+      "uppercase": "𞤒"
+    },
+    {
+      "codePoint": 125237,
+      "uppercase": "𞤓"
+    },
+    {
+      "codePoint": 125238,
+      "uppercase": "𞤔"
+    },
+    {
+      "codePoint": 125239,
+      "uppercase": "𞤕"
+    },
+    {
+      "codePoint": 125240,
+      "uppercase": "𞤖"
+    },
+    {
+      "codePoint": 125241,
+      "uppercase": "𞤗"
+    },
+    {
+      "codePoint": 125242,
+      "uppercase": "𞤘"
+    },
+    {
+      "codePoint": 125243,
+      "uppercase": "𞤙"
+    },
+    {
+      "codePoint": 125244,
+      "uppercase": "𞤚"
+    },
+    {
+      "codePoint": 125245,
+      "uppercase": "𞤛"
+    },
+    {
+      "codePoint": 125246,
+      "uppercase": "𞤜"
+    },
+    {
+      "codePoint": 125247,
+      "uppercase": "𞤝"
+    },
+    {
+      "codePoint": 125248,
+      "uppercase": "𞤞"
+    },
+    {
+      "codePoint": 125249,
+      "uppercase": "𞤟"
+    },
+    {
+      "codePoint": 125250,
+      "uppercase": "𞤠"
+    },
+    {
+      "codePoint": 125251,
+      "uppercase": "𞤡"
+    }
+  ]
+}
