@@ -4,17 +4,20 @@ Rechecked against code and later decisions on 2026-10-11. All eight previously
 flagged plans retain relevant unfinished outcomes. None is wholly obsolete.
 Order below ranks the **next remaining slice**, not every phase of a roadmap:
 the MVP release phase still waits for product verification and launch preparation.
+Platform labels added 2026-10-12: extension work lives in `chrome-extension/`;
+mobile uses `app/`, `shared/` and `mobile/sheets-client/`; website uses `landing-page/`.
+Legacy Core here is the extension kitchen, distinct from the archived Mobile Core.
 
-| Order | Plan | Status | Next relevant work / dependency |
-|---|---|---|---|
-| 1 | [Extension MVP](../docs/prd/v1-mvp.md) | Partial | Phase 4: failed-unlock limit/lockout and toolbar clipboard clearing. Phase 1: decide the unimplemented fallback KDF against current Argon2 behavior before any format/security change. Complete security verification before release. |
-| 2 | [Recipe Builder Popup](260522-0832-recipe-builder-popup/plan.md) | Partial | Phase 3: invalidate queued/in-flight preview immediately on every change, including invalid form states; then phase 6 real Cookbook, profile and rapid-input verification. |
-| 3 | [Verification Tag](260522-1314-recipe-verification-tag-sheet-binding/plan.md) | Partial | Phases 5–7/9: localized mismatch/warnings and real builder/content-flow tests, including two profiles. Depends on stable preview in order 2. |
-| 4 | [Legacy Core integration](../docs/implementation_plan.md) | Partial verification | Reuse one real Google Sheets hotkey → Recipe → dish check for the Core and extension plans; do not rebuild the existing kitchen. Run after orders 1–3 fixes. |
-| 5 | [Popup UX](260524-2127-popup-ux-redesign/plan.md) | Partial | Reconcile specs with current UI, finish demo Vietnamese/offline asset requirements and remaining UI/manual matrix. Reuse prior Recipe/mismatch checks instead of rerunning duplicate work. |
-| 6 | [Mobile roadmap](../docs/mobile-app-brainstorm-qa.md) | Partial | Live Google connection → production onboarding/Cookbook screens and receiver/import → cache/mapping/copy integration. Autofill follows a working Cookbook; Drive and advanced authoring follow later. |
-| 7 | [Landing improvements](../landing-page-improve.md) | Partial | Missing OG asset, actual product captures, responsive/performance verification and truthful social proof. Light mode remains an optional low-priority suggestion. Product screenshots follow stable extension UI. |
-| 8 | [Commercialization](../docs/commercialization-plan.md) | Partial / Pending | Phase 0 account/domain/support/screenshots, then release and outreach. Depends on security/UI checks and launch assets; monetization/growth follow release evidence. |
+| Order | Platform | Plan | Status | Next relevant work / dependency |
+|---|---|---|---|---|
+| 1 | Browser extension | [Extension MVP](../docs/prd/v1-mvp.md) | Partial | Phase 4: failed-unlock limit/lockout and toolbar clipboard clearing. Phase 1: decide the unimplemented fallback KDF against current Argon2 behavior before any format/security change. Complete security verification before release. |
+| 2 | Browser extension | [Recipe Builder Popup](260522-0832-recipe-builder-popup/plan.md) | Partial | Phase 3: invalidate queued/in-flight preview immediately on every change, including invalid form states; then phase 6 real Cookbook, profile and rapid-input verification. |
+| 3 | Browser extension | [Verification Tag](260522-1314-recipe-verification-tag-sheet-binding/plan.md) | Partial | Phases 5–7/9: localized mismatch/warnings and real builder/content-flow tests, including two profiles. Depends on stable preview in order 2. |
+| 4 | Browser extension | [Legacy Core integration](../docs/implementation_plan.md) | Partial verification | Reuse one real Google Sheets hotkey → Recipe → dish check for the Core and extension plans; do not rebuild the existing kitchen. Run after orders 1–3 fixes. |
+| 5 | Browser extension | [Popup UX](260524-2127-popup-ux-redesign/plan.md) | Partial | Reconcile specs with current UI, finish demo Vietnamese/offline asset requirements and remaining UI/manual matrix. Reuse prior Recipe/mismatch checks instead of rerunning duplicate work. |
+| 6 | Mobile (Android) | [Mobile roadmap](../docs/mobile-app-brainstorm-qa.md) | Partial | Live Google connection → production onboarding/Cookbook screens and receiver/import → cache/mapping/copy integration. Autofill follows a working Cookbook; Drive and advanced authoring follow later. |
+| 7 | Website | [Landing improvements](../landing-page-improve.md) | Partial | Missing OG asset, actual product captures, responsive/performance verification and truthful social proof. Light mode remains an optional low-priority suggestion. Product screenshots follow stable extension UI. |
+| 8 | Browser extension + Website / Release | [Commercialization](../docs/commercialization-plan.md) | Partial / Pending | Phase 0 account/domain/support/screenshots, then release and outreach. Depends on security/UI checks and launch assets; monetization/growth follow release evidence. |
 
 ## Superseded mechanisms; preserved outcomes
 
