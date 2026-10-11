@@ -1,5 +1,19 @@
 # Project Changelog
 
+## OAuth/Menu client recovery in progress (2026-10-11)
+
+**Scope:** Recover the standalone Kotlin recipe-reading/writing client and JVM
+OAuth connection-check tool. Repairs cover callback state/PKCE, UTF-8 ranges
+and properties, RAW writes, HTTP cleanup, and sanitized nonzero failures.
+
+**Status:** Independent clean build passed with 22 tests and no failures;
+product review found no blocking issue. Local integration is pending.
+Real Google OAuth client creation and a live connection check remain the
+account owner's pending follow-up.
+
+**Plan:** [Recovery plan](../plans/261011-oauth-sheets-worktree-recovery/plan.md).
+**Tracking:** [Worktree recovery](worktree-recovery.md).
+
 ## v2.3 — Full Access Sharing (2026-05-25)
 
 **Feature:** Replace HKDF-derived secret sharing with Full Access (raw secret) sharing.

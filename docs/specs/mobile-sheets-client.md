@@ -1,6 +1,6 @@
 ---
 area: mobile-sheets-client
-updated: 2026-07-28
+updated: 2026-10-11
 sources: [passchef-mobile-oauth-sheets]
 decisions: [D1, D2, D3, D4]
 coverage: partial
@@ -44,7 +44,10 @@ Settled).
 
 **Update a sheet range (append or overwrite existing rows).** Given a valid
 permission grant, a target range, and row values, writes those values into
-exactly that range. Rows outside the requested range are never touched. There
+the configured range. Recipe and account values are sent as literal text by default,
+so leading zeroes and formula-like text are preserved. An append searches the
+configured table range and adds rows after its last data row; an update writes
+from the specified range. The caller must choose a suitable destination. There
 is no operation to delete rows through this connection at all — removing a row
 is something the account owner does by hand, directly in the sheet (R2).
 
@@ -71,13 +74,21 @@ insufficient" outcome, separate from "expired."
 - **R3** — Setting up the permission grant (creating the connection, choosing what it can access) is always a manual, one-time action the account owner takes themselves in their own Google account settings — this product never automates that setup. (D1)
 - **R4** — Proving the connection actually works (the one-time connection check) is verified against simulated responses as part of building this area; running it for real, with the account owner's real permission grant, is the account owner's own follow-up action, separate from building the connection itself. (D4)
 
+- **R5** — Each sign-in uses fresh state and PKCE S256; only a matching, valid callback
+  completes it. Codes and tokens are never printed. Connection-check failures exit nonzero.
+- **R6** — Local connection configuration uses UTF-8; Vietnamese and supplementary
+  characters in tab names are preserved. Owned HTTP clients and engines are closed
+  after success or failure.
+
 ## Edge Cases Settled
 
 - An empty target range returns zero rows, not an error.
 - An expired permission grant surfaces as its own distinct outcome (never a crash or a generic error), with guidance to redo the setup's sign-in step.
 - An insufficient permission grant surfaces as its own distinct outcome, separate from "expired," so the account owner knows which problem they're looking at.
 - The permission grant naturally stops working after about a week while the account owner has not yet formally published/verified the connection with Google — this is expected, ordinary behavior, resolved by repeating the setup's sign-in step, not a defect to fix in code.
-- An update request always targets exactly the range it was given; nothing outside that range is ever changed, and no path exists to remove a row.
+- Updates start at the configured range; appends add rows after the table found in the
+  configured search range. Account values remain literal text by default. No deletion
+  operation exists; callers choose a suitable destination and account for table growth.
 - The permission-expired and permission-insufficient outcomes never reveal the actual permission value itself (no token/credential value is ever surfaced, logged, or printed anywhere, including in these error paths).
 
 ## Open Gaps
@@ -92,6 +103,8 @@ insufficient" outcome, separate from "expired."
 - `src/commonMain/kotlin/com/passchef/sheets/SheetsClient.kt`, `SheetsModels.kt`, `SheetsClientExceptions.kt` — the connection client (read/update, distinct expired/insufficient error types)
 - `src/commonTest/kotlin/com/passchef/sheets/SheetsClientTest.kt` — unit tests against simulated responses
 - `src/jvmMain/kotlin/com/passchef/sheets/SheetsSmokeTest.kt` — the one-time connection check tool
+- `LoopbackOAuth.kt`, `OAuthTokenExchange.kt`, `SmokeTestConfig.kt` in the same directory —
+  state/PKCE, safe token exchange, and UTF-8 local configuration
 - `src/jvmTest/kotlin/com/passchef/sheets/SheetsSmokeTestConfigTest.kt`
 - `docs/runbooks/google-oauth-sheets-setup.md` — the one-time setup runbook
 - `docs/mobile-kmp-toolchain-setup.md` — local toolchain install notes for building this module

@@ -17,6 +17,11 @@ config file or a password manager — never this file, never a commit.
 
 ## Before you start
 
+The Console may group these screens under **Google Auth Platform**: Branding for app
+information, Audience for user type/test users/publishing status, Data Access for
+scopes, and Clients for OAuth client creation. Use those equivalent sections if the
+older APIs & Services labels below redirect there.
+
 - You need a Google account. A plain personal Gmail account works for everything in this
   runbook (see the Internal-app note in Step 4 if you additionally have a Google Workspace
   domain).
@@ -58,26 +63,22 @@ that button flip is Google's own signal that the API is now on for this project.
 
 ## Step 3 — Configure the OAuth consent screen (Testing mode)
 
-1. Go to **APIs & Services → OAuth consent screen**
-   (https://console.cloud.google.com/apis/credentials/consent).
-2. Choose **User Type**:
-   - Pick **External** if you're using a plain personal Google account (this is the common
-     case — see the Internal-app note below if you have a Workspace domain instead).
-   - Click **Create**.
-3. Fill in the required **App information** fields: an app name (e.g. "PassChef Mobile"), your
-   own email as the **User support email**, and your own email again under **Developer contact
-   information**. Everything else on this page can stay blank/default.
-4. Click **Save and Continue** through the **Scopes** page without adding anything here — the
-   scope itself is requested by the client code at consent time, not pre-registered on this
-   screen (click **Save and Continue**).
-5. On the **Test users** page, click **+ Add users**, enter your own Google account email
-   address, and click **Add**, then **Save and Continue**.
-6. On the **Summary** page, click **Back to Dashboard**. Do **not** click any "Publish App"
-   button — leaving the app unpublished is exactly what keeps it in **Testing** status, which
-   is what this track needs (see the caveat in Step 6 below).
+1. Open **Google Auth Platform → Branding** in the active Cloud project. For a
+   new configuration, choose **Get Started**.
+2. Enter the app name (e.g. `PassChef Mobile`) and support email. Continue through
+   **Audience**, selecting **External** for a personal account. Add your developer
+   contact email, accept the required Google API data-policy agreement if you agree,
+   and finish creating the configuration.
+3. Open **Audience → Test users → Add users**. Add the Google account that owns or
+   can read your Menu, and save. Leave publishing status at **Testing**; do not
+   publish the app for this development check.
+4. Open **Data Access → Add or Remove Scopes**. Select or enter
+   `https://www.googleapis.com/auth/spreadsheets`, apply the selection, and save.
+   The client also requests this exact scope during sign-in.
 
-**Done when:** the OAuth consent screen dashboard shows **Publishing status: Testing**, and
-your own email address appears in the **Test users** list.
+**Done when:** Audience shows **Testing** and the intended test account; Data Access
+lists the `spreadsheets` scope. These labels follow Google's current
+[consent configuration guide](https://developers.google.com/workspace/guides/configure-oauth-consent).
 
 ---
 
@@ -88,7 +89,7 @@ not apply to you, and Step 3 already covers your case.
 
 If you *do* have a Google Workspace domain (e.g. a company or organization Google account) and
 created the project under that organization, you can instead set **User Type** to
-**Internal** when you reach the "Choose User Type" action in Step 3 above (item 2), instead of
+**Internal** when selecting Audience in Step 3 above, instead of
 **External**. An Internal app has no 100-test-user cap and — more importantly —
 its refresh tokens never expire on the 7-day Testing-mode timer described in Step 6, because
 Internal apps are not subject to the "unverified app" restrictions at all. This is purely an
@@ -102,24 +103,23 @@ your account).
 
 ## Step 5 — Create the OAuth client (Desktop app type)
 
-1. Go to **APIs & Services → Credentials**
-   (https://console.cloud.google.com/apis/credentials).
-2. Click **+ Create Credentials → OAuth client ID**.
+1. Go to **Google Auth Platform → Clients** in the active project.
+2. Click **Create client** (older Console navigation may call this
+   **APIs & Services → Credentials → Create Credentials → OAuth client ID**).
 3. For **Application type**, select **Desktop app**. (This is the correct type for this
    track — it uses the loopback-redirect flow, does not need a SHA-1 fingerprint or a package
    name, and is not affected by Google's loopback-flow deprecation, which only applies to other
    client types. See the forward-pointer note in Step 8 for why this is *not* the client type
    used by the eventual Android app.)
 4. Give it a name, e.g. `passchef-mobile-desktop-smoketest`.
-5. Click **Create**. A dialog appears showing a **Client ID** and **Client Secret**.
+5. Click **Create**. Save the displayed **Client ID** and **Client Secret** before closing the dialog.
 6. Click **Download JSON** (or copy the Client ID and Client Secret values directly) and save
    them into your own local, gitignored config file or a password manager — **never** paste
    them into this runbook, into any file tracked by git, or into a chat/issue. If you use the
    downloaded JSON file, keep it outside the repo or make sure its path is covered by
    `.gitignore` before it ever touches disk inside the project folder.
 
-**Done when:** the **Credentials** page lists your new OAuth 2.0 Client ID under
-**OAuth 2.0 Client IDs** with type **Desktop**, and you have the Client ID + Client Secret
+**Done when:** the **Clients** page lists your new OAuth client with type **Desktop**, and you have the Client ID + Client Secret
 saved somewhere private (not in this repo).
 
 ---
@@ -143,23 +143,71 @@ login/consent screen once more) to get a fresh token — no Console changes need
 the Internal-app path in Step 4 instead, this 7-day limit does not apply to you.
 
 **Done when:** you've read and understood both points above — no action to take, just
-awareness before running the smoke-test tool for the first time (and again whenever it reports
-an expired/invalid token after ~7 days of inactivity).
+awareness before running the connection check. This one-time tool requests only an
+access token for its current read; it does not request, persist, or refresh offline tokens.
+Future offline mobile access must account for the Testing-mode refresh-token limit.
 
 ---
 
 ## Step 7 — Hand off the credentials to the client code
 
-1. The Sheets API client module (built in a separate track of this feature) reads the Client
-   ID and Client Secret from a local config file or environment variables — it never has them
-   hardcoded in source. Follow that module's own README/setup instructions for exactly where
-   to place the values you saved in Step 5.
-2. Do not commit that config file. Confirm it is listed in `.gitignore` before running
-   anything, and confirm with `git status` that it does not show up as a new/untracked file
-   ready to be added.
+1. At the repo root, create `mobile/sheets-client/smoketest.local.properties` in
+   **UTF-8** with these keys. Replace the placeholder values privately:
 
-**Done when:** `git status` in the repo shows no new file containing your Client ID/Secret,
-and the client tool's own setup doc confirms where it expects the values.
+   ```properties
+   clientId=YOUR_DESKTOP_CLIENT_ID
+   clientSecret=YOUR_DESKTOP_CLIENT_SECRET
+   spreadsheetId=YOUR_MENU_ID
+   range='Tên Menu 🍳'!A1:Z
+   ```
+
+   The Menu ID is the segment between `/d/` and `/edit` in its Google Sheets URL.
+   Use the exact tab name in the A1 range; quote names containing spaces or punctuation.
+   Java properties treat backslashes as escapes: double a literal backslash.
+   The range above is an example; choose a range covering your cookbook's accounts.
+   This tool reads a properties file only, not environment variables.
+2. Confirm the file is ignored before inserting private values:
+
+   ```sh
+   git check-ignore mobile/sheets-client/smoketest.local.properties
+   git status --short
+   ```
+
+   The first command must print the config path; the second must not list it.
+   Keep downloaded OAuth JSON outside the repository. Never put credentials in
+   this runbook, tracked files, build arguments, or chat.
+3. With JDK 21 available, run from the repo root:
+
+   ```sh
+   cd mobile/sheets-client
+   ./gradlew runSheetsSmokeTest
+   ```
+
+   If using the portable JDK installed by this track, run from the repo root:
+
+   ```sh
+   export JAVA_HOME="$PWD/.toolchain/jdk"
+   export PATH="$JAVA_HOME/bin:$PATH"
+   cd mobile/sheets-client
+   ./gradlew runSheetsSmokeTest
+   ```
+
+   See `docs/mobile-kmp-toolchain-setup.md` if the JDK needs installation.
+4. Open the printed Google authorization URL in your browser and complete consent.
+   Each attempt creates a fresh state and PKCE S256 challenge, waits on a local
+   loopback port, verifies the returned state, and exchanges the code with the
+   matching verifier. Unrelated, malformed, or forged callbacks do not end the
+   pending sign-in. The wait expires after five minutes.
+5. Confirm `Read N row(s) from the Menu.` and a successful Gradle run. Only a row
+   count is printed; recipes, access tokens, and client seasoning are never printed.
+   Missing/invalid config, denied or timed-out consent, token errors, network errors,
+   and rejected reads exit nonzero. A 401 asks for fresh sign-in; a 403 asks you to
+   check Menu sharing permissions, enabled API, requested scope, and test users.
+   Error messages omit Google response bodies and private values.
+
+**Done when:** your local config is ignored, the real sign-in/token exchange completes,
+and one real Menu read succeeds. Creating this client and running this live check
+remain the account owner's follow-up, outside this track's completed code deliverable.
 
 ---
 

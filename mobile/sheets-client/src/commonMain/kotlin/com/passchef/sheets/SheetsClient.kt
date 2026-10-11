@@ -28,12 +28,13 @@ private const val SHEETS_API_BASE = "https://sheets.googleapis.com/v4/spreadshee
  * Accepts an already-obtained OAuth access token; it never performs the OAuth
  * dance itself (that is oauth-sheets-4's job, see CONTEXT.md D1/D4).
  *
- * The caller supplies the [HttpClientEngine] so this class stays testable in
+ * Takes ownership of the supplied [HttpClientEngine]; callers must call [close].
+ * The caller supplies the engine so this class stays testable in
  * `commonTest` with a fake/mocked engine (e.g. Ktor's `MockEngine`) -- no real
  * network call is ever required to exercise it.
  */
 class SheetsClient(
-    engine: HttpClientEngine,
+    private val engine: HttpClientEngine,
     private val accessToken: String
 ) {
     private val httpClient = HttpClient(engine) {
@@ -59,8 +60,9 @@ class SheetsClient(
         spreadsheetId: String,
         range: String,
         values: List<List<String>>,
-        valueInputOption: String = "USER_ENTERED"
+        valueInputOption: String = "RAW"
     ): AppendValuesResponse {
+        validateInputOption(valueInputOption)
         val response = httpClient.post(
             "${valuesUrl(spreadsheetId, range)}:append?valueInputOption=$valueInputOption"
         ) {
@@ -79,8 +81,9 @@ class SheetsClient(
         spreadsheetId: String,
         range: String,
         values: List<List<String>>,
-        valueInputOption: String = "USER_ENTERED"
+        valueInputOption: String = "RAW"
     ): UpdateValuesResponse {
+        validateInputOption(valueInputOption)
         val response = httpClient.put(
             "${valuesUrl(spreadsheetId, range)}?valueInputOption=$valueInputOption"
         ) {
@@ -91,12 +94,23 @@ class SheetsClient(
         return response.decodeOrThrow()
     }
 
+    fun close() {
+        httpClient.close()
+        engine.close()
+    }
+
+    private fun validateInputOption(option: String) {
+        require(option == "RAW" || option == "USER_ENTERED") {
+            "Input option must be RAW or USER_ENTERED"
+        }
+    }
+
     private fun HttpRequestBuilder.bearerAuth() {
         header(HttpHeaders.Authorization, "Bearer $accessToken")
     }
 
     private fun valuesUrl(spreadsheetId: String, range: String): String =
-        "$SHEETS_API_BASE/$spreadsheetId/values/${range.encodeAsPathSegment()}"
+        "$SHEETS_API_BASE/${spreadsheetId.encodeAsPathSegment()}/values/${range.encodeAsPathSegment()}"
 
     /**
      * Decodes a 2xx body as [T]; a non-2xx status is surfaced as a distinct,
@@ -128,14 +142,13 @@ class SheetsClient(
 private fun String.encodeAsPathSegment(): String {
     val safe = ('a'..'z') + ('A'..'Z') + ('0'..'9') + listOf('-', '_', '.', '~')
     val builder = StringBuilder()
-    for (ch in this) {
-        if (ch in safe) {
-            builder.append(ch)
+    for (byte in encodeToByteArray()) {
+        val value = byte.toInt() and 0xFF
+        if (value.toChar() in safe) {
+            builder.append(value.toChar())
         } else {
-            for (byte in ch.toString().encodeToByteArray()) {
-                val hex = (byte.toInt() and 0xFF).toString(16).uppercase()
-                builder.append('%').append(if (hex.length == 1) "0$hex" else hex)
-            }
+            val hex = value.toString(16).uppercase()
+            builder.append('%').append(if (hex.length == 1) "0$hex" else hex)
         }
     }
     return builder.toString()

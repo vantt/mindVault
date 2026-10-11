@@ -97,10 +97,11 @@ directory on your behalf.
 - `jvmMain` / `jvmTest` — JVM target (`jvm()` in the `kotlin {}` block).
 - `jvmToolchain(21)` pinned in `build.gradle.kts`.
 
-It is intentionally skeletal at this stage (placeholder source files only) —
-proving the toolchain and module scaffold build/test independently of any
-app UI (D2). The Sheets v4 REST client itself (Ktor + kotlinx.serialization)
-and the OAuth Console runbook are separate follow-up cells in this same
-track's plan (`docs/history/passchef-mobile-oauth-sheets/plan.md`, Epics
-E3–E5). No Android target/app module is added here (out of scope,
-`p-c46b217c`).
+The initial scaffold has been completed with the Sheets v4 REST client,
+OAuth Console runbook, and JVM connection-check tool. The 2026-10-11 recovery
+adds state/PKCE protection, UTF-8 ranges/configuration, literal recipe writes,
+and 22 credential-free tests. See [worktree recovery](worktree-recovery.md)
+and the [OAuth setup runbook](runbooks/google-oauth-sheets-setup.md).
+It remains independent of app UI: no Android target/app module is added here
+(`p-c46b217c` is separate). Real Google consent and a live Cookbook read remain
+pending; the local build does not certify them.
