@@ -21,6 +21,31 @@ wait for resolved release-blocking bugs and stable UI. Planning-only update; pro
 source/tests unchanged, no tests run or launch claimed. Historical acceptance scope
 and remaining mobile checks retained.
 
+## Accept real five-minute idle and prepare total timer (2026-10-13)
+
+Idle Run05 Passed1/1,341.722s on API36, runner[1,0]/OK1,0 failures/errors/skips.
+Genuine biometric setup, exact Dish Reveal and real window DOWN/UP established the
+idle baseline; no further input through expiry. At295099ms the session/Dish/Copy
+remained available; at301804ms the vault was locked, session/Dish/Copy cleared,
+generation incremented and encrypted jars preserved. No focus/lifecycle interruption;
+owner Cookbook digest unchanged. Accepted foreground proof KEEP_SCREEN_ON scope.
+
+Four new bounded proof files retain original monotonic5/10-minute deadlines, with
+read-only clock/session/lifecycle/focus diagnostics and normal own-window IME/point
+guards. Production/old tests/Golden unchanged; no virtual clock or session bypass.
+Builds42s/13s/11s Passed, lint0/11/1; earlier JVM counts retained, no fresh execution.
+
+Idle Run01 Failed8.761s before pointer, Run02 Failed39.456s at targeted input binder,
+Run03 Failed182.455s at setup and Run04 Failed182.179s at setup. Original failure
+causes remain unknown. Same frozen03 source/APKs passed Idle05. Total Run01/02/03
+failed setup182.309s/182.279s/182.138s before any timer baseline;10-minute measurement
+Pending. Total02 correlated code15/system/transient wrap events with authRequired=false;
+cause unknown. Total03 auth error5 occurred after its result, not evidence of cause.
+Nothing currently running. Failed verdicts and source/test-APK hash identities retained;
+overwritten historical binary/source copies not claimed.
+[Current evidence](../plans/261012-mobile-cookbook-phase1/reports/session-timer-runtime.md).
+Mobile Partial; broader timer UX, previous open causes and remaining acceptance retained.
+
 ## Accept actual network-off Cook and cache preservation (2026-10-13)
 
 Network-off Run04 Passed1/1,31.477s on Xiaomi/API36, runner[1,0]/OK1,0 failures/errors/

@@ -47,6 +47,12 @@
   production repair. Cancellation/stale callbacks/401/403/cold-start/process death/
   timers/capture/ENVI/accessibility remain Pending; original UI Run01/network Run03
   key-wrap causes unresolved. Whole mobile remains Partial.
+  [Real foreground timer continuation](../plans/261012-mobile-cookbook-phase1/reports/session-timer-runtime.md)
+  has compiled/reviewed genuine-biometric/actual-window-input fixtures; idle Run01/02
+  Failed before pointer baseline; Run03/04 Failed at setup. Run05 actual5-minute
+  idle Passed1/1,341.722s under proof foreground KEEP_SCREEN_ON; total Run01 setup
+  Failed182.309s/Run02 Failed182.279s with correlated code15 wrap cause unknown;
+  Run03 setup Failed182.138s/10-minute Pending. No production repair/broader timer UX inferred.
 - [Keystore physical coverage follow-up](../archive/plans/261011-keystore-recovery/reports/current-device-acceptance.md):
   API26/no hardware/no enrollment, typed7/9 callbacks, exact process-kill/
   retry-exhaustion windows and precise Recents observation remain unexecuted.

@@ -6,6 +6,11 @@ Latest [cache UI evidence](google-cache-ui-runtime.md) covers app-disconnected C
 and authenticated same-process recreation; earlier preflight/run snapshots retained.
 Owner connected/unlocked Xiaomi14TPro/2407FPN8EG API36 and authenticated fingerprint.
 Root exclusively runs native Windows adb over authorized USB; no network ADB.
+Current [actual session timer continuation](session-timer-runtime.md): idle Run01/02
+Failed before baseline pointer; Run03/04 setup Failed. Run05 actual5-minute idle
+Passed1/1,341.722s; total Run01/02/03 setup Failed182.309s/182.279s/182.138s,10-minute
+Pending with correlated Total02 wrap diagnostics/cause unknown. Earlier accepted device
+flows retained; no timer success or new production repair inferred.
 
 ## Preflight
 

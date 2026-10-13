@@ -3,6 +3,9 @@
 Status: **No unresolved P1/P2 in the reviewed code**. Local verification and
 selected Google/cache UI acceptance passed; broader phone/provider matrix Pending.
 Historical local snapshot below retained; latest continuation review at the end.
+Current [session timer harness](session-timer-runtime.md) separates original pointer/
+setup failures from Idle05 Passed341.722s actual5-minute foreground proof. Total01/02
+setup Failed; Total03 setup Failed182.138s/10-minute Pending, correlated Total02 wrap cause unknown.
 Reviewer: agent A, independent of product author B. Date:2026-10-11 UTC.
 
 ## Scope and evidence

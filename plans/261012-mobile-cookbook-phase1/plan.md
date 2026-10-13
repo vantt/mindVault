@@ -58,8 +58,8 @@ and authenticated same-process recreation; app-disconnected cache only. Later
 [Network-off Run04](reports/network-off-runtime.md) Passed real offline Cook/error
 preservation;401/403/cancel/cold-start/process-death remain Pending in phase04.
 Run04/05 cover selected synthetic-jars biometric/Cook/reveal/copy/background flow.
-Foreground clipboard adapter3/3 Passed; broader lifecycle/5-minute idle/10-minute
-total and phone UX still need acceptance; prior demo proof is not new UI proof.
+Foreground clipboard adapter3/3 and [actual5-minute idle Run05](reports/session-timer-runtime.md)
+Passed;10-minute total/cold-start/process-death/broader UX Pending, mobile Partial.
 QR receiver/camera, Autofill spike/service, Drive, multi-profile authoring and
 append/update screens remain separate later work. No reopened stack/write decision.
 

@@ -2,6 +2,11 @@
 
 Status: **Partial — local verification/delivery Done; owner acceptance Pending**. Priority:5.
 Owner/device acceptance below remains Pending.
+Current [real session timer continuation](reports/session-timer-runtime.md): three
+selective test-APK/lint builds Passed; idle Run01/02 pointer failures and Run03 setup
+failure retained; Run04 setup Failed. Idle Run05 Passed1/1,341.722s; total Run01
+setup Failed182.309s/182.279s/182.138s across Run01/02/03;10-minute measurement
+Pending. No fresh JVM; foreground proof KEEP_SCREEN_ON, all failed histories retained.
 Selected [cache UI Run02](reports/google-cache-ui-runtime.md) Passed1/1,42.393s;
 broader device/provider matrix remains Pending, whole phase Partial.
 Latest [network-off Run04](reports/network-off-runtime.md) Passed1/1,31.477s:

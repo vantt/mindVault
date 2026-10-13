@@ -2,6 +2,12 @@
 
 Status: **Local code verification passed**; selected device acceptance Passed,
 broader owner/device matrix Pending. Historical local snapshot below retained.
+Current [session timer preparation](session-timer-runtime.md): test-APK/lint builds
+42s/13s/11s Passed, lint0/11/1; no fresh JVM execution. Idle Run01/02 Failed before
+baseline pointer and Run03/04 Failed at setup; Run05 actual5-minute idle Passed1/1,
+341.722s. Total Run01/02/03 setup Failed182.309s/182.279s/182.138s,10-minute Pending;
+foreground proof KEEP_SCREEN_ON. Total02 correlated code15 wrap cause unknown;
+Total03 no opened session, no timer measurement or cause inferred.
 Date:2026-10-11 UTC. Reviewer agent A is independent of product author B.
 
 ## Final results
