@@ -1,6 +1,7 @@
 # Independent Cookbook verification
 
-Status: **Local code verification passed**; owner/device acceptance Pending.
+Status: **Local code verification passed**; selected device acceptance Passed,
+broader owner/device matrix Pending. Historical local snapshot below retained.
 Date:2026-10-11 UTC. Reviewer agent A is independent of product author B.
 
 ## Final results
@@ -93,4 +94,62 @@ Local checks do not imply Android CI coverage. No unresolved P1/P2 found in code
 Extension [recheck](../../reports/261012-extension-recheck.md):147 units and25 E2E
 passed on unchanged extension source. It grants no mobile live-provider proof.
 
-Unresolved: owner Android OAuth configuration/consent and actual phone acceptance.
+## Continuation after main13cf9d1
+
+[Unattended regression](unattended-regression.md) records fresh shared78/app4,
+packaging/lint and additional diagnostic compilation. Those APKs were not installed
+in that earlier snapshot; [later runtime evidence](ui-runtime-continuation.md) records
+their data-preserving installation and locked diagnostic1/1 pass. [Device acceptance](device-acceptance.md) supersedes the historical
+not-executed UI status above: actual Run01 failed after genuine fingerprint;
+Run02/03 failed, Run04 passed selected foreground flow. Normal-screen-policy
+comparison subsequently Passed Run05 1/1,53.663s after verified reconnect/unlock.
+Remaining Google/phone proof and historical Run01 cause stay open.
+No production fix claimed.
+
+[Clipboard adapter runtime](clipboard-runtime.md),2026-10-13: exact prepared test APK
+installed with data preservation; actualAPI36 Passed3/3,99.926s,0 skips/failures.
+Real foreground untouched30s cleanup and replacement/newer ownership proven;
+no authenticated Cook/Google/background/recreation/API26 fallback proof added.
+
+Oct13 continuation: [clipboard Activity recreation](clipboard-recreation-runtime.md)
+Passed1/1,31.721s on Xiaomi/API36. Actual old Activity destruction/new identity and
+original29s retention/30.5s clearance asserted, with locked unique proof storage.
+Final test-APK/lint Passed33s;0 errors/11 warnings/1 hint. This is same-process
+adapter proof; authenticated recreation/background/process death remain Pending.
+
+Oct13 owner reports Android OAuth client configured. New isolated real-Google
+acceptance fixture reviewed/compiled: test APK/lint Passed59s,0 errors/11 warnings/
+1 hint. [Preparation evidence](google-acceptance-preparation.md) separates new local
+APK from the installed recreation candidate. Google device runtime0/Pending: dedicated
+test Menu URL and ready owner awaited; no grant/read or new installation attempted.
+
+Later [Google runtime](google-runtime.md): prepared5eb335 test APK installed with
+owner digest preserved. Actual Google Run01 Failed1/1,44.766s at metadata; owner
+confirmed genuine account/consent and absent expected Test tab, then renamed it.
+Unchanged Run02 Failed1/1,19.259s at values with actual draft present. Usable
+authorization/provider metadata/values and selected Test tab observed; fixed row/
+origin/schema assertion not yet resolved, mapping/cache unaccepted. No production
+repair inferred; forthcoming diagnostics retain every assertion.
+
+Schema diagnostics subsequently reviewed/compiled Passed59s,0/11/1 lint. New11
+boolean flags/fine phases retain all17 original assertions byte-identical; new
+candidate cc4d5bbc is local only. Owner reports only A1/A2 populated; correct the
+dedicated fixture and confirm readiness before another authentication/runtime.
+
+After owner updated the fixture, exact refined candidatecc4d5bbc installed with data
+preserved; **Google Run03 Passed1/1,23.309s**,0 errors/failures/skips. All11 match flags
+true and original17 assertions pass actual metadata/tab/rows/explicit mapping/cache
+file load plus unchanged fake jars. Owner digest unchanged after install/runtime.
+Independent reviewer confirmed JUnit [1,0], diagnostic2 separate, exact source/APK
+and scope. Google writes/errors/UI cache reopening remain unproven.
+
+Latest [Google cache UI continuation](google-cache-ui-runtime.md): initial88s build
+Passed fresh app4; shared78/bridge16/standalone29 retained, not freshly rerun. Corrected
+helper sync build40s Passed, lint0/11/1; production unchanged. Default proof-storage
+recreation Passed1/1,31.769s. Cache UI Run01 Failed1/1,294.651s; corrected Run02
+Passed1/1,42.393s with exact provider cache Cook/UI/favorite/recent/search and genuine
+biometric same-process authenticated recreation. All assertions retained; exact
+source/APK/install/digest histories in linked report. No whole-mobile completion.
+
+Unresolved: original Cookbook UI Run01 reveal failure; actual network-off/provider
+error/cancellation/401/403/cold-start/process-death and remaining phone matrix.

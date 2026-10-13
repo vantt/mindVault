@@ -1,10 +1,12 @@
 # Android Cookbook — first production slice
 
-Date: 2026-10-12 (Asia/Saigon). Status: **Partial — code/local checks Done; owner acceptance Pending**.
+Date:2026-10-12; updated2026-10-13 (Asia/Saigon). Status: **Partial — code/local checks Done; owner acceptance Pending**.
 Baseline: main `2579e29044924e1582b78414b0314baffc72abe5`.
 Owner authorized two agents: recheck the five browser slices and implement mobile.
 Production code is implemented and independently verified locally.
-Device/live Google acceptance remains Pending.
+Selected UI/clipboard/Google cache recreation Passed; broader device acceptance Pending.
+Actual UI Run01 failed after reveal; [device evidence](reports/device-acceptance.md)
+and [unattended regressions](reports/unattended-regression.md) track investigation.
 
 ## Outcome and settled scope
 
@@ -24,8 +26,8 @@ Q6's historical read-only wording is superseded by Q9 and the retained decisions
 |---|---|---|---|
 | 1 | [Session-owned manual cooking](phase-01-session-cooking.md) | Done (local scope) | First useful offline path; shared JVM regressions + Android compile |
 | 2 | [Private cache and column mapping](phase-02-cache-mapping.md) | Done (local scope) | Pure model/storage tests; no Google credential required |
-| 3 | [Cookbook Compose screens and clipboard](phase-03-cookbook-ui.md) | Partial | Uses1–2; APK/test-APK/lint autonomous, actual UI/device proof Pending |
-| 4 | [Android Sheets/authorization integration](phase-04-android-sheets-connection.md) | Partial | Root-platform bridge and real connection code; owner grant still required |
+| 3 | [Cookbook Compose screens and clipboard](phase-03-cookbook-ui.md) | Partial | Run04/05/cache UI Run02 Passed; broader phone/clipboard matrix Pending |
+| 4 | [Android Sheets/authorization integration](phase-04-android-sheets-connection.md) | Partial | Google Run03/cache UI Run02 Passed; provider errors/network-off Pending |
 | 5 | [Independent verification and delivery](phase-05-verification-delivery.md) | Partial | Evidence separates code/build acceptance from physical/live acceptance |
 
 Phases1–3 can produce useful real offline code without a phone/account. Phase4
@@ -49,10 +51,14 @@ certify an Android Google connection. [Verification](reports/verification.md) an
 
 ## Owner-dependent acceptance and deferred work
 
-Android OAuth client/package/signing configuration, consent and a real authorized
-Sheets read remain Pending. The public browser Cookbook grants no Android token.
-Biometrics, actual clipboard/reveal/lifecycle/5-minute idle/10-minute total and
-phone UX need authorized physical acceptance; prior demo proof is not new UI proof.
+Owner confirmed real Google consent; [Google runtime](reports/google-runtime.md)
+records Google Run03 Passed metadata/rows/mapping/cache-file load after Failed Run01/02.
+[Cache UI Run02](reports/google-cache-ui-runtime.md) Passed lock/reopen/cached Cook
+and authenticated same-process recreation; app-disconnected cache only. Provider
+errors/network-off/cold-start/process-death remain Pending; phase04 tracks scope.
+Run04/05 cover selected synthetic-jars biometric/Cook/reveal/copy/background flow.
+Foreground clipboard adapter3/3 Passed; broader lifecycle/5-minute idle/10-minute
+total and phone UX still need acceptance; prior demo proof is not new UI proof.
 QR receiver/camera, Autofill spike/service, Drive, multi-profile authoring and
 append/update screens remain separate later work. No reopened stack/write decision.
 
@@ -66,6 +72,6 @@ Exact local commands and the Pending owner checklist are in phase5.
 
 ## Open dependencies
 
-Owner Android Google setup/consent and later physical acceptance; no product
+Google provider errors/network-off and later physical acceptance; no product
 question blocks the offline implementation. Whole roadmap Phase1 remains Partial
 until real connection and required user/device flows have evidence.

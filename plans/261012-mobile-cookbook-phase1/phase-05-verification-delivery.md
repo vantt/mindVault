@@ -2,6 +2,8 @@
 
 Status: **Partial — local verification/delivery Done; owner acceptance Pending**. Priority:5.
 Owner/device acceptance below remains Pending.
+Selected [cache UI Run02](reports/google-cache-ui-runtime.md) Passed1/1,42.393s;
+broader device/provider matrix remains Pending, whole phase Partial.
 
 ## Context and requirements
 
@@ -61,9 +63,16 @@ is established. `assembleDebugAndroidTest` compiles tests; it does not run them.
 - [x] Root handles authorized scoped commit/integration/push after independent review;
   archive only a scope with no relevant remaining deliverable. Owner authorized commit/push.
 
-## Owner/device acceptance — all Pending
+## Owner/device acceptance — Partial
 
 [Candidate and Android Google checklist](../../docs/runbooks/android-cookbook-acceptance.md).
+Installation/digest checks and8 selected platform tests passed. Actual owner biometric
+UI Run01 failed after reveal; Run02 failed after owner-confirmed interruption,
+Run03 failed before setup; Run04 passed selected unchanged foreground flow. Run01
+cause remains not reproduced; normal-policy Run05 passed. GoogleRun03 and cached
+UI/Cook/authenticated same-process recreation Run02 Passed; wider acceptance Pending. The
+[unattended continuation](reports/unattended-regression.md) adds shared78/app4 and
+compiled diagnostics; it does not resolve the physical failure.
 
 1. Owner configures Android OAuth package/signing and grants actual Sheets access;
    select dedicated test Menu/tab, confirm mapping and observe real API/cached results.
@@ -75,6 +84,12 @@ is established. `assembleDebugAndroidTest` compiles tests; it does not run them.
    honestly; observe screenshot/Recents/capture and sanitized own-app logs.
 5. Existing unexecuted Keystore device matrix remains separately Pending; a passing
    new Xiaomi screen flow does not certify API26/no hardware/no enrollment cases.
+
+Latest continuation build88s Passed fresh app4; shared78/bridge16/standalone29 retained.
+Helper-only sync build40s Passed, lint0/11/1. Default storage recreation Passed1/1,
+31.769s; cache UI Run01 Failed1/1,294.651s remains retained, corrected Run02 Passed1/1,
+42.393s. Owner digest preserved. No production fix, actual network-off/process-death/
+cold-start/cancellation/401/403/timer/UI matrix claim; no new commit claimed here.
 
 ## Success and remaining dependencies
 

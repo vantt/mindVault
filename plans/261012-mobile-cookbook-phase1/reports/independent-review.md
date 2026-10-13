@@ -1,7 +1,8 @@
 # Independent mobile Cookbook review
 
-Status: **No unresolved P1/P2 in the reviewed code**. Local verification passed;
-owner Google/phone acceptance remains Pending.
+Status: **No unresolved P1/P2 in the reviewed code**. Local verification and
+selected Google/cache UI acceptance passed; broader phone/provider matrix Pending.
+Historical local snapshot below retained; latest continuation review at the end.
 Reviewer: agent A, independent of product author B. Date:2026-10-11 UTC.
 
 ## Scope and evidence
@@ -56,4 +57,78 @@ Real Google configuration/account consent/API read, phone biometrics, clipboard
 and lifecycle/UX acceptance remain Pending. No emulator/device job was run.
 QR receiver/camera, Autofill, Drive discovery and mobile authoring remain later scope.
 
-Unresolved: owner Android OAuth configuration/consent and phone acceptance above.
+## Continuation review
+
+The two-agent [unattended continuation](unattended-regression.md) independently
+reviewed four shared regressions, refined read-only diagnostics and a compiled
+locked-only lifecycle test; no P1/P2 found in those changes. Reviewer parsed fresh
+shared78/app4 XML and checked reflected compiled field names/types. Production
+source is unchanged. Actual [UI Run01 failure](device-acceptance.md) remains
+undetermined; local policy checks do not prove a physical repair. [Later runtime](ui-runtime-continuation.md):
+locked diagnostic1/1 passed; Run02 failed with owner-confirmed foreground interruption;
+Run03 failed before setup. Run04 passed selected foreground flow; reviewer confirmed
+terminal1/1,62.575s and actual10.653s remask
+with retained Dish/session. Further test-only pause/stop diagnostics and explicit
+normal-screen-policy argument were reviewed with no P1/P2; compile passed, runtime
+initially Pending after USB loss; after reconnect, locked diagnostic02 Passed1/1,
+1.943s and Run05 Passed1/1,53.663s. Reviewer independently confirms actual
+KEEP_SCREEN_ON=false,10.617s remask with retained Dish/session, and pause/stop only
+after the deliberate final background transition. No production repair inferred.
+
+Oct13 independent clipboard review confirmed exact three runner start1/pass0 pairs,
+terminal3/3,99.926s, no skips/failures. Real foreground ClipboardManager/OwnedClipboard
+fixture observes29s retention/30.5s clear, replacement and newer deadlines, sensitivity
+metadata, locked vault/no record and exact owned cleanup. Root separately measured
+unchanged owner digest after runtime. API36/API28+ foreground adapter scope only;
+no Cook/auth/Google/background/recreation/API26 fallback accepted by those tests.
+
+Independent Oct13 [clipboard Activity recreation](clipboard-recreation-runtime.md)
+review found no P1/P2. Final133-line source and build/install/runtime hashes match;
+runner has one start1/pass0 pair, terminal1/1,31.721s with no skips/failure codes.
+Actual original destruction/new identity/two proof directories, original29s retention
+and30.5s clear are asserted behind real foreground/locked-vault guards. Owner digest
+unchanged after runtime. API36 same-process adapter acceptance only; authenticated
+Cookbook recreation/process death/background/Google/Run01 cause remain unproven.
+
+Oct13 real-Google acceptance fixture source reviewed: no P1/P2. One real setup/
+owner-biometric flow, actual production Connect/provider metadata/tab/rows, explicit
+mapping and durable cache readback; one UI reconnect only after actual background
+lock. Empty owned storage, immutable synthetic row expectations and sanitized
+status2 diagnostics prevent injected/offline success or private failure dumps.
+[Prepared candidate](google-acceptance-preparation.md) still has0 Google tests run;
+usable permission may reuse a grant and does not alone prove fresh consent UI.
+
+Independent [Google runtime](google-runtime.md) parsing confirms Run01 Failed1/1,
+44.766s and Run02 Failed1/1,19.259s: each start1/failure-2, diagnostic2 separate,
+no skips/errors and native0 not credited as pass. Source paths support real usable
+grant/requested metadata and actual selected-tab values in Run02. Owner confirmed
+fresh account/Sheets consent in Run01 and renamed the previously mismatched tab.
+Run02 literal/origin assertion remains coarse; no schema/mapping/cache acceptance
+or production repair credited. Owner digest unchanged after both runs.
+
+Subsequent173-line diagnostic refinement independently verified: all17 original
+assertTrue calls byte-identical/in order;11 read-only expected identity/header/row
+match booleans and finer phases only. No private values/URL/token or original cause
+dumped, final cache/status2 unchanged. No P1/P2; source0de333ad frozen, compilation
+Passed59s, runtime/new install Pending. Owner reports only A1/A2 populated.
+
+Independent Google Run03 parsing: Passed1/1,23.309s; exact JUnit[1,0], diagnostic2
+separate, terminalOK1,0 failures/errors/skips. Source0de333ad/testcc4d5bbc/debugd4/
+installed hashes agree; owner894 digest unchanged after install/runtime. All11
+expected flags true; original17 assertions verify genuine authorization/provider
+metadata/Test tab/literal rows/explicit mapping/actual cache-file load and unchanged
+fake jars. Fresh consent owner-observed Run01; Run03 may reuse that grant. Accepted
+selected scope only, not UI cache reopening/disconnect/errors/writes/full-mobile.
+
+Independent latest [Google cache UI review](google-cache-ui-runtime.md): no P1/P2
+in opt-in owned-storage retention or150-line continuation helper. Original17 Google
+assertions byte-identical/in order; corrective four sync/phase lines retain all helper
+assertions. Default two-directory physical regression Passed1/1,31.769s. Cache UI
+Run01 Failed1/1,294.651s retained; corrected Run02 Passed1/1,42.393s, runner[1,0],
+0 failures/errors/skips. Actual recreated biometric ready=true/cache=false checkpoint
+then normal Compose sync/cache=true and unchanged exact cache/UI/Cook assertions
+passed. Source/APK/owner-digest evidence checked; production unchanged. Scope only
+app-disconnected cache and same-process authenticated recreation; no original UI fix.
+
+Unresolved: original Cookbook UI Run01 cause; actual network-off/provider errors/
+cancellation/401/403/cold-start/process-death and remaining phone matrix above.

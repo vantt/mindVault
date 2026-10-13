@@ -5,7 +5,7 @@
 client (the independent JVM/desktop tool) can read and write your
 password-recipe Google Sheet on your behalf.
 
-The Android Cookbook adapter is being implemented separately. Its package/signing
+The Android Cookbook adapter is implemented and locally verified. Its package/signing
 registration and live acceptance are in the [Android checklist](android-cookbook-acceptance.md).
 Desktop Client ID/Secret below are not Android app configuration.
 

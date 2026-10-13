@@ -1,5 +1,157 @@
 # Project Changelog
 
+## Accept Google cached Cook and authenticated recreation (2026-10-13)
+
+Actual cache UI Run02 Passed1/1,42.393s on Xiaomi/API36, independent runner[1,0]/OK1,
+0 failures/errors/skips. Real Google provider cache drives exact origin/Recipe/literal
+username00123, masked/revealed synthetic Dish, favorite/recent/search, lock/biometric
+reopen and authenticated same-process Activity recreation. New controller starts
+locked without Dish/session/token; genuine biometric reloads exact durable cache.
+Owner Cookbook digest preserved across exact APK installs and both runs.
+
+Cache UI Run01 Failed1/1,294.651s retained with its source/APK/frozen manifest. Four
+helper-only synchronization/phase lines retain every assertion; actual recreated
+biometric checkpoint ready=true/cache=false, then normal Compose sync/cache=true
+and all exact assertions passed. Production unchanged; historical CookbookUIRun01
+cause unknown/not reproduced. Default two-directory recreation regression Passed1/1,
+31.769s. Initial build88s fresh app4/shared78 retained; incremental sync build40s,
+lint0 errors/11 warnings/1 hint; earlier bridge16/standalone29 retained.
+[Exact evidence](../plans/261012-mobile-cookbook-phase1/reports/google-cache-ui-runtime.md).
+Mobile Partial: actual network-off/provider errors/cancellation/401/403/cold-start/
+process-death/timers/capture/ENVI/accessibility and broader matrix remain Pending.
+
+## Accept selected live Android Google read and cache (2026-10-13)
+
+Actual GoogleRun03 Passed1/1,23.309s on Xiaomi/API36 after owner completed the known
+synthetic fixture. All11 identity/header/row/width matches true; real requested metadata,
+selected tab and literal row read, explicit columns1/2/3 with first row2, confirmed
+mapping and actual stored-cache load passed. Encrypted synthetic jars and original
+owner Cookbook digest remain unchanged. Exact reviewed diagnostic APK installed;
+debug APK unchanged. Independent runner/source review confirmed the selected scope.
+
+Earlier GoogleRun01/02 failures remain retained; fresh account/Sheets consent was
+owner-confirmed in Run01, while Run03 may reuse that grant. All17 original assertions
+remain byte-identical; only safe diagnostics were added, no production repair.
+[Runtime evidence](../plans/261012-mobile-cookbook-phase1/reports/google-runtime.md).
+UI cache reopening/offline/disconnect, cancellation/network/401/403 and broader phone/
+Google matrix stay Pending. Original Cookbook UI Run01 cause unknown; mobile Partial.
+
+## Execute selected Android Google acceptance (2026-10-13)
+
+Real Google Run01 Failed1/1,44.766s at metadata; owner confirmed account/Sheets
+consent and missing expected Test tab, then renamed it. Unchanged Run02 Failed1/1,
+19.259s at values. Usable authorization, requested metadata, Test tab and actual
+provider values observed; exact fixture/origin/schema assertion not yet satisfied,
+mapping/cache unaccepted. Owner reports only A1/A2 populated; fixed six-cell fixture
+not confirmed. Original Cookbook digest preserved after installation and both runs.
+[Runtime evidence](../plans/261012-mobile-cookbook-phase1/reports/google-runtime.md).
+
+Safe schema/phase diagnostics reviewed/compiled59s, lint0/11/1; all17 original
+assertions byte-identical. New candidate not installed/run; no production change.
+Mobile Partial, Google fixture/cache and broader phone matrix Pending; original
+Cookbook UI Run01 reveal failure remains a separate unresolved investigation.
+
+## Prepare real Android Google acceptance (2026-10-13)
+
+Owner reports Android OAuth client configured; complete Sheets API/test-user setup
+and actual grant/read remain unconfirmed. New isolated real Compose fixture covers
+owner biometric, normal Connect/authorization, matching metadata/tab/known synthetic
+row, explicit mapping, durable cache-file load and unchanged encrypted synthetic jars.
+One normal reconnect after actual background lock; no injected token/grant/offline
+fallback or production change. Existing assertions/Golden preserved; failure output
+and own-key/directory cleanup reviewed independently with no P1/P2.
+
+Root test-APK/lint build Passed59s (10 executed/84 UP-TO-DATE), lint0 errors/11 warnings/
+1 hint. New candidate is local only; installed recreation test APK remains unchanged.
+Actual Google tests0/Pending dedicated synthetic Menu URL and ready owner. Future
+usable authorization may reuse a grant; fresh consent and UI cache reopening require
+separate observations. [Preparation evidence](../plans/261012-mobile-cookbook-phase1/reports/google-acceptance-preparation.md).
+Mobile Partial; Run01 cause unknown/not reproduced, broader phone/Google matrix open.
+
+## Verify clipboard Activity recreation ownership (2026-10-13)
+
+Actual Xiaomi/API36 locked adapter recreation Passed1/1,31.721s without setup,
+authentication or session injection. One original synthetic copy survives genuine
+Activity destruction/replacement and the29s pre-deadline observation, then clears
+after its original30.5s boundary. Production MainActivity callbacks own foreground;
+no timer reset, forced reconcile or production repair. Cleanup targets only exact
+own synthetic clipboard identity and the two captured unique proof directories.
+
+Final build Passed33s (9 executed/85 UP-TO-DATE), lint0 errors/11 warnings/1 hint;
+exact test APK updated with original owner Cookbook digest preserved before/after
+installation and runtime. Debug APK/earlier3 tests unchanged; earlier8 platform tests
+not rerun. Independent source/runtime review passed. [Actual evidence](../plans/261012-mobile-cookbook-phase1/reports/clipboard-recreation-runtime.md).
+This extends same-process API28+/API36 adapter proof. Authenticated Cookbook recreation,
+background/process death/history/cross-app/API26 fallback and broader phone matrix
+remain Pending. Google is unconfigured; Run01 cause unknown/not reproduced. Mobile Partial.
+
+## Verify foreground Android clipboard ownership (2026-10-13)
+
+Actual Xiaomi/API36 clipboard adapter3/3 passed in99.926s: untouched synthetic Dish
+retained at29s and cleared after30.5s, replacement preserved, newer copy survives old
+deadline and clears at its own. Real ClipboardManager/production adapter, natural
+foreground and locked unique proof storage; no authentication/session bypass.
+Exact prepared APK installed with original encrypted Cookbook digest preserved
+before/after installation and runtime. Independent reviewer confirmed three distinct
+start/pass pairs/no skips and limits. [Runtime evidence](../plans/261012-mobile-cookbook-phase1/reports/clipboard-runtime.md).
+This is foreground API28+/API36 component proof; background/recreation/history/
+cross-app/API26 fallback, Google and other phone matrix remain Pending. Mobile Partial.
+
+## Prepare unattended clipboard adapter acceptance (2026-10-12)
+
+Owner asleep: no authentication/Google prompts. Three new API28+ instrumentation
+tests exercise real ClipboardManager/OwnedClipboard with locked isolated proof
+storage: untouched29s/30.5s boundary, replacement survival and newer-copy ownership.
+Real foreground/screen guards reject denied-read false passes; cleanup matches only
+exact owned synthetic identity. No session injection, virtual clocks or production change.
+Independent review passed; final test-APK/lint build34s passed (0 errors/11 warnings/1 hint).
+Actual runtime0/Pending: phone locked, then USB unavailable before any install.
+Earlier Run04/05 results remain separate. [Preparation/evidence](../plans/261012-mobile-cookbook-phase1/reports/unattended-clipboard-preparation.md).
+Mobile remains Partial; Google/remaining phone matrix and Run01 historical cause open.
+
+## Prepare Cookbook reveal investigation (2026-10-12)
+
+Actual owner-authenticated UI Run01 failed: Dish node absent after10.5seconds.
+Cause remains undetermined; production cooking/session code and exact assertions
+remain unchanged. Proof-only diagnostics add explicit read-success/session/presence
+bits, with a compiled locked-only lifecycle regression and no authentication bypass.
+Four new shared policy regressions passed; fresh shared78/app4 and APK/lint checks
+passed (0 errors/11 warnings/1 hint). Independent source/test review passed.
+
+Phone was Dozing/locked; no wake/unlock/new runtime/install. Owner Cookbook digest
+and unrelated tooling remain unchanged. Local and installed APK hashes are separate
+in [continuation evidence](../plans/261012-mobile-cookbook-phase1/reports/unattended-regression.md).
+Run02, Google consent/read and phone matrix stay Pending; mobile stays Partial.
+Commit/push awaits evidenced repair and appropriate verification.
+
+Owner later confirmed readiness. Latest reviewed APK pair installed with original
+Cookbook digest preserved; locked-only diagnostic1/1 passed on Xiaomi/API36.
+Run02 failed after owner-confirmed switching/locking/navigation; logged stop follows
+the security contract. Run03 failed before setup on a sleeping/locked phone.
+Fresh screen readiness now gates subsequent attempts; Run04 not started while locked.
+No production change/full UI pass; Run01 cause and Google remain open. See
+[runtime evidence](../plans/261012-mobile-cookbook-phase1/reports/ui-runtime-continuation.md).
+
+After explicit unlock and immediate screen-readiness preflight, unchanged Run04
+passed1/1 in62.575s. Real10.653s snapshots retain masked Dish/Copy and the session;
+downstream mapping/search/copy/username/Back/background assertions passed. This is
+selected synthetic-storage foreground acceptance under proof-only KEEP_SCREEN_ON.
+Owner reports no navigation in Run01; its historical cause remains unresolved.
+
+Normal-screen-policy comparison and sanitized pause/stop screen/keyguard/window
+diagnostics were then reviewed/compiled (35s; lint0/11/1), with assertions unchanged.
+New test APK was not installed/run because USB disconnected before any install.
+Google configuration is confirmed incomplete. Broad phone/Google matrix stays
+Pending; no production source change or whole-mobile completion/commit claimed.
+
+Owner later reconnected and unlocked the same phone. Data-preserving comparison-test
+update succeeded; installed hashes and original Cookbook digest verified. Updated
+locked diagnostics1/1 passed (1.943s), then unchanged normal-screen-policy Run05 1/1
+passed (53.663s). Actual10.617s snapshots have KEEP_SCREEN_ON=false and retain the
+masked Dish/Copy/session. Later pause/stop belongs to intentional background check.
+Independent review confirmed the result/limits. Historical Run01 cause remains
+not reproduced; remaining phone/Google matrix stays Pending. Production unchanged.
+
 ## Implement Android Cookbook Phase1 code (2026-10-12)
 
 Production session-owned cooking now serves manual Recipes and cached Menu entries.

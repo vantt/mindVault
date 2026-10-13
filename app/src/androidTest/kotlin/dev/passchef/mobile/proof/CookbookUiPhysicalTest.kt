@@ -2,11 +2,13 @@ package dev.passchef.mobile.proof
 
 import android.content.ClipboardManager
 import android.content.Context
+import android.view.WindowManager
 import androidx.compose.ui.semantics.SemanticsProperties
 import androidx.compose.ui.test.*
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.lifecycle.Lifecycle
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import androidx.test.platform.app.InstrumentationRegistry
 import dev.passchef.mobile.KeystoreCrypto
 import dev.passchef.mobile.recipe.RecipeParser
 import dev.passchef.mobile.recipe.TagCodec
@@ -29,11 +31,40 @@ class CookbookUiPhysicalTest {
     private fun shown() = ui.onNodeWithTag("dish-display").fetchSemanticsNode().config[SemanticsProperties.Text].joinToString("") { it.text }
     private fun clip(): String? = (ui.activity.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager)
         .primaryClip?.takeIf { it.itemCount == 1 }?.getItemAt(0)?.text?.toString()
+    private var diagnostics: CookbookUiDiagnostics? = null
+    private fun report(phase:String) {
+        val flags = listOf("manual-recipe","menu-search","dish-display","dish-copy","cook-error")
+            .associateWith { runCatching { present(it) }.getOrDefault(false) }.toMutableMap()
+        flags["recipeMatchesSynthetic"] = runCatching {
+            val config=ui.onNodeWithTag("manual-recipe").fetchSemanticsNode().config
+            config.contains(SemanticsProperties.EditableText) && config[SemanticsProperties.EditableText].text=="abcd#1"
+        }.getOrDefault(false)
+        var lifecycle="UNAVAILABLE"
+        flags["diagnosticLifecycleReadSucceeded"] = false
+        flags["diagnosticStateReadSucceeded"] = false
+        flags["diagnosticEnvironmentReadSucceeded"] = false
+        runCatching { ui.runOnIdle {
+            lifecycle=ui.activity.lifecycle.currentState.name
+            flags["diagnosticLifecycleReadSucceeded"] = true
+            runCatching {
+                flags.putAll(CookbookUiDiagnostics.environmentFlags(ui.activity))
+                flags["diagnosticEnvironmentReadSucceeded"] = true
+            }
+            flags.putAll(CookbookUiDiagnostics.stateFlags(ui.activity))
+            flags["diagnosticStateReadSucceeded"] = true
+        } }
+        diagnostics?.report(phase,lifecycle,flags)
+    }
     private fun exact(expected: String) = assertTrue("Synthetic Dish equality", shown() == expected)
     @Test fun realSetupOfflineMappingCookingRevealClipboardAndBackgroundLock() {
         val directory = ui.activity.proofDirectory
         val file = File(directory,"cookbook-v1.json")
+        diagnostics=CookbookUiDiagnostics(ui.activity.application)
         try {
+            // Explicit controlled experiment only: retain the production screen policy.
+            if (InstrumentationRegistry.getArguments().getString("passchefProofKeepScreenOn") == "false") {
+                ui.runOnIdle { ui.activity.window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON) }
+            }
             if(ui.onAllNodesWithText("EN").fetchSemanticsNodes().isNotEmpty()) ui.onNodeWithText("EN").performClick()
             fill("Master password","SYNTHETIC_UI_Kitchen_2026")
             fill("Spice jar 1 (setup only)","aB!*")
@@ -47,7 +78,9 @@ class CookbookUiPhysicalTest {
             ui.waitUntil(10_000) { present("dish-display") }
             exact("••••••••")
             ui.onNodeWithTag("dish-reveal").performScrollTo().performClick(); exact("aB!*abcd")
+            report("before-reveal-delay")
             Thread.sleep(10_500) // real elapsed time/Handler, not a synthetic Compose clock
+            report("after-reveal-delay")
             exact("••••••••")
             ui.onNodeWithTag("dish-copy").performScrollTo().performClick()
             assertTrue("Owned Dish clipboard equality", clip() == "aB!*abcd")
@@ -98,6 +131,7 @@ class CookbookUiPhysicalTest {
             ui.waitUntil(10_000) { ui.onAllNodesWithText("Open with biometric").fetchSemanticsNodes().isNotEmpty() }
             assertTrue("Background clears Cookbook detail", !present("dish-display") && !present("menu-search"))
         } finally {
+            diagnostics?.close();diagnostics=null
             ui.activityRule.scenario.close()
             // Only aliases referenced by this unique test-owned record, never an owner file.
             runCatching {

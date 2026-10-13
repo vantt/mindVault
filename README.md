@@ -136,7 +136,8 @@ The independent [Kotlin Menu client](mobile/sheets-client) reads and updates
 recipes through Google Sheets API. The [OAuth setup guide](docs/runbooks/google-oauth-sheets-setup.md)
 explains the manual Google connection. Current integration progress and the
 remaining mobile tracks are recorded in [worktree recovery](docs/worktree-recovery.md).
-Real Google setup and the live connection check remain pending.
+The desktop live connection check remains pending; selected Android Google
+grant/read/mapping/cache-file acceptance passed on Xiaomi/API36.
 
 Build and test with **JDK 21**, replacing the example JDK path:
 
@@ -173,9 +174,13 @@ is app-private and excluded from backup, but is not encrypted.
 
 The existing strong-biometric/original-password foundation and five-minute idle /
 ten-minute total lock remain. Debug uses `dev.passchef.mobile.demo` separately from
-release. Historical Xiaomi/API36 acceptance covers the storage foundation only;
-new phone UI/clipboard/timer checks and an actual Android Google grant/read remain
-Pending. See the [Cookbook contract](docs/specs/mobile-cookbook.md),
+release. Selected Xiaomi/API36 Cook/reveal and foreground clipboard checks passed,
+including clipboard cleanup through Activity recreation. Broader phone/session
+acceptance remain Pending; selected Android Google grant/read/mapping/cache-file
+checks passed. Google cache UI/Cook and authenticated same-process recreation passed
+selected [cache UI Run02](plans/261012-mobile-cookbook-phase1/reports/google-cache-ui-runtime.md);
+actual network-off/error/cold-start/process-death flows remain Pending. Historical Run01
+reveal failure remains unexplained. See the [Cookbook contract](docs/specs/mobile-cookbook.md),
 [execution evidence](plans/261012-mobile-cookbook-phase1/reports/verification.md),
 [owner acceptance checklist](docs/runbooks/android-cookbook-acceptance.md) and
 [remaining Keystore matrix](archive/plans/261011-keystore-recovery/reports/current-device-acceptance.md).
@@ -190,7 +195,8 @@ With the same JDK17/SDK36 setup above:
 ```
 
 The test APK compiles real Compose/device assertions; compilation does not execute
-those assertions. No unattended task grants Google access or installs on the owner phone.
+those assertions. Local builds grant no Google access or device acceptance; authorized
+selective phone runs are recorded separately in the acceptance reports.
 
 ### Extension development
 

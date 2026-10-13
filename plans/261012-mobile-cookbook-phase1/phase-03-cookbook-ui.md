@@ -1,6 +1,9 @@
 # Phase03 — Compose Cookbook, reveal and owned clipboard
 
 Status: **Partial — code complete; physical acceptance Pending**. Priority:3.
+Latest selected [Google cache UI](reports/google-cache-ui-runtime.md) Run02
+Passed1/1,42.393s: exact cached Cook/favorite/recent/search and authenticated
+same-process recreation with real biometric; broader physical matrix Pending.
 
 ## Context and key insight
 
@@ -69,4 +72,70 @@ Continue to real connection code; offline screens remain usable while disconnect
 
 Implementation exists in the production app/shared/client paths above. Final local
 results and unchanged Golden evidence are recorded in [verification](reports/verification.md);
-compiled physical tests remain unexecuted. No phone/account grant was used tonight.
+Run01 executed with genuine owner biometric and failed after the reveal delay;
+see [device acceptance](reports/device-acceptance.md). Run02/03 Failed; selected
+Run04/05 flows Passed. Selected GoogleRun03/cache UI Run02 subsequently Passed;
+broader phone/provider acceptance remains Pending.
+
+## Continuing Run01 investigation
+
+- [x] Trace production hide, Dish readiness, session guard and lifecycle paths;
+  source alone does not establish the physical cause.
+- [x] Execute independent shared regressions: exact10s/10.5s expiry retains ready/copy;
+  repeated reveal respects idle5minute/total10minute session limits.
+- [x] Compile/review sanitized diagnostic read-success, session and presentation bits.
+- [x] Selectively execute diagnostic locked-start/stop/resume smoke in unique proof
+  storage, with no setup/authentication; this is not authenticated UI acceptance.
+- [x] Run02 with ready owner and real biometric; exact assertion retained. Failed after
+  owner-confirmed foreground interruption; [subsequent runtime](reports/ui-runtime-continuation.md).
+- [x] Uninterrupted foreground retry after fresh Awake/keyguard readiness check:
+  Run04 Passed1/1 with exact masked-after10s assertion under proof KEEP_SCREEN_ON.
+- [x] Compile/review optional proof-only production-screen-policy comparison and
+  sanitized pause/stop interactive/keyguard/window bits; preserve all assertions.
+- [x] Controlled owner-ready Run05 with normal screen policy Passed1/1,53.663s;
+  actual KEEP_SCREEN_ON=false and10.617s remask. Run01's historical cause remains
+  unknown/not reproduced; owner reports no navigation in Run01.
+- [ ] Resolve historical Run01 cause before closing that investigation; if reproduced,
+  fix the evidenced cause and recheck exact assertions. Current Run04/05 flow acceptance
+  does not imply historical cause/fix proof.
+
+## Unattended clipboard adapter acceptance
+
+Owner going to sleep: no biometric/Google request. Existing8 platform tests stay
+retained; do not rerun them. New isolated locked-Activity component tests may run
+only while actual screen is awake/unlocked, with no setup or session injection.
+
+- [x] Prepare/review actual ClipboardManager + production OwnedClipboard tests:
+  untouched30s scheduled clear, replacement survival, newer-copy deadline ownership.
+- [x] Assert real foreground/power/keyguard before observing empty clipboard;
+  no denied-read false pass, virtual clock, forced reconcile or clipboard permission override.
+- [x] Root-only compile/lint Passed; [preparation evidence](reports/unattended-clipboard-preparation.md).
+- [x] Selective runtime Oct13 Passed3/3,99.926s after reconnect/manual OS unlock;
+  [actual adapter evidence](reports/clipboard-runtime.md), no PassChef authentication.
+- [x] Preserve owner Cookbook and earlier unrelated/Golden files; cleanup only own
+  synthetic clipboard identity and captured unique proof storage; separate adapter
+  evidence from Cook/authenticated UI and full-mobile acceptance.
+
+## Clipboard Activity recreation continuation
+
+- [x] Add one isolated API28+ adapter test: real Activity recreation at~5s;
+  retain original clipboard identity at29s and clear after original30.5s deadline.
+- [x] Capture both unique proof directories; assert locked/no-record and actual
+  unlocked/focused foreground; clean only exact owned synthetic clipboard/storage.
+- [x] Root compile/lint, independent review and selective phone runtime: Passed1/1,
+  31.721s on API36; [actual recreation evidence](reports/clipboard-recreation-runtime.md).
+  Earlier3 tests retained; authenticated recreation/process death/Google Pending.
+
+## Authenticated provider-cache recreation continuation
+
+- [x] Opt-in same proof storage preserves only owned UUID; default two-directory
+  clipboard recreation regression Passed1/1,31.769s after harness change.
+- [x] Actual cached Google row Cook, origin/Recipe/username00123, favorites/recent/
+  search, explicit lock/token invalidation and genuine biometric reopen accepted.
+- [x] Old authenticated Activity destroyed/new controller locked without Dish/session/
+  token; normal biometric reloads exact durable cache and repeats Cook. Cache UI
+  Run02 Passed1/1,42.393s after Failed Run01,294.651s and helper-only Compose sync.
+
+Scope app-disconnected cache and same-process authenticated Activity recreation;
+no actual network-off, process death/cold start, timer/capture/accessibility or
+historical CookbookUIRun01 production-fix claim. [Evidence](reports/google-cache-ui-runtime.md).

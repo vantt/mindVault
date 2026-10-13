@@ -9,7 +9,32 @@
 - [Android Cookbook Phase1](../plans/261012-mobile-cookbook-phase1/plan.md): real
   manual cooking, private cache/confirmed columns, Compose lookup/reveal/copy and
   Android authorization/Sheets engine are implemented and locally verified. Owner
-  Android Google setup/grant/read and new physical acceptance remain Pending. Local protocol fixtures do not certify an account connection.
+  Selected Android Google grant/read/mapping/cache accepted; broader phone/Google
+  acceptance remains Pending. Actual
+  UI Run01 failed after reveal; [unattended regressions/diagnostics](../plans/261012-mobile-cookbook-phase1/reports/unattended-regression.md)
+  passed local checks without resolving the original phone cause. [Later runtime](../plans/261012-mobile-cookbook-phase1/reports/ui-runtime-continuation.md)
+  passed locked diagnostics and selected UI Run04; normal-policy comparison
+  subsequently passed Run05 with KEEP_SCREEN_ON=false. Broader acceptance
+  stays Pending; original Run01 cause is still unknown/not reproduced.
+  [Oct13 clipboard adapter](../plans/261012-mobile-cookbook-phase1/reports/clipboard-runtime.md)
+  Passed3/3 on API36; [same-process locked clipboard recreation](../plans/261012-mobile-cookbook-phase1/reports/clipboard-recreation-runtime.md)
+  subsequently Passed1/1,31.721s with original deadline preserved. API28+/API36 adapter
+  scope accepted; background/process death/history and broader
+  platform/UI acceptance remain Pending. Owner reports Android OAuth client configured;
+  [Google acceptance preparation](../plans/261012-mobile-cookbook-phase1/reports/google-acceptance-preparation.md)
+  is the earlier compilation snapshot; later selected runtime is recorded separately.
+  Local protocol fixtures do not certify an account connection.
+  [Selected Google runtime](../plans/261012-mobile-cookbook-phase1/reports/google-runtime.md)
+  GoogleRun03 Passed1/1,23.309s after fixture completion: all11 match flags, explicit
+  mapping and stored cache accepted; earlier Run01/02 Failed history retained. Fresh
+  consent observed in Run01; Run03 can reuse grant.
+  [Google cache UI continuation](../plans/261012-mobile-cookbook-phase1/reports/google-cache-ui-runtime.md)
+  Run02 Passed1/1,42.393s after retained Failed Run01,294.651s and helper-only normal
+  Compose synchronization: exact cached-row Cook/favorites/recent/search, lock/reopen
+  and real-biometric authenticated same-process recreation accepted. Default two-dir
+  proof regression Passed1/1,31.769s; owner digest unchanged. App-disconnected cache
+  only; actual network-off/cancellation/401/403/provider errors/cold-start/process
+  death/timers/capture/ENVI/accessibility and broader phone acceptance remain Pending.
 - [Keystore physical coverage follow-up](../archive/plans/261011-keystore-recovery/reports/current-device-acceptance.md):
   API26/no hardware/no enrollment, typed7/9 callbacks, exact process-kill/
   retry-exhaustion windows and precise Recents observation remain unexecuted.
