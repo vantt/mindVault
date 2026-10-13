@@ -1,5 +1,26 @@
 # Project Changelog
 
+## Organize commercialization documents (2026-10-13)
+
+Moved the commercialization plan and four marketing documents into
+[docs/commercialization](commercialization/README.md). Added a shared index/status
+map, legal review records and publisher/support preparation record; updated inbound
+links. Privacy/Terms HTML remain editable sources in `landing-page/` without
+duplicate policies. Existing copy is still Draft/Needs review; naming approval
+applies only to the settled PassChef decision. Bug/UI release gate and historical
+acceptance evidence retained. Documentation-only organization; no product repair,
+new acceptance or publication claimed.
+
+## Reorder commercialization preparation (2026-10-13)
+
+[Commercialization Phase 0](commercialization/plan.md) prioritizes listing/privacy
+drafts, publisher/support decisions, non-UI brand assets, release documentation and
+packaging tooling alongside remaining bug/UI work. Owner reports app not yet ready
+for release; final screenshots, release version/ZIP acceptance and Store publication
+wait for resolved release-blocking bugs and stable UI. Planning-only update; product
+source/tests unchanged, no tests run or launch claimed. Historical acceptance scope
+and remaining mobile checks retained.
+
 ## Accept actual network-off Cook and cache preservation (2026-10-13)
 
 Network-off Run04 Passed1/1,31.477s on Xiaomi/API36, runner[1,0]/OK1,0 failures/errors/

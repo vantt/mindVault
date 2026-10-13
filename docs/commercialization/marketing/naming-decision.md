@@ -1,8 +1,8 @@
 # Product Naming Decision
 
-> **Status:** DECIDED — PassChef (Final Synthesis unanimous 6/0)
-> **Last updated:** 2026-05-25
-> **Current name:** PassChef (to be replaced before Chrome Web Store publish)
+> **Status:** Approved — quyết định tên PassChef (Final Synthesis unanimous 6/0); phân tích/copy lịch sử không tự động được duyệt để công khai.
+> **Last updated:** 2026-10-13 (sắp xếp/trạng thái; quyết định tên 2026-05-25)
+> **Current name:** PassChef
 > **Final Winner:** PassChef — see Section 10.12 (Final Synthesis overturned VoidKey)
 
 ---

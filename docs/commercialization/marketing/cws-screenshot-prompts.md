@@ -1,5 +1,7 @@
 # Chrome Web Store Screenshot Prompts — PassChef
 
+> **Status:** Draft — brief lịch sử; không phải ảnh chụp sản phẩm thật.
+> **Last updated:** 2026-10-13 (sắp xếp/trạng thái; cập nhật thiết kế và capture còn Pending trong [plan](../plan.md))
 > 5 prompts for AI image generation (GPT-Image-2 / Claude / Midjourney).
 > Target size: **1280×800 px**, PNG.
 > Brand palette: bg `#0a0e17` · accent green `#00ff41` · cyan `#00ffff` · text `#f0f4f8` · mono font Fira Code.

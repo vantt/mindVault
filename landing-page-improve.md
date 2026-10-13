@@ -82,7 +82,7 @@ Những mục tiêu có thể cải tiến:
 |---|---|---|
 | 1. Giải thích giá trị Recipe | Implemented: `landing-page/index.html`:169/292/529/709 có giải thích Cookbook/Recipe/Spice, so sánh và ẩn dụ Chef; builder tương tác tại423, `script.js`:473–552 | Kiểm tra người dùng có hiểu cách tự nấu Dish; chưa có bằng chứng usability. Không cần thêm section chỉ vì checkbox cũ chưa tick. |
 | 2. Animation/micro-interaction | Implemented: `script.js`:113–134/196/243, animation CSS và reduced-motion | QA khi kiểm tra trang; không có tính năng animation mới cụ thể đã duyệt. |
-| 3. Screenshot/mockup sản phẩm | Partial: demo minh họa bằng HTML đã có; `landing-page/assets/` chỉ có favicon, chưa có ảnh chụp sản phẩm | 5 screenshot/promo phục vụ CWS theo [launch plan](docs/commercialization-plan.md); prompt ảnh chưa phải asset đã tạo. |
+| 3. Screenshot/mockup sản phẩm | Partial: demo minh họa bằng HTML đã có; `landing-page/assets/` chỉ có favicon, chưa có ảnh chụp sản phẩm | 5 screenshot/promo phục vụ CWS theo [launch plan](docs/commercialization/plan.md); prompt ảnh chưa phải asset đã tạo. |
 | 4. Testimonials/social proof | Section implemented: `index.html`:1157–1239, `styles.css`:2390 | Xác minh nguồn/quyền sử dụng các lời trích dẫn trước công bố; mã nguồn không chứng minh đây là phản hồi người dùng thật. |
 | 5. Hiệu năng/lazy loading | Partial: lazy-loader `script.js`:338–359 và rAF đã có; index không có ảnh lazy để chạy nhánh đó | Đo hiệu năng trang/ảnh thực tế trước tối ưu tiếp; chưa có benchmark hay QA. |
 | 6. FAQ | Implemented: `index.html`:1244 và accordion `script.js`:557–581 | Rà soát nội dung khi phát hành. FAQ hiện nói MIT/open source, khác quyết định Closed source trong launch plan; cần thống nhất trước công bố. |

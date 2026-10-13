@@ -9,8 +9,8 @@ Partial because its release and broad verification scope extends beyond those sl
 |---|---|---|---|---|
 |1|Browser extension|[Extension MVP](../docs/prd/v1-mvp.md)|Partial; phases1–4 Done|Phase5: cross-device Chrome Sync/conflicts, broad platform/security/performance measurements. Phase6: release readiness/Chrome Web Store. Argon2-only fail-closed settled; vault PBKDF2 fallback Superseded.|
 |2|Mobile (Android)|[Mobile roadmap](../docs/mobile-app-brainstorm-qa.md); [Phase1 execution plan](261012-mobile-cookbook-phase1/plan.md)|Partial; code/local verification Done|Offline Cook/cache/mapping/Compose and Android connection code implemented, independently tested/reviewed; physical/Google acceptance Pending. Autofill follows working Cookbook; QR receiver/Drive/advanced authoring later. Browser Google acceptance does not prove the mobile account connection.|
-|3|Website|[Landing improvements](../landing-page-improve.md)|Partial|OG asset, actual product captures, responsive/performance verification, truthful social proof. Light mode optional. Extension UI now stable enough for captures.|
-|4|Browser extension + Website / Release|[Commercialization](../docs/commercialization-plan.md)|Partial / Pending|Account/domain/support/screenshots, release and outreach. Depends on product verification and launch assets; growth follows release evidence.|
+|3|Website|[Landing improvements](../landing-page-improve.md)|Partial|OG asset, responsive/performance verification and truthful social proof. Light mode optional. Final product captures wait for owner-reported bugs to be fixed and UI to stabilize.|
+|4|Browser extension + Website / Release|[Commercialization](../docs/commercialization/plan.md)|Partial / Pending|Listing/privacy drafts, publisher/support decisions, non-UI assets and packaging tooling can proceed now. Final screenshots/ZIP acceptance and publication wait for resolved release blockers and stable UI; growth follows release evidence.|
 
 ## Closed browser plans
 

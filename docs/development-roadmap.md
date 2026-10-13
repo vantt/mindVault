@@ -2,6 +2,12 @@
 
 ## In progress
 
+- [Commercialization hub](commercialization/README.md) and [Phase 0 plan](commercialization/plan.md): preparation proceeds
+  alongside remaining bug/UI work: listing/privacy drafts, publisher/support
+  decisions, non-UI brand assets, release documentation and packaging tooling.
+  App is not ready for release per owner report. Final screenshots, release version/
+  ZIP acceptance and Store publication wait for release-blocking bugs to be resolved
+  and UI to stabilize. Historical selected acceptance below retains its original scope.
 - [Prioritized active plans](../plans/README.md): the five browser slices passed
   independent acceptance. Next: remaining MVP Sync/platform/performance verification
   and release readiness, followed by mobile/website/commercialization dependencies.

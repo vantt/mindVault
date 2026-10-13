@@ -66,6 +66,7 @@ _Simple formula. Unbreakable security._
 - [Password System Design](./docs/password-system-design.md)
 - [Product Requirements Document (PRD)](./docs/prd.md)
 - [Security Assessment](./docs/security-assessment.md)
+- [Commercialization Documentation](./docs/commercialization/README.md)
 
 ## Installation (Developer Mode)
 

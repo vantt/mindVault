@@ -1,7 +1,8 @@
 # Chrome Web Store Listing Copy — PassChef Password Generator
 
-> Source of truth for all CWS submission fields.
-> Last updated: 2026-06-13 | Product version: v2.3
+> **Status:** Needs review — existing draft; corrections tracked in [plan](../plan.md).
+> **Last updated:** 2026-10-13 (organization/status only; copy last written 2026-06-13)
+> **Product version:** v2.3
 
 ---
 

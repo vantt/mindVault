@@ -1,6 +1,8 @@
 # Product Value Statements
 
-> Tổng hợp từ `docs/naming-decision.md` — các câu đánh giá thể hiện giá trị và bản chất của hệ thống.
+> **Status:** Needs review — ngữ liệu lịch sử; chưa phải toàn bộ copy được duyệt.
+> **Last updated:** 2026-10-13 (sắp xếp tài liệu; nội dung còn cần rà theo [plan](../plan.md))
+> Tổng hợp từ [quyết định tên](naming-decision.md) — các câu đánh giá thể hiện giá trị và bản chất của hệ thống.
 > Dùng làm nguồn ngữ liệu cho demo page, landing page, onboarding copy.
 
 ---
