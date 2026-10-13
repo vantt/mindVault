@@ -152,7 +152,9 @@ class GoogleCookbookPhysicalTest {
                 row.label == "Mail-test" && row.recipe == "abcd#1" && row.username == "00123")
             assertTrue("Actual private cache reload matches committed snapshot", MenuSnapshotStore(File(directory, "menus")).load(draft.origin) == saved)
             assertTrue("Google read/cache preserves encrypted synthetic jars", encryptedJars.contentEquals(recordFile.readBytes()))
-            if (args.getString("passchefGoogleCacheContinuation") == "true")
+            if (args.getString("passchefGoogleNetworkContinuation") == "true")
+                GoogleNetworkUiContinuation(ui) { phase = it }.run(requireNotNull(directory), saved, encryptedJars)
+            else if (args.getString("passchefGoogleCacheContinuation") == "true")
                 GoogleCacheUiContinuation(ui) { phase = it }.run(requireNotNull(directory), saved, encryptedJars)
             report(true)
         } catch (failure: Throwable) {

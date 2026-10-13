@@ -4,6 +4,8 @@ Status: **Partial — selected live Google flow Passed; broader acceptance Pendi
 GoogleRun03 Passed1/1: usable authorization/provider rows, exact mapping and durable cache.
 Cache UI Run02 Passed1/1,42.393s: cached Cook/lock/reopen/authenticated same-process
 recreation; app-disconnected cache only. [Evidence](reports/google-cache-ui-runtime.md).
+Network-off Run04 Passed1/1,31.477s: actual strict network absence, real
+NETWORK_FAILED preservation and offline Cook/recreation; [evidence](reports/network-off-runtime.md).
 
 ## Context and key insight
 
@@ -68,7 +70,9 @@ Phase1 only consumes read paths; retain RAW append/update client regression beha
   acceptance: GoogleRun03 Passed1/1,23.309s; owner-observed consent in GoogleRun01.
 - [x] Selected cache UI/Cook after lock/reopen and authenticated same-process recreation;
   no in-memory token, exact provider cache/favorites/recent/search preserved in Run02.
-- [ ] **Owner Pending:** actual network-off, cancellation/network/401/403 preservation,
+- [x] Selected actual network-off/NETWORK_FAILED preservation and full cached UI
+  helper Passed Run04; source/owner digest preserved, no production repair.
+- [ ] **Owner Pending:** cancellation/stale callbacks/401/403 preservation,
   cold-start/process-death and broader configuration/account/platform matrix; no mock credit.
 
 ## Risks and next steps
@@ -141,3 +145,24 @@ Cache UI Run01 Failed1/1,294.651s; preserved failed candidate/runner evidence.
 Helper-only normal Compose synchronization correction retained every assertion.
 Cache UI Run02 Passed1/1,42.393s; default-storage regression Passed1/1,31.769s.
 No production repair inferred; [exact history and scope](reports/google-cache-ui-runtime.md).
+
+## Owner-operated network-off continuation
+
+- [x] Add/review debug-only network-state observation and bounded selective helper;
+  retain original17 provider assertions and150-line cache helper byte-identical.
+- [x] After real provider cache/Cook, authorized root USB disables radios at marker;
+  require actual no default/bound/internet-capable network and latch reconnection.
+- [x] Preserve natural background lock; genuine biometric reloads when needed.
+  Try real retained-grant tab read, otherwise normal Connect; distinguish transport
+  NETWORK_FAILED from authorization CONNECT_REQUIRED without injected grants.
+- [x] Assert exact last-good cache/disk/jars and cleared stale Dish; execute existing
+  cached Cook/favorite/recent/recreation assertions while network remains absent.
+- [x] Root-only build/hash/install/digest/preflight and selective real runtime;
+  report offline acceptance separately from actual transport failure preservation.
+
+Root's authorized USB runner controls airplane/Wi-Fi/data and restores enabled
+baseline; actual fixture network gates remain strict, no command-only proof.
+No HTTP mock/offline paste/session/clock bypass or production permission change.
+Run01/02/03 Failed history retained; unchanged diagnostic candidate Run04 Passed.
+Cancellation/stale callbacks/401/403/process death/cold start and broader phone matrix
+remain Pending; original CookbookUIRun01 and network Run03 wrap causes unknown.

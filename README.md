@@ -179,7 +179,9 @@ including clipboard cleanup through Activity recreation. Broader phone/session
 acceptance remain Pending; selected Android Google grant/read/mapping/cache-file
 checks passed. Google cache UI/Cook and authenticated same-process recreation passed
 selected [cache UI Run02](plans/261012-mobile-cookbook-phase1/reports/google-cache-ui-runtime.md);
-actual network-off/error/cold-start/process-death flows remain Pending. Historical Run01
+[network-off Run04](plans/261012-mobile-cookbook-phase1/reports/network-off-runtime.md)
+also passed actual offline Cook and network-failure cache preservation. Provider
+401/403/cancellation/cold-start/process-death remain Pending. Historical Run01
 reveal failure remains unexplained. See the [Cookbook contract](docs/specs/mobile-cookbook.md),
 [execution evidence](plans/261012-mobile-cookbook-phase1/reports/verification.md),
 [owner acceptance checklist](docs/runbooks/android-cookbook-acceptance.md) and

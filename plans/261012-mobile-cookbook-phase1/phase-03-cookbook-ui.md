@@ -4,6 +4,9 @@ Status: **Partial — code complete; physical acceptance Pending**. Priority:3.
 Latest selected [Google cache UI](reports/google-cache-ui-runtime.md) Run02
 Passed1/1,42.393s: exact cached Cook/favorite/recent/search and authenticated
 same-process recreation with real biometric; broader physical matrix Pending.
+Later [network-off Run04](reports/network-off-runtime.md) Passed1/1,31.477s:
+same cached UI assertions under actual network absence plus real network-failure
+cache preservation. Original UI Run01 and network Run03 wrap causes unresolved.
 
 ## Context and key insight
 

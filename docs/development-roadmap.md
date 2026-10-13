@@ -33,8 +33,14 @@
   Compose synchronization: exact cached-row Cook/favorites/recent/search, lock/reopen
   and real-biometric authenticated same-process recreation accepted. Default two-dir
   proof regression Passed1/1,31.769s; owner digest unchanged. App-disconnected cache
-  only; actual network-off/cancellation/401/403/provider errors/cold-start/process
-  death/timers/capture/ENVI/accessibility and broader phone acceptance remain Pending.
+  only in that run. Later [network-off Run04](../plans/261012-mobile-cookbook-phase1/reports/network-off-runtime.md)
+  Passed1/1,31.477s under strict actual default/bound/internet-network absence:
+  retained provider NETWORK_FAILED exact cache/jars preservation and unchanged cached
+  UI/Cook/favorites/recent/search/real-biometric same-process recreation accepted.
+  Three prior failures retained; unchanged candidate, owner digest preserved, no
+  production repair. Cancellation/stale callbacks/401/403/cold-start/process death/
+  timers/capture/ENVI/accessibility remain Pending; original UI Run01/network Run03
+  key-wrap causes unresolved. Whole mobile remains Partial.
 - [Keystore physical coverage follow-up](../archive/plans/261011-keystore-recovery/reports/current-device-acceptance.md):
   API26/no hardware/no enrollment, typed7/9 callbacks, exact process-kill/
   retry-exhaustion windows and precise Recents observation remain unexecuted.

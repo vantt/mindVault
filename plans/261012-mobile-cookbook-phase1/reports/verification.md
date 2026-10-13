@@ -151,5 +151,13 @@ Passed1/1,42.393s with exact provider cache Cook/UI/favorite/recent/search and g
 biometric same-process authenticated recreation. All assertions retained; exact
 source/APK/install/digest histories in linked report. No whole-mobile completion.
 
-Unresolved: original Cookbook UI Run01 reveal failure; actual network-off/provider
-error/cancellation/401/403/cold-start/process-death and remaining phone matrix.
+Latest [network-off acceptance](network-off-runtime.md): initial55s build and153-line
+diagnostic helper81s build Passed, lint0/11/1; app4/shared78/bridge16/standalone29
+retained (no fresh JVM execution). Exact diagnostic source/APKs unchanged across
+Run02/03/04; no repeat build/install for Run03/04. Run01/02/03 Failed history retained;
+Run04 Passed1/1,31.477s,0 failures/errors/skips with actual network absence, retained
+provider NETWORK_FAILED preservation and all unchanged offline cache UI/recreation
+assertions. Original17/cache150 untouched, owner digest unchanged; mobile Partial.
+
+Unresolved: original Cookbook UI Run01 reveal failure, network Run03 key-wrap cause;
+cancellation/stale callbacks/401/403/cold-start/process-death and remaining phone matrix.

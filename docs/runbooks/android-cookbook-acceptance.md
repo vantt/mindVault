@@ -6,8 +6,10 @@ Historical Run01 cause not reproduced; broader phone/Google matrix Pending. Prio
 acceptance does not certify new screens or the Android connection.
 Latest [Google cache UI Run02](../../plans/261012-mobile-cookbook-phase1/reports/google-cache-ui-runtime.md)
 Passed1/1,42.393s: cached row Cook/lock/reopen/favorites/recent/search and authenticated
-same-process recreation. App-disconnected cache only; network-off/cold-start/process
-death/provider errors and broader matrix remain Pending.
+same-process recreation. Later [network-off Run04](../../plans/261012-mobile-cookbook-phase1/reports/network-off-runtime.md)
+Passed1/1,31.477s: actual offline Cook/recreation and NETWORK_FAILED cache preservation.
+Cancellation/stale callbacks/401/403/cold start/process death and broader matrix Pending;
+original UI Run01 and network Run03 key-wrap causes unresolved.
 
 ## Google setup, once the candidate is ready
 
@@ -54,7 +56,8 @@ Use a dedicated synthetic Menu accessible to the selected Google account.
 Owner reported Android client configured on2026-10-13. Later selected runtime
 Passed Google Run03 with actual grant/metadata/rows/mapping/cache-file readback.
 Selected cache UI Run02 accepted app-disconnected reopening/Cook and authenticated
-same-process recreation; actual network-off/provider errors/cold start remain **Pending**.
+same-process recreation. Later network-off Run04 accepted strict actual network absence
+and NETWORK_FAILED preservation;401/403/cancel/cold start remain **Pending**.
 Confirm Sheets API enabled, the phone account in Test users and the Sheets scope saved.
 Create a dedicated private Menu `PassChef OAuth Test`, rename its tab `Test`, and
 enter this fixture only; format C2 as plain text before entering the literal username:
@@ -98,18 +101,34 @@ Google also announces planned charges for usage above quota later in2026; consul
 [Workspace tiering policy](https://developers.google.com/workspace/tools-safety) and the
 project's actual quotas/billing before scaling. Do not promise unlimited free API use.
 
+## Selective network-off check — Run04 accepted
+
+Use the prepared provider fixture with `passchefGoogleNetworkContinuation=true`;
+root handles exact APK/digest/preflight and launches only that selected method.
+Keep network available while the genuine provider fixture loads. At
+`network-owner-disable-radios`, root's authorized USB runner switches Wi-Fi/mobile
+data off and airplane mode on, records commands and restores the enabled baseline
+with airplane mode off in finally. The fixture independently requires actual network
+absence; command success/settings values alone do not count. Owner performs genuine
+biometric prompts during cached Cook/reopen/recreation. SDK authorization failure is separate
+from actual Sheets transport failure; record only the observed path.
+[Actual runtime evidence](../../plans/261012-mobile-cookbook-phase1/reports/network-off-runtime.md)
+records Run04 Passed and Run01/02/03 Failed history. Restoration separately observed
+Wi-Fi enabled, airplane mode off and default network available; mobile-data enable
+command accepted only, not independently measured. Exact cache/jars preserved.
+
 ## Record each actual result
 
 | Check | Required observation | Current status |
 |---|---|---|
-| Install/preflight | Debug package updated without clearing data; original encrypted Cookbook SHA256 unchanged before/after install and tests | Passed cache UI Run02 exact candidate; original digest preserved after installs/runtime |
+| Install/preflight | Debug package updated without clearing data; original encrypted Cookbook SHA256 unchanged before/after install and tests | Passed network-off Run04 exact candidate; original digest preserved after installs/all runs |
 | Offline Cook | Unlock with real jars; paste known Recipe; exact expected Dish | Passed Run04/05 with isolated synthetic jars and real fingerprint |
 | Tagged context | Correct Menu cooks; absent/wrong Menu refuses; previous Dish disappears | Partial: correct/absent Menu and edit clearing passed Run04; wrong different Menu Pending |
 | Google consent | Registered package/signature; actual user grant; no token displayed/logged | Passed selected runtime scope: usable grant; owner confirmed account/consent in Google Run01 |
 | Menu/tab read | Real metadata and bounded values; selected tab remains explicit | Passed Google Run03: selected Test tab and exact literal fake schema/row, including00123 |
 | Mapping | Actual preview; confirm roles; duplicate/empty/ragged inputs handled | Partial: real Google preview/explicit role mapping Passed Run03; earlier offline flow Passed Run04; broader matrix Pending |
-| Offline/cache | Reopen private cache; search label/username; favorites/recent retain origin | Passed selected cache UI Run02 app-disconnected cache/search/favorites/recent/exact row Cook; actual network-off/errors Pending |
-| Errors/refresh | Cancel/401/403/network failure retain last good cache and clear stale results | Pending |
+| Offline/cache | Reopen private cache; search label/username; favorites/recent retain origin | Passed network-off Run04 actual network absence/Cook/search/favorites/recent and authenticated same-process recreation; cold start/process death Pending |
+| Errors/refresh | Cancel/401/403/network failure retain last good cache and clear stale results | Partial: actual NETWORK_FAILED exact cache/jars preservation and stale Dish/Copy absence Passed Run04;401/403/cancel/stale callback Pending |
 | Reveal | Masked default; explicit reveal hides after10seconds | Passed Run04/05, including KEEP_SCREEN_ON=false in Run05; historical Run01 cause unknown |
 | Clipboard | Dish copy; real30second compare-clear; replaced/username text survives old cleanup | Passed foreground API36 ownership + same-process locked adapter recreation; background/authenticated recreation/process death/history/API26 fallback Pending |
 | Lifecycle | Navigation/edit/lock/background/recreation clear Dish and require unlock | Partial: edit/Back/background Run04; lock and authenticated same-process recreation Google cache UI Run02 Passed; cold start/process death Pending |
@@ -127,8 +146,8 @@ records actual Google Run01/02 Failed, then Run03 Passed1/1,23.309s after owner 
 the fake fixture. Exact Google metadata/Test tab/rows, mapping and durable cache-file
 load accepted; all17 assertions unchanged. Fresh consent was owner-observed in Run01;
 Run03 may reuse the valid grant. Later cache UI Run02 accepted app-disconnected
-reopening/Cook and authenticated same-process recreation; actual network-off/provider
-errors/cold start and broader matrix Pending.
+reopening/Cook and authenticated same-process recreation. Later network-off Run04
+accepted actual offline/error preservation;401/403/cancel/cold start and broader matrix Pending.
 
 [Current continuation](../../plans/261012-mobile-cookbook-phase1/reports/unattended-regression.md)
 records new local APK hashes separately from the still-installed diagnostic pair.

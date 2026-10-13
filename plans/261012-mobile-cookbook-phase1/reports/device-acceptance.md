@@ -146,6 +146,14 @@ altering any assertion. Cache UI Run02 Passed1/1,42.393s with real provider/cach
 origin/Recipe/username00123/Cook/favorites/recent/search, lock/reopen and authenticated
 same-process recreation. Exact source/APK histories retained; owner digest unchanged.
 
+Latest separate [network-off runtime](network-off-runtime.md): Run04 Passed1/1,
+31.477s,0 failures/errors/skips after preserved Failed Run01/02/03. Strict actual
+network absence, real provider NETWORK_FAILED cache/jars preservation, stale Dish/
+Copy absence and unchanged cache UI/Cook/favorites/recent/biometric same-process
+recreation passed. Sources/APKs unchanged across Run02/03/04; owner digest preserved.
+USB radio restore separately observed Wi-Fi enabled/airplane off/default available;
+mobile-data enable command accepted only. No production change or broader completion.
+
 Unresolved: original Cookbook UI Run01 masked-after-reveal cause not reproduced in
-Run04/05; actual network-off/provider errors/cancellation/401/403/cold-start/process
-death and remaining phone matrix. Whole mobile Phase1 stays Partial.
+Run04/05, network Run03 key-wrap cause; cancellation/stale callbacks/401/403/cold-start/
+process death and remaining phone matrix. Whole mobile Phase1 stays Partial.

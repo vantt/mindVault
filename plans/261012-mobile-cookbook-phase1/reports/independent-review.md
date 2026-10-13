@@ -130,5 +130,16 @@ then normal Compose sync/cache=true and unchanged exact cache/UI/Cook assertions
 passed. Source/APK/owner-digest evidence checked; production unchanged. Scope only
 app-disconnected cache and same-process authenticated recreation; no original UI fix.
 
-Unresolved: original Cookbook UI Run01 cause; actual network-off/provider errors/
-cancellation/401/403/cold-start/process-death and remaining phone matrix above.
+Independent [network-off Run04](network-off-runtime.md) review confirms no P1/P2,
+runner[1,0]/OK1,31.477s,0 failures/errors/skips, original11 provider flags true and
+all14 post-off strict default/bound/internet-network-absence checkpoints true with
+no reconnection. Actual retained-grant UI tab read NETWORK_FAILED, exact cache/disk/
+jars/stale Dish/Copy preservation and unchanged150-line cached Cook/favorite/recent/
+search/biometric/recreation assertions accepted. Sources39/protected208/unrelated23
+unchanged; no rebuild/install between identical Run02/03/04 candidates.26 safe
+status2 packets separate from2 JUnit statuses. Prior three failures retained; no
+production or original UI Run01 repair. Restoration Wi-Fi/airplane/default observed;
+mobile-data enable command accepted only. Scope Xiaomi/API36 physical continuation.
+
+Unresolved: original Cookbook UI Run01 cause and network Run03 key-wrap cause;
+cancellation/stale callbacks/401/403/cold-start/process-death and remaining phone matrix.

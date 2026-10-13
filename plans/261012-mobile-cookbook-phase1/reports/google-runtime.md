@@ -6,6 +6,10 @@ Later [Google cache UI Run02](google-cache-ui-runtime.md) Passed1/1,42.393s cove
 app-disconnected cached Cook/lock/reopen and authenticated same-process recreation.
 The provider runs and exact historical artifact hashes below remain unchanged;
 actual network-off/cancellation/401/403/cold-start/process-death remain Pending.
+That cache UI scope preceded [network-off Run04](network-off-runtime.md), which later
+Passed actual offline Cook/recreation and NETWORK_FAILED cache preservation in31.477s.
+Historical provider/candidate hashes below stay intact;401/403/cancel and broader
+phone matrix remain Pending.
 Root alone used native Windows ADB over USB; Xiaomi14TPro/API36, serialPN7PW8SGXKLVPRIV.
 Independent reviewer confirmed actual runner statuses, all11 match flags and proof limits.
 

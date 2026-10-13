@@ -2,6 +2,10 @@
 
 Date2026-10-13 (Asia/Saigon). **Cache UI Run02 Passed1/1,42.393s; Run01 Failed**.
 Mobile remains **Partial**.
+Later [network-off Run04](network-off-runtime.md) Passed1/1,31.477s adds actual
+network absence and NETWORK_FAILED cache preservation with this helper unchanged.
+This document retains original cache UI run/artifact identities below; broader
+cancellation/401/403/cold-start/process-death and UI matrix remain Pending.
 Continue GoogleRun03 provider acceptance; this report numbers cache UI runs
 separately from GoogleRun01–03 and historical CookbookUIRun01–05.
 Root exclusively coordinates Windows ADB/Gradle; independent source review passed.

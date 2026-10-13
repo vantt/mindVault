@@ -1,5 +1,28 @@
 # Project Changelog
 
+## Accept actual network-off Cook and cache preservation (2026-10-13)
+
+Network-off Run04 Passed1/1,31.477s on Xiaomi/API36, runner[1,0]/OK1,0 failures/errors/
+skips. All14 post-off checkpoints observed no default/bound/internet-capable network
+and no reconnection. Actual retained provider tab read NETWORK_FAILED; exact last-good
+cache/disk/jars and stale Dish/Copy absence passed. Unchanged150-line helper confirms
+offline origin/Recipe/literal00123/masked/revealed Dish/favorite/recent/search, genuine
+biometric reopen and authenticated same-process recreation. Owner digest preserved.
+
+Run01 Failed200.773s at initial gate with cause unknown; Run02 Failed54.677s after
+transport failure because internet-capable absence guard failed before preservation;
+Run03 Failed182.07s at setup with correlated code15 key-wrap diagnostics, cause open.
+All failed candidates/evidence retained; unchanged Run02/03 source/APKs passed Run04,
+no repeated build/install. Build55s plus diagnostic81s Passed, lint0/11/1; app4/shared78/
+bridge16/standalone29 retained, no fresh JVM count. Original17/cache150 untouched.
+
+Authorized root USB controls change radios at safe marker and restore in finally;
+Wi-Fi enabled/airplane off/default network independently observed afterward, mobile
+data enable command accepted only. Production unchanged; no original UI Run01 fix.
+[Exact runtime](../plans/261012-mobile-cookbook-phase1/reports/network-off-runtime.md).
+Mobile Partial: cancellation/stale callbacks/401/403/cold-start/process death/timers/
+capture/ENVI/accessibility and broader matrix remain Pending.
+
 ## Accept Google cached Cook and authenticated recreation (2026-10-13)
 
 Actual cache UI Run02 Passed1/1,42.393s on Xiaomi/API36, independent runner[1,0]/OK1,

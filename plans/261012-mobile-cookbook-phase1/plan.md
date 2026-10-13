@@ -27,7 +27,7 @@ Q6's historical read-only wording is superseded by Q9 and the retained decisions
 | 1 | [Session-owned manual cooking](phase-01-session-cooking.md) | Done (local scope) | First useful offline path; shared JVM regressions + Android compile |
 | 2 | [Private cache and column mapping](phase-02-cache-mapping.md) | Done (local scope) | Pure model/storage tests; no Google credential required |
 | 3 | [Cookbook Compose screens and clipboard](phase-03-cookbook-ui.md) | Partial | Run04/05/cache UI Run02 Passed; broader phone/clipboard matrix Pending |
-| 4 | [Android Sheets/authorization integration](phase-04-android-sheets-connection.md) | Partial | Google Run03/cache UI Run02 Passed; provider errors/network-off Pending |
+| 4 | [Android Sheets/authorization integration](phase-04-android-sheets-connection.md) | Partial | Google/cache/network-off Passed;401/403/cancel Pending |
 | 5 | [Independent verification and delivery](phase-05-verification-delivery.md) | Partial | Evidence separates code/build acceptance from physical/live acceptance |
 
 Phases1–3 can produce useful real offline code without a phone/account. Phase4
@@ -54,8 +54,9 @@ certify an Android Google connection. [Verification](reports/verification.md) an
 Owner confirmed real Google consent; [Google runtime](reports/google-runtime.md)
 records Google Run03 Passed metadata/rows/mapping/cache-file load after Failed Run01/02.
 [Cache UI Run02](reports/google-cache-ui-runtime.md) Passed lock/reopen/cached Cook
-and authenticated same-process recreation; app-disconnected cache only. Provider
-errors/network-off/cold-start/process-death remain Pending; phase04 tracks scope.
+and authenticated same-process recreation; app-disconnected cache only. Later
+[Network-off Run04](reports/network-off-runtime.md) Passed real offline Cook/error
+preservation;401/403/cancel/cold-start/process-death remain Pending in phase04.
 Run04/05 cover selected synthetic-jars biometric/Cook/reveal/copy/background flow.
 Foreground clipboard adapter3/3 Passed; broader lifecycle/5-minute idle/10-minute
 total and phone UX still need acceptance; prior demo proof is not new UI proof.
@@ -72,6 +73,6 @@ Exact local commands and the Pending owner checklist are in phase5.
 
 ## Open dependencies
 
-Google provider errors/network-off and later physical acceptance; no product
+Google401/403/cancellation and later physical acceptance; no product
 question blocks the offline implementation. Whole roadmap Phase1 remains Partial
 until real connection and required user/device flows have evidence.

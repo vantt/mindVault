@@ -4,6 +4,9 @@ Status: **Partial — local verification/delivery Done; owner acceptance Pending
 Owner/device acceptance below remains Pending.
 Selected [cache UI Run02](reports/google-cache-ui-runtime.md) Passed1/1,42.393s;
 broader device/provider matrix remains Pending, whole phase Partial.
+Latest [network-off Run04](reports/network-off-runtime.md) Passed1/1,31.477s:
+actual offline UI/Cook/recreation and NETWORK_FAILED preservation;401/403/cancel,
+process death/cold start/timers/broader UI and Run03 key-wrap cause remain Pending.
 
 ## Context and requirements
 
@@ -90,6 +93,10 @@ Helper-only sync build40s Passed, lint0/11/1. Default storage recreation Passed1
 31.769s; cache UI Run01 Failed1/1,294.651s remains retained, corrected Run02 Passed1/1,
 42.393s. Owner digest preserved. No production fix, actual network-off/process-death/
 cold-start/cancellation/401/403/timer/UI matrix claim; no new commit claimed here.
+Network continuation later build55s and diagnostic81s Passed; app4/shared78/bridge16/
+standalone29 retained (no fresh JVM reruns). Network Run01/02/03 Failed history
+retained; identical Run02/03 source/APKs Run04 Passed1/1,31.477s with strict actual
+network absence and preserved cache/jars. No build/install repeated for Run03/04.
 
 ## Success and remaining dependencies
 
