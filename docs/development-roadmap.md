@@ -57,6 +57,19 @@
   session/Dish/Copy cleared, jars/owner digest preserved. Same frozen03/APKs, no
   rebuild/install/source change. Selected5/10-minute API36 foreground proof KEEP_SCREEN_ON
   accepted; broader timer UX remains Pending, no production repair/cause resolution.
+  [Security/UI continuation](../plans/261012-mobile-cookbook-phase1/reports/security-ui-runtime.md)
+  locked pixels01 Passed1/1,2.321s and authenticated02 Passed1/1,25.890s: selected
+  EN/VI setup/manual Cook and actual secure shell display exclusion on API36 proof
+  foreground. Locked01/Capture01/Auth01 remain Failed; no production repair claimed.
+  Recents01 Failed206.052s without post-checkpoint stop/resume; Recents02
+  Failed182.457s before setup readiness/checkpoint, no navigation commands sent.
+  Same frozen04/APKs, no rebuild/install between attempts; causes unconfirmed.
+  Six scoped test-APK/lint builds Passed; no fresh JVM/browser execution.
+  Owner digest/protected sources preserved. OS screenshot shortcut/Recents, Vietnamese
+  OS accessibility/TalkBack and broader layout/font/orientation remain Pending;
+  Mobile Partial, original UI/key-wrap causes and cold-start/provider gaps retained.
+  Next requires fresh genuine owner setup and own-card observation; owner "can't take
+  screenshot" report has unconfirmed shortcut/reveal timing, no visual acceptance inferred.
 - [Keystore physical coverage follow-up](../archive/plans/261011-keystore-recovery/reports/current-device-acceptance.md):
   API26/no hardware/no enrollment, typed7/9 callbacks, exact process-kill/
   retry-exhaustion windows and precise Recents observation remain unexecuted.

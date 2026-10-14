@@ -1,6 +1,6 @@
 # Android Cookbook — owner acceptance
 
-Status2026-10-13: **Partial**. Verified candidate installed on Xiaomi/API36;
+Status2026-10-14: **Partial**. Verified candidates installed on Xiaomi/API36;
 selected real UI Run04/05 Passed1/1 each, including normal screen policy in Run05.
 Historical Run01 cause not reproduced; broader phone/Google matrix Pending. Prior Keystore demo
 acceptance does not certify new screens or the Android connection.
@@ -10,6 +10,12 @@ same-process recreation. Later [network-off Run04](../../plans/261012-mobile-coo
 Passed1/1,31.477s: actual offline Cook/recreation and NETWORK_FAILED cache preservation.
 Cancellation/stale callbacks/401/403/cold start/process death and broader matrix Pending;
 original UI Run01 and network Run03 key-wrap causes unresolved.
+[Security/UI continuation](../../plans/261012-mobile-cookbook-phase1/reports/security-ui-runtime.md)
+locked pixels01 Passed1/1,2.321s and authenticated02 Passed1/1,25.890s: selected EN/VI
+setup/manual Cook and secure shell display exclusion. OS screenshot shortcut/Recents
+and full layout/accessibility remain Pending; three earlier security failures retained.
+Recents01/02 Failed206.052s/182.457s, respectively after checkpoint without actual
+stop/resume and at genuine setup before checkpoint. Causes unconfirmed; no blind retry.
 
 ## Google setup, once the candidate is ready
 
@@ -146,11 +152,43 @@ Pending. No source/time/auth bypass or hidden failure; earlier causes remain unk
 | Clipboard | Dish copy; real30second compare-clear; replaced/username text survives old cleanup | Passed foreground API36 ownership + same-process locked adapter recreation; background/authenticated recreation/process death/history/API26 fallback Pending |
 | Lifecycle | Navigation/edit/lock/background/recreation clear Dish and require unlock | Partial: edit/Back/background Run04; lock and authenticated same-process recreation Google cache UI Run02 Passed; cold start/process death Pending |
 | Session | Real5minute idle and10minute total despite activity, no deadline reset | Passed selected API36 foreground proof KEEP_SCREEN_ON: Idle05 341.722s and Total04 609.969s; earlier failures retained, broader timer UX Pending |
-| Security/UI | EN/VI, accessibility/layout, blocked capture/hidden Recents, sanitized own-app logs | Pending |
+| Security/UI | EN/VI, accessibility/layout, blocked capture/hidden Recents, sanitized own-app logs | Partial: pixels01/authenticated02 Passed selected EN/VI setup/manual Cook and secure shell capture; OS screenshot shortcut/Recents/TalkBack/full layout Pending |
+| Recents lifecycle | Actual same-Activity stop/lock, preserved jars and genuine biometric reopen | Pending acceptance: Run01 Failed206.052s without checkpoint stop/resume; Run02 Failed182.457s at setup before checkpoint/navigation |
 
 Record candidate SHA/APK hash, device/API, timestamps, observer and evidence for
 each run. A compiled test APK is **not run** until a device/runtime executes it.
-Account setup and consent require the owner; no phone action is requested now.
+Account setup and consent require the owner; root announces each genuine runtime
+checkpoint after candidate review and actual device readiness checks.
+
+### Selected secure capture — accepted; owner observations separate
+
+[Exact Security/UI evidence](../../plans/261012-mobile-cookbook-phase1/reports/security-ui-runtime.md)
+requires nonnull actual display capture and every pixel in the visible own-content
+region opaque black, with secure/awake/unlocked/focused foreground before/after.
+Accepted route is fixed shell `screencap -p`, without secure-layer/policy changes;
+no images or accessibility trees are saved. Authenticated02 also verifies genuine
+EN/VI Cook/reveal and visible exact synthetic Dish inside that region.
+
+Locked01 raw-layout48dp, Capture01 same-node accessibility and Auth01 UiAutomation-null
+remain Failed. Later diagnostics show40dp raw language layout with48dp expanded touch
+bounds; no actual undersized-target defect inferred. English OS password-field identity
+diagnosed; Vietnamese field-ID match and TalkBack/layout remain Pending.
+
+Separate owner checkpoint `owner-screenshot-recents-check` asks for hardware screenshot,
+inspection of only the own Recents card, then return to the app. Prepared fixture
+asserts actual stop/lock and genuine biometric reopen; compilation alone accepts none
+of these. Root records screenshot rejection/card appearance separately from lifecycle
+JUnit. Original10second remask remains; note whether Dish was visible at the observation.
+
+Recents01 Failed206.052s: post-checkpoint pause/stop remained0, so neither actual
+transition nor genuine reopening was accepted. Cleanup-only locked state is excluded.
+Recents02 Failed182.457s: setup remained busy/ready=false/focus=false while OS was
+awake/unlocked; checkpoint never reached, navigation events empty and no ADBKEY187
+sent. Same frozen04/testea84 source/APKs, no rebuild/install between attempts.
+Causes unconfirmed; no owner-action/inaction inference. Owner reported "can't take
+screenshot"; exact shortcut/reveal timing unconfirmed and own-card answer Pending.
+Next checkpoint requires fresh genuine setup readiness plus explicit own-card
+observation; earlier failed attempts remain unchanged, no blind retry.
 
 ## Resume diagnostics when owner ready
 

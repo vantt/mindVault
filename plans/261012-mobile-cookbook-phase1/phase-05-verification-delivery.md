@@ -14,6 +14,15 @@ broader device/provider matrix remains Pending, whole phase Partial.
 Latest [network-off Run04](reports/network-off-runtime.md) Passed1/1,31.477s:
 actual offline UI/Cook/recreation and NETWORK_FAILED preservation;401/403/cancel,
 process death/cold start/broader timer UX/UI and Run03 key-wrap cause remain Pending.
+[Security/UI continuation](reports/security-ui-runtime.md): locked pixels01
+Passed1/1,2.321s and authenticated02 Passed1/1,25.890s. Selected EN/VI setup/manual
+Cook and actual secure shell display exclusion accepted on API36 foreground proof;
+Locked01/Capture01/Auth01 retained Failed; Recents01 Failed206.052s without actual
+post-checkpoint stop/resume, Recents02 Failed182.457s at setup before navigation.
+Same frozen04/APKs, no rebuild/install between Recents attempts; causes unconfirmed.
+Six scoped test-APK/lint builds Passed; final06:42s,10 executed/84 UP-TO-DATE,
+no production-source changes or fresh JVM/browser assertions. Recents/full UI/
+accessibility remain Pending; fresh owner readiness/card observation required.
 
 ## Context and requirements
 
@@ -69,7 +78,7 @@ is established. `assembleDebugAndroidTest` compiles tests; it does not run them.
 - [x] Record compiled Android test matrix separately from tests actually executed;
   keep no-device status visible in `reports/verification.md`.
 - [x] Update product specs/roadmap and independent report with passed/failed/Pending
-  columns. Overall mobile roadmap Phase1 remains Partial while live/UI proof is absent.
+  columns. Overall mobile roadmap Phase1 remains Partial while the broader live/UI matrix is Pending.
 - [x] Root handles authorized scoped commit/integration/push after independent review;
   archive only a scope with no relevant remaining deliverable. Owner authorized commit/push.
 
@@ -91,7 +100,8 @@ compiled diagnostics; it does not resolve the physical failure.
 3. Broader biometric/password recovery/background/recreation/cold-start matrix;
    selected API36 foreground5/10-minute timers and clipboard ownership accepted.
 4. Verify replaced clipboard text, inaccessible background read and OS restrictions
-   honestly; observe screenshot/Recents/capture and sanitized own-app logs.
+   honestly; selected secure shell capture accepted, OS screenshot shortcut/Recents
+   and broader sanitized own-app/accessibility observations remain Pending.
 5. Existing unexecuted Keystore device matrix remains separately Pending; a passing
    new Xiaomi screen flow does not certify API26/no hardware/no enrollment cases.
 

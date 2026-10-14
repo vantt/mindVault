@@ -1,5 +1,36 @@
 # Project Changelog
 
+## Accept selected EN/VI secure Cookbook captures (2026-10-14)
+
+Locked pixels01 Passed1/1,2.321s and authenticated02 Passed1/1,25.890s on Xiaomi/API36.
+EN/VI setup/manual Cook semantics and genuine synthetic-jars Cook/reveal passed;
+actual secure shell display captures show the sampled own-content region entirely
+opaque black with ready/visible Dish and actual foreground gates. Language
+switch clears prior Dish/Copy; normal Vietnamese recooking passed. Encrypted synthetic
+jars/owner Cookbook digest preserved; no clipboard write or production change.
+
+Locked01 Failed1.732s at raw48dp layout, Capture01 Failed1.584s at same-node Android
+accessibility and Auth01 Failed12.104s at UiAutomation-null retained with exact candidates.
+Diagnostics distinguish40dp raw layout/48dp expanded touch bounds; actual undersized
+target defect not inferred. Vietnamese OS field-ID mismatch and UiAutomation-null
+cause remain open. Existing assertions/Golden untouched; only new scoped fixtures,
+safe metadata and opt-in real shell capture transport. Incremental test-APK/lint
+verification recorded separately; earlier JVM/browser evidence is not a fresh execution.
+
+Recents01 Failed1/1,206.052s after checkpoint: pause/stop0, genuine reopening not
+reached; cleanup lock does not accept lifecycle. Recents02 Failed1/1,182.457s at
+genuine setup with busy=true/ready=false/focus=false and actual awake/unlocked OS;
+checkpoint/navigation never reached, no ADBKEY187 sent. Same frozen04/testea84,
+no rebuild/install between attempts. Causes unconfirmed; owner report "can't take
+screenshot" has unconfirmed shortcut/reveal timing and own-card observation Pending.
+Six scoped test-APK/lint builds Passed; final06:42s,10 executed/84 UP-TO-DATE,
+no production changes. Fresh genuine setup readiness/card observation required; no blind retry.
+
+Accepted API36 foreground proof KEEP_SCREEN_ON scope; OS screenshot shortcut/Recents,
+TalkBack/larger-font/orientation, cold-start/process death and broader provider matrix
+remain Pending. Mobile Partial; original UI/setup/wrap causes untouched.
+[Exact Security/UI runtime](../plans/261012-mobile-cookbook-phase1/reports/security-ui-runtime.md).
+
 ## Accept real ten-minute Cookbook total expiry (2026-10-14)
 
 Total Run04 Passed1/1,609.969s on API36, runner[1,0]/OK1,0 failures/errors/skips.

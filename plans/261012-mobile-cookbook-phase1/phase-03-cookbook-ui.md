@@ -7,6 +7,10 @@ same-process recreation with real biometric; broader physical matrix Pending.
 Later [network-off Run04](reports/network-off-runtime.md) Passed1/1,31.477s:
 same cached UI assertions under actual network absence plus real network-failure
 cache preservation. Original UI Run01 and network Run03 wrap causes unresolved.
+Selected [Security/UI](reports/security-ui-runtime.md) locked pixels01 Passed1/1,2.321s
+and authenticated02 Passed1/1,25.890s: EN/VI setup/manual Cook and real secure shell
+display exclusion. Earlier three security failures retained; Recents01/02 subsequently
+Failed206.052s/182.457s. Recents/accessibility acceptance remains Pending.
 
 ## Context and key insight
 
@@ -72,6 +76,38 @@ need honest platform limits ([Android clipboard](https://developer.android.com/d
 Recent/favorites contain entry IDs only; remote icons/swipe conveniences/settings
 extras are later UI refinement, not a claim that every Q6 sketch shipped.
 Continue to real connection code; offline screens remain usable while disconnected.
+
+## Security/UI continuation — bounded physical acceptance
+
+- [x] Add/review isolated locked UUID-storage instrumentation for actual EN/VI
+  setup labels/buttons, password accessibility semantics and visible48dp control bounds.
+  No setup/authentication, existing assertion change or production policy change.
+- [x] Root-only minimal compile, artifact/protected hashes, owner Cookbook digest
+  and actual Awake/keyguard=false/own foreground preflight; select only the new method.
+- [x] Execute real display capture: nonnull valid bitmap, actual own-content region
+  fully black, secure foreground and locked/no-record before/after; emit only bounded
+  geometry/count/boolean metadata. Configuration flags alone do not accept capture.
+  Locked pixels01 and authenticated02 Passed on API36 using opt-in shell capture;
+  default UiAutomation-null failure remains Failed. [Exact evidence](reports/security-ui-runtime.md).
+- [ ] Separately observe authenticated synthetic Dish OS screenshot shortcut and
+  own Recents card with genuine owner authentication; preserve actual background lock.
+  OS Recents and owner observations remain Pending until observed, never infer from capture.
+  Recents01 Failed206.052s: post-checkpoint pause/stop remained0; reopen not reached.
+  Recents02 Failed182.457s before setup readiness/checkpoint; navigation events empty,
+  no ADBKEY187 sent. Same frozen04/APKs, no rebuild/install between attempts; causes
+  unconfirmed, cleanup lock is not acceptance. Owner reported "can't take screenshot";
+  exact shortcut/reveal timing and own-card observation remain unconfirmed.
+- [x] Record selected EN/VI setup/manual Cook semantics and capture scope; raw-layout
+  Locked01 and same-node-accessibility Capture01 remain Failed with original assertions.
+  Later diagnostics distinguish40dp raw layout from48dp expanded touch bounds;
+  actual edge-pointer reachability remains unexecuted, no production defect inferred.
+- [ ] Broader physical layout and Vietnamese OS accessibility; owner TalkBack traversal,
+  larger-font/orientation and broader accessibility remain Pending without observation.
+
+No provider/cache/timer replay belongs to this continuation unless related source changes.
+Preserve historical failures and Mobile Partial; security test compilation is not runtime proof.
+Next requires fresh genuine owner setup readiness and explicit own-card observation;
+no blind retry or historical-cause inference.
 
 Implementation exists in the production app/shared/client paths above. Final local
 results and unchanged Golden evidence are recorded in [verification](reports/verification.md);

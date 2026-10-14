@@ -168,5 +168,25 @@ Run04 Passed1/1,31.477s,0 failures/errors/skips with actual network absence, ret
 provider NETWORK_FAILED preservation and all unchanged offline cache UI/recreation
 assertions. Original17/cache150 untouched, owner digest unchanged; mobile Partial.
 
+## Security/UI continuation,14October
+
+[Exact evidence](security-ui-runtime.md): root-only test APK/lint builds01–06 Passed;
+final06 42s,10 executed/84 UP-TO-DATE, lint0 errors/11 warnings/1 hint.
+Shared78/bridge16/standalone29/app4 and extension147/25 retained, no fresh executions
+or summed independent counts. Production/old tests unchanged; no passed cache/network/
+timers replayed. Six new Android test/helper files remain<200lines.
+
+Actual locked pixels01 Passed1/1,2.321s and authenticated02 Passed1/1,25.890s:
+selected EN/VI setup/manual Cook and secure shell display exclusion. Each EN/VI
+bitmap1220×2712 has sampled own1194×2395/all2,859,630 pixels opaque black; authenticated
+proof verifies real visible/revealed Dish and unchanged jars. Original Locked01/
+Capture01/Auth01 Failed retained; null UiAutomation is not capture acceptance.
+Recents01 Failed206.052s post-checkpoint; Recents02 Failed182.457s at setup before any
+navigation command. Card/OS shortcut visuals, full accessibility/layout remain Pending.
+
+Latest installed debugfa4c4ab4…/testea84ea13… match frozen04/all49 sources; accepted
+pixels/auth runtime uses separately preserved teste3142923…/frozen03. Owner894f73…a4d6,
+old43/protected208/unrelated23 preserved. No production repair or full-mobile completion.
+
 Unresolved: original Cookbook UI Run01 reveal failure, network Run03 key-wrap cause;
 cancellation/stale callbacks/401/403/cold-start/process-death and remaining phone matrix.

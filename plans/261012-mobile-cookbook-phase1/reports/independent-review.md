@@ -147,5 +147,33 @@ status2 packets separate from2 JUnit statuses. Prior three failures retained; no
 production or original UI Run01 repair. Restoration Wi-Fi/airplane/default observed;
 mobile-data enable command accepted only. Scope Xiaomi/API36 physical continuation.
 
+## Security/UI independent continuation review,14October
+
+Six new bounded test/helper files reviewed; final root build/lint Passed42s,0/11/1.
+No P1/P2 remains in fixture/runner changes. Review repairs: actual localized OS node
+predicate kept strict; masked guard follows empty plaintext contract, revealed capture
+requires actual visible Dish inside sampled region before and displayed exact result
+after; optional Compose ID explicitly requested before bounded diagnostic matching;
+Recents needs fresh post-checkpoint pause/stop and fresh successful stopped-state read.
+Reviewed external navigation uses cancellation/event/lock/join to finalize commands
+before evidence; real fixture lifecycle remains authoritative, no command-only pass.
+
+Reviewer independently parsed actual pixels01 Passed2.321s/authenticated02 Passed25.890s:
+JUnit[1,0]/terminal[-1]/anchoredOK1,0 failures/errors/skips, completed=true/watchdog=false.
+Both EN/VI shell captures valid1220×2712, own1194×2395/all2,859,630 pixels opaque black.
+Genuine authenticated Cook/reveal/source-owned jars equality and exact Dish guards pass.
+No policy/auth/session/clock bypass, private text/tree/pixel logging or production change.
+
+Original three security failures retained. Recents01 Failed206.052s with no post-checkpoint
+pause/stop; cleanup-only lock is excluded. Recents02 Failed182.457s at setup, busy=true/
+focus=false, phone awake/unlocked, navigation_events=[]; cause unknown, no187 sent.
+Owner “can't take screenshot” report separate; reveal timing/Card contents unconfirmed.
+OS shortcut/Recents/full accessibility/broader UI Pending; Mobile remains Partial.
+
+Independent audits Passed frozen49/current APKs, old43/protected208/unrelated23 and
+archived failed/accepted candidates02–05 exact sources/manifests/APKs. Accepted capture
+source/APK identity frozen03/e314 is separate from installed Recents frozen04/ea84.
+[Authoritative evidence and limits](security-ui-runtime.md). No blind rerun endorsed.
+
 Unresolved: original Cookbook UI Run01 cause and network Run03 key-wrap cause;
 cancellation/stale callbacks/401/403/cold-start/process-death and remaining phone matrix.
