@@ -1,5 +1,20 @@
 # Project Changelog
 
+## Accept real ten-minute Cookbook total expiry (2026-10-14)
+
+Total Run04 Passed1/1,609.969s on API36, runner[1,0]/OK1,0 failures/errors/skips.
+Genuine biometric/Cook and minute1–9 real window touches/recooking kept idle fresh
+without renewing opened/generation. At595106ms the masked Dish/Copy/session remained
+ready; at601725ms total expiry locked and cleared session/lifetime/Dish/Copy while
+idle was60945ms. Encrypted jars/owner digest unchanged; watchdog did not expire.
+
+Same frozen03/debugfa4/test8f08 as earlier runs; no source/build/install change or
+fresh JVM claim. Together with Idle05, selected real5/10-minute API36 foreground
+proof KEEP_SCREEN_ON accepted. Four idle and three total failed histories retained;
+original UI/setup/wrap causes unknown. Broader timer UX/cold-start/process-death/
+401/403/cancellation/capture/ENVI/accessibility Pending; whole mobile Partial.
+[Exact timer evidence](../plans/261012-mobile-cookbook-phase1/reports/session-timer-runtime.md).
+
 ## Organize commercialization documents (2026-10-13)
 
 Moved the commercialization plan and four marketing documents into

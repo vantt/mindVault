@@ -149,15 +149,19 @@ historical CookbookUIRun01 production-fix claim. [Evidence](reports/google-cache
   assertions/Golden and production sources unchanged, each new file<200lines.
 - [x] Observe real5-minute idle from verified Activity ACTION_DOWN then no input;
   before original deadline ready/masked/Copy allowed, after expiry+1.5s locked/cleared.
-- [ ] Observe real10-minute total from original opened timestamp despite actual
+- [x] Observe real10-minute total from original opened timestamp despite actual
   window pointer every60s and Cook/reveal/navigation; opened/generation never renewed.
 - [x] Read-only clock/session/lifecycle/environment diagnostics and progress each
   minute; fail early lock/pause/stop/recreation/timestamp drift, no virtual clock.
 - [x] Root-only build/hash/install/digest and separate owner-ready selective runs;
   proof-only KEEP_SCREEN_ON foreground scope, no full suite/clipboard writes.
 
-Idle Run05 Passed1/1,341.722s; total Run01/02/03 setup Failed,10-minute measurement Pending.
-Only actual5-minute idle accepted; prepared10-minute source is not runtime acceptance.
+Idle Run05 Passed1/1,341.722s;14October Total04 Passed1/1,609.969s, runner[1,0]/OK1.
+Original opened/generation unchanged through minute1–9 real touches/recooking;
+595106ms ready/masked/Copy,601725ms locked/session-null/lifetime/Dish/Copy cleared,
+jars and owner digest unchanged. Same frozen03/APKs, no source/build/install changes.
+Selected5/10-minute API36 foreground proof KEEP_SCREEN_ON accepted; four idle/three
+total failures retained, original causes unknown. Broader timer UX remains Pending.
 Original UI Run01/network Run03 wrap
 causes and cancellation/401/403/cold-start/process-death/capture/ENVI/accessibility
 remain open; whole mobile stays Partial.

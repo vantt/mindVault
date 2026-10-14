@@ -4,14 +4,16 @@ Status: **Partial — local verification/delivery Done; owner acceptance Pending
 Owner/device acceptance below remains Pending.
 Current [real session timer continuation](reports/session-timer-runtime.md): three
 selective test-APK/lint builds Passed; idle Run01/02 pointer failures and Run03 setup
-failure retained; Run04 setup Failed. Idle Run05 Passed1/1,341.722s; total Run01
-setup Failed182.309s/182.279s/182.138s across Run01/02/03;10-minute measurement
-Pending. No fresh JVM; foreground proof KEEP_SCREEN_ON, all failed histories retained.
+failure retained; Run04 setup Failed. Idle Run05 Passed1/1,341.722s; Total04 on14October
+Passed1/1,609.969s, runner[1,0]/OK1,0 failures/errors/skips. Original ten-minute deadline
+locked despite minute1–9 real touches/Cooks; Dish/session/Copy cleared and jars/digest
+preserved. Same frozen03/APKs, no rebuild/install or fresh JVM. Selected5/10-minute
+API36 foreground KEEP_SCREEN_ON accepted; all four idle/three total failures retained.
 Selected [cache UI Run02](reports/google-cache-ui-runtime.md) Passed1/1,42.393s;
 broader device/provider matrix remains Pending, whole phase Partial.
 Latest [network-off Run04](reports/network-off-runtime.md) Passed1/1,31.477s:
 actual offline UI/Cook/recreation and NETWORK_FAILED preservation;401/403/cancel,
-process death/cold start/timers/broader UI and Run03 key-wrap cause remain Pending.
+process death/cold start/broader timer UX/UI and Run03 key-wrap cause remain Pending.
 
 ## Context and requirements
 
@@ -86,14 +88,14 @@ compiled diagnostics; it does not resolve the physical failure.
    select dedicated test Menu/tab, confirm mapping and observe real API/cached results.
 2. Install isolated debug candidate with data-preservation preflight; run actual
    Compose list/search/paste/tag/reveal/copy/ENVI/layout tests and record outcomes.
-3. Real biometric/password recovery, background/recreation/cold-start locking,
-   genuine5-minute idle/10-minute total and actual30-second clipboard behavior.
+3. Broader biometric/password recovery/background/recreation/cold-start matrix;
+   selected API36 foreground5/10-minute timers and clipboard ownership accepted.
 4. Verify replaced clipboard text, inaccessible background read and OS restrictions
    honestly; observe screenshot/Recents/capture and sanitized own-app logs.
 5. Existing unexecuted Keystore device matrix remains separately Pending; a passing
    new Xiaomi screen flow does not certify API26/no hardware/no enrollment cases.
 
-Latest continuation build88s Passed fresh app4; shared78/bridge16/standalone29 retained.
+Historical cache continuation build88s Passed fresh app4; shared78/bridge16/standalone29 retained.
 Helper-only sync build40s Passed, lint0/11/1. Default storage recreation Passed1/1,
 31.769s; cache UI Run01 Failed1/1,294.651s remains retained, corrected Run02 Passed1/1,
 42.393s. Owner digest preserved. No production fix, actual network-off/process-death/

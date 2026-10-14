@@ -45,14 +45,18 @@
   UI/Cook/favorites/recent/search/real-biometric same-process recreation accepted.
   Three prior failures retained; unchanged candidate, owner digest preserved, no
   production repair. Cancellation/stale callbacks/401/403/cold-start/process death/
-  timers/capture/ENVI/accessibility remain Pending; original UI Run01/network Run03
+  broader timer UX/capture/ENVI/accessibility remain Pending; original UI Run01/network Run03
   key-wrap causes unresolved. Whole mobile remains Partial.
   [Real foreground timer continuation](../plans/261012-mobile-cookbook-phase1/reports/session-timer-runtime.md)
   has compiled/reviewed genuine-biometric/actual-window-input fixtures; idle Run01/02
   Failed before pointer baseline; Run03/04 Failed at setup. Run05 actual5-minute
   idle Passed1/1,341.722s under proof foreground KEEP_SCREEN_ON; total Run01 setup
   Failed182.309s/Run02 Failed182.279s with correlated code15 wrap cause unknown;
-  Run03 setup Failed182.138s/10-minute Pending. No production repair/broader timer UX inferred.
+  Run03 setup Failed182.138s.14October Total04 Passed1/1,609.969s,runner[1,0]/OK1:
+  original ten-minute deadline locked despite real minute1–9 touches/recooking;
+  session/Dish/Copy cleared, jars/owner digest preserved. Same frozen03/APKs, no
+  rebuild/install/source change. Selected5/10-minute API36 foreground proof KEEP_SCREEN_ON
+  accepted; broader timer UX remains Pending, no production repair/cause resolution.
 - [Keystore physical coverage follow-up](../archive/plans/261011-keystore-recovery/reports/current-device-acceptance.md):
   API26/no hardware/no enrollment, typed7/9 callbacks, exact process-kill/
   retry-exhaustion windows and precise Recents observation remain unexecuted.

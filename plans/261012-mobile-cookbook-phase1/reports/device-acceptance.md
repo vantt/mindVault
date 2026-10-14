@@ -1,6 +1,6 @@
 # Android Cookbook physical acceptance
 
-Updated2026-10-13 (Asia/Saigon). Status: **Partial — selected UI/clipboard/Google
+Updated2026-10-14 (Asia/Saigon). Status: **Partial — selected UI/clipboard/Google
 cache UI Run02 Passed; broader phone/provider matrix Pending**.
 Latest [cache UI evidence](google-cache-ui-runtime.md) covers app-disconnected Cook
 and authenticated same-process recreation; earlier preflight/run snapshots retained.
@@ -8,9 +8,13 @@ Owner connected/unlocked Xiaomi14TPro/2407FPN8EG API36 and authenticated fingerp
 Root exclusively runs native Windows adb over authorized USB; no network ADB.
 Current [actual session timer continuation](session-timer-runtime.md): idle Run01/02
 Failed before baseline pointer; Run03/04 setup Failed. Run05 actual5-minute idle
-Passed1/1,341.722s; total Run01/02/03 setup Failed182.309s/182.279s/182.138s,10-minute
-Pending with correlated Total02 wrap diagnostics/cause unknown. Earlier accepted device
-flows retained; no timer success or new production repair inferred.
+Passed1/1,341.722s; total Run01/02/03 setup Failed182.309s/182.279s/182.138s retained.
+14October Total04 Passed1/1,609.969s, runner[1,0]/OK1,0 failures/errors/skips;
+original opened/generation unchanged through minute1–9 real touches/recooking,
+595106ms ready/masked/Copy then601725ms locked/session/Dish/Copy cleared, jars and
+owner digest preserved. Same frozen03/debugfa4/test8f08, no source/build/install change.
+Selected API36 foreground proof KEEP_SCREEN_ON5/10-minute accepted; earlier failure
+causes and broader timer/device UX remain open, no production repair claimed.
 
 ## Preflight
 

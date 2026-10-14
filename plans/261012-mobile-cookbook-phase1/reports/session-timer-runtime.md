@@ -1,6 +1,6 @@
 # Real foreground Cookbook session timers
 
-Date2026-10-13 (Asia/Saigon). **Idle Run05 Passed;10-minute measurement Pending**;
+Date2026-10-13; continued2026-10-14 (Asia/Saigon). **Idle Run05 and Total Run04 Passed**;
 mobile remains **Partial**.
 Continue main`e4397b2`, retaining all previous accepted/failed physical histories.
 Root exclusively runs Gradle/Windows ADB; owner record remains protected:
@@ -52,6 +52,7 @@ bounds, original opened/generation unchanged; exact Reveal validates actual targ
 | Total Run01 | Failed1/1,182.309s | Setup await; no opened session or10-minute measurement |
 | Total Run02 | Failed1/1,182.279s | Setup failure; no opened session, final focus=true/busy=false |
 | Total Run03 | Failed1/1,182.138s | Setup await; final focus=false/busy=true, no baseline |
+| Total Run04,2026-10-14 | Passed1/1,609.969s;0 failures/errors/skips | Original opened+600000 expiry despite real activity accepted |
 
 Run01 genuine setup/key alias/Cook ready, then IllegalArgumentException before
 timing baseline at `idle-verify-real-pointer`; original failure lacked callsite.
@@ -98,13 +99,28 @@ lifetime; bounded setup did not complete, no timer baseline. Cause unknown. A sc
 PID26576 probe poll during the run returned no entries; this does not establish no
 failure universally. Later saved probe records authentication error5 at15:58:42.341UTC
 after result15:58:40.719UTC; post-result/cleanup event is not failure-cause evidence.
-No current run active; owner readiness/reply awaited, no blind retry or timer success.
+The13October continuation ended without a current run; owner readiness/reply awaited.
+On14October owner confirmed fresh phone/hand readiness. After manual USB replug,
+root observed authorized transport16, actual awake/keyguard=false. Total Run04 on
+main`2a9540d` uses identical frozen03/debugfa4/test8f08, no source/build/install change.
+Genuine biometric/Cook, all six actual-window guards and real DOWN/UP exact target
+passed; initial opened elapsed1388ms/idle101ms. Actual Run04 completed09:04:32–09:14:44
+Asia/Saigon: runner[1,0]/OK1,609.969s,native0,0 failures/errors/skips,watchdog=false.
+Independent review confirms112 safe status2 packets, all10 real pointer windows/
+six guards true and permanent focus/lifecycle interruption latches false. Final audit
+matches43 frozen sources,208 protected and23 unrelated paths; owner digest unchanged.
+Minute1–9 real pointer/Cook navigation/recooking kept idle fresh; original opened/
+generation stayed unchanged. Pre-expiry opened595106ms/idle54326ms remained ready
+with masked Dish and enabled Copy. Final opened601725ms/idle60945ms was locked,
+session-null, with lifetime/Dish/Copy absent, generation+1 and encrypted jars unchanged.
+Owner digest before/after remained894f73…a4d6. Actual ten-minute total expiry accepted
+while idle was below300000ms; no deadline/session reset, source fix or cause resolution.
 
 Run03 adds normal own-window IME hiding, actual nonnull insets/IME=false, fresh
 post-scroll/idle node bounds read on main, finite/placed/inside own visible-window
 point guards. Same UID-targeted sendPointerSync and every original clock/target/
 deadline assertion retained; no global injection/direct clock touch. Current4 files
-remain<200lines; guarded actual pointer/idle expiry accepted, no production fix claimed.
+remain<200lines; guarded actual pointer/idle/total expiry accepted, no production fix claimed.
 
 Select separately with a ready owner, never the whole instrumentation suite:
 `CookbookSessionTimersPhysicalTest#realFiveMinuteIdleLocksAuthenticatedCookbook`;
@@ -130,9 +146,9 @@ Outside repo:`/tmp/passchef-cookbook-device-acceptance/session-timer-frozen-01.j
 build/hash/install/preflight and numbered idle/total logs/JSON. Actual JUnit/OK1 and
 digest required; native0/test-APK compilation/status2 alone cannot establish a pass.
 
-Prepared scope foreground real timers with unchanged proof-only KEEP_SCREEN_ON;
-Accepted actual5-minute foreground idle expiry;10-minute measurement remains Pending
-after three visible setup failures. Ordinary screen-off UX/cold-start/process-death
+Accepted actual5-minute idle and10-minute total expiry on API36 foreground, with
+unchanged proof-only KEEP_SCREEN_ON. Four idle and three total failed histories
+remain visible. Ordinary screen-off UX/cold-start/process-death
 and broader platform remain Pending.
 Original UI Run01/network Run01 gate/network Run03 key-wrap causes stay unresolved.
 Cancellation/stale callbacks/401/403/capture/Recents/ENVI/accessibility Pending;

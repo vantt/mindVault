@@ -1,6 +1,6 @@
 # Android Cookbook — first production slice
 
-Date:2026-10-12; updated2026-10-13 (Asia/Saigon). Status: **Partial — code/local checks Done; owner acceptance Pending**.
+Date:2026-10-12; updated2026-10-14 (Asia/Saigon). Status: **Partial — code/local checks Done; owner acceptance Pending**.
 Baseline: main `2579e29044924e1582b78414b0314baffc72abe5`.
 Owner authorized two agents: recheck the five browser slices and implement mobile.
 Production code is implemented and independently verified locally.
@@ -26,7 +26,7 @@ Q6's historical read-only wording is superseded by Q9 and the retained decisions
 |---|---|---|---|
 | 1 | [Session-owned manual cooking](phase-01-session-cooking.md) | Done (local scope) | First useful offline path; shared JVM regressions + Android compile |
 | 2 | [Private cache and column mapping](phase-02-cache-mapping.md) | Done (local scope) | Pure model/storage tests; no Google credential required |
-| 3 | [Cookbook Compose screens and clipboard](phase-03-cookbook-ui.md) | Partial | Run04/05/cache UI Run02 Passed; broader phone/clipboard matrix Pending |
+| 3 | [Cookbook Compose screens and clipboard](phase-03-cookbook-ui.md) | Partial | Selected UI/cache/real5+10min Passed; broader phone/clipboard matrix Pending |
 | 4 | [Android Sheets/authorization integration](phase-04-android-sheets-connection.md) | Partial | Google/cache/network-off Passed;401/403/cancel Pending |
 | 5 | [Independent verification and delivery](phase-05-verification-delivery.md) | Partial | Evidence separates code/build acceptance from physical/live acceptance |
 
@@ -59,7 +59,7 @@ and authenticated same-process recreation; app-disconnected cache only. Later
 preservation;401/403/cancel/cold-start/process-death remain Pending in phase04.
 Run04/05 cover selected synthetic-jars biometric/Cook/reveal/copy/background flow.
 Foreground clipboard adapter3/3 and [actual5-minute idle Run05](reports/session-timer-runtime.md)
-Passed;10-minute total/cold-start/process-death/broader UX Pending, mobile Partial.
+and total04 Passed; API36 foreground proof only, cold-start/process-death/broader UX Pending.
 QR receiver/camera, Autofill spike/service, Drive, multi-profile authoring and
 append/update screens remain separate later work. No reopened stack/write decision.
 

@@ -5,7 +5,10 @@ selected Google/cache UI acceptance passed; broader phone/provider matrix Pendin
 Historical local snapshot below retained; latest continuation review at the end.
 Current [session timer harness](session-timer-runtime.md) separates original pointer/
 setup failures from Idle05 Passed341.722s actual5-minute foreground proof. Total01/02
-setup Failed; Total03 setup Failed182.138s/10-minute Pending, correlated Total02 wrap cause unknown.
+setup Failed; Total03 setup Failed182.138s, earlier causes unknown.14October Total04
+Passed1/1,609.969s, runner[1,0]/OK1 after genuine setup/real pointer activity through
+original ten-minute expiry. Same frozen03/APKs, no source/build/install changes;
+selected API36 foreground proof5/10-minute scope, broader timer UX Pending.
 Reviewer: agent A, independent of product author B. Date:2026-10-11 UTC.
 
 ## Scope and evidence

@@ -125,8 +125,12 @@ After timing begins, leave the phone/test screen untouched for about5 or10minute
 proof itself sends total-test activity and emits progress each minute. No new owner
 unlock during timing; any pause/stop/focus loss fails. Idle Run01/02 pointer failures
 and Run03/04 setup failures retained; Run05 actual5-minute idle Passed1/1,341.722s.
-Total Run01/02/03 setup Failed182.309s/182.279s/182.138s;10-minute measurement Pending,
-foreground proof KEEP_SCREEN_ON only. No source/time/auth bypass or hidden failure.
+Total Run01/02/03 setup Failed182.309s/182.279s/182.138s retained;14October Total04
+Passed1/1,609.969s,runner[1,0]/OK1. Minute1–9 real touches/Cooks preserved original
+opened/generation;595106ms ready then601725ms locked/cleared with idle60945ms.
+Jars/owner digest unchanged; same frozen03/APKs, no source/build/install changes.
+Selected5/10-minute API36 foreground proof KEEP_SCREEN_ON accepted; broader timer UX
+Pending. No source/time/auth bypass or hidden failure; earlier causes remain unknown.
 
 | Check | Required observation | Current status |
 |---|---|---|
@@ -141,7 +145,7 @@ foreground proof KEEP_SCREEN_ON only. No source/time/auth bypass or hidden failu
 | Reveal | Masked default; explicit reveal hides after10seconds | Passed Run04/05, including KEEP_SCREEN_ON=false in Run05; historical Run01 cause unknown |
 | Clipboard | Dish copy; real30second compare-clear; replaced/username text survives old cleanup | Passed foreground API36 ownership + same-process locked adapter recreation; background/authenticated recreation/process death/history/API26 fallback Pending |
 | Lifecycle | Navigation/edit/lock/background/recreation clear Dish and require unlock | Partial: edit/Back/background Run04; lock and authenticated same-process recreation Google cache UI Run02 Passed; cold start/process death Pending |
-| Session | Real5minute idle and10minute total despite activity, no deadline reset | Partial: actual5-minute idle Run05 Passed341.722s; total Run01/02/03 setup Failed,10-minute Pending; foreground proof KEEP_SCREEN_ON |
+| Session | Real5minute idle and10minute total despite activity, no deadline reset | Passed selected API36 foreground proof KEEP_SCREEN_ON: Idle05 341.722s and Total04 609.969s; earlier failures retained, broader timer UX Pending |
 | Security/UI | EN/VI, accessibility/layout, blocked capture/hidden Recents, sanitized own-app logs | Pending |
 
 Record candidate SHA/APK hash, device/API, timestamps, observer and evidence for
