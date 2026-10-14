@@ -24,7 +24,7 @@ Q6 historical read-only wording superseded by Q9 and retained decisions.
 |---|---|---|---|
 | 1 | [Session-owned manual cooking](phase-01-session-cooking.md) | Done (local scope) | First useful offline path; shared JVM regressions + Android compile |
 | 2 | [Private cache and column mapping](phase-02-cache-mapping.md) | Done (local scope) | Pure model/storage tests; no Google credential required |
-| 3 | [Cookbook Compose screens and clipboard](phase-03-cookbook-ui.md) | Partial | Selected UI/cache/real5+10min/secure capture Passed; Recents/accessibility/broader phone matrix Pending |
+| 3 | [Cookbook Compose screens and clipboard](phase-03-cookbook-ui.md) | Partial | Selected UI/cache/real5+10min/secure capture/Recents Passed; accessibility/broader phone matrix Pending |
 | 4 | [Android Sheets/authorization integration](phase-04-android-sheets-connection.md) | Partial | Google/cache/network-off Passed;401/403/cancel Pending |
 | 5 | [Independent verification and delivery](phase-05-verification-delivery.md) | Partial | Evidence separates code/build acceptance from physical/live acceptance |
 
@@ -51,19 +51,20 @@ records Google Run03 Passed metadata/rows/mapping/cache-file load after Failed R
 [Cache UI Run02](reports/google-cache-ui-runtime.md) Passed lock/reopen/cached Cook
 and authenticated same-process recreation; app-disconnected cache only. Later
 [Network-off Run04](reports/network-off-runtime.md) Passed real offline Cook/error
-preservation;401/403/cancel/cold-start/process-death remain Pending in phase04.
+preservation;401/403/cancel/provider-cache cold start remain Pending in phase04.
 Run04/05 cover selected synthetic-jars biometric/Cook/reveal/copy/background flow.
 Foreground clipboard adapter3/3 and [actual5-minute idle Run05](reports/session-timer-runtime.md)
-and total04 Passed; API36 foreground proof only, cold-start/process-death/broader UX Pending.
+and total04 Passed; API36 foreground proof only, broader UX Pending.
 [Security/UI pixels01/authenticated02](reports/security-ui-runtime.md) Passed1/1 each,
 2.321s/25.890s: selected EN/VI setup/manual Cook and secure shell captures with
 genuine synthetic-jars authentication. Locked01/Capture01/Auth01 remain Failed;
 Recents01 Failed206.052s without observed checkpoint stop/resume; Recents02
-Failed182.457s at setup, before checkpoint/navigation. Same frozen04/APKs, no
-rebuild/install between these attempts; causes unconfirmed, acceptance Pending.
-OS screenshot shortcut/Recents, Vietnamese OS accessibility/TalkBack and larger-font/
-orientation remain Pending. No production repair or historical-cause resolution.
-Next: fresh genuine setup readiness and explicit own-card observation; no blind retry.
+Failed182.457s at setup, before checkpoint/navigation; causes unconfirmed.
+Run03 Passed1/1,137.789s with pause/stop/locked read/genuine reopening; owner confirmed
+own card blank/covered. Same frozen04/APKs, no rebuild/install between attempts.
+OS screenshot shortcut, Vietnamese OS accessibility/TalkBack and larger-font/orientation
+remain Pending. [Offline cold02](reports/cold-process-runtime.md) Passed5.993s after
+verified warm02 SIGKILL; provider-cache cold acceptance Pending. No production repair.
 QR receiver/camera, Autofill spike/service, Drive, multi-profile authoring and
 append/update screens remain separate later work. No reopened stack/write decision.
 
@@ -74,6 +75,5 @@ append/update screens remain separate later work. No reopened stack/write decisi
 Exact local commands and the Pending owner checklist are in phase5.
 
 ## Open dependencies
-
 Google401/403/cancellation/later physical acceptance; no product question blocks offline code.
 Whole Phase1 remains Partial until required connection/user/device flows have evidence.

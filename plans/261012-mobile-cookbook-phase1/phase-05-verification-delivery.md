@@ -19,10 +19,18 @@ Passed1/1,2.321s and authenticated02 Passed1/1,25.890s. Selected EN/VI setup/man
 Cook and actual secure shell display exclusion accepted on API36 foreground proof;
 Locked01/Capture01/Auth01 retained Failed; Recents01 Failed206.052s without actual
 post-checkpoint stop/resume, Recents02 Failed182.457s at setup before navigation.
-Same frozen04/APKs, no rebuild/install between Recents attempts; causes unconfirmed.
+Run03 Passed1/1,137.789s with same-Activity pause/stop/locked read and genuine reopening;
+owner confirmed own card blank/covered. Same frozen04/APKs, no rebuild/install between
+Recents attempts; earlier causes unconfirmed.
 Six scoped test-APK/lint builds Passed; final06:42s,10 executed/84 UP-TO-DATE,
-no production-source changes or fresh JVM/browser assertions. Recents/full UI/
-accessibility remain Pending; fresh owner readiness/card observation required.
+no production-source changes or fresh JVM/browser assertions. OS screenshot shortcut/
+full UI/accessibility remain Pending. [Offline cold-process](reports/cold-process-runtime.md)
+warm02 InterruptedByVerifiedSIGKILL and cold02 Passed1/1,5.993s,PID25682→25991:
+initial locked/cleared state, genuine biometric reload/exact cache/Cook/jars preserved.
+Build01/02 import/type failures retained; corrected build03 Passed54s13/146,
+lint0/11/1 and release proof exclusion. Five new files and one intentional debug
+manifest entry only; historical49 means48 unchanged+entry delta, protected208/23 intact.
+Provider-loaded cold cache/LMK/task restore Pending; whole mobile remains Partial.
 
 ## Context and requirements
 
@@ -100,7 +108,7 @@ compiled diagnostics; it does not resolve the physical failure.
 3. Broader biometric/password recovery/background/recreation/cold-start matrix;
    selected API36 foreground5/10-minute timers and clipboard ownership accepted.
 4. Verify replaced clipboard text, inaccessible background read and OS restrictions
-   honestly; selected secure shell capture accepted, OS screenshot shortcut/Recents
+   honestly; selected secure shell capture/Recents accepted, OS screenshot shortcut
    and broader sanitized own-app/accessibility observations remain Pending.
 5. Existing unexecuted Keystore device matrix remains separately Pending; a passing
    new Xiaomi screen flow does not certify API26/no hardware/no enrollment cases.

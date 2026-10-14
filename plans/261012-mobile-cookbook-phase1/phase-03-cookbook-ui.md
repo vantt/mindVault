@@ -10,7 +10,7 @@ cache preservation. Original UI Run01 and network Run03 wrap causes unresolved.
 Selected [Security/UI](reports/security-ui-runtime.md) locked pixels01 Passed1/1,2.321s
 and authenticated02 Passed1/1,25.890s: EN/VI setup/manual Cook and real secure shell
 display exclusion. Earlier three security failures retained; Recents01/02 subsequently
-Failed206.052s/182.457s. Recents/accessibility acceptance remains Pending.
+Failed206.052s/182.457s. Later Recents03 Passed137.789s with genuine reopen and owner-observed hidden Card; broader accessibility Pending.
 
 ## Context and key insight
 
@@ -89,14 +89,16 @@ Continue to real connection code; offline screens remain usable while disconnect
   geometry/count/boolean metadata. Configuration flags alone do not accept capture.
   Locked pixels01 and authenticated02 Passed on API36 using opt-in shell capture;
   default UiAutomation-null failure remains Failed. [Exact evidence](reports/security-ui-runtime.md).
-- [ ] Separately observe authenticated synthetic Dish OS screenshot shortcut and
-  own Recents card with genuine owner authentication; preserve actual background lock.
-  OS Recents and owner observations remain Pending until observed, never infer from capture.
+- [x] Actual same-Activity Recents stop/lock/genuine biometric reopen with hidden own
+  Card observed by owner: Run03 Passed137.789s, pause/stop1, jars/digest preserved.
+  Same frozen04/APKs, no rebuild/install; API36 proof KEEP_SCREEN_ON scope.
   Recents01 Failed206.052s: post-checkpoint pause/stop remained0; reopen not reached.
   Recents02 Failed182.457s before setup readiness/checkpoint; navigation events empty,
   no ADBKEY187 sent. Same frozen04/APKs, no rebuild/install between attempts; causes
   unconfirmed, cleanup lock is not acceptance. Owner reported "can't take screenshot";
-  exact shortcut/reveal timing and own-card observation remain unconfirmed.
+  exact shortcut/reveal timing unconfirmed; own Card later observed in Run03.
+- [ ] Separate OS screenshot shortcut observation with explicit reveal timing;
+  Run03 did not retry it. Do not infer shortcut acceptance from shell pixels/Card.
 - [x] Record selected EN/VI setup/manual Cook semantics and capture scope; raw-layout
   Locked01 and same-node-accessibility Capture01 remain Failed with original assertions.
   Later diagnostics distinguish40dp raw layout from48dp expanded touch bounds;
@@ -106,7 +108,9 @@ Continue to real connection code; offline screens remain usable while disconnect
 
 No provider/cache/timer replay belongs to this continuation unless related source changes.
 Preserve historical failures and Mobile Partial; security test compilation is not runtime proof.
-Next requires fresh genuine owner setup readiness and explicit own-card observation;
+Selected [offline cold-process proof](reports/cold-process-runtime.md) Passed:
+warm02 verified SIGKILL, cold02 Passed1/1,5.993s with genuine reopening/cache/Cook;
+provider-loaded cold cache and wider physical accessibility/layout remain Pending;
 no blind retry or historical-cause inference.
 
 Implementation exists in the production app/shared/client paths above. Final local

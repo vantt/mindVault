@@ -5,5 +5,8 @@
             android:exported="false" android:theme="@android:style/Theme.Material.Light.NoActionBar" />
         <activity android:name="dev.passchef.mobile.proof.CookbookProofActivity"
             android:exported="false" android:theme="@android:style/Theme.Material.Light.NoActionBar" />
+        <activity android:name="dev.passchef.mobile.proof.ColdStartProofActivity"
+            android:exported="false" android:taskAffinity="${applicationId}.coldproof"
+            android:theme="@android:style/Theme.Material.Light.NoActionBar" />
     </application>
 </manifest>

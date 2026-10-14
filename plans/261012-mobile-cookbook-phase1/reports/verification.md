@@ -182,11 +182,34 @@ bitmap1220×2712 has sampled own1194×2395/all2,859,630 pixels opaque black; aut
 proof verifies real visible/revealed Dish and unchanged jars. Original Locked01/
 Capture01/Auth01 Failed retained; null UiAutomation is not capture acceptance.
 Recents01 Failed206.052s post-checkpoint; Recents02 Failed182.457s at setup before any
-navigation command. Card/OS shortcut visuals, full accessibility/layout remain Pending.
+navigation command. Recents03 Passed1/1,137.789s, JUnit[1,0]/terminal[-1]/OK1,
+0 failures/errors/skips, watchdog=false. Actual pause1/stop1, stopped-state locked read,
+return cleared/sessionAbsent and genuine biometric reopening; jars/digest unchanged.
+Owner separately confirmed the own card blank/covered. OS shortcut visuals/full
+accessibility/layout remain Pending; no rebuild/install for this third attempt.
 
-Latest installed debugfa4c4ab4…/testea84ea13… match frozen04/all49 sources; accepted
+At security/Recents runtime debugfa4c4ab4…/testea84ea13… match frozen04/all49 sources; accepted
 pixels/auth runtime uses separately preserved teste3142923…/frozen03. Owner894f73…a4d6,
 old43/protected208/unrelated23 preserved. No production repair or full-mobile completion.
+
+## Offline cold-process continuation,14October
+
+[Exact evidence](cold-process-runtime.md): warm02 InterruptedByVerifiedSIGKILL;
+sole PID25682/UID10422/start identity and owned hashes rechecked before signal,
+actual old-proc absence/pidofempty observed before fresh launch. Cold02 Passed1/1,
+5.993s,JUnit[1,0]/terminal[-1]/OK1,0 failures/errors/skips,watchdog=false. NewPID25991
+starts locked/cleared, then genuine biometric reload/exact offline cache/origin/Recipe/
+username00123/favorites/recent/search/Cook and unchanged encrypted jars; owned cleanup
+and owner digest intact. Provider-loaded cache/LMK/saved-task restoration Pending.
+
+Compile01 Failed62s missing import,02 Failed39s rule type; import/type corrected only.
+Build03 Passed54s,13 executed/146 UP-TO-DATE,debug+test+release/lint0/11/1; release
+manifest/threeDEX omit proof. Current installed debug1f42a2c4…/test3004a0bb… equal
+frozen03/all54. Warm01 Failed native-query orchestration before SIGKILL retained:
+window-windows lacked focus property, displays returns exact own focus; strict
+predicate unchanged, no rebuild/reinstall. Earlier candidate01/02 identities retained.
+Historical49 now48 unchanged+one unexported debug manifest entry; old43 now42+delta.
+Production/all prior assertions/protected208/unrelated23 unchanged; no fresh JVM/browser.
 
 Unresolved: original Cookbook UI Run01 reveal failure, network Run03 key-wrap cause;
 cancellation/stale callbacks/401/403/cold-start/process-death and remaining phone matrix.

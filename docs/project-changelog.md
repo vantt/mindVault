@@ -1,5 +1,26 @@
 # Project Changelog
 
+## Accept Recents and synthetic offline cache after abrupt process death (2026-10-14)
+
+Recents03 Passed1/1,137.789s: actual pause/stop/locked read/cleared return, genuine
+biometric reopening and owner-observed blank/covered own card. Prior Recents failures
+retained; OS screenshot shortcut remains separate Pending.
+
+Offline warm02 InterruptedByVerifiedSIGKILL in actualPID25682; root confirmed old
+process absent before separate cold02 Passed1/1,5.993s in newPID25991. Fresh process
+starts locked/cleared, genuine biometric reload restores exact UI-confirmed synthetic
+cache/origin/Recipe/username00123/favorites/recent/search/Cook; encrypted jars and owner
+Cookbook unchanged. Five debug/test files plus one unexported dedicated-task manifest
+entry; production/all prior assertions unchanged. Historical49 means48 unchanged plus
+explicit manifest delta; protected208/unrelated23 preserved. Release omits proof.
+
+Build01/02 import/type failures retained; corrected build03 Passed54s13/146,lint0/11/1.
+Warm01 Failed before signal due to native focus-query property absence; fixed query
+preserves strict predicate/same APKs, no production-fix claim. No auth/policy/time bypass.
+Mobile Partial: provider-loaded cold cache/LMK/task restoration/cancellation/401/403/
+accessibility/broader matrix and historical UI/wrap causes remain open.
+[Exact cold evidence](../plans/261012-mobile-cookbook-phase1/reports/cold-process-runtime.md).
+
 ## Accept selected EN/VI secure Cookbook captures (2026-10-14)
 
 Locked pixels01 Passed1/1,2.321s and authenticated02 Passed1/1,25.890s on Xiaomi/API36.
@@ -21,12 +42,14 @@ Recents01 Failed1/1,206.052s after checkpoint: pause/stop0, genuine reopening no
 reached; cleanup lock does not accept lifecycle. Recents02 Failed1/1,182.457s at
 genuine setup with busy=true/ready=false/focus=false and actual awake/unlocked OS;
 checkpoint/navigation never reached, no ADBKEY187 sent. Same frozen04/testea84,
-no rebuild/install between attempts. Causes unconfirmed; owner report "can't take
-screenshot" has unconfirmed shortcut/reveal timing and own-card observation Pending.
+no rebuild/install between attempts. Recents03 Passed1/1,137.789s: actual pause/stop,
+stoppedLocked, cleared return and genuine reopening; owner confirmed blank/covered
+own card. Earlier causes unconfirmed; owner "can't take screenshot" report retains
+unconfirmed shortcut/reveal timing and is separate from accepted Recents03.
 Six scoped test-APK/lint builds Passed; final06:42s,10 executed/84 UP-TO-DATE,
-no production changes. Fresh genuine setup readiness/card observation required; no blind retry.
+no production changes. Prepared offline cold-process fixture follows separately.
 
-Accepted API36 foreground proof KEEP_SCREEN_ON scope; OS screenshot shortcut/Recents,
+Accepted API36 foreground proof KEEP_SCREEN_ON scope; OS screenshot shortcut,
 TalkBack/larger-font/orientation, cold-start/process death and broader provider matrix
 remain Pending. Mobile Partial; original UI/setup/wrap causes untouched.
 [Exact Security/UI runtime](../plans/261012-mobile-cookbook-phase1/reports/security-ui-runtime.md).

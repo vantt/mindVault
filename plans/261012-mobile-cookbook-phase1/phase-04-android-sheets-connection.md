@@ -166,3 +166,59 @@ No HTTP mock/offline paste/session/clock bypass or production permission change.
 Run01/02/03 Failed history retained; unchanged diagnostic candidate Run04 Passed.
 Cancellation/stale callbacks/401/403/process death/cold start and broader phone matrix
 remain Pending; original CookbookUIRun01 and network Run03 wrap causes unknown.
+
+## Abrupt process-death / fresh-launch continuation
+
+Five scoped debug/test files implemented and reviewed; actual runtime acceptance
+tracked in [cold-process evidence](reports/cold-process-runtime.md). Synthetic offline
+Menu confirmed through the production UI; this proves bounded cache/jars persistence,
+never provider-backed cold acceptance. Actual Google-loaded cache remains a separate
+Pending continuation unless a new genuine provider read is needed and executed.
+
+- [x] Add a debug-only unexported `ColdStartProofActivity` and one debug manifest
+  entry with dedicated proof task affinity. Before `MainActivity.onCreate`, validate
+  canonical UUID Intent locator and canonical app-private `cookbook-cold-proof-UUID`
+  direct-child path. Warm requires a new directory; cold requires that same owned
+  fixture/baseline already exist. Locator restores no session/token/Spices/Dish.
+- [x] Add new bounded warm/cold instrumentation plus helpers; preserve every prior
+  assertion. Use an empty Compose rule and explicit `ActivityScenario.launch(Intent)`
+  so each new process launches the reviewed Activity with the actual UUID locator.
+  New-task clearing, if required, affects only the dedicated proof task.
+- [x] Warm: genuine password/strong-biometric setup, UI-pasted offline synthetic
+  Menu, explicit mapping, favorite/recent, exact origin/Recipe/literal00123 and Cook.
+  Wait for actual cache commits. Record encrypted jars/cache digests, expected fixture
+  metadata and actual PID; no content/token/Spices/session bytes in diagnostics.
+- [x] Emit a safe kill-ready marker while the same process remains ready with exact
+  revealed Dish at checkpoint, secure focused foreground and unchanged files.
+  Normal reveal timeout remains intact; exact revealed-at-kill state is not claimed.
+  Wait boundedly; no
+  normal Activity close/background transition or fixture cleanup before root's kill.
+  Root independently verifies target PID/cmdline/UID, then uses `run-as` to SIGKILL
+  only that exact owned process. Denial is reported; no policy override/fallback.
+- [x] Save the intentionally interrupted warm runner outcome and actual old-PID
+  disappearance; never manufacture warm JUnit Passed. Freeze source/APKs/baseline
+  before this stage. Root confirms owner digest/files preserved after process death.
+- [x] Run a separate cold instrumentation method with the same validated locator.
+  Verify new PID differs and root confirms its identity; fresh Activity is locked,
+  session/token/selected entry/metadata/draft/Dish/lifetime/Copy absent before unlock,
+  with exact durable jars/cache preserved. No `scenario.recreate()` credit.
+- [x] Genuine biometric reopen, normal Compose synchronization/cache reload, exact
+  saved cache and favorites/recent/search, origin/Recipe/username and masked/revealed
+  cached Cook. Recheck encrypted jars/cache preservation; only the cold method may
+  earn terminal JUnit Passed. Finally close/delete only this fixture's keys/files.
+- [x] Root-only build/review/freeze/install/preflight. Archive the original debug
+  manifest and disclose its intentional one-entry delta: old frozen43 becomes42
+  unchanged plus that delta, not43 unchanged. Preserve protected208/unrelated23,
+  production main/shared/canonical/extension, old assertions and owner Cookbook.
+
+Scope: controlled SIGKILL plus fresh Intent launch, not LMK/natural/background death
+or Android saved-task restoration. `force-stop`, if chosen later, is separately named
+administrative-stop scope. Cold stage cleanup also needs a bounded recovery path if
+the process dies again; authorize no broad `uninstall`, data clear or alias deletion.
+
+Actual warm02 InterruptedByVerifiedSIGKILL/cold02 Passed1/1,5.993s,PID25682→25991;
+files/genuine reopening/cache/Cook/owned cleanup and owner digest preserved. Warm01
+remains Failed native-focus-query orchestration, before SIGKILL; query correction
+changed no APK/assertion. Root build03 Passed54s after import/type-only build01/02
+failures; intentional manifest delta and release exclusion verified. Unresolved:
+provider-loaded cold scope/background/LMK/task restoration, historical causes.

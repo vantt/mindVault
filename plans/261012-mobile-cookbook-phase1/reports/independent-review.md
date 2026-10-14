@@ -168,12 +168,38 @@ Original three security failures retained. Recents01 Failed206.052s with no post
 pause/stop; cleanup-only lock is excluded. Recents02 Failed182.457s at setup, busy=true/
 focus=false, phone awake/unlocked, navigation_events=[]; cause unknown, no187 sent.
 Owner “can't take screenshot” report separate; reveal timing/Card contents unconfirmed.
-OS shortcut/Recents/full accessibility/broader UI Pending; Mobile remains Partial.
+Reviewer independently audited Recents03 Passed1/1,137.789s: JUnit[1,0]/terminal[-1]/
+anchoredOK1, completed=true/watchdog=false, actual pause1/stop1/stoppedLocked/cleared
+return and genuine reopening/jars equality. Native187 at10:10:56.037UTC, return at
+10:11:16.298UTC; fixture lifecycle authoritative. Run03-specific owner observation
+“Thẻ trống/che, không lộ nội dung” JSON binds to the exact log SHA. No blockers;
+selected API36 Recents lifecycle/card accepted. OS shortcut/full accessibility/broader
+UI Pending; Mobile remains Partial. Earlier screenshot report remains separate.
 
 Independent audits Passed frozen49/current APKs, old43/protected208/unrelated23 and
 archived failed/accepted candidates02–05 exact sources/manifests/APKs. Accepted capture
 source/APK identity frozen03/e314 is separate from installed Recents frozen04/ea84.
 [Authoritative evidence and limits](security-ui-runtime.md). No blind rerun endorsed.
+
+## Offline cold-process independent review,14October
+
+Reviewer independently audited five bounded new files/unexported UUID-owned Activity,
+pre-super locator validation, dedicated task, empty Compose rule, genuine UI/auth,
+strict disk/cache/Dish assertions and owned cleanup. No prior assertion/production
+change. Reviewed external signal revalidates PID/cmdline/fourUID/startticks plus
+owned baseline/jars/cache hashes immediately before SIGKILL; focus uses actual
+display property. Timer expiry distinguished from native detach errors. No blockers.
+
+Actual warm02 InterruptedByVerifiedSIGKILL verified from raw runner crash and native
+death evidence; never JUnit Passed. Cold02 independently parsed Passed1/1,5.993s,
+JUnit[1,0]/terminal[-1]/anchoredOK1/no watchdog/error: PID25682→25991 sameUID10422,
+initial secure/locked/cleared state, exact preinteraction disk hashes, genuine biometric
+reload, offline search/favorites/recent/origin/Recipe/literal00123/Cook and jars equality.
+Source54/three runner hashes/APKs/protected208/23 match. Historical49 has exactly one
+intentional debug manifest entry; release proof excluded. Warm01 Failed preSIGKILL
+focus-query guard retained, diagnosed windows property absent/displays exact focus.
+[Evidence](cold-process-runtime.md). Scope synthetic offline controlled SIGKILL+fresh
+Intent; provider cold/LMK/saved-task/background death and whole mobile remain Pending.
 
 Unresolved: original Cookbook UI Run01 cause and network Run03 key-wrap cause;
 cancellation/stale callbacks/401/403/cold-start/process-death and remaining phone matrix.

@@ -63,13 +63,21 @@
   foreground. Locked01/Capture01/Auth01 remain Failed; no production repair claimed.
   Recents01 Failed206.052s without post-checkpoint stop/resume; Recents02
   Failed182.457s before setup readiness/checkpoint, no navigation commands sent.
-  Same frozen04/APKs, no rebuild/install between attempts; causes unconfirmed.
+  Recents03 Passed1/1,137.789s with real pause/stop/locked read/genuine reopening;
+  owner confirmed own card blank/covered. Same frozen04/APKs, no rebuild/install
+  between attempts; earlier causes unconfirmed.
   Six scoped test-APK/lint builds Passed; no fresh JVM/browser execution.
-  Owner digest/protected sources preserved. OS screenshot shortcut/Recents, Vietnamese
+  Owner digest/protected sources preserved. OS screenshot shortcut, Vietnamese
   OS accessibility/TalkBack and broader layout/font/orientation remain Pending;
   Mobile Partial, original UI/key-wrap causes and cold-start/provider gaps retained.
-  Next requires fresh genuine owner setup and own-card observation; owner "can't take
-  screenshot" report has unconfirmed shortcut/reveal timing, no visual acceptance inferred.
+  [Offline cold-process proof](../plans/261012-mobile-cookbook-phase1/reports/cold-process-runtime.md)
+  warm02 InterruptedByVerifiedSIGKILL/cold02 Passed1/1,5.993s: new PID starts locked,
+  genuine biometric reload/exact cache/Cook/jars preserved. Five new bounded files/
+  unexported dedicated-task manifest entry, build03/lint/release exclusion Passed;
+  old49 means48 unchanged+intentional entry, protected208/23 intact. Warm01 pre-signal
+  focus-query orchestration Failed retained; source/APKs unchanged for retry. Provider
+  cold/LMK/task restore/broader matrix Pending. Earlier owner "can't take screenshot"
+  report has unconfirmed shortcut/reveal timing, separate from accepted Recents card.
 - [Keystore physical coverage follow-up](../archive/plans/261011-keystore-recovery/reports/current-device-acceptance.md):
   API26/no hardware/no enrollment, typed7/9 callbacks, exact process-kill/
   retry-exhaustion windows and precise Recents observation remain unexecuted.

@@ -12,10 +12,12 @@ Cancellation/stale callbacks/401/403/cold start/process death and broader matrix
 original UI Run01 and network Run03 key-wrap causes unresolved.
 [Security/UI continuation](../../plans/261012-mobile-cookbook-phase1/reports/security-ui-runtime.md)
 locked pixels01 Passed1/1,2.321s and authenticated02 Passed1/1,25.890s: selected EN/VI
-setup/manual Cook and secure shell display exclusion. OS screenshot shortcut/Recents
+setup/manual Cook and secure shell display exclusion. OS screenshot shortcut
 and full layout/accessibility remain Pending; three earlier security failures retained.
 Recents01/02 Failed206.052s/182.457s, respectively after checkpoint without actual
-stop/resume and at genuine setup before checkpoint. Causes unconfirmed; no blind retry.
+stop/resume and at genuine setup before checkpoint. Later Recents03 Passed137.789s:
+actual stop/lock/genuine reopen and owner-observed blank own Card. Earlier causes
+unconfirmed; wider acceptance Pending, no blind retry.
 
 ## Google setup, once the candidate is ready
 
@@ -146,19 +148,36 @@ Pending. No source/time/auth bypass or hidden failure; earlier causes remain unk
 | Google consent | Registered package/signature; actual user grant; no token displayed/logged | Passed selected runtime scope: usable grant; owner confirmed account/consent in Google Run01 |
 | Menu/tab read | Real metadata and bounded values; selected tab remains explicit | Passed Google Run03: selected Test tab and exact literal fake schema/row, including00123 |
 | Mapping | Actual preview; confirm roles; duplicate/empty/ragged inputs handled | Partial: real Google preview/explicit role mapping Passed Run03; earlier offline flow Passed Run04; broader matrix Pending |
-| Offline/cache | Reopen private cache; search label/username; favorites/recent retain origin | Passed network-off Run04 actual network absence/Cook/search/favorites/recent and authenticated same-process recreation; cold start/process death Pending |
+| Offline/cache | Reopen private cache; search label/username; favorites/recent retain origin | Passed network-off Run04 and same-process recreation; selected synthetic offline SIGKILL/cold02 Passed5.993s; provider-loaded cold Pending |
 | Errors/refresh | Cancel/401/403/network failure retain last good cache and clear stale results | Partial: actual NETWORK_FAILED exact cache/jars preservation and stale Dish/Copy absence Passed Run04;401/403/cancel/stale callback Pending |
 | Reveal | Masked default; explicit reveal hides after10seconds | Passed Run04/05, including KEEP_SCREEN_ON=false in Run05; historical Run01 cause unknown |
 | Clipboard | Dish copy; real30second compare-clear; replaced/username text survives old cleanup | Passed foreground API36 ownership + same-process locked adapter recreation; background/authenticated recreation/process death/history/API26 fallback Pending |
-| Lifecycle | Navigation/edit/lock/background/recreation clear Dish and require unlock | Partial: edit/Back/background Run04; lock and authenticated same-process recreation Google cache UI Run02 Passed; cold start/process death Pending |
+| Lifecycle | Navigation/edit/lock/background/recreation clear Dish and require unlock | Partial: edit/Back/background Run04, Google cache UI Run02 recreation, Recents03 and synthetic offline SIGKILL/cold02 Passed; broader provider/background/task matrix Pending |
 | Session | Real5minute idle and10minute total despite activity, no deadline reset | Passed selected API36 foreground proof KEEP_SCREEN_ON: Idle05 341.722s and Total04 609.969s; earlier failures retained, broader timer UX Pending |
-| Security/UI | EN/VI, accessibility/layout, blocked capture/hidden Recents, sanitized own-app logs | Partial: pixels01/authenticated02 Passed selected EN/VI setup/manual Cook and secure shell capture; OS screenshot shortcut/Recents/TalkBack/full layout Pending |
-| Recents lifecycle | Actual same-Activity stop/lock, preserved jars and genuine biometric reopen | Pending acceptance: Run01 Failed206.052s without checkpoint stop/resume; Run02 Failed182.457s at setup before checkpoint/navigation |
+| Security/UI | EN/VI, accessibility/layout, blocked capture/hidden Recents, sanitized own-app logs | Partial: pixels01/authenticated02 secure shell capture and Recents03 hidden own Card owner-observed Passed; OS screenshot shortcut/TalkBack/full layout Pending |
+| Recents lifecycle | Actual same-Activity stop/lock, preserved jars and genuine biometric reopen | Passed Run03 1/1,137.789s; Run01/02 failures retained; API36 proof KEEP_SCREEN_ON scope |
 
 Record candidate SHA/APK hash, device/API, timestamps, observer and evidence for
 each run. A compiled test APK is **not run** until a device/runtime executes it.
 Account setup and consent require the owner; root announces each genuine runtime
 checkpoint after candidate review and actual device readiness checks.
+
+### Selected offline process-death / cold launch — accepted
+
+[Exact cold evidence](../../plans/261012-mobile-cookbook-phase1/reports/cold-process-runtime.md)
+uses an unexported dedicated-task debug Activity and validated canonical UUID locator,
+five isolated bounded helpers/tests, genuine owner setup and actual UI-confirmed offline
+synthetic Menu. Warm02 was InterruptedByVerifiedSIGKILL, never JUnit Passed. Root
+revalidated solePID25682/cmdline/UID/start identity and owned hashes in the signal
+shell, then confirmed `/proc/25682` absent and target pidof empty before fresh launch.
+Separate cold02 Passed1/1,5.993s with actualPID25991 initially locked/no app session/
+token/Dish, exact preunlock/cache-reload disk hashes and genuine biometric reopening.
+Origin/Recipe/literal00123/search/favorites/recent/Cook and encrypted jars preserved;
+final semantic cache equality permits normal recent updates. Owned directory cleanup
+and owner digest preserved. Provider-loaded cold cache, LMK/background death and
+Android saved-task restoration remain separate Pending scope. Warm01 failed before
+SIGKILL due to missing focus property in windows dump; displays query correction
+preserves strict focus guard/APKs/assertions and historical Failed verdict.
 
 ### Selected secure capture — accepted; owner observations separate
 
@@ -186,9 +205,12 @@ Recents02 Failed182.457s: setup remained busy/ready=false/focus=false while OS w
 awake/unlocked; checkpoint never reached, navigation events empty and no ADBKEY187
 sent. Same frozen04/testea84 source/APKs, no rebuild/install between attempts.
 Causes unconfirmed; no owner-action/inaction inference. Owner reported "can't take
-screenshot"; exact shortcut/reveal timing unconfirmed and own-card answer Pending.
-Next checkpoint requires fresh genuine setup readiness plus explicit own-card
-observation; earlier failed attempts remain unchanged, no blind retry.
+screenshot"; exact shortcut/reveal timing unconfirmed.
+After fresh readiness, identical Run03 Passed1/1,137.789s: root opens real Recents20s,
+actual pause/stop1 and cleared session/Dish/Copy observed, then owner biometric reopens
+and Cook succeeds with unchanged jars/digest. Owner confirms own Card blank/covered
+without Recipe/Dish. That visual observation is separate from JUnit lifecycle proof.
+OS screenshot shortcut not retried; broader matrix and earlier causes remain Pending.
 
 ## Resume diagnostics when owner ready
 

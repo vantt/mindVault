@@ -16,7 +16,9 @@ Independent source/evidence reviewer ran no device/build commands.
 | Authenticated Run02 | **Passed1/1**,25.890s | Genuine EN/VI Cook/reveal and secure shell capture with visible Dish |
 | Recents lifecycle Run01 | **Failed1/1**,206.052s | Actual post-checkpoint stop/resume not observed within180s; reopen not reached |
 | Recents lifecycle Run02 | **Failed1/1**,182.457s | Genuine setup timed out before checkpoint; no ADB Recents navigation executed |
-| Recents/OS shortcut visuals | **Pending** | Owner reported “can't take screenshot”; thumbnail and reveal timing not yet confirmed |
+| Recents lifecycle Run03 | **Passed1/1**,137.789s | Actual same-Activity pause/stop, lock/clear and genuine biometric reopen/Cook |
+| Own Recents Card Run03 | **Passed, owner-observed** | Direct Run03 observation: Card blank/covered, no Recipe/Dish exposed |
+| OS screenshot shortcut | **Pending** | Earlier owner “can't take screenshot” report has unconfirmed reveal timing; not retried in Run03 |
 
 Failed runs have JUnit[1,-2]; native0/terminal[-1] does not override failure.
 Passed runs have JUnit[1,0], anchoredOK1, terminal[-1], completed phase=true,
@@ -35,8 +37,26 @@ the Card for20s then return with serialized cancellation/join. Actual setup fail
 before that checkpoint: navigation_events=[], no187 command sent. Safe pre-cleanup
 flags show phone awake/unlocked, proof attached/shown but unfocused, vault busy and
 not ready. Cause remains unknown; no owner blame, navigation or reopen acceptance.
-No further runtime is active. Next attempt needs fresh genuine setup/owner readiness
-and an actual own-Card observation; do not blind-retry or reset production deadlines.
+No owner action/inaction is inferred; failed identities remain retained.
+
+## Recents Run03 — actual accepted continuation
+
+After fresh owner readiness/root Awake/keyguard=false and exact APK/digest gates,
+unchanged frozen04 candidate Passed137.789s: JUnit[1,0]/terminal[-1]/OK1,
+0 failures/errors/skips, watchdog=false. Root's real KEYCODE_APP_SWITCH187 enter at
+17:10:56 and return17:11:16 Asia/Saigon were20.260s apart. Actual same-Activity
+post-checkpoint pause1/stop1 and stopped-read/locked=true were required; command
+submission alone was not acceptance. After returning, real own foreground was
+locked with session/Dish/lifetime/Copy absent. Normal owner biometric then reopened
+and Cook produced the expected masked Dish; encrypted jars remained byte-identical.
+
+Owner answered the Run03-specific Card question “Thẻ trống/che, không lộ nội dung”.
+`security-ui-owner-recents-observation-03.json` separately records that observation
+and its matching runtime-log SHA256. Accepted API36 proof KEEP_SCREEN_ON actual
+Recents stop/lock/reopen plus owner-observed hidden own Card; no pixels/tree of other
+Cards collected. No source/build/install change for Run03. Owner digest/protected
+files preserved. Screenshot shortcut was not retried; screen-off/process death/
+TalkBack/full layout and historical failure causes remain Pending.
 
 ## Accepted pixels and selected EN/VI scope
 
@@ -59,7 +79,7 @@ Language switching invalidated the old Dish/Copy; normal Vietnamese Cook and rev
 then passed. Encrypted UUID-owned jars remained byte-identical. No clipboard write
 belongs to this continuation. This accepts selected EN/VI setup/manual
 Cook screens and shell display exclusion on API36 foreground proof KEEP_SCREEN_ON.
-OS screenshot shortcut, Recents, TalkBack, larger fonts/orientation, other screens
+OS screenshot shortcut, TalkBack, larger fonts/orientation, other screens
 and ordinary screen-off UX need their own evidence.
 
 ## Retained layout/accessibility failures and diagnostics
@@ -92,7 +112,7 @@ Debug APK throughout:`fa4c4ab40339230a416c629d437ecd0200da099032fabad4de3c27d4ea
 | Locked Run01 | `31aa7248895dbe6be3cf67258755b87d7f1e3fd23d3de955cb2c737a11db3508` | security-ui-frozen-01.json;45 sources |
 | Capture01/Auth01 | `7179a3810a66c4ef31838366bf7dec1232a56fcc6547502d68d251d344f5c3f4` | security-ui-frozen-02.json;46 sources |
 | Pixels01/Auth02 | `e3142923964c83ce7d582ebb6f19ac99936a8030b986152e77f4304d461d1a77` | security-ui-frozen-03.json;48 sources |
-| Recents01/02 | `ea84ea132b108ce02456e0085e2507468e3236a14524301ddb29f764cdca8494` | security-ui-frozen-04.json;49 sources |
+| Recents01/02/03 | `ea84ea132b108ce02456e0085e2507468e3236a14524301ddb29f764cdca8494` | security-ui-frozen-04.json;49 sources |
 
 Each test update used `install -r`; installed APK hashes matched. Exact prior runtime
 sources/APKs/manifests/runner copies survive in candidate02/03/04/05 respectively.
@@ -120,14 +140,14 @@ Outside repo:`/tmp/passchef-cookbook-device-acceptance/`: `security-ui-runner.py
 build01–06 logs, versioned frozen/install/preflight/candidate artifacts, locked-run01,
 capture-run01, pixels-run01, authenticated-run01/02 and recents-run01 logs/JSON. Evidence names are
 exclusive-create; old manifests are not rewritten when HEAD advances.
-Recents02 log/JSON, `security-recents-02-orchestration.json` and copied runner/helper
+Recents02/03 logs/JSON, `security-recents-02-orchestration.json` and copied runner/helper
 in `security-recents-orchestration-02/` identify its actual external controls.
 `security-ui-owner-screenshot-observation-01.json` separately preserves the direct
 owner report; no exact toast/reveal timing or hidden-thumbnail conclusion inferred.
 
 ## Unresolved questions
 
-Recents/OS shortcut owner observation and full physical UI/accessibility matrix;
+OS shortcut/full physical UI/accessibility matrix;
 Vietnamese OS field-ID mismatch; UiAutomation null cause. Original CookbookUIRun01,
 network/timer setup/key-wrap causes stay open. Cold-start/process death and actual
 Google cancellation/stale callback/401/403 remain Pending; no whole-mobile Done/archive.
