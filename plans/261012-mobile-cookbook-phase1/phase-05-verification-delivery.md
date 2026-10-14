@@ -30,7 +30,18 @@ initial locked/cleared state, genuine biometric reload/exact cache/Cook/jars pre
 Build01/02 import/type failures retained; corrected build03 Passed54s13/146,
 lint0/11/1 and release proof exclusion. Five new files and one intentional debug
 manifest entry only; historical49 means48 unchanged+entry delta, protected208/23 intact.
-Provider-loaded cold cache/LMK/task restore Pending; whole mobile remains Partial.
+Provider [cold02](reports/google-cold-runtime.md) Passed1/1,8.886s after verified
+warm02 SIGKILL/PID13092→14408; real fingerprint/exact cache/Cook/jars/owned cleanup
+preserved. Cold01 Failed181.588s reopening/cause unknown; diagnostic-only build03
+Passed58s10/101, old54/17 assertions preserved, no production repair claim.
+[VI OS-field01](reports/vi-accessibility-runtime.md) Passed1/1,1.5s, one own password
+node with label descendants; prior same-node assertion remains Failed. Source59/
+testb684/build55s9/102/lint0/11/1; no auth/capture/Google replay. TalkBack/LMK/task
+restore/provider errors/full matrix Pending; whole mobile remains Partial.
+[Language touch](reports/language-touch-runtime.md): center02 Passed1.852s, edge01/02
+Failed1.408s/1.211s, no whole48dp target credit; cause unknown. Dwell04 built/reviewed
+43s9/102/lint0/11/1/source60/testce61; USB empty before install, not run. Earlier
+source/APK/failures retained; old59 unchanged. No production change/clock/input bypass.
 
 ## Context and requirements
 

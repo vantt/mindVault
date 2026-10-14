@@ -222,3 +222,38 @@ remains Failed native-focus-query orchestration, before SIGKILL; query correctio
 changed no APK/assertion. Root build03 Passed54s after import/type-only build01/02
 failures; intentional manifest delta and release exclusion verified. Unresolved:
 provider-loaded cold scope/background/LMK/task restoration, historical causes.
+
+## Provider-loaded cache process-death continuation — selected Run02 Passed
+
+Four new bounded instrumentation files reuse the reviewed `ColdStartProofActivity`
+and its canonical UUID/dedicated task; existing54 source/manifest/assertion identities
+remain unchanged. Prepare/review/build precede runtime; no provider acceptance from compile.
+Independent review and corrected build02 Passed50s9/102,lint0/11/1; exact frozen58/
+debug1f42/test9b04 candidate02 installed-r with owner digest preserved. Original
+candidate01 retained before reconnect foreground-conjunct restoration. Cold01
+Failed181.588s reopening; owner prompt-or-error report ambiguous, cause unknown.
+Diagnostic-only build03 Passed58s10/101, test3711/frozen03; no assertion/policy change.
+Warm02 InterruptedByVerifiedSIGKILL/PID13092 then cold02 Passed1/1,8.886s/PID14408:
+initial locked/cleared state, real fingerprint reload/exact cache/Cook/jars and owned
+cleanup preserved. [Actual evidence](reports/google-cold-runtime.md); no repair claim.
+
+- [x] New provider warm method: genuine setup, normal Connect/AuthorizationClient,
+  actual metadata/unique Test tab/literal synthetic rows, confirmed columns/cache;
+  retain all17 existing Google predicates. SDK grant may be reused, never claim fresh consent.
+- [x] Observe actual default/bound network capabilities without changing radios;
+  real provider responses establish read success. Cancel/denial remains a real failure.
+- [x] Favorite/recent and exact cached Cook through UI; freeze precise disk digests
+  only after commit/busy=false and actual reread. Provider-kind baseline stores hashes,
+  hashed cache filename, numeric tab/refresh/PID and UUID; no content or credentials.
+- [x] Root verifies exact own PID/UID/cmdline, performs SIGKILL at ready/revealed marker
+  and observes old-PID disappearance. Warm verdict is intentionally interrupted,
+  never JUnit Passed. Separate cold method starts a different actual PID/same locator.
+- [x] Cold begins locked/no app-usable token/session/Dish; frozen provider cache/jars
+  unchanged before unlock. Genuine biometric/normal reload preserves exact bytes
+  before interactions; search/favorites/recent/origin/Recipe/literal00123/Cook accepted
+  only with actual assertions. After Cook compare cache semantics and encrypted jar bytes.
+
+No Connect in the cold method, no SDK-grant revocation claim, token/session injection,
+offline paste, forced clock or new Android manifest entry. Controlled abrupt death/fresh
+Intent scope only; natural LMK/background restoration,401/403/cancellation and broader
+matrix remain Pending. Root owns build/device/signal/evidence and announces owner prompts.

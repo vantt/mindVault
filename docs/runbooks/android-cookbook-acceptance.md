@@ -148,13 +148,13 @@ Pending. No source/time/auth bypass or hidden failure; earlier causes remain unk
 | Google consent | Registered package/signature; actual user grant; no token displayed/logged | Passed selected runtime scope: usable grant; owner confirmed account/consent in Google Run01 |
 | Menu/tab read | Real metadata and bounded values; selected tab remains explicit | Passed Google Run03: selected Test tab and exact literal fake schema/row, including00123 |
 | Mapping | Actual preview; confirm roles; duplicate/empty/ragged inputs handled | Partial: real Google preview/explicit role mapping Passed Run03; earlier offline flow Passed Run04; broader matrix Pending |
-| Offline/cache | Reopen private cache; search label/username; favorites/recent retain origin | Passed network-off Run04 and same-process recreation; selected synthetic offline SIGKILL/cold02 Passed5.993s; provider-loaded cold Pending |
+| Offline/cache | Reopen private cache; search label/username; favorites/recent retain origin | Passed network-off Run04/recreation, synthetic offline cold02 5.993s and Google-loaded cold02 8.886s after verified SIGKILL; LMK/task restore Pending |
 | Errors/refresh | Cancel/401/403/network failure retain last good cache and clear stale results | Partial: actual NETWORK_FAILED exact cache/jars preservation and stale Dish/Copy absence Passed Run04;401/403/cancel/stale callback Pending |
 | Reveal | Masked default; explicit reveal hides after10seconds | Passed Run04/05, including KEEP_SCREEN_ON=false in Run05; historical Run01 cause unknown |
 | Clipboard | Dish copy; real30second compare-clear; replaced/username text survives old cleanup | Passed foreground API36 ownership + same-process locked adapter recreation; background/authenticated recreation/process death/history/API26 fallback Pending |
-| Lifecycle | Navigation/edit/lock/background/recreation clear Dish and require unlock | Partial: edit/Back/background Run04, Google cache UI Run02 recreation, Recents03 and synthetic offline SIGKILL/cold02 Passed; broader provider/background/task matrix Pending |
+| Lifecycle | Navigation/edit/lock/background/recreation clear Dish and require unlock | Partial: edit/Back/background Run04, Google cache UI Run02 recreation, Recents03/offline cold02/Google cold02 Passed; broader background/task matrix Pending |
 | Session | Real5minute idle and10minute total despite activity, no deadline reset | Passed selected API36 foreground proof KEEP_SCREEN_ON: Idle05 341.722s and Total04 609.969s; earlier failures retained, broader timer UX Pending |
-| Security/UI | EN/VI, accessibility/layout, blocked capture/hidden Recents, sanitized own-app logs | Partial: pixels01/authenticated02 secure shell capture and Recents03 hidden own Card owner-observed Passed; OS screenshot shortcut/TalkBack/full layout Pending |
+| Security/UI | EN/VI, accessibility/layout, blocked capture/hidden Recents, sanitized own-app logs | Partial: secure shell capture/Recents03/VI OS field01/center taps02 Passed; edge01/02 Failed, dwell04 not run; OS shortcut/TalkBack/full layout Pending |
 | Recents lifecycle | Actual same-Activity stop/lock, preserved jars and genuine biometric reopen | Passed Run03 1/1,137.789s; Run01/02 failures retained; API36 proof KEEP_SCREEN_ON scope |
 
 Record candidate SHA/APK hash, device/API, timestamps, observer and evidence for
@@ -179,6 +179,21 @@ Android saved-task restoration remain separate Pending scope. Warm01 failed befo
 SIGKILL due to missing focus property in windows dump; displays query correction
 preserves strict focus guard/APKs/assertions and historical Failed verdict.
 
+### Google-loaded cache process death — selected cold02 accepted
+
+[Provider cold candidate](../../plans/261012-mobile-cookbook-phase1/reports/google-cold-runtime.md)
+uses separately archived frozen58/debug1f42/test3711 for accepted Run02. It preserves
+all54 prior app sources/manifests and original17 Google predicates. Warm selector is
+`GoogleColdProcessPhysicalTest#prepareProviderCacheForAbruptProcessDeath`, followed
+only after verified old-PID death by `#reopenProviderCacheInFreshProcess` with the
+same canonical UUID and explicit warm/cold stage. Root announces genuine biometric/
+Google prompts after fresh owner readiness. Warm02 InterruptedByVerifiedSIGKILL/
+PID13092→coldPID14408, cold02 Passed1/1,8.886s with real fingerprint/exact cache reload/
+search/favorites/recent/origin/Recipe/00123/Cook and preserved jars/owned cleanup/digest.
+Cold01 Failed181.588s at reopening/cause unknown; diagnostic retry is no production
+repair. SDK may reuse grant; no fresh consent/revocation or offline-paste credit.
+Observed network available; network-off/LMK/task restoration are separate scopes.
+
 ### Selected secure capture — accepted; owner observations separate
 
 [Exact Security/UI evidence](../../plans/261012-mobile-cookbook-phase1/reports/security-ui-runtime.md)
@@ -191,7 +206,13 @@ EN/VI Cook/reveal and visible exact synthetic Dish inside that region.
 Locked01 raw-layout48dp, Capture01 same-node accessibility and Auth01 UiAutomation-null
 remain Failed. Later diagnostics show40dp raw language layout with48dp expanded touch
 bounds; no actual undersized-target defect inferred. English OS password-field identity
-diagnosed; Vietnamese field-ID match and TalkBack/layout remain Pending.
+diagnosed. Later [VI OS field01](../../plans/261012-mobile-cookbook-phase1/reports/vi-accessibility-runtime.md)
+Passed1/1,1.5s: one visible/editable/password ID10 with localized descendant label;
+old direct same-node checker remains Failed, previous optionalVI ID0 cause unknown.
+TalkBack spoken behavior/full layout remain Pending. [Native language input](../../plans/261012-mobile-cookbook-phase1/reports/language-touch-runtime.md)
+center02 Passed1.852s with two60ms native taps; edge01/02 Failed after one pair.
+Post-edge02 stillEnglish/foreguardtrue; no whole48dp target/undersized-defect claim.
+Separate matched edge-dwell04 compiled/reviewed but USB empty before install; not run.
 
 Separate owner checkpoint `owner-screenshot-recents-check` asks for hardware screenshot,
 inspection of only the own Recents card, then return to the app. Prepared fixture

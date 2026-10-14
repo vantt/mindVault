@@ -76,7 +76,21 @@
   unexported dedicated-task manifest entry, build03/lint/release exclusion Passed;
   old49 means48 unchanged+intentional entry, protected208/23 intact. Warm01 pre-signal
   focus-query orchestration Failed retained; source/APKs unchanged for retry. Provider
-  cold/LMK/task restore/broader matrix Pending. Earlier owner "can't take screenshot"
+  LMK/task restore/broader matrix Pending. Four new provider-cold files preserve54/
+  original17 predicates. [Provider cold02](../plans/261012-mobile-cookbook-phase1/reports/google-cold-runtime.md)
+  Passed1/1,8.886s after actualSIGKILL13092→14408, real fingerprint/exact cache/Cook/
+  jars/owned cleanup. Cold01 Failed181.588s/cause unknown retained; only diagnostics
+  changed in two new files, build03 Passed58s10/101,lint0/11/1; no production repair.
+  [VI OS-field01](../plans/261012-mobile-cookbook-phase1/reports/vi-accessibility-runtime.md)
+  Passed1/1,1.5s: exact one own password node with descendant label, not spokenTalkBack.
+  Source59/old58 preserved/build55s9/102/lint0/11/1; original checker remains Failed.
+  [Native language touch](../plans/261012-mobile-cookbook-phase1/reports/language-touch-runtime.md)
+  center02 Passed1.852s, edge01/02 Failed1.408s/1.211s with English retained after
+  actualedge pair; no physical whole48dp target credit/cause resolution. Separate
+  matched edge60 candidate04/source60/testce61 built/reviewed43s9/102/lint0/11/1,
+  USB empty before install, not run. Lastinstalled84dd/old59 preserved; owner digest
+  last verified after edge02. Spoken TalkBack/full layout/font/rotation still Pending.
+  Earlier owner "can't take screenshot"
   report has unconfirmed shortcut/reveal timing, separate from accepted Recents card.
 - [Keystore physical coverage follow-up](../archive/plans/261011-keystore-recovery/reports/current-device-acceptance.md):
   API26/no hardware/no enrollment, typed7/9 callbacks, exact process-kill/

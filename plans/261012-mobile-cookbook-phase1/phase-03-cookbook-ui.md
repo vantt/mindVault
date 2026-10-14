@@ -110,7 +110,12 @@ No provider/cache/timer replay belongs to this continuation unless related sourc
 Preserve historical failures and Mobile Partial; security test compilation is not runtime proof.
 Selected [offline cold-process proof](reports/cold-process-runtime.md) Passed:
 warm02 verified SIGKILL, cold02 Passed1/1,5.993s with genuine reopening/cache/Cook;
-provider-loaded cold cache and wider physical accessibility/layout remain Pending;
+provider-loaded cold02 later Passed8.886s; wider physical accessibility/layout Pending;
+[VI OS association01](reports/vi-accessibility-runtime.md) Passed1.5s with one password
+node/descendant label; direct same-node checker stays Failed/TalkBack Pending.
+[Native language touch](reports/language-touch-runtime.md) center02 Passed1.852s;
+edge01/02 Failed, new matched-dwell04 not run due empty USB. No original assertion
+or production change; effective whole-target/layout/font/rotation acceptance open.
 no blind retry or historical-cause inference.
 
 Implementation exists in the production app/shared/client paths above. Final local

@@ -182,7 +182,9 @@ checks passed. Google cache UI/Cook and authenticated same-process recreation pa
 selected [cache UI Run02](plans/261012-mobile-cookbook-phase1/reports/google-cache-ui-runtime.md);
 [network-off Run04](plans/261012-mobile-cookbook-phase1/reports/network-off-runtime.md)
 also passed actual offline Cook and network-failure cache preservation. Provider
-401/403/cancellation/cold-start/process-death remain Pending. Historical Run01
+401/403/cancellation/LMK/task restoration remain Pending. Selected
+[Google-loaded cache cold02](plans/261012-mobile-cookbook-phase1/reports/google-cold-runtime.md)
+passed after verified SIGKILL and genuine biometric reopening. Historical Run01
 reveal failure remains unexplained. See the [Cookbook contract](docs/specs/mobile-cookbook.md),
 [execution evidence](plans/261012-mobile-cookbook-phase1/reports/verification.md),
 [owner acceptance checklist](docs/runbooks/android-cookbook-acceptance.md) and

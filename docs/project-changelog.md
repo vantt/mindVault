@@ -1,5 +1,36 @@
 # Project Changelog
 
+## Accept Google-loaded cold cache and VI OS field association (2026-10-14)
+
+Four androidTest-only files reuse the isolated cold Activity; all54 prior sources/
+manifests and original17 Google predicates unchanged. New adapter uses actual Connect/
+provider read/mapping/cache, verified native SIGKILL and separate genuine cold reopen.
+Review restored one omitted foreground conjunct before runtime. Build01 Passed45s12/99,
+corrected02 Passed50s9/102,lint0/11/1. Frozen58/candidate02/test9b04 installed-r;
+debug1f42/releaseefd3 retained, owner digest preserved. Warm01 actualSIGKILL, cold01
+Failed1/1,181.588s reopening, cause unknown/owner report ambiguous. Diagnostic-only
+two-file delta with unchanged waits/assertions, build03 Passed58s10/101/test3711.
+[Provider cold02](../plans/261012-mobile-cookbook-phase1/reports/google-cold-runtime.md)
+Passed1/1,8.886s after actualSIGKILL/PID13092→14408, initial locked/cleared and genuine
+fingerprint/cache reload/search/favorites/recent/origin/Recipe/00123/Cook/jars preserved.
+Scope network-available app-disconnected cache; no production repair/cold01 resolution.
+
+[VI OS field01](../plans/261012-mobile-cookbook-phase1/reports/vi-accessibility-runtime.md)
+Passed1/1,1.5s with one own visible/editable/password node and localized descendant label.
+Observer cache reset only; original same-node checker remains Failed, TalkBack Pending.
+One new134-line test/source59/testb684/build55s9/102/lint0/11/1, old58/protected208/23/
+owner/release unchanged. Whole mobile Partial; cancellation/401/403/LMK/task restoration/
+OS shortcut/spoken accessibility/font/orientation and historical causes remain open.
+
+Native language input continuation: center02 Passed1/1,1.852s, two guarded60ms native
+center taps changed EN→VI→EN. Edge01 Failed1.408s/edge02 Failed1.211s, one nativepair,
+raw58.153×40dp/public58.153×48dp; edge02 retainedEnglish under trueforegroundguard.
+No whole-target/edge/cause credit from center pass. Original geometry/assertions
+kept; readonly after-input diagnostics and separate matched-edge60 wrapper added,
+class177lines/source60/old59 preserved. Build04 Passed43s9/102,lint0/11/1/testce61,
+but USB empty before install; not run/lastinstalled84dd. No driver/security/ADBnetwork
+changes; last verified owner digest preserved. [Touch evidence](../plans/261012-mobile-cookbook-phase1/reports/language-touch-runtime.md).
+
 ## Accept Recents and synthetic offline cache after abrupt process death (2026-10-14)
 
 Recents03 Passed1/1,137.789s: actual pause/stop/locked read/cleared return, genuine

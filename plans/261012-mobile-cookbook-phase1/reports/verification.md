@@ -204,12 +204,59 @@ and owner digest intact. Provider-loaded cache/LMK/saved-task restoration Pendin
 
 Compile01 Failed62s missing import,02 Failed39s rule type; import/type corrected only.
 Build03 Passed54s,13 executed/146 UP-TO-DATE,debug+test+release/lint0/11/1; release
-manifest/threeDEX omit proof. Current installed debug1f42a2c4…/test3004a0bb… equal
+manifest/threeDEX omit proof. At offline runtime debug1f42a2c4…/test3004a0bb… equal
 frozen03/all54. Warm01 Failed native-query orchestration before SIGKILL retained:
 window-windows lacked focus property, displays returns exact own focus; strict
 predicate unchanged, no rebuild/reinstall. Earlier candidate01/02 identities retained.
 Historical49 now48 unchanged+one unexported debug manifest entry; old43 now42+delta.
 Production/all prior assertions/protected208/unrelated23 unchanged; no fresh JVM/browser.
 
+## Provider cold-process continuation — Run02 Passed
+
+[Actual evidence](google-cold-runtime.md): four additional androidTest-only files,
+all54 prior app sources/manifests unchanged, original17 provider predicates retained.
+Review restored one omitted own-foreground conjunct in the new reconnect assertion
+before runtime. Build01 Passed45s12/99 preserved; corrected02 Passed50s9/102,
+lint0 errors/11 warnings/1 hint. Frozen02/source58/candidate02 archive binds exact debug
+1f42a2c4…/test9b04c212… and six native helpers; target APK retained/test installed-r,
+owner digest preserved; candidate01/test724d remains separately archived, never run.
+Release APK remains exactlyefd3… with prior proof exclusion.
+Warm01 InterruptedByVerifiedSIGKILL/PID5410, cold01 Failed1/1,181.588s at reopening;
+initial locked state/exact disk persistence proven but no post-unlock cache/Cook.
+Cause unknown, owner report ambiguous. Diagnostics whitelist/read-only active/click
+marker added to two new files only; build03 Passed58s10/101/test3711/frozen03, still58
+sources/all54 prior files unchanged. Warm02 verifiedSIGKILL/PID13092, separate cold02
+Passed1/1,8.886s/PID14408,JUnit[1,0]/terminal[-1]/OK1/no watchdog/error: real fingerprint,
+exact beforeinteraction provider cache/origin/Recipe/00123/search/favorites/recent/Cook
+and jars/owned cleanup/digest preserved. Scope app-disconnected provider cache with
+observed network available; no production repair/LMK/task-restore/401/403/cancel credit.
+
+## Vietnamese OS field association — selected Run01 Passed
+
+[Actual evidence](vi-accessibility-runtime.md): one new134-line test, all58 prior
+sources unchanged; root build01 Passed55s9/102,lint0/11/1,source59/testb684 installed-r.
+Run01 Passed1/1,1.500s,JUnit[1,0]/[-1]/OK1/no watchdog/error. Actual fieldID10 exactly1
+visible/editable/password OS node; localized label in descendants, not the node itself.
+First observer-cache-cleared attempt,38 nodes/3 descendants,32/32 own-tree extra requests.
+No auth/Cook/Google/capture replay. Original same-node checker remains Failed; current
+VI association does not prove previous optionalID0 cause or TalkBack spoken behavior.
+Owner/protected208/unrelated23/old58/releaseefd3 preserved; whole mobile Partial.
+
+## Native language touch — Partial
+
+[Exact evidence](language-touch-runtime.md): edge01 Failed1/1,1.408s, one pair with
+all point guards; center02 Passed1/1,1.852s [1,0]/[-1]/OK1/no watchdog/error, two
+60ms center pairs with exact both-locale UI changes. Same frozen02/test84dd edge02
+Failed1/1,1.211s [1,-2]/[-1]: English remains after one pair, foreground/readsuccess.
+Raw58.153×40dp/public58.153×48dp, actualpoint outside raw/inside public bounds;
+center differs in point+dwell, no edge/cause credit. Original all assertions remain.
+Source60/old59/protected208/23/digest preserved; only the new language file evolves.
+Build01/02/03/04 Passed51s/48s/52s/43s; latest9 executed/102 UP-TO-DATE,lint0/11/1.
+Build03 old metadata-name candidate never run; corrected04/testce61 optionaledge60
+wrapper compiled/reviewed. Install04 aborted before package checks, adbdevices empty,
+no runtime. Last installed/tested test84dd distinct from builtce61; current owner
+digest unavailable after disconnect, last successful runtime894f73…a4d6 retained.
+Releaseefd3 unchanged/no fresh JVM/browser. Matched edge-dwell result Pending USB.
+
 Unresolved: original Cookbook UI Run01 reveal failure, network Run03 key-wrap cause;
-cancellation/stale callbacks/401/403/cold-start/process-death and remaining phone matrix.
+cancellation/stale callbacks/401/403/LMK/task restoration/TalkBack and remaining phone matrix.

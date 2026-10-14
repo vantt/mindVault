@@ -201,5 +201,50 @@ focus-query guard retained, diagnosed windows property absent/displays exact foc
 [Evidence](cold-process-runtime.md). Scope synthetic offline controlled SIGKILL+fresh
 Intent; provider cold/LMK/saved-task/background death and whole mobile remain Pending.
 
+## Provider cold-process independent review — selected Run02 Passed
+
+Reviewer checked four new bounded files/three native helpers and reused identities.
+All17 original Google logical predicates preserved after restoring the new reconnect
+foreground conjunct; original test and54 prior app sources/manifests unchanged.
+Genuine Connect/provider metadata/tab/schema/mapping/cache, canonical safe provider
+baseline, exact native PID/UID/start/hash signal guards, warm interrupted vs separate
+strict cold JUnit, locked state/genuine reopen/cache/Cook and owned cleanup reviewed.
+No remaining blockers. Reviewer audited actual warm02 PID13092/UID10422/SIGKILL18:24:28.873
+and old-proc/pidofabsence18:24:29.308Asia/Saigon before actual coldPID14408. Linked cold02
+Passed1/1,8.886s [1,0]/[-1]/OK1/no watchdog/error: initial locked/cleared state, real
+fingerprint exact cache reload/search/favorites/recent/origin/Recipe/literal00123/Cook
+and unchanged jars/owned cleanup/digest. Source58/six helpers/frozen03 exact; original54
+and208/23 unchanged. Cold01 Failed181.588s remains unknown cause; two-file diagnostic
+delta preserves all waits/assertions. SDK grant may be reused, new consent/revocation
+never inferred. No mock/offline paste/token/session/deadline injection. Observed network
+available; LMK/task restore/provider errors/full mobile Pending. [Evidence](google-cold-runtime.md).
+
+## Vietnamese OS field independent review — Run01 Passed
+
+Reviewer verified source134/runner105/frozen59/seven helpers/APKs current+archived exact,
+original58/protected208/unrelated23/owner digest and release exclusion retained.
+Actual Run01 Passed1/1,1.5s [1,0]/[-1]/anchoredOK1/completed/no watchdog/error:
+one own visible/editable/password fieldID10, labelDescendants=true/labelSelf=false,
+first fresh-observer-cache attempt,38 nodes/3 descendants and32/32 owned-tree requests.
+Clone/recycle/literal500/100 bounds/own-window/no-input/no-auth/policy rules reviewed.
+No blockers. Original failed direct same-node checker untouched; targeted-node refresh,
+TalkBack spoken output and previousVI ID0 cause not claimed. [Evidence](vi-accessibility-runtime.md).
+
+## Native language input independent review — Partial
+
+Reviewer audited coordinate transform/own-window/finite/IME guards/native DOWN/UP,
+original59 immutability, selectors and strict independent verdicts. Edge01 Failed
+1.408s, edge02 Failed1.211s with actual post-input English=true/VI=false/foreguardtrue;
+center02 Passed1.852s [1,0]/[-1]/OK1, two60ms center pairs and exact UI switches.
+Source60/eight-helper/APK identities bind accepted/failed candidates separately.
+Center point+dwell differ; no cause, physical-edge or whole-target acceptance inferred.
+Original edge geometry/assertions unchanged except read-only diagnostics. Separate
+edge60 wrapper leaves default edge0 behavior; exact wrapper selector/strictcompletion
+reviewed. Metadata renamed explicitlyOptionalEdgeDwellMillis to avoid confusing
+center60 with defaultedge0. No code/runner blockers; corrected build04/frozen04
+testce61 exact. USB empty before install; matched edge-dwell04 remains not installed/
+not run, lastinstalled84dd separate. Owner894f73…a4d6 last verified after edge02.
+[Evidence](language-touch-runtime.md). Production/old assertions untouched; Mobile Partial.
+
 Unresolved: original Cookbook UI Run01 cause and network Run03 key-wrap cause;
-cancellation/stale callbacks/401/403/cold-start/process-death and remaining phone matrix.
+cancellation/stale callbacks/401/403/LMK/task restoration/TalkBack and remaining phone matrix.

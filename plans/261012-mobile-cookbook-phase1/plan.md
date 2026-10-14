@@ -51,7 +51,7 @@ records Google Run03 Passed metadata/rows/mapping/cache-file load after Failed R
 [Cache UI Run02](reports/google-cache-ui-runtime.md) Passed lock/reopen/cached Cook
 and authenticated same-process recreation; app-disconnected cache only. Later
 [Network-off Run04](reports/network-off-runtime.md) Passed real offline Cook/error
-preservation;401/403/cancel/provider-cache cold start remain Pending in phase04.
+preservation;401/403/cancel/LMK/task restoration remain Pending in phase04.
 Run04/05 cover selected synthetic-jars biometric/Cook/reveal/copy/background flow.
 Foreground clipboard adapter3/3 and [actual5-minute idle Run05](reports/session-timer-runtime.md)
 and total04 Passed; API36 foreground proof only, broader UX Pending.
@@ -62,9 +62,9 @@ Recents01 Failed206.052s without observed checkpoint stop/resume; Recents02
 Failed182.457s at setup, before checkpoint/navigation; causes unconfirmed.
 Run03 Passed1/1,137.789s with pause/stop/locked read/genuine reopening; owner confirmed
 own card blank/covered. Same frozen04/APKs, no rebuild/install between attempts.
-OS screenshot shortcut, Vietnamese OS accessibility/TalkBack and larger-font/orientation
+OS screenshot shortcut, spoken TalkBack/broader VI accessibility and larger-font/orientation
 remain Pending. [Offline cold02](reports/cold-process-runtime.md) Passed5.993s after
-verified warm02 SIGKILL; provider-cache cold acceptance Pending. No production repair.
+verified warm02 SIGKILL; provider cold02 Passed8.886s/VI OS-field01 Passed1.5s. No repair claim.
 QR receiver/camera, Autofill spike/service, Drive, multi-profile authoring and
 append/update screens remain separate later work. No reopened stack/write decision.
 
