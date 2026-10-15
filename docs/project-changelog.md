@@ -1,5 +1,19 @@
 # Project Changelog
 
+## Retry clipboard reconciliation after focused return (2026-10-15)
+
+Actual Chrome replacement stayed intact while expired Dish ownership remained in
+PassChef RAM; Android also recorded denied reads before focus was available.
+MainActivity now follows actual window focus, and unavailable expired reads retry
+with one immediate dispatch plus at most ten100ms attempts. Original30s deadline,
+generation and compare-before-clear stay intact; null reads never authorize clear.
+All previous tests/assertions preserved. Fresh app JVM10 and relevant unchanged
+physical adapter3/recreation1 Passed; build28s/lint0/11/1. Strict repair01 failed at
+setup with observed wrap code15 before Cook/Copy, so authenticated Chrome-return
+acceptance remains Pending. Owner unavailable; no active run, frozen02 ready.
+[Evidence and preserved failures](../plans/261012-mobile-cookbook-phase1/reports/cross-app-clipboard-runtime.md),
+[resume checkpoint](../plans/261012-mobile-cookbook-phase1/reports/clipboard-return-handoff.md).
+
 ## Accept owner-controlled Copy and screen-off return (2026-10-15)
 
 Owner Copy→Power fixture removes the host-message race after automatic Copy while

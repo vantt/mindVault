@@ -33,6 +33,11 @@ Passed1/1,121.836s: owner Copy→Power bound to the original production deadline
 sampled>=35s off/locked, then same-Activity legal return with owned clipboard absent,
 no Dish/session and exact cache/jars. Original Failed01–03 retained; long-background/
 LMK/recreation/cross-app/history and precise background30s cleanup remain unaccepted.
+[Chrome return diagnostics/repair](../../plans/261012-mobile-cookbook-phase1/reports/cross-app-clipboard-runtime.md)
+localized stale expired ownership with the actual Chrome marker intact. Focus/retry
+repair passed JVM10 and unchanged adapter3/recreation1; strict repair01 failed during
+setup before Copy, so repaired Chrome return remains Pending. Owner unavailable;
+no active wait; [saved resume checkpoint](../../plans/261012-mobile-cookbook-phase1/reports/clipboard-return-handoff.md).
 [Security/UI continuation](../../plans/261012-mobile-cookbook-phase1/reports/security-ui-runtime.md)
 locked pixels01 Passed1/1,2.321s and authenticated02 Passed1/1,25.890s: selected EN/VI
 setup/manual Cook and secure shell display exclusion. Selected owner hardware

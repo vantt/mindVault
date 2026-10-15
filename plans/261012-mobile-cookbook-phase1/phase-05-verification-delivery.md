@@ -161,6 +161,10 @@ Remaining owner/device checks, after the unattended follow-up:
 3. Long-background/natural LMK/saved-task restoration; authenticated recreation/
    process-death/cross-app clipboard. Selected owner-Copy35s screen-off/same-Activity
    legal-return clipboard observation [Passed121.836s](reports/owner-screen-off-clipboard-runtime.md).
+   [Chrome diagnostics/focus repair](reports/cross-app-clipboard-runtime.md): actual
+   replacement intact but expired claim stale; reviewed repair JVM10/adapter3+
+   recreation1 Passed. Strict repair01 setupFailed before Copy; actual repaired
+   Chrome return Pending, owner unavailable; [resume](reports/clipboard-return-handoff.md).
 4. TalkBack, larger fonts/orientation and full language touch-target coverage.
    Secure shell capture/Recents/owner revealed-Dish shortcut07 already accepted.
 5. Historical UI/setup/wrap causes remain open. Additional Keystore API/device cases

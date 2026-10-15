@@ -180,8 +180,12 @@ including clipboard cleanup through Activity recreation. Selected authenticated
 [owner-Copy screen-off01](plans/261012-mobile-cookbook-phase1/reports/owner-screen-off-clipboard-runtime.md)
 passed sampled35s screen-off and same-Activity legal-return clipboard cleanup;
 cross-app/authenticated recreation/process-death/history and exact background30s
-remain unaccepted. Selected Android Google grant/read/mapping/cache-file
-checks passed. Google cache UI/Cook and authenticated same-process recreation passed
+remain unaccepted.
+The [focused clipboard repair](plans/261012-mobile-cookbook-phase1/reports/cross-app-clipboard-runtime.md)
+passed JVM10 and4 unchanged physical adapter/recreation regressions; authenticated
+Chrome-return acceptance remains Pending after a setup-only failure.
+Selected Android Google grant/read/mapping/cache-file checks passed.
+Google cache UI/Cook and authenticated same-process recreation passed
 selected [cache UI Run02](plans/261012-mobile-cookbook-phase1/reports/google-cache-ui-runtime.md);
 [network-off Run04](plans/261012-mobile-cookbook-phase1/reports/network-off-runtime.md)
 also passed actual offline Cook and network-failure cache preservation. Provider

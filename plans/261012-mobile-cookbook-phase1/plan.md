@@ -4,7 +4,7 @@ Date:2026-10-12; updated2026-10-15 (Asia/Saigon). Status: **Partial — code/loc
 Baseline: main `2579e29044924e1582b78414b0314baffc72abe5`.
 Owner authorized two agents: recheck the five browser slices and implement mobile.
 Selected UI/cache/cold/clipboard/timers/capture/Recents/owner shortcut/tag-mapping Passed; broader acceptance Pending.
-Latest: mapping01 Passed36.892s; owner-Copy screen-off01 Passed121.836s; original01–03 Failed; Google cancel01 NotExercised.
+Latest: [clipboard focus repair](reports/cross-app-clipboard-runtime.md) JVM10/physical4 Passed; strict Chrome return Pending; [paused checkpoint](reports/clipboard-return-handoff.md).
 Actual UI Run01 failed after reveal; [device evidence](reports/device-acceptance.md)
 and [unattended regressions](reports/unattended-regression.md) track investigation.
 

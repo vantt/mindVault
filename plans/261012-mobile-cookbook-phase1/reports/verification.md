@@ -32,6 +32,14 @@ cache/jars/owner preserved. SameActivity/PID19125,source74/old72/helpers29/owned
 accepted. Final build10s10/84/lint0/11/1,test96c8ea99; old72/debug/release/assertions
 unchanged. Sampled35s offscreen plus legal-return scope only; no precise background30s,
 LMK/recreation/cross-app/history credit. Original Failed01–03 remain; Mobile Partial.
+New [Chrome return diagnostics](cross-app-clipboard-runtime.md) observed an intact
+different-UID Chrome marker but stale expired own-claim metadata on legal return.
+Two reviewed production focus/retry changes retain every prior assertion and the
+original30s deadline. Fresh app JVM10 Passed; build28s/lint0/11/1. Unchanged physical
+adapter3/3 Passed99.636s and recreation1/1 Passed31.548s on the repair candidate.
+Strict repair01 Failed182.282s at setup with two observed wrap code15 events, before
+Cook/Copy; cause unknown. Chrome return acceptance stays Pending. Owner unavailable;
+no active native wait, frozen02 ready/run02 unlaunched; [resume checkpoint](clipboard-return-handoff.md).
 Current [session timer preparation](session-timer-runtime.md): test-APK/lint builds
 42s/13s/11s Passed, lint0/11/1; no fresh JVM execution. Idle Run01/02 Failed before
 baseline pointer and Run03/04 Failed at setup; Run05 actual5-minute idle Passed1/1,

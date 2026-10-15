@@ -543,3 +543,301 @@ process death, cross-app replacement/history, exact background30s and long-backg
 UX remain Pending; Google cancellation01 stays NotExercised and Mobile stays Partial.
 Evidence: external `owner-screen-off-clipboard-` prefix for `run-01.{log,json}`,
 `owner-observation-01.json`, `frozen-01.json`, `install-01.json` and `candidate-01/`.
+
+## Real Chrome clipboard replacement — bounded preparation review
+
+Reviewed separate CrossAppClipboardPhysicalTest160/PendingClipboardClaim28/
+ChromeClipboardAction86 and169-line selected runner. Existing OwnerCopyObservation
+is unchanged. Actual empty focused editable non-password Chrome field alone receives
+the public UUID marker through remote SET_TEXT/selection/COPY actions; target code
+never writes the replacement with ClipboardManager. Fixed read-only package metadata
+requires one Chrome UID distinct from process/target/instrumentation UIDs. Fresh
+Chrome root/window and refreshed exact-field guards apply immediately before/after
+Copy; bounded5s refresh waits do not repeat mutations. No window dump, account text
+or clipboard payload is logged. These are observed action/source-app checks, not
+authenticated per-clip writer-UID metadata.
+
+Own stopped adapter must retain original pending label/value/generation/deadline
+before remote Copy and until allowed return after original deadline+1s. No offscreen
+clipboard read, clock reset or manual reconcile. Remote Copy may occur after expiry;
+the proof does not establish old Dish system-primary status while offscreen. Early
+return/recreation fails. Legal locked return must preserve the exact new label/text,
+forget stale ownership without another generation and retain replacement after1s.
+Cleanup cannot erase Chrome's replacement; listener errors still propagate while
+other owned cleanup is guaranteed. No production or old assertion change required.
+
+Build02 raw Passed9s,10executed/84UP-TO-DATE; current lint XML0errors/11warnings/1hint.
+Independently recomputed current/frozen01/archive77, prior74 and30 old helpers,
+runner/baseline/frozen JSON and APKs match. Candidate testb86829cd/debug1f42 and
+releaseefd3 bind to reviewed sources. Runner AST Passed and requires exact selected
+[1,0]/terminal[-1]/anchoredOK1/final success phase/native0/no failure diagnostics,
+900s watchdog plus owner/frozen/UUID cleanup audit gates. This checkpoint is compile/
+review/freeze preparation only; no install/runtime or fresh JVM/browser result is
+inferred. Actual Chrome replacement remains Pending and Mobile remains Partial.
+Evidence: external `cross-app-clipboard-` prefix for `frozen-01.json`, `candidate-01/`
+and `build-02.log`; earlier Passed/Failed/NotExercised evidence stays.
+
+## Actual Chrome replacement Run01 — independent Failed evidence audit
+
+Independent raw/JSON read confirms **Failed1/1,354.918s**,selected[1,-2],terminal[-1],
+FAILURES,native0,no watchdog/orchestration error. Genuine owner Copy was observed
+atcopy+20ms; Chrome UID10184 differs from the own UIDs. Atcopy+180073ms the external
+action wait failed without a completed Chrome Copy or return marker. SamePID29864
+was unresumed/locked with session absent at failure. Recorded post-audit preserves
+owner894f73…a4d6, prior74/helper30/protected208/unrelated23 and UUID directory absent.
+No replacement preservation or production defect is established by this timeout.
+
+Owner reported a visually empty focused omnibox/visible keyboard. Frozen predicates
+cannot distinguish rejected root/focus/field/empty-text/action bits, so that statement
+does not identify the cause. Source research found a missed harness compatibility
+hypothesis: [AOSP TextView](https://android.googlesource.com/platform/frameworks/base/+/e0938b8/core/java/android/widget/TextView.java)
+exposes hint state through accessibility and adds SET_SELECTION for nonempty text.
+Requiring empty reported text plus an initial selection action may reject an empty
+editor. This is source-supported inference, not actual-device causation or permission
+to modify the frozen fixture/assertions. Run01 remains Failed and evidence is retained.
+
+Reviewed plan for a separate read-only focused-editor probe: no Activity launch,
+remote mutation or clipboard read; one bounded5s sample of known predicate/hint/
+action booleans only, no unknown strings/tree/payload output. Compile/review/freeze
+precedes selected execution; probe Passed would mean observations completed only.
+Actual cross-app replacement remains Pending, Mobile Partial. Evidence: external
+`cross-app-clipboard-run-01.{log,json}` and unchanged frozen01/candidate01.
+
+## Read-only Chrome editor probe02 — independent sampled evidence
+
+Independent raw/JSON read confirms **Sampled0.048s**,selected[1,0],terminal[-1],
+anchoredOK1,native0,no orchestration error; replacement acceptance remains Pending.
+Exactly16 fixed booleans were emitted by the no-Activity/no-mutation/no-clipboard
+probe. Chrome root/node, input focus, same window, editable/enabled/visible/focused,
+SET_TEXT and SET_SELECTION were true. Password, textNull, textEmpty, showingHint
+and COPY were false. Thus accessibility reported nonempty text at this one sample;
+the text itself was neither exported nor retained in diagnostics. Owner's visually
+empty description does not make that reported text empty.
+
+This sample does not support missing SET_SELECTION or shown-hint as its rejection
+reason. The earlier AOSP hypothesis remains source context, not device causation.
+The observed nonempty predicate would reject the frozen helper at this sample, but
+does not reconstruct every state during Run01's180s wait. No fixture/assertion was
+changed and no completed remote Copy/return was accepted. Root requested an explicit
+owner manual select-all/delete without Copy before any new-number read-only probe.
+
+Final recorded audit Passed for owner894f73…a4d6, source78/prior77,30 old helpers,
+protected208/unrelated23, frozen/local/installed test5d976536/debug1f42 and runner.
+Frozen/candidate01 stays preserved; revised numbered runner/frozen02 checks exact
+phase/16 boolean schema and post identities, with60s native bound and captured timeout
+output/native-unknown status. There is no explicit internal5s execution guarantee.
+Evidence: external `chrome-editor-probe-run-02.{log,json}`, `frozen-02.json` and
+`candidate-02/` under the `chrome-editor-probe-` prefix. Mobile remains Partial;
+original cross-app Run01 stays Failed and all earlier scoped verdicts remain intact.
+
+Read-only probe03, after owner explicitly selected/deleted the omnibox without Copy,
+independently confirms **Sampled0.056s**,[1,0]/[-1]/OK1,native0,no orchestration error,
+final identity audit Passed. Current Chrome/window/focus/editable/enabled/visible/
+SET_TEXT were true; reported text was nonnull/nonempty, showingHint=true and
+SET_SELECTION/COPY=false. No actual text/hint/clipboard value was exported. Owner
+digest/prior77/source78/30helpers/protected208/unrelated23 remain recorded exact.
+The sampled state supports a hint-aware empty-editor compatibility branch; it does
+not establish Run01's full history or accept a remote Copy. Probe02's earlier
+non-hint/nonempty/selection-present state remains a distinct observation.
+
+Planned separate variant preserves all78 old sources/assertions and accepts initial
+null/empty text or a showing-hint field whose reported text equals its nonempty hint.
+It must still require exact public-marker/non-hint state and selection support after
+SET_TEXT, then the original full-selection/actual COPY/window/UID/pending ownership/
+legal-return assertions. This follows the sampled capabilities and documented
+TextView behavior; no old assertion or production deadline is relaxed. Review/build/
+freeze/install precede runtime. Original Run01 stays Failed, actual replacement
+Pending. Evidence: external `chrome-editor-probe-run-03.{log,json}` and frozen03.
+
+## Hint-aware replacement variant — bounded preparation audit
+
+Independent static comparison confirms the new160-line test is byte-identical to
+the original after three class/method/helper substitutions; every original assertion
+remains. New88-line helper accepts null/empty text or showing-hint plus exact text/
+nonempty-hint equality. It requires SET_TEXT initially, then exact populated marker,
+not-showing-hint and actual SET_SELECTION before selecting. Fresh Chrome root/window/
+field/UID/full-selection/COPY guards remain, with no permission or clipboard injection.
+This is a separate capability-aware harness, not a repair of the original frozen
+Run01 or production. Both diagnostic samples remain observations only.
+
+Reviewed169-line selected runner and independently recomputed current/frozen01/
+archive80, original78 and32 historical helper identities. Runner/baseline/frozen
+JSON and both APKs/archive match. Build-audit records Passed10s,10executed/84UP-TO-DATE,
+lint0errors/11warnings/1hint; no fresh JVM/browser execution. Install01 record binds
+debug1f42/test2e7c5edf to that frozen candidate and exact owner894f73…a4d6 before/
+after each package check. Protected208/unrelated23 preservation remains recorded.
+No actual variant runtime result exists at this preparation checkpoint; fresh
+owner-ready preflight/execution is still required. Original Run01 remains Failed,
+probe02/03 Sampled, cross-app replacement Pending and Mobile Partial. Evidence:
+external `chrome-editor-replacement-` prefix for `baseline-01.json`, `frozen-01.json`,
+`candidate-01/`, `build-audit-01.json` and `install-01.json`.
+
+## Hint-aware actual Run01 — independent post-return Failed audit
+
+Independent raw/JSON read confirms **Failed1/1,124.584s**,selected[1,-2],terminal[-1],
+FAILURES,native0,no watchdog/orchestration error. Actual remote Chrome Copy action
+was observed atcopy+2808ms, after UID10184/window/field/selection guards; owner return
+was requested at31069ms after the original deadline margin. SamePID7249 returned
+focused/resumed with session/Dish cleared, then failed at66090ms under the generic
+return phase. No completed replacement/return-preservation acceptance is earned.
+Recorded owner894f73…a4d6, prior78/helper32/protected208/unrelated23 and exact UUID
+cleanup remain preserved. Original cross-app Run01/probe02/03 outcomes stay intact.
+
+The generic phase covers synchronization, cache/RAM, deadline, clipboard exactness,
+ownership forgetting, generation, stability and UI absence; final state flags do
+not identify which assertion failed. Successful remote action alone is not proof
+of exact returned clipboard bytes. No production defect or root cause is established.
+Plan a separate two-file diagnostic variant retaining every old assertion and all80
+frozen files, adding phase checkpoints and own-RAM ownership booleans. Any clipboard
+comparison remains inside its original legal foreground guard, exporting only fixed
+booleans with no raw labels/text or offscreen read. No reconciliation/reset/injection
+is permitted. Review/build/freeze precede runtime; replacement acceptance stays
+Pending and Mobile Partial. Evidence: external `chrome-editor-replacement-run-01`
+raw log/JSON and original frozen01/candidate01, retained without overwriting.
+
+## Post-return diagnostic variant — independent preparation audit
+
+Reviewed separate181-line diagnostic test,30-line own-RAM observation helper and
+169-line selected runner. Extracted all9 original assertTrue calls: byte-identical,
+same order; ownership/generation and UI-absence checks remain. Added return phases
+localize cache/deadline/clipboard/forget/generation/stability/UI failures. Ownership
+reflection exports only7 booleans; clipboard exports only4 booleans inside the
+original main-thread legal-foreground guard. No reconcile, clipboard replacement,
+permission/deadline or production change. Other cleanup stays guarded and owned.
+
+Independently recomputed frozen01/current/archive82, original80 and33 historical
+helpers, runner/baseline/frozen JSON and both APKs match. Install01 binds exact
+debug1f42/testec93b9c0 and unchanged owner894f73…a4d6 before/after package checks.
+Build-audit records Passed8s,10executed/84UP-TO-DATE,lint0errors/11warnings/1hint;
+no fresh JVM/browser result. Runtime acceptance remains Pending at this preparation
+checkpoint; compile/install or active genuine setup cannot earn replacement credit.
+Original methods' failures and diagnostic probes remain retained. Evidence: external
+`cross-app-return-diagnostics-` prefix for `baseline-01.json`, `frozen-01.json`,
+`candidate-01/`, `build-audit-01.json` and `install-01.json`. Mobile stays Partial.
+
+## Post-return diagnostic Run01 — independent early Failed audit
+
+Independent raw/JSON read confirms **Failed1/1,48.998s**,selected[1,-2],terminal[-1],
+FAILURES,native0,no watchdog/orchestration error. Own Copy observed atcopy+26ms;
+failure at2980ms remained focused/resumed with ready session/Dish. No remote Chrome
+Copy, return checkpoint or new ownership/clipboard-return diagnostic was reached,
+so this run cannot diagnose the preceding post-return failure or accept replacement.
+
+Read exact UUID/frozen-bound owner observation01: “Có bấm Copy Dish hơn một lần”.
+That confirmed input does not satisfy the intended single-copy generation protocol;
+the generic failure still does not independently identify its exact assertion. No
+production defect or deadline repair follows. Recorded owner894f73…a4d6, prior80/
+helper33/protected208/unrelated23 and exact UUID cleanup remain preserved. Keep
+Run01/candidate01 and owner observation intact; any same-code one-Copy retry uses
+fresh numbering/preflight with original guards unchanged. Evidence: external
+`cross-app-return-diagnostics-` prefix for `run-01.{log,json}` and
+`owner-observation-01.json`. Actual replacement/return acceptance remains Pending,
+earlier failures remain Failed and Mobile remains Partial.
+
+## Post-return diagnostic Run02 — localized ownership failure
+
+Independent raw/JSON review confirms **Failed1/1,105.461s**,selected[1,-2],terminal[-1],
+native0,no watchdog/orchestration error. SamePID13830; actual Chrome Copy atcopy+3769ms,
+return requested31022ms. Exact cache/session and deadline checks passed. Legal
+focused clipboard sample51677ms reported clipPresent/oneItem/labelDiffers/markerExact
+all true. At51679ms `return-claim-forgotten-check-failed` localized the failing
+boundary: adapterForeground/generationSame/deadlineOriginal true, valueAbsent/
+labelAbsent/deadlineZero false, labelStillOriginal true. External public replacement
+survived that sample; stale own-RAM claim failed, later stability/UI checks not reached.
+No replacement-loss claim or full acceptance follows. All prior failures stay Failed.
+
+Recorded owner894f73…a4d6, old80/helper33/protected208/unrelated23 and exact UUID
+cleanup passed. Sanitized access02 contains three own-package ClipboardService
+not-in-focus denials within this run, no clip text/raw unknown log. This supports
+unavailable reads around foreground handoff; exact callback ordering remains an
+inference. Evidence: external `cross-app-return-diagnostics-run-02.{log,json}`,
+`frozen-02.json` and `clipboard-access-02.json` under the same diagnostics prefix.
+
+Reviewed proposed two-path production repair: actual window focus drives adapter
+foreground; expired null/exception keeps claim and schedules a separate immediate
+retry plus at most ten100ms retries. Callback checks foreground/original generation/
+expiry; cancellation on focus loss, successful new copy or successful forget/clear.
+Failed reads do not restart budget or duplicate queue; original deadline/token and
+30s cleanup scheduling remain unchanged. Source diff71/82 lines has no review
+blocker. No offscreen read, blind clear or test/manual reconcile is introduced.
+Compile/freeze/install and unchanged strict diagnostic runtime still require new
+evidence. Preserve original208 manifest and old34 helpers; new audits must explicitly
+allow only exact two before/after production SHA deltas and bind changed APKs.
+Mobile remains Partial and repair acceptance Pending.
+
+Repair preparation source/host review: current82 sources differ from baseline only
+the two allowed paths; all other80, old34 helpers and non-document tracked files
+verify. Read-only support audit confirms206 original protected files unchanged plus
+two exact intentional deltas, unrelated23 unchanged, original manifest/archive and
+historical candidates retained. New runner170/support67 parse; delta JSON binds
+before/current SHA and old/new release. Strict unchanged selected diagnostic,
+native/class/result/final-phase and owned UUID cleanup gates remain. No blocker.
+
+Read raw build01 and audit: Passed28s,28executed/136UP-TO-DATE; app JVM10 tests,
+zero failures/errors/skips; lint0errors/11warnings/1hint. Debugd90cf0e3 and release
+153b0224 changed as expected; testec93b9c0 unchanged. Existing releaseefd3 archive
+still matches pre-repair baseline. This is source/compile evidence only; no fresh
+physical repair acceptance is claimed before frozen/install/runtime evidence.
+
+Independent repair frozen/install preparation audit: recomputed frozen01 SHA
+f377224c…1398cb3; all82 current/archive sources, all APKs, baseline/frozen/runner,
+new support/delta/regression inputs and old34 helpers match. Source identity is
+80 unchanged plus the two exact authorized production deltas. Install01 records
+debugd90cf0e3/testec93b9c0 exact and owner894f73…a4d6 unchanged before/after both
+package checks. Release153b0224 is bound to the frozen archive; no release install
+is claimed. Reviewed regression runner selects only unchanged adapter3/recreation1,
+requires per-method[1,0]/terminal[-1]/exact OK count and owner/installed/source/
+proof-directory preservation. It is frozen as a repair input. Compile/install and
+active genuine setup earn no runtime credit: selected repair and relevant regression
+outcomes remain Pending at this checkpoint. No ADB/Gradle used by this review.
+
+## Clipboard repair Run01 — genuine setup Failed before clipboard exercise
+
+Independent raw/JSON review confirms **Failed1/1,182.282s**,selected[1,-2],terminal[-1],
+FAILURES,native0,no watchdog/orchestration error. UUID588b4cb1…f167,samePID17606;
+only `owner-replacement-setup-biometric` then its Failed checkpoint appeared, copy
+elapsed=-1. No Cook/Copy, remote Chrome action or repaired return assertion ran.
+Final ready=false with busy=false/focus=true localizes only unmet genuine setup;
+it does not establish a Keystore cause or a failure of the clipboard repair. Prior
+accepted Keystore results stay accepted; all historical Failed runs stay Failed.
+
+Recorded frozenf377224c/APKs unchanged, owner894f73…a4d6 exact, all80 unchanged
+sources plus two intentional production deltas,34 old helpers,206 protected plus
+two deltas,23 unrelated files and owned UUID cleanup passed. Relevant adapter/
+recreation results must be recorded separately; they cannot replace the unexercised
+real cross-app return boundary. Evidence: external `clipboard-return-repair-run-01`
+raw log/JSON and frozen01/candidate01. Repair acceptance Pending; Mobile Partial.
+
+## Repair adapter regression01 — independent bounded Passed audit
+
+Independent raw/JSON review confirms **Passed3/3,99.636s**, each exact expected
+OwnedClipboardPhysicalTest method[1,0],terminal[-1],anchored OK3,native0,zero failures/
+errors/skips,no watchdog/orchestration error. On the repaired production candidate,
+unchanged tests verify synthetic owned Dish cleanup after actual30s, synthetic
+replacement survival and newer Dish surviving the old deadline then clearing at
+its own deadline. Scope is actual foreground locked proof Activity and adapter;
+replacement is test-written synthetic data, not a distinct Chrome UID or genuine
+authenticated Cook/return flow. It cannot accept the unexercised real cross-app repair.
+
+Before/after audits bind frozenf377224c, installed/local/APK identities,80 unchanged
+sources plus exact two production deltas,34 old helpers,206 protected plus two
+deltas,23 unrelated, owner894f73…a4d6 and original UUID proof-directory set. Evidence:
+external `clipboard-return-repair-regression-adapter-01.{log,json}`. Recreation1
+still needs its separate result; strict repair01 stays setup Failed, real return
+acceptance Pending and Mobile Partial. No test assertions/source changed.
+
+## Repair recreation regression01 — independent bounded Passed audit
+
+Independent raw/JSON review confirms **Passed1/1,31.548s**, exact unchanged
+`realActivityRecreationPreservesOriginalClipboardDeadline` method[1,0],terminal[-1],
+anchored OK1,native0,zero failures/errors/skips,no watchdog/orchestration error.
+Scope is actual locked Activity recreation, retained synthetic owned Dish and
+cleanup at its original30s deadline. It does not prove authenticated session
+restoration, process death/natural LMK, Chrome replacement or the repaired return.
+
+Before/after audit again binds frozenf377224c/current/installed APKs, owner894f73…a4d6,
+80 unchanged sources plus the two exact production deltas,34 old helpers,206
+protected plus two deltas,23 unrelated and unchanged UUID proof-directory set.
+Evidence: external `clipboard-return-repair-regression-recreation-01.{log,json}`.
+Relevant adapter3/recreation1 now total4 Passed without assertion changes; repair
+strict01 remains setup Failed and genuine cross-app repair acceptance Pending.

@@ -57,10 +57,10 @@ open class MainActivity : FragmentActivity() {
         try { prompt!!.authenticate(info, BiometricPrompt.CryptoObject(cipher)) }
         catch (_: Exception) { prompt = null; failure(BiometricPromptFailure.OTHER) }
     }
-    override fun onStart() { super.onStart(); controller.start(); clipboard.setForeground(true) }
+    override fun onStart() { super.onStart(); controller.start(); clipboard.setForeground(window.decorView.hasWindowFocus()) }
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
-        if (hasFocus && ::clipboard.isInitialized) clipboard.reconcile()
+        if (::clipboard.isInitialized) clipboard.setForeground(hasFocus)
     }
     override fun onStop() { clearInputs(); controller.lock(); clipboard.setForeground(false); super.onStop() }
     override fun onDestroy() { cookbook.destroy(); controller.destroy(); super.onDestroy() }
