@@ -242,9 +242,42 @@ Original edge geometry/assertions unchanged except read-only diagnostics. Separa
 edge60 wrapper leaves default edge0 behavior; exact wrapper selector/strictcompletion
 reviewed. Metadata renamed explicitlyOptionalEdgeDwellMillis to avoid confusing
 center60 with defaultedge0. No code/runner blockers; corrected build04/frozen04
-testce61 exact. USB empty before install; matched edge-dwell04 remains not installed/
-not run, lastinstalled84dd separate. Owner894f73…a4d6 last verified after edge02.
+testce61 exact. USB empty before initial install14October; record remains historical.
+Reconnected15October/transport26, exactce61 installed-r/debug1f42 retained. Independent
+raw audit: dwell04 Failed1/1,1.709s [1,-2]/[-1], one60ms pair/allpointguards/stillEnglish;
+center04 Passed1/1,1.802s [1,0]/[-1]/OK1, two60ms pairs/exactEN→VI→EN switches.
+No watchdog/error; owner894f73…a4d6 before/after and final audit preserved, current/
+archived60/eighthelpers/protected208/23 exact. Same-candidate comparison supplies no
+production-cause or whole-target acceptance at that checkpoint.
+Later independent raw/archive audits: geometry01 Passed1.505s/source61/helper9/testc0fd,
+same bottom midpoint outside40dp layout/inside48dp declared touch, both enclosing
+layouts contain it and no observed scroll bounds cover it. Finger01 Passed2.464s/
+source63/helper10/test9a64, four native pairs at equal geometry/configured60ms:
+UNKNOWN retained all three localized controls; FINGER switched all three both ways.
+Eight events checked actual baseline constructorUnknown/public non-tool readback/tool
+readback/sourceTouchscreen; strict[1,0]/[-1]/OK1, no watchdog/error. Prior61/nine helpers/
+protected208/23/ownerbaseline exact. Accept selected new FINGER samples only, no
+retrospective old-event measurement/whole-target/production repair inference.
 [Evidence](language-touch-runtime.md). Production/old assertions untouched; Mobile Partial.
+
+## Manual shortcut checkpoint review — Partial
+
+New149-line fixture and bounded runner/publisher reviewed; before runtime corrected
+irreversible any-stop failure latch and exact active selected-start/no-failure gate.
+Source64/helper12/frozen03/04/APK identities retained, old63/ten helpers unchanged.
+Actual03 Failed182.485s setup/no ready, safe preterminal ownPID wrap15 evidence only;
+exact-UUID cleanup/owner preserved. Actual04 reached genuine secure masked Cook;
+actual terminal independently verified Failed1/1,236.235s [1,-2]/[-1], elapsed180429ms
+without owner-response completion, reveal/focus-loss=-1/stops0/anyStopFailurefalse.
+No watchdog/error; final exact-UUID cleanup/owner/source64/helper12/installed19b9/
+releaseefd3 match. Hardware shortcut remains Pending without confirmed observation.
+No owner observation/signal was fabricated; screenshot verdict remains separate.
+Late04 missing-button reply/phase ambiguity retained. Same-candidate05 reached ready;
+independent raw05 audit confirms Failed1/1,188.013s [1,-2]/[-1]/FAILURES/no watchdog/
+error, completion absent180421ms/reveal and focusloss=-1/stops0/anyStopFailurefalse.
+No owner05 record/signal; exact UUID cleanup/owner/source64/helper12/installed19b9/
+releaseefd3 match. No remaining code/docs blockers; actual shortcut still Pending.
+[Evidence](manual-shortcut-runtime.md). No whole-mobile/production-cause acceptance.
 
 Unresolved: original Cookbook UI Run01 cause and network Run03 key-wrap cause;
 cancellation/stale callbacks/401/403/LMK/task restoration/TalkBack and remaining phone matrix.

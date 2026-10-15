@@ -40,8 +40,20 @@ testb684/build55s9/102/lint0/11/1; no auth/capture/Google replay. TalkBack/LMK/t
 restore/provider errors/full matrix Pending; whole mobile remains Partial.
 [Language touch](reports/language-touch-runtime.md): center02 Passed1.852s, edge01/02
 Failed1.408s/1.211s, no whole48dp target credit; cause unknown. Dwell04 built/reviewed
-43s9/102/lint0/11/1/source60/testce61; USB empty before install, not run. Earlier
+43s9/102/lint0/11/1/source60/testce61; USB initially empty14October. Reconnected15October:
+exact candidate installed-r, dwell04 Failed1.709s/center04 Passed1.802s. Earlier
 source/APK/failures retained; old59 unchanged. No production change/clock/input bypass.
+Later geometry01 Passed1.505s, observed scroll coverage0. Paired pointer-kind finger01
+Passed2.464s/source63/helper10/test9a64: UNKNOWN retained localized UI/FINGER switched
+EN→VI→EN at equal guarded expanded midpoints/configured60ms, baseline constructor
+Unknown/readback checked. New samples accepted; old failures/full-target limits retained.
+[Manual shortcut](reports/manual-shortcut-runtime.md) Run03 Failed182.485s setup/
+current wrap15; same-source/APK04 reached genuine secure masked Cook then Failed
+236.235s owner-response completion wait. No observed reveal/stop/signal; hardware
+shortcut Pending. Source64/helper12/test19b9/owner/exact UUID cleanup preserved.
+Late04 missing-Reveal reply retained after terminal. Same-candidate05 genuine ready,
+Failed188.013s completion wait/no sampled reveal/stop. Current screen requested before
+further timed runtime; no production screenshot/owner-action cause inferred.
 
 ## Context and requirements
 

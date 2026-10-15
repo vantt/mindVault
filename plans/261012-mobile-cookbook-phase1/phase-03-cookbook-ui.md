@@ -102,7 +102,8 @@ Continue to real connection code; offline screens remain usable while disconnect
 - [x] Record selected EN/VI setup/manual Cook semantics and capture scope; raw-layout
   Locked01 and same-node-accessibility Capture01 remain Failed with original assertions.
   Later diagnostics distinguish40dp raw layout from48dp expanded touch bounds;
-  actual edge-pointer reachability remains unexecuted, no production defect inferred.
+  later edge01/02/dwell04 executions Failed; separate explicit-finger01 samples Passed,
+  whole-target acceptance remains unproved, no production cause inferred.
 - [ ] Broader physical layout and Vietnamese OS accessibility; owner TalkBack traversal,
   larger-font/orientation and broader accessibility remain Pending without observation.
 
@@ -114,9 +115,59 @@ provider-loaded cold02 later Passed8.886s; wider physical accessibility/layout P
 [VI OS association01](reports/vi-accessibility-runtime.md) Passed1.5s with one password
 node/descendant label; direct same-node checker stays Failed/TalkBack Pending.
 [Native language touch](reports/language-touch-runtime.md) center02 Passed1.852s;
-edge01/02 Failed, new matched-dwell04 not run due empty USB. No original assertion
-or production change; effective whole-target/layout/font/rotation acceptance open.
+edge01/02 Failed; after USB reconnect15October, matched-dwell04 Failed1.709s and
+same-candidate center04 Passed1.802s. No original assertion
+or production change; later paired explicit-finger01 Passed2.464s at the sampled
+midpoints. Effective whole-target/layout/font/rotation acceptance remains open.
 no blind retry or historical-cause inference.
+
+### Bounded geometry diagnostic plan —15October
+
+- [x] Planner reviewed a new locked UUID geometry-only fixture; retain all60 prior
+  sources/manifest/assertions and archived physical input candidates unchanged.
+- [x] Compile/review `language-edge-geometry-physical-test.kt` and its isolated runner.
+- [x] Observe the exact existing edge midpoint with the same ten point guards;
+  bound layout ancestry/merged-unmerged ScrollBy observations to32 each, emit only
+  booleans/dimensions/counts, and verify unchanged headline/foreground/record absence.
+- [x] Freeze exact new source/APK/helper identities; fresh device/digest/install-r
+  gates precede selected runtime. Geometry Passed means observations completed only.
+  Scroll overlap/disjoint lineage cannot prove event interception or a production cause.
+  Actual geometry01 Passed1.505s: target layout excludes sample, two enclosing layouts
+  contain it; observed scroll coverage0. Source61/helper9/testc0fd/owner digest preserved.
+
+### Paired pointer-kind plan —15October
+
+- [x] Planner reviewed separate native UNKNOWN/FINGER comparisons; preserve old61/
+  nine helpers. New `language-pointer-probe.kt` and `language-finger-physical-test.kt`
+  reuse the exact sampled geometry, secure locked guards and configured60ms dwell.
+- [x] Observe actual legacy constructor tool kind; reconstruct both variants with
+  readback equality for public non-tool fields/axes. Fresh equal geometry is required
+  before each variant; UNKNOWN retains headline/Master/toggle, FINGER switches all
+  three. Repeat both languages, separate two-pair counters for each kind.
+- [x] Review/compile/lint, freeze new exact source/APK/runner archive, then fresh
+  device/digest/install-r and selected runtime. No retrospective old-event readback,
+  production repair, whole touch rectangle or unrelated historical-cause inference.
+  Actual finger01 Passed2.464s/source63/helper10/test9a64: UNKNOWN retained UI,
+  FINGER switched both languages, four pairs/all field/point guards; owner preserved.
+
+### Owner hardware shortcut plan —15October
+
+- [x] Owner ready for genuine biometric and Power+VolumeDown; planner reviewed new
+  `manual-shortcut-physical-test.kt`, separate from accepted Recents/shell captures.
+- [x] Review/compile/freeze isolated checkpoint; retain old63 sources/ten helpers.
+- [x] Genuine UUID setup/Cook, secure masked-ready checkpoint with Reveal visible:
+  reached in Run04. Passive200ms observation preserves normal10s remask and jars.
+- [ ] Confirm owner Reveal immediately before shortcut and actual OS result;
+  no reveal/stop sampled or owner answer received within Run04's180s window.
+- [ ] Root writes exact-UUID completion signal only after actual owner answer;
+  JUnit certifies checkpoint/cleanup, owner reports OS message/method/Dish visibility
+  separately. Power-stop must clear session/Dish; uncertain timing stays Pending.
+  [Actual evidence](reports/manual-shortcut-runtime.md): Run03 Failed182.485s setup/
+  current wrap15; Run04 Failed236.235s completion wait. No fake signal or screenshot
+  acceptance. Owner/source64/helper12/exact UUID cleanup preserved; no production fix.
+  Late04 missing-button reply retained; clearer Run05 question, genuine ready then
+  Failed188.013s completion wait/no sampled reveal/stop. Current screen/labels requested
+  before another timed run; no active runtime. Same exact source/APK, prior failures kept.
 
 Implementation exists in the production app/shared/client paths above. Final local
 results and unchanged Golden evidence are recorded in [verification](reports/verification.md);

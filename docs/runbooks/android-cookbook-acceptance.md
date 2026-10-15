@@ -157,7 +157,7 @@ Pending. No source/time/auth bypass or hidden failure; earlier causes remain unk
 | Clipboard | Dish copy; real30second compare-clear; replaced/username text survives old cleanup | Passed foreground API36 ownership + same-process locked adapter recreation; background/authenticated recreation/process death/history/API26 fallback Pending |
 | Lifecycle | Navigation/edit/lock/background/recreation clear Dish and require unlock | Partial: edit/Back/background Run04, Google cache UI Run02 recreation, Recents03/offline cold02/Google cold02 Passed; broader background/task matrix Pending |
 | Session | Real5minute idle and10minute total despite activity, no deadline reset | Passed selected API36 foreground proof KEEP_SCREEN_ON: Idle05 341.722s and Total04 609.969s; earlier failures retained, broader timer UX Pending |
-| Security/UI | EN/VI, accessibility/layout, blocked capture/hidden Recents, sanitized own-app logs | Partial: secure shell capture/Recents03/VI OS field01/center taps02 Passed; edge01/02 Failed, dwell04 not run; OS shortcut/TalkBack/full layout Pending |
+| Security/UI | EN/VI, accessibility/layout, blocked capture/hidden Recents, sanitized own-app logs | Partial: secure shell capture/Recents03/VI OS field01/center02/04/explicit-finger01 Passed; legacy edge01/02/dwell04 Failed; OS shortcut/TalkBack/full layout Pending |
 | Recents lifecycle | Actual same-Activity stop/lock, preserved jars and genuine biometric reopen | Passed Run03 1/1,137.789s; Run01/02 failures retained; API36 proof KEEP_SCREEN_ON scope |
 
 Record candidate SHA/APK hash, device/API, timestamps, observer and evidence for
@@ -215,7 +215,27 @@ old direct same-node checker remains Failed, previous optionalVI ID0 cause unkno
 TalkBack spoken behavior/full layout remain Pending. [Native language input](../../plans/261012-mobile-cookbook-phase1/reports/language-touch-runtime.md)
 center02 Passed1.852s with two60ms native taps; edge01/02 Failed after one pair.
 Post-edge02 stillEnglish/foreguardtrue; no whole48dp target/undersized-defect claim.
-Separate matched edge-dwell04 compiled/reviewed but USB empty before install; not run.
+Matched edge-dwell04 initially blocked by USB on14October, then installed/run15October:
+Failed1.709s with configured60ms; same-candidate center04 Passed1.802s. Owner digest/
+old59/protected208/unrelated23 unchanged. Later geometry01 Passed1.505s, observed scroll
+coverage0. Separate paired explicit-tool finger01 Passed2.464s: at equal expanded
+midpoints/configured60ms, UNKNOWN retained localized UI and FINGER switched both
+directions. Actual baseline constructorUnknown and checked non-tool readback observed;
+old61/owner preserved. Accept new FINGER samples only; historical event properties/
+whole-target coverage remain open, no production repair claim.
+
+[Manual shortcut continuation](../../plans/261012-mobile-cookbook-phase1/reports/manual-shortcut-runtime.md)
+uses a separate genuine UUID setup/Cook and passive200ms reveal/lifecycle checkpoint;
+owner controls Reveal then immediate Power+VolumeDown. JUnit checkpoint is separate
+from actual owner OS-result/Dish-visibility evidence. Run03 Failed182.485s in setup
+with current wrap15 diagnostic; Run04 reached secure masked-ready Cook but Failed
+236.235s awaiting owner-response completion180s. No observed reveal/stop/answer or
+fabricated signal. Actual hardware shortcut stays Pending; original failures retained.
+Owner digest/source64/helper12/exact owned-directory cleanup verified after both runs.
+Late04 missing-Reveal reply arrived after terminal, timing unconfirmed. Clarified
+same-candidate05 reached ready then Failed188.013s completion wait, no sampled reveal/
+stop or confirmed screenshot; cleanup/digest preserved. Ask current screen/labels
+before a further timed run; no runtime remains active at this checkpoint.
 
 Separate owner checkpoint `owner-screenshot-recents-check` asks for hardware screenshot,
 inspection of only the own Recents card, then return to the app. Prepared fixture

@@ -1,5 +1,39 @@
 # Project Changelog
 
+## Record physical pointer probes and shortcut checkpoint (2026-10-15)
+
+Owner authorized USB debugging; fresh transport26/Awake/keyguardAbsent/digest guards
+passed. Exact previously compiled frozen04/source60/testce61 installed-r with retained
+debug1f42; no rebuild or production/driver/security/radio change. Matched edge-dwell04
+Failed1/1,1.709s: one configured60ms pair/all geometry guards but English retained.
+Center04 on the same candidate Passed1/1,1.802s with two60ms pairs/exact EN→VI→EN.
+Raw JUnit/native verdicts independently audited; no watchdog/orchestration error.
+Old59/protected208/unrelated23/owner digest preserved before/after/final native audit.
+[Actual touch evidence](../plans/261012-mobile-cookbook-phase1/reports/language-touch-runtime.md).
+Geometry01 Passed1.505s/source61/testc0fd, observed scroll coverage0. New paired
+explicit-tool finger01 Passed2.464s/source63/test9a64, all old61 unchanged: UNKNOWN
+retained localized UI/FINGER switched both directions at equal guarded expanded
+midpoints/configured60ms, with actual baseline constructorUnknown and checked public
+non-tool field equality. Geometry build55s10/101/finger build29s12/99, lint0/11/1.
+Accept new finger samples only; no production repair/whole-target/historical-event claim.
+Effective whole target and broader mobile matrix remain open;
+all previous failures and the14October USB-unavailable record retained. Mobile Partial.
+
+[Separate manual shortcut](../plans/261012-mobile-cookbook-phase1/reports/manual-shortcut-runtime.md):
+new149-line checkpoint/source64/helper12/test19b9; old63 assertions unchanged.
+Build01 Passed17s then stop-history review fixed irreversible failure latch; corrected
+build02 Passed14s/lint0/11/1. Publisher-only exact-selector/failure gates fixed before
+runtime, no APK rebuild. Early candidates retained, never installed/run.
+Run03 Failed1/1,182.485s setup, current own-PID wrap15 diagnostic/cause unknown.
+Same-source/APK Run04 reached genuine secure masked Cook, then Failed1/1,236.235s
+when owner-response completion did not arrive within180s; no sampled reveal/stop.
+No fabricated signal/shortcut verdict. Actual shortcut Pending; final native checks
+retain owner digest, all source/helper identities and exact UUID-directory cleanup.
+Late04 owner reply could not find Reveal; exact viewing phase unconfirmed, no signal.
+Same-candidate05 reached genuine ready but Failed188.013s completion wait, no sampled
+reveal/stop/confirmed screenshot. Exact UUID cleanup/digest preserved; root requested
+current screen/labels before another timed run, no production cause or acceptance inferred.
+
 ## Accept Google-loaded cold cache and VI OS field association (2026-10-14)
 
 Four androidTest-only files reuse the isolated cold Activity; all54 prior sources/

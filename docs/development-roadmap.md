@@ -88,10 +88,24 @@
   center02 Passed1.852s, edge01/02 Failed1.408s/1.211s with English retained after
   actualedge pair; no physical whole48dp target credit/cause resolution. Separate
   matched edge60 candidate04/source60/testce61 built/reviewed43s9/102/lint0/11/1,
-  USB empty before install, not run. Lastinstalled84dd/old59 preserved; owner digest
-  last verified after edge02. Spoken TalkBack/full layout/font/rotation still Pending.
+  USB initially empty14October. Reconnected15October, exactce61 installed-r:
+  edge-dwell04 Failed1.709s, same-candidate center04 Passed1.802s; historical event
+  types were not recorded. Old59/protected208/23/owner digest preserved through both runs.
+  Geometry01 Passed1.505s with scroll coverage0. New paired explicit-tool finger01
+  Passed2.464s/source63/helper10/test9a64: UNKNOWN retained UI/FINGER switched both
+  languages at equal guarded expanded midpoints/configured60ms. Accept new samples
+  only; old61/owner preserved, no production/whole-target/historical-event claim.
+  Spoken TalkBack/full layout/font/rotation still Pending.
   Earlier owner "can't take screenshot"
   report has unconfirmed shortcut/reveal timing, separate from accepted Recents card.
+  [Manual shortcut continuation](../plans/261012-mobile-cookbook-phase1/reports/manual-shortcut-runtime.md)
+  Run03 Failed182.485s during setup/current wrap15; Run04 reached genuine secure
+  masked Cook but Failed236.235s after180s without owner-response completion. Same
+  candidate05 also reached ready, Failed188.013s completion wait; no reveal/stop sampled.
+  No observed reveal/stop or fabricated signal; actual hardware shortcut Pending.
+  Source64/helper12/test19b9/owner and exact UUID cleanup verified; no production fix.
+  Late04 missing-button reply retained after terminal; current owner screen requested
+  before another timed run, no native runtime active.
 - [Keystore physical coverage follow-up](../archive/plans/261011-keystore-recovery/reports/current-device-acceptance.md):
   API26/no hardware/no enrollment, typed7/9 callbacks, exact process-kill/
   retry-exhaustion windows and precise Recents observation remain unexecuted.

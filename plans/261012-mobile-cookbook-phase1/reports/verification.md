@@ -253,10 +253,47 @@ center differs in point+dwell, no edge/cause credit. Original all assertions rem
 Source60/old59/protected208/23/digest preserved; only the new language file evolves.
 Build01/02/03/04 Passed51s/48s/52s/43s; latest9 executed/102 UP-TO-DATE,lint0/11/1.
 Build03 old metadata-name candidate never run; corrected04/testce61 optionaledge60
-wrapper compiled/reviewed. Install04 aborted before package checks, adbdevices empty,
-no runtime. Last installed/tested test84dd distinct from builtce61; current owner
-digest unavailable after disconnect, last successful runtime894f73…a4d6 retained.
-Releaseefd3 unchanged/no fresh JVM/browser. Matched edge-dwell result Pending USB.
+wrapper compiled/reviewed. Initial install attempt14October aborted before package
+checks, adbdevices empty/no runtime then. Reconnected15October transport26 with fresh
+Awake/keyguardAbsent/digest; exactce61 installed-r and retaineddebug1f42. Dwell04
+Failed1/1,1.709s [1,-2]/[-1], one configured60ms pair/all pointguards, stillEnglish.
+Same-candidate center04 Passed1/1,1.802s [1,0]/[-1]/OK1, two60ms pairs/bothUI switches.
+No watchdog/error; fresh owner894f73…a4d6/old59/protected208/23/source60/helpers8
+preserved. Both actual raw verdicts independently reviewed; no cause/full-target claim.
+Releaseefd3 unchanged/no fresh JVM/browser for these unchanged-source runtimes.
+Later geometry01 Passed1.505s/source61/helper9/testc0fd after build55s10/101/lint0/11/1:
+target layout excludes midpoint, both enclosing layouts contain it, observed scroll
+coverage0. New paired explicit-tool finger01 Passed2.464s/source63/helper10/test9a64,
+build29s12/99/lint0/11/1: UNKNOWN retained headline/Master/toggle; FINGER switched all
+three both directions at equal guarded midpoint/configured60ms. Four pairs/eight
+events with actual constructorUnknown/checked public non-tool equality/tool readback.
+Strict raw verdicts and exact archived identities independently reviewed; owner digest/
+old61/protected208/23 preserved. Accept new FINGER samples only; old failures, historical
+event-readback and whole-target limits remain. See exact report for audit-stage identities.
+
+## Manual hardware shortcut checkpoint — Partial
+
+[Exact evidence](manual-shortcut-runtime.md): one new149-line isolated checkpoint,
+all63 prior app sources/assertions and ten helpers retained. Build01 Passed17s10/101;
+review fixed a stop-failure history latch, corrected02 Passed14s9/102/lint0/11/1.
+Publisher-only selected-start/abort/failure gates fixed before runtime; frozen03/04
+source64/helper12/test19b9 exact, debug1f42 retained/releaseefd3 unchanged. Early
+candidate01/02 never installed/run; actual install03-r preserves owner digest.
+Run03 Failed1/1,182.485s [1,-2]/[-1], setup never ready; safe ownPID15980 preterminal
+wrap-doFinal/level2/code15/systemtrue/transienttrue/authRequiredfalse/retry2 observed,
+underlying cause/owner action unknown. Actual shortcut NotExercised in03.
+Same-source/APK04 reached genuine round-trip/Cook/secure masked-ready but Failed
+1/1,236.235s [1,-2]/[-1], owner-response completion absent at elapsed180429ms.
+First/lastReveal=-1/focusloss=-1/stops0; passive observation cannot prove no physical
+attempt. No owner answer or completion signal fabricated; hardware shortcut Pending.
+Both no watchdog/orchestration error, exact owned directories absent afterward,
+owner894f73…a4d6/source64/helper12/protected208/23 preserved. No production fix inferred.
+Late04 reply could not see Reveal, exact viewing phase unconfirmed. Same-candidate05
+with clarified bilingual button/location question reached genuine secure masked-ready;
+Failed1/1,188.013s [1,-2]/[-1]/FAILURES/no watchdog/error at completion wait180421ms.
+No reveal/focusloss/stop sampled or confirmed screenshot; no fabricated signal.
+Final exact UUID cleanup/digest/source64/helper12/installed19b9/releaseefd3 preserved.
+Owner's current screen/labels requested before another timed run; no active runtime.
 
 Unresolved: original Cookbook UI Run01 reveal failure, network Run03 key-wrap cause;
 cancellation/stale callbacks/401/403/LMK/task restoration/TalkBack and remaining phone matrix.
