@@ -276,3 +276,38 @@ matrix remain Pending. Root owns build/device/signal/evidence and announces owne
 
 These cases add coordinator wiring and cancellation evidence, not live Google cancel,
 401/403, SDK stale-callback or physical clipboard acceptance. Those remain Pending.
+
+## Selected real Google cancellation / stopped-result continuation
+
+Selected instrumentation is implemented; retain every existing source assertion
+and all historical candidates. Reuse `ColdStartProofActivity`,
+`ColdCacheUiFixture` and the real production Connect flow. An offline synthetic cache
+is sufficient for this preservation boundary; do not call it provider-loaded cache.
+
+- [x] Implement and independently review the selected fixture plus bounded host
+  runner; compile/lint Passed26s,lint0/11/1. Freeze70 current app sources, preserve
+  all68 old files and26 old helpers. Install-r exact test669a8c9c with owner digest
+  unchanged; no runtime launched while phone asleep. [Preparation](reports/google-cancellation-preparation.md).
+
+- [x] Set up the UUID-owned Cookbook with genuine biometric authorization, confirm
+  the synthetic offline Menu through UI, favorite/Cook it and freeze exact encrypted
+  jars/cache bytes plus RAM snapshot. Validate the allowed Google Menu argument.
+- [ ] Before Connect, register a read-only own-Activity stop monitor. Observe the
+  real `AndroidSheetsAuthorization.pending` identity on main; require an actual
+  external-resolution window and natural stop. At every stop require cleared
+  session/Dish/lifetime/token, no metadata/draft and unchanged cache/jars.
+- [ ] Announce the bounded owner cancellation checkpoint only after real pending
+  resolution is observed. Owner cancels the genuine Google UI and returns. Require
+  the observed pending result to be consumed, own foreground restored and the app
+  still locked with no old Dish/Copy or grant publication; compare exact preserved
+  cache/jars. A consumed pending reply does not alone prove `RESULT_CANCELED`.
+- [x] Record actual selected outcome separately from owner cancellation evidence:
+  Run01 NotExercised15.608s,1skip; usable metadata/token returned with no observed
+  resolution, pending request or stop. Cache/jars/owner digest and owned cleanup
+  preserved. No cancellation checkpoint or owner cancellation answer occurred;
+  external cancellation/stale acceptance remains Pending. Do not force grant/account
+  changes or inject results/tokens to manufacture an available prompt.
+
+This selects natural background/lock stale-result handling. Late callbacks after a
+different Menu, actual provider401/403 and provider-loaded cache cancellation remain
+Pending unless separately exercised. No permission/account change is implied.

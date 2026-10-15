@@ -2,6 +2,23 @@
 
 Status: **Local code verification passed**; selected device acceptance Passed,
 broader owner/device matrix Pending. Historical local snapshot below retained.
+Latest [Google cancellation preparation](google-cancellation-preparation.md) adds a
+reviewed selective external-resolution/natural-stop/stale-reply fixture. Final
+compile/lint Passed26s,lint0/11/1; frozen70/test669a8c9c installed-r with exact owner
+digest preserved. Old68 source/manifests, production/assertions and debug/release
+unchanged. No fresh JVM/browser; initially asleep, then owner-ready selected Run01
+NotExercised15.608s,[1,-4]/[-1]/OK1,1skip: SDK returned metadata without an observed
+external resolution. Exact cache/jars/owner/UUID cleanup preserved; cancellation/
+stale/401/403 acceptance remains Pending.
+Selected [mapping/tag UI Run01](menu-mapping-runtime.md) subsequently Passed1/1,
+36.892s,[1,0]/[-1]/OK1,0failures/errors/skips. Explicit duplicate/missing-role rejection,
+irregular-row remapping and unchanged tagged Recipe under wrong saved Menu accepted;
+exact cache/jars/owner/cleanup preserved. Source71/old70/helpers27/test3e5df260,
+build02Passed12s/lint0/11/1; production/debug/release and previous assertions unchanged.
+Later [screen-off/clipboard01/02](screen-off-clipboard-runtime.md) Failed37.492s/54.316s
+at copy+25s stop/noninteractive precondition; no hold/return acceptance. Same source/
+APKs across both; final build9s/lint0/11/1/source72/test181368be. Exact owner/old71/
+helper28/protected208/23/UUID cleanup retained; no production fix or inferred key timing.
 Current [session timer preparation](session-timer-runtime.md): test-APK/lint builds
 42s/13s/11s Passed, lint0/11/1; no fresh JVM execution. Idle Run01/02 Failed before
 baseline pointer and Run03/04 Failed at setup; Run05 actual5-minute idle Passed1/1,

@@ -12,6 +12,22 @@ Controlled [Google-loaded cache cold02](../../plans/261012-mobile-cookbook-phase
 Passed8.886s after verified SIGKILL and genuine biometric reopening.
 Cancellation/stale callbacks/401/403/LMK/task restoration and broader matrix Pending;
 original UI Run01 and network Run03 key-wrap causes unresolved.
+Selected [Google cancellation preparation](../../plans/261012-mobile-cookbook-phase1/reports/google-cancellation-preparation.md)
+compiles/reviews with70-source frozen01/test669a8c9c. External-resolution acceptance remains Pending;
+require an actual external Google resolution before requesting owner cancellation.
+Silent grant reuse earns no cancellation/stale acceptance; no account/grant changes
+force the prompt. Offline synthetic baseline is disclosed separately from provider cache.
+Actual Run01 NotExercised15.608s,1skip: SDK returned metadata without an observed
+external resolution; cache/jars/owner/owned cleanup preserved, no cancellation credit.
+Selected [mapping/tag UI Run01](../../plans/261012-mobile-cookbook-phase1/reports/menu-mapping-runtime.md)
+Passed1/1,36.892s: rejected duplicate-role/missing-Recipe mappings preserve exact
+last-good cache; explicit remap retains irregular/literal rows; unchanged tagged
+Recipe succeeds with its saved Menu and refuses another with no old Dish/Copy.
+Broader mapping proposals and device/UI cases remain separate Pending scope.
+[Screen-off/clipboard01/02](../../plans/261012-mobile-cookbook-phase1/reports/screen-off-clipboard-runtime.md)
+Failed37.492s/54.316s before the required predeadline screen-off gate; hold/return
+stages unexercised. Same source/APKs, owner digest/UUID cleanup preserved. Late02
+owner Power reply does not establish exact key time; background clipboard stays Pending.
 [Security/UI continuation](../../plans/261012-mobile-cookbook-phase1/reports/security-ui-runtime.md)
 locked pixels01 Passed1/1,2.321s and authenticated02 Passed1/1,25.890s: selected EN/VI
 setup/manual Cook and secure shell display exclusion. Selected owner hardware
@@ -148,10 +164,10 @@ Pending. No source/time/auth bypass or hidden failure; earlier causes remain unk
 |---|---|---|
 | Install/preflight | Debug package updated without clearing data; original encrypted Cookbook SHA256 unchanged before/after install and tests | Passed network-off Run04 exact candidate; original digest preserved after installs/all runs |
 | Offline Cook | Unlock with real jars; paste known Recipe; exact expected Dish | Passed Run04/05 with isolated synthetic jars and real fingerprint |
-| Tagged context | Correct Menu cooks; absent/wrong Menu refuses; previous Dish disappears | Partial: correct/absent Menu and edit clearing passed Run04; wrong different Menu Pending |
+| Tagged context | Correct Menu cooks; absent/wrong Menu refuses; previous Dish disappears | Selected Passed: correct/absent/edit Run04; unchanged Recipe under different saved Menu refuses and clears old Dish/Copy in mapping/tag Run01 |
 | Google consent | Registered package/signature; actual user grant; no token displayed/logged | Passed selected runtime scope: usable grant; owner confirmed account/consent in Google Run01 |
 | Menu/tab read | Real metadata and bounded values; selected tab remains explicit | Passed Google Run03: selected Test tab and exact literal fake schema/row, including00123 |
-| Mapping | Actual preview; confirm roles; duplicate/empty/ragged inputs handled | Partial: real Google preview/explicit role mapping Passed Run03; earlier offline flow Passed Run04; broader matrix Pending |
+| Mapping | Actual preview; confirm roles; duplicate/empty/ragged inputs handled | Partial: Google preview/mapping Run03; irregular-row/duplicate+blank-header explicit remap and invalid-role preservation mapping/tag Run01 Passed; ambiguous proposals/broader matrix Pending |
 | Offline/cache | Reopen private cache; search label/username; favorites/recent retain origin | Passed network-off Run04/recreation, synthetic offline cold02 5.993s and Google-loaded cold02 8.886s after verified SIGKILL; LMK/task restore Pending |
 | Errors/refresh | Cancel/401/403/network failure retain last good cache and clear stale results | Partial: actual NETWORK_FAILED exact cache/jars preservation and stale Dish/Copy absence Passed Run04;401/403/cancel/stale callback Pending |
 | Reveal | Masked default; explicit reveal hides after10seconds | Passed Run04/05, including KEEP_SCREEN_ON=false in Run05; historical Run01 cause unknown |

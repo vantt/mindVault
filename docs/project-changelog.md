@@ -1,5 +1,37 @@
 # Project Changelog
 
+## Record authenticated screen-off checkpoints (2026-10-15)
+
+Reviewed/compiled selected genuine Cook/Copy→owner screen-off→legal-return fixture;
+final build9s/lint0/11/1,source72/test181368be. Actual01/02 Failed37.492s/54.316s at
+copy+25s required stop/noninteractive gate; no35s hold/clipboard-return acceptance.
+Same source/APKs, no rebuild/install between attempts. Owner02 Power answer arrived
+after terminal; key time unknown. Owner/old71/helper28/protected208/23/UUID cleanup
+preserved. Production/assertions/deadlines unchanged; failures retained, Mobile Partial.
+[Evidence](../plans/261012-mobile-cookbook-phase1/reports/screen-off-clipboard-runtime.md).
+
+## Accept selected mapping and wrong-Menu UI (2026-10-15)
+
+Actual Xiaomi/API36 Run01 Passed1/1,36.892s: duplicate-role/missing-Recipe mappings
+refuse without replacing good cache; explicit remapping preserves irregular/Unicode/
+literal rows. Same tagged Recipe succeeds with its Menu and refuses another with
+no old Dish/Copy. JUnit[1,0]/[-1]/OK1,0failures/errors/skips; exact owner/UUID cleanup/
+source71/old70/helper27/protected208/23 preserved. Final build12s/lint0/11/1; production,
+debug/release and previous assertions unchanged. Mobile stays Partial.
+[Evidence](../plans/261012-mobile-cookbook-phase1/reports/menu-mapping-runtime.md).
+
+## Prepare selected Google cancellation checkpoint (2026-10-15)
+
+Add isolated instrumentation for real external Google resolution, natural background
+lock and stale pending-result consumption with exact offline cache/jar preservation.
+Actual cancellation remains a separate owner observation; silent grant reuse cannot
+earn live acceptance. Existing68 app source/manifests and all prior assertions remain
+unchanged. Final compile/lint Passed26s,lint0/11/1; new test APK669a8c9c, debug/release
+unchanged. Selected actual Run01 NotExercised15.608s,[1,-4]/[-1]/OK1,1skip: SDK
+returned metadata without a cancellable window. Cache/jars/owner and owned cleanup
+preserved; no actual cancellation/stale acceptance or fresh JVM/browser. Mobile Partial.
+[Prepared scope and evidence](../plans/261012-mobile-cookbook-phase1/reports/google-cancellation-preparation.md).
+
 ## Expand unattended Mobile source coverage (2026-10-15)
 
 Added six real CookbookSources/cache regressions for cancelled/readiness-bound

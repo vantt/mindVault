@@ -3,8 +3,8 @@
 Date:2026-10-12; updated2026-10-15 (Asia/Saigon). Status: **Partial — code/local checks Done; owner acceptance Pending**.
 Baseline: main `2579e29044924e1582b78414b0314baffc72abe5`.
 Owner authorized two agents: recheck the five browser slices and implement mobile.
-Production code is implemented and independently verified locally.
-Selected UI/cache/cold/clipboard/timers/capture/Recents/owner shortcut Passed; broader acceptance Pending.
+Selected UI/cache/cold/clipboard/timers/capture/Recents/owner shortcut/tag-mapping Passed; broader acceptance Pending.
+Latest: mapping01 Passed36.892s; Google cancellation01 NotExercised; screen-off01/02 Failed, no acceptance.
 Actual UI Run01 failed after reveal; [device evidence](reports/device-acceptance.md)
 and [unattended regressions](reports/unattended-regression.md) track investigation.
 

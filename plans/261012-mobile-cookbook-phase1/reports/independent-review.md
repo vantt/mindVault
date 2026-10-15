@@ -360,3 +360,121 @@ No test-evidence blocker found. Broader mobile remains Partial.
 
 Unresolved: original Cookbook UI Run01 cause and network Run03 key-wrap cause;
 cancellation/stale callbacks/401/403/LMK/task restoration/TalkBack and remaining phone matrix.
+
+## Google cancellation / stopped-result preparation —15October2026
+
+Independent review read both new instrumentation files (104/107lines), the final
+172-line external runner, raw build02 log and build-audit JSON. Main-aware reads
+avoid nested main dispatch; natural-stop failures are latched and fail before any
+NotExercised assumption. Skip requires no observed request/stop/pending and no busy
+source. Real pending identity, Google active-window package, natural stop, consumed
+reply and returned locked state gate stale-result acceptance. Cleanup uses nested
+finally. No production callback/session/token injection or old assertion change.
+
+The fixture creates its last-good offline synthetic cache through actual UI and
+genuine biometric setup. This is not provider-loaded cache cancellation acceptance.
+JUnit can certify the selected stale-reply preservation boundary, not the owner's
+cancellation action or exact Android resultCode. Owner observation remains separate.
+The runner requires selected class/method codes[1,0], terminal[-1], anchoredOK1,
+native0, no watchdog/error/failure diagnostics and the final success phase. Codes
+[1,-4] plus the explicit no-resolution phase mean NotExercised/Pending. Its quoted
+UUID-only cleanup query, owner digest and final source/artifact audit gate the result;
+final-audit errors are saved as Failed. No instrumentation outcome exists here yet.
+
+Build02 raw log confirms Passed26s,10executed/84UP-TO-DATE. Current lint XML contains
+0errors/11warnings/1hint. Independently recomputed frozen01/current/archive equality
+for70 app sources, both APKs, runner, baseline and frozen JSON. All68 prior app
+sources and26 historical helpers remain exact; releaseefd3 unchanged. Candidate01
+debug1f42/test669a8c9c identities match the current APKs. The earlier tracked491
+audit differed only in the permitted phase04 plan before documentation updates.
+
+Prepared only: no fresh JVM/browser execution, installation, actual Google prompt
+or runtime acceptance is claimed. Root's phone check found asleep/locked; runtime
+still requires fresh awake/keyguard/foreground gates and timely owner biometric/
+Google interaction. No remaining preparation blocker found. Mobile remains Partial;
+401/403, different-Menu callbacks and historical failure causes remain unresolved.
+
+Actual selected Google cancellation run01 is **NotExercised**,15.608s: independent
+raw-log/JSON read confirms selected codes[1,-4], terminal[-1], anchoredOK1, native0,
+0failures/errors and1skip; no watchdog/orchestration error. Genuine setup completed,
+but Connect returned usable metadata/token without an observed pending resolution,
+own stop or Google window. Exact baseline cache/jars assertions completed before the
+explicit assumption. This is consistent with SDK grant reuse, not actual cancellation
+or stale provider-callback acceptance; both remain Pending. Recorded post-audit has
+owner894f73…a4d6, old68/source70/helper26/protected208/unrelated23 preservation and
+exact UUID directory absent. Run01 and candidate01 remain retained; no permission/
+account change or production repair is inferred. Runtime artifacts:
+`/tmp/passchef-cookbook-device-acceptance/google-cancellation-run-01.{log,json}`.
+
+## Selected Menu mapping / wrong-Menu tag — independent actual Run01 audit
+
+Reviewed new139-line fixture and169-line host runner before runtime. Actual UI
+rejects duplicate role-column assignments and a missing Recipe column while keeping
+the last-good disk/RAM snapshot; explicit remapping then retains physical rows2/3/7/8,
+literal00123/Unicode and missing optional cells while omitting empty/invalid Recipes.
+Duplicate/blank headers remain exact in the preview and confirmed header. This
+fixture does not prove ambiguous automatic-column proposals. A genuine tagged Cook
+under the matching saved Menu provides the positive control; editable-text equality
+then proves the Recipe remains unchanged when choosing a distinct saved Menu.
+RECIPE_MISMATCH, absent Dish/Copy and preserved both caches/jars are actual assertions.
+
+Independent raw/JSON audit confirms selected Run01 **Passed1/1,36.892s**,codes[1,0],
+terminal[-1], anchoredOK1,native0,0failures/errors/skips,no watchdog/orchestration error.
+Build02 raw log Passed12s,9executed/85UP-TO-DATE; current lint XML0errors/11warnings/
+1hint. Recomputed frozen01/current/archive71 sources, prior70 and27 old helpers,
+runner/baseline/frozen JSON and both APK identities match. Install record binds
+debug1f42/test3e5df260 to the exact frozen candidate and unchanged owner digest.
+Runtime audit records protected208/unrelated23/release preservation, owner894f73…a4d6
+and exact UUID directory absent. No production or old assertion repair was required.
+
+Evidence: `/tmp/passchef-cookbook-device-acceptance/menu-mapping-run-01.{log,json}`
+and `menu-mapping-candidate-01/`. This accepts selected offline mapping/tag UI on
+Xiaomi/API36; no fresh JVM/browser suite or broader Menu/provider/platform acceptance
+is inferred. Google cancellation run01 remains NotExercised; cancellation/stale
+provider callback/401/403, ambiguous proposals and historical causes stay Pending.
+
+## Screen-off / clipboard selected Run01 — independent Failed evidence audit
+
+Reviewed the new132-line fixture and169-line runner before runtime. Actual UI Copy
+checks an exact owned sensitive marker while focused; natural stop/noninteractive
+must occur before25s, followed by sampled35s and a final still-off/cleared/cache gate.
+Clipboard is never inspected offscreen; return uses normal production reconciliation,
+and failure cleanup requires legal foreground plus the exact owned marker/text.
+These checks do not cover universal continuity, long background, LMK/recreation,
+cross-app replacement, exact background30s cleanup or clipboard history.
+
+Independent raw/JSON read confirms Run01 **Failed1/1,37.492s**,selected codes[1,-2],
+terminal[-1],FAILURES,native0,no watchdog/orchestration error. Genuine setup/cache/
+Cook/Copy completed and owner-power-off-now was published at elapsedCopy33ms.
+Failure was reported at25031ms with awake/resumed/focused=true and session still
+ready; the required predeadline stop/noninteractive condition was not fulfilled.
+No screen-off-observed-hold or wake/return marker exists, so no screen-off/background
+clipboard-cleanup acceptance is earned. The failed path's elapsedOff1ms is a timestamp
+assignment before the failed assertion, not observed evidence of screen-off.
+
+Recorded post-audit preserves owner894f73…a4d6, prior71 app sources/helper28,
+protected208/unrelated23 and the exact UUID directory is absent. Failure/candidate/
+logs remain retained; no production cause or repair is established. Owner action is
+being clarified before any retry; no assertion/deadline was weakened. Evidence:
+`/tmp/passchef-cookbook-device-acceptance/screen-off-clipboard-run-01.{log,json}`.
+Selected screen-off/clipboard acceptance remains Pending; Google cancellation run01
+still remains NotExercised and mapping Run01 retains its separate Passed scope.
+
+Selected screen-off Run02 also remains **Failed1/1,54.316s**. Independent raw/JSON
+read confirms[1,-2]/[-1]/FAILURES,native0,no watchdog/orchestration error. The Power
+marker was published at elapsedCopy29ms; at25025ms the app was still awake/resumed/
+focused and failed before any screen-off-observed-hold marker. Frozen02 retains the
+same72 source identities, APKs and runner as01; no rebuild/install was needed. The
+recorded audit again preserves owner894f73…a4d6, prior71/helper28/protected208/
+unrelated23 and exact UUID cleanup. Both failures/candidates/logs remain retained.
+
+Owner had clarified that Power was not pressed in01 and explicitly agreed to retry.
+Root reports the specific Power follow-up in02 was posted too late for the native25s
+window; the owner reply “Đã tắt màn hình” arrived after terminal completion. That
+late reply has no exact physical-key timestamp and cannot retroactively establish
+screen-off during the test. This is a coordination timing limit, not evidence of a
+production screen-off/clipboard defect or successful cleanup. No assertions or
+deadlines were weakened; selected acceptance remains Pending and no native wait is
+currently active. Evidence: `screen-off-clipboard-run-02.{log,json}` in the same
+external evidence directory. A later attempt needs a prepared owner checkpoint,
+without discarding either Failed verdict or claiming universal sampling continuity.

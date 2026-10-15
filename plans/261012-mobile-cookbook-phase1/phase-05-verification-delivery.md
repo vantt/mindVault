@@ -76,6 +76,15 @@ corrected; broader phone/provider matrix and historical causes remain Pending.
 
 ## Context and requirements
 
+[Google cancellation preparation](reports/google-cancellation-preparation.md): two new
+selected fixture files preserve all68 prior app source/manifests and existing assertions.
+Final compile/lint Passed26s10/84,lint0/11/1; frozen70/test669a8c9c, debug/release unchanged.
+Natural-stop/pending-result gates independently reviewed; no fresh JVM/browser runs.
+Actual external cancellation/stale acceptance remains Pending. After owner readiness,
+selected Run01 NotExercised15.608s with1skip: silent SDK authorization/metadata return,
+no observed external resolution. Exact cache/jars/owner/cleanup preserved; no new
+cancellation/stale acceptance inferred from this completed skipped attempt.
+
 [Overview](plan.md), [Core](../../docs/specs/mobile-core.md),
 [device runbook](../../docs/runbooks/android-keystore-device-proof.md).
 Prior Core/Keystore acceptance proves the foundation, not new Cookbook UI/OAuth.
@@ -147,13 +156,20 @@ Remaining owner/device checks, after the unattended follow-up:
 
 1. Actual Google cancellation/stale callbacks/401/403 with cache/jar preservation.
    Selected grant/read/mapping/cache, actual network failure and controlled cold passed.
-2. Wrong-Menu tagged Recipe and broader mapping UI; local policy tests already pass.
+2. Broader mapping proposals/limits/UI: selected wrong-Menu tagged Recipe and irregular
+   explicit-mapping acceptance [Run01 Passed36.892s](reports/menu-mapping-runtime.md).
 3. Screen-off/long-background/natural LMK/saved-task restoration; authenticated
    clipboard/background/cross-app replacement observation and legal reconciliation.
 4. TalkBack, larger fonts/orientation and full language touch-target coverage.
    Secure shell capture/Recents/owner revealed-Dish shortcut07 already accepted.
 5. Historical UI/setup/wrap causes remain open. Additional Keystore API/device cases
    are separately tracked; accepted current-Xiaomi scope is not reopened.
+
+[Screen-off/clipboard](reports/screen-off-clipboard-runtime.md) selected01/02 Failed
+37.492s/54.316s at copy+25s predeadline stop/noninteractive gate; no hold/return stages.
+Both native0 but JUnit[1,-2]/[-1]/FAILURES; owner/source72/old71/helper28/protected208/23/
+UUID cleanup retained. Owner02 response arrived after terminal, exact key time unknown.
+No production correction or new background clipboard/lifecycle acceptance inferred.
 
 Historical cache continuation build88s Passed fresh app4; shared78/bridge16/standalone29 retained.
 Helper-only sync build40s Passed, lint0/11/1. Default storage recreation Passed1/1,

@@ -277,3 +277,67 @@ total failures retained, original causes unknown. Broader timer UX remains Pendi
 Original UI Run01/network Run03 wrap
 causes and cancellation/401/403/cold-start/process-death/capture/ENVI/accessibility
 remain open; whole mobile stays Partial.
+
+## Selected wrong-Menu Recipe and mapping UI continuation
+
+Google cancellation run01 could not exercise external resolution because the SDK
+returned a usable grant without a prompt. That scope stays Pending. This independent
+current-MVP UI boundary Passed selected Run01,36.892s on Xiaomi/API36.
+
+- [x] Reuse UUID-owned proof storage and genuine biometric setup; seed a last-good
+  synthetic Menu through production UI, freeze encrypted jars and exact cache/RAM.
+- [x] Through actual mapping controls, submit duplicate role-column assignments
+  and a blank required Recipe column. Require INVALID_MAPPING, retained draft and
+  exact last-good cache/jars. Explicit valid remapping must recover without bypass.
+- [x] Confirm a bounded synthetic table with ragged/empty/invalid-Recipe rows and
+  literal Unicode/00123 values; assert exact projected entries, original row numbers
+  and missing optional-cell behavior. Selected duplicate/blank header preview and
+  explicit roles Passed; ambiguous automatic Recipe-column proposals remain Pending.
+- [x] Save a second distinct Menu context via UI. Cook a synthetic tagged Recipe
+  successfully under its matching Menu, then select the other Menu without editing
+  the Recipe. Require RECIPE_MISMATCH with no previous Dish/Copy; preserve jars/cache.
+- [x] Independent review then root-only compile/lint/freeze/install-r/preflight and
+  owner-ready selected runtime. Keep every existing assertion/candidate unchanged,
+  each new file below200lines and owner Cookbook digest exact before/after.
+
+Actual Run01: selected[1,0]/terminal[-1]/OK1,native0,0failures/errors/skips; exact
+rows2/3/7/8, preserved original cache/jars and both cache files after mismatch.
+Frozen71/prior70/helper27/protected208/unrelated23/owner digest and owned UUID cleanup
+preserved. Selected offline UI acceptance does not accept live provider errors,
+broader mapping limits or whole-Mobile completion; Mobile remains Partial.
+
+## Selected authenticated screen-off / clipboard return continuation
+
+- [x] Reuse genuine UUID-owned setup/cache/Cook; actual UI Copy must produce the
+  unique owned sensitive clipboard marker and exact synthetic Dish while focused.
+  Freeze encrypted jars/cache and original Activity/PID; retain production deadlines.
+- [ ] Announce bounded owner Power-off checkpoint. Require actual noninteractive
+  state and natural stop before the original30s clipboard deadline; a late screen-off
+  cannot earn background-cleanup credit. Assert locked/cleared session/token/Dish
+  and exact cache/jars, with no clipboard read while offscreen.
+- [ ] Sample>=35s noninteractive state and require a final offscreen check with no observed early wake;
+  root prompts owner wake/unlock only after native elapsed evidence reaches it.
+  Return must be the same Activity/PID, focused/interactive/keyguard absent, still
+  locked with no old Dish/Copy. Read clipboard only behind those foreground guards.
+- [ ] Observe original owned clipboard absence after normal production foreground
+  reconciliation; never manually invoke reconcile. Preserve any unrelated clipboard
+  content and perform failure cleanup only for the exact owned marker/text when legal.
+- [x] Review/build/freeze/install-r/preflight before owner wait; root runs only this
+  method and records source/owner digest/UUID cleanup plus actual outcome separately.
+
+This selects35s screen-off/background and return. Long-background UX, natural LMK,
+saved-task restoration, authenticated recreation/process death, cross-app replacement
+and clipboard history remain separate; no exact background30s removal promise.
+
+Run01 Failed1/1,37.492s,[1,-2]/[-1]/FAILURES,native0,no watchdog/error. Genuine
+authenticated Cook/Copy completed; at25031ms awake/resumed/focused remained true and
+the predeadline stop/noninteractive gate was unfulfilled. Hold/return stages were
+not reached; selected runtime acceptance stays Pending. Exact owner/prior71/helper28/
+protected208/unrelated23/UUID cleanup retained. Clarify owner action before retry;
+preserve Failed evidence and existing assertions/deadlines, infer no production cause.
+Same-source/APK Run02 Failed1/1,54.316s,[1,-2]/[-1]/FAILURES,native0,no watchdog/
+error. At25025ms awake/resumed/focused remained true; hold/return stages were not
+reached. Owner's later screen-off reply arrived after completion and cannot accept
+the timed case. Preserve both failures; improve checkpoint coordination before
+another attempt. No rebuild/install, assertion change or production repair occurred.
+[Exact evidence](reports/screen-off-clipboard-runtime.md); exact key timestamp unknown.
