@@ -176,8 +176,11 @@ is app-private and excluded from backup, but is not encrypted.
 The existing strong-biometric/original-password foundation and five-minute idle /
 ten-minute total lock remain. Debug uses `dev.passchef.mobile.demo` separately from
 release. Selected Xiaomi/API36 Cook/reveal and foreground clipboard checks passed,
-including clipboard cleanup through Activity recreation. Broader phone/session
-acceptance remain Pending; selected Android Google grant/read/mapping/cache-file
+including clipboard cleanup through Activity recreation. Selected authenticated
+[owner-Copy screen-off01](plans/261012-mobile-cookbook-phase1/reports/owner-screen-off-clipboard-runtime.md)
+passed sampled35s screen-off and same-Activity legal-return clipboard cleanup;
+cross-app/authenticated recreation/process-death/history and exact background30s
+remain unaccepted. Selected Android Google grant/read/mapping/cache-file
 checks passed. Google cache UI/Cook and authenticated same-process recreation passed
 selected [cache UI Run02](plans/261012-mobile-cookbook-phase1/reports/google-cache-ui-runtime.md);
 [network-off Run04](plans/261012-mobile-cookbook-phase1/reports/network-off-runtime.md)

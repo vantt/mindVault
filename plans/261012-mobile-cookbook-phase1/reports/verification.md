@@ -19,6 +19,19 @@ Later [screen-off/clipboard01/02](screen-off-clipboard-runtime.md) Failed37.492s
 at copy+25s stop/noninteractive precondition; no hold/return acceptance. Same source/
 APKs across both; final build9s/lint0/11/1/source72/test181368be. Exact owner/old71/
 helper28/protected208/23/UUID cleanup retained; no production fix or inferred key timing.
+Later unchanged screen-off03 Failed105.248s at copy+25035ms; fresh transport31/
+awake/unlocked checks and genuine setup/Cook/Copy, but no stop/noninteractive gate.
+Late owner Power reply retained separately; source72/APKs/owner/UUID cleanup unchanged.
+No build/install or new screen-off/clipboard acceptance. Separate owner-Copy variant
+preparation addresses host-message timing while retaining all earlier failures.
+New [owner-Copy screen-off01](owner-screen-off-clipboard-runtime.md) subsequently
+Passed1/1,121.836s,[1,0]/[-1]/OK1,0failures/errors/skips. Real owner Copy bound to
+production deadline/generation; stop/noninteractive at copy+2414ms, still off/locked
+at off+35101ms, legal focused return at copy+64908ms with clipboard absent and exact
+cache/jars/owner preserved. SameActivity/PID19125,source74/old72/helpers29/ownedcleanup
+accepted. Final build10s10/84/lint0/11/1,test96c8ea99; old72/debug/release/assertions
+unchanged. Sampled35s offscreen plus legal-return scope only; no precise background30s,
+LMK/recreation/cross-app/history credit. Original Failed01–03 remain; Mobile Partial.
 Current [session timer preparation](session-timer-runtime.md): test-APK/lint builds
 42s/13s/11s Passed, lint0/11/1; no fresh JVM execution. Idle Run01/02 Failed before
 baseline pointer and Run03/04 Failed at setup; Run05 actual5-minute idle Passed1/1,

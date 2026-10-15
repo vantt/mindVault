@@ -308,18 +308,21 @@ broader mapping limits or whole-Mobile completion; Mobile remains Partial.
 
 ## Selected authenticated screen-off / clipboard return continuation
 
+Selected gates below Passed through the owner-controlled variant recorded below;
+the original automatic-Copy method's Failed01/02/03 verdicts remain unchanged.
+
 - [x] Reuse genuine UUID-owned setup/cache/Cook; actual UI Copy must produce the
   unique owned sensitive clipboard marker and exact synthetic Dish while focused.
   Freeze encrypted jars/cache and original Activity/PID; retain production deadlines.
-- [ ] Announce bounded owner Power-off checkpoint. Require actual noninteractive
+- [x] Announce bounded owner Power-off checkpoint. Require actual noninteractive
   state and natural stop before the original30s clipboard deadline; a late screen-off
   cannot earn background-cleanup credit. Assert locked/cleared session/token/Dish
   and exact cache/jars, with no clipboard read while offscreen.
-- [ ] Sample>=35s noninteractive state and require a final offscreen check with no observed early wake;
+- [x] Sample>=35s noninteractive state and require a final offscreen check with no observed early wake;
   root prompts owner wake/unlock only after native elapsed evidence reaches it.
   Return must be the same Activity/PID, focused/interactive/keyguard absent, still
   locked with no old Dish/Copy. Read clipboard only behind those foreground guards.
-- [ ] Observe original owned clipboard absence after normal production foreground
+- [x] Observe original owned clipboard absence after normal production foreground
   reconciliation; never manually invoke reconcile. Preserve any unrelated clipboard
   content and perform failure cleanup only for the exact owned marker/text when legal.
 - [x] Review/build/freeze/install-r/preflight before owner wait; root runs only this
@@ -332,7 +335,7 @@ and clipboard history remain separate; no exact background30s removal promise.
 Run01 Failed1/1,37.492s,[1,-2]/[-1]/FAILURES,native0,no watchdog/error. Genuine
 authenticated Cook/Copy completed; at25031ms awake/resumed/focused remained true and
 the predeadline stop/noninteractive gate was unfulfilled. Hold/return stages were
-not reached; selected runtime acceptance stays Pending. Exact owner/prior71/helper28/
+not reached; original-method hold/return acceptance remains unearned. Exact owner/prior71/helper28/
 protected208/unrelated23/UUID cleanup retained. Clarify owner action before retry;
 preserve Failed evidence and existing assertions/deadlines, infer no production cause.
 Same-source/APK Run02 Failed1/1,54.316s,[1,-2]/[-1]/FAILURES,native0,no watchdog/
@@ -341,3 +344,40 @@ reached. Owner's later screen-off reply arrived after completion and cannot acce
 the timed case. Preserve both failures; improve checkpoint coordination before
 another attempt. No rebuild/install, assertion change or production repair occurred.
 [Exact evidence](reports/screen-off-clipboard-runtime.md); exact key timestamp unknown.
+
+## Owner-controlled Copy → Power diagnostic variant
+
+Preserve original72 files, production, assertions/deadlines and Failed01/02/03
+evidence. A separate selected fixture moves Copy to the owner so no host round trip
+is needed between actual Copy and Power. Preparation alone earns no acceptance.
+
+- [x] Prepare genuine setup/cache and a masked, ready synthetic Dish with the Copy
+  button visible and IME hidden. Register the foreground clipboard listener on main
+  and record baseline policy generation before emitting a bounded180s ready marker.
+- [x] Owner taps Copy Dish, observes Copied, then immediately presses Power. Listener
+  checks actual resumed/focused/awake/keyguard-absent state directly on main;
+  no nested instrumentation dispatch or clipboard read after foreground is lost.
+- [x] Bind observed marker to the actual adapter label, exact synthetic text,
+  sensitive flag and COPIED status. Read-only policy deadline yields production
+  copiedAt=deadline−30000; require preparedAt<=copiedAt<=observedAt<deadline and
+  generation exactly baseline+1. Publish one immutable observation; reject later
+  production copies without moving the accepted timestamp or deadline.
+- [x] Retain actual stop/noninteractive before copiedAt+25s, sampled>=35s plus final
+  offscreen/locked/cache guard, same Activity/PID, legal focused return and exact
+  cache/jars assertions. The listener timestamp never substitutes for production
+  copy time. An offscreen/unobserved Copy cannot earn credit from a later owner reply.
+- [x] Never read clipboard offscreen or invoke manual reconciliation. Unregister
+  listener/lifecycle observers on every path; cleanup only exact owned marker/text
+  under legal foreground and only UUID-owned keys/files. Record cleanup limits.
+- [x] Independently review/build/freeze new inventory/runner before owner-ready
+  selective runtime; retain all earlier candidates and failures. Keep observed
+  clipboard return separate from long-background/LMK/recreation/cross-app/history.
+
+Owner-controlled Run01 Passed1/1,121.836s,[1,0]/[-1]/OK1,native0,0failures/errors/
+skips,no watchdog/error. Actual Copy observed at96ms; stop/noninteractive hold marker
+atcopy+2414ms; final-off wake marker atoff+35101ms/copy+37513ms. SamePID19125 returns
+focused and locked atcopy+64908ms with no original clipboard/Dish/Copy and exact
+cache/jars. The later elapsedOff62496ms counter includes wake/return time; it does
+not prove62.496s continuously off. Owner/source74/old72/helper29/protected208/23/
+release/UUID cleanup preserved. This selected35s sampled-off/return boundary Passed;
+broader background/LMK/recreation/cross-app/history/exact background30s remain Pending.

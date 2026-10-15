@@ -478,3 +478,68 @@ deadlines were weakened; selected acceptance remains Pending and no native wait 
 currently active. Evidence: `screen-off-clipboard-run-02.{log,json}` in the same
 external evidence directory. A later attempt needs a prepared owner checkpoint,
 without discarding either Failed verdict or claiming universal sampling continuity.
+
+## Original screen-off Run03 and owner-controlled preparation
+
+Independent raw/JSON audit confirms original-method Run03 **Failed1/1,105.248s**,
+codes[1,-2]/terminal[-1]/FAILURES,native0,no watchdog/orchestration error. The failure
+sample at copy+25035ms remained awake/resumed/focused; no hold/wake-return stage
+was reached. Exact owner observation03 says “Đã tắt màn hình” arrived after native
+terminal, with physical key time unknown. Post-audit records owner894f73…a4d6,
+prior71/helper28/protected208/unrelated23 preservation and owned directory absent.
+This adds no screen-off/clipboard acceptance and establishes no production cause.
+
+Reviewed separate owner-controlled fixture137/helper70 and169-line runner; all72
+old app files remain exact. Normal Back→row Cook produces actual masked Dish with
+visible Copy/hidden IME before a bounded180s owner wait. Foreground-only normal
+Compose idle permits Copied presentation updates; observation errors fail promptly.
+Owner Copy→Power needs no host round trip. Main clipboard listener binds exact own
+sensitive synthetic content/adapter label/COPIED to generation baseline+1 and the
+unchanged production deadline. copiedAt=deadline−30000 must fall after preparation
+and before observation; generation changes fail instead of renewing any clock.
+The listener reads no clipboard after lost foreground or first capture. Volatile copiedAt is
+published after its accompanying fields; required main-thread reads avoid nesting.
+Original25s stop, sampled>=35s/final-off, locked return/cache/jar gates remain.
+Listener removal errors propagate while nested finally still guarantees other owned
+cleanup. None of these observations changes production, old assertions or deadlines.
+
+Build03 raw log confirms Passed10s,10executed/84UP-TO-DATE; current lint XML0errors/
+11warnings/1hint. Independently recomputed frozen01/current/archive74 source files,
+old72/29 historical helpers, runner/baseline/frozen JSON and debug/test/release match.
+Install01 record binds exact debug1f42/test96c8ea99 to the frozen candidate and exact
+owner digest before/after; releaseefd3 unchanged. No fresh JVM/browser run inferred.
+At this preparation checkpoint root found phone asleep/locked; no owner-controlled
+instrumentation outcome exists. Fresh readiness/preflight is required before runtime.
+Evidence: external `owner-screen-off-clipboard-frozen-01.json`, `candidate-01/`,
+`install-01.json`, `owner-screen-off-build-03.log` and original `screen-off-clipboard-`
+run/owner-observation03 files. Original Failed01/02/03 remain retained; selected
+screen-off/clipboard acceptance and broader Mobile status remain Pending/Partial.
+
+## Owner-controlled screen-off Run01 — independent actual acceptance
+
+Independent raw/JSON audit confirms **Passed1/1,121.836s**,selected[1,0],terminal[-1],
+anchoredOK1,native0,0failures/errors/skips,no watchdog/orchestration error. Actual
+policy-bound Copy was observed atcopy+96ms; natural stop/noninteractive hold marker
+atcopy+2414ms, with cleared session and not-resumed Activity. After sampled35s, the
+final-off wake marker atoff+35101ms/copy+37513ms still reports noninteractive/locked.
+Actual legal focused return atcopy+64908ms is still locked with no old Dish/Copy,
+no original primary clipboard and exact cache/jars. All phases retain PID19125.
+ElapsedOff62496ms at completion is time since the off observation including return;
+it does not establish a continuous62.496s screen-off interval or an exact Power time.
+
+Read exact owner observation01: “Đã Copy và tắt màn hình” before wake instruction,
+then “Đã bật, mở khóa và trở lại app” after the native wake checkpoint. These agree
+with executed phases without substituting owner receipt time for physical-key time.
+Recomputed current/frozen/archive74, prior72 and29 helper identities, both APKs,
+frozen/install/run bindings match. Post-audit records exact owner894f73…a4d6,
+protected208/unrelated23/release preservation and UUID directory absent. Candidate
+test96c8ea99/debug1f42 retains the reviewed source; build03 raw10s10/84 and lint0/11/1
+are compilation evidence, not fresh JVM/browser tests. No production repair occurred.
+
+Accept selected same-Activity/process authenticated Copy→sampled>=35s screen-off→
+legal locked return and clipboard absence on Xiaomi/API36. Original automatic-Copy
+Failed01/02/03 remain Failed. Natural LMK/task restoration, authenticated recreation/
+process death, cross-app replacement/history, exact background30s and long-background
+UX remain Pending; Google cancellation01 stays NotExercised and Mobile stays Partial.
+Evidence: external `owner-screen-off-clipboard-` prefix for `run-01.{log,json}`,
+`owner-observation-01.json`, `frozen-01.json`, `install-01.json` and `candidate-01/`.

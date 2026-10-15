@@ -1,5 +1,17 @@
 # Project Changelog
 
+## Accept owner-controlled Copy and screen-off return (2026-10-15)
+
+Owner Copy→Power fixture removes the host-message race after automatic Copy while
+retaining original production deadlines, prior72 files/assertions and Failed01–03.
+New passive listener binds exact owned clipboard marker to actual policy deadline/
+generation; no repeated-Copy renewal or offscreen clipboard read. Selected Xiaomi/
+API36 Run01 Passed1/1,121.836s: sampled35s off/locked, same-Activity legal return,
+clipboard absent and exact cache/jars/owner/UUID cleanup preserved. Final build10s
+10executed/84UP-TO-DATE,lint0/11/1,source74/test96c8ea99; no fresh JVM/browser or
+production repair. Broader lifecycle/clipboard/provider/accessibility Pending; Mobile
+Partial. [Evidence](../plans/261012-mobile-cookbook-phase1/reports/owner-screen-off-clipboard-runtime.md).
+
 ## Record authenticated screen-off checkpoints (2026-10-15)
 
 Reviewed/compiled selected genuine Cook/Copy→owner screen-off→legal-return fixture;

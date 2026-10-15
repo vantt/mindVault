@@ -158,8 +158,9 @@ Remaining owner/device checks, after the unattended follow-up:
    Selected grant/read/mapping/cache, actual network failure and controlled cold passed.
 2. Broader mapping proposals/limits/UI: selected wrong-Menu tagged Recipe and irregular
    explicit-mapping acceptance [Run01 Passed36.892s](reports/menu-mapping-runtime.md).
-3. Screen-off/long-background/natural LMK/saved-task restoration; authenticated
-   clipboard/background/cross-app replacement observation and legal reconciliation.
+3. Long-background/natural LMK/saved-task restoration; authenticated recreation/
+   process-death/cross-app clipboard. Selected owner-Copy35s screen-off/same-Activity
+   legal-return clipboard observation [Passed121.836s](reports/owner-screen-off-clipboard-runtime.md).
 4. TalkBack, larger fonts/orientation and full language touch-target coverage.
    Secure shell capture/Recents/owner revealed-Dish shortcut07 already accepted.
 5. Historical UI/setup/wrap causes remain open. Additional Keystore API/device cases
@@ -170,6 +171,10 @@ Remaining owner/device checks, after the unattended follow-up:
 Both native0 but JUnit[1,-2]/[-1]/FAILURES; owner/source72/old71/helper28/protected208/23/
 UUID cleanup retained. Owner02 response arrived after terminal, exact key time unknown.
 No production correction or new background clipboard/lifecycle acceptance inferred.
+Separate owner-controlled diagnostic01 later Passed121.836s with actual single-Copy
+deadline/generation, sampled35s screen-off and legal locked return/clipboard absence.
+See [accepted bounded scope](reports/owner-screen-off-clipboard-runtime.md); original
+Failed01–03 remain Failed, broader matrix stays Pending and Mobile stays Partial.
 
 Historical cache continuation build88s Passed fresh app4; shared78/bridge16/standalone29 retained.
 Helper-only sync build40s Passed, lint0/11/1. Default storage recreation Passed1/1,

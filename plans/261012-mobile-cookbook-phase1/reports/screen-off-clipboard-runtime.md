@@ -1,6 +1,9 @@
 # Authenticated Copy / screen-off checkpoint —15October2026
 
-Status: **Run01/02 Failed; screen-off/clipboard acceptance Pending; Mobile Partial**.
+Status: **Original Run01/02/03 Failed; separate owner-Copy Run01 Passed; Mobile Partial**.
+The [owner-controlled variant](owner-screen-off-clipboard-runtime.md) accepted selected
+same-Activity authenticated screen-off/clipboard return; these original attempts
+remain Failed and broader acceptance stays Pending.
 New132-line selected test uses the existing UUID-owned `ColdStartProofActivity` and
 genuine owner biometric setup. Production, previous assertions and deadlines unchanged.
 
@@ -45,7 +48,8 @@ Install-r updated only test APK; installed identities equal both frozen candidat
 
 ## Actual outcomes, Xiaomi/API36
 
-Both attempts freshly verify serialPN7PW8SGXKLVPRIV/transport30,awake/keyguard absent,
+All attempts freshly verify serialPN7PW8SGXKLVPRIV, awake/keyguard absent
+(transport30 for01/02;31 for03),
 installed identities and owner digest before selected instrumentation. Own secure
 foreground guards actual UI. Native0 alone is never interpreted as JUnit Passed.
 
@@ -53,11 +57,12 @@ foreground guards actual UI. Native0 alone is never interpreted as JUnit Passed.
 |---|---|---|
 | 01 | Failed1/1,37.492s;[1,-2]/[-1]/FAILURES | Genuine setup/cache/Cook/Copy; at25031ms still awake/resumed/focused; required stop/noninteractive gate unmet |
 | 02 | Failed1/1,54.316s;[1,-2]/[-1]/FAILURES | Same source/APKs; genuine setup/cache/Cook/Copy; at25025ms still awake/resumed/focused; same gate unmet |
+| 03 | Failed1/1,105.248s;[1,-2]/[-1]/FAILURES | Same source/APKs after fresh transport31/unlocked preflight; at25035ms still awake/resumed/focused; no stop/hold marker |
 
-Neither reached `screen-off-observed-hold` or `owner-wake-unlock-return-now`.
+None reached `screen-off-observed-hold` or `owner-wake-unlock-return-now`.
 The diagnostic `ElapsedOff`0/1ms comes from assigning a candidate observation start
 before the failed precondition. It is **not** a measured screen-off interval.
-Both have native0,no watchdog/orchestration error and terminal Failed evidence.
+All three have native0,no watchdog/orchestration error and terminal Failed evidence.
 
 After Run01 terminal, owner replied exactly “Chưa bấm; có thể thử lại ngay”; root
 retried the unchanged candidate with fresh prerequisites. In Run02 the async Power
@@ -66,26 +71,38 @@ The reply arrival does not establish the physical key timestamp. Do not infer ow
 inaction from missing samples or reinterpret this late answer as accepted screen-off.
 Root told owner the run had ended and the phone could be woken/unlocked.
 
-Both UUID directories are absent after terminal:
+All three UUID directories are absent after terminal:
 01 `c0cf0725-bbd8-44f4-826a-ef1192410b3b`;
 02 `8b7416f6-391b-449c-b813-f4ff3f6621a2`.
+03 `cdfee7c9-f1d3-4067-9dd1-74d036be5c9c`.
 Source/APK/helper/protected/unrelated audits match; original Cookbook digest stays
 `894f73e51e316b6a369368ad4cebbc901609ccfe7eabe855aa73c2cbf4e7a4d6`
 before/after each installation/runtime. Directory cleanup is not clipboard-history proof.
-Neither failure establishes a production bug or justifies changing deadlines/assertions.
+None of these failures establishes a production bug or justifies changing deadlines/assertions.
 
 ## Evidence and continuation
 
 `/tmp/passchef-cookbook-device-acceptance/screen-off-clipboard-` prefix retains
 baseline01,build01/02 logs,build01-source snapshot,runner,frozen01/02,candidate01/02,
-install01,run01/02 raw logs/JSON/preflights/immediate-prelaunch and exact owner
-observations01/02. Frozen HEAD stays historical after a later commit.
+install01,run01/02/03 raw logs/JSON/preflights/immediate-prelaunch, frozen03/candidate03
+and exact owner observations01/02/03. Frozen HEAD stays historical after a later commit.
 
 Before another attempt, arrange the owner action checkpoint so the Power instruction
 is visible promptly, then yield in time; no blind retries or rebuilt production.
-Retain Failed01/02 and the predeadline proof gate. The selected mapping/tag Run01
+Retain Failed01/02/03 and the predeadline proof gate. The selected mapping/tag Run01
 is separately Passed; Google cancellation Run01 is separately NotExercised.
 
-Unresolved: actual screen-off/clipboard return; long background/LMK/task restoration;
+Run03 after main576965a used the unchanged source72/test181368/debug1f42 pair;
+frozen03 retains its actual historical HEAD and no rebuild/install occurred. Owner
+confirmed phone awake, actual preflight independently matched serial/API/digest.
+Owner's “Đã tắt màn hình” reply arrived after terminal again; physical key timestamp
+remains unknown. Source/helpers/protected/owner/UUID audit retained; no repair inferred.
+This repeated host-message timing limit motivated a separately reviewed owner-Copy
+variant, preserving all old72 files/assertions and Failed01–03. Owner Copy→Power
+directly binds its actual production clipboard deadline/generation, not reply time.
+Its preparation alone earned no credit; the later selected Passed runtime is
+recorded in the [owner-controlled report](owner-screen-off-clipboard-runtime.md).
+
+Unresolved: original method's missing screen-off/return checkpoint; long background/LMK/task restoration;
 cross-app/authenticated recreation/process-death clipboard; actual Google cancellation/
 stale/401/403; broader accessibility and historical UI/setup/wrap/cold/Run06 causes.

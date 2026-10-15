@@ -27,7 +27,12 @@ Broader mapping proposals and device/UI cases remain separate Pending scope.
 [Screen-off/clipboard01/02](../../plans/261012-mobile-cookbook-phase1/reports/screen-off-clipboard-runtime.md)
 Failed37.492s/54.316s before the required predeadline screen-off gate; hold/return
 stages unexercised. Same source/APKs, owner digest/UUID cleanup preserved. Late02
-owner Power reply does not establish exact key time; background clipboard stays Pending.
+owner Power reply does not establish exact key time; those attempts earned no background clipboard credit.
+Separate [owner-Copy screen-off01](../../plans/261012-mobile-cookbook-phase1/reports/owner-screen-off-clipboard-runtime.md)
+Passed1/1,121.836s: owner Copy→Power bound to the original production deadline;
+sampled>=35s off/locked, then same-Activity legal return with owned clipboard absent,
+no Dish/session and exact cache/jars. Original Failed01–03 retained; long-background/
+LMK/recreation/cross-app/history and precise background30s cleanup remain unaccepted.
 [Security/UI continuation](../../plans/261012-mobile-cookbook-phase1/reports/security-ui-runtime.md)
 locked pixels01 Passed1/1,2.321s and authenticated02 Passed1/1,25.890s: selected EN/VI
 setup/manual Cook and secure shell display exclusion. Selected owner hardware
@@ -171,8 +176,8 @@ Pending. No source/time/auth bypass or hidden failure; earlier causes remain unk
 | Offline/cache | Reopen private cache; search label/username; favorites/recent retain origin | Passed network-off Run04/recreation, synthetic offline cold02 5.993s and Google-loaded cold02 8.886s after verified SIGKILL; LMK/task restore Pending |
 | Errors/refresh | Cancel/401/403/network failure retain last good cache and clear stale results | Partial: actual NETWORK_FAILED exact cache/jars preservation and stale Dish/Copy absence Passed Run04;401/403/cancel/stale callback Pending |
 | Reveal | Masked default; explicit reveal hides after10seconds | Passed Run04/05, including KEEP_SCREEN_ON=false in Run05; historical Run01 cause unknown |
-| Clipboard | Dish copy; real30second compare-clear; replaced/username text survives old cleanup | Passed foreground API36 ownership + same-process locked adapter recreation; background/authenticated recreation/process death/history/API26 fallback Pending |
-| Lifecycle | Navigation/edit/lock/background/recreation clear Dish and require unlock | Partial: edit/Back/background Run04, Google cache UI Run02 recreation, Recents03/offline cold02/Google cold02 Passed; broader background/task matrix Pending |
+| Clipboard | Dish copy; real30second compare-clear; replaced/username text survives old cleanup | Selected Passed foreground ownership/locked adapter recreation + authenticated owner-Copy35s screen-off/legal return; cross-app/authenticated recreation/process death/history/API26 fallback Pending |
+| Lifecycle | Navigation/edit/lock/background/recreation clear Dish and require unlock | Partial: earlier edit/Back/background/recreation/Recents/cold Passed; owner-Copy35s actual screen-off/same-Activity locked return Passed; long-background/LMK/task matrix Pending |
 | Session | Real5minute idle and10minute total despite activity, no deadline reset | Passed selected API36 foreground proof KEEP_SCREEN_ON: Idle05 341.722s and Total04 609.969s; earlier failures retained, broader timer UX Pending |
 | Security/UI | EN/VI, accessibility/layout, blocked capture/hidden Recents, sanitized own-app logs | Partial: secure shell capture/Recents03/VI OS field01/center02/04/explicit-finger01 Passed; legacy edge01/02/dwell04 Failed; owner revealed-Dish shortcut07 Passed; TalkBack/full layout Pending |
 | Recents lifecycle | Actual same-Activity stop/lock, preserved jars and genuine biometric reopen | Passed Run03 1/1,137.789s; Run01/02 failures retained; API36 proof KEEP_SCREEN_ON scope |
