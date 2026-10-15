@@ -1,6 +1,6 @@
 # Android Cookbook — owner acceptance
 
-Status2026-10-14: **Partial**. Verified candidates installed on Xiaomi/API36;
+Status2026-10-15: **Partial**. Verified candidates installed on Xiaomi/API36;
 selected real UI Run04/05 Passed1/1 each, including normal screen policy in Run05.
 Historical Run01 cause not reproduced; broader phone/Google matrix Pending. Prior Keystore demo
 acceptance does not certify new screens or the Android connection.
@@ -8,7 +8,9 @@ Latest [Google cache UI Run02](../../plans/261012-mobile-cookbook-phase1/reports
 Passed1/1,42.393s: cached row Cook/lock/reopen/favorites/recent/search and authenticated
 same-process recreation. Later [network-off Run04](../../plans/261012-mobile-cookbook-phase1/reports/network-off-runtime.md)
 Passed1/1,31.477s: actual offline Cook/recreation and NETWORK_FAILED cache preservation.
-Cancellation/stale callbacks/401/403/cold start/process death and broader matrix Pending;
+Controlled [Google-loaded cache cold02](../../plans/261012-mobile-cookbook-phase1/reports/google-cold-runtime.md)
+Passed8.886s after verified SIGKILL and genuine biometric reopening.
+Cancellation/stale callbacks/401/403/LMK/task restoration and broader matrix Pending;
 original UI Run01 and network Run03 key-wrap causes unresolved.
 [Security/UI continuation](../../plans/261012-mobile-cookbook-phase1/reports/security-ui-runtime.md)
 locked pixels01 Passed1/1,2.321s and authenticated02 Passed1/1,25.890s: selected EN/VI
@@ -65,7 +67,8 @@ Owner reported Android client configured on2026-10-13. Later selected runtime
 Passed Google Run03 with actual grant/metadata/rows/mapping/cache-file readback.
 Selected cache UI Run02 accepted app-disconnected reopening/Cook and authenticated
 same-process recreation. Later network-off Run04 accepted strict actual network absence
-and NETWORK_FAILED preservation;401/403/cancel/cold start remain **Pending**.
+and NETWORK_FAILED preservation. Later Google-loaded cache cold02 accepted controlled
+SIGKILL/fresh-process reopening;401/403/cancel/LMK/task restoration remain **Pending**.
 Confirm Sheets API enabled, the phone account in Test users and the Sheets scope saved.
 Create a dedicated private Menu `PassChef OAuth Test`, rename its tab `Test`, and
 enter this fixture only; format C2 as plain text before entering the literal username:
@@ -241,7 +244,8 @@ the fake fixture. Exact Google metadata/Test tab/rows, mapping and durable cache
 load accepted; all17 assertions unchanged. Fresh consent was owner-observed in Run01;
 Run03 may reuse the valid grant. Later cache UI Run02 accepted app-disconnected
 reopening/Cook and authenticated same-process recreation. Later network-off Run04
-accepted actual offline/error preservation;401/403/cancel/cold start and broader matrix Pending.
+accepted actual offline/error preservation. Later Google-loaded cache cold02 accepted
+controlled SIGKILL/fresh-process reopening;401/403/cancel/LMK/task restoration and broader matrix Pending.
 
 [Current continuation](../../plans/261012-mobile-cookbook-phase1/reports/unattended-regression.md)
 records new local APK hashes separately from the still-installed diagnostic pair.
