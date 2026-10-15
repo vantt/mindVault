@@ -97,8 +97,8 @@ Continue to real connection code; offline screens remain usable while disconnect
   no ADBKEY187 sent. Same frozen04/APKs, no rebuild/install between attempts; causes
   unconfirmed, cleanup lock is not acceptance. Owner reported "can't take screenshot";
   exact shortcut/reveal timing unconfirmed; own Card later observed in Run03.
-- [ ] Separate OS screenshot shortcut observation with explicit reveal timing;
-  Run03 did not retry it. Do not infer shortcut acceptance from shell pixels/Card.
+- [x] Separate owner07 confirms actual Dish text then blocked Power+VolumeDown;
+  new synchronized checkpoint Passed116.736s. No exact key timestamp/pixel claim.
 - [x] Record selected EN/VI setup/manual Cook semantics and capture scope; raw-layout
   Locked01 and same-node-accessibility Capture01 remain Failed with original assertions.
   Later diagnostics distinguish40dp raw layout from48dp expanded touch bounds;
@@ -168,6 +168,22 @@ no blind retry or historical-cause inference.
   Late04 missing-button reply retained; clearer Run05 question, genuine ready then
   Failed188.013s completion wait/no sampled reveal/stop. Current screen/labels requested
   before another timed run; no active runtime. Same exact source/APK, prior failures kept.
+
+### Manual visual diagnostic variant — selected Run07 Passed
+
+- [x] Add separate `ManualVisualPhysicalTest` and bounded helper; old64 sources and
+  original assertions/deadlines/lifecycle stay unchanged. Normal instrumentation-thread
+  Compose idle precedes each controller/actual tagged-text/layout snapshot; no clock manipulation.
+- [x] Root review/compile/freeze and selective owner-ready runtime after the isolated
+  publication repair. Run06 Failed193.721s remains; isolated hardlink permission failure is
+  orchestration evidence, not a production repair or screenshot acceptance.
+- [x] Compare actual masked/synthetic Text booleans and complete own-content/window
+  containment with same-observation model/foreground bits. No text/pixel export;
+  semantic/layout agreement alone never accepts owner-visible pixels.
+- [x] Preserve actual owner07 report: Dish text appeared and Power+VolumeDown blocked.
+  Actual07 Passed1/1,116.736s; native publication succeeded after actual reply.
+  Owner/exact UUID cleanup/source66/old64/helper12/protected208/23 preserved.
+  No exact key timestamp or retrospective06 cause/single22s reveal-deadline claim.
 
 Implementation exists in the production app/shared/client paths above. Final local
 results and unchanged Golden evidence are recorded in [verification](reports/verification.md);

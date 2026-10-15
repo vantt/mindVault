@@ -297,3 +297,32 @@ Owner's current screen/labels requested before another timed run; no active runt
 
 Unresolved: original Cookbook UI Run01 reveal failure, network Run03 key-wrap cause;
 cancellation/stale callbacks/401/403/LMK/task restoration/TalkBack and remaining phone matrix.
+
+### Run06 continuation — owner refusal; visual Dish still Pending
+
+Same frozen06/source64/helper12/debug1f42/test19b9 reached genuine secure Cook. Owner
+reports actual Power+VolumeDown refusal and visible dots unchanged after Reveal.
+Model first/last reveal64979/86974ms is neither rendered text nor continuous22s proof.
+Actual Failed1/1,193.721s [1,-2]/[-1], completion absent180483ms after publisher ADB
+failure; runner native0/watchdogfalse/errornull do not erase that separate failure.
+Final native audit06 preserves owner/exact UUID cleanup/source64/helper12/protected208/
+23/releaseefd3. Isolated old-protocol probe01 observes hardlink Permission denied;
+live06 stderr was discarded and is not recovered. Replacement cooperative lock/rename
+protocol passed6isolated cases; only2host helper deltas, no APK rebuild for those.
+A normal Compose synchronization gap is a supported harness hypothesis, exact06cause
+unproven. [Scope and artifacts](manual-shortcut-runtime.md); mobile stays Partial.
+
+### Diagnostic Run07 — Passed checkpoint and separate owner acceptance
+
+New normally synchronized variant/source66, old64 unchanged. Build21s12/82/lint0/11/1;
+debug1f42 retained/test0d4c installed-r with owner preserved. Actual **Passed1/1,
+116.736s**, [1,0]/[-1]/OK1, zero failures/errors/skips/native0/no watchdog/error.
+Owner confirms Dish text then blocked Power+VolumeDown. Actual tagged text matches
+synthetic/controller reveal at88388ms, full own-content/window/IME/secure-foreground
+flags true; masked98382ms. Samples do not establish exact key timing/continuous pixels.
+Live completion publication native0/stdoutpublished/empty stderr at receipt age108.339s;
+owner reply saved first. Exact UUID cleanup/owner/source66/old64/helper12/protected208/
+unrelated23/releaseefd3 final audit passed. Selected owner hardware refusal accepted,
+JUnit checkpoint-only. New synchronization is a material harness difference, consistent
+with but not proof of06cause. Whole mobile Partial; all original failures retained.
+[Full scope](manual-shortcut-runtime.md).

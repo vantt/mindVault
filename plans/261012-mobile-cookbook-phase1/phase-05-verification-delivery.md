@@ -54,6 +54,16 @@ shortcut Pending. Source64/helper12/test19b9/owner/exact UUID cleanup preserved.
 Late04 missing-Reveal reply retained after terminal. Same-candidate05 genuine ready,
 Failed188.013s completion wait/no sampled reveal/stop. Current screen requested before
 further timed runtime; no production screenshot/owner-action cause inferred.
+Run06 subsequently Failed193.721s completion wait despite a live owner reply/model
+reveal; isolated hardlink permission rejection diagnosed, later portable publication
+probe passed separately. New `ManualVisualPhysicalTest` build21s/lint0/11/1 and
+actual07 Passed1/1,116.736s [1,0]/OK1:
+normal Compose idle plus actual text/layout booleans is a materially new diagnostic,
+not a fix or replay credited to original Run06. Old64 sources/assertions/deadlines
+remain; human screenshot/visual evidence and JUnit checkpoint stay separate. Owner07
+confirms Dish text then blocked Power+VolumeDown; selected hardware shortcut accepted.
+Live publisher rc0; final owner/exact UUID cleanup/source66/helpers/protected208/23/
+releaseefd3 preserved. Whole mobile Partial; prior failures and exact06cause retained.
 
 ## Context and requirements
 

@@ -276,8 +276,63 @@ Late04 missing-button reply/phase ambiguity retained. Same-candidate05 reached r
 independent raw05 audit confirms Failed1/1,188.013s [1,-2]/[-1]/FAILURES/no watchdog/
 error, completion absent180421ms/reveal and focusloss=-1/stops0/anyStopFailurefalse.
 No owner05 record/signal; exact UUID cleanup/owner/source64/helper12/installed19b9/
-releaseefd3 match. No remaining code/docs blockers; actual shortcut still Pending.
+releaseefd3 match. No remaining code/docs blockers at05; actual shortcut remained Pending there.
 [Evidence](manual-shortcut-runtime.md). No whole-mobile/production-cause acceptance.
+
+## Manual visual preparation and selected Run07
+
+Independent raw06 audit confirms Failed1/1,193.721s [1,-2]/[-1]/FAILURES, no watchdog/
+runner error; completion absent180483ms after a separate publisher transport failure.
+Owner reported Power+VolumeDown refusal and later confirmed visible dots stayed masked
+after Reveal. Sampled exact model reveal64979/86974ms, masked87179ms, is neither pixels
+nor continuous22s evidence. Exact UUID cleanup/owner/source64/helper12/installed19b9/
+releaseefd3 preserved before helper edits. Live publisher stderr was lost; isolated
+old-protocol hardlink Permission denied does not recover that live failure stage.
+
+Revised host runner/publisher reviewed: exclusive child lock, existing parent only,
+stale pending/final preservation, complete-file mv-n publication and owned cleanup;
+consumer deletion cannot require final existence afterward. Exact class/method/UUID/
+frozen identity/actual owner reply and boot-bound host-monotonic age<150s checked;
+bounded native diagnostics/unknown transport outcomes retained. Final publisher hash
+eec2a1de… matches isolated probe03: six cases Passed, all probe dirs removed and owner
+unchanged. Consumer-parent deletion was controlled in one shell, not an independently
+scheduled race. Isolated protocol success grants no actual fixture/screenshot verdict.
+
+New ManualVisualPhysicalTest152/helper71 reviewed; old64 source paths remain exact.
+Copied original assertions/report/180s/marker/stop latch unchanged. Snapshot adds
+normal instrumentation-thread Compose idle synchronization and safe semantics/layout
+booleans; stop callback still reads state directly. This is a material harness change,
+consistent with documented Compose frame behavior, not a proven retrospective cause.
+Node acquisition can straddle controller transitions; bounds/semantics do not establish
+pixels, clipping or owner-visible Dish. JUnit remains checkpoint-only.
+
+Build Passed21s,12 executed/82 UP-TO-DATE; lint XML0errors/11warnings, HTML11warnings/
+1hint read directly. Frozen07/current/archive source66/helper12/APKs exact: debug1f42,
+test0d4c2bd844d72376a15533cea7132fcae4a1f24a7625c16347c79cb6916993d9.
+Old ten helper hashes unchanged; only host runner/publisher intentionally changed.
+No code/runner preparation blockers; this preparation review preceded runtime07.
+
+Independent raw07 audit now confirms Passed1/1,116.736s [1,0]/[-1]/anchoredOK1,
+native0/no watchdog/error, checkpointObserved/revealObserved=true and0 failures/errors/
+skips. At elapsed88388ms, actual Dish semantics matched the synthetic text while exact
+controller reveal/secure own foreground/full own-content and window bounds were true.
+Mask semantics returned at98382ms; last model reveal sampled98113ms. These remain
+sampled semantics/model observations, not pixel capture or exact shortcut timing.
+
+Owner directly replied “Dish hiện chữ, máy chặn chụp” to the explicit single-Reveal/
+immediate Power+VolumeDown question. Exact UUID observation was saved before live
+publication, whose receipt age108.339s passed the150s gate. Native publisher returned0/
+stdout published/empty stderr; result/signal/observation/frozen hashes link exactly.
+This is actual cooperative lock+rename publication, separately from isolated probes.
+Final native audit confirms exact UUID directory absent, owner894f73…a4d6, installed
+debug1f42/test0d4c, source66/old64/helper12/protected208/unrelated23/releaseefd3 preserved.
+Current/archive identities independently match. Accept selected owner-observed visible
+Dish and hardware-shortcut refusal plus the JUnit checkpoint. No screenshot pixels,
+exact OS wording/key timestamp or retrospective Run06/historical cause is accepted.
+Original03..06 failures stay Failed; synchronization explains a supported harness
+mechanism but this comparison does not prove the old visual cause. Full mobile remains
+Partial. [Evidence](manual-shortcut-runtime.md); no production change or fresh JVM/browser
+execution claimed.
 
 Unresolved: original Cookbook UI Run01 cause and network Run03 key-wrap cause;
 cancellation/stale callbacks/401/403/LMK/task restoration/TalkBack and remaining phone matrix.

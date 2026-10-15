@@ -14,8 +14,9 @@ Cancellation/stale callbacks/401/403/LMK/task restoration and broader matrix Pen
 original UI Run01 and network Run03 key-wrap causes unresolved.
 [Security/UI continuation](../../plans/261012-mobile-cookbook-phase1/reports/security-ui-runtime.md)
 locked pixels01 Passed1/1,2.321s and authenticated02 Passed1/1,25.890s: selected EN/VI
-setup/manual Cook and secure shell display exclusion. OS screenshot shortcut
-and full layout/accessibility remain Pending; three earlier security failures retained.
+setup/manual Cook and secure shell display exclusion. Selected owner hardware
+shortcut07 Passed; full layout/accessibility remain Pending, three earlier security
+failures retained.
 Recents01/02 Failed206.052s/182.457s, respectively after checkpoint without actual
 stop/resume and at genuine setup before checkpoint. Later Recents03 Passed137.789s:
 actual stop/lock/genuine reopen and owner-observed blank own Card. Earlier causes
@@ -157,7 +158,7 @@ Pending. No source/time/auth bypass or hidden failure; earlier causes remain unk
 | Clipboard | Dish copy; real30second compare-clear; replaced/username text survives old cleanup | Passed foreground API36 ownership + same-process locked adapter recreation; background/authenticated recreation/process death/history/API26 fallback Pending |
 | Lifecycle | Navigation/edit/lock/background/recreation clear Dish and require unlock | Partial: edit/Back/background Run04, Google cache UI Run02 recreation, Recents03/offline cold02/Google cold02 Passed; broader background/task matrix Pending |
 | Session | Real5minute idle and10minute total despite activity, no deadline reset | Passed selected API36 foreground proof KEEP_SCREEN_ON: Idle05 341.722s and Total04 609.969s; earlier failures retained, broader timer UX Pending |
-| Security/UI | EN/VI, accessibility/layout, blocked capture/hidden Recents, sanitized own-app logs | Partial: secure shell capture/Recents03/VI OS field01/center02/04/explicit-finger01 Passed; legacy edge01/02/dwell04 Failed; OS shortcut/TalkBack/full layout Pending |
+| Security/UI | EN/VI, accessibility/layout, blocked capture/hidden Recents, sanitized own-app logs | Partial: secure shell capture/Recents03/VI OS field01/center02/04/explicit-finger01 Passed; legacy edge01/02/dwell04 Failed; owner revealed-Dish shortcut07 Passed; TalkBack/full layout Pending |
 | Recents lifecycle | Actual same-Activity stop/lock, preserved jars and genuine biometric reopen | Passed Run03 1/1,137.789s; Run01/02 failures retained; API36 proof KEEP_SCREEN_ON scope |
 
 Record candidate SHA/APK hash, device/API, timestamps, observer and evidence for
@@ -236,6 +237,17 @@ Late04 missing-Reveal reply arrived after terminal, timing unconfirmed. Clarifie
 same-candidate05 reached ready then Failed188.013s completion wait, no sampled reveal/
 stop or confirmed screenshot; cleanup/digest preserved. Ask current screen/labels
 before a further timed run; no runtime remains active at this checkpoint.
+
+
+Run06 owner explicitly used Power+VolumeDown and reported screenshot refusal; after
+Reveal the visible dot line stayed masked. Controller reveal samples do not establish
+rendered text. JUnit remains Failed193.721s after publication error/completion timeout.
+Native isolated publication repair checks passed6cases, no phone acceptance inferred.
+Separate normally synchronized Compose observer07 Passed1/1,116.736s; owner confirms
+Dish text appeared then Power+VolumeDown was blocked. Selected hardware shortcut
+accepted on Xiaomi/API36 proof foreground. Original64 app sources/assertions and
+production unchanged; final owner/UUID cleanup/source66/helper12/protected208/23 intact.
+No exact key timestamp/pixel proof or retrospective06 cause claimed.
 
 Separate owner checkpoint `owner-screenshot-recents-check` asks for hardware screenshot,
 inspection of only the own Recents card, then return to the app. Prepared fixture

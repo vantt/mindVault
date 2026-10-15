@@ -1,5 +1,22 @@
 # Project Changelog
 
+## Diagnose manual shortcut recording and Reveal observation (2026-10-15)
+
+Run06 owner reports actual Power+VolumeDown refusal, but visible dots stayed masked
+after Reveal. Model-only reveal sampling cannot certify pixels or a continuous22s
+reveal. JUnit Failed193.721s after publisher error/missing completion; failure retained.
+Native isolated replay establishes hardlink Permission denied, without recovering
+lost live stderr. Revised host cooperative lock/rename passes6isolated protocol cases
+and retains transport diagnostics/timing gates. Final06audit preserves source64,
+owner, protected208/unrelated23, exact cleanup and original APKs. Normal Compose
+synchronization is a supported harness hypothesis under investigation; no production
+repair or resolved historical cause claimed. New synchronized diagnostic07 subsequently
+Passed1/1,116.736s [1,0]/OK1. Owner confirms Dish text then Power+VolumeDown refusal;
+selected hardware shortcut accepted. Actual node-text/full-bounds/environment booleans
+agree during reveal; completion publication succeeds at receipt age108.339s. Source66/
+old64/owner/exact UUID cleanup/protected208/23/releaseefd3 preserved. Build21s/lint0/11/1,
+new test0d4c; whole mobile Partial and all earlier failures retained. [Evidence](../plans/261012-mobile-cookbook-phase1/reports/manual-shortcut-runtime.md).
+
 ## Record physical pointer probes and shortcut checkpoint (2026-10-15)
 
 Owner authorized USB debugging; fresh transport26/Awake/keyguardAbsent/digest guards

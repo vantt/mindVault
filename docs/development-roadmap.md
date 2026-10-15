@@ -106,6 +106,16 @@
   Source64/helper12/test19b9/owner and exact UUID cleanup verified; no production fix.
   Late04 missing-button reply retained after terminal; current owner screen requested
   before another timed run, no native runtime active.
+
+- Manual shortcut Run06: owner-observed Power+VolumeDown refusal accepted at that
+  scope; dots stayed masked after Reveal, visually revealed Dish Pending. JUnit
+  Failed193.721s after completion-publication error. Isolated lock/rename replacement
+  passed6protocol cases, owner preserved; normal Compose synchronization investigation
+  proceeds separately. New normally synchronized diagnostic07 subsequently Passed
+  1/1,116.736s; owner confirms Dish text then blocked Power+VolumeDown. Selected
+  hardware shortcut accepted; final owner/exact cleanup/source66/old64/helper12/
+  protected208/23 preserved, whole mobile Partial. [Evidence](../plans/261012-mobile-cookbook-phase1/reports/manual-shortcut-runtime.md).
+
 - [Keystore physical coverage follow-up](../archive/plans/261011-keystore-recovery/reports/current-device-acceptance.md):
   API26/no hardware/no enrollment, typed7/9 callbacks, exact process-kill/
   retry-exhaustion windows and precise Recents observation remain unexecuted.
