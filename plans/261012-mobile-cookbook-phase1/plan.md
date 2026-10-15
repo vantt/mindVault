@@ -1,10 +1,10 @@
 # Android Cookbook — first production slice
 
-Date:2026-10-12; updated2026-10-14 (Asia/Saigon). Status: **Partial — code/local checks Done; owner acceptance Pending**.
+Date:2026-10-12; updated2026-10-15 (Asia/Saigon). Status: **Partial — code/local checks Done; owner acceptance Pending**.
 Baseline: main `2579e29044924e1582b78414b0314baffc72abe5`.
 Owner authorized two agents: recheck the five browser slices and implement mobile.
 Production code is implemented and independently verified locally.
-Selected UI/clipboard/Google cache recreation/secure EN/VI shell capture Passed; broader acceptance Pending.
+Selected UI/cache/cold/clipboard/timers/capture/Recents/owner shortcut Passed; broader acceptance Pending.
 Actual UI Run01 failed after reveal; [device evidence](reports/device-acceptance.md)
 and [unattended regressions](reports/unattended-regression.md) track investigation.
 
@@ -62,7 +62,7 @@ Recents01 Failed206.052s without observed checkpoint stop/resume; Recents02
 Failed182.457s at setup, before checkpoint/navigation; causes unconfirmed.
 Run03 Passed1/1,137.789s with pause/stop/locked read/genuine reopening; owner confirmed
 own card blank/covered. Same frozen04/APKs, no rebuild/install between attempts.
-OS screenshot shortcut, spoken TalkBack/broader VI accessibility and larger-font/orientation
+Owner revealed-Dish screenshot shortcut07 Passed; spoken TalkBack/full layout and orientation
 remain Pending. [Offline cold02](reports/cold-process-runtime.md) Passed5.993s after
 verified warm02 SIGKILL; provider cold02 Passed8.886s/VI OS-field01 Passed1.5s. No repair claim.
 QR receiver/camera, Autofill spike/service, Drive, multi-profile authoring and

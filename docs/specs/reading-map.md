@@ -10,7 +10,7 @@ an area changes; it does not require a workflow tool or generated state.
 | Mobile recipe kitchen | [Core](mobile-core.md) | `shared/` |
 | Mobile Menu connection | [Menu client](mobile-sheets-client.md) | `mobile/sheets-client/` |
 | Android Cookbook storage/unlock | [Keystore](mobile-keystore.md) | `app/`, `shared/` |
-| Android Cookbook lookup/cooking/connection (code complete; device acceptance Pending) | [Cookbook](mobile-cookbook.md) | `app/.../cookbook/`, `shared/.../cookbook/`, `mobile/sheets-android/` |
+| Android Cookbook lookup/cooking/connection (code complete; selected device flows Passed, broader acceptance Pending) | [Cookbook](mobile-cookbook.md) | `app/.../cookbook/`, `shared/.../cookbook/`, `mobile/sheets-android/` |
 | Phone QR Cookbook handoff: extension sender | [QR sender](qr-handoff.md) | `chrome-extension/src/options/options-qr-display.js`, `chrome-extension/src/adapters/infrastructure/qr-serialization.js`, `chrome-extension/src/adapters/infrastructure/qr-chunking.js` |
 | Marketing landing page | Area specification not yet consolidated | `landing-page/` |
 

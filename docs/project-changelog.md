@@ -1,5 +1,17 @@
 # Project Changelog
 
+## Expand unattended Mobile source coverage (2026-10-15)
+
+Added six real CookbookSources/cache regressions for cancelled/readiness-bound
+commits, mapping reconfirmation, invalid replacement and real IO failure/recovery;
+six canonical metadata/values streamed-body cancellation cases cover2xx/401/403.
+Fresh app10/bridge22/independent standalone35 Passed, zero failures/errors/skips;
+root9s/standalone20s/lint0/11/1. Common client tests overlap across roots.
+Existing production/test/Golden code, old66 app sources, protected208/unrelated23
+and all three APKs unchanged. No device/Google/account operation or production fix.
+Corrected current plan/spec status summaries; earlier failed evidence remains and
+mobile stays Partial. [Evidence](../plans/261012-mobile-cookbook-phase1/reports/unattended-source-coverage.md).
+
 ## Diagnose manual shortcut recording and Reveal observation (2026-10-15)
 
 Run06 owner reports actual Power+VolumeDown refusal, but visible dots stayed masked

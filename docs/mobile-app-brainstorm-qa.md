@@ -60,22 +60,23 @@ Ba sự thật quyết định toàn bộ thiết kế mobile:
 - Phase 3 — Handoff QR + secret blob trên Drive + multi-profile.
 - Phase 4 — Authoring recipe + ghi sheet + quản lý mapping.
 
-### Trạng thái hiện tại — đối chiếu 2026-10-12
+### Trạng thái hiện tại — đối chiếu 2026-10-15
 
 Đây là roadmap sản phẩm, không đồng nghĩa với bốn track nền tảng đã hoàn tất.
 Core Android/JVM, client Sheets/runbook, QR sender và Keystore trong phạm vi Xiaomi
-được owner chấp nhận đều Done; live Google, app đầy đủ và receiver còn riêng.
+được owner chấp nhận đều Done. Google Android đọc thật và một số luồng phone đã đạt;
+acceptance rộng hơn của app và receiver còn riêng.
 Các quyết định/Q&A bên dưới được giữ như lịch sử; phần này cập nhật trạng thái.
 
 | Phase | Trạng thái | Phần đã có / phần còn cần làm |
 |---|---|---|
-| 1 — Vault đọc MVP | Partial | Nền Core/Keystore Done; đã có code Cook/cache/mapping/danh sách/reveal/copy và Android Google adapter. Kiểm chứng độc lập local đạt; OAuth/đọc Google thật và các luồng UI trên phone còn Pending. |
+| 1 — Vault đọc MVP | Partial | Nền Core/Keystore Done; đã có code Cook/cache/mapping/danh sách/reveal/copy và Android Google adapter. Local đạt; Google grant/read/mapping/cache, offline, controlled cold, timer5/10phút, Recents và chặn chụp khi Dish hiện đã đạt trong phạm vi ghi nhận. Còn lỗi Google/callback, lifecycle/clipboard rộng hơn, TalkBack/layout và điều tra lỗi cũ. |
 | 2a — Autofill feasibility spike | Pending | Chưa có native autofill prototype, RAM/latency và luồng lock→biometric→cook được kiểm chứng. Spike Argon/Core không thay thế spike này. |
 | 2 — Autofill/domain mapping | Pending | Còn native service/provider, OS-verified domain/package mapping và authorization trong autofill; phụ thuộc nền Vault và spike2a. |
 | 3 — QR + Drive + multi-profile | Partial | Extension QR sender/chunking Done. Còn camera reader/reassembly/compact decoding/import UI, Drive transport và multi-profile production. Drive phụ thuộc extension Drive-sync. |
 | 4 — Authoring/write/mapping | Partial (nền tảng) | Client append/update Done; mapping đọc đã có code; Recipe Builder/edit-existing/ghi đúng dòng chưa có. Prototype/design không chứng minh mobile UI chạy thật. |
 
-Ưu tiên theo phụ thuộc: (1) Google thật + Phase1 production; (2) phone QR import
+Ưu tiên theo phụ thuộc: (1) hoàn tất acceptance Phase1, trước hết các mục tự động rồi lỗi Google/phone còn thiếu; (2) phone QR import
 song song sau khi nối Core decrypt với storage, hoàn tất handoff từ sender đã có;
 (3) Phase2a rồi Autofill; (4) authoring/edit-existing sau read/mapping UI;
 (5) Drive/multi-profile sau nền mobile và extension Drive-sync. Native/iOS hoãn;
@@ -84,8 +85,11 @@ coverage thiết bị Keystore còn thiếu được theo dõi riêng, không m�
 **Plan thực thi mới — 2026-10-12:** [Android Cookbook Phase1](../plans/261012-mobile-cookbook-phase1/plan.md)
 đã tách thành5 phase chi tiết: nối phiên unlock với Cook, cache/mapping offline,
 giao diện Compose/reveal/copy, Android Sheets/OAuth và kiểm chứng độc lập.
-Đã triển khai code thực, thêm regression và qua kiểm chứng độc lập JVM/APK/lint. [Contract](specs/mobile-cookbook.md) ghi giới hạn; JVM/APK/lint chạy không cần phone. Google Android thật và kiểm chứng
-UI/sinh trắc/clipboard/lifecycle cần owner/thiết bị; mọi ca này vẫn Pending.
+Đã triển khai code thực, thêm regression và qua kiểm chứng độc lập JVM/APK/lint.
+[Contract](specs/mobile-cookbook.md) ghi giới hạn; JVM/APK/lint chạy không cần phone.
+Google Android thật và các ca phone chọn lọc đã có bằng chứng; các ca lỗi Google,
+TalkBack/layout và lifecycle/clipboard rộng hơn vẫn Pending.
+[Checklist hiện tại](runbooks/android-cookbook-acceptance.md) phân biệt scope đã đạt và còn thiếu.
 QR receiver, Autofill, Drive và authoring nằm ở các giai đoạn sau.
 
 Bằng chứng/phạm vi hiện tại: [backlog](backlog.md), [Core](specs/mobile-core.md),

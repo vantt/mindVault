@@ -73,7 +73,8 @@ Phase1 only consumes read paths; retain RAW append/update client regression beha
 - [x] Selected actual network-off/NETWORK_FAILED preservation and full cached UI
   helper Passed Run04; source/owner digest preserved, no production repair.
 - [ ] **Owner Pending:** cancellation/stale callbacks/401/403 preservation,
-  cold-start/process-death and broader configuration/account/platform matrix; no mock credit.
+  natural LMK/saved-task restoration and broader configuration/account/platform matrix.
+  Controlled offline/provider SIGKILL/fresh-process cold acceptance already Passed; no mock credit.
 
 ## Risks and next steps
 
@@ -257,3 +258,21 @@ No Connect in the cold method, no SDK-grant revocation claim, token/session inje
 offline paste, forced clock or new Android manifest entry. Controlled abrupt death/fresh
 Intent scope only; natural LMK/background restoration,401/403/cancellation and broader
 matrix remain Pending. Root owns build/device/signal/evidence and announces owner prompts.
+
+## Unattended coordinator and streaming cancellation continuation
+
+- [x] Add six app JVM cases in two new files: readiness checked at deferred real-file
+  confirmation/removal commit, cancelled refresh/replacement ownership, drift and invalid
+  remapping recovery, oversized replacement preservation, failed favorite IO/retry.
+  Preserve all earlier assertions and production code; real temporary files, no provider mocks.
+- [x] Root executes app10/bridge22 with lint Passed; fresh XML0failures/errors/skips.
+  Independent review and standalone35 Passed; [Unattended source coverage](reports/unattended-source-coverage.md).
+  Report fresh outcomes
+  separately from device acceptance. No Google/biometric/device operation required.
+- [x] Root adds six canonical common tests for explicit cancellation during blocked
+  streaming response/error bodies; existing timeout/budget/401/403 cases remain unchanged.
+  Initial4 and final6 cases Passed; suspected cancellation failure not reproduced.
+  No production correction justified; original canonical sources/tests unchanged.
+
+These cases add coordinator wiring and cancellation evidence, not live Google cancel,
+401/403, SDK stale-callback or physical clipboard acceptance. Those remain Pending.

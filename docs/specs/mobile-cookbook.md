@@ -1,8 +1,9 @@
 # Android Cookbook
 
-Status2026-10-12: **Code complete; locally verified**. Product acceptance remains Partial.
+Status2026-10-15: **Code complete; locally verified**. Product acceptance remains Partial.
 The [execution plan](../../plans/261012-mobile-cookbook-phase1/plan.md) records scope;
-[owner acceptance](../runbooks/android-cookbook-acceptance.md) remains Pending.
+[owner acceptance](../runbooks/android-cookbook-acceptance.md) has selected Passed cases;
+broader provider/device coverage remains Pending.
 
 ## Session and cooking
 
@@ -67,8 +68,11 @@ names, bound HTTP/body/table sizes and close owned clients.401 requests reconnec
 [Independent JVM/build/lint evidence](../../plans/261012-mobile-cookbook-phase1/reports/verification.md)
 and [review](../../plans/261012-mobile-cookbook-phase1/reports/independent-review.md)
 cover the frozen source; no unresolved P1/P2 remains in the implemented scope.
-Compiled instrumentation is not executed UI acceptance. Owner OAuth registration,
-consent, real Sheets reads, phone layout/biometric/reveal/clipboard/lifecycle/timers
-remain Pending. Prior Keystore proof is retained for its original accepted scope.
+Compiled instrumentation is not executed UI acceptance. Selected actual Google grant/
+reads/mapping/cache, offline error preservation, controlled process-death reopening,
+Cook/reveal/copy, real foreground5/10minute timers, secure capture/Recents and owner
+revealed-Dish screenshot refusal passed. Live cancellation/stale callbacks/401/403,
+natural LMK/task restoration, broader clipboard/background and TalkBack/layout remain
+Pending. Historical failures remain recorded. Prior Keystore proof retains its accepted scope.
 QR receiving, Autofill, Drive, multiple-profile authoring and account-write screens
 are separate follow-ups. Whole mobile Phase1 remains Partial.

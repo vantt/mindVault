@@ -268,6 +268,16 @@ and Cook succeeds with unchanged jars/digest. Owner confirms own Card blank/cove
 without Recipe/Dish. That visual observation is separate from JUnit lifecycle proof.
 OS screenshot shortcut not retried; broader matrix and earlier causes remain Pending.
 
+## Unattended work completed before further owner prompts
+
+[Source coverage15October](../../plans/261012-mobile-cookbook-phase1/reports/unattended-source-coverage.md)
+adds six actual-coordinator/temporary-cache cases and six canonical HTTP streaming
+cancellation cases. Fresh app10/bridge22/standalone35 Passed; repeated client common
+cases are not independent totals. Existing code/assertions/APKs unchanged. No phone
+interaction occurred. Local cancellation/error-classification tests do not accept
+actual Google cancel/stale SDK callback/401/403 or broader mapping UI. Owner-dependent
+rows in the table above remain Pending at those scopes; prior physical passes retained.
+
 ## Resume diagnostics when owner ready
 
 [Google runtime](../../plans/261012-mobile-cookbook-phase1/reports/google-runtime.md)

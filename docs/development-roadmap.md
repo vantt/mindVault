@@ -12,6 +12,11 @@
   independent acceptance. Next: remaining MVP Sync/platform/performance verification
   and release readiness, followed by mobile/website/commercialization dependencies.
   Full MVP remains Partial; closed Builder/Tag/Core/Popup UX plans are archived.
+- [Unattended Mobile coverage](../plans/261012-mobile-cookbook-phase1/reports/unattended-source-coverage.md):
+  fresh app10/bridge22/independent standalone35 Passed; six coordinator real-file
+  and six canonical stream-cancellation cases added, existing code/Golden/APKs
+  unchanged. Client common cases overlap across roots. No device interaction;
+  live Google/SDK and broader phone acceptance remain Pending.
 - [Android Cookbook Phase1](../plans/261012-mobile-cookbook-phase1/plan.md): real
   manual cooking, private cache/confirmed columns, Compose lookup/reveal/copy and
   Android authorization/Sheets engine are implemented and locally verified. Owner

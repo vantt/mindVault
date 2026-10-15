@@ -65,6 +65,15 @@ confirms Dish text then blocked Power+VolumeDown; selected hardware shortcut acc
 Live publisher rc0; final owner/exact UUID cleanup/source66/helpers/protected208/23/
 releaseefd3 preserved. Whole mobile Partial; prior failures and exact06cause retained.
 
+## Unattended priority continuation —15October
+
+[Unattended source coverage](reports/unattended-source-coverage.md) Passed: six new real-coordinator cases plus six common
+stream-cancellation cases. Fresh app10/bridge22/standalone35, zero failures/errors/
+skips; root9s/standalone20s/lint0/11/1. Common22 overlap across the two client roots.
+All old code/Golden/assertions/source66/protected208/unrelated23/APKs unchanged;
+no device interaction or new provider acceptance. Current stale summary statuses
+corrected; broader phone/provider matrix and historical causes remain Pending.
+
 ## Context and requirements
 
 [Overview](plan.md), [Core](../../docs/specs/mobile-core.md),
@@ -134,17 +143,17 @@ UI/Cook/authenticated same-process recreation Run02 Passed; wider acceptance Pen
 [unattended continuation](reports/unattended-regression.md) adds shared78/app4 and
 compiled diagnostics; it does not resolve the physical failure.
 
-1. Owner configures Android OAuth package/signing and grants actual Sheets access;
-   select dedicated test Menu/tab, confirm mapping and observe real API/cached results.
-2. Install isolated debug candidate with data-preservation preflight; run actual
-   Compose list/search/paste/tag/reveal/copy/ENVI/layout tests and record outcomes.
-3. Broader biometric/password recovery/background/recreation/cold-start matrix;
-   selected API36 foreground5/10-minute timers and clipboard ownership accepted.
-4. Verify replaced clipboard text, inaccessible background read and OS restrictions
-   honestly; selected secure shell capture/Recents accepted, OS screenshot shortcut
-   and broader sanitized own-app/accessibility observations remain Pending.
-5. Existing unexecuted Keystore device matrix remains separately Pending; a passing
-   new Xiaomi screen flow does not certify API26/no hardware/no enrollment cases.
+Remaining owner/device checks, after the unattended follow-up:
+
+1. Actual Google cancellation/stale callbacks/401/403 with cache/jar preservation.
+   Selected grant/read/mapping/cache, actual network failure and controlled cold passed.
+2. Wrong-Menu tagged Recipe and broader mapping UI; local policy tests already pass.
+3. Screen-off/long-background/natural LMK/saved-task restoration; authenticated
+   clipboard/background/cross-app replacement observation and legal reconciliation.
+4. TalkBack, larger fonts/orientation and full language touch-target coverage.
+   Secure shell capture/Recents/owner revealed-Dish shortcut07 already accepted.
+5. Historical UI/setup/wrap causes remain open. Additional Keystore API/device cases
+   are separately tracked; accepted current-Xiaomi scope is not reopened.
 
 Historical cache continuation build88s Passed fresh app4; shared78/bridge16/standalone29 retained.
 Helper-only sync build40s Passed, lint0/11/1. Default storage recreation Passed1/1,

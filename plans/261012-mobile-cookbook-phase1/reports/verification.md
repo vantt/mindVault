@@ -326,3 +326,20 @@ unrelated23/releaseefd3 final audit passed. Selected owner hardware refusal acce
 JUnit checkpoint-only. New synchronization is a material harness difference, consistent
 with but not proof of06cause. Whole mobile Partial; all original failures retained.
 [Full scope](manual-shortcut-runtime.md).
+
+## Unattended source coverage —15October
+
+[Exact scope and artifacts](unattended-source-coverage.md): six new app coordinator
+cases +six canonical streamed-request cancellation cases, existing code/assertions
+unchanged. Fresh app10/bridge22/independent standalone35, zero failures/errors/skips;
+root9s10/57 and standalone20s4/1, lint0errors/11warnings/1hint. Bridge22 also runs
+inside standalone35; do not sum repeated common cases. No shared/browser rerun.
+
+Real temporary cache files prove commit readiness/ownership, schema reconfirmation,
+invalid mapping/oversized input/IO failure preservation and recovery. Synthetic HTTP
+streams prove public client cancellation/body release for metadata/values×2xx/401/403,
+not live Google/SDK acceptance. No cancellation defect reproduced or production fix.
+All old66 app sources/existing tracked code/Golden/protected208/unrelated23 and all
+three APK hashes unchanged. Existing release manifest/3DEX/backup source audit Passed
+at its bounded scope, not runtime log absence. No ADB/device/contact/install occurred.
+Updated current plan/spec summaries; full mobile Partial and historical failures retained.

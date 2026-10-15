@@ -334,5 +334,29 @@ mechanism but this comparison does not prove the old visual cause. Full mobile r
 Partial. [Evidence](manual-shortcut-runtime.md); no production change or fresh JVM/browser
 execution claimed.
 
+## Unattended source continuation — independent test evidence audit
+
+Tester read the archived XML/raw logs and current three new test files, then recomputed
+test identities, source/log/APK hashes and preservation checks independently. Root logs
+show app/bridge/lint Passed 9s and standalone JDK21 test Passed 20s. Archived XML confirms
+app 10, bridge 22 and standalone 35, each with 0 failures/errors/skips. The 22 portable
+class/method identities occur in both bridge and standalone; standalone adds 13 JVM-only
+cases. These are overlapping executions, never an aggregate count of unique tests.
+Shared 78 remains prior evidence; no fresh shared run or device execution is claimed.
+
+Six app cases exercise real coordinator/files at readiness/cancelled commit boundaries,
+invalid/remapped/oversized Menu recovery and actual filesystem failure/retry. Six common
+cases cancel incomplete response bodies for values/metadata under 200/401/403 and require
+CancellationException plus released channels. MockEngine supplies synthetic HTTP streams;
+this does not prove live Google cancellation, SDK callbacks or grant rejection. The saved
+initial four-case stream candidate also Passed; no production bug or repair was reproduced.
+
+All three archived/current sources match (97/120/63 lines); all 66 prior app sources,
+protected 208/unrelated 23 and debug 1f42/test 0d4c/release efd3 hashes match independently.
+Existing tracked code diff is empty; earlier tests/assertions and production remain unchanged.
+Current lint XML is 0 errors/11 warnings; no new APK build/install/provider interaction.
+Evidence archive: `/tmp/passchef-cookbook-device-acceptance/unattended-source-20261015-01`.
+No test-evidence blocker found. Broader mobile remains Partial.
+
 Unresolved: original Cookbook UI Run01 cause and network Run03 key-wrap cause;
 cancellation/stale callbacks/401/403/LMK/task restoration/TalkBack and remaining phone matrix.
