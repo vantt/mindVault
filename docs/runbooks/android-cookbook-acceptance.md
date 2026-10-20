@@ -19,6 +19,12 @@ Silent grant reuse earns no cancellation/stale acceptance; no account/grant chan
 force the prompt. Offline synthetic baseline is disclosed separately from provider cache.
 Actual Run01 NotExercised15.608s,1skip: SDK returned metadata without an observed
 external resolution; cache/jars/owner/owned cleanup preserved, no cancellation credit.
+20October [persistent continuation](../../plans/261012-mobile-cookbook-phase1/reports/google-cancellation-preparation.md#persistent-continuation-20october2026)
+prepares current86-source frozen03 and an independently reviewed selective host
+runner. Build/lint,11 host parser checks and read-only installed/owner-digest checks
+match; no new runtime/reinstall. Do not repeat silent grant reuse without evidence
+of an available external Google resolution. Any test-account grant withdrawal needs
+specific owner permission; none is authorized by this preparation.
 Selected [mapping/tag UI Run01](../../plans/261012-mobile-cookbook-phase1/reports/menu-mapping-runtime.md)
 Passed1/1,36.892s: rejected duplicate-role/missing-Recipe mappings preserve exact
 last-good cache; explicit remap retains irregular/literal rows; unchanged tagged

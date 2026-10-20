@@ -1066,3 +1066,21 @@ close follows. Narrow strict clipboard acceptance stands; current normal app sta
 observation/owner confirmation is separate. Historical close cause and broader
 Mobile acceptance remain open. Evidence: new repair root `normal-main-return-`
 `observation-01/02.json` and `normal-main-owner-observation-01.json`.
+
+## Google continuation —20October persistent preparation review
+
+Independent code reviewer audited new host support/runner and frozen03/current/
+archive86 sources,360 protected files, helper syntax, three APKs and prior repair
+freeze binding. Candidate01 remains internally consistent and untouched. Corrected
+incomplete selected JUnit/native-exit/summary classification to Unknown before final
+freeze. Final review-audit-03 reports no unresolved preparation blocker.
+
+Separate tester-audit-03 confirms11 HOST-only AST result-parser cases Passed and
+the same frozen identities; root build Passed2s3executed/91UP-TO-DATE, existing lint
+0errors/11warnings/1hint. Neither agent used ADB/Gradle or ran device acceptance.
+Root read-only check confirms exact installed debug/test and owner digest; no install,
+instrumentation or biometric wait. [Scope/evidence](google-cancellation-preparation.md#persistent-continuation-20october2026).
+
+Unresolved: available external Google resolution/fresh owner readiness, actual
+cancellation/stale reply/different-Menu/401/403. Mobile stays Partial; historical
+NotExercised/Failed/Unknown results and old missing-raw-evidence limits retained.

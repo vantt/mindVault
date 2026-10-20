@@ -2,6 +2,10 @@
 
 Status: **Local code verification passed**; selected device acceptance Passed,
 broader owner/device matrix Pending. Historical local snapshot below retained.
+20October [Google persistent preparation](google-cancellation-preparation.md#persistent-continuation-20october2026):
+unchanged source86/APKs, build Passed2s3/91,lint0/11/1; independent host review and11
+parser checks Passed. Read-only installed/owner-digest checks match. New frozen03
+prepared; no new Android/JVM/provider acceptance. External resolution remains Pending.
 Latest [Google cancellation preparation](google-cancellation-preparation.md) adds a
 reviewed selective external-resolution/natural-stop/stale-reply fixture. Final
 compile/lint Passed26s,lint0/11/1; frozen70/test669a8c9c installed-r with exact owner

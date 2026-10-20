@@ -115,3 +115,54 @@ Evidence outside repo, preserved without overwriting earlier runs:
 Unresolved: actual external-resolution availability/cancellation/stale runtime,
 provider401/403/different-Menu callbacks, remaining lifecycle/clipboard/accessibility
 matrix and historical UI/setup/wrap/cold/Run06 causes. Mobile stays Partial.
+
+## Persistent continuation —20October2026
+
+Continue main `e7032996325d967c807875949e3aa79ad715efbe`. Old `/tmp` raw Google
+evidence is unavailable after restart; no historical raw result is reconstructed.
+Run01 remains NotExercised. All existing source/assertions remain unchanged.
+
+Persistent evidence root:
+`/home/vantt/.local/share/passchef-mobile-evidence/2026-10-20-google-cancellation/`.
+New `google-support.py`/`google-runner.py` (<200lines each) select only the existing
+method above. Final `google-frozen-03.json`/`google-candidate-03/` bind current86
+app source/manifests,360 protected checkout files including unrelated WIP, both
+helpers, three existing APKs and prior repair freeze SHA2561e916985…4dfee38f.
+Frozen03 SHA256 `f85077fd3acde9e514a776f21f1eeb25b16afd794ea0b2ca673908623f77589c`.
+Candidate01/frozen01 remain untouched after a host-only classification correction:
+nonzero native exit, incomplete selected JUnit codes or missing success summary
+now yield Unknown; completed selected failure remains Failed.
+Candidate02/frozen02 also remain intact. Final03 permits only documentation commits
+descending from the frozen baseline while still checking exact protected/source/APK
+bytes; authorized documentation delivery therefore cannot silently change the candidate.
+
+- Build `:app:assembleDebugAndroidTest :app:lintDebug` Passed2s,3executed/91UP-TO-DATE;
+  existing lint report0errors/11warnings/1hint. No fresh JVM/browser or Android test.
+- Source86 and all APK hashes exactly match the accepted clipboard candidate:
+  debug37579b45/testd0536563/release92fa8896. No reinstall or accepted-case replay.
+- Read-only device-check01 at16:37:42Asia/Saigon: expected Xiaomi/API36 serial,
+  awake/keyguard absent, installed debug/test exact, owner Cookbook SHA256 unchanged
+  at894f73…a4d6. Six pre-existing proof directories remain untouched.
+- Independent review-audit-03 and tester-audit-03 Passed;11 HOST-only AST parser
+  checks include success/skip/wrongUUID/failure/missing-terminal/watchdog/nonzero
+  exit/incomplete selected codes/missing summary. These are not provider evidence.
+
+Runner binds selected class/method/UUID, JUnit codes/terminal/OK summary, failure
+diagnostics/final phase, source/archive/installed identities, owner digest, own
+UUID absence and the pre-existing directory set. New runs use exclusive evidence
+files and new numbering. Watchdog detaches only the host client; incomplete native
+outcomes remain Unknown and require inspection before another launch. A Passed
+stale-return assertion still leaves owner cancellation Pending until actual owner
+observation is recorded; exact Android resultCode is unobserved by this fixture.
+
+No new instrumentation or biometric wait launched. Screen readiness is only a
+point-in-time observation. Require fresh owner readiness and new evidence of an
+available external Google resolution before another attempt. Current production
+request has no forced chooser path; unchanged silent grant reuse adds no acceptance.
+No account/scope/grant changes, token/session/result injection or production repair.
+Any test-account grant withdrawal needs specific owner authorization first; this
+preparation authorizes none. Actual401/403 also needs a permitted real denial condition.
+
+Unresolved: external-resolution availability and owner readiness; actual Google
+cancellation/stale return, different-Menu callbacks, provider-loaded cancellation
+and401/403. Mobile remains Partial.

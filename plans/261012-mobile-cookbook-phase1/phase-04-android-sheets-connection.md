@@ -311,3 +311,9 @@ is sufficient for this preservation boundary; do not call it provider-loaded cac
 This selects natural background/lock stale-result handling. Late callbacks after a
 different Menu, actual provider401/403 and provider-loaded cache cancellation remain
 Pending unless separately exercised. No permission/account change is implied.
+
+20October [persistent preparation](reports/google-cancellation-preparation.md#persistent-continuation-20october2026):
+current86 sources/APKs unchanged; build Passed2s,lint0/11/1, independently reviewed
+host runner/frozen03 and11 host parser checks Passed. Read-only installed/owner
+digest checks match; no runtime/reinstall. External resolution availability and
+fresh owner readiness required before retry; grant withdrawal needs specific approval.
