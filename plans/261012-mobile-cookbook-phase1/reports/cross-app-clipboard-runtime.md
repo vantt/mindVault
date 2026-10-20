@@ -1,8 +1,16 @@
 # Chrome replacement / expired Dish ownership —15October2026
 
-Status: **Repair locally verified;4 relevant physical regressions Passed; strict Chrome return Pending; Mobile Partial**.
-Owner unavailable/turning off machine; no active test/Gradle wait. Frozen02 ready,
-run02 not launched. Resume from [saved checkpoint](clipboard-return-handoff.md).
+Status: **Null-safe repair build/JVM10/physical5 and strict Chrome return Passed; normal app owner-confirmed stable; Mobile Partial**.
+Updated20October: recovered runner prepared in persistent storage; no active native
+wait now. [Recovery01](clipboard-return-recovery-runtime.md) Failed at stale ownership
+with Chrome marker intact; failure-tail01 also Failed with all11 retries exhausted
+and ownership still present after1153ms. Actual read-only null-label probe established
+the original expression's NPE; [minimal null-safe repair](clipboard-null-label-repair-runtime.md)
+passed fresh build/JVM10/physical5 and unchanged strict Chrome return01 Passed99.870s.
+Owner's proof close/failed-return reply is retained; subsequent normal app was
+owner-confirmed stable. Exact prior close cause unknown. October16
+run02 terminal is unknown and old `/tmp` raw evidence unavailable. Resume only from
+the [current checkpoint](clipboard-return-handoff.md).
 Baseline mainfc20fab. Initial preparation preserved production and all74 previous
 app sources/manifests. The later evidenced repair changes only the two production
 paths described below; every previous assertion and historical result is retained.

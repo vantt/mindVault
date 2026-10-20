@@ -38,8 +38,18 @@ Two reviewed production focus/retry changes retain every prior assertion and the
 original30s deadline. Fresh app JVM10 Passed; build28s/lint0/11/1. Unchanged physical
 adapter3/3 Passed99.636s and recreation1/1 Passed31.548s on the repair candidate.
 Strict repair01 Failed182.282s at setup with two observed wrap code15 events, before
-Cook/Copy; cause unknown. Chrome return acceptance stays Pending. Owner unavailable;
-no active native wait, frozen02 ready/run02 unlaunched; [resume checkpoint](clipboard-return-handoff.md).
+Cook/Copy; cause unknown. October16 run02 was launched, terminal unknown after loss
+of old temporary evidence. October20 recovery01/failure-tail01 Failed with intact
+actual Chrome marker and stale claim, including11 exhausted retries. Read-only
+actual-marker probe01 Sampled1.198s confirmed a null label and original-expression
+NPE. [Minimal null-safe repair](clipboard-null-label-repair-runtime.md) Passed45s
+build/fresh appJVM10/lint0/11/1 and all five relevant physical profiles Passed.
+Unchanged strict Chrome return01 subsequently Passed99.870s: marker preserved,
+ownership forgotten, original1s stability/UI/session/cache/preservation checks all
+Passed. Owner reported proof close/failed return, then confirmed normal app stable;
+read-only normal02 sampled samePID/resumed/focused at0/5/10/20s with owner intact.
+Both replies retained; exact prior close cause unknown. Mobile Partial.
+[Resume checkpoint](clipboard-return-handoff.md).
 Current [session timer preparation](session-timer-runtime.md): test-APK/lint builds
 42s/13s/11s Passed, lint0/11/1; no fresh JVM execution. Idle Run01/02 Failed before
 baseline pointer and Run03/04 Failed at setup; Run05 actual5-minute idle Passed1/1,

@@ -841,3 +841,228 @@ protected plus two deltas,23 unrelated and unchanged UUID proof-directory set.
 Evidence: external `clipboard-return-repair-regression-recreation-01.{log,json}`.
 Relevant adapter3/recreation1 now total4 Passed without assertion changes; repair
 strict01 remains setup Failed and genuine cross-app repair acceptance Pending.
+
+## 20October recovery — independent bounded preparation audit
+
+The old `/tmp/passchef-cookbook-device-acceptance/` tree is unavailable after reboot.
+Historical recorded results remain reports; their old raw logs/frozen candidates/
+208-file manifests/34-helper identities cannot now be independently re-certified.
+October16 repairrun02 was launched (session23025,UUID prefix5c68d856), terminal
+unknown with raw evidence missing. The earlier October15 “not launched” checkpoint
+is historical. No Passed/Failed result or reconstructed old evidence is assigned.
+
+Reviewed new persistent `recovery-support.py`82lines and `recovery-runner.py`135lines:
+strict same selected method/result/final-phase gates; bounded terminate/kill client
+cleanup; missing terminal/final audit yields Unknown/Pending. No source/assertion,
+clipboard permission/write, production deadline or manual reconcile change. Before
+freeze, independently compared82 Mobile raw files against mainfcee101,328 canonical
+Git blobs and all3 expected APK hashes. Raw favicon differs only by existing Git-
+normalized CRLF checkout; it is clean and preserved without altering its bytes.
+
+Fresh persistent root is
+`/home/vantt/.local/share/passchef-mobile-evidence/2026-10-20-clipboard-return/`.
+Recomputed frozen01 SHA6019a855…55a258; local/archive82,2 helpers,3 APKs and frozen
+JSON match,328 raw checkout hashes retained alongside canonical blob identities.
+Read device-check01: selected authorized transport1,API36,awake/keyguard absent,
+owner894f73…a4d6 exact, installed debugd90cf0e3/testec93b9c0 exact. Release153b0224
+bound locally/archived, no release installation claimed. No rebuild/install needed.
+Fresh owner readiness and selected recovery-run01 terminal/post-audit evidence remain
+required; preparation earns no runtime credit. Cross-app repair Pending, Mobile Partial.
+No ADB/Gradle performed by this independent review; unrelated WIP preserved.
+
+## 20October recovery-run01 — independent return failure audit
+
+Read persistent raw log/JSON: **Failed1/1,145.299s**,selected[1,-2],terminal[-1],native0,
+no watchdog/orchestration error. UUID8f7807ee…49a8,PID27371; genuine setup/Cook reached
+own Copy+19ms, remote Chrome Copy+24439ms, return requested+31115ms. Focused cache/
+session and original-deadline checks passed. Legal clipboard sample+103201ms reports
+present/single-item/different-label/exact-marker all true; next claim assertion failed
+at+103203ms. Own-RAM sample still had original generation/deadline/label/value with
+foreground=true. This is a sampled stale claim with external replacement intact;
+the later stability/UI checks were not reached. Repair acceptance remains Pending.
+
+Final fresh audit passed82 current/archive sources,328 raw checkout identities,
+helpers/APKs/installed identities/owner894f73…a4d6 and exact owned UUID absence.
+Source permits a timing hypothesis: delayed100ms natural retries may run after strict
+immediate assertions, while finally closes the Activity and cancels pending retries.
+Neither retry state nor focus-to-sample timing was captured, so this does not establish
+indefinite production failure or an incorrect original assertion. Preserve Failed01.
+Plan a separate additive failure-tail diagnostic with original assertions intact:
+immediate and>=1s own-state observations before cleanup, guarded public-marker reads,
+then rethrow the captured failure even if reconciliation finishes naturally. No manual
+reconcile, wait-for-success or changed deadlines; review/build/freeze precede runtime.
+Earlier lost temporary evidence remains unavailable, not reconstructed. Mobile Partial.
+
+## Failure-tail diagnostic — independent preparation audit
+
+Reviewed additive185-line test/87-line observer. Normalizing only class/method names
+and four added catch lines yields byte-exact original181-line test; original82 files
+and all assertions/order/throw remain unchanged. Failure stage is captured/reported
+before observation; tail errors are contained and unchanged failure throw remains.
+No delayed sample can turn the captured failure into Passed. Helper samples own RAM
+on main, sleeps150ms then1000ms on instrumentation thread, samples RAM before final
+app/Activity-manager clipboard reads. Each read has a fresh legal foreground guard;
+only booleans, bounded counters and monotonic times exported, no reconcile/mutation.
+Missing sample indices mean incomplete diagnosis, not inferred policy state.
+
+Reviewed host support103/runner135: old recovery frozen6019/source82/candidate/helpers/
+APKs and raw/result/owner/denialmetadata hashes bound without modifying prior evidence.
+New baseline requires precisely the two reviewed additions. Independent frozen audit
+SHA4e13c725…fd78779 matches current/archive84,helpers,APKs and328 checkout identities;
+old82 raw exact, plus2 additions, not84 committed files. Build-audit records Passed76s,
+10executed/84UP-TO-DATE,lint0errors/11warnings/1hint; no fresh JVM result claimed.
+
+Read install01: native0/Success,test-only update ec93→de93be29; installed debugd90cf0e3
+unchanged, release153b0224 locally archived, owner894f73…a4d6 exact before/after.
+Nativeafter transport1/API36/awake/keyguard clear, all final local/prior checks pass.
+Evidence root `~/.local/share/passchef-mobile-evidence/2026-10-20-failure-tail/`
+holds frozen/candidate/build/install01. Fresh owner readiness and actual selected
+runtime still required; no failure-tail observation or repaired acceptance claimed
+at this preparation checkpoint. Production unchanged, Mobile Partial. No ADB/Gradle
+used by this independent review; unrelated WIP and missing historical limits retained.
+
+## Failure-tail01 — independent sampled persistence audit
+
+Persistent raw/JSON confirms **Failed1/1,156.066s**,selected[1,-2],terminal[-1],native0,
+no watchdog/orchestration error. UUID47610d32…16c8,PID10684; Chrome Copy+4141ms,
+return requested+31058ms. Exact public-marker clipboard check passed+58080ms;
+original `return-claim-forgotten-check` failed+58083ms and remained Failed after tail.
+All three diagnostic indices present: sample0+58084ms retryAttempts3/queuedtrue;
+sample1+58235ms4/true; sample2+59237ms11/false. Each kept original RAM label/value/
+deadline/generation, legalforeground=true. No natural ownership forget occurred
+within that1153ms sampled interval; attempts exhausted. This does not prove indefinite
+persistence or identify which read/exception caused retries.
+
+After final RAM sampling, both stored adapter and Activity ClipboardManager reads
+succeeded legally with single exact public marker/different label. External marker
+survived; test failure remains ownership forgetting. Before/after84=prior82+2/328
+checkout/frozen/APKs/installed/owner894f73…a4d6 and UUID cleanup passed. Read bound
+owner observation: approximate white/close/toast report, wording/timestamps uncertain.
+Bound device metadata has two own-package not-in-focus denials and no matched
+own crash-buffer records; empty buffer does not prove no crash. Existing finally
+closes proof Activity, so visible close alone cannot establish a production crash.
+
+Concrete next hypothesis: original direct platform-label `.toString()` may fail for
+a null external label; current samples do not include labelNull/exception identity.
+Prefer one additive read-only locked public-marker probe plus existing bytecode
+inspection before any repair. Preserve original84/assertions; no permission/write/
+reconcile. Only observed null+NPE evidence justifies minimal null-safe non-owner
+comparison, followed by unchanged strict return acceptance. No arbitrary retry
+extension or delayed-success credit. Repaired return Pending, Mobile Partial.
+
+## Actual null-label probe01 — independent Sampled cause gate
+
+Persistent raw/JSON confirms **Sampled1.198s**,exact selected[1,0],terminal[-1],OK1,
+native0,no watchdog/orchestration error. UUIDdb9456e5…7010,PID15609; all legal secure
+locked foreground booleans true, exact public prior UUID47610d32…16c8 marker required
+before classification. Actual labelNull=true,directExpressionSucceeded=false,
+exceptionIsNpe=true,nullsafeLabelNull=true. No auth/Cook/Copy or clipboard write.
+Final source85/prior84/328checkout/input/archive/APKs/native owner894f73…a4d6 and
+owned UUID cleanup passed. Frozen SHA d63cc25c…bad2efd; prior bytecode audit binds
+debugd90/source2ecfd184 and actual classes8 getLabel→Object.toString without null guard.
+
+Observed actual null+NPE and matching production bytecode establish the concrete
+null-label defect and justify only null-safe non-owner comparison. They do not
+retroactively prove every historical failure's cause or grant repaired acceptance.
+Plan: one production path `.label?.toString() != label`, leaving deadline/token/
+retry/focus unchanged; one additive real30.5s same-UID null-label replacement
+regression requiring intact marker plus forgotten own claim/same generation, no
+manual reconcile/time injection. All old85 sources preserved except explicitly
+bound production delta, all old assertions exact. Review/build/freeze/install and
+new regression+unchanged4 adapter/recreation+strict actual Chrome return remain
+required. Probe success stays Sampled; production repair acceptance Pending.
+
+## Null-label repair — independent frozen/install preparation audit
+
+Production diff is precisely `.label.toString()`→`.label?.toString()` in the non-owner
+comparison; prior84 other sources exact. New129-line regression uses actual null-label
+same-UID public replacement and fixed real30.5s expiry, requiring intact marker and
+forgotten claim/deadline0/same generation/no retry, no manual reconcile. This is locked
+adapter coverage; actual Chrome return still separately required. Existing assertions
+unchanged. Reviewed support93/runner147 exact six selected profiles and final native/
+JUnit/phase/source/archive/owner/directory gates; only strict can grant acceptance.
+
+Recomputed frozen SHA1e916985…4dfee38f; local/archive86=prior84 exact plus one reviewed
+production delta and one additive regression,327 canonical files unchanged plus that
+delta, raw checkout bytes preserved. Prior source85/probe actual null/bytecode/raw/
+owner evidence bindings match; old missing temporary history is not re-certified.
+Build audit Passed45s,31executed/133UP-TO-DATE,JVM10/0failures/errors/skips,lint0/11/1.
+Install01 records debug37579b45/testd0536563 native0/Success and owner894f73…a4d6 exact
+before/after each; release92fa8896 locally archived, not installed. Nativeafter API36/
+awake/keyguard clear; all local checks passed. No physical success claimed at prep.
+
+Install snapshot includes six pre-existing proof directories, retained untouched.
+Earlier recorded UUID absence is a point-in-time observation; later presence cannot
+be explained by those checks and no continuous absence is claimed. New run gates
+preserve baseline directory set plus their own UUID absence. Relevant5 regressions
+and unchanged strict Chrome return outcomes remain Pending at this checkpoint.
+No ADB/Gradle performed by this independent review; unrelated WIP preserved.
+
+## Null-label repair — independent selected regression results
+
+Read new persistent raw/JSON individually: null-label regression Passed31.832s,
+untouched owned Dish31.534s, synthetic replacement31.544s, newer Dish36.633s.
+Each exact selected method[1,0],terminal[-1],anchored OK1,native0,zero failures/errors/
+skips,no watchdog/orchestration error; null regression reports its required final
+success phase for matching UUID. Actual original30.5s Handler cleanup now forgets
+own metadata/deadline while preserving same-UID null-label public replacement and
+generation. Existing3 adapter cases preserve their earlier boundaries/assertions.
+These are locked proof adapter results, not authenticated Cook/Chrome return.
+
+Each final audit binds frozen1e916985/current/archive86,327 canonical unchanged plus
+the exact null-safe delta,prior evidence/helpers/APKs/installed/owner894f73…a4d6,
+unchanged pre-existing proof-directory set and that run's UUID absence at observation.
+Independent recreation raw/JSON also Passed31.552s,exact selected method[1,0]/[-1]/
+OK1,native0,zero failures/errors/skips,no watchdog/error; same final preservation
+gates and baseline proof-directory set passed. Scope is locked same-process actual
+Activity recreation/original deadline, not authenticated restoration/process death.
+All5 relevant method runs now Passed; each non-strict acceptance field remains
+Pending as intended. Strict actual Chrome return is still unlaunched/Pending at
+this checkpoint and requires fresh immediate owner readiness.
+
+## Null-label repair strict01 — independent narrow clipboard acceptance
+
+Read actual raw/JSON: **Passed1/1,99.870s**,exact unchanged selected[1,0],terminal[-1],
+anchored OK1,native0,zero failures/errors/skips,no watchdog/orchestration error and
+`cross-app-replacement-passed`. UUID54a18fa3…cae4,samePID23063,ChromeUID10184. Genuine
+one Copy+23ms,real Chrome Copy+3644ms,return requested+31036ms. Focused return cache/
+session/deadline checks passed; own ownership sample value/label absent,deadline0,
+same generation,adapterforeground=true. Exact public replacement legal reads+56973/
++57990ms both passed, then unchanged single-Copy/stability/UI-absence assertions and
+success+58015ms. Selected expired-claim forgetting with preserved Chrome replacement
+is accepted on this candidate; no authenticated recreation/process-death/history or
+authenticated per-clip writer UID proof follows.
+
+Final audit binds frozen1e916985/current/archive86,327 canonical unchanged plus
+one exact production delta,helpers/APKs/installed/owner894f73…a4d6 and preserved
+pre-existing directory set plus own UUID absence at observation. Prior raw/probe/
+bytecode evidence remains bound; earlier Failed and October16 unknown/lost evidence
+unchanged. The five relevant physical regressions and fresh appJVM10 also Passed.
+
+Read exact bound owner reply: “Không quay lại được hoặc app đóng”. It does not confirm
+stable visible return or locate close timing. Native return/marker checks passed
+before existing finally closes the proof Activity; that cleanup is a possible
+explanation, not established cause. Selected-PID crash-buffer fatal metadata empty,
+which cannot prove no crash. Keep owner-visible close/return UX unresolved pending
+separate normal MainActivity observation and owner clarification. Native selected
+clipboard acceptance and unresolved UX are recorded separately; Mobile Partial.
+
+## Normal MainActivity follow-up — independent current observation
+
+Read normal01/02 and bound owner data. Normal01 launcher opened only ordinary
+MainActivity,PID24514,no instrumentation/auth/clipboard read/write. Its four false
+resumed/focus gates used selectors missing Android16 topResumedActivity/current
+window focus; preserve those records as unavailable detector evidence, not a proved
+app close. Corrected normal02 did not relaunch; four samples at0.314/5.338/10.346/
+20.376s report samePID24514,resumed/focused/awake/keyguard-clear all true. Before/
+after owner894f73…a4d6,installed/source/archive/prior bindings/proof-directory set
+remain intact. Four samples do not prove continuous pixels or general crash absence.
+
+Verified owner observation binds normal02 and strict prior reply hashes. Exact later
+answer: “Đang thấy Cookbook, app không tự đóng”. This confirms current ordinary
+Cookbook visibility; earlier “Không quay lại được hoặc app đóng” remains unchanged.
+No retroactive owner confirmation of strict proof return or exact cause of the old
+close follows. Narrow strict clipboard acceptance stands; current normal app stable
+observation/owner confirmation is separate. Historical close cause and broader
+Mobile acceptance remain open. Evidence: new repair root `normal-main-return-`
+`observation-01/02.json` and `normal-main-owner-observation-01.json`.

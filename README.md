@@ -179,11 +179,16 @@ release. Selected Xiaomi/API36 Cook/reveal and foreground clipboard checks passe
 including clipboard cleanup through Activity recreation. Selected authenticated
 [owner-Copy screen-off01](plans/261012-mobile-cookbook-phase1/reports/owner-screen-off-clipboard-runtime.md)
 passed sampled35s screen-off and same-Activity legal-return clipboard cleanup;
-cross-app/authenticated recreation/process-death/history and exact background30s
+authenticated recreation/process-death/history and exact background30s
 remain unaccepted.
 The [focused clipboard repair](plans/261012-mobile-cookbook-phase1/reports/cross-app-clipboard-runtime.md)
-passed JVM10 and4 unchanged physical adapter/recreation regressions; authenticated
-Chrome-return acceptance remains Pending after a setup-only failure.
+passed JVM10 and4 unchanged physical adapter/recreation regressions. The subsequent
+[null-label investigation and repair](plans/261012-mobile-cookbook-phase1/reports/clipboard-null-label-repair-runtime.md)
+confirmed an actual Chrome null label triggered the original comparison's NPE.
+The minimal null-safe comparison passed fresh build/JVM10 and five relevant physical
+regressions and the unchanged strict Chrome-return case Passed99.870s: actual Chrome
+replacement preserved and expired own metadata forgotten. Owner subsequently confirmed
+the normal app stays open; prior proof-close timing remains unknown. Mobile stays Partial.
 Selected Android Google grant/read/mapping/cache-file checks passed.
 Google cache UI/Cook and authenticated same-process recreation passed
 selected [cache UI Run02](plans/261012-mobile-cookbook-phase1/reports/google-cache-ui-runtime.md);

@@ -32,12 +32,22 @@ Separate [owner-Copy screen-off01](../../plans/261012-mobile-cookbook-phase1/rep
 Passed1/1,121.836s: owner Copy→Power bound to the original production deadline;
 sampled>=35s off/locked, then same-Activity legal return with owned clipboard absent,
 no Dish/session and exact cache/jars. Original Failed01–03 retained; long-background/
-LMK/recreation/cross-app/history and precise background30s cleanup remain unaccepted.
+LMK/recreation/broader cross-app/history and precise background30s cleanup remain unaccepted.
 [Chrome return diagnostics/repair](../../plans/261012-mobile-cookbook-phase1/reports/cross-app-clipboard-runtime.md)
 localized stale expired ownership with the actual Chrome marker intact. Focus/retry
 repair passed JVM10 and unchanged adapter3/recreation1; strict repair01 failed during
-setup before Copy, so repaired Chrome return remains Pending. Owner unavailable;
-no active wait; [saved resume checkpoint](../../plans/261012-mobile-cookbook-phase1/reports/clipboard-return-handoff.md).
+setup before Copy. October16 run02 terminal is unknown after loss of old temporary
+evidence. October20 recovery01/failure-tail01 Failed after actual Chrome return;
+all11 retries ended with ownership retained. Read-only actual-marker probe confirmed
+a null Chrome label and NPE from the original expression. The
+[minimal null-safe repair](../../plans/261012-mobile-cookbook-phase1/reports/clipboard-null-label-repair-runtime.md)
+passed fresh build/JVM10, five relevant physical regressions and unchanged strict
+Chrome return01 Passed99.870s (native selected boundary). Exact Chrome marker was
+preserved while expired ownership was forgotten. Owner reported close/failed return
+for the proof, then confirmed normal launcher app stable. Both replies are retained;
+exact prior close cause remains unknown. No extra acceptance run is needed for this fix.
+Mobile Partial.
+[Saved resume checkpoint](../../plans/261012-mobile-cookbook-phase1/reports/clipboard-return-handoff.md).
 [Security/UI continuation](../../plans/261012-mobile-cookbook-phase1/reports/security-ui-runtime.md)
 locked pixels01 Passed1/1,2.321s and authenticated02 Passed1/1,25.890s: selected EN/VI
 setup/manual Cook and secure shell display exclusion. Selected owner hardware

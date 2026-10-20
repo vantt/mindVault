@@ -1,10 +1,10 @@
 # Android Cookbook — first production slice
 
-Date:2026-10-12; updated2026-10-15 (Asia/Saigon). Status: **Partial — code/local checks Done; owner acceptance Pending**.
+Date:2026-10-12; updated2026-10-20 (Asia/Saigon). Status: **Partial — code/local checks Done; owner acceptance Pending**.
 Baseline: main `2579e29044924e1582b78414b0314baffc72abe5`.
 Owner authorized two agents: recheck the five browser slices and implement mobile.
 Selected UI/cache/cold/clipboard/timers/capture/Recents/owner shortcut/tag-mapping Passed; broader acceptance Pending.
-Latest: [clipboard focus repair](reports/cross-app-clipboard-runtime.md) JVM10/physical4 Passed; strict Chrome return Pending; [paused checkpoint](reports/clipboard-return-handoff.md).
+Latest: [null-label clipboard repair](reports/clipboard-null-label-repair-runtime.md) build/JVM10/physical5/strict Chrome return Passed; owner confirms normal app stable; [checkpoint](reports/clipboard-return-handoff.md).
 Actual UI Run01 failed after reveal; [device evidence](reports/device-acceptance.md)
 and [unattended regressions](reports/unattended-regression.md) track investigation.
 

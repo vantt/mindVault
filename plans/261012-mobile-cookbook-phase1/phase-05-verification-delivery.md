@@ -163,8 +163,13 @@ Remaining owner/device checks, after the unattended follow-up:
    legal-return clipboard observation [Passed121.836s](reports/owner-screen-off-clipboard-runtime.md).
    [Chrome diagnostics/focus repair](reports/cross-app-clipboard-runtime.md): actual
    replacement intact but expired claim stale; reviewed repair JVM10/adapter3+
-   recreation1 Passed. Strict repair01 setupFailed before Copy; actual repaired
-   Chrome return Pending, owner unavailable; [resume](reports/clipboard-return-handoff.md).
+   recreation1 Passed. Strict repair01 setupFailed before Copy; October16 run02
+   terminal unknown after loss of old temporary evidence. October20 recovery/tail01
+   Failed; actual public-marker probe confirmed null-label NPE. Minimal
+   [null-safe repair](reports/clipboard-null-label-repair-runtime.md) build/JVM10
+   and relevant physical5 Passed; unchanged strict Chrome return01 Passed99.870s.
+   Owner reported proof close, then confirmed normal app stable; prior close cause unknown.
+   [Resume](reports/clipboard-return-handoff.md).
 4. TalkBack, larger fonts/orientation and full language touch-target coverage.
    Secure shell capture/Recents/owner revealed-Dish shortcut07 already accepted.
 5. Historical UI/setup/wrap causes remain open. Additional Keystore API/device cases

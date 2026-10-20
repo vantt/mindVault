@@ -69,7 +69,7 @@ class OwnedClipboard private constructor(context: Context) {
         if (!foreground || !policy.expired(now)) return
         runCatching {
             val clip = clipboard.primaryClip ?: run { retryUnavailableRead(); return@runCatching }
-            if (clip.description.label.toString() != label) { policy.forget(); label = null; cancelRetry(); return@runCatching }
+            if (clip.description.label?.toString() != label) { policy.forget(); label = null; cancelRetry(); return@runCatching }
             val text = clip.getItemAt(0).text?.toString() ?: run { retryUnavailableRead(); return@runCatching }
             if (policy.shouldClear(policy.token(), now, digest(text))) {
                 if (android.os.Build.VERSION.SDK_INT >= 28) clipboard.clearPrimaryClip()

@@ -1,5 +1,20 @@
 # Project Changelog
 
+## Handle a null label on replacement clipboard content (2026-10-20)
+
+Actual Chrome replacement remained intact while expired own metadata survived all11
+retries. A locked read-only probe matched that exact public marker and confirmed
+its null label made the original expression throw NPE. The comparison now handles
+null safely, forgetting expired own ownership without clearing the replacement. All
+existing assertions remain unchanged; one additive real30.5s adapter regression
+was added. Build45s, fresh appJVM10 and five relevant physical profiles Passed,
+lint0errors/11warnings/1hint. Unchanged strict Chrome return01 Passed99.870s:
+replacement preserved and expired ownership forgotten. Owner reported close/failed
+return for the proof, then confirmed normal app stable; prior cause unknown.
+Mobile Partial; earlier Failed/Unknown
+outcomes remain.
+[Evidence](../plans/261012-mobile-cookbook-phase1/reports/clipboard-null-label-repair-runtime.md).
+
 ## Retry clipboard reconciliation after focused return (2026-10-15)
 
 Actual Chrome replacement stayed intact while expired Dish ownership remained in
