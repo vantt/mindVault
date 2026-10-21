@@ -1,6 +1,11 @@
 # Phase05 — Independent verification, honest acceptance and delivery
 
 Status: **Partial — local verification/delivery Done; owner acceptance Pending**. Priority:5.
+Latest21October: [actual host OS-Back/stale Google return](reports/google-cancellation-preparation.md#actual-host-android-system-back-run01--passed)
+Passed17.949s,[1,0]/[-1]/OK1 on unchanged source86/APKs. Actual Google pending/lock/
+Back/consumed callback, secure locked return and synthetic cache/jars/owner preserved;
+independent runtime review Passed. Human cancellation/resultCode/401/403/different-Menu
+scope Pending; prior manual Failed01/02 and later owner close report retained.
 Owner/device acceptance below remains Pending.
 Current [real session timer continuation](reports/session-timer-runtime.md): three
 selective test-APK/lint builds Passed; idle Run01/02 pointer failures and Run03 setup
@@ -154,7 +159,8 @@ compiled diagnostics; it does not resolve the physical failure.
 
 Remaining owner/device checks, after the unattended follow-up:
 
-1. Actual Google cancellation/stale callbacks/401/403 with cache/jar preservation.
+1. Human Google cancellation/resultCode, different-Menu/provider-loaded callbacks and401/403.
+   Selected actual host OS-Back/stale reply after natural lock Passed17.949s.
    Selected grant/read/mapping/cache, actual network failure and controlled cold passed.
 2. Broader mapping proposals/limits/UI: selected wrong-Menu tagged Recipe and irregular
    explicit-mapping acceptance [Run01 Passed36.892s](reports/menu-mapping-runtime.md).

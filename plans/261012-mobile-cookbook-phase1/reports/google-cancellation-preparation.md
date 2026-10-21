@@ -1,6 +1,8 @@
 # Google external cancellation / stale reply preparation —15October2026
 
 Status: **Actual Run01 NotExercised; cancellation/stale acceptance Pending; Mobile Partial**.
+Latest21October: **host Android system-Back run01 Passed17.949s** at the selected
+external-return/lock boundary below; human cancellation/resultCode/broader matrix Pending.
 Baseline main `f0913729732517416e30dfa29745fee158dce101`.
 No production repair, permission/account change, token/session injection or old
 assertion change. All historical Failed verdicts and unknown causes remain.
@@ -287,3 +289,65 @@ Fresh explicit owner readiness and native screen checks are required before laun
 Unresolved: actual execution of this bounded OS-Back candidate, spinner cause,
 owner-cancellation/resultCode, different-Menu/provider-loaded cancellation/401/403.
 Mobile Partial; no native or biometric wait is active at preparation.
+
+## Actual host Android system-Back run01 — Passed
+
+21October2026, Xiaomi/API36. UUID `a11bfbb8-2aa4-4ea9-a0db-ed251a147b82`.
+Unchanged selected native method and frozen01 source86/APKs, no rebuild/install.
+Fresh owner readiness, serial/awake/keyguard/owner digest/installed identity audits
+preceded genuine biometric setup and UI-confirmed synthetic offline cache/Cook.
+No grant/account modification, token/result injection or fresh-consent claim.
+
+**Passed1/1,17.949s**,selected[1,0],terminal[-1],anchoredOK1,native0,
+no failures/errors/skips/watchdog/orchestration error, final phase
+`stale-reply-preservation-passed`. Original assertions/deadlines remain unchanged.
+At the external checkpoint, real pending request/natural stop/Google window were
+observed, with session/token/Dish/lifetime absent and every observed stop clean.
+
+Host focus samples at12:11:13.181 and12:11:13.514Asia/Saigon both observed actual
+Google-services `FullScreenConsentActivity`, awake/keyguard absent. Root issued one
+real Android Back at12:11:13.514; native exit0 with empty stdout/stderr at13.656.
+These records bind the exact live selected UUID/checkpoint. No page-link action,
+synthetic callback or consent approval. Callback pending then became false and
+own foreground resumed/focused/secure while remaining locked/no app session/token/
+Dish/lifetime/metadata/draft/old Copy UI, source statusOFFLINE. Exact last-good
+synthetic offline cache bytes/RAM/inventory and encrypted fixture jars were preserved.
+This cache baseline is not provider-loaded. Owner Cookbook was checked by digest only.
+
+Post audits Passed: owner894f73…a4d6, source86/protected360/helpers/history/current/
+archive/APKs and installed debug/test exact; own UUID directory absent, six prior
+proof directories unchanged. Independent runtime-review01 confirms raw/result/
+Back/frozen/preservation identities and selected scope. Prior persistent manual
+Failed01/02, historical NotExercised and missing raw-evidence limits stay unchanged.
+
+Accept **real host-operated Android Back and stale external reply after natural lock**
+on this device/candidate. Human hand cancellation remains Pending; exact Android
+resultCode is Unobserved. No fresh consent, different-Menu callback, provider-loaded
+cancellation/401/403 or whole-Mobile acceptance follows.
+
+Owner later reported “giờ app đã đóng mất rồi”; exact reply is separately saved and
+bound to the native result. The fixture finally closes its Activity after assertions;
+precise human-visible close time/cause remains unobserved. Ordinary MainActivity
+launcher follow-up performed no authentication/Connect/clipboard read. Two samples
+at12:20:05.994 and12:20:09.216 observed PassChef focus/Google absent, samePID13165;
+owner digest/source/APKs/pre-existing directories stayed exact. These samples prove
+current focus/process only, not continuous pixels or owner-visible rendering.
+Owner then confirmed “Cookbook hoặc màn hình mở khóa bình thường”. Exact answer
+is bound to normal-return01 and the earlier close report in
+`system-back-normal-app-owner-confirmation-01.json`. Current normal owner-visible
+state is confirmed separately; precise earlier close cause remains unknown.
+
+Evidence: new root `system-back-run-01.log/.json`, preflight, back-intent/result,
+`runtime-review-01.json`, `system-back-owner-close-observation-01.json` and
+`system-back-normal-app-return-01.json`. No active native/biometric wait.
+
+Next permitted scope: current test Menu is readable; it cannot deterministically
+exercise actual401/403 under unchanged grant/ACL. A separate owner-authorized denied
+test Menu is needed to attempt real403; actual401 needs a legitimate permitted
+credential transition. No fake token/error, random Menu ID, forced grant/ACL change
+or replay of accepted network/cache checks. Different-Menu UI is disabled while busy;
+genuine pending-result overlap is not currently established. Do not manufacture one.
+
+Unresolved: precise earlier close cause, human cancellation/
+resultCode, permitted401/403 condition, different-Menu/provider-loaded callback scope,
+spinner cause and remaining Mobile matrix. Mobile stays Partial.

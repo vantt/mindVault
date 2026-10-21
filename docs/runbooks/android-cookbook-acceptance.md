@@ -39,6 +39,14 @@ Separate reviewed system-Back host runner is ready;18 host-only guard checks Pas
 After fresh owner readiness, genuine biometric remains required; root issues exactly
 one actual Android Back only at the matched live external/locked checkpoint. Owner
 need not find a button in the Google page. Runtime acceptance remains Pending.
+Actual host system-Back run01 later Passed17.949s,[1,0]/[-1]/OK1: observed Google
+consent Activity, real OS Back and consumed reply; secure return stayed locked with
+no old session/token/Dish/Copy, exact synthetic cache/jars/owner digest preserved.
+Human cancellation and Android resultCode remain unaccepted; no fresh-consent claim.
+Owner later reported close; test finally closes its Activity. Ordinary launcher
+follow-up shows same-PID PassChef focus, not continuous pixels/precise close cause.
+Owner subsequently confirms current Cookbook/unlock screen normal; earlier close
+report remains separate, exact cause unknown.
 Selected [mapping/tag UI Run01](../../plans/261012-mobile-cookbook-phase1/reports/menu-mapping-runtime.md)
 Passed1/1,36.892s: rejected duplicate-role/missing-Recipe mappings preserve exact
 last-good cache; explicit remap retains irregular/literal rows; unchanged tagged
@@ -209,7 +217,7 @@ Pending. No source/time/auth bypass or hidden failure; earlier causes remain unk
 | Menu/tab read | Real metadata and bounded values; selected tab remains explicit | Passed Google Run03: selected Test tab and exact literal fake schema/row, including00123 |
 | Mapping | Actual preview; confirm roles; duplicate/empty/ragged inputs handled | Partial: Google preview/mapping Run03; irregular-row/duplicate+blank-header explicit remap and invalid-role preservation mapping/tag Run01 Passed; ambiguous proposals/broader matrix Pending |
 | Offline/cache | Reopen private cache; search label/username; favorites/recent retain origin | Passed network-off Run04/recreation, synthetic offline cold02 5.993s and Google-loaded cold02 8.886s after verified SIGKILL; LMK/task restore Pending |
-| Errors/refresh | Cancel/401/403/network failure retain last good cache and clear stale results | Partial: actual NETWORK_FAILED exact cache/jars preservation and stale Dish/Copy absence Passed Run04;401/403/cancel/stale callback Pending |
+| Errors/refresh | Cancel/401/403/network failure retain last good cache and clear stale results | Partial: NETWORK_FAILED preservation Passed Run04; actual host OS-Back/stale Google callback after natural lock Passed17.949s with synthetic offline cache/jars preserved; human cancellation/resultCode,401/403/different-Menu/provider-loaded cancellation Pending |
 | Reveal | Masked default; explicit reveal hides after10seconds | Passed Run04/05, including KEEP_SCREEN_ON=false in Run05; historical Run01 cause unknown |
 | Clipboard | Dish copy; real30second compare-clear; replaced/username text survives old cleanup | Selected Passed foreground ownership/locked adapter recreation + authenticated owner-Copy35s screen-off/legal return; cross-app/authenticated recreation/process death/history/API26 fallback Pending |
 | Lifecycle | Navigation/edit/lock/background/recreation clear Dish and require unlock | Partial: earlier edit/Back/background/recreation/Recents/cold Passed; owner-Copy35s actual screen-off/same-Activity locked return Passed; long-background/LMK/task matrix Pending |

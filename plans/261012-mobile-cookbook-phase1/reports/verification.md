@@ -16,6 +16,11 @@ post-terminal Android Back/ordinary launcher recovery restores PassChef focus wi
 owner/source/APKs intact. No new cancellation/stale acceptance or production cause.
 Separate host OS-Back candidate prepared/reviewed with18 HOST-only guard checks;
 unchanged source86/APKs, no rebuild/install/native test. Actual execution Pending.
+Later actual [system-Back run01](google-cancellation-preparation.md#actual-host-android-system-back-run01--passed)
+Passed17.949s,[1,0]/[-1]/OK1: real Google consent Activity, host OS Back, consumed
+pending reply and secure locked return; synthetic cache/jars and all owner/source/
+APK/UUID audits preserved. Human cancellation/resultCode/broader errors Pending.
+Owner close report remains separate; ordinary launcher samples restore PassChef focus.
 Latest [Google cancellation preparation](google-cancellation-preparation.md) adds a
 reviewed selective external-resolution/natural-stop/stale-reply fixture. Final
 compile/lint Passed26s,lint0/11/1; frozen70/test669a8c9c installed-r with exact owner

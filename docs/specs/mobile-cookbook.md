@@ -71,7 +71,9 @@ cover the frozen source; no unresolved P1/P2 remains in the implemented scope.
 Compiled instrumentation is not executed UI acceptance. Selected actual Google grant/
 reads/mapping/cache, offline error preservation, controlled process-death reopening,
 Cook/reveal/copy, real foreground5/10minute timers, secure capture/Recents and owner
-revealed-Dish screenshot refusal passed. Live cancellation/stale callbacks/401/403,
+revealed-Dish screenshot refusal passed. Selected real host Android Back from Google
+consent and stale callback after natural lock Passed17.949s with synthetic offline
+cache/jars preserved; human cancellation/resultCode, different-Menu callbacks/401/403,
 natural LMK/task restoration, broader clipboard/background and TalkBack/layout remain
 Pending. Historical failures remain recorded. Prior Keystore proof retains its accepted scope.
 QR receiving, Autofill, Drive, multiple-profile authoring and account-write screens

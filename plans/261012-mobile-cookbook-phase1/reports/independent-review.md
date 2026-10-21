@@ -1129,3 +1129,30 @@ not absolutely excluded by stream observation. Earlier Failed results retained.
 
 Unresolved: actual OS-Back candidate runtime, spinner cause and broader provider
 matrix. Mobile Partial.
+
+## Actual host Android Back run01 — independent selected acceptance
+
+Reviewer independently read raw/result/back-intent/back-result/freeze/archive and
+post-audits: Passed17.949s,selected[1,0]/terminal[-1]/anchoredOK1,native0,
+no failures/errors/skips/watchdog/error. UUIDa11bfbb8…7b82 binds the actual live
+checkpoint and two native `FullScreenConsentActivity` focus samples, awake/keyguard
+clear, followed by one actual host Android Back exit0. Native unchanged assertions
+observe pending consumption, secure locked own foreground, absent session/token/
+Dish/lifetime/old Copy and exact synthetic offline cache/jars preservation. Source86/
+protected360/helpers/history/APKs/installed/owner digest/own UUID absence/pre-existing
+directory audits Passed. No production/test/assertion changes or fresh-consent claim.
+
+Accept selected real host OS-Back/stale external callback after natural lock.
+Human hand cancellation remains Pending; exact Android resultCode Unobserved.
+No provider-loaded cache/different-Menu/401/403 or whole-Mobile acceptance inferred.
+Prior manual Failed01/02 and historical results remain unchanged. Owner close report
+is separate: fixture finally closes after assertions; precise visible close cause
+unknown. Ordinary launcher follow-up samples samePID/PassChef focus, not rendered or
+continuous UI. Evidence: new system-Back root `runtime-review-01.json` and linked
+native/owner/normal-return records. Reviewer used no ADB/Gradle.
+Later owner confirmed current “Cookbook hoặc màn hình mở khóa bình thường”; the
+separate owner record binds normal-return01 and earlier close observation. This
+does not establish the exact earlier close cause or continuous rendering.
+
+Unresolved: earlier close timing, human cancellation/resultCode,
+permitted real401/403 and broader callback/device matrix. Mobile Partial.

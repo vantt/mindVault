@@ -1,6 +1,9 @@
 # Phase04 — Android platform bridge and real Google connection
 
 Status: **Partial — selected live Google flow Passed; broader acceptance Pending**. Priority:4.
+21October selected [real host Android Back/stale-return run01](reports/google-cancellation-preparation.md#actual-host-android-system-back-run01--passed)
+Passed17.949s: actual external pending/lock/Back/consumed reply, preserved synthetic
+offline cache/jars/owner. Human cancellation/resultCode/401/403/different-Menu remain Pending.
 GoogleRun03 Passed1/1: usable authorization/provider rows, exact mapping and durable cache.
 Cache UI Run02 Passed1/1,42.393s: cached Cook/lock/reopen/authenticated same-process
 recreation; app-disconnected cache only. [Evidence](reports/google-cache-ui-runtime.md).
@@ -328,3 +331,8 @@ retroactive acceptance. Prepare actual in-run system Back before another owner w
 Reviewed host-only system-Back candidate now frozen separately:18 isolated host
 guard/classifier cases Passed; source86/APKs and existing fixture/assertions unchanged.
 Actual runtime remains Pending until fresh owner readiness; no injected callback.
+That candidate subsequently Passed17.949s with unchanged assertions/source/APKs;
+selected real host OS-Back callback after natural lock accepted. Manual Failed01/02
+retained. Readable allowed Menu provides no deterministic401/403; separate authorized
+denied test Menu needed for403, legitimate credential transition for401. Input is
+disabled while busy; no genuine different-Menu/pending callback overlap established.
