@@ -1156,3 +1156,13 @@ does not establish the exact earlier close cause or continuous rendering.
 
 Unresolved: earlier close timing, human cancellation/resultCode,
 permitted real401/403 and broader callback/device matrix. Mobile Partial.
+
+
+## Actual HTTP403 preparation —21October2026
+
+[Selected candidate preparation](google-http403-preparation.md) adds a separate UUID-owned genuine
+biometric/production-provider attempt with synthetic offline cache preservation.
+Final compile/JVM app10+bridge22/lint0errors and independent source/host review
+Passed;43 host classifier cases do not certify Google. No new runtime/install;
+denied owner-authorized test Menu URL and fresh readiness remain Pending.
+Prior failures and selected system-Back acceptance retained; Mobile Partial.

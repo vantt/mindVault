@@ -336,3 +336,23 @@ selected real host OS-Back callback after natural lock accepted. Manual Failed01
 retained. Readable allowed Menu provides no deterministic401/403; separate authorized
 denied test Menu needed for403, legitimate credential transition for401. Input is
 disabled while busy; no genuine different-Menu/pending callback overlap established.
+
+## Actual HTTP403 continuation —21October2026 preparation
+
+Synthetic offline baseline explicitly reused via unchanged ColdCacheUiFixture and
+ColdCacheBaseline. New GoogleAccessDeniedPhysicalTest uses a canonical UUID-owned
+ColdStartProofActivity, genuine biometric setup and production Connect/provider path.
+Only ACCESS_DENIED qualifies: canonical HTTP403→SheetsForbiddenException→ACCESS_DENIED.
+SDK/authorization/401 remain combined where unobservable; NETWORK_FAILED does not
+separate network from404/other HTTP. External natural lock safely ends without403
+credit; no automatic biometric reopening or retry, token/result injection or ACL change.
+
+- [x] Prepare separate selected fixture/observation; preserve historical assertions.
+- [x] Root compile/JVM/lint and independent review; strict separate host runner prepared.
+- [ ] Freeze final committed candidate before any owner runtime.
+- [ ] Obtain owner-authorized denied test Menu URL (current readable Menu unsuitable).
+- [ ] Fresh owner readiness/device preflight, then selected actual provider attempt.
+- [ ] Preserve exact synthetic cache/RAM/mapping/jars, stale Dish/Copy and lifecycle proof;
+  audit owner digest/UUID cleanup and record actual outcome before updating acceptance.
+
+No new runtime acceptance claimed. HTTP403 and whole Mobile remain Pending/Partial.

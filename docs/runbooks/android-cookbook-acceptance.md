@@ -425,3 +425,16 @@ timing. See [platform guidance](https://developer.android.com/develop/ui/views/t
 Existing [unexecuted Keystore matrix](../../archive/plans/261011-keystore-recovery/reports/current-device-acceptance.md)
 remains separately Pending. New Xiaomi acceptance cannot establish API26,
 absent hardware/enrollment or every rare failure branch.
+
+
+## Selected actual Google HTTP403 — prepared, Pending
+
+[HTTP403 candidate](../../plans/261012-mobile-cookbook-phase1/reports/google-http403-preparation.md)
+uses a new UUID, genuine biometric and production Google Connect, with an explicitly
+synthetic offline last-good cache. Only actual provider403 uniquely mapped to
+ACCESS_DENIED accepts the selected refusal; SDK/cancel/401/network/404 never count.
+Exact other failures can remain ambiguous under current status; record limits.
+Owner must supply a separate permitted denied test Menu URL and fresh readiness;
+current readable Menu stays unchanged. Root verifies serial/awake/keyguard/digest,
+installed frozen APK identities and exclusive run evidence before selected execution.
+No new runtime/install at preparation. Mobile remains Partial.

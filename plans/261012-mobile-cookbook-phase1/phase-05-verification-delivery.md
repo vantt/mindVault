@@ -207,3 +207,13 @@ Code-complete means real offline/connection code + independent JVM/build/lint pr
 with owner-dependent acceptance explicitly Pending. Product acceptance additionally
 requires the relevant real phone/OAuth evidence. QR camera/receiver, Autofill,
 Drive/multi-profile and account authoring remain later plans, not overnight promises.
+
+
+## Actual HTTP403 preparation —21October2026
+
+[Selected candidate preparation](reports/google-http403-preparation.md) adds a separate UUID-owned genuine
+biometric/production-provider attempt with synthetic offline cache preservation.
+Final compile/JVM app10+bridge22/lint0errors and independent source/host review
+Passed;43 host classifier cases do not certify Google. No new runtime/install;
+denied owner-authorized test Menu URL and fresh readiness remain Pending.
+Prior failures and selected system-Back acceptance retained; Mobile Partial.
