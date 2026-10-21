@@ -1,5 +1,10 @@
 # Phase05 — Independent verification, honest acceptance and delivery
 
+21October [actual401 preparation](reports/google-http401-preparation.md): host
+checkpoint/archive/raw-integrity audit Passed; no new device/build/test acceptance.
+Permitted401 transition, reviewed native candidate and fresh owner readiness Pending.
+Mobile stays Partial; historical outcomes retained.
+
 Latest21October: [provider-loaded403 + fresh cached Cook Run01](reports/google-provider403-preparation.md#actual-provider-loaded-http403-run01--passed21902s)
 Passed21.902s; exact pre-Cook cache/jars/RAM preservation and fresh cached Cook,
 independent runtime/owner/UUID/source/APK/history audits Passed. Mobile Partial.

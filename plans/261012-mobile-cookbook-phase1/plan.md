@@ -76,5 +76,7 @@ append/update screens remain separate later work. No reopened stack/write decisi
 Exact local commands and the Pending owner checklist are in phase5.
 
 ## Open dependencies
-Google401/provider-loaded403/cancellation/later physical acceptance; no product question blocks offline code.
+Google401/cancellation/later physical acceptance; no product question blocks offline code.
+[Actual401 preparation](reports/google-http401-preparation.md): checkpoint audit Passed;
+retained-grant tab-read checklist ready, permitted credential transition still Pending.
 Whole Phase1 remains Partial until required connection/user/device flows have evidence.

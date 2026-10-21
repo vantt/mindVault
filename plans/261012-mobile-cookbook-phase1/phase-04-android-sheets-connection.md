@@ -1,5 +1,10 @@
 # Phase04 — Android platform bridge and real Google connection
 
+21October [actual401 preparation](reports/google-http401-preparation.md): retained
+checkpoint/archive audit Passed; exclusive retained-token tab-read provenance and
+conditional remote-revocation impact/checklist documented. Actual401 Pending;
+no authorized trigger, new native candidate or runtime. Mobile Partial.
+
 Latest21October: [provider-loaded403 + fresh cached Cook Run01](reports/google-provider403-preparation.md#actual-provider-loaded-http403-run01--passed21902s)
 Passed21.902s; exact pre-Cook cache/jars/RAM preservation and fresh cached Cook,
 independent runtime/owner/UUID/source/APK/history audits Passed. Mobile Partial.
