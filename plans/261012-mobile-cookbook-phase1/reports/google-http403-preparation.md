@@ -125,3 +125,18 @@ runtime review. No native/biometric wait remains active. No unchanged retry is s
 Next: clarify the Google authorization page through a permitted deliberate diagnostic
 before another timed attempt; current denied Menu prerequisite is supplied, Google
 flow readiness remains unproven. Actual403 and Mobile remain Pending/Partial.
+
+
+### Later owner clarification — unverified-app warning
+
+Owner subsequently recalled **Google hasn't verified this app**. New exclusive
+`run-01-owner-google-message-02.json` preserves the clarification; earlier Unknown
+record is retained. This is owner-reported Google authorization UI, not actual
+Sheets HTTP403 or instrumented confirmation of the complete page/error code.
+Google documents this warning for apps requesting sensitive/restricted scopes that
+have not completed verification ([official guidance](https://support.google.com/cloud/answer/7454865?hl=en)).
+It identifies the observed consent-stage obstacle; it does not prove the exact cause
+of the fixture failure, current Cloud configuration or why every earlier run failed.
+Run01 remains Failed203.052s and actual403 Pending. Before another run, explain
+expected development consent and verify intended app/account/test-user eligibility;
+no automatic grant, scope, publishing-status or Menu ACL changes.
