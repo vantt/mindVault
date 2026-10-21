@@ -25,6 +25,11 @@ runner. Build/lint,11 host parser checks and read-only installed/owner-digest ch
 match; no new runtime/reinstall. Do not repeat silent grant reuse without evidence
 of an available external Google resolution. Any test-account grant withdrawal needs
 specific owner permission; none is authorized by this preparation.
+21October owner reported manual grant removal. New persistent run01 observed actual
+external Google/pending request/natural lock, then Failed197.803s awaiting return;
+owner Back report and later Chrome focus are separate observations. Cookbook digest/
+source/APKs/owned cleanup preserved. Clarify the actual Google screen before retry;
+no cancellation/stale callback acceptance or production defect inferred.
 Selected [mapping/tag UI Run01](../../plans/261012-mobile-cookbook-phase1/reports/menu-mapping-runtime.md)
 Passed1/1,36.892s: rejected duplicate-role/missing-Recipe mappings preserve exact
 last-good cache; explicit remap retains irregular/literal rows; unchanged tagged

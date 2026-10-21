@@ -317,3 +317,7 @@ current86 sources/APKs unchanged; build Passed2s,lint0/11/1, independently revie
 host runner/frozen03 and11 host parser checks Passed. Read-only installed/owner
 digest checks match; no runtime/reinstall. External resolution availability and
 fresh owner readiness required before retry; grant withdrawal needs specific approval.
+21October owner reported grant removal; selected persistent run01 Failed197.803s
+after actual Google resolution/natural lock, pending reply not consumed within180s.
+Owner reports Back reaches Google web; current Chrome focus observed separately.
+Exact owner/source/APK/UUID preservation Passed; cancellation/stale remains Pending.

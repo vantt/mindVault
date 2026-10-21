@@ -166,3 +166,49 @@ preparation authorizes none. Actual401/403 also needs a permitted real denial co
 Unresolved: external-resolution availability and owner readiness; actual Google
 cancellation/stale return, different-Menu callbacks, provider-loaded cancellation
 and401/403. Mobile remains Partial.
+
+## Actual persistent Google run01 —21October2026
+
+Status: **Failed1/1,197.803s; cancellation/stale acceptance Pending**.
+This new persistent run01 is separate from15October's NotExercised run01.
+Owner reported manual grant removal, then immediate readiness; root rechecked
+awake/keyguard absent, exact installed/frozen03 identities and owner digest before
+launching only the unchanged selected method. No rebuild/install or grant injection.
+
+UUID `cf0dc704-1b76-4c38-8c36-b4701cb1e750`. Genuine setup reached normal Connect,
+an actual Google-services window, original pending request and natural Activity stop.
+At `owner-cancel-google-now`, observed session/token/Dish/lifetime absent, locked,
+metadata/draft absent and all observed stops clean. Owner confirmed seeing Google.
+Root requested Cancel, otherwise Back, then return without unlocking Cookbook.
+
+The180s return gate expired with pending=true/providerObserved=true/stopped=true,
+own focused/resumed=false, session/token/Dish absent and allStopsClean=true. No
+consumed reply, own secure return or final preservation-success phase was observed.
+JUnit[1,-2],terminal[-1],native0,watchdogfalse,orchestrationError=null; this is Failed,
+not cancellation Passed or NotExercised. No production cause established.
+
+Owner later reported: “nhấn Quay lại thì về web của google, không về app. nhấn lại
+vào app thì vẫn show màn hinh google.” Exact observation is saved separately;
+physical Back timestamps and exact screen during those actions are unobserved.
+Read-only screen01 subsequently found Chrome focused, neither Google services nor
+PassChef; accessibility tree unavailable. This current sample cannot reconstruct the
+earlier navigation or prove a provider defect. No fresh runtime is launched blindly.
+
+Post-run audits Passed: source86/protected360/helpers/current/archive03/APKs exact,
+installed debug/test and owner894f73…a4d6 unchanged, own UUID directory absent and
+six pre-existing proof directories preserved. No owner Cookbook content read.
+Raw/result/preflight `google-run-01.*`, owner grant-removal/cancellation observations
+and `google-current-screen-observation-01.json` remain under the persistent root.
+
+Unresolved: owner-visible Google page/navigation and genuine cancellation return;
+stale callback/different-Menu/provider-loaded cancellation/401/403. Mobile Partial.
+
+Later owner clarification: “chỉ là màn hình passchef bình thường, chưa qua google”.
+Read-only sample at11:52:29Asia/Saigon confirms PassChef focused, awake/keyguard
+absent, Chrome/Google-services not focused; no new instrumentation. Saved as
+`google-owner-current-screen-clarification-01.json`. This current observation does
+not reconstruct the earlier “Đã thấy Google” or Back action; the relation remains
+unresolved. No retroactive cancellation acceptance or blind retry follows.
+
+Unresolved: which screen the owner saw during the earlier Google checkpoint;
+actual cancelled-result return and the remaining provider matrix. Mobile Partial.

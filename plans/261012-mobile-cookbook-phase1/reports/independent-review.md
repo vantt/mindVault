@@ -1084,3 +1084,18 @@ instrumentation or biometric wait. [Scope/evidence](google-cancellation-preparat
 Unresolved: available external Google resolution/fresh owner readiness, actual
 cancellation/stale reply/different-Menu/401/403. Mobile stays Partial; historical
 NotExercised/Failed/Unknown results and old missing-raw-evidence limits retained.
+
+## Persistent Google run01 —21October outcome review
+
+Independent reviewer read raw/result/owner evidence and four scoped documentation
+additions: selected Failed197.803s,[1,-2]/terminal[-1],native0,no watchdog/error.
+Actual external Google window/pending request/natural stop were observed, sensitive
+state cleared, but no consumed reply or returned-own-foreground gate before180s.
+Post owner/source/APK/UUID audits match; no production defect or cancellation/stale
+callback acceptance established. Current Chrome focus cannot reconstruct earlier
+navigation. Clarify the owner-visible screen before another runtime.
+
+Later root-only read confirms current PassChef foreground with owner clarification;
+this is separate from the independently reviewed failed runtime. No new test launched.
+Unresolved: earlier owner-visible screen/navigation, actual cancellation/returned
+stale callback and broader provider matrix. Mobile remains Partial.

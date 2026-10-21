@@ -6,6 +6,10 @@ broader owner/device matrix Pending. Historical local snapshot below retained.
 unchanged source86/APKs, build Passed2s3/91,lint0/11/1; independent host review and11
 parser checks Passed. Read-only installed/owner-digest checks match. New frozen03
 prepared; no new Android/JVM/provider acceptance. External resolution remains Pending.
+21October persistent [Google run01](google-cancellation-preparation.md#actual-persistent-google-run01-21october2026)
+Failed197.803s,[1,-2]/[-1]: actual external Google/pending/natural-stop observed,
+but no returned callback/own foreground within180s. Locked sensitive state observed
+cleared; final owner/source/APK/UUID audits Passed. Cancellation/stale acceptance Pending.
 Latest [Google cancellation preparation](google-cancellation-preparation.md) adds a
 reviewed selective external-resolution/natural-stop/stale-reply fixture. Final
 compile/lint Passed26s,lint0/11/1; frozen70/test669a8c9c installed-r with exact owner
