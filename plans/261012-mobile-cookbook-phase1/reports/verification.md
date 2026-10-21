@@ -420,3 +420,14 @@ Final compile/JVM app10+bridge22/lint0errors and independent source/host review
 Passed;43 host classifier cases do not certify Google. No new runtime/install;
 denied owner-authorized test Menu URL and fresh readiness remain Pending.
 Prior failures and selected system-Back acceptance retained; Mobile Partial.
+
+
+## Actual HTTP403 Run01 —21October2026
+
+[Selected runtime](google-http403-preparation.md#actual-selected-run01--failed203052s) Failed203.052s,
+selected[1,-2]/terminal[-1]/native0; pending external request and natural locked stop,
+no actual403 or accepted return gate. Exact cause unpreserved by generic wrapper.
+Owner/UUID cleanup/source/APK/history audits Passed. Owner later clicked webpage
+Back to Safety and returned to Chrome/help; prior Google message Unknown.
+No Android Back/Sheets403 credit; no active runtime or automatic unchanged retry.
+Denied Menu supplied; authorization-page diagnosis and actual403 remain Pending.

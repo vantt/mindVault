@@ -350,9 +350,20 @@ credit; no automatic biometric reopening or retry, token/result injection or ACL
 - [x] Prepare separate selected fixture/observation; preserve historical assertions.
 - [x] Root compile/JVM/lint and independent review; strict separate host runner prepared.
 - [x] Freeze committed candidate0670fde; exact source/helper/APK/history archive audit Passed.
-- [ ] Obtain owner-authorized denied test Menu URL (current readable Menu unsuitable).
-- [ ] Fresh owner readiness/device preflight, then selected actual provider attempt.
+- [x] Owner supplied separate denied test Menu URL and confirmed unshared.
+- [x] Fresh owner readiness/device preflight and selected Run01 attempted; Failed, no403 accepted.
 - [ ] Preserve exact synthetic cache/RAM/mapping/jars, stale Dish/Copy and lifecycle proof;
   audit owner digest/UUID cleanup and record actual outcome before updating acceptance.
 
 No new runtime acceptance claimed. HTTP403 and whole Mobile remain Pending/Partial.
+
+
+## Actual HTTP403 Run01 —21October2026
+
+[Selected runtime](reports/google-http403-preparation.md#actual-selected-run01--failed203052s) Failed203.052s,
+selected[1,-2]/terminal[-1]/native0; pending external request and natural locked stop,
+no actual403 or accepted return gate. Exact cause unpreserved by generic wrapper.
+Owner/UUID cleanup/source/APK/history audits Passed. Owner later clicked webpage
+Back to Safety and returned to Chrome/help; prior Google message Unknown.
+No Android Back/Sheets403 credit; no active runtime or automatic unchanged retry.
+Denied Menu supplied; authorization-page diagnosis and actual403 remain Pending.

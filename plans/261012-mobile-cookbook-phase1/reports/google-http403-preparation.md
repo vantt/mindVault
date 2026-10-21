@@ -1,6 +1,6 @@
 # Actual Google HTTP403 preparation —21October2026
 
-Status: **Prepared locally; actual provider HTTP403 Pending; Mobile Partial**.
+Status: **Run01 Failed203.052s; actual provider HTTP403 Pending; Mobile Partial**.
 Continue checkpoint `a5a655640da15fdb9ea790d00ac8609c96a80a6e`; no restart.
 
 ## Candidate and acceptance boundary
@@ -84,3 +84,44 @@ Selected system-Back Passed17.949s remains scoped to that prior candidate.
 Unresolved: authorized denied Menu URL, fresh owner readiness and actual403 runtime;
 SDK/401 and network/404 cannot be individually diagnosed from current status alone;
 all previous broader Mobile acceptance gaps remain Pending. Mobile stays Partial.
+
+
+## Actual selected Run01 — Failed203.052s
+
+21October2026, selected Xiaomi/API36, UUID
+`a84e91f9-52d0-453e-9a4d-1ec874aa466f`, unchanged frozen01 candidate.
+Owner supplied a separate test Menu URL, confirmed it was unshared, then explicitly
+reported ready. No owner email or complete Menu URL committed. Fresh device/awake/
+keyguard/digest checks Passed. Only instrumentation APK needed install-r; debug
+remained unchanged and both installed hashes matched frozen01. Original Cookbook
+was observed by digest only, exact before/after. No uninstall/data clear.
+
+Genuine setup completed, synthetic offline baseline/Cook and production Connect
+executed. Selected JUnit **Failed1/1,203.052s**,codes[1,-2],terminal[-1],native0,
+watchdogfalse,no host orchestration error. Failure marker:connect-dispatch-failed.
+At that sample, pending=true,stopped=true,allStopsClean=true,stoppedReturnLocked=true;
+session/token/Dish/lifetime/metadata/draft absent, sourceOFFLINE, own foreground
+absent, actual403=false. No return gate or provider403 accepted. The generic wrapper
+omits the original exception/assertion, so duration/state alone do not establish
+its exact cause or a Google configuration defect. Failed is retained, never a skip.
+
+Final audits: exact owner digest, installed APKs/source/protected/helpers/history/
+archive preserved; new UUID directory absent and all six prior proof directories
+unchanged. These audits do not retroactively accept the failed fixture assertions.
+Earlier diagnostic cache/jars digests identify this synthetic baseline only.
+
+Owner reported Google screen after terminal. Root initially suggested account/grant
+steps before polling the result, then promptly corrected that advice after observing
+terminal failure; no post-terminal action is part of runtime acceptance. Owner later
+reported clicking webpage **Back to Safety**, returning to Chrome/help page. This is
+not an observed Android OS Back key. A separate native sample confirms Chrome focus
+and preserved owner digest. Owner does not remember the prior Google message; exact
+text/code and reason for that webpage remain **Unknown**. Do not label it Sheets403,
+SDK failure, consent denial or fresh consent from the button label alone.
+
+Persistent new records:install-preflight01,run01 preflight/raw/result,
+run-01-owner-back-to-safety-01.json,run-01-owner-google-message-01.json and independent
+runtime review. No native/biometric wait remains active. No unchanged retry is started.
+Next: clarify the Google authorization page through a permitted deliberate diagnostic
+before another timed attempt; current denied Menu prerequisite is supplied, Google
+flow readiness remains unproven. Actual403 and Mobile remain Pending/Partial.
