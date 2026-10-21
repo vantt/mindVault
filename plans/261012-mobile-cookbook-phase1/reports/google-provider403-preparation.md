@@ -61,7 +61,10 @@ APKs SHA256:
 
 Persistent evidence root:
 `/home/vantt/.local/share/passchef-mobile-evidence/2026-10-21-google-provider403/`.
-Separate provider-denied helpers/build/review/tester/verification records; all prior
+Candidate commit `87a9ea8`; frozen01/candidate01 binds source/APK/helpers/protected
+work and complete prior persistent evidence hashes. Frozen01 SHA256:
+`35c8cb94f1b6d51249bf1eb9f6a103f699403ae9e28302574bf8c584155afedc`.
+Local archive audit Passed. Separate provider-denied helpers/build/review/tester/verification records; all prior
 HTTP403/cancellation/system-Back/null-label evidence remains untouched. Verification02
 corrects only verification01's wrong bridge XML directory; both records retained.
 

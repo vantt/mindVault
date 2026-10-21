@@ -256,7 +256,7 @@ Status: **Pending; Mobile Partial**. Follow the
 
 - [x] Prepare separate selected fixture/provider observer and minimal shared UI
   reuse; preserve every old assertion. Independent source review before runtime.
-- [ ] Root-only compile/lint and relevant local checks; freeze fresh source/APK/
+- [x] Root-only compile/lint and relevant local checks; freeze fresh source/APK/
   helper identities and candidate archive under a new persistent evidence root.
   Historical frozen/candidate/helper/raw/result files remain immutable.
 - [x] Host-only adversarial checks require selected JUnit start/end, unique terminal,
