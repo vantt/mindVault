@@ -10,6 +10,12 @@ prepared; no new Android/JVM/provider acceptance. External resolution remains Pe
 Failed197.803s,[1,-2]/[-1]: actual external Google/pending/natural-stop observed,
 but no returned callback/own foreground within180s. Locked sensitive state observed
 cleared; final owner/source/APK/UUID audits Passed. Cancellation/stale acceptance Pending.
+Persistent Google run02 also Failed197.504s with external Google/pending/clean lock,
+no completed return. Owner white spinner and later Google focus recorded separately;
+post-terminal Android Back/ordinary launcher recovery restores PassChef focus with
+owner/source/APKs intact. No new cancellation/stale acceptance or production cause.
+Separate host OS-Back candidate prepared/reviewed with18 HOST-only guard checks;
+unchanged source86/APKs, no rebuild/install/native test. Actual execution Pending.
 Latest [Google cancellation preparation](google-cancellation-preparation.md) adds a
 reviewed selective external-resolution/natural-stop/stale-reply fixture. Final
 compile/lint Passed26s,lint0/11/1; frozen70/test669a8c9c installed-r with exact owner

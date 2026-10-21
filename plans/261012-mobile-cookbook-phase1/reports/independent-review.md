@@ -1099,3 +1099,33 @@ Later root-only read confirms current PassChef foreground with owner clarificati
 this is separate from the independently reviewed failed runtime. No new test launched.
 Unresolved: earlier owner-visible screen/navigation, actual cancellation/returned
 stale callback and broader provider matrix. Mobile remains Partial.
+
+## Persistent Google run02 — independent failure/recovery review
+
+Reviewer confirms Failed197.504s,[1,-2]/[-1],native0,no watchdog/error; actual external
+Google/pending/natural stop, cleared sensitive state and no completed returned reply.
+Owner/source/APK/UUID preservation Passed. Owner's white-spinner report coincides
+with a later post-terminal Google-services focus sample; it does not identify an
+internal Google/network/PassChef cause. Actual Android Back exits that window, then
+ordinary MainActivity launch restores PassChef focus with owner data/audits preserved.
+Recovery is separate from the failed runtime and adds no cancellation/stale-return
+acceptance or rendered/authenticated UI proof. No production edit or new test run.
+
+Unresolved: spinner/navigation cause and actual in-run cancellation/returned callback,
+exact resultCode and remaining provider matrix. Mobile Partial.
+
+## In-run host Android Back — preparation review
+
+Reviewer audited two new host helpers,107/137lines; source86/APKs/unchanged selected
+native fixture retained. Exact live UUID marker/start/failure/terminal/locked-state
+gates precede two fresh Google focus checks, awake/keyguard and live-client guards,
+then one real Android Back. Exclusive intent/result records, native command outcome
+and original strict fixture/post-audit verdicts gate acceptance. No injected result,
+grant/account change or authentication bypass. Owner cancellation/resultCode remain
+unaccepted;18 HOST-only action-gate/classifier/mocked-command checks Passed. No
+ADB/Gradle/provider runtime by reviewer, no blocking source finding. Fresh owner
+readiness and actual device outcome remain necessary; buffered unseen terminal is
+not absolutely excluded by stream observation. Earlier Failed results retained.
+
+Unresolved: actual OS-Back candidate runtime, spinner cause and broader provider
+matrix. Mobile Partial.

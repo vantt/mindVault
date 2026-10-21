@@ -30,6 +30,15 @@ external Google/pending request/natural lock, then Failed197.803s awaiting retur
 owner Back report and later Chrome focus are separate observations. Cookbook digest/
 source/APKs/owned cleanup preserved. Clarify the actual Google screen before retry;
 no cancellation/stale callback acceptance or production defect inferred.
+Persistent run02 also Failed197.504s awaiting return; owner white spinner, later
+Google-services focus. Root's post-terminal Android Back then ordinary launcher
+restored PassChef focus, owner digest unchanged. Recovery grants no cancellation
+acceptance. Prefer a reviewed real Android system-Back action at the observed
+external checkpoint before another attempt; retain all assertions/deadlines.
+Separate reviewed system-Back host runner is ready;18 host-only guard checks Passed.
+After fresh owner readiness, genuine biometric remains required; root issues exactly
+one actual Android Back only at the matched live external/locked checkpoint. Owner
+need not find a button in the Google page. Runtime acceptance remains Pending.
 Selected [mapping/tag UI Run01](../../plans/261012-mobile-cookbook-phase1/reports/menu-mapping-runtime.md)
 Passed1/1,36.892s: rejected duplicate-role/missing-Recipe mappings preserve exact
 last-good cache; explicit remap retains irregular/literal rows; unchanged tagged

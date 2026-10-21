@@ -212,3 +212,78 @@ unresolved. No retroactive cancellation acceptance or blind retry follows.
 
 Unresolved: which screen the owner saw during the earlier Google checkpoint;
 actual cancelled-result return and the remaining provider matrix. Mobile Partial.
+
+## Persistent Google run02 — white spinner and post-terminal recovery
+
+21October, same frozen03/source86/APKs/unchanged selected method; no rebuild/install.
+UUID `7cf9b172-ed9c-4e8a-a893-74ebbcdce27e`. Fresh owner readiness/native checks
+preceded launch. **Failed1/1,197.504s**,selected[1,-2]/terminal[-1],native0,
+watchdogfalse,orchestrationError=null. Actual external Google/pending request/natural
+stop observed; at the failure checkpoint pending=true, own foreground absent and
+session/token/Dish/lifetime/metadata/draft absent, allStopsClean=true. No consumed
+callback or successful return gate within the bounded180s wait. Generic failure
+wrapper does not preserve an exact underlying assertion/exception; no provider or
+production cause is established from the duration/phase alone.
+
+Owner subsequently reported a white screen/spinner. Read-only sample at12:04:13
+Asia/Saigon found Google services focused, neither PassChef nor Chrome. Run02 had
+already terminated and its UUID cleanup completed. Root issued one real Android
+Back key4 at12:04:37 to exit that window, then opened ordinary MainActivity through
+the launcher. Read-only recovery at12:05:01 found PassChef focused/Google absent;
+owner digest/installed/source/APKs and pre-existing directory set remained exact.
+No authentication/Connect or new instrumentation occurred during recovery. App focus
+does not prove rendered UI or owner authentication. These post-terminal actions
+cannot retroactively accept cancellation or the failed stale-return assertion.
+
+Independent reviewer confirms raw result, cleared-state/cleanup scope and separate
+recovery boundary. Current provider/network metadata was sampled only after recovery;
+it cannot establish network conditions or Google rendering during Run02. Keep Failed
+and the spinner observation without inferring a production repair or account cause.
+
+Evidence in the same persistent root: `google-run-02.log/.json`, its preflight,
+`google-run-02-owner-white-screen-01.json`, `google-run-02-system-back-recovery-01.json`,
+`google-run-02-normal-app-recovery-01.json` and current-provider-network metadata01.
+All final owner/source/APK/UUID and pre-existing directory preservation gates Passed.
+
+Unresolved: white-spinner cause, genuine in-run Android cancellation/consumed stale
+reply, exact Android resultCode, different-Menu/provider-loaded cancellation/401/403.
+Mobile remains Partial. No unchanged manual retry is launched automatically.
+
+## In-run Android system Back — prepared, not executed
+
+21October persistent root:
+`/home/vantt/.local/share/passchef-mobile-evidence/2026-10-21-google-system-back/`.
+Two new107/137-line host helpers preserve the unchanged existing selected fixture,
+all86 sources/assertions and all APKs. No production repair, rebuild or reinstall.
+New baseline main30b1b81; `system-back-frozen-01.json`/candidate01 archive binds
+helpers/source86/protected360/APKs and hashes of historical Google frozen03,
+failed run02 raw/result plus both post-terminal recovery records. Older roots stay intact.
+Independent archive-audit01 Passed; frozen SHA256
+`a002d38c57775871867a29613905f3a6773adfc4cc878bf4e8b5467734d4ee1c`.
+
+The runner consumes only the live selected invocation. At the exact matching UUID
+`owner-cancel-google-now` marker, require selected-start[1], no observed failure or
+terminal, original pending/provider/natural-stop flags and every locked/cleared-state
+predicate. Before one actual OS `input keyevent4`, verify Google-services focus twice,
+same component, awake/keyguard absent, <=5s freshness and live host client. Persist
+exclusive action intent/result with UTC/focus/state/native outcome; never repeat or
+fall back to page-link clicks, injected Activity results, grants or authentication.
+Actual buffered terminal before the host reads it cannot be categorically excluded;
+fresh native gates and final unchanged fixture verdict remain mandatory.
+
+Independent code review found no blocking issue;18 HOST-only gate/classifier/mocked
+action checks Passed, including wrong UUID/unclean stop/prior failure/terminal/
+duplicate/nonGoogle/locked/dead-process/nonzero-command/incomplete-result cases.
+Syntax/size checks Passed. These synthetic host checks provide no provider acceptance.
+No new Android build/JVM/lint/runtime claim; prior unchanged candidate build/lint retained.
+
+Any actual success must still satisfy unchanged JUnit[1,0]/terminal[-1]/OK1/final
+stale-preservation phase plus exact owner/installed/source/archive/own-UUID and
+pre-existing directory audits, and a successfully issued host OS Back command.
+Owner cancellation remains Pending and exact Android resultCode Unobserved even
+then: host-operated actual OS Back is named separately from a human UI action.
+Fresh explicit owner readiness and native screen checks are required before launch.
+
+Unresolved: actual execution of this bounded OS-Back candidate, spinner cause,
+owner-cancellation/resultCode, different-Menu/provider-loaded cancellation/401/403.
+Mobile Partial; no native or biometric wait is active at preparation.

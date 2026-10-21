@@ -321,3 +321,10 @@ fresh owner readiness required before retry; grant withdrawal needs specific app
 after actual Google resolution/natural lock, pending reply not consumed within180s.
 Owner reports Back reaches Google web; current Chrome focus observed separately.
 Exact owner/source/APK/UUID preservation Passed; cancellation/stale remains Pending.
+Persistent run02 Failed197.504s; external resolution/clean lock observed, reply
+unconsumed. White-spinner owner report and later Google focus do not establish cause.
+Post-terminal Android Back/normal app recovery preserved owner/source/APKs; no
+retroactive acceptance. Prepare actual in-run system Back before another owner wait.
+Reviewed host-only system-Back candidate now frozen separately:18 isolated host
+guard/classifier cases Passed; source86/APKs and existing fixture/assertions unchanged.
+Actual runtime remains Pending until fresh owner readiness; no injected callback.
