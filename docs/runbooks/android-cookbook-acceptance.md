@@ -217,7 +217,7 @@ Pending. No source/time/auth bypass or hidden failure; earlier causes remain unk
 | Menu/tab read | Real metadata and bounded values; selected tab remains explicit | Passed Google Run03: selected Test tab and exact literal fake schema/row, including00123 |
 | Mapping | Actual preview; confirm roles; duplicate/empty/ragged inputs handled | Partial: Google preview/mapping Run03; irregular-row/duplicate+blank-header explicit remap and invalid-role preservation mapping/tag Run01 Passed; ambiguous proposals/broader matrix Pending |
 | Offline/cache | Reopen private cache; search label/username; favorites/recent retain origin | Passed network-off Run04/recreation, synthetic offline cold02 5.993s and Google-loaded cold02 8.886s after verified SIGKILL; LMK/task restore Pending |
-| Errors/refresh | Cancel/401/403/network failure retain last good cache and clear stale results | Partial: NETWORK_FAILED preservation Passed Run04; actual host OS-Back/stale Google callback after natural lock Passed17.949s with synthetic offline cache/jars preserved; human cancellation/resultCode,401/403/different-Menu/provider-loaded cancellation Pending |
+| Errors/refresh | Cancel/401/403/network failure retain last good cache and clear stale results | Partial: NETWORK_FAILED preservation Passed Run04; actual host OS-Back/stale Google callback after natural lock Passed17.949s with synthetic offline cache/jars preserved; actual metadata403/synthetic cache preservation Passed Run04; human cancellation/resultCode,401/provider-loaded403/different-Menu/provider-loaded cancellation Pending |
 | Reveal | Masked default; explicit reveal hides after10seconds | Passed Run04/05, including KEEP_SCREEN_ON=false in Run05; historical Run01 cause unknown |
 | Clipboard | Dish copy; real30second compare-clear; replaced/username text survives old cleanup | Selected Passed foreground ownership/locked adapter recreation + authenticated owner-Copy35s screen-off/legal return; cross-app/authenticated recreation/process death/history/API26 fallback Pending |
 | Lifecycle | Navigation/edit/lock/background/recreation clear Dish and require unlock | Partial: earlier edit/Back/background/recreation/Recents/cold Passed; owner-Copy35s actual screen-off/same-Activity locked return Passed; long-background/LMK/task matrix Pending |
@@ -427,14 +427,21 @@ remains separately Pending. New Xiaomi acceptance cannot establish API26,
 absent hardware/enrollment or every rare failure branch.
 
 
-## Selected actual Google HTTP403 — prepared, Pending
+## Selected actual Google HTTP403 — Run04 Passed27.530s
 
 [HTTP403 candidate](../../plans/261012-mobile-cookbook-phase1/reports/google-http403-preparation.md)
 uses a new UUID, genuine biometric and production Google Connect, with an explicitly
 synthetic offline last-good cache. Only actual provider403 uniquely mapped to
 ACCESS_DENIED accepts the selected refusal; SDK/cancel/401/network/404 never count.
 Exact other failures can remain ambiguous under current status; record limits.
-Owner must supply a separate permitted denied test Menu URL and fresh readiness;
-current readable Menu stays unchanged. Root verifies serial/awake/keyguard/digest,
-installed frozen APK identities and exclusive run evidence before selected execution.
-No new runtime/install at preparation. Mobile remains Partial.
+Owner supplied a separate permitted denied test Menu and fresh readiness for Run04.
+Root verified serial/awake/keyguard/digest, installed frozen APK identities and
+exclusive run evidence before execution. Original readable Menu stayed unchanged.
+
+
+Actual [HTTP403 Run04](../../plans/261012-mobile-cookbook-phase1/reports/google-http403-preparation.md#actual-google-http403-run04--passed27530s)
+Passed27.530s: real provider metadata refusal, exact synthetic offline cache/jars/RAM
+preserved, stale Dish/Copy cleared, ready foreground/RAM grant retained without stop.
+Owner digest and UUID cleanup/frozen identities Passed. No fresh post403 cached Cook
+or provider-loaded baseline claim. Prior Failed01/02 and NotExercised03 retained;
+401/human cancellation/broader matrix remain Pending. No active wait. Mobile Partial.

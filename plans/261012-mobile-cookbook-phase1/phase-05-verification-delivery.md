@@ -238,3 +238,13 @@ jars and stale Dish assertions retained; owner/cleanup/APK/source audits Passed.
 Owner saw no account chooser; account identity Unknown. Owner close report is
 separate from fixture terminal/normal Activity recovery. No active wait/retry;
 identify actual Google account and inaccessible test Menu before next403 attempt.
+
+
+## Actual Google HTTP403 Run04 — Passed27.530s
+
+[Accepted selected runtime](reports/google-http403-preparation.md#actual-google-http403-run04--passed27530s):
+real production metadata403→ACCESS_DENIED,selected[1,0]/[-1]/OK1, secure ready
+foreground/RAM grant retained, no stop. Exact synthetic offline cache/jars/RAM
+preserved; stale Dish/Copy absent; owner/UUID/APK/source/history audits Passed.
+No provider-loaded cache or fresh post403 Cook/401/cancel acceptance. Earlier
+Failed01/02 and NotExercised03 retained; no active wait. Mobile Partial.

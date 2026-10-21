@@ -4,7 +4,7 @@ Date:2026-10-12; updated2026-10-21 (Asia/Saigon). Status: **Partial — code/loc
 Baseline: main `2579e29044924e1582b78414b0314baffc72abe5`.
 Owner authorized two agents: recheck the five browser slices and implement mobile.
 Selected UI/cache/cold/clipboard/timers/capture/Recents/owner shortcut/tag-mapping Passed; broader acceptance Pending.
-Latest: [real host Google OS-Back/stale reply](reports/google-cancellation-preparation.md#actual-host-android-system-back-run01--passed) Passed17.949s; synthetic cache/jars preserved; human cancellation/401/403/different-Menu Pending. Earlier [clipboard repair](reports/clipboard-null-label-repair-runtime.md) remains accepted.
+Latest: [actual Google HTTP403](reports/google-http403-preparation.md#actual-google-http403-run04--passed27530s) Passed27.530s; exact synthetic cache/jars preserved, stale Dish cleared; Mobile Partial. Earlier [real host Google OS-Back/stale reply](reports/google-cancellation-preparation.md#actual-host-android-system-back-run01--passed) Passed17.949s; synthetic cache/jars preserved; human cancellation/401/provider-loaded403/different-Menu Pending. Earlier [clipboard repair](reports/clipboard-null-label-repair-runtime.md) remains accepted.
 Actual UI Run01 failed after reveal; [device evidence](reports/device-acceptance.md)
 and [unattended regressions](reports/unattended-regression.md) track investigation.
 
@@ -25,7 +25,7 @@ Q6 historical read-only wording superseded by Q9 and retained decisions.
 | 1 | [Session-owned manual cooking](phase-01-session-cooking.md) | Done (local scope) | First useful offline path; shared JVM regressions + Android compile |
 | 2 | [Private cache and column mapping](phase-02-cache-mapping.md) | Done (local scope) | Pure model/storage tests; no Google credential required |
 | 3 | [Cookbook Compose screens and clipboard](phase-03-cookbook-ui.md) | Partial | Selected UI/cache/real5+10min/secure capture/Recents Passed; accessibility/broader phone matrix Pending |
-| 4 | [Android Sheets/authorization integration](phase-04-android-sheets-connection.md) | Partial | Google/cache/network-off/host OS-Back stale reply Passed;401/403/human cancel/different-Menu Pending |
+| 4 | [Android Sheets/authorization integration](phase-04-android-sheets-connection.md) | Partial | Google/cache/network-off/host OS-Back/selected403 Passed;401/human cancel/different-Menu Pending |
 | 5 | [Independent verification and delivery](phase-05-verification-delivery.md) | Partial | Evidence separates code/build acceptance from physical/live acceptance |
 
 Phases1–3 support real offline code without phone/account. Phase4 protocol fixtures
@@ -75,5 +75,5 @@ append/update screens remain separate later work. No reopened stack/write decisi
 Exact local commands and the Pending owner checklist are in phase5.
 
 ## Open dependencies
-Google401/403/cancellation/later physical acceptance; no product question blocks offline code.
+Google401/provider-loaded403/cancellation/later physical acceptance; no product question blocks offline code.
 Whole Phase1 remains Partial until required connection/user/device flows have evidence.

@@ -196,7 +196,9 @@ selected [cache UI Run02](plans/261012-mobile-cookbook-phase1/reports/google-cac
 also passed actual offline Cook and network-failure cache preservation.
 Selected [real host Android Back](plans/261012-mobile-cookbook-phase1/reports/google-cancellation-preparation.md#actual-host-android-system-back-run01--passed)
 passed external Google callback consumption after natural lock with synthetic offline
-cache/jars preserved. Human cancellation/resultCode,401/403/different-Menu callbacks,
+cache/jars preserved. Selected [actual Google HTTP403](plans/261012-mobile-cookbook-phase1/reports/google-http403-preparation.md#actual-google-http403-run04--passed27530s)
+Passed27.530s with exact synthetic offline cache/jars preserved and stale Dish cleared.
+Human cancellation/resultCode,401/provider-loaded403/different-Menu callbacks,
 LMK/task restoration remain Pending. Selected
 [Google-loaded cache cold02](plans/261012-mobile-cookbook-phase1/reports/google-cold-runtime.md)
 passed after verified SIGKILL and genuine biometric reopening. Historical Run01

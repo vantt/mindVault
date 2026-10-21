@@ -1,6 +1,6 @@
 # Actual Google HTTP403 preparation —21October2026
 
-Status: **Run01/02 Failed; Run03 NotExercised17.223s (metadata readable); HTTP403 Pending; Mobile Partial**.
+Status: **Actual HTTP403 Run04 Passed27.530s; Run01/02 Failed and Run03 NotExercised retained; Mobile Partial**.
 Continue checkpoint `a5a655640da15fdb9ea790d00ac8609c96a80a6e`; no restart.
 
 ## Candidate and acceptance boundary
@@ -189,3 +189,53 @@ reading tokens/private Cookbook content, then select a separately authorized tes
 Menu inaccessible to that account. Current Menu returned metadata in Run03; use that
 observation rather than owner-intended sharing as the refusal premise. Actual403
 and whole Mobile remain Pending/Partial; all historical Failed verdicts retained.
+
+
+## Actual Google HTTP403 Run04 — Passed27.530s
+
+21October2026, Xiaomi14TPro/API36, UUID
+`e47c8e4f-8c7a-4c8c-8922-13375186f58b`. Owner supplied a new separate-account Menu,
+confirmed Restricted/unshared to the current PassChef account and explicitly ready.
+Account association is owner-reported; no email/token/userinfo was read to identify
+Google's account. Complete Menu URL/account emails omitted from committed evidence.
+Fresh native serial/awake/keyguard/digest/installed APK and frozen audits Passed.
+Same frozen01/APKs/source/assertions as Run01–03; no rebuild/reinstall/code change.
+
+**Passed1/1,27.530s**,selected[1,0],terminal[-1],anchoredOK1,native0,
+watchdogfalse,no orchestration error/failure/skip; final phase
+`actual-http403-preservation-passed`. Genuine biometric setup, UI-confirmed synthetic
+offline mapping/cache/favorite/recent/Cook and production AuthorizationClient→Android
+Sheets metadata request executed. No token/session/result/HTTP injection, account
+reset/grant revocation, ACL change or consent-forcing mechanism.
+
+Actual provider403 provenance is uniquely bound to canonical
+SheetsClient.decodeOrThrow response.status.value403→SheetsForbiddenException→
+CookbookSources.failure ACCESS_DENIED; no other production path maps that status.
+Final actual403=true, metadata/draft absent, not busy/pending, own secure/resumed/
+focused/awake/unlocked foreground, ready session and RAM grant present, stopped=false.
+Exact localized refusal UI asserted. No401 clearing/SDK failure/network/404/Google
+page warning is credited as403. No fresh-consent or account-picker claim.
+
+Exact last-good **synthetic offline** cache file bytes and encrypted fixture jars
+unchanged, complete RAM/inventory/mapping/favorite/recent equality; no corrupt cache.
+After Connect no Dish/reveal/ready/lifetime/cooking/Copy UI; selected entry absent.
+No cached Cook after403 or provider-loaded baseline acceptance follows. Session/token
+retained on this foreground403 path by contract; no lifecycle stop occurred, so
+external-return/cancellation/lock acceptance stays scoped to earlier runs.
+
+Final owner Cookbook digest894f73…a4d6, installed debug/test hashes, source/protected/
+helpers/history/frozen/archive identities preserved. Own UUID directory absent,
+all six prior proof directories unchanged. Independent runtime-review04 checks raw,
+result and scope. Owner reported completion and app closing; fixture finally closes
+Activity, exact human-visible closing time/cause unmeasured. No crash finding inferred.
+No native/biometric wait remains active and no automatic retry needed.
+
+Persistent records:run-04-preflight.json,run-04.log,run-04.json,
+run-04-owner-close-observation-01.json, second-menu-received-precheck01 and
+runtime-review-04.json. Earlier Failed203.052/234.38 and NotExercised17.223 remain;
+new success does not reinterpret those or missing historical raw evidence.
+
+Accepted: selected actual Google metadata HTTP403 refusal and exact synthetic cache/
+jars preservation/stale Dish clearing on this device/candidate. Unresolved: actual401,
+provider-loaded403/cache Cook after refusal, human cancellation/resultCode/different-
+Menu callbacks, broader lifecycle/clipboard/accessibility matrix. Mobile stays Partial.
