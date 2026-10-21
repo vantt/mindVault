@@ -58,7 +58,8 @@ Persistent evidence:
 New access-denied support/runner/verdict/host-checks (<200lines each), build01/02,
 checkpoint/verification/artifact/host-check records. Final frozen01/candidate01 binds
 source, APKs, protected work, helper identities and complete prior persistent Google/
-null-label evidence trees; creation occurs after candidate commit. No old raw evidence
+null-label evidence trees; created at candidate commit `0670fde`.
+Frozen01 SHA256: `fb958da0c536a770c73bc457bc6748f99b87756a2b2abdbfb6f8d198db9cb63d`. Local archive audit Passed. No old raw evidence
 is overwritten or reconstructed. Root alone owns ADB/Gradle.
 
 ## Owner checkpoint

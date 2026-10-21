@@ -349,7 +349,7 @@ credit; no automatic biometric reopening or retry, token/result injection or ACL
 
 - [x] Prepare separate selected fixture/observation; preserve historical assertions.
 - [x] Root compile/JVM/lint and independent review; strict separate host runner prepared.
-- [ ] Freeze final committed candidate before any owner runtime.
+- [x] Freeze committed candidate0670fde; exact source/helper/APK/history archive audit Passed.
 - [ ] Obtain owner-authorized denied test Menu URL (current readable Menu unsuitable).
 - [ ] Fresh owner readiness/device preflight, then selected actual provider attempt.
 - [ ] Preserve exact synthetic cache/RAM/mapping/jars, stale Dish/Copy and lifecycle proof;
