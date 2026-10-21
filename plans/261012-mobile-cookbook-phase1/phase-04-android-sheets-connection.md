@@ -1,9 +1,13 @@
 # Phase04 — Android platform bridge and real Google connection
 
+Latest21October: [provider-loaded403 + fresh cached Cook Run01](reports/google-provider403-preparation.md#actual-provider-loaded-http403-run01--passed21902s)
+Passed21.902s; exact pre-Cook cache/jars/RAM preservation and fresh cached Cook,
+independent runtime/owner/UUID/source/APK/history audits Passed. Mobile Partial.
+
 Status: **Partial — selected live Google flow Passed; broader acceptance Pending**. Priority:4.
 21October selected [real host Android Back/stale-return run01](reports/google-cancellation-preparation.md#actual-host-android-system-back-run01--passed)
 Passed17.949s: actual external pending/lock/Back/consumed reply, preserved synthetic
-offline cache/jars/owner. Human cancellation/resultCode/401/403/different-Menu remain Pending.
+offline cache/jars/owner. Human cancellation/resultCode/401/different-Menu remain Pending.
 GoogleRun03 Passed1/1: usable authorization/provider rows, exact mapping and durable cache.
 Cache UI Run02 Passed1/1,42.393s: cached Cook/lock/reopen/authenticated same-process
 recreation; app-disconnected cache only. [Evidence](reports/google-cache-ui-runtime.md).
@@ -75,7 +79,9 @@ Phase1 only consumes read paths; retain RAW append/update client regression beha
   no in-memory token, exact provider cache/favorites/recent/search preserved in Run02.
 - [x] Selected actual network-off/NETWORK_FAILED preservation and full cached UI
   helper Passed Run04; source/owner digest preserved, no production repair.
-- [ ] **Owner Pending:** cancellation/stale callbacks/401/403 preservation,
+- [x] Selected provider-loaded403 exact preservation before a fresh cached Cook
+  Passed Run01,21.902s; synthetic offline403 Run04 remains separate.
+- [ ] **Owner Pending:** human cancellation/different-Menu stale callbacks/401 preservation,
   natural LMK/saved-task restoration and broader configuration/account/platform matrix.
   Controlled offline/provider SIGKILL/fresh-process cold acceptance already Passed; no mock credit.
 
@@ -390,28 +396,33 @@ Failed01/02 and NotExercised03 retained; no active wait. Mobile Partial.
 
 ## Provider-loaded HTTP403 and fresh cached Cook —21October2026 continuation
 
-Status: **Pending; Mobile Partial**. Separate fixture/evidence root; synthetic
+Status: **Run01 Passed21.902s; Mobile Partial**. Separate fixture/evidence root; synthetic
 offline Run04 remains accepted only at its original scope. No unchanged retry.
 
-- [ ] Reuse `GoogleColdProviderUi.load` with genuine biometric setup, production
+- [x] Reuse `GoogleColdProviderUi.load` with genuine biometric setup, production
   authorization/read, unique Test tab, known literal synthetic rows, explicit
   column confirmation and durable `MenuSnapshotStore` reload. No offline paste.
-- [ ] Reuse `GoogleColdCacheUi.favoriteCook` once; confirm provider origin/Recipe,
+- [x] Reuse `GoogleColdCacheUi.favoriteCook` once; confirm provider origin/Recipe,
   literal username, masked/revealed expected synthetic Dish and favorite/recent.
-- [ ] Await all cache writes; freeze `GoogleColdBaseline` plus complete RAM and
+- [x] Await all cache writes; freeze `GoogleColdBaseline` plus complete RAM and
   inventory snapshots after legitimate prebaseline favorite/recent updates.
-- [ ] Explicit Connect to the separately authorized restricted Menu; accept only
+- [x] Explicit Connect to the separately authorized restricted Menu; accept only
   actual HTTP403→SheetsForbiddenException→ACCESS_DENIED. Distinguish other
   provider/SDK outcomes; natural lock/stale reply earns no403 credit.
-- [ ] Before another Cook, assert exact cache/encrypted jars bytes, complete
+- [x] Before another Cook, assert exact cache/encrypted jars bytes, complete
   RAM/inventory/mapping/favorite/recent, cleared stale Dish/reveal/lifetime/Copy,
   refusal UI and ready foreground/session/RAM grant contract. Record checkpoint.
-- [ ] Return through Menu UI and Cook the cached provider row again; reuse the
+- [x] Return through Menu UI and Cook the cached provider row again; reuse the
   existing guarded cached-Cook assertions without toggling Favorite a second time.
   Verify expected Dish and origin/Recipe/literal fields; evaluate legitimate
   post-Cook recent metadata separately from exact pre-Cook preservation.
-- [ ] Clean only the UUID fixture keys/storage; preserve owner digest and all
+- [x] Clean only the UUID fixture keys/storage; preserve owner digest and all
   preexisting proof directories. Record selected outcome and remaining limits.
 
 No production change without evidence of a defect. Preserve historical tests,
 assertions, Failed/Unknown/NotExercised records;401/cancellation/broader matrix Pending.
+
+[Actual Run01](reports/google-provider403-preparation.md#actual-provider-loaded-http403-run01--passed21902s):
+selected[1,0]/[-1]/OK1; real provider baseline, exact pre-Cook403 preservation,
+fresh cached Cook, owner/UUID/source/APK/history/archive audits Passed. No new
+401/cancellation/broader matrix credit; historical outcomes retained. No active wait.

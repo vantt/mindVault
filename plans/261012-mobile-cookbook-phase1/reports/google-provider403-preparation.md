@@ -1,6 +1,6 @@
 # Provider-loaded cache / actual HTTP403 / fresh cached Cook
 
-Date:21October2026 (Asia/Saigon). Status: **Prepared; runtime Pending; Mobile Partial**.
+Date:21October2026 (Asia/Saigon). Status: **Actual provider-loaded403 Run01 Passed21.902s; Mobile Partial**.
 Continue main `985a955`; no restart or replay of synthetic offline403 Run04.
 
 ## Selected scope
@@ -78,7 +78,7 @@ after. Watchdog only detaches host ADB; inspect actual instrumentation before an
 further guidance/run if it fires. Sequential directory digest assumes quiescent old
 fixtures; empty-directory/symlink topology is outside that bounded manifest check.
 
-## Next owner checkpoint
+## Preparation owner checkpoint (superseded by Run01 below)
 
 No installation/runtime or fresh phone readiness is claimed by preparation.
 After fresh owner readiness: root relists actual serial, awake/keyguard, digest and
@@ -90,3 +90,53 @@ owner response before further instructions. No timed runtime before readiness.
 Pending: actual provider-loaded403 preservation and fresh post403 cached Cook,
 actual401/human cancellation/different-Menu/broader lifecycle/accessibility matrix.
 Synthetic offline403 Run04 remains Passed only at its original scope. No Done/archive.
+
+
+## Actual provider-loaded HTTP403 Run01 — Passed21.902s
+
+21October2026, Xiaomi14TPro/API36, UUID
+`d45d70a8-5a25-4f71-ad9e-aa8079991ec7`, unchanged frozen01/candidate87a9ea8.
+Fresh owner readiness and actual USB/awake/keyguard/digest/installed identity gates
+preceded runtime. Only the new test APK required install-r; debug/release retained.
+Owner Cookbook digest and prior six proof-directory regular-file manifests matched
+before/after installation. No uninstall/data clear or owner Cookbook content read.
+
+Selected **Passed1/1,21.902s**,JUnit[1,0],terminal[-1],anchoredOK1,native0,
+watchdogfalse,orchestrationErrornull. Production Google authorization/metadata/Test
+tab/known literal rows/explicit mapping and actual cache-file reload all completed.
+Real favorite/recent/cached Cook preceded `provider-baseline-frozen`; no synthetic
+offline paste was used. Genuine strong-biometric setup completed. No observed
+external Google/natural-stop/reconnect checkpoint or fresh-consent claim.
+
+Explicit production Connect to the separately permitted restricted Menu produced
+actual metadata403 uniquely mapped to ACCESS_DENIED. At
+`provider-http403-preservation-passed`, exact cache/encrypted jars bytes, complete
+RAM/inventory/mapping/favorite/recent equality, refusal UI and cleared old Dish/
+reveal/lifetime/Copy assertions all passed before any new Cook. Secure resumed/
+focused/awake/unlocked foreground, ready session/RAM grant retained; no pending,
+source/vault busy, metadata/draft or natural stop. No401/cancel/network/404/SDK error
+is credited as403. Google account association remains owner-reported; no identity
+was read from token/userinfo.
+
+Then Menu UI selected the same provider cache entry and cooked a fresh Dish using
+the real fixture jar. Existing exact origin/Recipe/literal account field, masked
+Dish/enabled Copy, revealed expected synthetic Dish and controller/session assertions
+passed, followed by complete provider snapshot/RAM/jars equality. Final phase
+`provider-http403-and-fresh-cache-cook-passed`. Post-Cook recent write is evaluated
+semantically, separate from exact-byte preservation before Cook. No real clipboard
+write or independent clipboard-retention acceptance follows from enabled Copy.
+
+Final audits Passed: owner Cookbook894f73…a4d6, exact installed APK/source/protected/
+helpers/history/archive/frozen identities, new UUID directory absent and all six
+prior proof-directory sets/regular-file manifests unchanged. Fixture finally closes
+its Activity; no owner close/crash observation is inferred. Native run is finished;
+no biometric/Google wait or automatic replay remains active.
+
+Persistent install-preflight01/run01-preflight/raw/result and independent
+`runtime-review-01.json` bind this selected outcome. Earlier synthetic offline403
+Run04 Passed27.530s remains separate; Failed01/02 and NotExercised03 retained exactly.
+No production change or historical cause resolution claimed. Accepted selected
+provider-loaded403/cache preservation plus fresh post403 cached Cook only.
+
+Pending: actual401, human cancellation/resultCode, different-Menu stale callbacks,
+LMK/task restoration and remaining phone/accessibility/clipboard matrix. Mobile Partial.

@@ -1,5 +1,16 @@
 # Project Changelog
 
+## Accept provider-loaded403 and fresh cached Cook (2026-10-21)
+
+Selected actual Google-loaded baseline/metadata403 preservation and fresh post403
+cached Cook Passed1/1,21.902s. Exact cache/jars/RAM retained before Cook; old Dish/
+Copy cleared, foreground session/RAM grant retained. UUID/owner/source/APK/history/
+archive/prior-directory audits and independent runtime review Passed. New bounded
+fixture/observer and additive cached-Cook wrapper only; production unchanged.
+Build/lint Passed; unchanged JVM tasks retain app10/bridge22 XML. Earlier synthetic403
+and all Failed/NotExercised histories remain; Mobile Partial, broader matrix Pending.
+[Evidence](../plans/261012-mobile-cookbook-phase1/reports/google-provider403-preparation.md#actual-provider-loaded-http403-run01--passed21902s).
+
 ## Handle a null label on replacement clipboard content (2026-10-20)
 
 Actual Chrome replacement remained intact while expired own metadata survived all11

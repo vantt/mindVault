@@ -445,3 +445,20 @@ preserved, stale Dish/Copy cleared, ready foreground/RAM grant retained without 
 Owner digest and UUID cleanup/frozen identities Passed. No fresh post403 cached Cook
 or provider-loaded baseline claim. Prior Failed01/02 and NotExercised03 retained;
 401/human cancellation/broader matrix remain Pending. No active wait. Mobile Partial.
+
+
+## Selected provider-loaded403 and fresh cached Cook — Run01 Passed21.902s
+
+[Actual evidence](../../plans/261012-mobile-cookbook-phase1/reports/google-provider403-preparation.md#actual-provider-loaded-http403-run01--passed21902s):
+production Google-loaded baseline with confirmed mapping/durable reload and real
+cached Cook, then restricted-Menu metadata403. Exact cache/jars/RAM/inventory stayed
+unchanged before new Cook; old Dish/Copy cleared, ready foreground/session/RAM grant
+retained without stop. New cached Cook then passed literal context/expected Dish.
+Selected[1,0]/[-1]/OK1, owner digest/UUID cleanup and source/APK/history/archive/prior
+directory manifests Passed; independent runtime review Passed. Only new test APK
+installed-r; no owner Cookbook content read or grant/account/ACL changes.
+
+This closes the selected provider-loaded403 + post403 Cook gap only. Synthetic
+Run04 and all historical failures retain original scope. No fresh consent/401/human
+cancellation/different-Menu stale callback or broader phone credit. Mobile Partial.
+No runtime remains active; fresh readiness required for any later selected case.

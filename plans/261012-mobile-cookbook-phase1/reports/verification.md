@@ -451,3 +451,24 @@ foreground/RAM grant retained, no stop. Exact synthetic offline cache/jars/RAM
 preserved; stale Dish/Copy absent; owner/UUID/APK/source/history audits Passed.
 No provider-loaded cache or fresh post403 Cook/401/cancel acceptance. Earlier
 Failed01/02 and NotExercised03 retained; no active wait. Mobile Partial.
+
+
+## Provider-loaded HTTP403 Run01 — Passed21.902s
+
+[Selected runtime](google-provider403-preparation.md#actual-provider-loaded-http403-run01--passed21902s)
+passed actual Google-loaded metadata/rows/explicit mapping/durable cache baseline,
+favorite/recent and Cook, then genuine restricted-Menu metadata403→ACCESS_DENIED.
+Exact cache/encrypted jars bytes and complete RAM/inventory/mapping/favorite/recent
+preserved before new Cook; old Dish/reveal/lifetime/Copy absent. Ready secure
+foreground/session/RAM grant retained without natural stop. Then fresh cached Cook
+passed existing literal origin/Recipe/account field/masked-revealed expected Dish
+assertions; post-Cook recent semantics assessed separately from pre-Cook byte equality.
+
+Raw selected[1,0],terminal[-1],anchoredOK1,native0,no watchdog/orchestration error;
+UUID d45d70a8-5a25-4f71-ad9e-aa8079991ec7, frozen35c8cb94/source candidate87a9ea8.
+Independent runtime-review01 Passed; exact owner/installed/source/helper/history/
+archive/frozen audits, own UUID absence and six prior directory manifests Passed.
+Only test APK installed-r; no production change or accepted-case replay.
+Earlier synthetic403 Run04/Failed01/02/NotExercised03 retained. No fresh-consent/
+token-derived identity/actual401/human cancellation/different-Menu callback or broader
+lifecycle/clipboard/accessibility credit. No active wait; whole Mobile Partial.

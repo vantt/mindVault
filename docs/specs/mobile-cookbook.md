@@ -73,7 +73,9 @@ reads/mapping/cache, offline error preservation, controlled process-death reopen
 Cook/reveal/copy, real foreground5/10minute timers, secure capture/Recents and owner
 revealed-Dish screenshot refusal passed. Selected real host Android Back from Google
 consent and stale callback after natural lock Passed17.949s with synthetic offline
-cache/jars preserved; human cancellation/resultCode, different-Menu callbacks/401/403,
+cache/jars preserved. Selected [provider-loaded403 Run01](../../plans/261012-mobile-cookbook-phase1/reports/google-provider403-preparation.md#actual-provider-loaded-http403-run01--passed21902s)
+Passed21.902s: exact Google-loaded cache/jars/RAM preserved before a fresh successful
+cached Cook; old Dish/Copy cleared. Human cancellation/resultCode, different-Menu callbacks/401,
 natural LMK/task restoration, broader clipboard/background and TalkBack/layout remain
 Pending. Historical failures remain recorded. Prior Keystore proof retains its accepted scope.
 QR receiving, Autofill, Drive, multiple-profile authoring and account-write screens

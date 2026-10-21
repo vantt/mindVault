@@ -1,10 +1,14 @@
 # Phase05 — Independent verification, honest acceptance and delivery
 
+Latest21October: [provider-loaded403 + fresh cached Cook Run01](reports/google-provider403-preparation.md#actual-provider-loaded-http403-run01--passed21902s)
+Passed21.902s; exact pre-Cook cache/jars/RAM preservation and fresh cached Cook,
+independent runtime/owner/UUID/source/APK/history audits Passed. Mobile Partial.
+
 Status: **Partial — local verification/delivery Done; owner acceptance Pending**. Priority:5.
-Latest21October: [actual host OS-Back/stale Google return](reports/google-cancellation-preparation.md#actual-host-android-system-back-run01--passed)
+Earlier21October: [actual host OS-Back/stale Google return](reports/google-cancellation-preparation.md#actual-host-android-system-back-run01--passed)
 Passed17.949s,[1,0]/[-1]/OK1 on unchanged source86/APKs. Actual Google pending/lock/
 Back/consumed callback, secure locked return and synthetic cache/jars/owner preserved;
-independent runtime review Passed. Human cancellation/resultCode/401/403/different-Menu
+independent runtime review Passed. Human cancellation/resultCode/401/different-Menu
 scope Pending; prior manual Failed01/02 and later owner close report retained.
 Owner/device acceptance below remains Pending.
 Current [real session timer continuation](reports/session-timer-runtime.md): three
@@ -159,7 +163,8 @@ compiled diagnostics; it does not resolve the physical failure.
 
 Remaining owner/device checks, after the unattended follow-up:
 
-1. Human Google cancellation/resultCode, different-Menu/provider-loaded callbacks and401/403.
+1. Human Google cancellation/resultCode, different-Menu/provider-loaded stale callbacks and401.
+   Selected provider-loaded403 preservation and fresh cached Cook Passed21.902s.
    Selected actual host OS-Back/stale reply after natural lock Passed17.949s.
    Selected grant/read/mapping/cache, actual network failure and controlled cold passed.
 2. Broader mapping proposals/limits/UI: selected wrong-Menu tagged Recipe and irregular
@@ -251,7 +256,7 @@ Failed01/02 and NotExercised03 retained; no active wait. Mobile Partial.
 
 ## Provider-loaded HTTP403 delivery gates —21October2026 continuation
 
-Status: **Pending; Mobile Partial**. Follow the
+Status: **Run01 Passed21.902s; Mobile Partial**. Follow the
 [phase04 continuation](phase-04-android-sheets-connection.md#provider-loaded-http403-and-fresh-cached-cook-21october2026-continuation).
 
 - [x] Prepare separate selected fixture/provider observer and minimal shared UI
@@ -263,17 +268,23 @@ Status: **Pending; Mobile Partial**. Follow the
   anchored OK summary, UUID/phase binding, watchdog and failure handling. Require
   both pre-Cook403 preservation and fresh cached-Cook checkpoints; native0 alone
   cannot pass. Review host runner before any owner phone request.
-- [ ] After candidate build/review, obtain fresh owner readiness and root device
+- [x] After candidate build/review, obtain fresh owner readiness and root device
   serial/awake/keyguard/installed identities; preserve owner digest, source/APK/
   archive/history and preexisting directories. Run only the selected new case.
-- [ ] At biometric/Google owner checkpoint, yield immediately. On owner response,
-  poll actual terminal state before guiding any further operation; retain natural
-  lock and stale callback policy without injected grant/session/result.
-- [ ] Independently review raw runtime, both checkpoints, owner digest and exact
+- [x] Genuine biometric setup completed during the live run before the next poll;
+  no further biometric/Google checkpoint awaited guidance. No external Google page
+  observed. Retain immediate poll-before-guidance and yield-at-live-checkpoint
+  rules for future attempts; natural lock/stale callback policy remains unchanged.
+- [x] Independently review raw runtime, both checkpoints, owner digest and exact
   UUID cleanup; classify Passed/Failed/NotExercised/Unknown by observed evidence.
-- [ ] Update acceptance reports/docs with bounded provider-loaded403 and new Cook
+- [x] Update acceptance reports/docs with bounded provider-loaded403 and new Cook
   results, retaining historical limits and Mobile Partial; commit/push authorized
   Mobile changes only after verification. No Done/archive or unrelated staging.
 
 Missing schema/readiness blocks only dependent runtime; build/review can continue.
 No broader401/cancellation/device acceptance inferred from this selected result.
+
+[Actual Run01](reports/google-provider403-preparation.md#actual-provider-loaded-http403-run01--passed21902s):
+selected[1,0]/[-1]/OK1; real provider baseline, exact pre-Cook403 preservation,
+fresh cached Cook, owner/UUID/source/APK/history/archive audits Passed. No new
+401/cancellation/broader matrix credit; historical outcomes retained. No active wait.

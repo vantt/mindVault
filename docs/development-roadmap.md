@@ -2,6 +2,12 @@
 
 ## In progress
 
+- [Provider-loaded403 + fresh cached Cook](../plans/261012-mobile-cookbook-phase1/reports/google-provider403-preparation.md#actual-provider-loaded-http403-run01--passed21902s):
+  Run01 Passed21.902s, actual Google-loaded baseline and restricted-Menu403;
+  exact cache/jars/RAM preserved before a fresh successful cached Cook, stale
+  Dish/Copy cleared. Independent runtime/owner/UUID/source/APK/history audits Passed.
+  Mobile Partial;401/human cancellation/different-Menu/broader matrix Pending.
+
 - [Commercialization hub](commercialization/README.md) and [Phase 0 plan](commercialization/plan.md): preparation proceeds
   alongside remaining bug/UI work: listing/privacy drafts, publisher/support
   decisions, non-UI brand assets, release documentation and packaging tooling.
