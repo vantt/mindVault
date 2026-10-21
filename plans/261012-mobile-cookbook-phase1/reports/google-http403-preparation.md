@@ -1,6 +1,6 @@
 # Actual Google HTTP403 preparation —21October2026
 
-Status: **Run01 Failed203.052s; actual provider HTTP403 Pending; Mobile Partial**.
+Status: **Run01/02 Failed; Run03 NotExercised17.223s (metadata readable); HTTP403 Pending; Mobile Partial**.
 Continue checkpoint `a5a655640da15fdb9ea790d00ac8609c96a80a6e`; no restart.
 
 ## Candidate and acceptance boundary
@@ -140,3 +140,52 @@ of the fixture failure, current Cloud configuration or why every earlier run fai
 Run01 remains Failed203.052s and actual403 Pending. Before another run, explain
 expected development consent and verify intended app/account/test-user eligibility;
 no automatic grant, scope, publishing-status or Menu ACL changes.
+
+
+## Actual Run02 — Failed234.38s; Run03 — NotExercised17.223s
+
+Both use unchanged frozen01 source/APKs/assertions and separate new canonical UUIDs.
+Owner instructed continuation; fresh actual serial/awake/keyguard/owner digest/
+installed identity audits preceded each invocation. No rebuild/reinstall between runs.
+
+Run02 UUID `1b4ebecd-0af5-4ad6-b983-1f783554d897`:
+**Failed234.38s**,selected[1,-2],terminal[-1],native0,no watchdog/host error.
+Last observed pending=true,stopped=true,allStopsClean=true,stoppedReturnLocked=true;
+no session/token/Dish/lifetime/metadata/draft, sourceOFFLINE, actual403=false.
+Generic wrapper again prevents exact underlying assertion/cause attribution.
+Owner described the unverified-app/Continue page, then PassChef account-access
+Continue/Cancel, then closing after Continue. Root continued guidance before polling
+terminal; exact owner-action times relative to terminal are unobserved. No completed
+grant or return acceptance follows. Ordinary MainActivity launch initially sampled
+launcher, later PassChef focus; owner ultimately confirmed normal UI with biometric
+open button. Those post-terminal observations are separate from acceptance.
+
+Run03 UUID `45a358ab-2a94-4a56-a526-39fe3f885ef0`:
+**NotExercised17.223s**,selected[1,-4],terminal[-1],native0,OK1,no watchdog/host error.
+Genuine biometric setup, UI-confirmed synthetic offline cache/Cook and production
+Google Connect executed. Final metadataReturned=true,tokenAbsent=false,ready=true,
+secure foreground,stopped=false,pending=false,sourceBusy=false,actual403=false.
+Google returned metadata for the supplied test Menu; no values/tab selection claim.
+Exact synthetic baseline bytes/jars/RAM/inventory retained; stale Dish/reveal/Copy
+lifetime absent. This is a completed non403 outcome, never a failed403 assertion
+converted to Pass. No fresh-consent or exact Google account identity is inferred.
+
+Owner reported 'crash (app tự đóng)' after fingerprint. The selected native invocation
+completed a clean assumption skip and fixture finally calls scenario.close; exact
+human-visible closing time/cause remains unobserved. No crash stack/process-death
+proof or categorical absence of later crash follows. Owner explicitly clarified no
+account chooser appeared and no account was manually selected. Root's earlier account
+selection question does not establish an action. Authorized Google account identity
+remains Unknown; do not infer it is the Menu creator or that ACL was changed.
+
+Both final audits Passed: owner digest unchanged, exact installed debug/test/source/
+protected/helper/history/archive identities, own UUID directory absent and prior six
+proof directories preserved. Independent `runtime-review-02-03.json` confirms raw
+verdicts and limits. Additional owner-close/normal-return/no-account-chooser evidence
+is preserved separately. No runtime/native/biometric wait active. No unchanged retry.
+
+Next prerequisite: identify the Google account used by genuine authorization without
+reading tokens/private Cookbook content, then select a separately authorized test
+Menu inaccessible to that account. Current Menu returned metadata in Run03; use that
+observation rather than owner-intended sharing as the refusal premise. Actual403
+and whole Mobile remain Pending/Partial; all historical Failed verdicts retained.

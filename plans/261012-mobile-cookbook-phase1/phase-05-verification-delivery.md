@@ -228,3 +228,13 @@ Owner/UUID cleanup/source/APK/history audits Passed. Owner later clicked webpage
 Back to Safety and returned to Chrome/help; prior Google message Unknown.
 No Android Back/Sheets403 credit; no active runtime or automatic unchanged retry.
 Denied Menu supplied; authorization-page diagnosis and actual403 remain Pending.
+
+
+## HTTP403 continuation Run02/03 —21October2026
+
+[Runtime record](reports/google-http403-preparation.md): Run02 Failed234.38s, unresolved external return;
+Run03 NotExercised17.223s, actual metadata returned, no403. Exact synthetic cache/
+jars and stale Dish assertions retained; owner/cleanup/APK/source audits Passed.
+Owner saw no account chooser; account identity Unknown. Owner close report is
+separate from fixture terminal/normal Activity recovery. No active wait/retry;
+identify actual Google account and inaccessible test Menu before next403 attempt.
