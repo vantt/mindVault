@@ -387,3 +387,31 @@ foreground/RAM grant retained, no stop. Exact synthetic offline cache/jars/RAM
 preserved; stale Dish/Copy absent; owner/UUID/APK/source/history audits Passed.
 No provider-loaded cache or fresh post403 Cook/401/cancel acceptance. Earlier
 Failed01/02 and NotExercised03 retained; no active wait. Mobile Partial.
+
+## Provider-loaded HTTP403 and fresh cached Cook —21October2026 continuation
+
+Status: **Pending; Mobile Partial**. Separate fixture/evidence root; synthetic
+offline Run04 remains accepted only at its original scope. No unchanged retry.
+
+- [ ] Reuse `GoogleColdProviderUi.load` with genuine biometric setup, production
+  authorization/read, unique Test tab, known literal synthetic rows, explicit
+  column confirmation and durable `MenuSnapshotStore` reload. No offline paste.
+- [ ] Reuse `GoogleColdCacheUi.favoriteCook` once; confirm provider origin/Recipe,
+  literal username, masked/revealed expected synthetic Dish and favorite/recent.
+- [ ] Await all cache writes; freeze `GoogleColdBaseline` plus complete RAM and
+  inventory snapshots after legitimate prebaseline favorite/recent updates.
+- [ ] Explicit Connect to the separately authorized restricted Menu; accept only
+  actual HTTP403→SheetsForbiddenException→ACCESS_DENIED. Distinguish other
+  provider/SDK outcomes; natural lock/stale reply earns no403 credit.
+- [ ] Before another Cook, assert exact cache/encrypted jars bytes, complete
+  RAM/inventory/mapping/favorite/recent, cleared stale Dish/reveal/lifetime/Copy,
+  refusal UI and ready foreground/session/RAM grant contract. Record checkpoint.
+- [ ] Return through Menu UI and Cook the cached provider row again; reuse the
+  existing guarded cached-Cook assertions without toggling Favorite a second time.
+  Verify expected Dish and origin/Recipe/literal fields; evaluate legitimate
+  post-Cook recent metadata separately from exact pre-Cook preservation.
+- [ ] Clean only the UUID fixture keys/storage; preserve owner digest and all
+  preexisting proof directories. Record selected outcome and remaining limits.
+
+No production change without evidence of a defect. Preserve historical tests,
+assertions, Failed/Unknown/NotExercised records;401/cancellation/broader matrix Pending.

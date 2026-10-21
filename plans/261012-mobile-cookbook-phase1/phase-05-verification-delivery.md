@@ -248,3 +248,32 @@ foreground/RAM grant retained, no stop. Exact synthetic offline cache/jars/RAM
 preserved; stale Dish/Copy absent; owner/UUID/APK/source/history audits Passed.
 No provider-loaded cache or fresh post403 Cook/401/cancel acceptance. Earlier
 Failed01/02 and NotExercised03 retained; no active wait. Mobile Partial.
+
+## Provider-loaded HTTP403 delivery gates —21October2026 continuation
+
+Status: **Pending; Mobile Partial**. Follow the
+[phase04 continuation](phase-04-android-sheets-connection.md#provider-loaded-http403-and-fresh-cached-cook-21october2026-continuation).
+
+- [x] Prepare separate selected fixture/provider observer and minimal shared UI
+  reuse; preserve every old assertion. Independent source review before runtime.
+- [ ] Root-only compile/lint and relevant local checks; freeze fresh source/APK/
+  helper identities and candidate archive under a new persistent evidence root.
+  Historical frozen/candidate/helper/raw/result files remain immutable.
+- [x] Host-only adversarial checks require selected JUnit start/end, unique terminal,
+  anchored OK summary, UUID/phase binding, watchdog and failure handling. Require
+  both pre-Cook403 preservation and fresh cached-Cook checkpoints; native0 alone
+  cannot pass. Review host runner before any owner phone request.
+- [ ] After candidate build/review, obtain fresh owner readiness and root device
+  serial/awake/keyguard/installed identities; preserve owner digest, source/APK/
+  archive/history and preexisting directories. Run only the selected new case.
+- [ ] At biometric/Google owner checkpoint, yield immediately. On owner response,
+  poll actual terminal state before guiding any further operation; retain natural
+  lock and stale callback policy without injected grant/session/result.
+- [ ] Independently review raw runtime, both checkpoints, owner digest and exact
+  UUID cleanup; classify Passed/Failed/NotExercised/Unknown by observed evidence.
+- [ ] Update acceptance reports/docs with bounded provider-loaded403 and new Cook
+  results, retaining historical limits and Mobile Partial; commit/push authorized
+  Mobile changes only after verification. No Done/archive or unrelated staging.
+
+Missing schema/readiness blocks only dependent runtime; build/review can continue.
+No broader401/cancellation/device acceptance inferred from this selected result.

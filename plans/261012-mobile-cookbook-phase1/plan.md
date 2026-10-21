@@ -4,6 +4,7 @@ Date:2026-10-12; updated2026-10-21 (Asia/Saigon). Status: **Partial — code/loc
 Baseline: main `2579e29044924e1582b78414b0314baffc72abe5`.
 Owner authorized two agents: recheck the five browser slices and implement mobile.
 Selected UI/cache/cold/clipboard/timers/capture/Recents/owner shortcut/tag-mapping Passed; broader acceptance Pending.
+Next: [provider-loaded403 + fresh cached Cook](reports/google-provider403-preparation.md) prepared/reviewed; actual runtime Pending.
 Latest: [actual Google HTTP403](reports/google-http403-preparation.md#actual-google-http403-run04--passed27530s) Passed27.530s; exact synthetic cache/jars preserved, stale Dish cleared; Mobile Partial. Earlier [real host Google OS-Back/stale reply](reports/google-cancellation-preparation.md#actual-host-android-system-back-run01--passed) Passed17.949s; synthetic cache/jars preserved; human cancellation/401/provider-loaded403/different-Menu Pending. Earlier [clipboard repair](reports/clipboard-null-label-repair-runtime.md) remains accepted.
 Actual UI Run01 failed after reveal; [device evidence](reports/device-acceptance.md)
 and [unattended regressions](reports/unattended-regression.md) track investigation.

@@ -26,6 +26,11 @@ class GoogleColdCacheUi(private val ui: ComposeTestRule, private val observation
             MenuSnapshotStore(File(activity.proofDirectory, "menus")).load(saved.mapping.origin) == expected)
         return actual
     }
+    /** Reuse exact cached-Cook assertions without toggling favorite or reopening authentication. */
+    fun cookAgain(origin: MenuOrigin) {
+        click("Menu")
+        cachedCook(origin)
+    }
     private fun cachedCook(origin: MenuOrigin) {
         val entry = googleColdEntry(origin)
         click(entry.label)
