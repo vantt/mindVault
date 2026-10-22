@@ -1,5 +1,21 @@
 # PassChef — active plans in execution order
 
+## Master execution system —2026-10-22
+
+**Start here:** [Master plan](261022-project-work-queue/plan.md) →
+[detailed tracks](261022-project-work-queue/plan.md#cây-plan--detail--evidence) →
+[task dispatch A/B/C](261022-project-work-queue/task-catalog.md) → track/child reports.
+46 stable tasks:23 autonomous,10 desktop-slot,13 owner-action/decision.
+Program remains Partial; planning integration is Ready.
+
+Master owns priorities/cross-track dependencies; detailed plans own task status and
+criteria; reports own actual results/evidence; backlog owns requirement IDs.
+Update report → detail → dispatch → master/index on each delivery.
+[System audit](261022-project-work-queue/reports/program-audit.md) records coverage,
+static verification and limits. Historical source acceptance below stays scoped.
+
+## Product plans and retained evidence
+
 Reconciled against code and independent acceptance2026-10-12. The five prioritized
 browser slices are complete, integrated and pushed to main. Evidence is retained in
 the [completion dossier](../archive/plans/261012-extension-completion/plan.md). The full MVP remains

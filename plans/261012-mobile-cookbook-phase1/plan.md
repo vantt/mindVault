@@ -1,5 +1,7 @@
 # Android Cookbook — first production slice
 
+Parent: [project master](../261022-project-work-queue/plan.md) → [Mobile track/task ownership](../261022-project-work-queue/phase-02-mobile.md). This plan retains its existing five phases and runtime reports.
+
 Date:2026-10-12; updated2026-10-21 (Asia/Saigon). Status: **Partial — code/local checks Done; owner acceptance Pending**.
 Baseline: main `2579e29044924e1582b78414b0314baffc72abe5`.
 Owner authorized two agents: recheck the five browser slices and implement mobile.

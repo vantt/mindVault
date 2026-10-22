@@ -63,6 +63,8 @@ _Simple formula. Unbreakable security._
 
 ## Core Documentations
 
+- [Master execution plan and detailed tracks](plans/261022-project-work-queue/plan.md)
+
 - [Password System Design](./docs/password-system-design.md)
 - [Product Requirements Document (PRD)](./docs/prd.md)
 - [Security Assessment](./docs/security-assessment.md)

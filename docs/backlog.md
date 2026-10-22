@@ -1,5 +1,8 @@
 # Product Backlog
 
+Execution system: [Master plan](../plans/261022-project-work-queue/plan.md) → [detailed tracks/task dispatch](../plans/261022-project-work-queue/task-catalog.md).
+This backlog retains requirement IDs; live task status and evidence belong to linked plans/reports.
+
 Maintained product records, updated2026-10-11. All15 original IDs and initial
 acceptance criteria are preserved below; current state follows verified product
 reports, rather than stale workflow statuses. Historical criteria/wording do not
