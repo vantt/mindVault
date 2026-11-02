@@ -1,203 +1,82 @@
-# Chrome Web Store Listing Copy — PassChef Password Generator
+# Chrome Web Store listing draft — PassChef
 
-> **Status:** Needs review — existing draft; corrections tracked in [plan](../plan.md).
-> **Last updated:** 2026-10-13 (organization/status only; copy last written 2026-06-13)
-> **Product version:** v2.3
+> **Status:** Corrected local draft2026-10-26 (A03); not approved submission copy.
+> Source:manifest2.3.0 plus current browser contracts; final version/support C02,
+> publisher/contact/locales C04, candidate acceptance and publication still Pending.
 
----
+## 1. Extension name
 
-## 1. Extension Name (max 45 chars)
-
-```
-PassChef — Recipe Password Generator
+```text
+PassChef Password Generator
 ```
 
-*(37 chars — fits CWS limit with room)*
+Matches the current manifest; 27 characters. Official maximum 75 characters,
+checked2026-10-26: [Chrome manifest name](https://developer.chrome.com/docs/extensions/reference/manifest/name).
 
----
+## 2. Short description
 
-## 2. Short Description (max 132 chars)
-
-```
-Cook passwords from recipes in Google Sheets. Zero-knowledge. Nothing stored. Argon2id encrypted.
-```
-
-*(99 chars)*
-
----
-
-## 3. Full Description
-
-### Headline
-
-**Cook your password from a recipe. Nothing stored.**
-
----
-
-### The Problem With "Storing" Passwords
-
-Most people who use Google Sheets to track logins already know it's risky. But every alternative — 1Password, Bitwarden, LastPass — asks you to *trust a vault*. You move your passwords into their cloud. You hope their servers never get breached. You've seen the headlines.
-
-LastPass. RockYou. Adobe. The pattern is always the same: a database of stored passwords gets stolen.
-
-**What if there was nothing to steal?**
-
----
-
-### Introducing the Recipe Model
-
-PassChef takes a fundamentally different approach. Instead of storing passwords, it *generates* them on demand from two ingredients:
-
-- **Your recipe** — a short formula you write in a Google Sheet (e.g., `site+length32+symbols`)
-- **Your secret spice** — a private phrase you remember, encrypted locally and never uploaded anywhere
-
-Recipe + secret spice = password. Generated fresh each time. Never saved anywhere.
-
-**Your Google Sheet holds recipes — publicly shareable, harmless without the secret. Your secret spice stays on your device. Neither half is useful alone.**
-
-This is zero-storage security: if there's no vault, there's nothing to breach.
-
----
-
-### Core Features
-
-- **Zero-storage architecture** — passwords are computed, not saved. Close the extension and they vanish completely.
-- **Google Sheets as your recipe book** — use the tool 900M+ people already have. No new apps to learn.
-- **Argon2id + AES-256-GCM encryption** — industry-standard algorithms protect your secret spice at rest.
-- **Multiple profiles** — organize recipes by team, project, or context. Route different Sheets to different profiles automatically.
-- **Recipe Verification Tags** — detect if a recipe was accidentally changed in your Sheet before generating.
-- **Keyboard shortcut** — press Ctrl+Shift+L (Mac: ⌃⇧L) on any Sheet cell to generate instantly.
-- **Auto-lock + clipboard clear** — extension locks after idle and clears clipboard after 30 seconds. Nothing lingers.
-- **Export / Import profiles** — share your recipe set with a teammate without exposing any passwords.
-- **English + Vietnamese** — full bilingual support.
-
----
-
-### How It Works (3 Steps)
-
-**1. Write a recipe in Google Sheets**
-Add a row to any Sheet with your recipe formula — site name, length, character rules. This is your public ingredient list. Safe to share, useless without the secret.
-
-**2. Set your secret spice (once)**
-In the extension options, enter your private phrase — your "secret spice." It's encrypted with AES-256-GCM and stored only on your device. PassChef never sees it. No server ever receives it.
-
-**3. Press Ctrl+Shift+L on the recipe cell**
-PassChef reads the recipe from the active cell, combines it with your secret spice using Argon2id key derivation, and generates your password. Click copy. Done.
-
----
-
-### Security Architecture
-
-PassChef was designed around one principle: **nothing to steal means nothing to breach.**
-
-| What | How |
-|------|-----|
-| Password generation | Argon2id key derivation (memory-hard, GPU-resistant) |
-| Secret spice storage | AES-256-GCM encrypted, stored in Chrome's local storage only |
-| Recipe data | Plaintext in your Google Sheet — contains no secrets |
-| Network requests | Only to `docs.google.com` to read your Sheet |
-| External servers | None — zero backend infrastructure |
-| Telemetry / analytics | None — zero tracking in the extension |
-
-The only data that ever leaves your device is a read request to your own Google Sheet. That's it.
-
-**The math:** even if someone steals your Sheet, they get recipes with no passwords. Even if someone steals your device, they get an AES-256-GCM blob that requires your secret phrase to decrypt. The only attack that works is knowing both — which means they're already inside your head.
-
----
-
-### Privacy Commitment
-
-- No data sent to any external server — ever
-- No analytics, no crash reporting, no usage tracking inside the extension
-- Secret spice is stored encrypted on your device only, never synced or uploaded
-- Clipboard is automatically cleared after 30 seconds
-- Extension locks itself after an idle period you configure
-- You can verify all of this — the extension's network requests are auditable in DevTools
-
-We built this for people who don't trust password managers with their passwords. It would be hypocritical to track you.
-
----
-
-### Who Is PassChef For?
-
-**Primary audience:** People who already manage passwords in Google Sheets and know it's a problem. You have the Sheet, the workflow, the habit. PassChef secures it without forcing migration.
-
-**Also great for:**
-- Privacy-conscious users who've lost faith in cloud vault providers after repeated breach headlines
-- Small teams and families sharing account access — share the recipe Sheet, keep the secret spice private
-- Power users who want full transparency into how their passwords are derived (the recipe is fully human-readable)
-- Anyone who values self-sufficiency: recipe on paper + secret in memory = full access even without the extension
-
-**Not for:** Users happy with existing password managers (stay there — it works). PassChef is a fundamentally different model for people who want zero-storage security.
-
----
-
-### FAQ
-
-**Q: What if I forget my secret spice?**
-There is no recovery. If you lose your secret spice, you cannot regenerate your passwords. Write it down and store it securely (a physical safe, an encrypted note). This is intentional — no recovery mechanism means no recovery attack surface.
-
-**Q: Is my Sheet public? Isn't that risky?**
-Your Sheet can be private, shared with specific people, or even public — it doesn't matter. A recipe without the secret spice generates nothing useful. You could post your recipe Sheet publicly and it would tell an attacker nothing about your passwords.
-
-**Q: What happens if Google changes Sheets?**
-The extension uses the Sheets DOM to read recipe cells. If Google changes the interface significantly, an update may be needed. We maintain a test suite (55 unit + 6 E2E tests) and monitor for regressions. If a breaking change occurs, we ship an update.
-
-**Q: Does PassChef work offline?**
-Partially. The extension can generate passwords from recipes that are already loaded in the active Sheet tab. It cannot fetch new recipe data without network access to Google Sheets.
-
----
-
-## 4. Screenshots Needed (5 shots)
-
-> Recommended: 1280×800 or 640×400. PNG. Annotate with clean callout labels.
-
-| # | Screen | Key Elements to Show | Caption Text |
-|---|--------|---------------------|--------------|
-| 1 | **Core flow** — Sheet cell selected, popup open, password generated | Google Sheet visible behind popup; recipe cell highlighted; password field showing masked output; Copy button | "Select a recipe cell. Press Ctrl+Shift+L. Your password is ready." |
-| 2 | **Popup close-up** — password generated and ready to copy | Password field (masked), Copy button, profile name, auto-lock timer visible | "Generated on demand. Nothing stored. Clipboard clears in 30 seconds." |
-| 3 | **Options page — profile management** | Profile list with names, linked Sheet URLs, Add/Edit/Delete controls | "Organize recipes by project, team, or context. Unlimited profiles." |
-| 4 | **Recipe Builder in Sheet** | Google Sheet with recipe columns visible (site, length, rules, verification tag), extension panel open alongside | "Write recipes in plain English. Your Sheet stays useful even without PassChef." |
-| 5 | **Security explainer / How it works** | Clean diagram: Sheet (recipe) + Device (secret spice) → PassChef → Password. OR show the empty server side ("no server") | "Recipe + secret spice = password. No server. No storage. Nothing to breach." |
-
----
-
-## 5. Promo Tile Copy
-
-### Small Tile (440×280)
-
-```
-Headline:  Cook your password.
-Subhead:   Nothing stored.
-Logo:      PassChef icon (chef hat)
+```text
+Cook passwords from Recipes in Google Sheets. Keep private Spices encrypted with Argon2id and AES-GCM.
 ```
 
-### Large Tile (920×680)
+102 characters; matches current manifest. Official maximum 132 characters,
+checked2026-10-26: [Chrome description](https://developer.chrome.com/docs/extensions/reference/manifest/description).
 
-```
-Headline:  Recipe-based passwords.
-           Nothing to steal.
-Subhead:   Argon2id · AES-256-GCM · Zero storage
-CTA area:  "Add to Chrome — Free"
-Logo:      PassChef icon + wordmark
-```
+## 3. Full description — draft body
 
----
+<!-- listing-body-start -->
+PassChef cooks passwords, called Dishes, from Recipes in your Google Menu and private Spices in an encrypted Cookbook.
 
-## 6. Category
+Keep Recipes such as r4nd0m#1 in Google Sheets. The # style places Spice jar1 before the ingredient text. With the synthetic Spice Basic*, this Recipe cooks Basic*r4nd0m. This example explains the kitchen; choose your own strong, unpredictable ingredients and Spices.
 
-**Productivity**
+HOW TO COOK
+1. Open extension Options, create a strong master password and configure your Spice jars. Keep a safe recovery record: the extension cannot reset a forgotten master password or recover lost Spices.
+2. Store a valid Recipe in a Google Menu and assign the Menu to the intended profile. Select its cell, then open the extension or use Ctrl+Shift+L (Mac: Control+Shift+L, subject to browser shortcut conflicts).
+3. Check the profile and Dish, then click Copy when needed. Cooking does not automatically copy. The popup Recipe Builder can prepare a Recipe and its optional verification Tag.
 
-*(Not "Security" — less competition in Productivity; the recipe/Sheets angle makes Productivity the honest fit. Security users will find it via keywords regardless.)*
+WHAT THE KITCHEN PROVIDES
+- Multiple own profiles and Menu assignments to organize your Spices. Chrome storage quotas apply.
+- Five cooking styles and optional Spice modifiers. Own-profile Recipes can also be cooked manually with the same Spices; legacy sheet-bound shared profiles use additional key derivation.
+- Optional four-character verification Tags. A present Tag checks the Recipe, Spice and Menu context and refuses a mismatch. It does not change the Dish. Legacy untagged Recipes remain usable with guidance; removing a Tag removes that check. Tags are brief error checks, not a guarantee against tampering or weak-Spice guessing.
+- An encrypted Cookbook: Argon2id derives its key from the master password; AES-256-GCM protects stored profiles. Recipe cooking is a separate string-combination process, not Argon2 password derivation.
+- Automatic session lock after five minutes of browser idle, on device lock, or at the ten-minute absolute session deadline.
+- Clipboard ownership: after Copy, PassChef attempts cleanup at 30 seconds and clears only if the current text still matches its Dish. Later different text or a denied read prevents the clear. Sleeping/closed Chrome can delay cleanup; OS history and another application's concurrent writes are outside this guarantee.
+- English and Vietnamese extension interface text.
 
----
+STORAGE AND SHARING
+Encrypted profiles, salt, Menu assignments, names and preferences use Chrome storage.sync. Google may synchronize this data according to Chrome settings; some metadata remains readable. Session keys and lifetime records use Chrome storage.session; nonsecret onboarding and authentication counters use local storage. Actual cross-device Sync/conflict recovery and the broader browser/OS matrix are still being verified.
 
-## 7. Tags / Keywords (5 primary search terms)
+The browser extension reads Recipe cells through the Google Sheets page. Google hosts your Menu and Chrome Sync infrastructure. The extension contains no developer-operated password backend or telemetry client; this is not a claim that no data leaves your device.
 
-1. `google sheets password manager`
-2. `password generator chrome extension`
-3. `zero knowledge password manager`
-4. `spreadsheet password generator`
-5. `argon2 password generator`
+Full Access export/QR encrypts the selected profile's original Spices with a separate sharing password (PBKDF2-SHA256 and AES-GCM). A recipient with the bundle and sharing password can recover those Spices and cook the same account Dishes. Give Full Access only to someone you authorize. Sharing a Recipe or Tag alone is a different action. The extension QR sender does not establish an accepted phone QR receiver/import workflow.
 
-> Additional long-tail terms for organic discovery: "password recipe", "no storage password manager", "offline password generator", "google sheets security", "stateless password generator"
+SECURITY BOUNDARIES
+The extension stores encrypted Spices, not a saved list of cooked Dishes. Dishes still exist briefly in memory and, after Copy, on the clipboard. Strong master passwords and Spices matter. A leaked Menu can reveal account names, ingredient text and other metadata; a visible Tag can help test guessed weak Spices offline. Keep sensitive Menus private. A compromised device, malware, phishing, stolen clipboard history or weak credentials can defeat this model.
+
+AVAILABILITY
+This is a local preparation draft. Final supported environments, release version, support links, legal disclosures and artifact acceptance must be confirmed before submission. No published Store installation, broad performance promise or universal cross-device support is claimed here.
+<!-- listing-body-end -->
+
+Editorial note:remove the AVAILABILITY preparation paragraph only after C02/A14
+bind the final support/disclosure text to accepted artifact evidence. Do not drop
+actual known limits to make the submission sound complete.
+
+## 4. Graphic copy handoff
+
+A08 owns current image specs/brief; B06 owns actual candidate captures.
+Safe draft captions: “Select a Recipe. Cook a Dish.” / “Choose the right profile.” /
+“Build a Recipe in the popup.” / “Spices protected in an encrypted Cookbook.”
+Do not invent countdowns, an in-Menu Builder, unlimited storage or accepted phone Sync.
+Optional promo headline:“Cook your password.” Subhead:“Recipes + private Spices.”
+No screenshots or promotional artwork are accepted by this text correction.
+
+## 5. Category and search wording
+
+Category candidate:Productivity, subject to C04 final listing choices.
+Use natural phrases such as “Google Sheets Recipes” and “Recipe password cooking”
+in descriptive prose. This is not a separate keyword field or a license to repeat
+search terms. [Chrome listing guidance](https://developer.chrome.com/docs/webstore/best-listing)
+requires accurate, concise text and discourages keyword stuffing; checked2026-10-26.
+The opened official listing/text pages do not publish a long-description numeric
+maximum; confirm the actual Dashboard field on A14/C11 rather than asserting an
+unverified16,000-character limit. Current body length is recorded in the A03 report.

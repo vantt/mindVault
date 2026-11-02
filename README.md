@@ -12,7 +12,7 @@ PassChef is a Chrome Extension that allows you to generate strong, consistent pa
 
 ## Why is this Safe? (The "Recipe" Insight)
 
-> **Your Google Sheet can stay public. Your passwords stay private.**
+> **Your Menu holds Recipes; your private Spices complete each Dish. Keep sensitive Menus private.**
 
 ### The Problem
 
@@ -25,18 +25,18 @@ Storing passwords in Google Sheets is like leaving cooked food out in the open. 
 Instead of storing the food (Password), we only store the **Recipe**.
 
 - **Part 1 (The Menu)**: Publicly visible in your sheet. e.g., "Facebook: **r4nd0m`#1`**".
-- **Part 2 (The Secret Spice)**: Kept only in your head. e.g., "Spice #1 is `Basic*`".
+- **Part 2 (The Secret Spice)**: A private phrase, protected in the encrypted Cookbook. e.g., synthetic "Spice #1 is `Basic*`".
 
 When you need to log in, you become the Chef. You look at the menu (`r4nd0m#1`), take the ingredients (`r4nd0m`), and add your secret spice (`Basic*`) according to the instructions (`#` = put spice on top).
 
-**Result**: A perfect password `Basic*r4nd0m` that never existed until you cooked it.
+**Result**: The synthetic Dish `Basic*r4nd0m`, cooked when needed. Choose strong, unpredictable ingredients and Spices for real accounts.
 
 ### Why It Works
 
-**Hacker Proof**: If a hacker steals your sheet, they just get a list of recipes. They can't "cook" the password without your secret spices.
+**Separate ingredients**: A Menu contains Recipes rather than cooked Dishes. It can still expose account names, ingredient patterns and Tags; weak Spices can be guessed. Keep sensitive Menus private.
 **Convenience**: You manage a whole menu of 100+ accounts but only need to remember few jars of spices.
 **Taste Control**: Need to change a password? Just tweak the ingredient text (e.g. `r4nd0m` → `r4nd0m2`) — same secret, new password.
-**Freshness**: Passwords are cooked fresh on demand, never stored stale.
+**Freshness**: Dishes are cooked on demand; the extension stores encrypted Spices rather than a list of cooked passwords. Dishes can still exist in memory and on the clipboard.
 
 ### The Recipe (Math)
 
@@ -46,16 +46,16 @@ What you remember: `Basic*`
 Your actual password: `Basic*r4nd0m`
 ```
 
-_Simple formula. Unbreakable security._
+_A simple Recipe model. Protection depends on strong credentials and a trusted device._
 
 ![Security Diagram](./docs/security_diagram.png)
 
 ## Features
 
-- 🔐 **Zero-Knowledge**: Your master password and secrets never leave your device (stored encrypted in Chrome Sync).
-- ⚡ **Instant Generation**: Click any cell with a formula (e.g., `fb#1`) to generate a password.
-- ⌨️ **Hotkey Support**: Press `Ctrl+Shift+L` (or `Cmd+Shift+L` on Mac) to generate from the focused cell.
-- 📋 **Auto-Clear Clipboard**: Passwords are automatically cleared from your clipboard after 30 seconds.
+- 🔐 **Encrypted Cookbook**: Argon2id derives the key from your master password; AES-256-GCM protects stored Spices. Encrypted profiles use Chrome Sync, with some readable metadata. Session keys use session storage; nonsecret counters/onboarding use local storage.
+- ⚡ **On-demand cooking**: Select a Recipe cell (e.g., `fb#1`), then open the extension or use its shortcut to cook a Dish.
+- ⌨️ **Hotkey Support**: Press `Ctrl+Shift+L` (or `Control+Shift+L` on Mac, subject to browser conflicts) to cook from the focused cell.
+- 📋 **Clipboard cleanup**: After Copy, cleanup is attempted at 30 seconds only if the clipboard still matches the owned Dish. Read denial, sleeping/closed Chrome, OS history and concurrent app writes limit this guarantee.
 - 🔒 **Auto-Lock**: Automatically locks after 5 minutes of inactivity or 10 minutes total.
 - 🌍 **Localization**: Supports English and **Vietnamese**.
 
@@ -98,14 +98,14 @@ _Simple formula. Unbreakable security._
 
 - Open any Google Sheet.
 - Type a formula into a cell, e.g., `fb#1` (Service: fb, Modifier: #, Secret Index: 1).
-- **Click the cell** OR press `Ctrl+Shift+L`.
+- **Select the cell and open the extension** OR press `Ctrl+Shift+L`.
 - A popup will appear with your generated password. Click **Copy**.
 
 ## Recipe Syntax
 
 `<Ingredient><CookingStyle><SpiceIndex>[Modifiers][.<VerifyTag>]`
 
-- **Ingredient** (Hash): Any random text (e.g., `f3c4b00k`, `r4nd0m`).
+- **Ingredient**: ASCII letters and digits (e.g., `f3c4b00k`, `r4nd0m`). Use unpredictable text for real accounts.
 - **Cooking Style** (Modifier):
   - `#`: **Topping** (Prefix Secret)
   - `@`: **Filling** (Middle Secret)
@@ -120,14 +120,18 @@ Example: `gmail@2` (legacy) or `gmail@2.a4b2` (with verify tag).
 
 ### Verify Tag — what it is, what it isn't
 
-The optional `.tag` suffix is **verification metadata only**. It does NOT change the generated password. You can still "cook" your password by hand using the recipe minus the tag:
+The optional `.tag` suffix is **verification metadata only**. It does NOT change the Dish. For own profiles, you can still cook by hand using the Recipe minus the Tag:
 
 ```
 Recipe on sheet:  r4nd0m#1.a4b2
 You ignore tag → r4nd0m + spice #1 (Basic*)  →  Basic*r4nd0m
 ```
 
-If you paste a tagged recipe into a sheet bound to a different profile (or copy a sheet to a different sheetId), the extension detects the mismatch and **refuses to generate** with an explicit error — instead of silently producing a wrong password. The tag is built using HMAC over your secret + sheetId, so the secret never leaks even with the tag visible. See [`docs/recipe-tag-design-rationale.md`](./docs/recipe-tag-design-rationale.md) for the design decision (why no HKDF binding for own profiles).
+If a present Tag does not match the Recipe, Spice and Menu context, the extension **refuses to cook** with an explicit error. Untagged legacy Recipes remain usable with guidance; removing a Tag removes its check. The four-character HMAC Tag does not change the Dish or guarantee protection against tampering. A visible Tag can help test guessed weak Spices offline. See [`docs/recipe-tag-design-rationale.md`](./docs/recipe-tag-design-rationale.md) for the own-profile binding decision; these current boundaries qualify its historical security wording.
+
+Full Access export/QR transfers the original profile Spices inside a bundle encrypted with a separate sharing password. A recipient with both can recover those Spices and cook the same Dishes. Share only with someone you authorize. Legacy sheet-bound sharing uses additional derivation and is a different mode.
+
+Malware, phishing, weak credentials and clipboard capture remain risks. Historical bounded browser acceptance does not establish cross-device Sync/conflict recovery, a broad platform matrix or final release artifact acceptance; see the [current browser contract](./docs/specs/extension-security.md).
 
 > **Rotating a password?** Change the ingredient text (`gmail@2` → `gmail2@2`). Avoid leaking a rotation pattern like `_v2` that hints earlier versions exist.
 
@@ -229,6 +233,28 @@ selective phone runs are recorded separately in the acceptance reports.
 - **Architecture**: Domain-Driven Design (DDD) with Clean Architecture.
 - **Tech Stack**: Vanilla JS, Chrome Extensions Manifest V3.
 - **Security**: Argon2 (WASM), Web Crypto API.
+
+From `chrome-extension/`, with the locked pnpm development dependencies installed
+(verified with Node24.18.0/pnpm10.24.0):
+
+```bash
+pnpm validate
+pnpm test:package
+pnpm package
+pnpm validate:zip build/passchef-extension-2.3.1-development.zip
+```
+
+These commands validate the reviewed runtime inventory, local imports/resources,
+mandatory Argon2 bytes and third-party notices, then create a development ZIP with
+the manifest at its root plus SHA256/inventory sidecars in the ignored `build/`
+folder. Missing or changed mandatory assets fail assembly; the four reviewed
+legacy/unreferenced files listed in `scripts/package-contract.json` stay out of
+the ZIP. Current Google Fonts CSS is recorded as external styling data separately
+from executable resources. [Dated extracted-ZIP/full-suite and WASM evidence](plans/261022-project-work-queue/reports/b07-zip-suite.md),
+[selected Windows measurements](plans/261022-project-work-queue/reports/b03-measurements-20261030.md)
+and [local numeric upgrade evidence](plans/261022-project-work-queue/reports/b08-artifact-acceptance.md)
+record actual scoped passes separately. Real two-device Sync,Store/final release
+acceptance remain open;this held development artifact is not a release-accepted candidate.
 
 ## Testing
 

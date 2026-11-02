@@ -1,6 +1,6 @@
 # Track02 — Mobile acceptance và các lát sản phẩm tiếp theo
 
-Ngày:2026-10-22. Status: **Partial product / Pending remaining tasks**.
+Ngày:2026-10-22; updated2026-10-26. Status: **Partial product; A12 preparation Done / remaining runtime Pending**.
 Parent:[master plan](plan.md). Dispatch:[A/B/C catalog](task-catalog.md).
 
 ## Context và scope
@@ -19,16 +19,19 @@ Autofill spike, authoring và Drive/multi-profile theo
 [decisions](../../docs/decisions/mobile-product-decisions.md).
 Không triển khai toàn bộ Later chỉ vì task có trong master.
 
+A01 coordination đã [reconcile backlog/mobile snapshot2026-10-26](reports/backlog-reconciliation.md)
+với reports hiện có; không đổi verdict runtime hoặc trạng thái task Track02.
+
 ## Registry và deliverables
 
 | Task | Status / depends | Việc thực hiện và tiêu chí hoàn tất |
 |---|---|---|
 | <a id="task-a11"></a>A11 — prepare401 | Blocked C06 | Tái dùng provider baseline/helpers; genuine setup/Cook, freeze sau IO, retained-token tab read, exact preservation và old Dish absence; selected runner/JUnit/UUID/source/APK/history/owner/cleanup fail-closed. Compile/tests/review/freeze trước runtime. Chi tiết:[401 checklist](../261012-mobile-cookbook-phase1/reports/google-http401-preparation.md). |
-| <a id="task-a12"></a>A12 — acceptance preparation | Ready | Tách plan/fixture cho human cancellation/resultCode, lifecycle/clipboard và accessibility/layout. Mỗi ca có prerequisite, bounded checkpoints, expected state, no-stop/stale policy và cleanup. Không viết fixture khi chưa có cách exercise hợp lệ; không replay Passed không liên quan. |
+| <a id="task-a12"></a>A12 — acceptance preparation | Done2026-10-26;8cards NotRun | [Case cards](reports/a12-mobile-acceptance-preparation.md),[independent review](reports/a12-independent-review.md):G1 existing native fixture;G2/G3/L1–L3/X1–X2 missing valid exercise/owner gates explicit. Source/method/APK/link checks only;no phone/build/helper or new runtime acceptance. |
 | <a id="task-c06"></a>C06 — actual401 | Pending owner transition; execution sau A11 | Xác định exact Google connection/project, tác động và restoration scope trước grant removal nếu chọn. Sau build/review lấy fresh readiness, biometric/provider baseline, remote action được duyệt, tab read thật. Chỉ Passed với provenance401 + token RAM cleared + reconnect + preserved cache/jars/RAM + old Dish unusable. Không dùng SDK/no-grant status thay HTTP401; không đảm bảo propagation. |
-| <a id="task-c07"></a>C07 — human cancellation | Blocked A12 + external resolution khả thi | Genuine provider-loaded baseline, owner cancel ở marker, actual resultCode nếu fixture đo được; natural-lock ownership/preservation. Host OS-Back Passed là scope riêng, không thay human action. Evidence:[cancellation history](../261012-mobile-cookbook-phase1/reports/google-cancellation-preparation.md). |
-| <a id="task-c08"></a>C08 — lifecycle/clipboard | Blocked A12 + reviewed per-case candidate | Tách recreation, background, process death và saved task; owner authenticate khi cần. Exact deadline/ownership phù hợp Android; record native verdict và cleanup. Controlled SIGKILL không thay natural LMK. [Return handoff](../261012-mobile-cookbook-phase1/reports/clipboard-return-handoff.md); [screen-off scope](../261012-mobile-cookbook-phase1/reports/owner-screen-off-clipboard-runtime.md). |
-| <a id="task-c09"></a>C09 — accessibility/layout | Blocked A12 + phone slot | Automated nodes/rotation/font/layout riêng với owner nghe TalkBack/đánh giá UX. Per-case report gồm setting/candidate/observations. [VI association](../261012-mobile-cookbook-phase1/reports/vi-accessibility-runtime.md) không chứng nhận spoken output. |
+| <a id="task-c07"></a>C07 — human cancellation | A12 Done; Blocked external resolution/owner/frozen candidate;G2/G3 exercise gaps | Genuine provider-loaded baseline, owner cancel ở marker, actual resultCode nếu fixture đo được; natural-lock ownership/preservation. Host OS-Back Passed là scope riêng, không thay human action. Evidence:[cancellation history](../261012-mobile-cookbook-phase1/reports/google-cancellation-preparation.md). |
+| <a id="task-c08"></a>C08 — lifecycle/clipboard | A12 Done; Blocked per-case valid exercise/reviewed candidate + owner slot | Tách recreation, background, process death và saved task; owner authenticate khi cần. Exact deadline/ownership phù hợp Android; record native verdict và cleanup. Controlled SIGKILL không thay natural LMK. [Return handoff](../261012-mobile-cookbook-phase1/reports/clipboard-return-handoff.md); [screen-off scope](../261012-mobile-cookbook-phase1/reports/owner-screen-off-clipboard-runtime.md). |
+| <a id="task-c09"></a>C09 — accessibility/layout | A12 Done; Blocked sustained manual fixture/settings authorization + phone slot | Automated nodes/rotation/font/layout riêng với owner nghe TalkBack/đánh giá UX. Per-case report gồm setting/candidate/observations. [VI association](../261012-mobile-cookbook-phase1/reports/vi-accessibility-runtime.md) không chứng nhận spoken output. |
 | <a id="task-a15"></a>A15 — QR receiver | Later; p-542801dc,p-c46b217c | Chia parser/reassembly limits→camera scanner→preview/import; test malformed/duplicate/missing chunks/expiry và error preservation. [QR sender contract](../../docs/specs/qr-handoff.md), Core decrypt đã có; receiver Done local không thay physical handoff. |
 | <a id="task-a16"></a>A16 — onboarding/import | Later A15 | Nối browser-first/mobile-first với encrypted storage; explicit preview/confirm; không silent overwrite Cookbook. Deliver plan + code/local regression + reviewer verdict trước C10. |
 | <a id="task-a17"></a>A17 — Autofill spike | Later Phase1 usable | Native prototype lock→biometric→Cook; OS domain/package boundary; protocol RAM/latency. Build local trước physical measurement; không lấy Core Argon2 parity thay spike acceptance. |

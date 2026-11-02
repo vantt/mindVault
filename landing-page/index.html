@@ -89,8 +89,8 @@
                     Turn <span class="text-gradient">Google Sheets</span> into a Secure Password Manager
                 </h1>
                 <p class="hero-description">
-                    Keep using the spreadsheet you love. Your passwords stay private with zero-knowledge encryption.
-                    Hackers see recipes, not passwords.
+                    Keep your Recipes in a Google Menu and protect your private Spices in an encrypted Cookbook.
+                    Strong ingredients and a trusted device still matter.
                 </p>
                 <div class="hero-cta">
                     <a href="#install" class="btn btn-primary btn-lg">
@@ -99,7 +99,7 @@
                             <polyline points="7 10 12 15 17 10"/>
                             <line x1="12" y1="15" x2="12" y2="3"/>
                         </svg>
-                        Install Free Extension
+                        Explore PassChef
                     </a>
                     <a href="#how-it-works" class="btn btn-ghost btn-lg">
                         See How It Works
@@ -115,13 +115,13 @@
                     </div>
                     <div class="hero-stat-divider"></div>
                     <div class="hero-stat">
-                        <span class="hero-stat-value">Zero</span>
-                        <span class="hero-stat-label">Data Stored</span>
+                        <span class="hero-stat-value">Recipes</span>
+                        <span class="hero-stat-label">Cook on demand</span>
                     </div>
                     <div class="hero-stat-divider"></div>
                     <div class="hero-stat">
-                        <span class="hero-stat-value">100%</span>
-                        <span class="hero-stat-label">Open Source</span>
+                        <span class="hero-stat-value">Private</span>
+                        <span class="hero-stat-label">Encrypted Spices</span>
                     </div>
                 </div>
             </div>
@@ -267,9 +267,9 @@
                             <div class="result-meta">
                                 <span class="meta-item">Generated fresh</span>
                                 <span class="meta-divider">·</span>
-                                <span class="meta-item">Never stored</span>
+                                <span class="meta-item">Cooked on demand</span>
                                 <span class="meta-divider">·</span>
-                                <span class="meta-item">Auto-clears in 30s</span>
+                                <span class="meta-item">Synthetic illustration</span>
                             </div>
                         </div>
                     </div>
@@ -292,10 +292,10 @@
     <section class="syntax-deep-dive" id="recipe-syntax">
         <div class="container">
             <div class="section-header">
-                <span class="section-badge">The Magic Formula</span>
+                <span class="section-badge">The Recipe</span>
                 <h2 class="section-title">Understanding Recipe Syntax</h2>
                 <p class="section-description">
-                    A recipe is a simple code that tells PassChef how to combine your secret with a hash to generate a unique password.
+                    A Recipe tells PassChef how to combine ingredients with a private Spice to cook a Dish.
                 </p>
             </div>
 
@@ -304,12 +304,12 @@
                 <h3 class="anatomy-title">Anatomy of a Recipe</h3>
                 <div class="anatomy-visual">
                     <div class="anatomy-code">
-                        <span class="anatomy-part anatomy-hash" data-tooltip="The ingredient (usually service name)">9mailR4nd0mHash</span><span class="anatomy-part anatomy-position" data-tooltip="Position modifier: where to put your secret">#</span><span class="anatomy-part anatomy-secret-num" data-tooltip="Which secret jar to use (1-5)">1</span><span class="anatomy-part anatomy-version" data-tooltip="Optional: version for rotation">_v2</span>
+                        <span class="anatomy-part anatomy-hash" data-tooltip="The ingredient (usually service name)">9mailR4nd0mHash</span><span class="anatomy-part anatomy-position" data-tooltip="Position modifier: where to put your secret">#</span><span class="anatomy-part anatomy-secret-num" data-tooltip="Which secret jar to use (1-5)">1</span>
                     </div>
                     <div class="anatomy-labels">
                         <div class="anatomy-label">
                             <span class="label-line"></span>
-                            <span class="label-text">Hash/Ingredient</span>
+                            <span class="label-text">Ingredient</span>
                         </div>
                         <div class="anatomy-label">
                             <span class="label-line"></span>
@@ -318,10 +318,6 @@
                         <div class="anatomy-label">
                             <span class="label-line"></span>
                             <span class="label-text">Secret #</span>
-                        </div>
-                        <div class="anatomy-label">
-                            <span class="label-line"></span>
-                            <span class="label-text">Version</span>
                         </div>
                     </div>
                 </div>
@@ -427,8 +423,8 @@
                 <div class="builder-container">
                     <div class="builder-inputs">
                         <div class="builder-field">
-                            <label>The Random Hash</label>
-                            <input type="text" id="builder-hash" value="g!th^b" placeholder="e.g., 9mailR4nd0mHash, bank, netflix">
+                            <label>The Ingredient</label>
+                            <input type="text" id="builder-hash" value="r4nd0m" placeholder="e.g., 9mailR4nd0mHash, bank, netflix">
                         </div>
                         <div class="builder-field">
                             <label>Position</label>
@@ -450,19 +446,14 @@
                             </div>
                         </div>
                         <div class="builder-field">
-                            <label>Version (optional)</label>
-                            <div class="builder-versions">
-                                <button class="version-btn active" data-ver="">None</button>
-                                <button class="version-btn" data-ver="_v2">v2</button>
-                                <button class="version-btn" data-ver="_v3">v3</button>
-                            </div>
+                            <p>Simplified illustration of the shown styles. Use the extension Recipe Builder for supported syntax, modifiers and verification Tags. Invalid input in this illustration is not validated by the extension.</p>
                         </div>
                     </div>
 
                     <div class="builder-output">
                         <div class="output-recipe">
                             <span class="output-label">Your Recipe</span>
-                            <code class="output-value" id="builder-recipe">g!th^b#1</code>
+                            <code class="output-value" id="builder-recipe">r4nd0m#1</code>
                         </div>
                         <div class="output-arrow">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -471,7 +462,7 @@
                         </div>
                         <div class="output-password">
                             <span class="output-label">Generated Password</span>
-                            <code class="output-value output-password-value" id="builder-password">MyS3cr3t*g!th^b</code>
+                            <code class="output-value output-password-value" id="builder-password">MyS3cr3t*r4nd0m</code>
                         </div>
                     </div>
                 </div>
@@ -507,8 +498,8 @@
                                 <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>
                             </svg>
                         </div>
-                        <h4>Version for Rotation</h4>
-                        <p>When a site requires password change, just add <code>_v2</code> to your recipe. No need to remember new passwords.</p>
+                        <h4>Rotate the Ingredient</h4>
+                        <p>Change the ingredient text, for example <code>r4nd0m#1</code> to <code>r4nd0m2#1</code>, then update the actual account password. Avoid predictable rotation patterns for real accounts.</p>
                     </div>
                     <div class="tip-card">
                         <div class="tip-icon">
@@ -586,7 +577,7 @@
                     </div>
                     <h3 class="comparison-title">The PassChef Way</h3>
                     <p class="comparison-description">
-                        Store only recipes in your sheet. Your secrets stay encrypted on your device. Even if hackers get your sheet, they get nothing.
+                        Store Recipes in your Menu and protect Spices in an encrypted Cookbook. Menu names, ingredient patterns and Tags can still reveal information; keep sensitive Menus private.
                     </p>
                     <div class="comparison-visual">
                         <div class="sheet-preview sheet-safe">
@@ -671,8 +662,8 @@
                                 </svg>
                             </div>
                             <div class="explanation-text">
-                                <h4>Recipes are useless alone</h4>
-                                <p>Like a menu without the chef's secret spices — they can see the dish names but can't cook anything.</p>
+                                <h4>Recipes need private Spices</h4>
+                                <p>Keep Spices strong and unpredictable. A public Menu can still expose account names and patterns; a visible Tag can help test weak guesses offline.</p>
                             </div>
                         </div>
                         <div class="explanation-item">
@@ -683,8 +674,8 @@
                                 </svg>
                             </div>
                             <div class="explanation-text">
-                                <h4>Secrets never leave your device</h4>
-                                <p>Encrypted with Argon2id and stored locally. Even if Chrome syncs, it's just encrypted noise.</p>
+                                <h4>Spices protected before Sync</h4>
+                                <p>Argon2id derives the Cookbook key; AES-256-GCM encrypts profiles stored through Chrome Sync. Some names and Menu mappings remain readable.</p>
                             </div>
                         </div>
                         <div class="explanation-item">
@@ -727,7 +718,7 @@
                         </svg>
                     </div>
                     <h3>The Menu (Your Sheet)</h3>
-                    <p>Lists all dishes and their codes. Anyone can see the menu — but they can't eat the food.</p>
+                    <p>Lists Recipes and account labels. Keep sensitive Menus private; public ingredients and Tags can help an attacker test weak Spices.</p>
                     <code class="chef-code">Facebook → fb#1</code>
                 </div>
 
@@ -740,7 +731,7 @@
                         </svg>
                     </div>
                     <h3>The Secret Spices (Your Secrets)</h3>
-                    <p>Only you know what's in each jar. Without the right spice, the dish is incomplete.</p>
+                    <p>Your private Spices complete the Dish. Full Access sharing delegates those Spices to the authorized recipient.</p>
                     <code class="chef-code chef-code-secret">Jar #1 → MyS3cr3t*</code>
                 </div>
 
@@ -752,7 +743,7 @@
                         </svg>
                     </div>
                     <h3>The Dish (Your Password)</h3>
-                    <p>Cooked fresh on demand. Never stored. Never stale. Always exactly what you need.</p>
+                    <p>Cooked on demand. The extension stores encrypted Spices; a Dish can still exist in memory and, after Copy, on the clipboard.</p>
                     <code class="chef-code chef-code-result">Result → MyS3cr3t*fb</code>
                 </div>
             </div>
@@ -793,7 +784,7 @@
                     </div>
                     <h3 class="bento-title">Zero-Knowledge Architecture</h3>
                     <p class="bento-description">
-                        Your master password and secrets never leave your device. Everything is encrypted locally with Argon2id + AES-256-GCM before syncing.
+                        Your master password derives a Cookbook key through Argon2id. AES-256-GCM encrypts profiles before Chrome Sync storage; metadata may remain readable.
                     </p>
                     <div class="bento-visual">
                         <div class="encryption-flow">
@@ -839,9 +830,9 @@
                             <circle cx="24" cy="24" r="8" stroke="currentColor" stroke-width="2"/>
                         </svg>
                     </div>
-                    <h3 class="bento-title">Instant Generation</h3>
+                    <h3 class="bento-title">On-demand Cooking</h3>
                     <p class="bento-description">
-                        Click any cell with a recipe to instantly generate your password. No waiting, no server calls.
+                        Select a Recipe cell, then open the extension or use the shortcut to cook a Dish locally. Google hosts your Menu.
                     </p>
                     <div class="bento-badge">
                         <span class="badge-dot"></span>
@@ -879,7 +870,7 @@
                     </div>
                     <h3 class="bento-title">Auto-Clear</h3>
                     <p class="bento-description">
-                        Clipboard clears after 30 seconds automatically.
+                        After Copy, cleanup is attempted at 30 seconds only if the clipboard still matches. Sleep, read denial, OS history and concurrent app writes limit cleanup.
                     </p>
                 </div>
 
@@ -912,7 +903,7 @@
                             </div>
                             <h3 class="bento-title">Cross-Device Sync</h3>
                             <p class="bento-description">
-                                Your encrypted secrets sync across all your Chrome browsers via Chrome Sync. Same password everywhere, securely.
+                                Encrypted profiles use Chrome Sync. Cross-device delivery, conflicts and recovery remain under verification; Chrome mobile does not provide this extension.
                             </p>
                         </div>
                         <div class="bento-visual-sync">
@@ -945,9 +936,9 @@
         <div class="container">
             <div class="section-header">
                 <span class="section-badge">Security</span>
-                <h2 class="section-title">Military-Grade Encryption</h2>
+                <h2 class="section-title">Cookbook Encryption</h2>
                 <p class="section-description">
-                    Built on proven cryptographic standards trusted by security experts worldwide.
+                    Argon2id derives the Cookbook key; AES-256-GCM protects stored profiles. These controls do not protect a compromised device, phishing or weak credentials.
                 </p>
             </div>
 
@@ -963,7 +954,7 @@
                     </div>
                     <h3 class="security-title">Argon2id</h3>
                     <p class="security-description">
-                        Winner of the Password Hashing Competition. Memory-hard algorithm that's resistant to GPU and ASIC attacks.
+                        Memory-hard key derivation raises the cost of guessing the master password. It protects the Cookbook; Recipe cooking is a separate operation.
                     </p>
                     <div class="security-specs">
                         <span class="spec-item">Memory: 64MB</span>
@@ -983,7 +974,7 @@
                     </div>
                     <h3 class="security-title">AES-256-GCM</h3>
                     <p class="security-description">
-                        The gold standard for symmetric encryption. Used by governments and financial institutions worldwide.
+                        Authenticated encryption protects stored profiles. A strong master password and correct key handling remain essential.
                     </p>
                     <div class="security-specs">
                         <span class="spec-item">256-bit key</span>
@@ -1003,11 +994,11 @@
                     </div>
                     <h3 class="security-title">Zero-Knowledge</h3>
                     <p class="security-description">
-                        We can't see your passwords because we never have them. All encryption happens on your device.
+                        The extension has no developer-operated password backend or telemetry client. Google hosts your Menu and Chrome Sync; encrypted profiles can leave your device.
                     </p>
                     <div class="security-specs">
-                        <span class="spec-item">Local only</span>
-                        <span class="spec-item">No servers</span>
+                        <span class="spec-item">Local cooking</span>
+                        <span class="spec-item">Google-hosted storage</span>
                         <span class="spec-item">No telemetry</span>
                     </div>
                 </div>
@@ -1019,27 +1010,27 @@
                         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
                         <path d="M9 12l2 2 4-4"/>
                     </svg>
-                    <span>Open Source</span>
+                    <span>Encrypted Cookbook</span>
                 </div>
                 <div class="trust-badge">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <circle cx="12" cy="12" r="10"/>
                         <path d="M12 6v6l4 2"/>
                     </svg>
-                    <span>No Tracking</span>
+                    <span>No Extension Telemetry</span>
                 </div>
                 <div class="trust-badge">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <rect x="3" y="11" width="18" height="11" rx="2"/>
                         <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
                     </svg>
-                    <span>Fully Encrypted</span>
+                    <span>Encrypted Profiles</span>
                 </div>
                 <div class="trust-badge">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
                     </svg>
-                    <span>Auditable Code</span>
+                    <span>Recipe-based Cooking</span>
                 </div>
             </div>
         </div>
@@ -1052,7 +1043,7 @@
                 <span class="section-badge">How It Works</span>
                 <h2 class="section-title">Get Started in 3 Simple Steps</h2>
                 <p class="section-description">
-                    From installation to password generation in under 2 minutes.
+                    Create your Cookbook, add private Spices and cook a Recipe.
                 </p>
             </div>
 
@@ -1128,7 +1119,7 @@
                     <div class="step-content">
                         <h3 class="step-title">Generate Passwords</h3>
                         <p class="step-description">
-                            Click any cell with a recipe (e.g., <code>9mailR4nd0mHash#1</code>) or use the hotkey. Your password is generated instantly and copied to clipboard.
+                            Select a Recipe cell (e.g., <code>r4nd0m#1</code>), then open the extension or use the hotkey. Check the profile and cooked Dish, then click Copy when needed.
                         </p>
                         <div class="step-visual">
                             <div class="generate-preview">
@@ -1153,92 +1144,7 @@
         </div>
     </section>
 
-    <!-- Testimonials / Social Proof Section -->
-    <section class="testimonials" id="testimonials">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-badge">Trusted By</span>
-                <h2 class="section-title">What Users Are Saying</h2>
-                <p class="section-description">
-                    Developers and security-conscious users love the simplicity and peace of mind.
-                </p>
-            </div>
-
-            <div class="testimonials-grid">
-                <div class="testimonial-card" data-aos="fade-up">
-                    <div class="testimonial-content">
-                        <div class="testimonial-stars">
-                            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        </div>
-                        <p class="testimonial-text">
-                            "Finally, a password manager that works WITH my existing workflow. I've been using Google Sheets for years — now it's actually secure."
-                        </p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">
-                            <span>DT</span>
-                        </div>
-                        <div class="author-info">
-                            <span class="author-name">David T.</span>
-                            <span class="author-role">Full-Stack Developer</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card testimonial-featured" data-aos="fade-up" data-aos-delay="100">
-                    <div class="testimonial-content">
-                        <div class="testimonial-stars">
-                            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        </div>
-                        <p class="testimonial-text">
-                            "The 'recipe' concept is genius. My team shares the same sheet, but each person has their own secrets. Zero overlap, zero risk. It just makes sense."
-                        </p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar author-avatar-featured">
-                            <span>MN</span>
-                        </div>
-                        <div class="author-info">
-                            <span class="author-name">Minh N.</span>
-                            <span class="author-role">Security Engineer</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="testimonial-content">
-                        <div class="testimonial-stars">
-                            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
-                        </div>
-                        <p class="testimonial-text">
-                            "Open source, local encryption, no accounts needed. This is how password management should work. My paranoid self approves."
-                        </p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">
-                            <span>SK</span>
-                        </div>
-                        <div class="author-info">
-                            <span class="author-name">Sarah K.</span>
-                            <span class="author-role">Privacy Advocate</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- Testimonials omitted: no verified provenance/permission on file (C12). -->
 
     <!-- FAQ Section -->
     <section class="faq" id="faq">
@@ -1260,7 +1166,7 @@
                         </svg>
                     </button>
                     <div class="faq-answer">
-                        <p>Yes! Your sheet only contains <strong>recipes</strong>, not passwords. A recipe like <code>9mailR4nd0mHash#1</code> is meaningless without your secret phrase. Think of it like a safe combination without the safe — useless on its own. Your secrets are encrypted with Argon2id + AES-256-GCM and stored locally on your device.</p>
+                        <p>A Menu holds <strong>Recipes</strong> rather than cooked Dishes, but can reveal account names and ingredient patterns. A visible verification Tag can help check guessed weak Spices offline. Keep sensitive Menus private and use strong Spices. Argon2id and AES-256-GCM protect the encrypted Cookbook stored through Chrome Sync; they do not make a public Menu universally safe.</p>
                     </div>
                 </div>
 
@@ -1286,10 +1192,10 @@
                     <div class="faq-answer">
                         <p>Traditional password managers store encrypted passwords in a vault. PassChef is different — we don't store passwords at all. We store <em>recipes</em> that combine with your secrets to <em>generate</em> passwords on demand. This means:</p>
                         <ul>
-                            <li>No password database to hack</li>
+                            <li>An encrypted Cookbook of Spices remains sensitive stored data</li>
                             <li>Works with your existing Google Sheets workflow</li>
-                            <li>You control the "formula" for each password</li>
-                            <li>Passwords are never stored, even encrypted</li>
+                            <li>You control the Recipe for each Dish</li>
+                            <li>Cooked Dishes are not saved as a list, but exist in memory and may reach the clipboard</li>
                         </ul>
                     </div>
                 </div>
@@ -1302,7 +1208,7 @@
                         </svg>
                     </button>
                     <div class="faq-answer">
-                        <p>Yes! Your encrypted secrets sync across all Chrome browsers where you're signed in. The secrets are encrypted before syncing, so even Google can't read them. Just install the extension on each device and unlock with your master password.</p>
+                        <p>Encrypted profiles use Chrome Sync according to your browser settings. Cross-device delivery, concurrent edits and recovery still need release acceptance; no universal device support is promised. Phone QR receiving/import is separate later work. Use a strong master password against offline guessing of stolen encrypted data.</p>
                     </div>
                 </div>
 
@@ -1332,7 +1238,7 @@
                         </svg>
                     </button>
                     <div class="faq-answer">
-                        <p>Yes! 100% open source under the MIT license. You can audit every line of code, fork it, contribute, or run your own modified version. We believe security through transparency is the only way.</p>
+                        <p>PassChef is a closed-source product. Bundled third-party components retain their own licenses and notices.</p>
                     </div>
                 </div>
             </div>
@@ -1348,8 +1254,8 @@
                     Ready to Secure Your Passwords?
                 </h2>
                 <p class="cta-description">
-                    Join thousands of users who've upgraded their Google Sheets security.
-                    Free, open-source, and privacy-first.
+                    Keep your Menu workflow and cook Dishes from Recipes with private Spices.
+                    Review the security boundaries before using real accounts.
                 </p>
                 <div class="cta-buttons">
                     <a href="https://chrome.google.com/webstore" target="_blank" rel="noopener" class="btn btn-primary btn-xl">
@@ -1358,7 +1264,7 @@
                             <circle cx="12" cy="12" r="4"/>
                             <path d="M21.17 8H12M3.95 6.06L8.54 14M10.88 21.94L15.46 14"/>
                         </svg>
-                        Add to Chrome - It's Free
+                        Chrome Web Store
                     </a>
                     <a href="https://github.com" target="_blank" rel="noopener" class="btn btn-ghost btn-xl">
                         <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
@@ -1372,19 +1278,19 @@
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M20 6L9 17l-5-5"/>
                         </svg>
-                        <span>No account required</span>
+                        <span>No PassChef account</span>
                     </div>
                     <div class="cta-feature">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M20 6L9 17l-5-5"/>
                         </svg>
-                        <span>Works offline</span>
+                        <span>Local Recipe cooking</span>
                     </div>
                     <div class="cta-feature">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M20 6L9 17l-5-5"/>
                         </svg>
-                        <span>Open source</span>
+                        <span>Encrypted Cookbook</span>
                     </div>
                 </div>
             </div>
@@ -1418,7 +1324,6 @@
                     <div class="footer-column">
                         <h4 class="footer-heading">Resources</h4>
                         <a href="#faq" class="footer-link">FAQ</a>
-                        <a href="#testimonials" class="footer-link">Testimonials</a>
                         <a href="#install" class="footer-link">Install</a>
                     </div>
                     <div class="footer-column">
@@ -1431,7 +1336,7 @@
             </div>
             <div class="footer-bottom">
                 <p class="footer-copyright">
-                    &copy; 2024 PassChef. Open source under MIT License.
+                    &copy; PassChef. Closed-source product; third-party licenses remain separate.
                 </p>
                 <div class="footer-social">
                     <a href="#" class="social-link" aria-label="GitHub">

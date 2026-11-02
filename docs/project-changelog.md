@@ -1,5 +1,105 @@
 # Project Changelog
 
+## Commit verified extension checkpoint and reconcile plans (2026-11-02)
+
+[Implementation2281761](https://github.com/vantt/mindVault/commit/2281761d5e367698b3382a51e9e5b22fe39041a3) commits the Full Access import envelope repair,owner-approved Display-default deferral,2.3.1 beta metadata and validated development packaging/CI. Fresh151unit/49package checks,source/ZIP validation and static syntax/HTML/workflow checks Passed. A separate output archive matches the held278b ZIP;historical held039c+WIP provenance is preserved.
+[Checkpoint evidence/scope](../plans/261022-project-work-queue/reports/repository-checkpoint-20261102.md) and [independent review](../plans/261022-project-work-queue/reports/repository-checkpoint-20261102-independent-review.md) bind the source checkpoint. Code pushed on a codex branch;documentation/landing/plan reconciliation accompanies it without main merge/Pages deployment or release acceptance. B02 remains Partial,realSync remains mandatory and owner-deferred;local ignored raw evidence is not publicly uploaded.
+
+## Verify permission variants and repair native test harness (2026-11-02)
+
+[B02 P0–P3 selected comparison](../plans/261022-project-work-queue/reports/b02-permission-runtime-20261102.md)/[independent runtime review](../plans/261022-project-work-queue/reports/b02-runtime-20261102-independent-review.md):24/24synthetic cases Passed on actualWindowsStable156.76/Node26.13,with actual8/7/7/6permissions. Two failed controls remain preserved. Ignored harness now attaches before fixture navigation,asserts local fulfillment,and verifies actual popover disappearance after window.close. Host Node path recovery and null-exit diagnostic remain explicit;no product/Golden/artifact change.
+P2/P3 omitted nonhost URL/title while scoped Menu metadata/picker still passed. This bounded observation does not establish general tab privacy or permission redundancy. Two separately approved15minute slots completed;all6private profiles/2ownedworkspaces removed after raw preservation/review,desktop returned. FullB02 stays Partial:permission adoption,physical/native grant+shortcut,clipboard/provider/edge/fullsupport and real two-device Sync/release gates remain open;Sync stays owner-deferred.
+
+## Prepare permission comparison and record turn failures (2026-10-30)
+
+[B02 native preparation/review](../plans/261022-project-work-queue/reports/b02-preparation-independent-review.md) binds four disposable permissions-only variants and reviewed synthetic runner;all browser runtime remains NotRun pending a new desktop handoff. No product permission/test/artifact change or reduction adoption.
+[Incident record](../plans/261022-project-work-queue/reports/continuation-builder-error-20261030.md) preserves four exact builder error/null-detail failures before any command ran. Current pnpmvalidate andheldZIP checks exit0;root cause of the turn failure remains Unknown rather than being reported as a project build failure.
+
+## Measure Windows browser cells and verify local upgrade (2026-10-30)
+
+[B03 scoped measurement task Done](../plans/261022-project-work-queue/reports/b03-measurements-20261030.md)/[review](../plans/261022-project-work-queue/reports/b03-measurements-20261030-independent-review.md):actualStable156.0.8078.76/CfT116.0.5845.96,10cold+20warm unlocks each,5targetedfastRAM intervals each andmissing/corrupt/restoredWASM Passed.
+Original slowCIM traces retained;nativeToolhelp improves observed cadence while preservingjitterflags. Measurements are descriptive browser-group data,not pureKDF/truepeak/SLO acceptance.
+[B08 localunpacked2.3.0→2.3.1 upgrade Passed/reviewed](../plans/261022-project-work-queue/reports/b08-upgrade-20261030-independent-review.md);allSync/local and10jars/hints/Menu/default/VI/4DishTags preserved;overallB08Partial.
+No application/Golden bytes changed. Nativechildren/11profiles/ownedworkspace cleaned,desktop returned. Store/realSync/fullrelease remain separate;owner Synclater retained.
+
+## Verify exact2.3.1 ZIP and native Windows Stable P0 (2026-10-27)
+
+[Linux extracted-ZIP verification](../plans/261022-project-work-queue/reports/b07-zip-suite.md):151unit+28E2E Passed,plus separate same-ID missing/corrupt/restored WASM case Passed.
+[Native Windows Stable156 P0](../plans/261022-project-work-queue/reports/b03-native-stable-run-01.md) Passed after corrected Settings navigation/UI-readiness in the diagnostic runner;three earlier Failed runs retained.
+Independent reviews Passed;application/Golden bytes unchanged,all owned processes/
+profiles/workspaces cleaned and desktop returned. Windows116/benchmark/upgrade/
+full release remain Pending;[owner schedules real Sync later](../plans/261022-project-work-queue/reports/c03-sync-owner-readiness.md),mandatory beforepublication retained.
+
+## Apply approved2.3.1 beta metadata locally (2026-10-27, C02)
+
+Owner approved controlled beta version2.3.1 and package alignment. Manifest now
+uses numeric2.3.1/display label2.3.1 beta; tooling package is2.3.1. Minimum Chrome116,
+permissions, identity and Cookbook protection/storage formats are retained. A fresh
+development ZIP is held for local verification; old2.3.0 B01/frozen proofs remain
+historical. Windows Chrome Stable/116 and real two-device Sync must be accepted
+before publication; broader OWN01/C01/A23 and stable candidate gates remain open.
+[Local artifact evidence](../plans/261022-project-work-queue/reports/c02-version-231-local-verification.md).
+Default unit discovery now excludes the ignored build artifact tree, whose frozen
+test copies are evidence rather than runnable sources. Canonical tests/assertions
+and immutable B01 snapshots are retained; the initial discovery failure is recorded.
+
+## Verify selected Full Access import and deferred Settings in Chrome (2026-10-26, B01)
+
+Owner-authorized headed Run01 Passed3/3selected cases in33.046s:actual Full Access
+export/import→Builder cooking with/without Menu metadata,and EN→VI→EN Settings
+with preserved preferences,quota/master panels and canceled reset. Exit0, no retry/
+skip;frozen source/artifact/harness unchanged. Test profiles cleaned and desktop
+released. This is selected source-patch evidence,not final-candidate/full-suite,
+extracted-ZIP/upgrade/Sync/native/provider acceptance.
+[Run evidence](../plans/261022-project-work-queue/reports/b01-run-01.md) and
+[independent review Passed](../plans/261022-project-work-queue/reports/b01-run-01-independent-review.md).
+
+## Temporarily hide disconnected Display defaults (2026-10-26, A23-UI01)
+
+Owner approved deferring the three global Display defaults. Settings now omits
+their card and orphan initialization/write handlers; saved `displaySettings`
+records are retained. EN/VI descriptions match available Cookbook controls.
+Per-profile hints, Builder Menu detection and visible Dish behavior are unchanged;
+no global inheritance/reveal policy or data migration was added. Local verification
+does not replace Settings browser acceptance or close other owner/release gates.
+[Deferral evidence](../plans/261022-project-work-queue/reports/a23-display-defaults-deferral.md) and
+[independent local review Passed](../plans/261022-project-work-queue/reports/a23-display-defaults-independent-review.md).
+
+## Repair Full Access imported profile shape locally (2026-10-26, A23-FA01)
+
+The import wizard could finish successfully yet store a raw jar map where cooking
+expects a profile envelope, causing “Secret #1 not found”. Full Access now encrypts
+`{secrets,settings:{}}`; a focused writer extraction keeps touched code below200lines
+and retains legacy storage behavior and existing async state-read boundaries.
+Actual-handler/real-crypto/storage-reader/cooking regressions reproduce the old
+failure and verify the local fix. Browser/candidate/upgrade restore acceptance,
+already-malformed profile recovery and unrelated overwrite/lifetime limits remain.
+[Repair evidence](../plans/261022-project-work-queue/reports/a23-full-access-import-repair.md) and
+[independent local review Passed](../plans/261022-project-work-queue/reports/a23-full-access-import-independent-review.md).
+
+## Prepare verified CI development artifacts (2026-10-26, A07)
+
+Extension CI now selects Node24/pnpm10.24, runs frozen installation and local
+unit/package/source checks before creating and verifying the development ZIP.
+PassChef manifest-version artifact naming includes ZIP, inventory and SHA256 with
+14-day retention. Workflow-only changes select extension verification; the landing
+deployment job and its routing remain unchanged. No GitHub run/push/deploy occurred.
+[Local evidence](../plans/261022-project-work-queue/reports/a07-ci-packaging.md) and
+[independent review Passed](../plans/261022-project-work-queue/reports/a07-independent-review.md).
+
+## Add validated extension development packaging (2026-10-26, A06)
+
+Mandatory Argon2 loader/WASM assembly now preflights both dependency assets and
+notices before writes; pinned registry/lock provenance retains accepted runtime
+bytes. Local validation checks reviewed inventory, imports/resources, executable
+paths, JSON/syntax and third-party notices. Development ZIP assembly validates
+root entries and exact bytes, records hashes/inventory and rejects unsafe destination
+symlinks. Pinned helper dependencies are development-only. Google Fonts stylesheet
+data is explicitly recorded; no font or crypto behavior changed.
+Verification:[A06 delivery](../plans/261022-project-work-queue/reports/a06-packaging-validation.md);
+[independent review Passed](../plans/261022-project-work-queue/reports/a06-independent-review.md).
+No browser, Sync, release-candidate or Store acceptance follows from tooling.
+
 ## Accept provider-loaded403 and fresh cached Cook (2026-10-21)
 
 Selected actual Google-loaded baseline/metadata403 preservation and fresh post403

@@ -1,274 +1,128 @@
-# Chrome Web Store Screenshot Prompts — PassChef
+# Chrome Web Store capture brief — PassChef
 
-> **Status:** Draft — brief lịch sử; không phải ảnh chụp sản phẩm thật.
-> **Last updated:** 2026-10-13 (sắp xếp/trạng thái; cập nhật thiết kế và capture còn Pending trong [plan](../plan.md))
-> 5 prompts for AI image generation (GPT-Image-2 / Claude / Midjourney).
-> Target size: **1280×800 px**, PNG.
-> Brand palette: bg `#0a0e17` · accent green `#00ff41` · cyan `#00ffff` · text `#f0f4f8` · mono font Fira Code.
+> **Status:** Corrected A08 local brief2026-10-26; no final captures/artwork accepted.
+> Replaces historical AI product mockup prompts. Five actual-product shots are planned;
+> A13 stable candidate/C01–C02 gates and B06 desktop capture are still required.
+> Current source manifest2.3.0 is context, not an approved release version.
 
----
+## Capture gates and truthful presentation
 
-## Screenshot 1 — Core Flow
-**Caption:** "Select a recipe cell. Press Ctrl+Shift+L. Your password is ready."
+Use actual bundled UI from the reviewed candidate in an isolated synthetic Cookbook.
+Record candidate source/ZIP/version/SHA256, browser/OS, locale, viewport/scale,
+selected Menu fixture and exact capture/edit inventory. A06/A07 development ZIPs
+alone do not unlock B06. Owner must have supplied the desktop slot or reviewed
+isolation; any provider/account/write action needs its own authorization/readiness.
+Do not open or write a real/private Menu merely to prepare these shots.
 
-```
-UI mockup product screenshot, 1280×800 px, dark cyberpunk tech theme.
+Source truth:[Popup](../../../chrome-extension/src/popup/popup.html),
+[Builder](../../../chrome-extension/src/popup/popup-recipe-builder.js),
+[Options](../../../chrome-extension/src/options/options.html),
+[export](../../../chrome-extension/src/options/options-export-wizard.js) and
+[Generated contract](../../ui-specs/04-popup-generated.md).
+Current Precision styling comes from the candidate; don't redraw it as the obsolete
+neon/glass/sidebar concept. The Popup Generated field is readonly `type=text`:
+its synthetic Dish is visibly shown. There is no eye toggle or countdown strip
+on that view. Builder lives inside the popup, not a Google Menu sidebar.
 
-LEFT HALF (60% width): A Google Sheets browser tab, realistic Chrome browser chrome at top. 
-The spreadsheet shows a table with columns: "Service", "Recipe", "Notes". 
-Row data visible:
-  - github    | r4nd0m#1    | work account
-  - gmail     | mx3il@2     | personal
-  - netflix   | str34m$3    | shared
-The cell "r4nd0m#1" in the github row is selected/highlighted with a bright green (#00ff41) 
-glowing border. A small keyboard shortcut badge "Ctrl+Shift+L" floats above the cell 
-with a pulsing green glow effect.
+Capture native UI first; keep raw pixels and any source/editable composition separately.
+Do not invent controls, badges, countdowns, masked states, provider content or success
+messages. Crop/resize proportionally without changing UI; annotate sparingly and log
+all redaction/edits. Show only deliberately synthetic Dishes. Remove account avatars,
+email/bookmarks/private URLs and identifiers before publication. A routed Menu
+fixture can prove extension UI, but must not be described as a fresh Google/native
+acceptance or photographed real provider session.
 
-RIGHT HALF (40% width): A floating Chrome extension popup, dark glassmorphism card 
-(background #0a0e17, border 1px rgba(0,255,65,0.3), slight blur backdrop). The popup shows:
-  - Top: "PassChef" wordmark in Space Grotesk bold, green chef-hat icon left of it
-  - Profile badge: "Personal" in a small pill
-  - Label "Recipe detected:" then monospace text "r4nd0m#1" in bright green on dark bg
-  - Password field: masked "••••••••••••" with a green eye-toggle icon
-  - Large green button "Copy Password" with subtle glow
-  - Footer: small gray text "Clipboard clears in 30s · Auto-lock: 5min"
+## Synthetic fixture — preparation contract
 
-Bottom of image: clean annotation bar, dark bg, white text:
-"Zero-storage · Nothing saved · Generated fresh each time"
+Disposable own profiles `Demo Personal` and `Demo Work`; labels are examples, not
+real people/testimonials. Select a dedicated authorized synthetic Menu. In the
+fixture only, Spice1=`Basic*`, Recipe=`r4nd0m#1`, expected Dish=`Basic*r4nd0m`.
+These strings are deliberately public and must never protect a real account.
+Other rows may use valid `mx3il@2`/`str34m$3` with separately prepared synthetic jars.
+No private master/sharing password or real QR/bundle is captured.
 
-Overall style: cyberpunk glassmorphism, clean sans-serif labels, 
-subtle green glow on interactive elements, professional product screenshot quality.
-No gradients on text. Sharp UI edges with slight rounded corners (8px).
-```
+Generate any Tag through the actual candidate Builder for the selected fixture
+Menu/profile. Never paste a decorative `.tag` as if verified. For mismatch shot,
+use a separate synthetic context and confirm the presented Tag fails verification;
+leave a clean fixture for later runs. This brief authorizes no live Menu write.
+Do not replay unrelated accepted cases to fill a screenshot session.
 
----
+## Five actual-product shots — all Pending B06
 
-## Screenshot 2 — Popup Close-up
-**Caption:** "Generated on demand. Nothing stored. Clipboard clears in 30 seconds."
+Proposed basenames only; these files do not yet exist. Use EN first as a draft;
+C04 chooses final listing locales. Any VI set must show actual localized UI and
+matching approved captions; untranslated wizard text must not be silently repainted.
 
-```
-UI mockup product screenshot, 1280×800 px, centered composition, dark theme.
+| Shot / proposed basename | Actual flow, source selectors and expected frame | Draft caption |
+|---|---|---|
+| 01 — `cws-01-cook-en.png` | Select the fixture Recipe cell, then open actual Chrome action popup. Show `#status-generated`, `#global-status`, `#gen-profile-label`, visible synthetic `#gen-password`, `#btn-copy`, `#btn-build-recipe-gen`, Back/Lock as present. Use only synthetic provider background; do not claim a shortcut was pressed unless actually observed. | “Select a Recipe. Cook a Dish.” |
+| 02 — `cws-02-builder-en.png` | Enter through `#btn-build-recipe` or `#btn-build-recipe-gen`. In `#status-builder`, set `#bld-hash`, `#bld-position-group`, `#bld-secret-group`; explicitly expand `#bld-more-options` to show `#bld-sheet-url`/`#bld-profile` if needed. Capture actual `#bld-recipe-out`, `#bld-password-out`, `#btn-copy-recipe`. Initial random style/jar and collapsed options are real defaults; no fabricated remembered defaults or forced expansion. | “Build a Recipe in the popup.” |
+| 03 — `cws-03-profiles-en.png` | Actual Options `#dashboard-section`, horizontal `#tab-bar`/`.tab[data-tab="profiles"]`, `#tab-profiles`, `#own-profiles-list`, `#sheet-assignments-list`, `#select-default-profile`. Show synthetic profiles/assignments only; no imaginary sidebar/security/about tabs or unlimited-profile claim. | “Choose Spices for each Menu.” |
+| 04 — `cws-04-sharing-en.png` | Actual `#modal-export` from a synthetic own-profile export action. Prefer sharing-password step:actual `#exp-sharing-pwd`, `#exp-sharing-pwd-confirm`, `#exp-generate`, keeping fields empty/masked. If showing result instead, `#exp-bundle-output`, `#btn-show-qr`/`#exp-qr-panel` must be genuine synthetic output; do not add a phone-success state. Avoid publishing scannable private QR or actual bundle/password. | “Full Access delegates your Spices.” |
+| 05 — `cws-05-tag-mismatch-en.png` | With a known failing synthetic Tag/context, open actual popup Home:visible `#status-unlocked`, `#home-notice`/`#home-notice-text`, no visible `#status-generated` Dish. Source Home translates the mismatch; capture the real localized guidance. Frame the warning as a present-Tag check, not universal tamper protection. | “A mismatched Tag stops cooking.” |
 
-CENTER: Large PassChef Chrome extension popup, blown up to fill most of the frame 
-(screenshot close-up style), floating on a very dark (#0a0e17) background with 
-a subtle green radial glow behind it.
+Shot04 caption context must explain:Full Access bundle plus sharing password lets
+the recipient recover the original Spices and cook the same Dishes. A sender/QR
+image does not establish completed phone receiving/import. Shot05 does not imply
+legacy untagged Recipes are refused; removing a Tag removes that check.
+Clipboard text must retain the conditional ownership/30s limits from the
+[A03 listing](cws-listing-copy.md), not an invented timer or unconditional erasure.
 
-Popup card (dark glassmorphism, rounded 12px, width ~520px):
-  TOP BAR:
-    - Left: green chef-hat icon + "PassChef" in Space Grotesk semibold white
-    - Right: lock icon (unlocked, green) + "Personal" profile pill (cyan #00ffff border)
-  
-  RECIPE SECTION (labeled "Recipe"):
-    - Dark code block, monospace: "r4nd0m#1" in bright green (#00ff41)
-    - Small label below: "Service: github · Style: Top Garnish (prefix)"
+## Current graphic specification check —2026-10-26
 
-  PASSWORD SECTION (labeled "Generated Password"):
-    - Large field, dark background, showing: "••••••••••••" centered
-    - Green eye icon on right to reveal
-    - Below field: small green text "12 characters · Contains symbols"
+| Asset | Official requirement / project choice | Acceptance still needed |
+|---|---|---|
+| Store icon |128×128 PNG; square artwork guideline96×96 plus transparent16px margins. | Actual padding, visual weight, light/dark legibility and rights; dimensions alone insufficient. |
+| Screenshots |At least1, at most5;1280×800 or640×400, square corners/full bleed. Project chooses1280×800 PNG masters. | Real candidate pixels, legibility at640×400, honest edits/locale/source binding. |
+| Small promotional tile |Optional440×280; PNG/JPEG. | Brand artwork/rights/review; not a product screenshot. |
+| Marquee promotional tile |Optional1400×560; PNG/JPEG. | Brand artwork/rights/review; old920×680 brief is superseded. |
 
-  COPY BUTTON: Full-width, bright green (#00ff41) background, dark text "Copy Password", 
-  slight box-shadow glow
+Sources:[Supplying Images](https://developer.chrome.com/docs/webstore/images),
+[listing fields](https://developer.chrome.com/docs/webstore/cws-dashboard-listing),
+[actual-experience guidance](https://developer.chrome.com/docs/webstore/best-listing).
+The listing overview emphasizes1280×800; detailed image guidance also permits640×400.
+No official byte-size cap was established from these opened pages; recheck actual
+Dashboard constraints during A14/C11. Promo tiles are not locale-specific in the
+current guidance. Final graphics must follow Google brand rules where applicable.
 
-  COUNTDOWN STRIP (below button): 
-    Progress bar, green, showing partial fill, text: "Clipboard clears in 29s"
-  
-  BOTTOM LINKS: tiny gray text "Reveal · Regenerate · Settings"
+## Existing asset inventory — metadata, not visual/rights approval
 
-ANNOTATIONS floating beside popup (white text, small arrows):
-  → pointing to password field: "Password exists only here, in RAM"
-  → pointing to Copy button: "Copy & clipboard auto-clears"
-  → pointing to lock icon: "Auto-locks after 5 min idle"
+| Existing path | Actual metadata / current use | Status / rights |
+|---|---|---|
+| `chrome-extension/src/assets/icon-16.png` |16×16 PNG RGBA8,868bytes; declared manifest icon. | Present; owner artwork provenance/rights and visual QA Pending. |
+| `chrome-extension/src/assets/icon-32.png` |32×32 PNG RGBA8,2530bytes; declared manifest icon. | Present; same limits. |
+| `chrome-extension/src/assets/icon-48.png` |48×48 PNG RGBA8,4689bytes; declared manifest icon. | Present; same limits. |
+| `chrome-extension/src/assets/icon-128.png` |128×128 PNG RGBA8,18875bytes; declared/packaged icon and Store-icon candidate. | Size matches; transparent-margin pixels/visual suitability/rights not verified. |
+| `chrome-extension/src/assets/icon-1024.png` |**680×680** PNG RGBA8,242743bytes, despite filename; not declared/shipped by A06. | Existing raster, not a1024px editable master or accepted Store asset. No resize/rename here; provenance/rights Pending. |
+| `landing-page/assets/favicon.svg` |SVG viewBox0 0 32 32; existing website favicon. | Vector file present; not a128px PNG Store icon. Rights/brand consistency Pending. |
+| `landing-page/assets/og-image.png` |Missing; index og:image still points at this relative path. | No OG image accepted. C05/A22 must bind future file to verified absolute HTTPS URL. |
+| CWS captures/small promo/marquee |No dedicated final files in inspected assets/marketing paths. | Missing/Pending B06 or later authorized artwork. Existing Demo PNGs/security diagram are not final Store captures. |
 
-Background has very subtle matrix-rain effect (faint green characters falling, 5% opacity).
-Product screenshot quality, photorealistic UI mockup style.
-```
+A proposed OG master of1200×630 is an internal website design target, not a Chrome
+requirement or a verified social-platform acceptance. No editable raster master,
+creator/license record or artwork approval was found in the inspected asset paths.
+Repository presence is not proof of ownership/redistribution rights; owner must
+confirm before A14/C11. SVG can be edited as vector if later authorized; no bitmap
+regeneration is requested by this brief.
 
----
+## Optional non-UI artwork — brief only, no output created
 
-## Screenshot 3 — Profile Management
-**Caption:** "Organize recipes by project, team, or context. Unlimited profiles."
+Small tile:existing approved logo/wordmark with a simple Recipe-and-Spice cooking
+motif; use actual candidate brand tokens as reference. Keep text minimal, omit
+mock controls, review badges, user counts and false zero-storage/no-server claims.
+Marquee:extend the same abstract composition to1400×560 without suggesting a phone
+receiver or displaying a fake extension window. If a security diagram is later
+wanted, label it “Illustration” and separate Recipe cooking from Cookbook protection;
+Google-hosted Menu/Sync must not be drawn as nonexistent infrastructure.
 
-```
-UI mockup product screenshot, 1280×800 px, dark cyberpunk theme.
+## B06 evidence and completion checklist
 
-FULL FRAME: PassChef options page, shown as a browser tab (Chrome chrome at top showing 
-"PassChef Settings" in the tab).
+- Freeze actual source/ZIP/version/SHA/locale before capture; prepare only synthetic data.
+- Save raw capture, edited deliverable, editable annotation source if used, image dimensions/hash and exact steps/source selectors. Proposed filenames above remain Pending until files exist.
+- Check UI state/Dish/profile/Tag against the fixture; real pixels, no control or typography fabrication.
+- Review all5shots for source consistency,640×400 readability, sensitive content and rights. Preserve failed/missing captures as such.
+- Remove disposable profile/fixtures and owned clipboard content under the approved resource slot; return focus/desktop and record cleanup. No actual account deletion/revocation presumed.
+- A14 binds approved final images and rights to the accepted release artifact. A08 brief Done never means B06 capture/release acceptance Done.
 
-Page layout:
-  LEFT SIDEBAR (220px): Dark panel with navigation items:
-    - "Secrets" (active, highlighted green left border)
-    - "Profiles" (selected, fully highlighted green background, dark text)
-    - "Security"
-    - "Export / Import"
-    - "About"
-  
-  MAIN CONTENT AREA: "Profiles" tab content
-    Page heading: "Profiles" in white, 24px bold
-    Subheading: "Each profile has its own secret spices and can be linked to specific Sheets."
-
-    PROFILE CARDS (3 cards in a list):
-      Card 1 — "Personal" (active badge, green border):
-        - Name: "Personal" bold white
-        - Linked sheets: "docs.google.com/spreadsheets/d/abc123..." (truncated, gray)
-        - Badge: "ACTIVE" green pill
-        - Buttons: Edit | Delete (gray ghost buttons)
-      
-      Card 2 — "Work":
-        - Name: "Work" bold white
-        - Linked sheets: "docs.google.com/spreadsheets/d/xyz789..." (truncated)
-        - Buttons: Set Active | Edit | Delete
-      
-      Card 3 — "Family":
-        - Name: "Family" bold white
-        - Linked sheets: "Not linked to any Sheet"
-        - Buttons: Set Active | Edit | Delete
-    
-    ADD PROFILE BUTTON: "+ New Profile" dashed border button, green text
-
-  BOTTOM STATUS BAR: "3 profiles · Auto-routing: ON · v2.3.0"
-
-Clean professional settings UI. Glassmorphism cards on dark background.
-Accent colors: green for active state, cyan for info, gray for secondary.
-```
-
----
-
-## Screenshot 4 — Recipe Builder in Google Sheets
-**Caption:** "Write recipes in plain English. Your Sheet stays useful even without PassChef."
-
-```
-UI mockup product screenshot, 1280×800 px, split composition.
-
-LEFT 65%: Google Sheets browser tab (realistic Chrome browser frame).
-Spreadsheet title in tab: "Password Recipes — Personal"
-
-Spreadsheet shows a well-organized table with header row (light gray background) and columns:
-  A: "Service"     B: "Recipe"      C: "Notes"           D: "Verify Tag"
-
-Data rows:
-  1. github       | r4nd0m#1       | work account        | .a4b2
-  2. gmail        | mx3il@2        | personal email      | .c9d1  
-  3. netflix      | str34m$3       | shared with partner | .f2e8
-  4. bank         | s3cur3^4!      | main account        | .7b3a
-  5. vpn          | priv4te#1~     | privacy tool        | .1c5f
-
-Cell B2 ("mx3il@2") is selected with blue Google Sheets selection border.
-A small floating tooltip/annotation appears above column B:
-  "Recipes are safe to share publicly — useless without your secret spice"
-
-RIGHT 35%: A side panel (dark glassmorphism card) floating over the sheet, 
-labeled "Recipe Builder" at top with PassChef icon.
-The panel shows:
-  - "Detected recipe: mx3il@2" in green monospace
-  - Breakdown:
-    · Ingredient: "mx3il" (cyan)
-    · Style: "@ Filling" (white)
-    · Spice index: "#2" (green)
-  - Preview: "Password: ••••••••••••" 
-  - "Build with Ctrl+Shift+L" hint
-  - Small "Copy" green button
-
-At bottom of the full image: annotation strip (dark bg):
-"Your Sheet is the recipe book. Your head holds the secret. PassChef is the kitchen."
-
-Realistic spreadsheet UI, professional product screenshot quality.
-```
-
----
-
-## Screenshot 5 — Security Model Diagram
-**Caption:** "Recipe + secret spice = password. No server. No storage. Nothing to breach."
-
-```
-Clean infographic / explainer diagram, 1280×800 px, dark cyberpunk theme (#0a0e17 background).
-
-TITLE at top center: "How PassChef Works" in Space Grotesk bold 32px white.
-Subtitle: "Zero-storage · Zero-knowledge · Zero breach surface" in #94a3b8.
-
-THREE COLUMNS layout with icons and connecting arrows:
-
-LEFT COLUMN — "Your Google Sheet" (green border card):
-  Icon: spreadsheet grid icon (bright green, 64px)
-  Label: "Recipe" in green bold
-  Contents card shows:
-    r4nd0m#1
-    gmail@2
-    bank^4!
-  Tag below: "Public-safe. Shareable. Harmless alone."
-  Badge: "Your recipes" (green pill)
-
-CENTER COLUMN — "PassChef Extension" (cyan border, slightly larger card, elevated):
-  Icon: chef hat icon (cyan, 80px), glowing
-  Label: "PassChef" in white bold 24px
-  Shows mixing animation concept: two arrows coming IN from left and right,
-  converging at a small "cook" symbol (flame icon), one result arrow pointing DOWN
-  Dark code block in center: "Argon2id · AES-256-GCM"
-  Tag below: "On your device only. No network."
-  Badge: "The kitchen" (cyan pill)
-
-RIGHT COLUMN — "Your Device" (purple border card):
-  Icon: device/lock icon (purple #7b61ff, 64px)
-  Label: "Secret Spice" in purple bold
-  Contents: "••••••••••••" masked phrase
-  Tag below: "Encrypted. Never uploaded. Never shared."
-  Badge: "Your secret" (purple pill)
-
-BOTTOM CENTER — Result arrow pointing DOWN to:
-  Large password output card (dark green border glow):
-  "Generated Password" label
-  "••••••••••••••" in large Fira Code
-  "Exists only for seconds. Then gone."
-
-FAR RIGHT of image: A deliberately crossed-out server icon:
-  Red X over a cloud/server icon
-  Label: "No server" in red
-  Sub: "Nothing stored remotely"
-
-Color coding: Green = Sheet (public), Cyan = Extension (engine), Purple = Secret (private),
-Red = What doesn't exist. Dark glassmorphism cards, subtle green radial glow on center column.
-Clean sans-serif typography. Professional technical diagram quality.
-```
-
----
-
-## Promo Tiles (bonus — same prompts usable for tile images)
-
-### Small Promo Tile (440×280)
-
-```
-Minimal product promo tile, 440×280 px, dark background #0a0e17.
-
-Center composition:
-  - Top: small PassChef chef-hat icon in green (#00ff41), 40px
-  - Main headline: "Cook your password." in Space Grotesk bold 28px white
-  - Sub: "Nothing stored." in Space Grotesk regular 18px #00ff41 (green)
-  - Bottom: small pill badge "PassChef · Recipe Password Generator" in dark card, gray border
-
-Background: subtle green radial gradient glow from center, very faint.
-Clean, bold, minimal. No clutter.
-```
-
-### Large Promo Tile (920×680)
-
-```
-Product marketing tile, 920×680 px, dark cyberpunk theme.
-
-Top 30%: PassChef logotype (chef hat icon + "PassChef" wordmark) centered, white + green.
-
-Middle 40%: Two-line headline centered:
-  Line 1: "Recipe-based passwords." — Space Grotesk bold 42px white
-  Line 2: "Nothing to steal." — Space Grotesk bold 42px #00ff41 (green)
-
-Below headline: three tech badges in a row, dark pill style:
-  "Argon2id" · "AES-256-GCM" · "Zero storage"
-
-Bottom 30%: CTA button centered:
-  Large rounded button, green background (#00ff41), dark text:
-  "Add to Chrome — Free"
-  Below button: tiny text "Works with Google Sheets · Zero telemetry"
-
-Background: dark (#0a0e17) with subtle grid pattern overlay (5% opacity white lines)
-and faint green glow emanating from behind the button.
-Professional SaaS marketing tile quality.
-```
+Unresolved:C01/C02/A13 candidate; B06 slot/captures; C04 locale/rights decisions;
+C05 OG/live URLs; actual Dashboard limits and final legal/asset approval.

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="PassChef Terms of Service - Open-source Chrome Extension provided as-is. No warranty. User is responsible for master password safety.">
+    <meta name="description" content="PassChef Terms local draft: Recipe cooking, Cookbook protection, sharing, recovery and responsibility. Publisher and legal approval pending.">
     <meta name="author" content="PassChef">
     <meta name="theme-color" content="#00FF41">
 
@@ -312,7 +312,7 @@
     <main class="legal-page" role="main">
         <div class="container">
             <div class="legal-header">
-                <span class="legal-badge">Legal</span>
+                <span class="legal-badge">Local legal draft — approval pending</span>
                 <h1 class="legal-title">Terms of Service</h1>
                 <div class="legal-meta">
                     <span class="legal-meta-item">
@@ -322,14 +322,14 @@
                             <line x1="8" y1="2" x2="8" y2="6"/>
                             <line x1="3" y1="10" x2="21" y2="10"/>
                         </svg>
-                        Last updated: June 13, 2026
+                        Draft revised: October 26, 2026
                     </span>
                     <span class="legal-meta-item">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
                             <circle cx="12" cy="7" r="4"/>
                         </svg>
-                        PassChef / passchef.io
+                        PassChef / publisher identity pending
                     </span>
                 </div>
             </div>
@@ -342,19 +342,19 @@
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M20 6L9 17l-5-5"/>
                         </svg>
-                        <span>PassChef is provided free of charge, as-is, with no warranty of any kind.</span>
+                        <span>Local draft only: publisher, effective terms and legal approval are pending.</span>
                     </div>
                     <div class="legal-summary-item">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M20 6L9 17l-5-5"/>
                         </svg>
-                        <span>You are solely responsible for your master password. There is no recovery mechanism — ever.</span>
+                        <span>Protect your master password and Spices; the developer cannot recover them for you.</span>
                     </div>
                     <div class="legal-summary-item">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M20 6L9 17l-5-5"/>
                         </svg>
-                        <span>The developer is not liable for data loss, security incidents, or damages arising from your use of the extension.</span>
+                        <span>Final warranty, liability and consumer-rights terms require publisher/legal approval.</span>
                     </div>
                     <div class="legal-summary-item">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -367,203 +367,68 @@
 
             <div class="legal-body">
 
-                <!-- 1. Acceptance -->
                 <div class="legal-section">
-                    <h2>1. Acceptance of Terms</h2>
-                    <p>
-                        By installing or using the PassChef Chrome Extension ("PassChef", "the extension", "the software"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree with any part of these Terms, do not install or use the extension.
-                    </p>
-                    <p>
-                        These Terms constitute the entire agreement between you and the PassChef developer regarding your use of the extension. PassChef is developed and maintained by an individual developer, not a company.
-                    </p>
+                    <h2>1. Draft status and responsible publisher</h2>
+                    <p>This is a local Terms draft for owner and legal review, not an effective published agreement. Publisher legal identity, verified contact, effective date, jurisdiction, distribution scope and final approved terms are pending. Using this draft does not record acceptance of a contract.</p>
+                    <p>PassChef is a closed-source product. This draft describes current behavior and responsibility boundaries without changing the recorded commercial direction or granting a new source-code license.</p>
                 </div>
-
-                <!-- 2. Description -->
                 <div class="legal-section">
-                    <h2>2. Description of the Service</h2>
-                    <p>
-                        PassChef is a free, open-source Chrome Extension that generates passwords on demand from "recipe" formulas stored in your own Google Sheets. The extension combines a recipe (a formula you define) with an encrypted secret (a phrase known only to you) to derive a unique password client-side — entirely within your browser.
-                    </p>
-                    <p>
-                        Key characteristics of the service:
-                    </p>
+                    <h2>2. What the extension does</h2>
+                    <p>PassChef cooks Dishes from Recipes such as <code>r4nd0m#1</code> in a Google Menu and private Spices in an encrypted Cookbook. Own-profile cooking combines ingredients and Spices according to the Recipe. Argon2id derives the Cookbook key from the master password; AES-256-GCM protects stored profiles. Legacy derived sharing uses additional derivation.</p>
                     <ul>
-                        <li>All password generation occurs client-side. No passwords are transmitted to any server.</li>
-                        <li>Encrypted secrets are stored in <code>chrome.storage.sync</code> (Google's infrastructure). The developer has no access to this data.</li>
-                        <li>No account or registration is required.</li>
-                        <li>The extension is provided free of charge under the MIT open-source license.</li>
+                        <li>Encrypted profiles and readable metadata/preferences use Chrome Sync; unlocked key/lifetime/action data use session storage, and nonsecret attempt/onboarding records use local storage.</li>
+                        <li>Google hosts the Menu and optional Sync. There is no separate PassChef password-backend account in the inspected extension.</li>
+                        <li>Cooking alone does not copy. Dish Copy, Recipe-only Copy, encrypted exports and Full Access delegation are separate actions.</li>
+                        <li>Current bounded source acceptance does not establish final Store installation, universal cross-device Sync, phone receiver support or a broad browser/OS/performance matrix.</li>
                     </ul>
                 </div>
-
-                <!-- 3. No Warranty -->
                 <div class="legal-section">
-                    <h2>3. Disclaimer of Warranties</h2>
-                    <p>
-                        PassChef is provided "as is" and "as available", without warranty of any kind, express or implied.
-                    </p>
-
-                    <div class="warranty-card">
-                        <p>
-                            TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, THE DEVELOPER EXPRESSLY DISCLAIMS ALL WARRANTIES, WHETHER EXPRESS, IMPLIED, STATUTORY, OR OTHERWISE, INCLUDING WITHOUT LIMITATION ANY IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND NON-INFRINGEMENT. THE DEVELOPER DOES NOT WARRANT THAT THE EXTENSION WILL MEET YOUR REQUIREMENTS; THAT IT WILL OPERATE WITHOUT INTERRUPTION, BE ERROR-FREE, OR FREE OF HARMFUL COMPONENTS; OR THAT ANY DATA WILL BE SECURE OR NOT OTHERWISE LOST OR DAMAGED.
-                        </p>
-                    </div>
-
-                    <p>
-                        In plain language: while PassChef uses well-established cryptographic standards (Argon2id, AES-256-GCM), no software can guarantee absolute security. You should assess whether PassChef is appropriate for your security needs. The developer makes no representation that the extension is suitable for high-assurance or regulated environments.
-                    </p>
+                    <h2>3. Availability and warranty draft</h2>
+                    <p>The intended service is provided on an “as is” and “as available” basis, subject to applicable non-waivable consumer rights. A final warranty disclaimer must be approved for the publisher, distribution regions and actual offering before it takes effect.</p>
+                    <p>No security tool guarantees freedom from defects, uninterrupted access or protection against all threats. Assess the consequences of lost access before relying on the extension. Support environments and known limits must be confirmed with the accepted release artifact.</p>
                 </div>
-
-                <!-- 4. Master Password -->
                 <div class="legal-section">
-                    <h2>4. Master Password Responsibility</h2>
-                    <p>
-                        Your master password is the single key to your encrypted secrets. You bear sole and complete responsibility for:
-                    </p>
-                    <ul>
-                        <li>Choosing a strong, memorable master password</li>
-                        <li>Keeping your master password confidential</li>
-                        <li>Securely backing up your master password and secret phrases offline</li>
-                        <li>Not sharing your master password with others</li>
-                    </ul>
-
-                    <div class="warning-box">
-                        <p><strong>There is no master password recovery mechanism.</strong> By design — and in keeping with zero-knowledge architecture — the developer cannot recover, reset, or bypass your master password under any circumstances. If you lose your master password, you will permanently lose access to your encrypted secrets and will need to reconfigure the extension from scratch. This is a fundamental feature, not a limitation to be worked around.</p>
-                    </div>
-
-                    <p>
-                        The developer strongly recommends writing down your master password and all secret phrases and storing them in a physically secure location (e.g., a locked safe or safety deposit box).
-                    </p>
+                    <h2>4. Master password, Spices and recovery</h2>
+                    <p>Keep a strong master password and unpredictable Spices confidential. Maintain a secure recovery record and protect your device. The developer cannot recover a forgotten master password or reconstruct lost Spices. An encrypted Full Access copy plus its sharing password may preserve access to the Spices it contains; it is sensitive material requiring its own protection.</p>
+                    <p>Reinitializing the extension does not restore old account passwords. Changing the Cookbook master password changes its protection, not the Dishes used on websites. To rotate an account password, change the relevant ingredient/Spice deliberately and update the account itself.</p>
                 </div>
-
-                <!-- 5. Limitation of Liability -->
                 <div class="legal-section">
-                    <h2>5. Limitation of Liability</h2>
-                    <p>
-                        To the maximum extent permitted by applicable law, the developer shall not be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits or revenues, whether incurred directly or indirectly, or any loss of data, use, goodwill, or other intangible losses, resulting from:
-                    </p>
-                    <ul>
-                        <li>Your use of or inability to use the extension</li>
-                        <li>Loss of access due to a forgotten master password</li>
-                        <li>Any security breach or unauthorized access to your accounts that occurs despite using the extension</li>
-                        <li>Any bugs, errors, or interruptions in the extension's operation</li>
-                        <li>Any action or inaction by Google or other third parties whose infrastructure the extension relies upon (including <code>chrome.storage.sync</code>)</li>
-                        <li>Any changes to Chrome's extension APIs that cause the extension to malfunction</li>
-                    </ul>
-                    <p>
-                        In no event shall the developer's total liability to you for all claims arising from or related to the use of the extension exceed zero dollars (USD $0.00), as the extension is provided at no charge.
-                    </p>
+                    <h2>5. Responsibility and liability review</h2>
+                    <p>Potential harms include lost account access, corrupted or unavailable storage, unauthorized sharing, clipboard exposure and third-party service changes. Back up information needed to recover your own accounts before resetting, uninstalling or updating.</p>
+                    <p>A final allocation of liability, any cap, remedies and consumer-rights disclosures requires publisher/legal approval. This draft does not assert a zero-dollar cap based on a free service or waive rights that cannot lawfully be waived.</p>
                 </div>
-
-                <!-- 6. Acceptable Use -->
                 <div class="legal-section">
-                    <h2>6. Acceptable Use</h2>
-                    <p>
-                        You agree to use PassChef only for lawful purposes and in accordance with these Terms. You agree not to use the extension:
-                    </p>
-                    <ul>
-                        <li>To violate any applicable local, national, or international law or regulation</li>
-                        <li>To gain unauthorized access to any system, network, or account</li>
-                        <li>To generate passwords for accounts you are not authorized to access</li>
-                        <li>To reverse-engineer, decompile, or attempt to extract the source code beyond what is already publicly available under the MIT license</li>
-                        <li>In any manner that could disable, overburden, or impair the extension or associated Chrome infrastructure</li>
-                    </ul>
-                    <p>
-                        PassChef is a personal productivity and security tool. It is intended for individual use by the person who installs it, to manage their own passwords and accounts.
-                    </p>
+                    <h2>6. Authorized use and sharing</h2>
+                    <p>Use Recipes, Menus and account credentials only where you have authority. Do not use the extension for unlawful access or disclose someone else's credentials without permission.</p>
+                    <p>Full Access export/QR contains original profile Spices encrypted under a separate sharing password. A recipient with both can recover those Spices and cook the same Dishes. Share only with an authorized recipient. Deleting the source profile or changing its master password does not revoke independent exports, screenshots, recipient imports or account access; rotate affected account passwords and Spices as needed.</p>
                 </div>
-
-                <!-- 7. Open Source License -->
                 <div class="legal-section">
-                    <h2>7. Open Source License</h2>
-                    <p>
-                        PassChef is open-source software released under the <strong>MIT License</strong>. This means:
-                    </p>
-                    <ul>
-                        <li>You are free to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the software</li>
-                        <li>The above rights are granted provided the original copyright notice and license text are included in all copies or substantial portions of the software</li>
-                        <li>The software is provided without warranty of any kind (as stated in these Terms and in the MIT License itself)</li>
-                    </ul>
-                    <p>
-                        These Terms of Service govern your use of the PassChef extension as a user. The MIT License governs your rights with respect to the underlying source code.
-                    </p>
-                    <div class="highlight-box">
-                        <p>You can review, audit, and fork the PassChef source code. We encourage security-minded users to review the code. If you find a vulnerability, please contact us at <a href="mailto:tetnu26@gmail.com">tetnu26@gmail.com</a> before public disclosure.</p>
-                    </div>
+                    <h2>7. Licensing and commercial terms</h2>
+                    <p>The recorded product direction is closed source, with the previously selected Free/Pro and lifetime model. This draft does not promise that all features are free, that payments or licensing gates are implemented, or that a particular price/channel is available. Final user-license and purchase terms require owner/legal approval before any offer is published.</p>
+                    <p>No general MIT/open-source grant for PassChef is made by this page. Bundled third-party components retain their own licenses, copyright notices and permissions. This draft does not remove or override those notices or rights.</p>
                 </div>
-
-                <!-- 8. Third-Party Services -->
                 <div class="legal-section">
-                    <h2>8. Third-Party Services</h2>
-                    <p>
-                        PassChef interacts with the following third-party services:
-                    </p>
-                    <ul>
-                        <li><strong>Google Chrome / chrome.storage.sync</strong> — used to persist and sync encrypted configuration. Governed by <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a> and Chrome's Terms of Service.</li>
-                        <li><strong>Google Sheets</strong> — the source of your recipe formulas. You use Google Sheets under Google's own Terms of Service. PassChef only reads selected cells; it does not modify your spreadsheet data.</li>
-                    </ul>
-                    <p>
-                        The developer is not responsible for the terms, policies, or practices of Google or any other third party. Changes to Google Chrome's APIs or policies may affect the extension's functionality without notice.
-                    </p>
+                    <h2>8. Google and other third parties</h2>
+                    <p>Google Sheets hosts your Menu; the browser extension reads selected Recipe content through page DOM access on its fixed host scope. Chrome Sync may transmit encrypted profiles and readable metadata under browser settings. Google services are subject to <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a> and applicable Google terms.</p>
+                    <p>Google interface/API changes, browser policy, network conditions and storage quotas may affect operation. A public Menu can disclose account labels and patterns; a visible Tag can help test weak Spice guesses. Keep sensitive Menus private. The separate website also uses hosting and font providers as described in the <a href="privacy.html">Privacy draft</a>.</p>
                 </div>
-
-                <!-- 9. Updates and Changes -->
                 <div class="legal-section">
-                    <h2>9. Updates, Changes, and Discontinuation</h2>
-                    <p>
-                        The developer reserves the right to:
-                    </p>
-                    <ul>
-                        <li>Update or modify the extension at any time, with or without notice</li>
-                        <li>Change these Terms at any time. Continued use of the extension after Terms are updated constitutes acceptance of the new Terms.</li>
-                        <li>Discontinue the extension at any time, for any reason, without notice or liability</li>
-                    </ul>
-                    <p>
-                        Because PassChef stores all data locally in your own Chrome browser, discontinuation of the extension or its removal from the Chrome Web Store does not result in loss of your data — your encrypted secrets remain in <code>chrome.storage.sync</code> and your recipes remain in your Google Sheet.
-                    </p>
+                    <h2>9. Changes, removal and data controls</h2>
+                    <p>Update, support and discontinuation arrangements must be approved for the actual release. Do not assume removal from the Store, uninstalling, or discontinuation leaves your Cookbook recoverable or erases every copy.</p>
+                    <p>Current Reset clears Chrome Sync and session storage after confirmation, not local attempt/onboarding records, Google Menu content, exported/recipient copies or OS clipboard history. It has no explicit offscreen clipboard-clear command. Chrome documents local storage removal on uninstall and session clearing on disable, reload, update or browser restart; cross-device deletion propagation and upgrade/uninstall/reinstall behavior still need selected acceptance. See the <a href="privacy.html">Privacy draft</a> for current retention limits.</p>
                 </div>
-
-                <!-- 10. Security Considerations -->
                 <div class="legal-section">
-                    <h2>10. Security Considerations and User Responsibility</h2>
-                    <p>
-                        PassChef is a security tool, and its effectiveness depends heavily on your own security practices. You are responsible for:
-                    </p>
-                    <ul>
-                        <li>Using a strong, unique master password that you do not use elsewhere</li>
-                        <li>Keeping your operating system, browser, and the extension itself up to date</li>
-                        <li>Not using PassChef on devices that may be compromised by malware or keyloggers</li>
-                        <li>Understanding that the generated password exists in your clipboard for up to 30 seconds and may be accessible to other applications during that window</li>
-                        <li>Understanding that if your master password is compromised, an attacker who also has access to your <code>chrome.storage.sync</code> data could potentially decrypt your secrets</li>
-                        <li>Storing your master password and secret phrases in a secure offline backup</li>
-                    </ul>
-                    <p>
-                        No password manager — however well-designed — is a substitute for good security hygiene.
-                    </p>
+                    <h2>10. Security boundaries</h2>
+                    <p>Use strong credentials, trusted updated devices and deliberate recipient selection. Malware, phishing, stolen encrypted records, weak Spices and clipboard capture remain risks. The optional short Tag checks Recipe/Spice/Menu context without changing the Dish; legacy untagged Recipes remain usable and removing the Tag removes that check.</p>
+                    <p>After Dish Copy, cleanup is attempted at 30 seconds only if the current clipboard still matches. Read denial, sleeping/closed Chrome, OS history and concurrent writes limit cleanup. There is no guarantee that a Dish cannot remain accessible beyond 30 seconds or that all memory copies are erased.</p>
                 </div>
-
-                <!-- 11. Governing Law -->
                 <div class="legal-section">
-                    <h2>11. Governing Law</h2>
-                    <p>
-                        These Terms shall be governed by and construed in accordance with applicable law, without regard to conflict of law principles. Given that PassChef is a free, open-source project with no commercial transactions, the developer does not anticipate legal disputes. If you have a concern, please reach out directly before pursuing formal action.
-                    </p>
+                    <h2>11. Applicable law and effective terms</h2>
+                    <p>Governing law, dispute handling, age/region requirements and mandatory consumer disclosures are pending publisher/legal review. This draft makes no jurisdiction selection or blanket compliance conclusion. An approved effective version and notice process must be published before these Terms are relied on as an agreement.</p>
                 </div>
-
-                <!-- 12. Contact -->
                 <div class="legal-section">
                     <h2>12. Contact</h2>
-                    <p>
-                        For questions about these Terms, to report a security vulnerability, or for any other matter related to PassChef:
-                    </p>
-                    <div class="contact-card">
-                        <h3>Contact</h3>
-                        <p>Questions about Terms of Service or security issues:</p>
-                        <a href="mailto:tetnu26@gmail.com">tetnu26@gmail.com</a>
-                    </div>
-
-                    <p style="margin-top: var(--space-8);">
-                        Also see: <a href="privacy.html">Privacy Policy</a>
-                    </p>
+                    <div class="contact-card"><h3>Contact pending verification</h3><p>Publisher identity and monitored support/private security channels are pending owner confirmation. Final approved contact details and HTTPS Terms URL must be verified before release. Do not send master passwords, Spices, cooked Dishes or private Menu data in a report.</p></div>
                 </div>
 
             </div><!-- /legal-body -->
@@ -608,7 +473,7 @@
             </div>
             <div class="footer-bottom">
                 <p class="footer-copyright">
-                    &copy; 2026 PassChef. Open source under MIT License.
+                    &copy; 2026 PassChef. Closed-source product; third-party licenses remain separate.
                 </p>
                 <div class="footer-social">
                     <a href="#" class="social-link" aria-label="GitHub">

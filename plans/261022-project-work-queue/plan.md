@@ -1,7 +1,7 @@
 # PassChef — master execution plan
 
 Ngày:2026-10-22, Asia/Saigon. **Program Partial; planning system Ready**.
-Baseline:`7dea4e5` + WIP được giữ nguyên. Entry:[plans index](../README.md).
+Baseline:`7dea4e5` historical;[checkpoint2Nov](reports/repository-checkpoint-20261102.md) records committed source/push. Entry:[plans index](../README.md).
 
 ## Mục tiêu và source of truth
 
@@ -33,9 +33,15 @@ Future report chưa có ghi path dự kiến trong track; chỉ link khi file đ
 |B — desktop riêng|10|Browser GUI/native shortcut/clipboard/ảnh/QA; bàn giao input/focus/clipboard|
 |C — owner action/decision|13|Tin nhắn quyết định hoặc login/consent/biometric/observation/publish; chuẩn bị xong mới gọi|
 
-Queue đầu:A01→A02; A03/A04/A05; A06/A07; A09/A10/A12/A21 độc lập khi phù hợp.
-Release chain:A23→A13→B06/B07/B08→A14→C11→A22→B09.
-B06 còn cần A08; A14 còn cần public URLs/account decisions; xem deps từng row.
+Queue:A01–A10/A12/A21 Done; A23 FA01 LocallyVerified/UI01 owner-approved deferral LocallyVerified2026-10-26; overallPartial, no A Ready.
+A03 [claims review](reports/a03-independent-review.md), A04 [legal/data review](reports/a04-independent-review.md):local prep only; DEMO01/approval/runtime gates Pending.
+A02 [inventory](reports/a02-extension-blockers.md)/[independent review](reports/a02-independent-review.md):
+UI01/FA01 [heldZIP full151unit+28E2E+WASM fault Passed/reviewed](reports/b07-run-01-independent-review.md);desktop/workspaces released;stable candidate/C01 observations/upgrade remain.
+Release chain:A23→A13→B06/B07/B08→A14→C11→A22→B09;[B08local upgrade Passed/reviewed30Oct](reports/b08-upgrade-20261030-independent-review.md),overallPartial.
+C02 [Done27Oct](reports/c02-release-boundary.md):2.3.1beta;[B03 Done30Oct selectedWinStable156/CfT116 measurements/review](reports/b03-measurements-20261030-independent-review.md);[C03 Sync later](reports/c03-sync-owner-readiness.md),mandatory beforepublication;A13 held.
+B02 [Partial2Nov](reports/b02-permission-runtime-20261102.md)/[review](reports/b02-runtime-20261102-independent-review.md):P0–P3 selected24/24Passed,8/7/7/6grants;2harness failures retained;6profiles/2workspaces cleaned,desktop returned;native/grant/clipboard/edge coverage and permission decision Pending.
+B06:A08 [brief/review](reports/a08-independent-review.md) Done,candidate/desktop Pending; A14 còn public URLs/account gates.
+A21 [audit/review](reports/a21-independent-review.md) Done;isolation Unverified,B gates unchanged;[execution handoff](reports/a-ready-execution-summary.md).
 C06 chọn transition trước A11, actual phone runtime sau A11 review/freeze.
 C10 readiness/quyền trước B10 khi ca cần; C10 final acceptance sau runtime evidence.
 Later:A15/A16 QR→A17 spike/Autofill; A18 write; A19 Drive→A20 profiles/service.
@@ -43,11 +49,12 @@ Không coi mũi tên rút gọn là thay toàn bộ prerequisites trong detailed
 
 ## Coordination task
 
-<a id="task-a01"></a>**A01 — Ready:** reconcile dated backlog/roadmap links với evidence
-hiện tại, giữ15ID và WIP. Android Google read Passed chọn lọc không đồng nghĩa desktop
-live/broader provider/401 Passed. Deliverable:index/backlog delta có link đúng scope;
-report `reports/backlog-reconciliation.md` khi thực hiện. Planning-system audit hiện
-có không tự đóng A01; task này còn cập nhật snapshot nội dung cũ.
+<a id="task-a01"></a>**A01 — Done2026-10-26:** reconcile backlog/mobile/index/roadmap
+với dated evidence, giữ15ID/story/acceptance và WIP. Selected Android Google
+read/cache/offline/cold/403 Passed không thay desktop live/broader provider/401.
+[Delivery/evidence](reports/backlog-reconciliation.md),
+[static verification và independent review](reports/backlog-reconciliation-review.md).
+Mobile/MVP/website/release vẫn Partial; dispatch hiện tại xem queue ở trên.
 
 ## Execution/update protocol
 
@@ -62,11 +69,11 @@ có không tự đóng A01; task này còn cập nhật snapshot nội dung cũ.
 6. Kết thúc task:report với source/artifact/command/result/limits→track task row→catalog
    dispatch row→master rollup/index nếu thay đổi. Failed/Unknown/NotExercised giữ nguyên.
 7. Chỉ Done khi đạt exit criteria và evidence; quyết định deferred ghi owner/scope,
-   không đổi thành Passed. Không replay accepted cases khi không có thay đổi liên quan.
+   không đổi thành Passed. Không replay accepted cases khi không có thay đổi liên quan. Lỗi nêu rõ bước/lệnh,error/exit/log/ảnh hưởng;thiếu detail ghi Unknown.
 8. Khi scope mới lớn:create child plan dưới plans/date-feature với reports riêng,
    nối từ track/master. Không tự triển khai mọi Later, tạo lịch định kỳ hay gửi quảng bá.
 
 ## Unresolved
 
-Bug/UI specifics, release/Sync boundary, publisher/support/deployment,401 transition,
+Remaining OWN01/C01,candidate/native/Sync proof,publisher/support/deployment,401 transition,
 owner/desktop slots và extra device matrix. Không chặn các A Ready độc lập.

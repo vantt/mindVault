@@ -481,7 +481,7 @@
         if (!hashInput || !recipeOutput) return;
 
         let currentState = {
-            hash: 'g!th^b',
+            hash: 'r4nd0m',
             position: '#',
             jar: '1',
             secret: 'MyS3cr3t*',

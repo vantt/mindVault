@@ -1,7 +1,7 @@
 # Tài liệu thương mại hóa PassChef
 
 > **Status:** Draft — mục lục đã tổ chức; nội dung phát hành còn cần rà soát.
-> **Last updated:** 2026-10-13
+> **Last updated:** 2026-10-26 (A09 guidance drafts)
 
 Điểm vào chung cho tài liệu listing, pháp lý và vận hành. Bắt đầu từ
 [plan](plan.md): ưu tiên phần chuẩn bị 0.1–0.5; screenshot thật, ZIP cuối và phát hành
@@ -18,7 +18,10 @@ chờ sửa bug chặn release và hoàn tất UI. Bằng chứng test cũ giữ
 | [Brief screenshot/promo](marketing/cws-screenshot-prompts.md) | Draft | Đồng bộ thiết kế hiện tại; chụp UI thật sau khi ổn định. |
 | [Hồ sơ pháp lý](legal/README.md) | Needs review | Dẫn tới Privacy/Terms nguồn; rà licensing, dữ liệu, quyền và retention. |
 | [Rà quyền và khai báo Store](legal/permissions-review.md) | Needs review | Xác nhận quyền tối thiểu, hoàn thiện justification và đối chiếu manifest cuối. |
-| [Publisher, hosting và support](operations/publisher-and-support.md) | Draft | Chốt thông tin owner và ghi bằng chứng thực hiện. |
+| [Publisher, hosting và support](operations/publisher-and-support.md) | Draft | Owner xác nhận chưa có tài khoản developer; đã chọn `passchef.com`/Cloudflare. Còn chốt email và kiểm chứng triển khai. |
+| [Chef guide](operations/chef-guide.md) | Local draft A09; FA01 local amendment2026-10-26 | Setup/Cook/sharing/recovery; FA01 shape đã sửa local, actual browser/restore/candidate/contact Pending. |
+| [Store reviewer guide](operations/store-reviewer-guide.md) | Local draft A09 | Synthetic fixture/access và exact artifact/public URLs còn Pending; không credentials thật. |
+| [Release notes / known-limit template](operations/release-notes-template.md) | Preparation template A09 | Fill từ accepted artifact/evidence; chưa release hoặc publication record. |
 
 ## Nguồn chỉnh sửa
 
@@ -42,5 +45,6 @@ chờ sửa bug chặn release và hoàn tất UI. Bằng chứng test cũ giữ
 - [Landing improvements](../../landing-page-improve.md)
 - [Roadmap](../development-roadmap.md)
 
-Điểm còn mở: bug/UI chặn release; nội dung listing/legal chưa duyệt; publisher,
-domain/hosting và support chưa có xác nhận vận hành trong hồ sơ này.
+Điểm còn mở: bug/UI chặn release; nội dung listing/legal chưa duyệt; tài khoản
+developer chưa có, email/support chưa chốt và `passchef.com`/Cloudflare chưa có
+bằng chứng triển khai trong hồ sơ này.

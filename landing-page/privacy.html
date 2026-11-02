@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="PassChef Privacy Policy - Zero-knowledge architecture. No data sent to servers. Your passwords never leave your device.">
+    <meta name="description" content="PassChef Privacy draft: encrypted Cookbook, Chrome Sync metadata, permissions, clipboard, sharing and retention limits. Approval pending.">
     <meta name="author" content="PassChef">
     <meta name="theme-color" content="#00FF41">
 
@@ -313,7 +313,7 @@
     <main class="legal-page" role="main">
         <div class="container">
             <div class="legal-header">
-                <span class="legal-badge">Legal</span>
+                <span class="legal-badge">Local legal draft — approval pending</span>
                 <h1 class="legal-title">Privacy Policy</h1>
                 <div class="legal-meta">
                     <span class="legal-meta-item">
@@ -323,14 +323,14 @@
                             <line x1="8" y1="2" x2="8" y2="6"/>
                             <line x1="3" y1="10" x2="21" y2="10"/>
                         </svg>
-                        Last updated: June 13, 2026
+                        Draft revised: October 26, 2026
                     </span>
                     <span class="legal-meta-item">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
                             <circle cx="12" cy="7" r="4"/>
                         </svg>
-                        PassChef / passchef.io
+                        PassChef / publisher identity pending
                     </span>
                 </div>
             </div>
@@ -343,232 +343,109 @@
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M20 6L9 17l-5-5"/>
                         </svg>
-                        <span>No passwords, secrets, or personal data are ever sent to any server. Everything stays on your device.</span>
+                        <span>Local processing still handles sensitive data; Google hosts your Menu and optional Chrome Sync.</span>
                     </div>
                     <div class="legal-summary-item">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M20 6L9 17l-5-5"/>
                         </svg>
-                        <span>Encrypted secrets are stored in <code style="background: rgba(var(--color-primary-rgb), 0.1); color: var(--color-primary); padding: 2px 6px; border-radius: 4px; font-family: var(--font-mono);">chrome.storage.sync</code> — Google's own infrastructure. We never touch them.</span>
+                        <span>Encrypted Spices and readable metadata/preferences use <code>chrome.storage.sync</code>; unlocked keys use session storage, and nonsecret counters use local storage.</span>
                     </div>
                     <div class="legal-summary-item">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M20 6L9 17l-5-5"/>
                         </svg>
-                        <span>No analytics, no telemetry, no tracking of any kind.</span>
+                        <span>No developer telemetry client in inspected extension source; website hosting/fonts have separate request metadata.</span>
                     </div>
                     <div class="legal-summary-item">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M20 6L9 17l-5-5"/>
                         </svg>
-                        <span>The clipboard auto-clears 30 seconds after a password is copied.</span>
+                        <span>Dish cleanup is attempted after 30 seconds only if the clipboard still matches; read denial, sleep, OS history and concurrent writes limit it.</span>
                     </div>
                     <div class="legal-summary-item">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M20 6L9 17l-5-5"/>
                         </svg>
-                        <span>You own your data entirely. Uninstalling the extension removes all locally stored data.</span>
+                        <span>Reset, uninstall and deletion have different scopes; independent exports, Menu data and recipient copies are not remotely erased.</span>
                     </div>
                 </div>
             </div>
 
             <div class="legal-body">
 
-                <!-- 1. Introduction -->
                 <div class="legal-section">
-                    <h2>1. Introduction</h2>
-                    <p>
-                        This Privacy Policy describes how the PassChef Chrome Extension ("PassChef", "the extension", "we", "us") handles information when you install and use the extension. PassChef is an independent, open-source project maintained by an individual developer.
-                    </p>
-                    <p>
-                        PassChef is built on a zero-knowledge architecture. This means that by design, we are technically incapable of accessing your passwords, secrets, or any sensitive data — because that data never leaves your device and is never transmitted to any server we operate.
-                    </p>
+                    <h2>1. Scope and draft status</h2>
+                    <p>This local draft describes the PassChef browser extension and this website. It is not an approved or effective published policy. Publisher identity, verified privacy/support/security contacts, applicable legal review and final HTTPS policy URLs are pending owner confirmation.</p>
+                    <p>PassChef is a closed-source product. The extension cooks Dishes from Recipes in a Google Menu and private Spices in an encrypted Cookbook. It processes sensitive data locally even without a developer-operated password backend. Google hosts the Menu and Chrome Sync infrastructure.</p>
                 </div>
-
-                <!-- 2. Data We Collect -->
                 <div class="legal-section">
-                    <h2>2. Data We Collect (and Don't Collect)</h2>
-
-                    <h3>Data stored locally on your device</h3>
-                    <p>The extension stores the following data exclusively in <code>chrome.storage.sync</code>, which is managed by Google's Chrome infrastructure:</p>
+                    <h2>2. Data processed and stored</h2>
+                    <h3>Chrome Sync storage</h3>
+                    <p><code>chrome.storage.sync</code> holds encrypted own/imported profiles and encryption IVs; the Cookbook salt, profile names, default-profile selection, Menu IDs/assignments, shared-profile import metadata, language, display preferences and migration state can remain readable. Encryption of Spices does not encrypt every storage field. Google may synchronize these records according to Chrome settings; cross-device delivery and conflict recovery still need release acceptance.</p>
+                    <h3>Session and local storage</h3>
+                    <p><code>chrome.storage.session</code> holds the unlocked encryption key, nonce, session start/deadline and a pending sharing action that can include a Menu ID. Session storage is in memory; normal locking removes authentication session fields. Chrome clears this area when the extension is disabled, reloaded, updated or the browser restarts. <code>chrome.storage.local</code> holds nonsecret authentication attempt/cooldown/reservation state and the Quick Start dismissal flag. These local records are not an encrypted Cookbook.</p>
+                    <h3>Working memory, page content and clipboard</h3>
+                    <p>The extension handles the master password, decrypted Spices, selected Recipe, Menu/tab URL and title, optional Tag, and cooked Dish to provide its features. They may exist in page/worker/offscreen memory during use. No saved list of cooked Dishes or developer telemetry upload is implemented. This is not a promise of perfect memory erasure or protection from malware, browser/OS capture, or console diagnostics.</p>
+                    <p>Dish Copy writes the operating-system clipboard. A bundled offscreen owner keeps the copied Dish and deadline in memory and attempts cleanup after 30 seconds, only if a clipboard read still exactly matches its Dish. Later different text or a denied read prevents clearing. Sleeping or closed Chrome, OS history, clipboard synchronization and concurrent writes can outlive or race cleanup. Recipe-only and bundle Copy are separate actions; they do not inherit the Dish cleanup guarantee.</p>
+                </div>
+                <div class="legal-section">
+                    <h2>3. Declared permissions and Menu access</h2>
+                    <p>The current manifest declares the following eight permissions and one host scope. Necessity of <code>tabs</code>/<code>activeTab</code> is under review; this draft does not claim the final minimum permission set has been verified.</p>
+                    <div class="permission-card"><div class="permission-card-header"><span class="permission-name">storage</span></div><p>Stores encrypted Cookbook records and readable metadata/preferences in Sync, unlocked key/lifetime/action state in session, and nonsecret attempt/onboarding records in local storage.</p></div>
+                    <div class="permission-card"><div class="permission-card-header"><span class="permission-name">clipboardWrite</span></div><p>Writes a Dish after an explicit Copy action. Cooking alone does not copy. Recipe-only and encrypted-bundle Copy are separate user actions.</p></div>
+                    <div class="permission-card"><div class="permission-card-header"><span class="permission-name">clipboardRead</span></div><p>Reads the current clipboard at the owned Dish cleanup deadline to avoid clearing later different text. It does not read OS clipboard history; denied reading results in no clear.</p></div>
+                    <div class="permission-card"><div class="permission-card-header"><span class="permission-name">offscreen</span></div><p>Runs a bundled document with the Argon2 worker and clipboard owner, including after the copying popup closes. JavaScript and WASM load from bundled extension resources.</p></div>
+                    <div class="permission-card"><div class="permission-card-header"><span class="permission-name">idle</span></div><p>Detects browser idle/device lock and locks the Cookbook. The idle threshold is five minutes.</p></div>
+                    <div class="permission-card"><div class="permission-card-header"><span class="permission-name">alarms</span></div><p>Enforces and reconstructs the original ten-minute absolute session deadline. Clipboard cleanup uses an offscreen timer, not an alarm.</p></div>
+                    <div class="permission-card"><div class="permission-card-header"><span class="permission-name">tabs</span></div><p>Queries the active and open Google Menu tabs, reads their URL/title metadata for detection and the picker, opens bundled guidance/Options, and sends Recipe or lock messages. This is not a general browsing-history database feature.</p></div>
+                    <div class="permission-card"><div class="permission-card-header"><span class="permission-name">activeTab</span></div><p>Currently declared. The extension also has fixed host access and an installed content script; it is inaccurate to describe all Recipe access as a temporary grant created only when you press the shortcut. A separate permission audit will decide whether this declaration should remain.</p></div>
+                    <div class="permission-card"><div class="permission-card-header"><span class="permission-name">https://docs.google.com/spreadsheets/*</span></div><p>Allows the installed content script to work on Google Menu pages and read the selected Recipe from the focused editor/formula-bar DOM when requested. Access exists on matching pages outside the instant of a click. Opening an unlocked popup can request the selected cell automatically. The browser extension does not use the Sheets API or write Menu cells as part of these reading/cooking flows.</p></div>
+                </div>
+                <div class="legal-section">
+                    <h2>4. Cookbook protection and limits</h2>
+                    <p>Argon2id derives a 32-byte Cookbook key from the master password using three iterations, 65,536 KiB memory and parallelism four. AES-256-GCM protects encrypted profiles with random IVs. If derivation is unavailable, authentication fails closed. These operations protect the stored Cookbook; Recipe cooking is a separate process.</p>
+                    <p>The application does not persist the master password as a password field; it processes it during authentication/rotation, and an unlocked encryption key lives in session memory. Weak master passwords can still be guessed against stolen encrypted records. Strong Spices also matter: public Recipes/Tags can help test weak guesses. Malware, phishing and clipboard capture remain outside these protections.</p>
+                    <p>Optional verification Tags check Recipe/Spice/Menu context and do not change the Dish. Legacy untagged Recipes remain usable with guidance; removing a Tag removes its check. A short Tag is not proof against all tampering.</p>
+                </div>
+                <div class="legal-section">
+                    <h2>5. Sharing and exported copies</h2>
+                    <p>Full Access export and QR transfer the selected profile's original Spices in a bundle encrypted using a separate sharing password with PBKDF2-SHA256 and AES-GCM. Anyone with the bundle and that password can recover those Spices and cook the same Dishes. Bundle headers may expose profile name, Menu ID and export metadata. Legacy derived, Menu-bound sharing is a different mode.</p>
+                    <p>You choose the recipient and transport. Downloaded files, copied bundles, QR captures and recipients' imports are outside the original Cookbook's deletion controls. Removing a source profile or changing its master password does not revoke an exported copy. Rotate affected account passwords and Spices when access must end. The extension sender does not establish a completed phone receiver/import workflow.</p>
+                </div>
+                <div class="legal-section">
+                    <h2>6. Retention, reset and uninstall</h2>
                     <ul>
-                        <li><strong>Encrypted secrets</strong> — your secret phrases, encrypted with Argon2id key derivation and AES-256-GCM encryption before being stored. The plaintext values are never written to disk or transmitted anywhere.</li>
-                        <li><strong>Encrypted master password verification data</strong> — a cryptographic salt and verification token derived from your master password. The master password itself is never stored.</li>
-                        <li><strong>Extension settings</strong> — non-sensitive preferences such as auto-lock timeout.</li>
-                    </ul>
-
-                    <h3>Data we never collect</h3>
-                    <ul>
-                        <li>Your master password (plaintext or otherwise)</li>
-                        <li>Your generated passwords</li>
-                        <li>The recipe formulas in your Google Sheets</li>
-                        <li>Browsing history or visited URLs</li>
-                        <li>Personally identifiable information (name, email, IP address)</li>
-                        <li>Crash reports or usage analytics</li>
-                        <li>Any data sent to an external server</li>
-                    </ul>
-
-                    <div class="highlight-box">
-                        <p>PassChef operates no backend servers. There is no PassChef account, no sign-up, and no cloud service. The only "sync" that occurs is Google's own <code>chrome.storage.sync</code>, which syncs your encrypted secrets between your Chrome browsers. We have no access to this data — it is held by Google under their own Privacy Policy.</p>
-                    </div>
-                </div>
-
-                <!-- 3. Permissions -->
-                <div class="legal-section">
-                    <h2>3. Chrome Permissions Explained</h2>
-                    <p>PassChef requests only the permissions necessary to function. Here is exactly what each permission is used for and why it is required:</p>
-
-                    <div class="permission-card">
-                        <div class="permission-card-header">
-                            <span class="permission-name">storage</span>
-                        </div>
-                        <p>Used to persist your encrypted secrets and settings in <code>chrome.storage.sync</code>. This allows your encrypted configuration to sync across Chrome browsers where you are signed in. No plaintext data is ever written to storage.</p>
-                    </div>
-
-                    <div class="permission-card">
-                        <div class="permission-card-header">
-                            <span class="permission-name">clipboardWrite</span>
-                        </div>
-                        <p>Used to copy a generated password to your clipboard when you click "Copy" or trigger generation. The password exists in memory only during generation and is cleared from the clipboard automatically after 30 seconds via the <code>alarms</code> API.</p>
-                    </div>
-
-                    <div class="permission-card">
-                        <div class="permission-card-header">
-                            <span class="permission-name">activeTab</span>
-                        </div>
-                        <p>Used to read the content of the currently active Google Sheets tab — specifically the text of the selected cell, which contains the recipe formula (e.g., <code>bank$3</code>). Access is granted only for the current tab at the moment you trigger generation. The extension does not have persistent access to your browser tabs.</p>
-                    </div>
-
-                    <div class="permission-card">
-                        <div class="permission-card-header">
-                            <span class="permission-name">tabs</span>
-                        </div>
-                        <p>Used to detect whether the currently active tab is a Google Sheets page, so the extension can enable or disable the generation button appropriately. The extension reads only the tab URL to check for the <code>docs.google.com/spreadsheets</code> pattern. No tab content is read.</p>
-                    </div>
-
-                    <div class="permission-card">
-                        <div class="permission-card-header">
-                            <span class="permission-name">idle</span>
-                        </div>
-                        <p>Used to detect when your browser becomes idle, triggering the auto-lock feature. After 5 minutes of idle time, the extension locks and requires your master password to continue. No idle state data is transmitted anywhere.</p>
-                    </div>
-
-                    <div class="permission-card">
-                        <div class="permission-card-header">
-                            <span class="permission-name">alarms</span>
-                        </div>
-                        <p>Used to schedule the 30-second clipboard auto-clear. After copying a generated password, an alarm is set to overwrite the clipboard with an empty string after 30 seconds. Also used to trigger session timeout (auto-lock after 10 minutes of active session).</p>
-                    </div>
-                </div>
-
-                <!-- 4. How We Handle Encrypted Data -->
-                <div class="legal-section">
-                    <h2>4. How Encrypted Data Is Stored</h2>
-                    <p>
-                        Your secret phrases are encrypted using industry-standard cryptography before any storage occurs:
-                    </p>
-                    <ol>
-                        <li>Your master password is processed through <strong>Argon2id</strong> (memory: 64MB, iterations: 3, parallelism: 4) to derive an encryption key. This process is intentionally slow and memory-intensive to resist brute-force attacks.</li>
-                        <li>Each secret is encrypted with <strong>AES-256-GCM</strong>, producing an authenticated ciphertext with a random nonce.</li>
-                        <li>Only the resulting ciphertext (encrypted noise) is written to <code>chrome.storage.sync</code>.</li>
-                    </ol>
-                    <p>
-                        The encrypted data syncs to other Chrome browsers where you are signed in with the same Google account, via Google's own sync infrastructure. Google's handling of this data is governed by <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>. From PassChef's perspective, the data in Chrome Sync is opaque ciphertext — we cannot decrypt it, and neither can Google.
-                    </p>
-                    <div class="highlight-box">
-                        <p><strong>Important:</strong> Your master password is never stored anywhere — not locally, not in Chrome Sync, not on any server. If you forget your master password, there is no recovery mechanism. This is by design: if we could recover it, so could an attacker.</p>
-                    </div>
-                </div>
-
-                <!-- 5. No Telemetry -->
-                <div class="legal-section">
-                    <h2>5. No Telemetry or Analytics</h2>
-                    <p>
-                        PassChef contains zero analytics, telemetry, error reporting, or usage tracking of any kind. There are no third-party SDKs, tracking pixels, or remote logging calls in the extension codebase. You can verify this by reviewing the open-source code.
-                    </p>
-                    <p>
-                        The extension makes no outbound network requests except those initiated directly by you (for example, accessing Google Sheets in the active tab). There is no "phone home" behavior.
-                    </p>
-                </div>
-
-                <!-- 6. Data Retention -->
-                <div class="legal-section">
-                    <h2>6. Data Retention and Your Control</h2>
-                    <p>
-                        You have complete control over all data associated with PassChef:
-                    </p>
-                    <ul>
-                        <li><strong>View data:</strong> All stored data is accessible via Chrome's developer tools (<code>chrome.storage.sync</code>) or within the extension settings.</li>
-                        <li><strong>Delete data:</strong> Use the "Reset Extension" option in the extension settings to clear all stored encrypted secrets.</li>
-                        <li><strong>Uninstall:</strong> Uninstalling the extension from Chrome removes all locally stored data. Note that Chrome Sync data managed by Google may persist independently; you can clear this from your Google account's Chrome sync settings.</li>
-                        <li><strong>Export:</strong> The extension does not provide export functionality. Your recipes live in your own Google Sheet, which you control entirely.</li>
+                        <li><strong>Lock:</strong> removes authentication key/nonce/deadline fields from session storage and closes visible Dishes. It is not deletion of the encrypted Cookbook or immediate erasure of every offscreen/clipboard record.</li>
+                        <li><strong>Delete profile:</strong> removes that record from Chrome Sync storage; assignments may need reassignment first. Independent exported/recipient copies and Google Menu content are not deleted.</li>
+                        <li><strong>Reset:</strong> after confirmation, Settings calls <code>chrome.storage.sync.clear()</code> and <code>chrome.storage.session.clear()</code>. It does not clear <code>chrome.storage.local</code> attempt/onboarding records, and contains no explicit command to clear the separate offscreen Dish owner or OS clipboard. Normal clipboard cleanup remains conditional.</li>
+                        <li><strong>Uninstall:</strong> Chrome documents removal of extension-local storage on uninstall. It separately clears in-memory session storage on disable, reload, update or browser restart; ordinary service-worker unloading is not those events. The extension has no custom uninstall erasure handler. Do not infer immediate deletion of all Google/server/other-device replicas, exported files, OS history or recipient copies. Sync deletion propagation and upgrade/uninstall/reinstall behavior still need selected release acceptance.</li>
+                        <li><strong>Control and recovery:</strong> use Chrome's extension-storage tools to inspect your records without sharing them publicly. Keep a secure recovery record/export before destructive actions. Google Menu content and account passwords must be managed separately; the developer cannot recover a forgotten master password or lost Spices.</li>
                     </ul>
                 </div>
-
-                <!-- 7. Google Sheets -->
                 <div class="legal-section">
-                    <h2>7. Your Google Sheets Data</h2>
-                    <p>
-                        PassChef reads the text of the currently selected cell in Google Sheets to extract the recipe formula. This reading happens:
-                    </p>
-                    <ul>
-                        <li>Only when you are actively on a Google Sheets tab</li>
-                        <li>Only at the moment you trigger password generation (click or keyboard shortcut)</li>
-                        <li>Only for the selected cell content — not the entire spreadsheet</li>
-                    </ul>
-                    <p>
-                        The cell text is processed in memory to generate the password and is immediately discarded. It is never stored, logged, or transmitted. The extension cannot see your actual passwords because they are not in the sheet — only the recipe formulas are.
-                    </p>
-                    <p>
-                        Your Google Sheets file, its content, and its sharing settings are entirely under your control. PassChef does not require any special Google Sheets permissions and does not access the Google Sheets API.
-                    </p>
+                    <h2>7. Third parties, fonts and website hosting</h2>
+                    <p>Google provides the browser, your Menu and optional Chrome Sync. Their services can process account/network metadata under <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>. The extension has no developer-operated password backend, analytics or remote error-reporting client in the inspected source. Local processing is still data handling.</p>
+                    <p>The extension's popup and Options pages load bundled styles/tokens.css, which imports a Google Fonts stylesheet. When these external styles/fonts load, Google can receive ordinary request metadata such as IP address and browser request headers. This is a source finding; actual requests and the final artifact's network behavior still need verification. These font resources are separate from the bundled executable JavaScript and WASM.</p>
+                    <p>This website is separate from the bundled extension. Its pages also request external Google Fonts, whose provider receives ordinary request metadata. Website hosting can receive IP addresses and request logs. The owner selected passchef.com and Cloudflare, but domain ownership, the deployed service, provider log retention, cookies and final live configuration remain unverified. Those website disclosures must be completed before publication; no universal website “no tracking/no data” claim is made.</p>
                 </div>
-
-                <!-- 8. GDPR & CCPA -->
                 <div class="legal-section">
-                    <h2>8. GDPR and CCPA Compliance</h2>
-                    <p>
-                        Because PassChef does not collect, transmit, store, or process any personal data on external servers, the formal data-processing obligations under GDPR and CCPA are largely not applicable. Nonetheless:
-                    </p>
-                    <ul>
-                        <li><strong>No personal data is sold or shared.</strong> There is no business model based on user data. PassChef is a free, open-source tool.</li>
-                        <li><strong>No data is transmitted to third parties.</strong> The only third-party infrastructure used is Google's <code>chrome.storage.sync</code>, which you access directly through your own Chrome/Google account.</li>
-                        <li><strong>Right to erasure:</strong> You can delete all extension data at any time by resetting or uninstalling the extension.</li>
-                        <li><strong>Right to access:</strong> All data stored by the extension is accessible to you directly through Chrome's developer tools.</li>
-                        <li><strong>CCPA:</strong> We do not sell personal information. California residents have all the same rights as all other users.</li>
-                    </ul>
+                    <h2>8. Data use and privacy rights</h2>
+                    <p>The intended extension purpose is Recipe cooking and related Cookbook/session/clipboard/sharing controls. Inspected code contains no advertising, data-sale, credit-scoring or unrelated analytics flow. This is a source finding, not a conclusion that privacy laws do not apply.</p>
+                    <p>For publication, PassChef's use and transfer of user data must comply with the <a href="https://developer.chrome.com/docs/webstore/program-policies/limited-use" target="_blank" rel="noopener">Chrome Web Store User Data Policy, including Limited Use restrictions</a>. The owner's final certification and website disclosure are pending review. Local-only processing must also be disclosed in Store privacy fields.</p>
+                    <p>Applicable privacy rights, the responsible legal entity and any required regional disclosures must be confirmed by the publisher. This draft makes no blanket GDPR/CCPA exemption or legal-compliance claim. Do not send account passwords, Spices, master passwords or private Menu content in support requests.</p>
                 </div>
-
-                <!-- 9. Children -->
                 <div class="legal-section">
-                    <h2>9. Children's Privacy</h2>
-                    <p>
-                        PassChef is not directed at children under the age of 13. We do not knowingly collect personal information from children. Given that PassChef collects no personal information from anyone, this is inherently satisfied.
-                    </p>
+                    <h2>9. Intended audience</h2>
+                    <p>Audience, age-related requirements and regional availability are pending publisher/legal review. This draft does not claim that local processing automatically satisfies children's privacy requirements.</p>
                 </div>
-
-                <!-- 10. Changes -->
                 <div class="legal-section">
-                    <h2>10. Changes to This Policy</h2>
-                    <p>
-                        If this Privacy Policy is updated, the new version will be posted at <code>passchef.io/privacy</code> with an updated "Last updated" date. Significant changes will be noted in the extension's release notes. Continued use of the extension after a policy update constitutes acceptance of the revised policy.
-                    </p>
-                    <p>
-                        Given that PassChef collects no personal data, meaningful changes to this policy are unlikely.
-                    </p>
+                    <h2>10. Updates and effective publication</h2>
+                    <p>Final policy URL, effective date, change-notice process and live hosting disclosures must be approved and verified before publication. The date above records this local draft revision; it does not establish deployment or user acceptance.</p>
                 </div>
-
-                <!-- 11. Contact -->
                 <div class="legal-section">
-                    <h2>11. Contact</h2>
-                    <p>
-                        PassChef is developed and maintained by an individual developer. If you have questions, concerns, or requests related to this Privacy Policy, please contact:
-                    </p>
-                    <div class="contact-card">
-                        <h3>Privacy Contact</h3>
-                        <p>For privacy-related inquiries about PassChef:</p>
-                        <a href="mailto:tetnu26@gmail.com">tetnu26@gmail.com</a>
-                    </div>
+                    <h2>11. Privacy and security contact</h2>
+                    <div class="contact-card"><h3>Contact pending verification</h3><p>Publisher identity and monitored privacy/support/private security channels are pending owner confirmation. No address in this draft is presented as an approved contact. Final contact details and a working HTTPS policy URL are required before release.</p></div>
                 </div>
 
             </div><!-- /legal-body -->
@@ -613,7 +490,7 @@
             </div>
             <div class="footer-bottom">
                 <p class="footer-copyright">
-                    &copy; 2026 PassChef. Open source under MIT License.
+                    &copy; 2026 PassChef. Closed-source product; third-party licenses remain separate.
                 </p>
                 <div class="footer-social">
                     <a href="#" class="social-link" aria-label="GitHub">

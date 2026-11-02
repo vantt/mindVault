@@ -1,0 +1,65 @@
+{
+  "threadId": "01a176c4-1316-7f40-a3c3-87a5c0e51c32",
+  "failures": [
+    {
+      "turnId": "01a18c37-0fda-7351-a6c3-ef9cb3741125",
+      "status": "failed",
+      "error": {
+        "message": "builder error",
+        "additionalDetails": null
+      },
+      "startedAt": 1793353800,
+      "completedAt": 1793353824,
+      "durationMs": 23671,
+      "itemTypes": [
+        "userMessage"
+      ],
+      "commandCount": 0
+    },
+    {
+      "turnId": "01a18c2b-e788-7d91-9704-67e4cc02160e",
+      "status": "failed",
+      "error": {
+        "message": "builder error",
+        "additionalDetails": null
+      },
+      "startedAt": 1793353063,
+      "completedAt": 1793353077,
+      "durationMs": 14039,
+      "itemTypes": [
+        "userMessage"
+      ],
+      "commandCount": 0
+    },
+    {
+      "turnId": "01a18c28-f899-7d41-8945-930dafa69467",
+      "status": "failed",
+      "error": {
+        "message": "builder error",
+        "additionalDetails": null
+      },
+      "startedAt": 1793352880,
+      "completedAt": 1793352893,
+      "durationMs": 13317,
+      "itemTypes": [
+        "userMessage"
+      ],
+      "commandCount": 0
+    },
+    {
+      "turnId": "01a18c06-a4e6-7a11-b06f-d6771ff313c9",
+      "status": "failed",
+      "error": {
+        "message": "builder error",
+        "additionalDetails": null
+      },
+      "startedAt": 1793350625,
+      "completedAt": 1793350659,
+      "durationMs": 34894,
+      "itemTypes": [
+        "userMessage"
+      ],
+      "commandCount": 0
+    }
+  ]
+}

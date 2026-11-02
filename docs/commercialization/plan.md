@@ -1,9 +1,9 @@
 # Commercialization Plan
 
-> **Status:** Partial — preparation can proceed; release waits for bug fixes and completed UI
-> **Last updated:** 2026-10-13 (Phase 0 reordered around pending bugs/UI; historical estimates retained)
+> **Status:** Partial — local preparation verified; remaining candidate/runtime/owner gates retained
+> **Last updated:** 2026-11-02 (current evidence/decisions reconciled; publication not accepted)
 > **Product:** PassChef Password Generator (name decided — see [naming-decision.md](marketing/naming-decision.md))
-> **Current version:** v2.3 (Full Access Sharing)
+> **Current version:** 2.3.1 beta held development artifact; not a release-accepted candidate
 > **Documentation index:** [Commercialization hub](README.md)
 
 ---
@@ -18,14 +18,14 @@
 | Sharing | Implemented | Full Access bundle (v2.3) and QR sender exist; document recipient access to Spices and verify sharing in the release artifact. |
 | Verification tag | Done — accepted scope | Recipe/profile/Menu mismatch refusal, legacy warnings and selected EN/VI UI passed; Tag does not change the Dish or guarantee protection against all tampering. |
 | i18n | Accepted selected EN/VI scope | Tag/popup UI and offline Demo have acceptance evidence; final listing locales and release-wide wording review remain. |
-| Tests | Source verification exists; release artifact unverified | Independent recheck: 147/147 unit and 25/25 headed E2E passed 2026-10-12; separate real Google/native proof 8/8 retained. No fresh product tests in this checklist update. |
-| Landing page | Partial launch readiness | Recipe demos/FAQ/testimonial UI/responsive implementation exist; assets, content alignment and QA remain |
+| Tests | Selected source/held-artifact evidence exists; final release gates open | [Held ZIP151unit+28E2E/fault](../../plans/261022-project-work-queue/reports/b07-run-01-independent-review.md) Passed27Oct;[B02 selected24permission cases](../../plans/261022-project-work-queue/reports/b02-runtime-20261102-independent-review.md) Passed2Nov. Fresh checkpoint151unit/49package checks retain bounded scope;realSync/finalrelease acceptance remain open. |
+| Landing page | Partial launch readiness | Recipe demos/FAQ exist;local claims/legal drafts corrected26Oct and unverified testimonials removed. Final assets,live URLs,visual/responsive/performance QA remain. |
 | Chrome Web Store | **Publication unverified / pending** | Listing copy + privacy/terms files exist; screenshot assets and actual listing URL not established in repo |
 
 ### What's Missing for Commercial Launch
 | Area | Priority | Effort |
 |------|----------|--------|
-| Privacy Policy + Terms of Service | Draft files exist; permissions/storage/clipboard/licensing corrections required | Review required |
+| Privacy Policy + Terms of Service | Local permissions/storage/clipboard/licensing corrections verified26Oct;publisher/hosting/legal approval and public URLs remain | Final review required |
 | Chrome Web Store listing (screenshots, description, promo images) | **Blocker** | Medium |
 | Brand name finalization | Done | PassChef decided/rebranded |
 | Landing page upgrade (conversion-focused) | High | Medium |
@@ -244,6 +244,11 @@ Deliverable now: permission matrix, corrected legal drafts and draft Store Priva
 #### 0.3 Publisher, public URLs and support — prepare now
 
 Decision/evidence record: [publisher and support](operations/publisher-and-support.md).
+
+Owner update 2026-10-15: no Chrome Web Store developer account yet; selected domain
+`passchef.com` and Cloudflare platform. Google owner account and public contact/support
+email remain undecided. Domain ownership/DNS, specific hosting service, HTTPS and
+deployment are not verified here; setup checklist items remain open.
 
 Owner decisions and account/hosting preparation can proceed while product bugs/UI
 are being fixed; this checklist does not execute purchases or external publication.
@@ -507,8 +512,8 @@ explore/localization ideas are not approved commitments or blockers for Phase 0/
 | Brand tone | Consumer/approachable (not enterprise/corporate) | **Decided** |
 | Google Sheets in name? | No — subtitle/description only, not in title | **Decided** |
 | Recipe mechanism as core identity? | Yes — cooking metaphor is durable, defines the product | **Decided** |
-| Privacy Policy + ToS | — | **Drafts written** 2026-06-13; pre-publication corrections Pending (Phase 0.2) |
-| CWS listing copy | — | **Draft written** 2026-06-13; accuracy/assets review Pending (Phase 0.1/0.4/0.6–0.7) |
+| Privacy Policy + ToS | — | Initial drafts13Jun;A04 local corrections/review Passed26Oct. C04/C05 final approval/public URLs Pending. |
+| CWS listing copy | — | Initial draft13Jun;A03 local claims/review Passed26Oct. B06/A14 final assets/packet/approval Pending. |
 | Open-source model | MIT / Source-available / Closed | **DECIDED: Closed source** |
 | Revenue model | Lifetime license — launch $9 → raise to $14-19 after 500+ installs / 20+ reviews | **DECIDED** (2026-06-13) |
 | Free tier feature split | Option A2 — 2 profiles free, gate at 3+ + routing + sharing + configurable timeout | **DECIDED: A2** (2026-06-13) |
@@ -538,11 +543,13 @@ explore/localization ideas are not approved commitments or blockers for Phase 0/
 | 3 | Execute Phase 2 promotion after release; implement Phase 3 monetization as separate work | Preserve decided A2/lifetime model; no external publication, spending or provider choice occurs in this audit. |
 | 4 | Phase 4 optional growth work after feedback | No requirement to implement every speculative idea before finishing an earlier phase. |
 
-Pre-launch content mismatch: **Closed source** is decided, while landing, Privacy
-and Terms still claim MIT/open source. Apply that decision consistently before
-release. Existing testimonial cards have no verified provenance here; UI presence
-is not customer-validation evidence. Historical value/competitor/security phrasing
-elsewhere in this plan is subject to Phase 0.1 review, not approved public copy.
+Historical13Oct content mismatch:Closed source was decided while landing/Privacy/
+Terms still claimed MIT/open source and testimonials lacked provenance.
+[A03 claims](../../plans/261022-project-work-queue/reports/a03-product-claims.md) and
+[A04 legal drafts](../../plans/261022-project-work-queue/reports/a04-legal-data-review.md)
+corrected local copy26Oct;deployment,final approval and website QA remain open.
+Historical value/competitor/security phrasing elsewhere in this plan is not
+approved public copy. UI presence is not customer-validation evidence.
 
 This remains an active Partial plan. Phase 0–4 are not wholly Done; do not archive
 the entire launch plan because development foundation or copy writing is done.
@@ -550,8 +557,17 @@ No publishing/account check, browser QA, performance measurement or product test
 was performed for this documentation-only checklist update. Existing source
 verification is linked separately; broader MVP acceptance remains Partial.
 
-Unresolved decisions/dependencies: release-blocking bug/UI acceptance and stable candidate;
-release version/channel and Chrome/OS support;
-publisher-account readiness; domain/hosting and support/disclosure channel;
-permission minimization outcome (`activeTab`/`tabs`); whether cross-device Sync
-acceptance blocks the first release or is an explicitly disclosed deferred limit.
+Current2Nov decisions:[C02 approved](../../plans/261022-project-work-queue/reports/c02-release-boundary.md)
+2.3.1 beta,Windows11x64 ChromeStable plus116floor;real two-device Sync is mandatory
+before publication. [C03](../../plans/261022-project-work-queue/reports/c03-sync-owner-readiness.md)
+records the owner's later device slot,not a waiver of that gate.
+[B03 observations](../../plans/261022-project-work-queue/reports/b03-measurements-20261030.md)
+and [B02 selected24/24permission cases](../../plans/261022-project-work-queue/reports/b02-permission-runtime-20261102.md)
+have bounded evidence;neither certifies final release or minimum permissions.
+
+Unresolved dependencies:remaining C01 observations/A13 stable candidate;required
+fullsupport/realSync/B08/Store evidence;C04 publisher/contact/support/legal approval;
+C05 verification for selected `passchef.com`/Cloudflare;remaining B02 physical/
+native/clipboard/provider/edge coverage and final permission choice;B06/A14/C11
+assets/packet/publication approval. Earlier budget/marketing estimates are dated
+planning history,not newly verified prices or current public commitments.

@@ -1,87 +1,42 @@
-# Product Value Statements
+# Product value statements — reusable draft
 
-> **Status:** Needs review — ngữ liệu lịch sử; chưa phải toàn bộ copy được duyệt.
-> **Last updated:** 2026-10-13 (sắp xếp tài liệu; nội dung còn cần rà theo [plan](../plan.md))
-> Tổng hợp từ [quyết định tên](naming-decision.md) — các câu đánh giá thể hiện giá trị và bản chất của hệ thống.
-> Dùng làm nguồn ngữ liệu cho demo page, landing page, onboarding copy.
+> **Status:** Corrected local wording2026-10-26, A03; final release claims Pending.
+> Use with the [browser contract](../../specs/extension-security.md) and
+> [listing draft](cws-listing-copy.md). Historical naming discussion is in
+> [naming decision](naming-decision.md); its simulated council opinions are not
+> real endorsements, user research or quotes authorized for public use.
 
----
+## Core copy
 
-## Bản chất hệ thống
+- “Cook your password from a Recipe.”
+- “Your Menu holds Recipes. Your encrypted Cookbook protects your private Spices.”
+- “The extension cooks a Dish when you need it, without saving a list of cooked passwords.”
+- “Argon2id derives the Cookbook key from your master password; AES-256-GCM protects stored Spices.”
+- “Choose the right profile and Menu before cooking.”
+- “An optional Tag checks the Recipe's Spice and Menu context without changing the Dish.”
+- “You're the Chef. The extension is your kitchen.”
 
-- "Passwords are **generated on demand from recipes**, never stored."
-- "Zero-storage: passwords don't exist until created on demand"
-- "Chrome Extension that generates passwords from 'recipes' in Google Sheets + encrypted 'secret spices'"
-- "Uses Argon2id + AES-256-GCM encryption"
-- "Recipe mechanism is the core — it defines the product's identity"
-- "The fundamental operation remains: recipe + spice = password"
+## Required qualifiers
 
----
+| Topic | Accurate boundary |
+|---|---|
+| Cooking | Own-profile Recipes combine ingredients and Spices; Argon2id protects the Cookbook and does not cook the Dish. Legacy shared profiles use additional derivation. |
+| Storage | Encrypted profiles and preferences use Chrome Sync; names and Menu mappings may be readable. Session keys use session storage; nonsecret counters/onboarding use local storage. |
+| Clipboard | Owned Dish cleanup is attempted at 30s only if the current text still matches. Read denial, sleep/closed Chrome, OS history and concurrent app writes limit cleanup. |
+| Tag | Present mismatches refuse cooking; legacy untagged Recipes work with guidance. A short Tag does not prove safety against tampering/removal and can assist guessing weak Spices offline. |
+| Full Access | Bundle plus sharing password gives the recipient original profile Spices and the ability to cook the same Dishes. It is access delegation. |
+| Public Menu | Recipes are not saved cooked Dishes, but account names/ingredients/Tags disclose information. Sensitive Menus should stay private. |
+| Threat model | Weak master passwords or Spices, malware, phishing and clipboard capture remain risks. No universal safety or “zero attack surface” claim. |
+| Verification | Historical bounded browser acceptance is dated2026-10-12. Cross-device Sync/conflicts, broad platform/performance and final release artifact acceptance remain Pending. |
+| Licensing | Closed source is the recorded product decision. Preserve separate third-party notices. No MIT/open-source/auditable-source marketing promise. |
 
-## Value Proposition chính thức
+## Reuse rules
 
-- **Value Prop (1 sentence):** "Your Google Sheet stores recipes publicly. Your passwords stay private — cooked fresh on demand."
-- **Tagline xác nhận:** "Cook your password from a recipe. Nothing stored."
-- **Chrome Web Store subtitle:** "Recipe-based password generator for Google Sheets"
+Do not reuse historical “Nothing stored”, “Nothing to steal”, competitor-exclusivity,
+unverified adoption numbers or simulated council quotes as product evidence.
+No real testimonials with permission/provenance are on file; C12 owns any future
+approved quotes. Keep security boundaries close to the corresponding feature claim.
+No Store release, phone receiver, unlimited profiles, payment implementation or
+support matrix is established by this wording draft.
 
----
-
-## Lớp giá trị (Differentiators)
-
-- "No other password manager uses this concept." *(Layer A — Recipe/Cooking Metaphor)*
-- "Directly attacks the vulnerability of vault-based managers" *(Layer B — Zero-Storage)*
-- "Nothing to steal" *(Zero-storage as security argument)*
-- "Works with Google Sheets, the tool 900M+ people already use" *(Layer D)*
-- "Creates new category 'zero-storage security' that vault-based competitors cannot copy"
-
----
-
-## Câu chuyện sản phẩm (Story)
-
-- "You're the chef. Extension is your kitchen. Sheet has recipes. You cook passwords."
-- "Your sheet holds recipes, your head holds secret spices, and this tool helps you cook the password when you need it." — Feynman
-- "Add your secret spice, get your key." *(SpiceKey story)*
-- "The name says 'YOU are the chef of your passwords.'" *(User empowerment framing)*
-- "Mint fresh keys on demand." *(MintKey)*
-- "Passwords derived, never stored." *(Derivio)*
-- "Nothing stored. Nothing to steal." *(VoidKey — eliminated)*
-
----
-
-## Câu trích dẫn đánh giá từ Council
-
-- **Feynman:** "It wins on first principles because consumers understand it instantly."
-- **Feynman:** "VoidKey tells users what's ABSENT; PassChef tells users what they DO."
-- **Feynman:** "Discoverability beats purity."
-- **Aristotle:** "Clearest taxonomy: it immediately signals both category (Pass) and core metaphor (Chef)."
-- **Torvalds:** "Clearest, most ownable consumer name. Directly matches the product metaphor."
-- **Torvalds (Final):** "VoidKey is a clever word. PassChef is a product. Users don't buy clever — they buy things they can explain to their grandmother in a sentence."
-- **Meadows:** "Creates the strongest feedback loop because the cooking metaphor is instantly legible."
-- **Machiavelli (91% confidence):** "PassChef wins on power, memory, and conversion. 'VoidKey' signals emptiness, coldness, and risk; it sounds niche, even adversarial. 'PassChef' is vivid, ownable, and immediately teaches the product's metaphor."
-- **Rams:** "Good design makes a product understandable. VoidKey requires explanation, which is poor design."
-- **Rams:** "PassChef serves the user; VoidKey serves the engineer's ego."
-- **Taleb (concession):** "Antifragility requires surviving volatility first. A name that fails at installation is fragile, not antifragile."
-- **Sun Tzu:** "VoidKey claims terrain competitors cannot occupy without self-destruction."
-- **Watts:** "PassChef is semantically coherent — you are the chef of your own passwords."
-- **Kahneman:** "'Nothing stored. Nothing to steal.' directly addresses loss aversion — the dominant psychological driver."
-
----
-
-## Lý do VoidKey thua — insight về người dùng
-
-- "System 1 does not parse taglines first." — tiếp cận tự nhiên quan trọng hơn lý luận kỹ thuật
-- "Cooking metaphor teaches the product in 3 seconds"
-- "Concrete nouns beat abstract ones"
-- "Cooking metaphor is instantly legible"
-
----
-
-## Tóm tắt giá trị cốt lõi
-
-| Chiều | Câu đánh giá |
-|-------|-------------|
-| Cơ chế | "Recipe + spice = password, generated on demand, never stored" |
-| Bảo mật | "Nothing to steal — zero attack surface" |
-| UX | "Cooking metaphor teaches the product in 3 seconds" |
-| Positioning | "New category: zero-storage security competitors cannot copy" |
-| Người dùng | "You are the chef of your own passwords" |
+Unresolved:C02 release boundary; C04 publisher/contact/locales; C12 quote provenance.

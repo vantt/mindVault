@@ -1,6 +1,77 @@
 # Development Roadmap
 
+Current snapshot reconciled2026-10-26 (A01): selected Android Google grant/read/mapping/cache,
+cache UI/offline/cold and provider-loaded403 have dated acceptance; desktop live
+OAuth/Menu-client,401/human cancellation and broader phone coverage remain Pending.
+[Reconciliation/evidence matrix](../plans/261022-project-work-queue/reports/backlog-reconciliation.md).
+The continuation entries below retain chronological limits at each run; later reports
+add selected evidence without rewriting prior Failed/Unknown/NotExercised outcomes.
+Whole Mobile/MVP/website/release remain Partial.
+
 ## In progress
+
+Repository checkpoint2026-11-02:[code2281761](https://github.com/vantt/mindVault/commit/2281761d5e367698b3382a51e9e5b22fe39041a3) pushed to `codex/checkpoint-extension-validation-20261102`.
+[Fresh checks/commit scope](../plans/261022-project-work-queue/reports/repository-checkpoint-20261102.md):151unit/49package Passed,74source validation and held/fresh isolated ZIP match. Existing source-bound browser evidence retained;no fresh GUI replay. Documentation/landing/plan reconciliation follows on the same branch;main/Pages/Store and release gates unchanged.
+
+Current2026-11-02:[B02 selected P0–P3 comparison Passed/reviewed](../plans/261022-project-work-queue/reports/b02-runtime-20261102-independent-review.md),24/24synthetic cases on nativeStable156.76/Node26.13 with actual8/7/7/6permission sets. Two earlier P0harness failures remain recorded;actual fixture fulfillment and popover closure checked.
+B02 remains Partial:physical/native grant+shortcut,clipboard/provider/edge/fullsupport coverage and final permission choice remain unaccepted. Two separately approved15minute slots completed,6profiles/2ownedworkspaces cleaned,desktop returned. Canonical74source/46tests/heldZIP unchanged;no permission adoption. [Actual comparison](../plans/261022-project-work-queue/reports/b02-permission-runtime-20261102.md).
+
+Earlier continuation30Oct:[B02 packet prepared/reviewed/native-frozen](../plans/261022-project-work-queue/reports/b02-permission-runtime.md);all actual permission runtime NotRun,awaiting fresh15min desktop handoff.
+Only disposable permission overlays;canonical manifest/46tests/heldartifact unchanged,no minimum-adoption decision.
+[Exact turn-failure incident](../plans/261022-project-work-queue/reports/continuation-builder-error-20261030.md):four builder error/null-detail turns executed no commands;internal cause Unknown. Fresh source/ZIP validation exit0;prior accepted B03/B08 evidence retained.
+
+Latest2026-10-30:[B03selectedWindows measurements Done/reviewed](../plans/261022-project-work-queue/reports/b03-measurements-20261030-independent-review.md):actualStable156.0.8078.76 andexplicitCfT116.0.5845.96;P0–P4 functional/descriptive coverage,cold10/warm20/5fastRAM intervals each.
+Original sparse traces and occasionalfastcadence degradation remain;nottruepeak/pureKDF/SLO/fullplatform acceptance.
+[B08 local unpacked numeric upgrade Passed/reviewed](../plans/261022-project-work-queue/reports/b08-upgrade-20261030-independent-review.md),overallPartial;10jars/profilehints/Menu/default/VI/DishTags retained.
+Source/Golden bytes unchanged,ownedprocesses/profile/workspace cleanup complete,desktop returned. Sync later byowner and mandatory beforepublication;Store/finalcandidate gates unchanged.
+
+Earlier2026-10-27:[heldZIP full151unit+28E2E and same-ID WASM fault Passed/reviewed](../plans/261022-project-work-queue/reports/b07-run-01-independent-review.md).
+[Native Windows Stable156 P0 Passed/reviewed](../plans/261022-project-work-queue/reports/b03-native-stable-independent-review.md);three driver failures retained.
+Source/Golden unchanged,owned processes/workspaces cleaned,desktop returned.
+Windows116/P1–P4/upgrade/final-candidate gates remain;[owner Sync slot later](../plans/261022-project-work-queue/reports/c03-sync-owner-readiness.md),mandatory beforepublication unchanged.
+Earlier dated preparation/proof entries below retain their historical scope.
+
+- C02 approved2026-10-27:2.3.1 controlled beta/package alignment, Windows11 x64
+  Chrome Stable plus declared116-floor coverage and actual two-device Sync required
+  before publication. [Metadata/held local artifact](../plans/261022-project-work-queue/reports/c02-version-231-local-verification.md)
+  does not certify those runtime cells or close OWN01/C01/A23/A13. Previous2.3.0
+  B01 selected passes remain historical; new candidate evidence needs assessment.
+  A bounded Vitest build-artifact exclusion keeps frozen copied tests out of default
+  discovery while retaining all canonical assertions and historical snapshots.
+  [B03 native Stable/116 preparation reviewed](../plans/261022-project-work-queue/reports/b03-preparation-independent-review.md);
+  valid loading/control/measurement/fault helpers and actual runtime evidence remain Pending.
+  [A13 held provenance reviewed](../plans/261022-project-work-queue/reports/a13-held-independent-review.md);
+  stable candidate acceptance still needs remaining OWN01/C01/A23 disposition.
+
+- B01 Run01 [selected FA01/UI01 browser regressions Passed/reviewed](../plans/261022-project-work-queue/reports/b01-run-01-independent-review.md):
+  3/3cases,33.046s,exit0,no retries/skips on the frozen source patch. Owned profiles
+  cleaned and desktop released;future GUI requires a fresh handoff. Final-candidate/
+  full-suite,extracted ZIP,upgrade/Sync/native/provider acceptance remain Pending.
+  [C02 choices recorded27October](../plans/261022-project-work-queue/reports/c02-release-boundary.md);
+  metadata2.3.1 is held locally. Remaining OWN01/C01,B03/candidate/upgrade and real Sync evidence are still required.
+
+- A23-UI01:owner approved temporarily hiding the three disconnected global Display
+  defaults2026-10-26. Local card/handler removal preserves saved values and existing
+  per-profile hint/Builder/visible Dish behavior; inheritance/reveal/detection policy
+  stays deferred. [Scoped verification](../plans/261022-project-work-queue/reports/a23-display-defaults-deferral.md);
+  [Independent local review Passed](../plans/261022-project-work-queue/reports/a23-display-defaults-independent-review.md);
+  selected EN→VI→EN Settings/data-preservation also [Passed B01](../plans/261022-project-work-queue/reports/b01-run-01-independent-review.md).
+  Final-candidate/full-suite and remaining OWN01/C01/C02 gates still required.
+
+- A23-FA01 Full Access import own-profile shape repaired locally after a real
+  handler/crypto/core regression reproduced missing Spices after import success.
+  [Evidence](../plans/261022-project-work-queue/reports/a23-full-access-import-repair.md) and
+  [independent local review Passed](../plans/261022-project-work-queue/reports/a23-full-access-import-independent-review.md).
+  Selected B01 import→Cook Passed;final-candidate/full-suite/upgrade restore remains
+  Pending. A23 overall still Partial for remaining C01 and final-candidate acceptance.
+
+- A06 Done2026-10-26 — local extension development packaging: mandatory JS/WASM/notices fail closed,
+  reviewed inventory/resources and deterministic ZIP/hash commands prepared.
+  [Verification/review](../plans/261022-project-work-queue/reports/a06-packaging-validation.md)
+  binds the development artifact; A07 CI patch/local command verification is
+  [Done as local preparation](../plans/261022-project-work-queue/reports/a07-independent-review.md), remote CI
+  run still NotRun. Candidate/browser/upgrade/Sync/release gates remain Pending.
+  No product-completion status changed.
 
 - [Provider-loaded403 + fresh cached Cook](../plans/261012-mobile-cookbook-phase1/reports/google-provider403-preparation.md#actual-provider-loaded-http403-run01--passed21902s):
   Run01 Passed21.902s, actual Google-loaded baseline and restricted-Menu403;
