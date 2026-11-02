@@ -5,6 +5,7 @@ on:
     branches:
       - main
     paths:
+      - ".github/workflows/build_and_deploy.yml"
       - "chrome-extension/**"
       - "landing-page/**"
 
@@ -21,6 +22,7 @@ jobs:
         with:
           filters: |
             extension:
+              - '.github/workflows/build_and_deploy.yml'
               - 'chrome-extension/**'
             landing:
               - 'landing-page/**'
@@ -34,11 +36,15 @@ jobs:
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
+        with:
+          version: "10.24.0"
+          package_json_file: chrome-extension/package.json
+          run_install: false
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "24"
           cache: "pnpm"
           cache-dependency-path: chrome-extension/pnpm-lock.yaml
 
@@ -46,15 +52,37 @@ jobs:
         working-directory: chrome-extension
         run: pnpm install --frozen-lockfile
 
-      - name: Zip Extension
-        working-directory: chrome-extension/src
-        run: zip -r ../../mindvault-extension.zip .
+      - name: Verify Extension Source and Packaging
+        working-directory: chrome-extension
+        run: |
+          pnpm test:unit
+          pnpm test:package
+          pnpm validate
+
+      - name: Read Validated Manifest Version
+        id: manifest
+        working-directory: chrome-extension
+        run: node -p '"version=" + require("./src/manifest.json").version' >> "$GITHUB_OUTPUT"
+
+      - name: Package Development Extension
+        working-directory: chrome-extension
+        run: pnpm package
+
+      - name: Verify Development ZIP
+        working-directory: chrome-extension
+        run: pnpm validate:zip "build/passchef-extension-${{ steps.manifest.outputs.version }}-development.zip"
 
       - name: Upload Extension Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: mindvault-extension
-          path: mindvault-extension.zip
+          name: passchef-extension-${{ steps.manifest.outputs.version }}-development
+          path: |
+            chrome-extension/build/passchef-extension-${{ steps.manifest.outputs.version }}-development.zip
+            chrome-extension/build/passchef-extension-${{ steps.manifest.outputs.version }}-development-inventory.json
+            chrome-extension/build/passchef-extension-${{ steps.manifest.outputs.version }}-development.zip.sha256
+          if-no-files-found: error
+          retention-days: 14
+          compression-level: 0
 
   deploy-landing:
     needs: changes

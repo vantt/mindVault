@@ -1,5 +1,5 @@
 /* options-settings-tab.js — Settings tab logic
-   Handles: language toggle, display checkboxes, storage quota, danger zone,
+   Handles: language toggle, storage quota, danger zone,
    and the collapsed/expanded state of the master-password form. */
 
 import { t } from "../i18n-loader.js";
@@ -38,37 +38,6 @@ async function initLangRadio() {
         });
         await chrome.storage.sync.set({ language: lang });
         location.reload();
-    });
-}
-
-// ── Display settings checkboxes ───────────────────────────────────────────────
-
-const DISPLAY_DEFAULTS = {
-    showPepperHint: true,
-    revealPassword: false,
-    autoDetectSheet: true,
-};
-
-async function initDisplaySettings() {
-    const { displaySettings = DISPLAY_DEFAULTS } = await chrome.storage.sync.get("displaySettings");
-    const merged = { ...DISPLAY_DEFAULTS, ...displaySettings };
-
-    document.getElementById("disp-pepper-hint").checked   = merged.showPepperHint;
-    document.getElementById("disp-reveal-password").checked = merged.revealPassword;
-    document.getElementById("disp-auto-detect-sheet").checked = merged.autoDetectSheet;
-
-    async function saveDisplaySettings() {
-        await chrome.storage.sync.set({
-            displaySettings: {
-                showPepperHint:   document.getElementById("disp-pepper-hint").checked,
-                revealPassword:   document.getElementById("disp-reveal-password").checked,
-                autoDetectSheet:  document.getElementById("disp-auto-detect-sheet").checked,
-            }
-        });
-    }
-
-    ["disp-pepper-hint", "disp-reveal-password", "disp-auto-detect-sheet"].forEach(id => {
-        document.getElementById(id).addEventListener("change", saveDisplaySettings);
     });
 }
 
@@ -175,7 +144,6 @@ export async function initSettingsTab({ showToast }) {
     initPwdPanelToggle();
     await Promise.all([
         initLangRadio(),
-        initDisplaySettings(),
         loadStorageUsage(),
     ]);
     initDangerZone(showToast);

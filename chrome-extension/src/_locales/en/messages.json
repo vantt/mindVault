@@ -371,7 +371,7 @@
 
   "_phase07_settings_tab": { "message": "" },
   "settingsTitle":            { "message": "Preferences & vault" },
-  "settingsDesc":             { "message": "Master password, language, defaults, and the controls that affect every profile." },
+  "settingsDesc":             { "message": "Manage your Cookbook master password, language, and storage." },
   "settingsVaultLabel":       { "message": "Vault" },
   "settingsVaultTitle":       { "message": "Master password" },
   "settingsVaultSub":         { "message": "Derives the AES key for every profile via Argon2id. Changing it re-encrypts all profiles in place." },

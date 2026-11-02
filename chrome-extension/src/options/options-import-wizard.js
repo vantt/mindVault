@@ -1,5 +1,5 @@
 import { ExportImportAdapter } from "../adapters/infrastructure/export-import-adapter.js";
-import { encryptWithKey } from "../adapters/infrastructure/aes-storage-crypto-helper.js";
+import { writeImportedProfile } from './import-profile-writer.js';
 
 const adapter = new ExportImportAdapter();
 
@@ -168,38 +168,7 @@ async function confirmImport() {
     const localName = document.getElementById('imp-profile-name')?.value.trim();
     if (!localName) { alert('Profile name is required.'); return; }
 
-    const isFullAccess = state.bundle?.type === 'passchef-fullaccess-share';
-    const encrypted = await encryptWithKey(state.derivedSecrets, state.sessionKey);
-
-    if (isFullAccess) {
-        // Full Access: store as own profile (profile:NAME) + auto sheetMapping
-        const updates = {
-            [`profile:${localName}`]: encrypted
-        };
-        if (state.bundle.sheetId) {
-            const existing = await chrome.storage.sync.get('sheetMapping');
-            const sheetMapping = existing.sheetMapping || {};
-            sheetMapping[state.bundle.sheetId] = localName;
-            updates.sheetMapping = sheetMapping;
-        }
-        await chrome.storage.sync.set(updates);
-    } else {
-        // Legacy HKDF bundle: store as shared:NAME (existing behavior)
-        const sharedData = { secrets: state.derivedSecrets, isShared: true };
-        const encryptedShared = await encryptWithKey(sharedData, state.sessionKey);
-        await chrome.storage.sync.set({
-            [`shared:${localName}`]: {
-                ...encryptedShared,
-                readOnly: true,
-                sheetId: state.bundle.sheetId,
-                meta: {
-                    importedFrom: state.bundle.profileName,
-                    importedAt: new Date().toISOString().slice(0, 10),
-                    bundleId: state.bundle.bundleId || ''
-                }
-            }
-        });
-    }
+    await writeImportedProfile(() => state, localName);
 
     document.getElementById('modal-import').classList.add('hidden');
     state.onComplete?.();

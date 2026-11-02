@@ -1,6 +1,6 @@
 {
   "name": "passchef-extension",
-  "version": "1.0.0",
+  "version": "2.3.1",
   "description": "Clean Architecture Password Generator Extension",
   "scripts": {
     "test": "vitest run && playwright test",
@@ -8,7 +8,11 @@
     "test:unit": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
-    "postinstall": "node scripts/copy_wasm.js"
+    "postinstall": "node scripts/copy_wasm.js",
+    "validate": "node scripts/validate-package.mjs",
+    "package": "node scripts/package-extension.mjs",
+    "validate:zip": "node scripts/package-extension.mjs --verify",
+    "test:package": "node --test scripts/packaging-test.mjs"
   },
   "dependencies": {
     "argon2-browser": "^1.18.0"
@@ -16,6 +20,8 @@
   "type": "module",
   "devDependencies": {
     "@playwright/test": "^1.57.0",
+    "es-module-lexer": "1.7.0",
+    "fflate": "0.8.2",
     "jsdom": "^27.4.0",
     "jsqr": "1.4.0",
     "vitest": "^4.0.17"

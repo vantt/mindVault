@@ -179,7 +179,7 @@
             <div class="page-title-block">
               <div class="eyebrow">Settings</div>
               <h2 class="display-title" data-i18n="settingsTitle">Preferences &amp; vault</h2>
-              <p class="display-sub" data-i18n="settingsDesc">Master password, language, defaults, and the controls that affect every profile.</p>
+              <p class="display-sub" data-i18n="settingsDesc">Manage your Cookbook master password, language, and storage.</p>
             </div>
             <div class="settings-actions-row">
               <button type="button" id="btn-lock" class="btn secondary icon-btn">
@@ -291,61 +291,6 @@
                         <span class="segmented-sub">VI</span>
                       </button>
                     </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Panel 3: Display Defaults -->
-              <div class="card">
-                <div class="settings-panel">
-                  <div class="panel-label-col">
-                    <div class="section-caption" data-i18n="settingsDisplayLabel">Display</div>
-                    <div class="panel-title" data-i18n="settingsDisplayTitle">Defaults</div>
-                    <div class="panel-sub" data-i18n="settingsDisplaySub">Per-profile setting; new profiles inherit these values.</div>
-                  </div>
-                  <div class="panel-content-col" style="display:flex;flex-direction:column;gap:var(--sp-3)">
-                    <label class="checkbox-label">
-                      <span class="o-checkbox">
-                        <input type="checkbox" id="disp-pepper-hint" checked />
-                        <span class="checkbox-box" aria-hidden="true">
-                          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
-                            <path d="M2 5.5L4 7.5L8 3" stroke="#1a0f02" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-                          </svg>
-                        </span>
-                      </span>
-                      <span>
-                        <span class="checkbox-text" data-i18n="settingsShowPepperHint">Show pepper hint with generated passwords</span>
-                        <span class="checkbox-sub" data-i18n="settingsShowPepperHintSub">A short hint that helps you remember which secret was used.</span>
-                      </span>
-                    </label>
-                    <label class="checkbox-label">
-                      <span class="o-checkbox">
-                        <input type="checkbox" id="disp-reveal-password" />
-                        <span class="checkbox-box" aria-hidden="true">
-                          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
-                            <path d="M2 5.5L4 7.5L8 3" stroke="#1a0f02" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-                          </svg>
-                        </span>
-                      </span>
-                      <span>
-                        <span class="checkbox-text" data-i18n="settingsRevealPassword">Reveal password by default after Generate</span>
-                        <span class="checkbox-sub" data-i18n="settingsRevealPasswordSub">Off: passwords stay masked until you click the eye icon.</span>
-                      </span>
-                    </label>
-                    <label class="checkbox-label">
-                      <span class="o-checkbox">
-                        <input type="checkbox" id="disp-auto-detect-sheet" checked />
-                        <span class="checkbox-box" aria-hidden="true">
-                          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
-                            <path d="M2 5.5L4 7.5L8 3" stroke="#1a0f02" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-                          </svg>
-                        </span>
-                      </span>
-                      <span>
-                        <span class="checkbox-text" data-i18n="settingsAutoDetectSheet">Auto-detect Sheet ID from the active tab</span>
-                        <span class="checkbox-sub" data-i18n="settingsAutoDetectSheetSub">Pre-fills the Sheet field in the Recipe Builder.</span>
-                      </span>
-                    </label>
                   </div>
                 </div>
               </div>
