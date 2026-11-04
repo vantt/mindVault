@@ -6,7 +6,8 @@ import kotlinx.coroutines.*
 import java.io.File
 
 data class MappingDraft(val origin: MenuOrigin, val rows: List<List<String>>)
-class CookbookSources(directory: File, private val ready: () -> Boolean, private val io: CoroutineDispatcher = Dispatchers.IO) {
+class CookbookSources(directory: File, private val ready: () -> Boolean, private val io: CoroutineDispatcher = Dispatchers.IO,
+    private val onRejectedToken: (String) -> Unit = {}) {
     private val store = MenuSnapshotStore(directory)
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
     private val ownership = SourceOwnership()
@@ -144,6 +145,9 @@ class CookbookSources(directory: File, private val ready: () -> Boolean, private
     }
     private fun failure(error: Exception) {
         status = when (error) { is SheetsUnauthorizedException -> "CONNECT_REQUIRED"; is SheetsForbiddenException -> "ACCESS_DENIED"; else -> "NETWORK_FAILED" }
-        if (error is SheetsUnauthorizedException) accessToken = null
+        if (error is SheetsUnauthorizedException) {
+            accessToken?.let { token -> runCatching { onRejectedToken(token) } }
+            accessToken = null
+        }
     }
 }

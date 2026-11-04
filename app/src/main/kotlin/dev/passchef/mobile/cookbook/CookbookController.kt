@@ -9,7 +9,7 @@ import java.io.File
 
 class CookbookController(private val vault: VaultController, val clipboard: OwnedClipboard,
     val authorization: AndroidSheetsAuthorization, directory: File) {
-    val sources = CookbookSources(directory, vault::readyForCooking)
+    val sources = CookbookSources(directory, vault::readyForCooking, onRejectedToken = authorization::clearRejectedToken)
     private val lifetime = DishLifetime()
     private val main = Handler(Looper.getMainLooper())
     private var readyDish by mutableStateOf(false)
