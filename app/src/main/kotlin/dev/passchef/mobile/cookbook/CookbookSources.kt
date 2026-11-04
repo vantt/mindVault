@@ -94,9 +94,10 @@ class CookbookSources(directory: File, private val ready: () -> Boolean, private
                 val mapping = MenuMapping(staged.origin, columns, firstRow,
                     if (firstRow > 1) staged.rows.getOrNull(firstRow - 2) else null, labels)
                 val entries = MenuTable.project(staged.rows, mapping)
-                if(save(MenuSnapshot(mapping = mapping, entries = entries, refreshedAt = System.currentTimeMillis()),request)) {
-                    draft = null; status = "SYNCED"
-                }
+                val snapshot = MenuSnapshot(mapping = mapping, entries = entries, refreshedAt = System.currentTimeMillis())
+                try {
+                    if(save(snapshot,request)) { draft = null; status = "SYNCED" }
+                } catch (_: Exception) { if(current(request)) status = "CACHE_FAILED" }
             } catch (_: Exception) { if(current(request)) status = "INVALID_MAPPING" }
             finally { if(current(request)) busy = false }
         }
