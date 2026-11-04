@@ -12,6 +12,7 @@ import java.util.UUID
 class CookbookProofActivity : MainActivity() {
     var retainProofStorage = false
     private var proofId = UUID.randomUUID().toString()
+    private var savedTaskJournal: SavedTaskProofJournal? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         savedInstanceState?.getString("passchefOwnedProofId")?.let { saved ->
             val parsed = runCatching { UUID.fromString(saved).toString() }.getOrNull()
@@ -19,12 +20,21 @@ class CookbookProofActivity : MainActivity() {
             proofId = saved; retainProofStorage = true
         }
         super.onCreate(savedInstanceState)
+        if (intent.getBooleanExtra("passchefSavedTaskProof", false)) {
+            retainProofStorage = true
+            savedTaskJournal = SavedTaskProofJournal(this).also { it.created(savedInstanceState) }
+        }
         // Only the isolated runtime proof stays awake; production screen/lock policy is unchanged.
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
     }
     override fun onSaveInstanceState(outState: Bundle) {
         if (retainProofStorage) outState.putString("passchefOwnedProofId", proofId)
         super.onSaveInstanceState(outState)
+        savedTaskJournal?.saved(outState)
+    }
+    override fun onStop() {
+        super.onStop()
+        savedTaskJournal?.stopped()
     }
     val proofDirectory: File by lazy { File(super.getNoBackupFilesDir(),"cookbook-ui-proof-$proofId").also { it.mkdirs() } }
     override fun storageContext(): Context = object : ContextWrapper(this) {
