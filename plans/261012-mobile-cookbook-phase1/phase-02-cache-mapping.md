@@ -62,6 +62,9 @@ Private cache is protected by sandbox/backup exclusion; do not promise plaintext
 metadata is cryptographically encrypted. UI stays gated by Cookbook unlock.
 Continue to phase03 screens; phase04 supplies real network snapshots later.
 
-Implementation exists in the production app/shared/client paths above. Final local
+Implementation exists in the production app/shared/client paths above. Original local
 results and unchanged Golden evidence are recorded in [verification](reports/verification.md);
-compiled physical tests remain unexecuted. No phone/account grant was used tonight.
+that original run compiled physical tests without executing them or using a phone/grant.
+[4November revalidation](reports/completion-verification-20261104.md) Passed unchanged
+shared78/app10 and emulator mapping/cache/search/literal Cook assertions. This does
+not add live Google or broader physical mapping acceptance.

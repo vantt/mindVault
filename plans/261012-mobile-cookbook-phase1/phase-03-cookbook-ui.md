@@ -1,6 +1,14 @@
 # Phase03 — Compose Cookbook, reveal and owned clipboard
 
 Status: **Partial — code complete; physical acceptance Pending**. Priority:3.
+4November [authenticated clipboard recreation](reports/authenticated-recreation-runtime-20261104.md)
+Passed on Xiaomi/API36,113.868s: actual biometric setup/password reopening, same
+owned storage/new Activity, original30s Copy deadline and locked old/new sessions;
+owner Cookbook/all prior files preserved. Broader physical/TalkBack/Google Pending.
+4November [current-tree verification](reports/completion-verification-20261104.md):
+unchanged emulator offline UI111.247s, VI OS association20.781s and EN/VI secure
+pixels12.496s Passed; secure-pixels own Activity font2.0/landscape observed. Only
+instrumentation dependencies repaired; physical/TalkBack/Google scopes stay Pending.
 Latest selected [Google cache UI](reports/google-cache-ui-runtime.md) Run02
 Passed1/1,42.393s: exact cached Cook/favorite/recent/search and authenticated
 same-process recreation with real biometric; broader physical matrix Pending.
@@ -106,6 +114,31 @@ Continue to real connection code; offline screens remain usable while disconnect
   whole-target acceptance remains unproved, no production cause inferred.
 - [ ] Broader physical layout and Vietnamese OS accessibility; owner TalkBack traversal,
   larger-font/orientation and broader accessibility remain Pending without observation.
+
+### TalkBack continuation —4November2026
+
+- [x] Owner confirmed availability for actual spoken/focus observation. Add two
+  isolated selected tests: held locked EN/VI and genuine authenticated masked Dish.
+  Require the installed owner-enabled spoken TalkBack service; native checkpoint
+  metadata cannot certify spoken labels, focus order or the full layout matrix.
+- [x] Compile candidate12: Build Passed2m1s,159tasks/11executed;182 source paths
+  and APKs archived. Debug/release remain saved-task candidate bytes; test APK
+  `eb9a7c9bdc4fb171e422d14dc05fa1b7cb10418775aa96af6587e57e781e6c3f`.
+- [x] Resolve source-review cleanup findings before any install/runtime: construct
+  checkpoints inside owned cleanup, preserve primary failures and independently
+  retire captured aliases/delete/verify UUID removal. Require actual TalkBack touch
+  exploration. Candidate13 Build Passed32s;182 source/archive paths; test APK
+  `fcd175934b628e2a9cb84bab9a1406a740a27b1c32c04eee6591a3c806be0f86`.
+- [x] Independent source/host review, actual installed-byte and owner-file checks,
+  then owner-enabled TalkBack runtime. UUID/stage completion markers acknowledge
+  actual observations only; decline/timeout/unavailable remain explicit outcomes.
+- [x] Record owner spoken/focus verdicts for each real eligible checkpoint and
+  clean only its UUID/aliases. Broader font/orientation/touch matrix stays separate.
+  Run01 selected locked EN/VI Passed136.423s; owner confirms both password labels
+  and sampled focus progression. Run02 genuine authenticated masked Dish Passed
+  57.629s; owner confirms Reveal/Copy labels, focus and no spoken Dish. Actual
+  font1.1/portrait, expected TalkBack/touch exploration true; owner files and all
+  original names/policy exact, current UUIDs removed. [Runtime scope](reports/talkback-runtime-20261104.md).
 
 No provider/cache/timer replay belongs to this continuation unless related source changes.
 Preserve historical failures and Mobile Partial; security test compilation is not runtime proof.
@@ -763,3 +796,190 @@ relaunch, observed same PID/resumed/focused/awake/unlocked at0/5/10/20s with sou
 installed/owner identity preserved. Owner then explicitly confirmed “Đang thấy Cookbook,
 app không tự đóng”. Current normal visibility is observed/owner-confirmed separately;
 no continuous pixels, retroactive stable-return confirmation or historical cause claim.
+
+## API26–27 clipboard fallback continuation —4November2026
+
+Status: **All four selected API26 native cases and runtime review Passed**. The app's
+minSdk26 adapter replaces an expired owned Dish with an empty ClipData below28;
+existing min28 tests cannot certify that branch. Separate from Keystore acceptance.
+
+- [x] Add two bounded isolated helper/test files, each under200 lines, restricted
+  to API26–27. Preserve all previous tests/assertions; use a fresh canonical UUID,
+  actual secure focused locked Activity, real ClipboardManager and production
+  OwnedClipboard/Handler/monotonic deadlines. No authentication/session injection.
+  Helper181lines/test66lines; all61 original Android test files remain byte-exact.
+  Initial Build15 failed on a typed diagnostic-helper mismatch; corrected source
+  uses ColdCacheObservation off main plus direct foreground guards. Build16 Passed16s;
+  candidate16 freezes186 paths and installed debug/test hashes on the own API26 VM.
+- [x] Assert untouched original30s expiry produces an empty-label/empty-text clip
+  and cleared ownership; do not require `hasPrimaryClip=false` on this platform.
+  Selected native Run01-case01 Passed36.503s; exact UUID removed and initially
+  empty private namespace restored. Remaining selected cases are running.
+- [x] Assert foreign synthetic replacements, including an actual null-label item,
+  survive original expiry; inspect content only behind this run's owned metadata.
+  Selected native Run01-case02 Passed68.043s, including two real expiry intervals;
+  exact current UUID removed and private namespace restored empty.
+- [x] Assert a newer Dish retains its later original deadline and a username Copy
+  survives the retired Dish cleanup. No manual reconcile, clock or policy writes.
+  Native cases03/04 Passed42.502s/37.054s with independent original/later expiry
+  and exact owned cleanup/empty private namespace after each selected method.
+- [x] Independently review/build/freeze and verify actual installed candidate16
+  on disposable `PassChefLegacy26`/5582/API26/x86_64; initially empty private namespace.
+  [Source/host review](reports/api26-clipboard-review-20261104.md) Passed.
+- [x] Root alone runs all four selected cases on that disposable emulator.
+  Record exact selected JUnit/APKs/API, owned metadata, deadline and cleanup evidence.
+- [x] Verify exact UUID/owned-alias cleanup and original source/Golden bytes; retain
+  all outcomes. API26 emulator adapter acceptance does not certify physical devices,
+  API27 separately, authentication, background/history removal or the Keystore matrix.
+  [Runtime evidence](reports/api26-clipboard-runtime-20261104.md) and independent
+  review Passed; owned emulator was retained for separate UI work, then cleanly
+  stopped with exact processes/serial/temp removed and original AVD retained.
+
+Optional recreation is a later selected extension; it is not needed to prove the
+four bounded fallback/ownership cases above. Root owns image/runtime preparation.
+
+### Separate API27 runtime
+
+- [x] Prepare the isolated SDK27/x86 `PassChefLegacy27`/5584 using Google APIs image
+  revision11; verify actual boot/API/ABI and disabled host clipboard sharing.
+- [x] Bind source189/candidate20/ZIP/APKs, exact installed bytes, initial empty
+  private namespace and independently reviewed fixed-serial runner.
+- [x] Run the four unchanged legacy adapter methods: Passed36.766s/66.740s/41.532s/
+  36.866s. Every native metadata frame states27; retained `api26` phase names are
+  not SDK attribution. Actual native inactive/private empty and source/archive
+  guards pass after each selected method. [API27 evidence](reports/api27-clipboard-runtime-20261104.md).
+- [x] Complete independent runtime review and exact owned VM resource cleanup:
+  all four raw results/source189/61 old tests/54 protected exact; actual native
+  inactive/private empty before stop, all owned processes/serial/temp absent after.
+
+## Cookbook proposal/limits UI continuation —4November2026
+
+Status: **All four selected emulator UI cases and runtime review Passed**. Extend the explicit
+mapping case to the remaining proposal/limits UI gate in phase05. Existing parser,
+helper and test assertions remain unchanged. A separately reproduced coordinator
+storage-error classification repair is included; mapping policy remains unchanged.
+
+- [x] Add bounded additive fixture/tests using AuthenticatedCookbookFixture's
+  genuine password setup, actual confirmed baseline Menu and cached Cook. Freeze
+  actual baseline encrypted jars/cache bytes; every proposal uses a different
+  new Menu origin so existing-source refresh cannot bypass confirmation.
+  New helper143lines/test86lines; all61 original Android tests remain byte-exact.
+- [x] Through actual Sources UI, verify tied valid columns and fewer than three
+  valid samples leave Recipe blank and save no cache. Missing Recipe and duplicate
+  column roles refuse confirmation while preserving baseline files/RAM.
+  Selected API26 case01 Passed26.155s; exact owned UUID cleanup/source/archive gates Passed.
+- [x] Verify a unique proposal fills Recipe but saves only after explicit UI
+  confirmation, retaining literal Recipe, Unicode username and leading zeroes.
+  Selected case02 Passed23.224s; candidate18 production bytes also remain in candidate20.
+- [x] Verify >1000rows, >32columns and >4096characters/cell refuse INVALID_TABLE
+  without replacing baseline jars/cache. A >120000-character UI edit must leave
+  the previously accepted field text and data unchanged.
+  UI01 case03 Failed27.455s on an extra unconfirmed-draft retention assertion,
+  after field equality/three refusal checkpoints. Independent review identified
+  that overconstraint; corrected new test verifies saved data immediately, then
+  Preview again on the same inputs. UI02 retake Passed29.497s; failed raw retained.
+- [x] Implement capacity coverage: add19 genuinely UI-confirmed sources to
+  the baseline, then attempt21st and require exact20-source/jar preservation.
+  Require CACHE_FAILED for valid mapping refused by storage. Original confirm()
+  grouped that failure as INVALID_MAPPING; retain actual coordinator/disk or native
+  failure before any separately reviewed production status correction. Do not
+  relax the expected result. A real20-file JVM regression can establish it first.
+  JVM regression reproduced the wrong classification before repair; fresh JVM11
+  Passed afterward. Actual UI02 case02 Passed97.776s:20 genuine UI-confirmed sources,
+  valid21st refusal reports CACHE_FAILED and all prior RAM/jars/cache bytes remain exact.
+- [x] Root compile/freeze and independent review before selecting each native case
+  on the disposable emulator; genuine password fallback, UUID/owned-alias cleanup
+  and actual selected JUnit required. No direct snapshot/session/clock seeding.
+- [x] Update only selected emulator UI acceptance after actual evidence; no
+  physical layout, spoken TalkBack, Google or broader platform credit inferred.
+  [Capacity/proposal evidence](reports/cache-capacity-status-20261104.md); candidate20
+  Build Passed11s, source189/ZIP/APKs and before/after namespace/source guards Passed.
+
+## Selected physical large-font/landscape TalkBack —4November preparation/history
+
+- [x] Preserve previous accepted110%/portrait TalkBack runs and all their helpers.
+  Prepare a separate sibling packet bound to installed candidate26/source194;
+  old runtime helpers/wrapper03 byte-identical. Before/after current source/ZIP/APK
+  checks added at entry.32 existing protocol plus13 font-approval checks independently
+  Passed. No new native behavior or physical acceptance from preparation alone.
+- [x] Prepare explicit permission for temporary200%/landscape EN/VI locked-screen
+  TalkBack, then restoration to original110%/portrait/auto-rotation-off. Google
+  permission is a separate scope. Unknown native liveness retains a recovery record
+  and blocks automatic restoration until root inspection.
+- [x] Read-only device baseline: font1.1/rotation0/auto0 unchanged; TalkBack/touch
+  exploration currently disabled. Cause not inferred. No setting/native action ran.
+- [ ] **Deferred by owner4November:** actual reply “Để lại ca kiểm tra này”. No
+  permission granted, font/rotation settings changed or native run started. Retain
+  existing110%/portrait acceptance; deferral is not a Passed/Done result. When resumed,
+  obtain actual font/rotation approval and owner-ready active TalkBack, then
+  sample real spoken labels/focus in both languages with actual own font200%/
+  landscape configuration; retain result and restore/verify exact original settings.
+
+Evidence: external `2026-11-04-talkback-large26/`; independent preparation review
+recorded in [TalkBack review](reports/talkback-review-20261104.md); actual scope-specific
+owner decision preserved in `owner-deferral26.json`. Broader physical
+layout/touch/device requirements stay Pending.
+
+## Earlier selected physical continuation —6November2026 before manual29
+
+Owner explicitly resumed Google and200%/landscape (“Có, làm cả Google và 200%/xoay ngang”),
+then enabled TalkBack/returned Home. This supersedes only the current4November
+font deferral; keep its historical record and earlier110%/portrait acceptance.
+[Actual continuation](reports/nov6-resume-runtime-20261106.md) records human27 run01
+NotStarted/run02 NotExercised33.994s, grid01 Failed1.657s at the first1dp bounding-box
+corner (no definitive production defect) and font04 Failed121.572s awaiting the EN
+owner verdict. Actual font2.0 remained portrait; no EN/VI owner verdict/landscape pass.
+Old wrapper03 NotStarted resolution and final-audit AttributeError remain separate.
+Late restoration confirms original1.1/rotation0/auto1 plus WM free three times,
+native inactive and owner files exact. Source195/test27, production26 unchanged;
+physicalL1 prepared/reviewed but not run. No new physical acceptance or Done state.
+
+## Selected font/manual-label and language-grid29 completion —6November2026
+
+- [x] Record selected EN200%/landscape owner checkpoint on source195/candidate27
+  font06; retain its VI timeout/old-English-label result separately.
+- [x] Independently accept fresh VI manual29/source199/candidate29 observation:
+  native preparation1s only, then inactive/current PID/task/record guards and the
+  actual untimed owner reply `Nghe “Mật khẩu chính”, focus chuyển tiếp được`.
+  Actual font2000/landscape2421×1220; original owner/UUID and1.1/0/1, WMfree/
+  fixeddefault restoration exact. This closes the selected VI speech/focus case.
+  EN27 and VI29 are different candidates, not one same-candidate bilingual run;
+  the Master field is unchanged by the language-button RectangleShape correction.
+- [x] Execute selected rectangle/minimum48dp language grid29:9points per language,
+  18FINGER pairs/18toggles, actual110%/portrait; host Passed10.027s. This covers
+  those samples only, not every pixel/control/large-font touch coverage.
+- [x] Independently review grid29 runtime: Passed7.728s native/10.027s host,
+  exact74frames/18FINGERpairs/18toggles; owner/source/UUID/policy all preserved.
+  Broader physical controls/layout/lifecycle acceptance remains open.
+
+[Current report](reports/nov6-resume-runtime-20261106.md) retains all earlier failures
+and4November deferral/resumption history. Owner turned TalkBack off afterward.
+PhysicalL1 source29 attempt01 warm Passed20.455s, actual task6681/PID20208→20882/
+nonnull saved Bundle and initial locked pre-password guards observed; cold
+Failed121.652s awaiting vault-ready/cache after late extra biometric input. Manual
+continuation guard failed because the task was no longer retained: no acceptance.
+Cleanup Passed0.033s, owner/source199/APK29/UUID exact, overall Failed. Unchanged
+attempt02 later Passed as recorded below; no production repair inferred from the timeout.
+
+## Selected controlled physical saved-task completion —6November2026
+
+- [x] Independently accept unchanged candidate29/source199 attempt02: warm17.945s,
+  cold6.423s and separate cleanup0.030s native, all selected JUnit Passed.
+  Original task6685/ActivityRecord264729702 survived guarded own-UID process death
+  PID29885→30235; real saved Bundle restored the same UUID in a locked controller,
+  then genuine password/authentication reloaded cache and cooked/revealed the exact
+  synthetic Dish. All original owner files/six names/source/APKs and UUID cleanup
+  verified; final overall Passed. Host times18.645/7.672/1.407s.
+  This accepts controlled physical saved-task/password/cache only; long-background,
+  natural LMK, broader biometric/task combinations and Google remain separate.
+
+## Selected long-background functional return —6November2026
+
+- [x] Accept independently reviewed manual variant after663.477s passive background:
+  same original process/task/ActivityRecord, native inactive during owner checks;
+  actual owner confirmed `Mail-cold`, Dish `aB!*abcd`, username `00123` after Reveal.
+  Menu/encrypted Spice payload/owner/source199/APKs29/policies exact; separate
+  cleanup Passed0.066s, UUID absent. Original native wait timeout remains Failed;
+  no password-method, timeout-cause or OS-LMK acceptance is inferred.
+
+[Current evidence and boundaries](reports/nov6-resume-runtime-20261106.md).

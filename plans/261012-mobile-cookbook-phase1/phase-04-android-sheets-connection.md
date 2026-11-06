@@ -1,11 +1,17 @@
 # Phase04 — Android platform bridge and real Google connection
 
-21October [actual401 preparation](reports/google-http401-preparation.md): retained
+4November: [physical retained-grant401 Run01](reports/google-http401-review-20261104.md#actual-physical-retained-grant401-run01--passed)
+independently Passed105.047s; exact preservation and fresh cached Cook verified.
+Normal SDK restoration01 Failed11.014s; later diagnostic recovery01 confirmed metadata401.
+Local rejected-token repair26/JVM16 and subsequent [restoration03](reports/google-grant-restoration-runtime-20261104.md)
+independently Passed33.115s; no second revocation performed. Historical failures retained.
+
+Earlier21October [actual401 preparation](reports/google-http401-preparation.md): retained
 checkpoint/archive audit Passed; exclusive retained-token tab-read provenance and
 conditional remote-revocation impact/checklist documented. Actual401 Pending;
 no authorized trigger, new native candidate or runtime. Mobile Partial.
 
-Latest21October: [provider-loaded403 + fresh cached Cook Run01](reports/google-provider403-preparation.md#actual-provider-loaded-http403-run01--passed21902s)
+Earlier21October: [provider-loaded403 + fresh cached Cook Run01](reports/google-provider403-preparation.md#actual-provider-loaded-http403-run01--passed21902s)
 Passed21.902s; exact pre-Cook cache/jars/RAM preservation and fresh cached Cook,
 independent runtime/owner/UUID/source/APK/history audits Passed. Mobile Partial.
 
@@ -86,8 +92,10 @@ Phase1 only consumes read paths; retain RAW append/update client regression beha
   helper Passed Run04; source/owner digest preserved, no production repair.
 - [x] Selected provider-loaded403 exact preservation before a fresh cached Cook
   Passed Run01,21.902s; synthetic offline403 Run04 remains separate.
-- [ ] **Owner Pending:** human cancellation/different-Menu stale callbacks/401 preservation,
-  natural LMK/saved-task restoration and broader configuration/account/platform matrix.
+- [x] Selected physical401 preservation and usable grant restoration accepted4November;
+  original failed attempts retained separately from successful local-token repair.
+- [ ] **Owner Pending:** human cancellation/different-Menu stale callbacks,
+  natural LMK/physical saved-task restoration and broader configuration/account/platform matrix.
   Controlled offline/provider SIGKILL/fresh-process cold acceptance already Passed; no mock credit.
 
 ## Risks and next steps
@@ -431,3 +439,111 @@ assertions, Failed/Unknown/NotExercised records;401/cancellation/broader matrix 
 selected[1,0]/[-1]/OK1; real provider baseline, exact pre-Cook403 preservation,
 fresh cached Cook, owner/UUID/source/APK/history/archive audits Passed. No new
 401/cancellation/broader matrix credit; historical outcomes retained. No active wait.
+
+## Human Google cancellation/result code — source-backed preparation
+
+Status: **Source/current host compiled/reviewed; runtime Pending; no new provider acceptance**. Preserve previous tests and
+host-Back acceptance. Hand cancellation additionally needs the owner's actual action
+record; a native canceled result alone does not establish who canceled it.
+
+- [x] Inspect production ownership and official pinned AndroidX Activity1.13.0
+  sources: real IntentSender dispatch exposes the registry request code through
+  the Activity override, and onActivityResult forwards to the existing registry.
+  Lifecycle callbacks may defer result consumption until ON_START.
+- [x] Add an opt-in debug-only witness to existing ColdStartProofActivity: bind
+  the original actual pending object and launch request code; observe only result
+  integers/identity booleans before forwarding the unchanged callback exactly once.
+  Observation errors must not interrupt real dispatch; no Intent/token/account
+  data is inspected or emitted. No release or production authorization changes.
+- [x] Add one separate selected human-cancellation test reusing genuine setup,
+  offline cache/Cook, GoogleCancellationObservation and exact preserved-byte checks.
+  Require real Google UI/pending request/natural stop before the owner checkpoint;
+  then actual matching RESULT_CANCELED, eventual original pending consumption and
+  secure locked return. Preserve primary failures and independently clean the UUID.
+- [x] Compile/review/freeze native source and the candidate20 human runner;52 pure
+  protocol checks Passed. Candidate23 retains the reviewed native source unchanged.
+- [x] Rebind/review human runner04 against installed candidate23/source192; exact
+  source/ZIP/three-APK audit and52 unchanged pure protocol checks Passed independently.
+- [ ] Obtain fresh owner readiness and run only with an already permitted test Menu and existing grant state;
+  no account/grant/ACL changes. Silent reuse is NotExercised, not cancellation proof.
+- [ ] Record native result and the owner's hand-action evidence separately; retain
+  failures/timeouts/wrong results and all prior outcomes. No host Back or injected
+  result can earn human acceptance.401/different-Menu scope remains separate.
+
+Primary references: [pinned Activity1.13.0 sources](https://dl.google.com/dl/android/maven2/androidx/activity/activity/1.13.0/activity-1.13.0-sources.jar),
+[AndroidX callback forwarding](https://github.com/androidx/androidx/blob/androidx-main/activity/activity/src/main/java/androidx/activity/ComponentActivity.kt),
+[registry lifecycle deferral](https://github.com/androidx/androidx/blob/androidx-main/activity/activity/src/main/java/androidx/activity/result/ActivityResultRegistry.kt).
+
+Unresolved: naturally available external Google resolution and fresh owner readiness;
+source preparation does not make a prompt available or certify hand cancellation.
+
+## Conditional retained-grant401 candidate —4November2026
+
+Status: **Selected physical401 and subsequent usable grant restoration independently Passed**.
+Owner impact answer “không có project nào ảnh hưởng” is impact information only;
+owner subsequently identified the Google connection display name as **PassChef**.
+Cloud project ID was not supplied; no exact project identity is inferred. Permission
+to revoke and restore this connection remains unprovided.
+
+- [x] Recheck current production `choose`/`failure` and portable response decoding:
+  an exclusive ordinary tab read with retained grant can uniquely prove401 through
+  CONNECT_REQUIRED plus cleared RAM grant. SDK `disconnected` is a separate path.
+- [x] Add isolated provider baseline/Test-tab/mapping/favorite/recent/Cook setup,
+  exact full cache/jars bytes and complete RAM/inventory freeze; navigate normally
+  to Sources and prove old Dish/Copy already cleared before the failing read.
+- [x] Prepare a bounded same-session/metadata/grant/no-stop/no-pending checkpoint.
+  Only after a separately approved actual external transition may root publish the
+  UUID completion marker bound to approval/action evidence digests. Native code
+  never changes accounts, grants, Menu sharing, settings or clocks.
+- [x] Prepare one existing Test-tab UI read, proving the single source generation
+  advance/current context and completed request. Require true401 conjunction and
+  exact preservation before a fresh cached Cook; classify a successful refreshed
+  read separately without claiming old cache-byte preservation across success.
+- [x] Extend the frozen-byte inventory to every regular file under the exact proof
+  UUID, including root pending files; exclude only the approved-action marker and
+  its exact `.pending` control path. Canonical read guards stay inside that UUID.
+- [x] Prepare a separate restoration selector using genuine existing-scope SDK
+  Connect/owner consent, biometric reopening and actual Test rows/mapping/cache.
+  Run it only if revocation was actually performed, restoration explicitly approved
+  and prior native inactivity confirmed, including after401 NotExercised/Failed.
+  Unknown native liveness never permits restoration. The phone's intended account
+  must be confirmed in final approval; no default-owner Cookbook is reconfigured.
+- [x] Root Build23 Passed12s;192 frozen source paths and three archived APKs match
+  independent review. Original61 Android test files and54 protected/Golden files
+  remain unchanged. Install candidate23 on Xiaomi with every original regular-file
+  digest and prior directory preserved; no native Google test or grant action ran.
+- [x] Freeze/review host01:54 pure protocol checks independently Passed; current
+  checkpoint, actual actor/action binding, atomic marker and separate restoration
+  gates reviewed. Prepared scope binds source192/candidate23 and named PassChef.
+- [x] Obtain explicit final approval for both the same-account PassChef transition
+  and normal SDK restoration, plus fresh phone readiness. Earlier impact/name and
+  installation readiness answers are not authorization for the Google change.
+  Actual reply: “Đồng ý cả hai bước, Xiaomi đã mở khóa”. Actual completed action:
+  “Đã ngắt PassChef, Xiaomi sẵn sàng kết nối lại”; live marker publication verified.
+- [x] Actual physical401 Run01 independently Passed105.047s/host107.610s: retained
+  session/grant generation14→sole read15/token absent, exact files/RAM/inventory
+  before fresh cached Cook16. Owner files/six prior directories exact, UUID absent.
+- [x] Restore usable Google grant/read/cache. Restore01 Failed11.014s at first
+  Connect; native inactive and owner inventory exact. No success or cache-cause
+  inferred from the generic assertion. Diagnose before a separately reviewed recovery.
+  Later recovery01/source25 proved current metadata401; repair26 adds local rejected-token
+  eviction and explicit-Connect ordering. Recovery02 remained Failed while proving
+  actual SDK eviction complete; separately invoked recovery03 independently Passed
+  native33.115s/host34.899s with real metadata/Test rows/mapping/durable cache. Owner
+  files/six old directories exact, UUID absent/native inactive. No fresh consent claim.
+
+Unresolved: human cancellation/resultCode, different-Menu stale callbacks and broader
+device/provider coverage. Selected401/restoration closed; unknown native liveness
+still forbids automatic retries or recovery. Preserve every original final verdict.
+
+## Actual early-action restoration —6November2026
+
+- [x] Record new owner action performed before retained native readiness, without
+  retrospective401/marker/provider-A credit. Selected human01 Failed at initial
+  authenticated setup; cause unknown, owner data/UUID/source/APKs preserved.
+- [x] Complete mandatory separate normal SDK restore01 Passed46.722s native/
+  51.055s host: real metadata/Test/mapping/cache, exact owner/source202/APKs30/
+  UUID cleanup/native inactivity. Derived restorationRequired=false; actual owner
+  confirmed Google grant and return. Human cancellation remains Pending.
+
+[Current scope and original Failed evidence](reports/nov6-resume-runtime-20261106.md).

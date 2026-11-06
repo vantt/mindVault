@@ -58,6 +58,9 @@ The worker/session cleanup must serialize access to avoid wiping a jar during us
 Physical background/timer acceptance stays Pending. Continue with cached Menu
 entries and Compose presentation; one owned cooking path serves both paste and list.
 
-Implementation exists in the production app/shared/client paths above. Final local
+Implementation exists in the production app/shared/client paths above. Original local
 results and unchanged Golden evidence are recorded in [verification](reports/verification.md);
-compiled physical tests remain unexecuted. No phone/account grant was used tonight.
+that original run compiled physical tests without executing them or using a phone/grant.
+[4November revalidation](reports/completion-verification-20261104.md) Passed shared78
+and unchanged emulator offline UI111.247s; selected password-only/emulator scope,
+not new physical authentication/provider acceptance.

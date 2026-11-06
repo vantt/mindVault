@@ -177,39 +177,28 @@ is app-private and excluded from backup, but is not encrypted.
 
 The existing strong-biometric/original-password foundation and five-minute idle /
 ten-minute total lock remain. Debug uses `dev.passchef.mobile.demo` separately from
-release. Selected Xiaomi/API36 Cook/reveal and foreground clipboard checks passed,
-including clipboard cleanup through Activity recreation. Selected authenticated
-[owner-Copy screen-off01](plans/261012-mobile-cookbook-phase1/reports/owner-screen-off-clipboard-runtime.md)
-passed sampled35s screen-off and same-Activity legal-return clipboard cleanup;
-authenticated recreation/process-death/history and exact background30s
-remain unaccepted.
-The [focused clipboard repair](plans/261012-mobile-cookbook-phase1/reports/cross-app-clipboard-runtime.md)
-passed JVM10 and4 unchanged physical adapter/recreation regressions. The subsequent
-[null-label investigation and repair](plans/261012-mobile-cookbook-phase1/reports/clipboard-null-label-repair-runtime.md)
-confirmed an actual Chrome null label triggered the original comparison's NPE.
-The minimal null-safe comparison passed fresh build/JVM10 and five relevant physical
-regressions and the unchanged strict Chrome-return case Passed99.870s: actual Chrome
-replacement preserved and expired own metadata forgotten. Owner subsequently confirmed
-the normal app stays open; prior proof-close timing remains unknown. Mobile stays Partial.
-Selected Android Google grant/read/mapping/cache-file checks passed.
-Google cache UI/Cook and authenticated same-process recreation passed
-selected [cache UI Run02](plans/261012-mobile-cookbook-phase1/reports/google-cache-ui-runtime.md);
-[network-off Run04](plans/261012-mobile-cookbook-phase1/reports/network-off-runtime.md)
-also passed actual offline Cook and network-failure cache preservation.
-Selected [real host Android Back](plans/261012-mobile-cookbook-phase1/reports/google-cancellation-preparation.md#actual-host-android-system-back-run01--passed)
-passed external Google callback consumption after natural lock with synthetic offline
-cache/jars preserved. Selected [actual Google HTTP403](plans/261012-mobile-cookbook-phase1/reports/google-http403-preparation.md#actual-google-http403-run04--passed27530s)
-Passed27.530s with exact synthetic offline cache/jars preserved and stale Dish cleared.
-Selected [provider-loaded403 + fresh cached Cook](plans/261012-mobile-cookbook-phase1/reports/google-provider403-preparation.md#actual-provider-loaded-http403-run01--passed21902s)
-Run01 Passed21.902s: real Google-loaded cache/jars preserved exactly before a new
-successful cached Cook. Human cancellation/resultCode,401/different-Menu callbacks,
-LMK/task restoration remain Pending. Selected
-[Google-loaded cache cold02](plans/261012-mobile-cookbook-phase1/reports/google-cold-runtime.md)
-passed after verified SIGKILL and genuine biometric reopening. Historical Run01
-reveal failure remains unexplained. See the [Cookbook contract](docs/specs/mobile-cookbook.md),
-[execution evidence](plans/261012-mobile-cookbook-phase1/reports/verification.md),
-[owner acceptance checklist](docs/runbooks/android-cookbook-acceptance.md) and
-[remaining Keystore matrix](archive/plans/261011-keystore-recovery/reports/current-device-acceptance.md).
+release. Selected physical Cook/reveal, clipboard/Chrome replacement, authenticated
+recreation, actual timers and secure capture/Recents have accepted evidence.
+[4November cases](plans/261012-mobile-cookbook-phase1/reports/google-grant-restoration-runtime-20261104.md)
+accept selected real401 preservation and usable grant restoration after local
+rejected-token eviction; API26/27 clipboard and proposal/limits/capacity UI passes
+keep their owned-emulator scope.
+
+[6November runtime](plans/261012-mobile-cookbook-phase1/reports/nov6-resume-runtime-20261106.md)
+accepts EN27 and VI29 spoken/focus observations separately at200%/landscape,
+nine language-target points per language at110%/portrait, controlled physical
+saved-task/password recovery and the selected manual663-second background return.
+Early30 human cancellation failed before Google; separately approved normal SDK
+restoration Passed46.722s. Original failures remain. Human cancellation/different-
+Menu callbacks and actual OS-LMK remain Pending; two owned-VM pressure attempts
+produced NotExercised/Unknown, followed by verified owned-VM disposal.
+
+The [isolated delivery checkout](plans/261012-mobile-cookbook-phase1/reports/delivery-verification-20261106.md)
+passed fresh116 JVM cases, APK builds, lint and release proof exclusion. Its APKs
+have a separate source/UI identity and receive no phone runtime acceptance from
+those earlier candidates. Whole Mobile Phase1 remains Partial. See the
+[contract](docs/specs/mobile-cookbook.md), [owner checklist](docs/runbooks/android-cookbook-acceptance.md)
+and [remaining Keystore scope](archive/plans/261011-keystore-recovery/reports/current-device-acceptance.md).
 QR receiving, Autofill and account authoring remain later work.
 
 With the same JDK17/SDK36 setup above:

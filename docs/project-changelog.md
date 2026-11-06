@@ -1,5 +1,35 @@
 # Project Changelog
 
+## Verify scoped Cookbook delivery and preserve runtime boundaries (2026-11-06)
+
+The separate delivery worktree passed84s/182 executed tasks: shared78, Menu bridge22
+and app16 fresh JVM cases, zero failures/errors/skips; lint0errors/8warnings/1hint.
+Debug/test/release built and release proof markers were excluded. The standard
+language TextButton keeps one handler and a rectangular minimum48dp target; its
+scoped port excludes concurrent theme/font/extension/website work. These different
+APKs have no phone-runtime acceptance. [Delivery evidence](../plans/261012-mobile-cookbook-phase1/reports/delivery-verification-20261106.md).
+
+Actual earlier phone candidates accepted EN27/VI29 speech/focus separately at200%
+landscape, nine-point language grid29 at110%portrait, physical L1 task/password/cache
+attempt02 and selected manual663s background return. Early30 human cancellation
+Failed before Google; mandatory normal SDK restoration independently Passed46.722s/
+51.055s and closed the early-action obligation. Owned-VM OS-LMK trials remain
+NotExercised/Unknown after disposal. Human/different-Menu and OS-LMK stay Pending;
+provider31 reached retained-A readiness but its action wait Failed; owner confirmed no additional revocation. All historical failures remain; Mobile
+Phase1 Partial. [Runtime evidence](../plans/261012-mobile-cookbook-phase1/reports/nov6-resume-runtime-20261106.md).
+
+## Repair Cookbook capacity status and rejected Google token recovery (2026-11-04)
+
+Valid21st Menu storage refusal now reports CACHE_FAILED, preserving20 cached sources
+rather than blaming confirmed columns. Current401 evicts the rejected token from
+Google's local cache; a later explicit Connect waits/rechecks ownership, fails closed
+on clearing failure and can retry local eviction. No automatic read loop or remote
+revocation is added. Physical401 and subsequent usable grant restoration passed,
+retaining failed attempts. Proposal/limits/capacity UI and API26/27 clipboard fallback
+passed on owned emulators; authenticated recreation/TalkBack retain their selected
+physical scopes. [Capacity](../plans/261012-mobile-cookbook-phase1/reports/cache-capacity-status-20261104.md),
+[grant recovery](../plans/261012-mobile-cookbook-phase1/reports/google-grant-restoration-runtime-20261104.md).
+
 ## Accept provider-loaded403 and fresh cached Cook (2026-10-21)
 
 Selected actual Google-loaded baseline/metadata403 preservation and fresh post403

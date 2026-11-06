@@ -1,5 +1,30 @@
 # Android Cookbook — owner acceptance
 
+## Current scope —6November2026
+
+**Partial.** [Delivery checks](../../plans/261012-mobile-cookbook-phase1/reports/delivery-verification-20261106.md)
+passed116 fresh JVM cases, APK builds, lint and release proof exclusion. Delivery
+APKs differ from the following physical candidates and are not device-accepted.
+[Nov4 cases](../../plans/261012-mobile-cookbook-phase1/reports/google-grant-restoration-runtime-20261104.md)
+accept selected physical401/local-eviction restoration; proposal/limits/capacity UI
+and API26/27 clipboard passes are bounded emulator cases.
+
+[Nov6 evidence](../../plans/261012-mobile-cookbook-phase1/reports/nov6-resume-runtime-20261106.md)
+accepts EN27/VI29 speech/focus separately at200%landscape, grid29's9points/language
+at110%portrait, physical L1 attempt02 password/cache/task recovery and the selected
+manual663s background return. Early30 human cancellation Failed in setup before
+Connect/Google; mandatory separate normal SDK restoration Passed46.722s native/
+51.055s host, preserving owner/source202/APKs30 and closing that action obligation.
+
+Human cancellation/different-Menu remain Pending. Provider31 was newly approved and
+reached actual retained-A readiness; its action wait Failed. Owner clarified no additional revocation; checked PC profiles show no PassChef
+connection. Account/cache cause remains unproven, with no401/cancellation credit. Actual OS-LMK remains Pending: owned-VM trial1 NotExercised and
+trial2 Unknown did not kill/restore the target; verified VM disposal preserved the
+original AVD and does not supply missing native cleanup or LMK acceptance. Historical
+failed/skipped causes and earlier candidate scopes remain below.
+
+## Earlier snapshots and operational history
+
 Status2026-10-15: **Partial**. Verified candidates installed on Xiaomi/API36;
 selected real UI Run04/05 Passed1/1 each, including normal screen policy in Run05.
 Historical Run01 cause not reproduced; broader phone/Google matrix Pending. Prior Keystore demo
@@ -208,21 +233,23 @@ Jars/owner digest unchanged; same frozen03/APKs, no source/build/install changes
 Selected5/10-minute API36 foreground proof KEEP_SCREEN_ON accepted; broader timer UX
 Pending. No source/time/auth bypass or hidden failure; earlier causes remain unknown.
 
+## Current acceptance checklist —6November2026
+
 | Check | Required observation | Current status |
 |---|---|---|
-| Install/preflight | Debug package updated without clearing data; original encrypted Cookbook SHA256 unchanged before/after install and tests | Passed network-off Run04 exact candidate; original digest preserved after installs/all runs |
+| Install/preflight | Debug package updated without clearing data; original encrypted Cookbook SHA256 unchanged before/after install and tests | Selected physical installations preserve original owner regular files/six prior names; current delivery is build-only and has no installed-artifact acceptance. |
 | Offline Cook | Unlock with real jars; paste known Recipe; exact expected Dish | Passed Run04/05 with isolated synthetic jars and real fingerprint |
 | Tagged context | Correct Menu cooks; absent/wrong Menu refuses; previous Dish disappears | Selected Passed: correct/absent/edit Run04; unchanged Recipe under different saved Menu refuses and clears old Dish/Copy in mapping/tag Run01 |
 | Google consent | Registered package/signature; actual user grant; no token displayed/logged | Passed selected runtime scope: usable grant; owner confirmed account/consent in Google Run01 |
 | Menu/tab read | Real metadata and bounded values; selected tab remains explicit | Passed Google Run03: selected Test tab and exact literal fake schema/row, including00123 |
-| Mapping | Actual preview; confirm roles; duplicate/empty/ragged inputs handled | Partial: Google preview/mapping Run03; irregular-row/duplicate+blank-header explicit remap and invalid-role preservation mapping/tag Run01 Passed; ambiguous proposals/broader matrix Pending |
-| Offline/cache | Reopen private cache; search label/username; favorites/recent retain origin | Passed network-off Run04/recreation, synthetic offline cold02 5.993s and Google-loaded cold02 8.886s after verified SIGKILL; LMK/task restore Pending |
-| Errors/refresh | Cancel/401/403/network failure retain last good cache and clear stale results | Partial: NETWORK_FAILED preservation Passed Run04; actual host OS-Back/stale Google callback after natural lock Passed17.949s with synthetic offline cache/jars preserved; actual metadata403/synthetic cache preservation Passed Run04; human cancellation/resultCode,401/provider-loaded403/different-Menu/provider-loaded cancellation Pending |
+| Mapping | Actual preview; confirm roles; duplicate/empty/ragged inputs handled | Physical Google03/irregular mapping01 and candidate29 warm mapping passed. Nov4 API26 emulator proposal/ties/sparse/duplicate roles, limits and20-source capacity cases passed separately; no all-device layout claim. |
+| Offline/cache | Reopen private cache; search label/username; favorites/recent retain origin | Physical cache UI/network04, controlled offline/provider cold and physical L1 candidate29 attempt02 passed. Selected manual663s background return passed separately; actual OS-LMK remains Pending. |
+| Errors/refresh | Cancel/401/403/network failure retain last good cache and clear stale results | Network/403 and selected physical401/local-eviction restoration passed. Human27 silent reuse was NotExercised; early30 human Failed before Google, mandatory normal restore Passed46.722s. Human cancellation/resultCode/different-Menu/provider-loaded stale callbacks remain Pending. |
 | Reveal | Masked default; explicit reveal hides after10seconds | Passed Run04/05, including KEEP_SCREEN_ON=false in Run05; historical Run01 cause unknown |
-| Clipboard | Dish copy; real30second compare-clear; replaced/username text survives old cleanup | Selected Passed foreground ownership/locked adapter recreation + authenticated owner-Copy35s screen-off/legal return; cross-app/authenticated recreation/process death/history/API26 fallback Pending |
-| Lifecycle | Navigation/edit/lock/background/recreation clear Dish and require unlock | Partial: earlier edit/Back/background/recreation/Recents/cold Passed; owner-Copy35s actual screen-off/same-Activity locked return Passed; long-background/LMK/task matrix Pending |
+| Clipboard | Dish copy; real30second compare-clear; replaced/username text survives old cleanup | Foreground/Chrome replacement and authenticated recreation passed. API26/27 fallback4+4 passed on owned emulators. Original30s ownership preserved; process-death/history-wide timing/removal is outside the contract. |
+| Lifecycle | Navigation/edit/lock/background/recreation clear Dish and require unlock | Physical controlled saved-task/password/cache L1 attempt02 passed with same task/UUID, new PID and saved Bundle. Selected manual663s same-process return/Cook plus separate cleanup passed; earlier native timeout stays Failed. Actual OS-LMK Pending. |
 | Session | Real5minute idle and10minute total despite activity, no deadline reset | Passed selected API36 foreground proof KEEP_SCREEN_ON: Idle05 341.722s and Total04 609.969s; earlier failures retained, broader timer UX Pending |
-| Security/UI | EN/VI, accessibility/layout, blocked capture/hidden Recents, sanitized own-app logs | Partial: secure shell capture/Recents03/VI OS field01/center02/04/explicit-finger01 Passed; legacy edge01/02/dwell04 Failed; owner revealed-Dish shortcut07 Passed; TalkBack/full layout Pending |
+| Security/UI | EN/VI, accessibility/layout, blocked capture/hidden Recents, sanitized own-app logs | Secure capture/Recents/screenshot and110%TalkBack passed in original scopes. EN27/VI29 speech/focus accepted separately at200%landscape; grid29 passed9points/language/18FINGER toggles at110%portrait. No every-pixel/all-control/font matrix or same-candidate bilingual traversal claim. |
 | Recents lifecycle | Actual same-Activity stop/lock, preserved jars and genuine biometric reopen | Passed Run03 1/1,137.789s; Run01/02 failures retained; API36 proof KEEP_SCREEN_ON scope |
 
 Record candidate SHA/APK hash, device/API, timestamps, observer and evidence for
