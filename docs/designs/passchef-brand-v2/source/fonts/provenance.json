@@ -1,0 +1,44 @@
+{
+  "repository": "https://github.com/google/fonts",
+  "commit": "6c1dbe27dcf7d817d4b62cec033ba77fa8e2a5ec",
+  "unmodifiedBytes": true,
+  "scope": "Bundled unmodified font sources and licenses for standalone PassChef brand-kit rebuilds",
+  "files": [
+    {
+      "file": "fraunces-regular.ttf",
+      "repositoryPath": "ofl/fraunces/Fraunces[SOFT,WONK,opsz,wght].ttf",
+      "sourceUrl": "https://raw.githubusercontent.com/google/fonts/6c1dbe27dcf7d817d4b62cec033ba77fa8e2a5ec/ofl/fraunces/Fraunces%5BSOFT%2CWONK%2Copsz%2Cwght%5D.ttf",
+      "bytes": 360440,
+      "sha256": "177ff6c0f14e5550a3c624247cd1189611d4eb65d000b14944c63d967958abbb",
+      "gitBlobSha": "8210f9488d3c732359a9292dd09aca3f2bae830e",
+      "kind": "font"
+    },
+    {
+      "file": "fraunces-ofl.txt",
+      "repositoryPath": "ofl/fraunces/OFL.txt",
+      "sourceUrl": "https://raw.githubusercontent.com/google/fonts/6c1dbe27dcf7d817d4b62cec033ba77fa8e2a5ec/ofl/fraunces/OFL.txt",
+      "bytes": 4391,
+      "sha256": "bdf4c22802eaf804f998195871c6b8938aac2ac14b2d78a8bd66a6f1eced833b",
+      "gitBlobSha": "22fa7ce5733434d0c634f6e55116f410858e938c",
+      "kind": "license"
+    },
+    {
+      "file": "geist.ttf",
+      "repositoryPath": "ofl/geist/Geist[wght].ttf",
+      "sourceUrl": "https://raw.githubusercontent.com/google/fonts/6c1dbe27dcf7d817d4b62cec033ba77fa8e2a5ec/ofl/geist/Geist%5Bwght%5D.ttf",
+      "bytes": 169056,
+      "sha256": "73894e0448cae90a92b6c2f8732b7bb9acb7b94c418bff559dad4a18e1de9659",
+      "gitBlobSha": "f63f0afc6390323715972b6645115485f37cc9f4",
+      "kind": "font"
+    },
+    {
+      "file": "geist-ofl.txt",
+      "repositoryPath": "ofl/geist/OFL.txt",
+      "sourceUrl": "https://raw.githubusercontent.com/google/fonts/6c1dbe27dcf7d817d4b62cec033ba77fa8e2a5ec/ofl/geist/OFL.txt",
+      "bytes": 4387,
+      "sha256": "1781d2806a07d91c4edf4740b88449fab7d0eadad53f7c351b94cd4d4eb8c00f",
+      "gitBlobSha": "61f6f4b7853081236aec6407f2dd3c7170997f84",
+      "kind": "license"
+    }
+  ]
+}
