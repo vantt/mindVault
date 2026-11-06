@@ -27,7 +27,7 @@ Q6 historical read-only wording superseded by Q9 and retained decisions.
 | 2 | [Private cache and column mapping](phase-02-cache-mapping.md) | Done (local scope) | Pure model/storage tests; no Google credential required |
 | 3 | [Cookbook Compose screens and clipboard](phase-03-cookbook-ui.md) | Partial | Selected200%landscape EN27/VI29 separately accepted; rectangle-grid29 independently Passed; selected physical task/background accepted |
 | 4 | [Android Sheets/authorization integration](phase-04-android-sheets-connection.md) | Partial | Google/cache/network-off/host OS-Back/selected403/401/grant restoration Passed; human cancel/different-Menu Pending |
-| 5 | [Independent verification and delivery](phase-05-verification-delivery.md) | Partial | Evidence separates code/build acceptance from physical/live acceptance |
+| 5 | [Independent verification and delivery](phase-05-verification-delivery.md) | Partial | Scoped main push `2748d0b` Done; required physical/live acceptance Pending |
 
 Phases1–3 support real offline code without phone/account. Phase4 protocol fixtures
 permit build/tests but never certify Android Google connection. Exact local evidence:

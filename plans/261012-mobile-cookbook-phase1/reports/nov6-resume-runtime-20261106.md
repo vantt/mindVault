@@ -312,3 +312,14 @@ future instruction is immediate authentication at every prompt, remaining in the
 app and using PC replies. Existing bounded retry/security/test policies stay intact.
 Evidence: `2026-11-06-google-local-sdk32-presdk-retry01/core01/` final,
 wrap-failure-tag-live01.log, actual delayed-auth reply and reviewer-runtime-audit01.
+
+## Scoped main integration — completed6November
+
+Reviewed Mobile code and32 documentation paths were committed in the separate
+main-based delivery worktree and fast-forward pushed to main at
+`2748d0b492812f6daff57ec81c4b8efa748a56cb`. Independent remote readback matched that
+exact HEAD; external evidence is `2026-11-06-delivery/push-main01.json`. Root WIP
+and index were preserved. The [delivery verification](delivery-verification-20261106.md)
+records116 fresh local tests/build/lint and distinct APKs with no inherited phone
+runtime acceptance. Scoped integration/push is Done; whole plan remains Partial.
+Human Google cancellation/different-Menu and OS-LMK gates remain Pending.

@@ -176,8 +176,8 @@ is established. `assembleDebugAndroidTest` compiles tests; it does not run them.
   keep no-device status visible in `reports/verification.md`.
 - [x] Update product specs/roadmap and independent report with passed/failed/Pending
   columns. Overall mobile roadmap Phase1 remains Partial while the broader live/UI matrix is Pending.
-- [x] Root handles authorized scoped commit/integration/push after independent review;
-  archive only a scope with no relevant remaining deliverable. Owner authorized commit/push.
+- [x] Reviewed scoped Mobile delivery fast-forward pushed to main `2748d0b` on6November;
+  remote HEAD readback matched. Required runtime gates remain; no archive/release claim.
 
 ## Owner/device acceptance — Partial
 
@@ -600,5 +600,6 @@ manual663s functional return is accepted separately from its retained native tim
 
 [Delivery verification](reports/delivery-verification-20261106.md) records the new
 APK identities. Those artifacts differ from the prior phone candidates and have
-no inherited device acceptance. Whole plan stays Partial; final integration/push
-is root-owned after the remaining gates, not claimed by documentation preparation.
+no inherited device acceptance. Scoped main integration/push `2748d0b` is Done;
+independent remote readback matched. Required human cancellation/different-Menu/
+OS-LMK evidence remains Pending and the whole plan stays Partial.

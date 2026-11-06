@@ -1,6 +1,6 @@
 # Scoped Cookbook delivery verification —6 November 2026
 
-Status: **Local source/build verification Passed; whole plan Partial**.
+Status: **Local source/build verification Passed; scoped main push Done; whole plan Partial**.
 The delivery checkout contains scoped Cookbook source commits and a bounded
 standard language TextButton rectangular minimum48dp port. Concurrent theme/font/
 resource, extension, brand and website WIP is excluded. No source file, Golden
@@ -76,8 +76,8 @@ the original user AVD. Disposal is distinct from missing native cleanup/LMK proo
 No third pressure attempt or physical pressure follows. Actual OS-LMK remains Pending.
 
 The [five-phase plan](../plan.md) keeps scope and earlier histories. Root owns
-remaining runtime decisions and final coherent integration/push; this source/build
-handoff is not a release or whole-plan Done result.
+remaining runtime decisions; scoped main integration/push is completed below. This
+source/build handoff is not a release or whole-plan Done result.
 
 ## Additive local SDK proof continuation
 
@@ -88,3 +88,13 @@ inferred. Current source-code04 ZIP/SHA map and candidate-code04 archive bind
 these actual APK hashes; debug/release remain byte-identical02, test SHA above is
 updated. Release still has no AGP worktree VCS revision, with explicit sidecar
 code-commit binding. Root phone uses separately frozen source204/candidate32.
+
+## Scoped main integration — completed6November
+
+Reviewed Mobile code and32 documentation paths were fast-forward pushed to main at
+`2748d0b492812f6daff57ec81c4b8efa748a56cb`; independent remote readback matched that
+exact delivery HEAD. Code commit is `0e57de6087320d876cf0f8c82589d68698aa68d2`.
+External evidence: `2026-11-06-delivery/push-main01.json`. Root WIP/index stayed
+unchanged. This completes scoped integration/push only; distinct delivery APKs
+inherit no phone runtime acceptance. Whole plan remains Partial; human Google
+cancellation/different-Menu and OS-LMK evidence remain Pending.
