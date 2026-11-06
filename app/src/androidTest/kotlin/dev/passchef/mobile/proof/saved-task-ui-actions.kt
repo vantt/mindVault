@@ -10,9 +10,11 @@ import org.junit.Assert.assertTrue
 
 /** Native accessibility actions on the existing restored task; never launches/recreates an Activity. */
 class SavedTaskUiActions(private val automation: UiAutomation, private val packageName: String,
-    private val foreground: () -> Boolean) {
-    private fun named(node: AccessibilityNodeInfo, label: String): Boolean =
-        listOf(node.text, node.hintText, node.contentDescription).any { it?.toString() == label }
+    private val foreground: () -> Boolean, private val staticLabelsOnly: Boolean = false) {
+    private fun named(node: AccessibilityNodeInfo, label: String): Boolean {
+        val text = if (staticLabelsOnly && (node.isEditable || node.isPassword)) null else node.text
+        return listOf(text, node.hintText, node.contentDescription).any { it?.toString() == label }
+    }
     private fun labels(node: AccessibilityNodeInfo, label: String, budget: IntArray): Boolean {
         assertTrue("Own label observation is bounded", ++budget[0] <= 500)
         if (node.packageName?.toString() != packageName) return false
@@ -22,7 +24,12 @@ class SavedTaskUiActions(private val automation: UiAutomation, private val packa
         }
         return false
     }
-    private fun find(label: String, editable: Boolean): AccessibilityNodeInfo? {
+    private fun matchesLabel(node: AccessibilityNodeInfo, label: String, editable: Boolean?): Boolean = when (editable) {
+        null -> named(node, label)
+        true -> node.isEditable && labels(node, label, intArrayOf(0))
+        false -> node.isClickable && labels(node, label, intArrayOf(0))
+    }
+    private fun find(label: String, editable: Boolean?): AccessibilityNodeInfo? {
         assertTrue("Native actions require the actual own focused restored Activity", foreground())
         automation.clearCache()
         val root = automation.rootInActiveWindow ?: return null
@@ -31,7 +38,7 @@ class SavedTaskUiActions(private val automation: UiAutomation, private val packa
         fun visit(node: AccessibilityNodeInfo) {
             assertTrue("Own accessibility tree observation is bounded", ++count <= 500)
             if (node.packageName?.toString() != packageName) return
-            if ((if (editable) node.isEditable else node.isClickable) && node.isEnabled && labels(node, label, intArrayOf(0))) {
+            if (node.isEnabled && matchesLabel(node, label, editable)) {
                 matches += AccessibilityNodeInfo.obtain(node)
             }
             for (index in 0 until node.childCount) node.getChild(index)?.let { child -> try { visit(child) } finally { child.recycle() } }
@@ -44,7 +51,7 @@ class SavedTaskUiActions(private val automation: UiAutomation, private val packa
         } catch (failure: Throwable) { matches.forEach { it.recycle() }; throw failure }
         finally { root.recycle() }
     }
-    private fun act(label: String, editable: Boolean, action: (AccessibilityNodeInfo) -> Boolean) {
+    private fun act(label: String, editable: Boolean?, action: (AccessibilityNodeInfo) -> Boolean) {
         val deadline = SystemClock.elapsedRealtime() + 15_000
         var forward = true
         var forwardCount = 0
@@ -68,7 +75,7 @@ class SavedTaskUiActions(private val automation: UiAutomation, private val packa
                     if (node.refresh() && node.isVisibleToUser) {
                         assertTrue("Known native control stays in the actual own foreground", foreground() &&
                             node.packageName?.toString() == packageName && node.isEnabled &&
-                            (if (editable) node.isEditable else node.isClickable) && labels(node, label, intArrayOf(0)))
+                            matchesLabel(node, label, editable))
                         assertTrue("Actual native action succeeds on the known own control", action(node))
                         report()
                         return
@@ -129,6 +136,9 @@ class SavedTaskUiActions(private val automation: UiAutomation, private val packa
             putCharSequence(AccessibilityNodeInfo.ACTION_ARGUMENT_SET_TEXT_CHARSEQUENCE, value)
         })
     }
+    fun show(label: String) = act(label, false) { true }
+    fun showText(label: String) = act(label, null) { true }
+    fun showEditable(label: String) = act(label, true) { true }
     fun click(label: String) = act(label, false) { it.performAction(AccessibilityNodeInfo.ACTION_CLICK) }
     fun hasText(label: String): Boolean {
         assertTrue("Text observation requires the own foreground", foreground())

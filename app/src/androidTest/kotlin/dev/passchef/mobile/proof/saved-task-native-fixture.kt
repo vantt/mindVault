@@ -50,6 +50,33 @@ class SavedTaskNativeFixture(private val scenario: ActivityScenario<CookbookProo
         putString("passchefSavedTaskNativeFixture", directory.name)
         putInt("passchefSavedTaskNativePid", Process.myPid())
     })
+    private fun reportFavoriteRow(phase: String) {
+        val favoriteContainsEntry = timerMain { book().sources.snapshots.any { saved ->
+            saved.mapping.origin == coldOrigin && coldEntry in saved.entries && coldEntry.id in saved.favorites
+        } }
+        val rowPresent = ui.hasText(coldEntry.label)
+        instrumentation.sendStatus(2, Bundle().apply {
+            putString("passchefSavedTaskNativePhase", phase)
+            putString("passchefSavedTaskNativeFixture", directory.name)
+            putInt("passchefSavedTaskNativePid", Process.myPid())
+            putBoolean("passchefSavedTaskModelFavoriteContainsColdEntry", favoriteContainsEntry)
+            putBoolean("passchefSavedTaskUiRowPresent", rowPresent)
+            putBoolean("passchefSavedTaskFavoritesTapCompleted", true)
+        })
+    }
+    private fun reportDetailVisibility(phase: String) {
+        val selectionMatches = timerMain { book().selected == coldEntry }
+        val usernamePresent = ui.hasText("00123")
+        val recipePresent = ui.hasText("abcd#1")
+        instrumentation.sendStatus(2, Bundle().apply {
+            putString("passchefSavedTaskNativePhase", phase)
+            putString("passchefSavedTaskNativeFixture", directory.name)
+            putInt("passchefSavedTaskNativePid", Process.myPid())
+            putBoolean("passchefSavedTaskModelSelectionMatchesColdEntry", selectionMatches)
+            putBoolean("passchefSavedTaskUiUsernamePresent", usernamePresent)
+            putBoolean("passchefSavedTaskUiRecipePresent", recipePresent)
+        })
+    }
     private fun idleReady() = await {
         foreground() && timerMain { CookbookUiDiagnostics.stateFlags(activity)["vaultReady"] == true &&
             !book().sources.busy }
@@ -86,15 +113,23 @@ class SavedTaskNativeFixture(private val scenario: ActivityScenario<CookbookProo
         })
         ui.click("Menu"); ui.click("Favorite"); idleReady()
         ui.click("Favorites")
+        reportFavoriteRow("favorites-before-show")
+        ui.show(coldEntry.label)
+        reportFavoriteRow("favorites-after-show")
         assertTrue("Actual Favorites list contains the confirmed cached row", ui.hasText(coldEntry.label))
         ui.click(coldEntry.label)
         await { foreground() && timerMain { book().hasDish() && !book().sources.busy } }
         assertTrue("Cached native Cook uses exact original Recipe and Menu", timerMain { book().selected == coldEntry })
+        reportDetailVisibility("detail-before-show")
+        ui.showText("••••••••")
         assertTrue("Actual native cached Dish starts masked", ui.hasText("••••••••"))
+        ui.showText("00123"); ui.showText("abcd#1")
+        reportDetailVisibility("detail-after-show")
         assertTrue("Actual native detail preserves literal username and Recipe",
             ui.hasText("00123") && ui.hasText("abcd#1"))
         ui.click("Reveal for 10 seconds")
         await { foreground() && timerMain { book().revealed && book().dish == "aB!*abcd" } }
+        ui.showText("aB!*abcd")
         assertTrue("Actual native cached Cook reveals the exact synthetic Dish", ui.hasText("aB!*abcd"))
         val saved = timerMain { book().sources.snapshots.single() }
         assertTrue("Actual native cache retains favorite and recent row identities", saved == coldExpected(saved.refreshedAt))
