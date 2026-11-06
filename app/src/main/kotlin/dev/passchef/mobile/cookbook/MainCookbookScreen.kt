@@ -3,6 +3,9 @@ package dev.passchef.mobile.cookbook
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.unit.dp
 import java.util.Locale
 import dev.passchef.mobile.VaultController
 import dev.passchef.mobile.VaultScreen
@@ -13,7 +16,8 @@ import dev.passchef.mobile.VaultScreen
     CompositionLocalProvider(LocalCookbookVietnamese provides vi) {
         MaterialTheme {
             Column {
-                TextButton(onClick={vi=!vi; cookbook.edit()}) { Text(if(vi) "EN" else "VI") }
+                TextButton(modifier=Modifier.sizeIn(minWidth=48.dp,minHeight=48.dp),
+                    shape=RectangleShape,onClick={vi=!vi; cookbook.edit()}) { Text(if(vi) "EN" else "VI") }
                 if(vault.unlocked) {
                     SideEffect { registerClear { cookbook.lock() } }
                     CookbookScreen(cookbook,vault::explicitLock)
