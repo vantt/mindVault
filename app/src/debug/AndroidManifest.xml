@@ -8,5 +8,11 @@
         <activity android:name="dev.passchef.mobile.proof.ColdStartProofActivity"
             android:exported="false" android:taskAffinity="${applicationId}.coldproof"
             android:theme="@android:style/Theme.Material.Light.NoActionBar" />
+        <!-- Phase-01 Picker spike: debug variant only, exported so `adb shell am start` can open it. -->
+        <activity android:name="dev.passchef.mobile.proof.DrivePickerSpikeActivity"
+            android:exported="true" android:theme="@android:style/Theme.Material.Light.NoActionBar" />
+        <!-- Phase-06 visual QA gallery: fake data only, no FLAG_SECURE, debug variant only. -->
+        <activity android:name="dev.passchef.mobile.proof.UiGalleryActivity"
+            android:exported="true" android:theme="@android:style/Theme.Material.NoActionBar" />
     </application>
 </manifest>

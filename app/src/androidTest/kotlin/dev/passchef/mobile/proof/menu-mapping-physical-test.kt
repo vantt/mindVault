@@ -35,11 +35,11 @@ class MenuMappingPhysicalTest {
     }
     private fun click(text: String) {
         state.requireReady()
-        ui.onNode(hasClickAction() and hasText(text)).performScrollTo().performClick()
+        ui.onNode(hasClickAction() and hasText(text)).scrollIfAble().performClick()
     }
     private fun input(tag: String, text: String) {
         state.requireReady()
-        ui.onNodeWithTag(tag).performScrollTo().performTextReplacement(text)
+        ui.onNodeWithTag(tag).scrollIfAble().performTextReplacement(text)
     }
     private fun idle() {
         state.await { state.foreground() && timerMain { state.vault().readyForCooking() && !state.book().sources.busy } }
@@ -47,11 +47,11 @@ class MenuMappingPhysicalTest {
     }
     private fun confirm() {
         state.requireReady()
-        ui.onNodeWithTag("confirm-columns").performScrollTo().performClick(); idle()
+        RedesignUi.confirmIfValid(ui); idle()
     }
     private fun cook() {
         state.requireReady()
-        ui.onNodeWithTag("manual-cook").performScrollTo().performClick()
+        ui.onNodeWithTag("manual-cook").scrollIfAble().performClick()
         state.await { state.foreground() && timerMain { !state.book().cooking && (state.book().hasDish() || state.book().code != null) } }
         ui.waitForIdle()
     }
@@ -74,9 +74,7 @@ class MenuMappingPhysicalTest {
                 "Ragged\tabcd#1\nShort\n\t\t\t\t\nInvalid\tnot a Recipe\t\t\tignored\n" +
                 "Unicode\txy@1\t\t\tユーザー\n\txyz#1\talt#1\t\t"
             report("irregular-mapping-preview")
-            click("Sources"); input("source-id", other.menuId)
-            ui.onNode(hasSetTextAction() and hasText("Local tab label")).performScrollTo().performTextReplacement(other.title)
-            input("source-table", table); click("Preview columns"); idle()
+            RedesignUi.offlineDraft(ui, { state.book() }, other, table); idle()
             ui.onNodeWithTag("confirm-columns").assertExists()
             val draft = timerMain { requireNotNull(state.book().sources.draft) }
             assertTrue("Actual preview retains duplicate/blank headers and ragged physical rows", draft.origin == other &&
@@ -89,11 +87,11 @@ class MenuMappingPhysicalTest {
                     .inventory().let { it.corruptFiles == 0 && it.snapshots == listOf(coldExpected(baseline.refreshedAt)) })
             }
             unchanged()
-            ui.onNode(hasSetTextAction() and hasText("First data row")).performScrollTo().performTextReplacement("2")
+            ui.onNode(hasSetTextAction() and hasText("Advanced: data starts at row")).scrollIfAble().performTextReplacement("2")
             input("column-LABEL", "2"); input("column-RECIPE", "2"); input("column-USERNAME", "5")
             input("column-URL", ""); input("column-NOTES", ""); confirm()
             assertTrue("Duplicate role columns are explicitly refused", timerMain { state.book().sources.status == "INVALID_MAPPING" })
-            ui.onNodeWithText("Choose distinct valid columns and a data row.").assertExists(); unchanged()
+            ui.onNodeWithText(RedesignUi.message("INVALID_MAPPING")).assertExists(); unchanged()
             report("missing-recipe-column-refusal")
             input("column-LABEL", "1"); input("column-RECIPE", ""); confirm()
             assertTrue("Missing Recipe column remains refused", timerMain { state.book().sources.status == "INVALID_MAPPING" })
@@ -109,13 +107,13 @@ class MenuMappingPhysicalTest {
                     MenuSnapshotStore(File(activity.proofDirectory, "menus")).load(other) == saved)
             assertTrue("Confirmed different source preserves the original cache/jars", baseline.matches(activity.proofDirectory))
             report("correct-menu-tag-positive-control")
-            click("Cook"); click(coldOrigin.title)
+            RedesignUi.enterCode(ui); click(coldOrigin.title)
             val tag = TagCodec().compute(requireNotNull(RecipeParser.parse("abcd#1")), "aB!*", coldOrigin.menuId)
             input("manual-recipe", "abcd#1.$tag"); cook()
             ui.onNodeWithTag("dish-display").assertTextEquals("••••••••")
             ui.onNodeWithTag("dish-copy").assertIsEnabled()
             fixture.hideIme()
-            ui.onNodeWithTag("dish-reveal").performScrollTo().performClick()
+            ui.onNodeWithTag("dish-reveal").scrollIfAble().performClick()
             ui.onNodeWithTag("dish-display").assertTextEquals("aB!*abcd")
             report("wrong-menu-tag-refusal")
             click(other.title)
@@ -123,7 +121,7 @@ class MenuMappingPhysicalTest {
                 .fetchSemanticsNode().config[SemanticsProperties.EditableText].text == "abcd#1.$tag")
             ui.onNodeWithTag("dish-display").assertDoesNotExist(); ui.onNodeWithTag("dish-copy").assertDoesNotExist()
             cook()
-            ui.onNodeWithTag("cook-error").assertTextEquals("Recipe does not match this Menu or profile.")
+            ui.onNodeWithTag("cook-error").assertTextEquals(RedesignUi.message("RECIPE_MISMATCH"))
             ui.onNodeWithTag("dish-display").assertDoesNotExist(); ui.onNodeWithTag("dish-copy").assertDoesNotExist()
             assertTrue("A valid tagged Recipe bound to another Menu cannot retain any old Dish", timerMain {
                 state.book().code == "RECIPE_MISMATCH" && !state.book().hasDish() && !state.book().revealed && state.book().dish.isEmpty()

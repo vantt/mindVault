@@ -95,6 +95,7 @@ class SecurityUiObservation(private val activity: CookbookProofActivity) {
     }
     fun accessibility(label: String) {
         foreground()
+        automation.clearCache() // language switch recomposes text; read a fresh tree, not the EN cache
         val root = automation.rootInActiveWindow
         assertTrue("Actual accessibility window is available", root != null)
         var visited = 0; var passwords = 0; var labelFound = false; var localizedPasswords = 0
@@ -102,7 +103,11 @@ class SecurityUiObservation(private val activity: CookbookProofActivity) {
             assertTrue("Actual accessibility observation is bounded", ++visited <= 500)
             if (node.packageName?.toString() == activity.packageName) {
                 if (node.isPassword) passwords++
-                val localized = node.text?.contains(label) == true || node.hintText?.contains(label) == true
+                // Compose exposes an OutlinedTextField label either on the edit node or as its direct child TextView.
+                val childLabel = node.isEditable && (0 until node.childCount).any { index ->
+                    node.getChild(index)?.let { child -> try { child.text?.contains(label) == true } finally { child.recycle() } } == true
+                }
+                val localized = node.text?.contains(label) == true || node.hintText?.contains(label) == true || childLabel
                 if (localized) labelFound = true
                 if (localized && node.isVisibleToUser && node.isPassword && node.isEditable) localizedPasswords++
             }

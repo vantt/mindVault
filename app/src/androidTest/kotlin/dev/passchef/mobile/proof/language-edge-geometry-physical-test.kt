@@ -34,8 +34,8 @@ class LanguageEdgeGeometryPhysicalTest {
         try {
             ui.waitForIdle(); guards.foreground()
             hideTimerIme(activity, guards::foreground)
-            val initialVi = ui.onAllNodesWithText("PassChef — Cookbook riêng").fetchSemanticsNodes().isNotEmpty()
-            ui.onNodeWithText(if (initialVi) "PassChef — Cookbook riêng" else "PassChef — private Cookbook").assertExists()
+            val initialVi = ui.onAllNodesWithText("Tạo mật khẩu chính").fetchSemanticsNodes().isNotEmpty()
+            ui.onNodeWithText(if (initialVi) "Tạo mật khẩu chính" else "Create your master password").assertExists()
             val controls = ui.onAllNodes(hasClickAction() and (hasText("VI") or hasText("EN"))).fetchSemanticsNodes()
             assertTrue("One actual language control is required", controls.size == 1)
             val scrolls = ui.onAllNodes(SemanticsMatcher.keyIsDefined(SemanticsActions.ScrollBy),
@@ -116,7 +116,7 @@ class LanguageEdgeGeometryPhysicalTest {
                     "targetLayoutHeightDpX1000" to (node.layoutInfo.coordinates.size.height / density * 1000).toInt(),
                     "touchHeightDpX1000" to (touch.height / density * 1000).toInt())
             }
-            ui.onNodeWithText(if (initialVi) "PassChef — Cookbook riêng" else "PassChef — private Cookbook").assertExists()
+            ui.onNodeWithText(if (initialVi) "Tạo mật khẩu chính" else "Create your master password").assertExists()
             guards.foreground()
             report("language-geometry-observed", observed.first, observed.second)
         } catch (failure: Throwable) {

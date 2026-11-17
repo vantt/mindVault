@@ -25,8 +25,8 @@ import java.io.File
 @RunWith(AndroidJUnit4::class)
 class CookbookUiPhysicalTest {
     @get:Rule val ui = createAndroidComposeRule<CookbookProofActivity>()
-    private fun click(text: String) = ui.onNodeWithText(text).performScrollTo().performClick()
-    private fun fill(label: String, text: String) = ui.onNode(hasSetTextAction() and hasText(label)).performScrollTo().performTextReplacement(text)
+    private fun click(text: String) = ui.onNodeWithText(text).scrollIfAble().performClick()
+    private fun fill(label: String, text: String) = ui.onNode(hasSetTextAction() and hasText(label)).scrollIfAble().performTextReplacement(text)
     private fun present(tag: String) = ui.onAllNodesWithTag(tag).fetchSemanticsNodes().isNotEmpty()
     private fun shown() = ui.onNodeWithTag("dish-display").fetchSemanticsNode().config[SemanticsProperties.Text].joinToString("") { it.text }
     private fun clip(): String? = (ui.activity.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager)
@@ -66,70 +66,63 @@ class CookbookUiPhysicalTest {
                 ui.runOnIdle { ui.activity.window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON) }
             }
             if(ui.onAllNodesWithText("EN").fetchSemanticsNodes().isNotEmpty()) ui.onNodeWithText("EN").performClick()
-            fill("Master password","SYNTHETIC_UI_Kitchen_2026")
-            fill("Spice jar 1 (setup only)","aB!*")
-            click("Set up / recover with password")
+            RedesignUi.setupVault(ui, "SYNTHETIC_UI_Kitchen_2026", listOf("aB!*"))
             // Actual per-operation biometric prompt when available: owner must authenticate.
-            ui.waitUntil(120_000) { present("menu-search") }
+            ui.waitUntil(120_000) { present("nav-menu") }
             val original = file.readBytes()
-            click("Cook")
+            RedesignUi.enterCode(ui)
             ui.onNodeWithTag("manual-recipe").performTextInput("abcd#1")
-            ui.onNodeWithTag("manual-cook").performScrollTo().performClick()
+            ui.onNodeWithTag("manual-cook").scrollIfAble().performClick()
             ui.waitUntil(10_000) { present("dish-display") }
             exact("••••••••")
-            ui.onNodeWithTag("dish-reveal").performScrollTo().performClick(); exact("aB!*abcd")
+            ui.onNodeWithTag("dish-reveal").scrollIfAble().performClick(); exact("aB!*abcd")
             report("before-reveal-delay")
             Thread.sleep(10_500) // real elapsed time/Handler, not a synthetic Compose clock
             report("after-reveal-delay")
             exact("••••••••")
-            ui.onNodeWithTag("dish-copy").performScrollTo().performClick()
+            ui.onNodeWithTag("dish-copy").scrollIfAble().performClick()
             assertTrue("Owned Dish clipboard equality", clip() == "aB!*abcd")
             ui.onNodeWithTag("manual-recipe").performTextReplacement("invalid Recipe")
             assertTrue("Editing hides Dish immediately", !present("dish-display"))
-            ui.onNodeWithTag("manual-cook").performScrollTo().performClick()
+            ui.onNodeWithTag("manual-cook").scrollIfAble().performClick()
             ui.waitUntil(10_000) { present("cook-error") }
             assertTrue("Invalid Recipe has no Copy", !present("dish-copy"))
             val parsed = RecipeParser.parse("abcd#1")!!
             val tag = TagCodec().compute(parsed,"aB!*","Menu_0123456789")
             ui.onNodeWithTag("manual-recipe").performTextReplacement("abcd#1.$tag")
-            ui.onNodeWithTag("manual-cook").performScrollTo().performClick()
+            ui.onNodeWithTag("manual-cook").scrollIfAble().performClick()
             ui.waitUntil(10_000) { present("cook-error") }
             assertTrue("Missing Menu refuses tagged Dish", !present("dish-display"))
-            click("Sources")
-            ui.waitUntil(10_000) { ui.onNodeWithTag("source-id").fetchSemanticsNode().config.contains(SemanticsProperties.Disabled).not() }
-            ui.onNodeWithTag("source-id").performTextInput("Menu_0123456789")
-            fill("Local tab label","Synthetic Menu")
-            ui.onNodeWithTag("source-table").performTextInput("Label\tRecipe\tUsername\nMail\tabcd#1\t00123\nBank\tdef#1\té\nWork\tghi#1\tユーザー")
-            click("Preview columns")
-            ui.waitUntil(10_000) { present("confirm-columns") }
-            ui.onNodeWithTag("confirm-columns").performScrollTo().performClick()
-            ui.waitUntil(10_000) { !present("confirm-columns") }
+            RedesignUi.offlineDraft(ui, { RedesignUi.book(ui.activity) }, dev.passchef.mobile.cookbook.MenuOrigin("Menu_0123456789", 0, "Synthetic Menu"),
+                "Label\tRecipe\tUsername\nMail\tabcd#1\t00123\nBank\tdef#1\té\nWork\tghi#1\tユーザー")
+            RedesignUi.confirmAndSave(ui)
+            ui.waitUntil(10_000) { present("menu-search") }
             // A masked, successfully tagged Dish has no legacy warning to trigger redraw.
-            click("Cook"); click("Synthetic Menu")
+            RedesignUi.enterCode(ui); click("Synthetic Menu")
             ui.onNodeWithTag("manual-recipe").performTextInput("abcd#1.$tag")
-            ui.onNodeWithTag("manual-cook").performScrollTo().performClick()
+            ui.onNodeWithTag("manual-cook").scrollIfAble().performClick()
             ui.waitUntil(10_000) { present("dish-display") }; exact("••••••••")
             ui.onNodeWithTag("manual-recipe").performTextReplacement("abcd#1.aaaa")
             assertTrue("Tagged masked edit clears Dish/Copy immediately", !present("dish-display") && !present("dish-copy"))
-            click("Menu")
+            RedesignUi.passwords(ui)
             ui.onNodeWithTag("menu-search").performTextInput("0012")
             click("Mail")
             ui.waitUntil(10_000) { present("dish-display") }; exact("••••••••")
-            ui.onNodeWithTag("dish-reveal").performScrollTo().performClick(); exact("aB!*abcd")
-            ui.onNodeWithTag("dish-copy").performScrollTo().performClick()
+            ui.onNodeWithTag("dish-reveal").scrollIfAble().performClick(); exact("aB!*abcd")
+            ui.onNodeWithTag("dish-copy").scrollIfAble().performClick()
             assertTrue("Fresh Dish copy starts owned timer", clip() == "aB!*abcd")
-            click("Copy username")
+            ui.onNode(hasClickAction() and hasText("Copy")).scrollIfAble().performClick()
             assertTrue("Username remains literal", clip() == "00123")
             // A previous Dish timer must never erase a separately copied username.
             Thread.sleep(30_500)
             assertTrue("Dish timer preserves username copy", clip() == "00123")
-            click("Back")
+            RedesignUi.backFromDetail(ui)
             assertTrue("Back clears old Dish", !present("dish-display"))
             assertTrue("Cooking preserves encrypted jars", original.contentEquals(file.readBytes()))
             ui.activityRule.scenario.moveToState(Lifecycle.State.CREATED)
             ui.activityRule.scenario.moveToState(Lifecycle.State.RESUMED)
-            ui.waitUntil(10_000) { ui.onAllNodesWithText("Open with biometric").fetchSemanticsNodes().isNotEmpty() }
-            assertTrue("Background clears Cookbook detail", !present("dish-display") && !present("menu-search"))
+            ui.waitUntil(10_000) { ui.onAllNodesWithTag("unlock-biometric").fetchSemanticsNodes().isNotEmpty() }
+            assertTrue("Background clears Cookbook detail", !present("dish-display") && !present("menu-search") && !present("nav-menu"))
         } finally {
             diagnostics?.close();diagnostics=null
             ui.activityRule.scenario.close()

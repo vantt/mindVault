@@ -83,7 +83,7 @@ class ManualVisualPhysicalTest {
                 val marker = File(directory, "manual-shortcut-observed.json")
                 assertTrue("Fresh UUID checkpoint has no completion marker", !marker.exists())
                 hideTimerIme(activity, proof::environment)
-                ui.onNodeWithTag("dish-reveal").performScrollTo().assertIsDisplayed()
+                ui.onNodeWithTag("dish-reveal").scrollIfAble().assertIsDisplayed()
                 ui.onNodeWithTag("dish-display").assertIsDisplayed().assertTextEquals("••••••••")
                 ui.onNodeWithTag("dish-copy").assertIsEnabled()
                 proof.environment()

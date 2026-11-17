@@ -102,9 +102,9 @@ class VietnamesePasswordAccessibilityPhysicalTest {
             ui.waitForIdle(); guards.foreground()
             if (ui.onAllNodesWithText("VI").fetchSemanticsNodes().isNotEmpty()) ui.onNodeWithText("VI").performClick()
             ui.waitForIdle()
-            ui.onNodeWithText("PassChef — Cookbook riêng").assertExists()
+            ui.onNodeWithText("Tạo mật khẩu chính").assertExists()
             val label = "Mật khẩu chính"
-            ui.onNode(hasSetTextAction() and hasText(label)).performScrollTo()
+            ui.onNode(hasSetTextAction() and hasText(label)).scrollIfAble()
             ui.waitForIdle()
             val deadline = SystemClock.elapsedRealtime() + 10_000
             var accepted = false; var attempts = 0

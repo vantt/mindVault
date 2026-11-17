@@ -69,13 +69,13 @@ class GoogleNetworkUiContinuation(
     }
     private fun click(text: String) {
         assertTrue("Actual own foreground required for network UI action", main(::foreground))
-        ui.onNode(hasClickAction() and hasText(text)).performScrollTo().performClick()
+        ui.onNode(hasClickAction() and hasText(text)).scrollIfAble().performClick()
     }
     private fun unlock(expected: MenuSnapshot) {
         if (main(::ready)) return
         if (ui.onAllNodesWithText("EN").fetchSemanticsNodes().isNotEmpty()) click("EN")
         mark("network-owner-reunlock")
-        click("Open with biometric") // Genuine owner operation; background policy stays intact.
+        RedesignUi.unlockWithFingerprint(ui) // Genuine owner operation; background policy stays intact.
         await { main { foreground(it) && ready(it) } }
         ui.waitForIdle()
         await { main { foreground(it) && ready(it) && !controller(it).sources.busy &&
@@ -86,10 +86,10 @@ class GoogleNetworkUiContinuation(
         val row = saved.entries.single { it.row == 2 }
         val record = File(directory, "cookbook-v1.json")
         val store = MenuSnapshotStore(File(directory, "menus"))
-        click("Menu"); click("Mail-test")
+        RedesignUi.passwords(ui); click("Mail-test")
         await { main { foreground(it) && ready(it) && controller(it).hasDish() && !controller(it).sources.busy } }
-        ui.onNodeWithTag("dish-display").performScrollTo().assertTextEquals("••••••••")
-        ui.onNodeWithTag("dish-copy").performScrollTo().assertIsEnabled()
+        ui.onNodeWithTag("dish-display").scrollIfAble().assertTextEquals("••••••••")
+        ui.onNodeWithTag("dish-copy").scrollIfAble().assertIsEnabled()
         val expected = saved.copy(recent = (listOf(row.id) + saved.recent.filterNot { it == row.id }).take(20))
         assertTrue("Actual cached Cook begins with exact provider origin and durable recent metadata",
             main { controller(it).selected == row && controller(it).sources.snapshots == listOf(expected) } && store.load(row.origin) == expected)
@@ -112,14 +112,14 @@ class GoogleNetworkUiContinuation(
             val retainedGrant = main { activity -> controller(activity).sources.metadata?.let { document ->
                 document.spreadsheetId == row.origin.menuId && document.sheets.any { it.properties.sheetId == row.origin.tabId }
             } == true }
-            click("Sources")
+            RedesignUi.openPasteLink(ui)
             if (retainedGrant) {
                 mark("network-real-retained-grant-read")
                 click(row.origin.title) // Actual existing provider tab action, never a direct/injected grant.
             } else {
                 mark("network-real-reconnect")
-                ui.onNodeWithTag("source-id").performScrollTo().performTextReplacement(row.origin.menuId)
-                click("Connect / load tabs") // SDK may reacquire a usable cached grant or fail authorization offline.
+                ui.onNodeWithTag("source-id").scrollIfAble().performTextReplacement(row.origin.menuId)
+                RedesignUi.continuePasteLink(ui) // SDK may reacquire a usable cached grant or fail authorization offline.
             }
             await { main { foreground(it) && (!ready(it) || (!controller(it).sources.busy &&
                 controller(it).sources.status in setOf("NETWORK_FAILED", "CONNECT_REQUIRED"))) } }

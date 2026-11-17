@@ -54,12 +54,12 @@ class GoogleCancellationPhysicalTest {
             activeProof = proof
             assertTrue("Genuine synthetic Cook precedes the new Google Connect", state.flags()["hasDish"] == true)
             state.requireReady()
-            ui.onNode(hasClickAction() and hasText("Sources")).performScrollTo().performClick()
-            ui.onNodeWithTag("source-id").performScrollTo().performTextReplacement(url)
+            RedesignUi.openPasteLink(ui)
+            ui.onNodeWithTag("source-id").scrollIfAble().performTextReplacement(url)
             fixture.hideIme()
             report("connect-dispatch", state, proof)
             state.requireReady()
-            ui.onNode(hasClickAction() and hasText("Connect / load tabs")).performScrollTo().performClick()
+            RedesignUi.continuePasteLink(ui)
             val resolutionDeadline = SystemClock.elapsedRealtime() + 30_000
             var external = false
             while (SystemClock.elapsedRealtime() < resolutionDeadline) {

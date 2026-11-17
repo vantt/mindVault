@@ -27,15 +27,15 @@ class GoogleColdProviderUi(private val ui: ComposeTestRule, private val observat
     private val activity = observation.activity
     private fun click(text: String) {
         assertTrue("Actual own foreground required before UI action", observation.foreground())
-        ui.onNode(hasClickAction() and hasText(text)).performScrollTo().performClick()
+        ui.onNode(hasClickAction() and hasText(text)).scrollIfAble().performClick()
     }
     private fun fill(label: String, text: String) {
         assertTrue("Actual own foreground required before input", observation.foreground())
-        ui.onNode(hasSetTextAction() and hasText(label)).performScrollTo().performTextReplacement(text)
+        ui.onNode(hasSetTextAction() and hasText(label)).scrollIfAble().performTextReplacement(text)
     }
     private fun tag(name: String): SemanticsNodeInteraction {
         assertTrue("Actual own foreground required before tagged UI action", observation.foreground())
-        return ui.onNodeWithTag(name).performScrollTo()
+        return ui.onNodeWithTag(name).scrollIfAble()
     }
     fun load(url: String, tabTitle: String): MenuSnapshot {
         val menuId = menuIdFromInput(url)
@@ -51,17 +51,17 @@ class GoogleColdProviderUi(private val ui: ComposeTestRule, private val observat
         for (attempt in 0..1) {
             phase("google-connect-${attempt + 1}")
             assertTrue("Actual network observation is available before Google Connect", googleColdNetwork(activity)["networkReadSucceeded"] == true)
-            click("Sources"); tag("source-id").performTextReplacement(url); click("Connect / load tabs")
+            RedesignUi.openPasteLink(ui); tag("source-id").performTextReplacement(url); RedesignUi.continuePasteLink(ui)
             observation.await { observation.foreground() && timerMain {
                 val source = observation.book().sources
                 !observation.vault().readyForCooking() || (!source.busy &&
-                    (source.metadata != null || source.status in setOf("CONNECT_REQUIRED", "ACCESS_DENIED", "NETWORK_FAILED")))
+                    (source.metadata != null || source.status in setOf("CONNECT_REQUIRED", "NOT_CONNECTED", "ACCESS_DENIED", "NETWORK_FAILED")))
             } }
             connected = timerMain { observation.vault().readyForCooking() && observation.book().sources.metadata != null && !observation.book().sources.busy }
             if (connected) break
             assertTrue("Only one actual background-lock reconnect is allowed", attempt == 0 && observation.foreground() && timerMain { !observation.vault().readyForCooking() })
             phase("google-owner-reunlock")
-            click("Open with biometric")
+            RedesignUi.unlockWithFingerprint(ui)
             observation.await { observation.foreground() && timerMain { observation.vault().readyForCooking() && !observation.book().sources.busy } }
             ui.waitForIdle()
         }
@@ -82,10 +82,10 @@ class GoogleColdProviderUi(private val ui: ComposeTestRule, private val observat
             draft.rows.firstOrNull() == listOf("Label", "Recipe", "Username") &&
                 draft.rows.getOrNull(1) == listOf("Mail-test", "abcd#1", "00123"))
         phase("google-mapping")
-        fill("First data row", "2")
+        fill("Advanced: data starts at row", "2")
         for ((role, column) in listOf("LABEL" to "1", "RECIPE" to "2", "USERNAME" to "3"))
             tag("column-$role").performTextReplacement(column)
-        tag("confirm-columns").performClick()
+        RedesignUi.confirmAndSave(ui)
         observation.await { observation.foreground() && timerMain { observation.vault().readyForCooking() && !observation.book().sources.busy } }
         ui.waitForIdle(); phase("google-cache-committed")
         val saved = timerMain { observation.book().sources.snapshots.single() }

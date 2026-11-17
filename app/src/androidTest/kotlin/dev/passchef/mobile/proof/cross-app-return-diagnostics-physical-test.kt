@@ -101,13 +101,12 @@ class CrossAppReturnDiagnosticsPhysicalTest {
             val fixture = ColdCacheUiFixture(ui, state)
             fixture.setup(); fixture.prepareCache()
             state.requireReady()
-            ui.onNode(hasClickAction() and hasText("Back")).performScrollTo().performClick()
-            ui.onNode(hasClickAction() and hasText(coldEntry.label)).performScrollTo().performClick()
+            RedesignUi.reopenRow(ui, coldEntry.label) { timerMain { state.book().selected == coldEntry } }
             state.await { state.foreground() && timerMain { state.book().hasDish() && !state.book().sources.busy } }
             ui.waitForIdle(); fixture.hideIme()
             assertTrue("Actual Dish is masked before the owner's Copy", ui.onNodeWithTag("dish-display").fetchSemanticsNode()
                 .config[SemanticsProperties.Text].joinToString("") { it.text } == "••••••••")
-            ui.onNodeWithTag("dish-copy").performScrollTo().assertIsEnabled().assertIsDisplayed()
+            ui.onNodeWithTag("dish-copy").scrollIfAble().assertIsEnabled().assertIsDisplayed()
             val baseline = ColdCacheBaseline.create(activity, fixture.snapshot())
             activity.application.registerActivityLifecycleCallbacks(monitor); monitoring = true
             val ownerCopy = OwnerCopyObservation(state); copy = ownerCopy
@@ -168,7 +167,7 @@ class CrossAppReturnDiagnosticsPhysicalTest {
             report("cross-app-replacement-passed")
         } catch (failure: Throwable) {
             runCatching { report("$phase-failed", failed = true) }
-            throw AssertionError("Cross-app clipboard checkpoint failed; safe phase recorded")
+            throw AssertionError("Cross-app clipboard checkpoint failed; safe phase recorded", failure)
         } finally {
             runCatching { copy?.cleanupIfOwned() } // Never clear the replacement from Chrome.
             try { copy?.close() } finally {

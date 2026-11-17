@@ -12,14 +12,14 @@ class GoogleColdCacheUi(private val ui: ComposeTestRule, private val observation
     private val activity = observation.activity
     private fun click(text: String) {
         observation.requireReady()
-        ui.onNode(hasClickAction() and hasText(text)).performScrollTo().performClick()
+        ui.onNode(hasClickAction() and hasText(text)).scrollIfAble().performClick()
     }
     private fun idle() = observation.await { observation.foreground() && timerMain {
         observation.vault().readyForCooking() && !observation.book().sources.busy
     } }
     fun favoriteCook(saved: MenuSnapshot): MenuSnapshot {
         assertTrue("Dedicated provider cache contains only the expected synthetic row", saved.entries == listOf(googleColdEntry(saved.mapping.origin)))
-        click("Menu"); click("Favorite"); idle(); cachedCook(saved.mapping.origin)
+        RedesignUi.passwords(ui); cachedCook(saved.mapping.origin); RedesignUi.favoriteFromDetail(ui); idle()
         val expected = googleColdExpected(saved.mapping.origin, saved.refreshedAt)
         val actual = timerMain { observation.book().sources.snapshots.single() }
         assertTrue("Actual provider cache favorite/recent IDs and disk snapshot are exact", actual == expected &&
@@ -28,10 +28,11 @@ class GoogleColdCacheUi(private val ui: ComposeTestRule, private val observation
     }
     /** Reuse exact cached-Cook assertions without toggling favorite or reopening authentication. */
     fun cookAgain(origin: MenuOrigin) {
-        click("Menu")
+        RedesignUi.passwords(ui)
         cachedCook(origin)
     }
     private fun cachedCook(origin: MenuOrigin) {
+        RedesignUi.passwordsRoot(ui)
         val entry = googleColdEntry(origin)
         click(entry.label)
         observation.await { observation.foreground() && timerMain { observation.vault().readyForCooking() &&
@@ -39,11 +40,11 @@ class GoogleColdCacheUi(private val ui: ComposeTestRule, private val observation
         ui.waitForIdle()
         assertTrue("Actual cached Cook retains exact provider row/origin", timerMain { observation.book().selected == entry })
         ui.onNodeWithText(entry.username).assertExists(); ui.onNodeWithText(entry.recipe).assertExists()
-        ui.onNodeWithText(origin.title + " · 2").assertExists()
-        ui.onNodeWithTag("dish-display").performScrollTo().assertTextEquals("••••••••")
+        ui.onNode(hasText(origin.title + " · row 2", substring = true, ignoreCase = true)).assertExists()
+        ui.onNodeWithTag("dish-display").scrollIfAble().assertTextEquals("••••••••")
         ui.onNodeWithTag("dish-copy").assertIsEnabled()
         ColdCacheUiFixture(ui, observation).hideIme()
-        ui.onNodeWithTag("dish-reveal").performScrollTo().performClick()
+        ui.onNodeWithTag("dish-reveal").scrollIfAble().performClick()
         ui.onNodeWithTag("dish-display").assertTextEquals("aB!*abcd")
         assertTrue("Genuine provider cached Dish is exact and revealed only while ready", observation.foreground() && timerMain {
             observation.vault().readyForCooking() && observation.book().hasDish() && observation.book().revealed &&
@@ -55,7 +56,7 @@ class GoogleColdCacheUi(private val ui: ComposeTestRule, private val observation
         ui.onNodeWithTag("dish-display").assertDoesNotExist(); ui.onNodeWithTag("dish-copy").assertDoesNotExist()
         phase("google-cold-owner-reopen-biometric")
         assertTrue("Actual own locked foreground required before genuine biometric reopen", observation.foreground())
-        ui.onNode(hasClickAction() and hasText("Open with biometric")).performScrollTo().performClick()
+        RedesignUi.unlockWithFingerprint(ui)
         phase("google-cold-biometric-request-dispatched")
         observation.await { observation.foreground() && observation.flags()["ready"] == true }
         ui.waitForIdle()
@@ -67,8 +68,8 @@ class GoogleColdCacheUi(private val ui: ComposeTestRule, private val observation
         assertTrue("Fresh process has no app-usable token or active provider metadata/draft", observation.flags().let {
             it["tokenAbsent"] == true && it["metadataAbsent"] == true && it["draftAbsent"] == true
         })
-        ui.onNodeWithText("Offline cache; Connect to refresh.").assertExists()
-        ui.onNodeWithTag("menu-search").performScrollTo().performTextReplacement("00123")
+// Redesign: OFFLINE is the calm default and has no banner; the state is asserted directly above.
+        RedesignUi.passwordsRoot(ui); ui.onNodeWithTag("menu-search").scrollIfAble().performTextReplacement("00123")
         ui.onNode(hasClickAction() and hasText("Mail-test")).assertExists()
         click("Favorites"); ui.onNode(hasClickAction() and hasText("Mail-test")).assertExists()
         click("Recent"); ui.onNode(hasClickAction() and hasText("Mail-test")).assertExists()

@@ -49,11 +49,11 @@ class GoogleCacheUiContinuation(
     }
     private fun click(text: String) {
         assertTrue("Actual own foreground required for cache UI", main(::foreground))
-        ui.onNode(hasClickAction() and hasText(text)).performScrollTo().performClick()
+        ui.onNode(hasClickAction() and hasText(text)).scrollIfAble().performClick()
     }
     private fun tag(name: String): SemanticsNodeInteraction {
         assertTrue("Actual own foreground required for cache UI", main(::foreground))
-        return ui.onNodeWithTag(name).performScrollTo()
+        return ui.onNodeWithTag(name).scrollIfAble()
     }
     private fun idleReady() = await { main { foreground(it) && ready(it) && !controller(it).sources.busy } }
     private fun locked() {
@@ -72,7 +72,7 @@ class GoogleCacheUiContinuation(
         locked()
         if (ui.onAllNodesWithText("EN").fetchSemanticsNodes().isNotEmpty()) click("EN")
         mark(unlockPhase)
-        click("Open with biometric") // Owner must authorize the genuine device operation.
+        RedesignUi.unlockWithFingerprint(ui) // Owner must authorize the genuine device operation.
         await { main { foreground(it) && ready(it) } }
         mark("$unlockPhase-authenticated")
         ui.waitForIdle() // Normal Compose synchronization publishes the unlock-triggered cache reload.
@@ -87,8 +87,8 @@ class GoogleCacheUiContinuation(
             activity.proofDirectory == directory && source.snapshots == listOf(expected) && source.status == "OFFLINE" &&
                 noToken(activity) && source.metadata == null && source.draft == null
         })
-        ui.onNodeWithText("Offline cache; Connect to refresh.").assertExists()
-        tag("menu-search").performTextReplacement("00123")
+// Redesign: OFFLINE is the calm default and has no banner; the state is asserted directly above.
+        RedesignUi.passwordsRoot(ui); tag("menu-search").performTextReplacement("00123")
         ui.onNode(hasClickAction() and hasText("Mail-test")).assertExists()
         click("Favorites")
         ui.onNode(hasClickAction() and hasText("Mail-test")).assertExists()
@@ -97,12 +97,13 @@ class GoogleCacheUiContinuation(
         click("All")
     }
     private fun cachedCook(entry: MenuEntry) {
+        RedesignUi.passwordsRoot(ui)
         click("Mail-test") // Actual cached row opens and cooks through the guarded production kitchen.
         await { main { foreground(it) && ready(it) && !controller(it).sources.busy && controller(it).hasDish() } }
         assertTrue("Cached Cook retains the exact provider row and context", main { controller(it).selected == entry })
         ui.onNodeWithText(entry.username).assertExists()
         ui.onNodeWithText(entry.recipe).assertExists()
-        ui.onNodeWithText(entry.origin.title + " · " + entry.row).assertExists()
+        ui.onNode(hasText(entry.origin.title + " · row " + entry.row, substring = true, ignoreCase = true)).assertExists()
         tag("dish-display").assertTextEquals("••••••••")
         tag("dish-copy").assertIsEnabled()
         tag("dish-reveal").performClick()
@@ -116,16 +117,16 @@ class GoogleCacheUiContinuation(
         val record = File(directory, "cookbook-v1.json")
         val store = MenuSnapshotStore(File(directory, "menus"))
         mark("cache-ui-favorite-cook")
-        click("Menu")
-        click("Favorite")
-        idleReady()
+        RedesignUi.passwords(ui)
         cachedCook(entry)
+        RedesignUi.favoriteFromDetail(ui) // Favorite moved to the detail screen.
+        idleReady()
         val expected = saved.copy(favorites = saved.favorites + entry.id,
             recent = (listOf(entry.id) + saved.recent.filterNot { it == entry.id }).take(20))
         assertTrue("Favorite and recent retain only the exact provider entry identities",
             main { controller(it).sources.snapshots == listOf(expected) } && store.load(entry.origin) == expected)
         mark("cache-ui-lock-reopen")
-        click("Lock")
+        RedesignUi.lockNow(ui)
         reopen(expected, directory, "cache-ui-owner-reunlock")
         cachedCook(entry)
         mark("cache-ui-authenticated-recreation")

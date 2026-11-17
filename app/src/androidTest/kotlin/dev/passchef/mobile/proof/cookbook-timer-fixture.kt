@@ -69,15 +69,13 @@ class CookbookTimerFixture(private val ui: AndroidComposeTestRule<ActivityScenar
         while (!condition() && SystemClock.elapsedRealtime() < until) Thread.sleep(100)
         assertTrue("Bounded actual timer setup became ready", condition())
     }
-    private fun click(text: String) = ui.onNode(hasClickAction() and hasText(text)).performScrollTo().performClick()
+    private fun click(text: String) = ui.onNode(hasClickAction() and hasText(text)).scrollIfAble().performClick()
     fun setup(name: String) {
         assertTrue("Unique timer proof starts without jars", !file.exists())
         await { main(::foreground) }
         if (ui.onAllNodesWithText("EN").fetchSemanticsNodes().isNotEmpty()) click("EN")
-        ui.onNode(hasSetTextAction() and hasText("Master password")).performScrollTo().performTextReplacement("SYNTHETIC_TIMER_Kitchen_2026")
-        ui.onNode(hasSetTextAction() and hasText("Spice jar 1 (setup only)")).performScrollTo().performTextReplacement("aB!*")
         report("$name-owner-biometric")
-        click("Set up / recover with password") // Genuine owner operation; never an injected session.
+        RedesignUi.setupVault(ui, "SYNTHETIC_TIMER_Kitchen_2026", listOf("aB!*")) // Genuine owner operation; never an injected session.
         await { main { foreground() && vault().readyForCooking() && !vault().busy } }
         ui.waitForIdle()
         assertTrue("Actual timer setup completed the owner biometric round trip", main { vault().status.startsWith("Round trip ready;") } &&
@@ -86,12 +84,12 @@ class CookbookTimerFixture(private val ui: AndroidComposeTestRule<ActivityScenar
         cook()
     }
     fun cook() {
-        environment(); click("Menu"); click("Cook")
-        ui.onNodeWithTag("manual-recipe").performScrollTo().performTextReplacement("abcd#1")
-        ui.onNodeWithTag("manual-cook").performScrollTo().performClick()
+        environment(); RedesignUi.passwords(ui); RedesignUi.enterCode(ui)
+        ui.onNodeWithTag("manual-recipe").scrollIfAble().performTextReplacement("abcd#1")
+        ui.onNodeWithTag("manual-cook").scrollIfAble().performClick()
         await { main { foreground() && vault().readyForCooking() && book().hasDish() } }
         report("$phase-ime-hide"); hideTimerIme(activity, ::environment); ui.waitForIdle()
-        ui.onNodeWithTag("dish-display").performScrollTo().assertTextEquals("••••••••")
+        ui.onNodeWithTag("dish-display").scrollIfAble().assertTextEquals("••••••••")
         ui.onNodeWithTag("dish-copy").assertIsEnabled()
     }
     fun arm(value: TimerClockObservation) { baseline = value; armed = true; environment() }
@@ -99,7 +97,7 @@ class CookbookTimerFixture(private val ui: AndroidComposeTestRule<ActivityScenar
         environment()
         val touchPhase = phase
         report("$touchPhase-pointer-scroll")
-        ui.onNodeWithTag("dish-reveal").performScrollTo(); ui.waitForIdle()
+        ui.onNodeWithTag("dish-reveal").scrollIfAble(); ui.waitForIdle()
         val node = ui.onNodeWithTag("dish-reveal").fetchSemanticsNode()
         report("$touchPhase-pointer-bounds")
         val point = timerWindowPoint(activity, node)
@@ -160,7 +158,7 @@ class CookbookTimerFixture(private val ui: AndroidComposeTestRule<ActivityScenar
             flags["vaultReady"] == false && flags["hasDish"] == false && flags["readyDish"] == false &&
             flags["lifetimePresent"] == false && flags["revealed"] == false && flags["dishNonempty"] == false)
         ui.onNodeWithTag("dish-display").assertDoesNotExist(); ui.onNodeWithTag("dish-copy").assertDoesNotExist()
-        ui.onNode(hasClickAction() and hasText("Open with biometric")).assertExists()
+        ui.onNodeWithTag("unlock-biometric").assertExists()
         assertTrue("Real timer expiry preserves encrypted owned jars", jars.contentEquals(file.readBytes()))
         assertTrue("Actual expiry UI observed within bounded Handler margin", SystemClock.elapsedRealtime().let { it in (expiry + 1_500)..(expiry + 5_000) })
     }

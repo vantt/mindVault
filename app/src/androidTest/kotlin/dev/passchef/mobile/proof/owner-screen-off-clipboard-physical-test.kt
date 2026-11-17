@@ -70,8 +70,7 @@ class OwnerScreenOffClipboardPhysicalTest {
             val fixture = ColdCacheUiFixture(ui, state)
             fixture.setup(); fixture.prepareCache()
             state.requireReady()
-            ui.onNode(hasClickAction() and hasText("Back")).performScrollTo().performClick()
-            ui.onNode(hasClickAction() and hasText(coldEntry.label)).performScrollTo().performClick()
+            RedesignUi.reopenRow(ui, coldEntry.label) { timerMain { state.book().selected == coldEntry } }
             state.await { state.foreground() && timerMain { state.book().hasDish() && !state.book().sources.busy } }
             ui.waitForIdle()
             ui.onNodeWithTag("dish-display").assertTextEquals("••••••••")
@@ -79,7 +78,7 @@ class OwnerScreenOffClipboardPhysicalTest {
             val baseline = ColdCacheBaseline.create(activity, fixture.snapshot())
             activity.application.registerActivityLifecycleCallbacks(monitor); monitoring = true
             state.requireReady()
-            ui.onNodeWithTag("dish-copy").performScrollTo().assertIsEnabled().assertIsDisplayed()
+            ui.onNodeWithTag("dish-copy").scrollIfAble().assertIsEnabled().assertIsDisplayed()
             val ownerCopy = OwnerCopyObservation(state); copy = ownerCopy
             report("owner-copy-then-power-ready")
             val ownerDeadline = SystemClock.elapsedRealtime() + 180_000
@@ -124,7 +123,7 @@ class OwnerScreenOffClipboardPhysicalTest {
             report("owner-screen-off-clipboard-passed")
         } catch (failure: Throwable) {
             runCatching { report("$phase-failed", failed = true) }
-            throw AssertionError("Screen-off clipboard checkpoint failed; safe phase recorded")
+            throw AssertionError("Screen-off clipboard checkpoint failed; safe phase recorded", failure)
         } finally {
             runCatching { copy?.cleanupIfOwned() }
             try { copy?.close() } finally {

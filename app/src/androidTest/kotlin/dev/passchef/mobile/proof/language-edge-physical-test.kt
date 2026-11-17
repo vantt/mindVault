@@ -73,10 +73,10 @@ class LanguageEdgePhysicalTest {
     }
     private fun afterInputDiagnostics(guards: SecurityUiObservation, name: String) {
         val english = runCatching {
-            ui.onAllNodesWithText("PassChef — private Cookbook").fetchSemanticsNodes().isNotEmpty()
+            ui.onAllNodesWithText("Create your master password").fetchSemanticsNodes().isNotEmpty()
         }
         val vietnamese = runCatching {
-            ui.onAllNodesWithText("PassChef — Cookbook riêng").fetchSemanticsNodes().isNotEmpty()
+            ui.onAllNodesWithText("Tạo mật khẩu chính").fetchSemanticsNodes().isNotEmpty()
         }
         report(name, mapOf("actualHeadlineEnglish" to english.getOrDefault(false), "actualHeadlineVietnamese" to vietnamese.getOrDefault(false),
             "headlineReadsSucceeded" to (english.isSuccess && vietnamese.isSuccess),
@@ -92,7 +92,7 @@ class LanguageEdgePhysicalTest {
             var vietnamese = ui.onAllNodes(hasClickAction() and hasText("EN")).fetchSemanticsNodes().isNotEmpty()
             for (sample in 1..2) {
                 val label = if (vietnamese) "EN" else "VI"
-                ui.onNodeWithText(if (vietnamese) "PassChef — Cookbook riêng" else "PassChef — private Cookbook").assertExists()
+                ui.onNodeWithText(if (vietnamese) "Tạo mật khẩu chính" else "Create your master password").assertExists()
                 ui.onNode(hasSetTextAction() and hasText(if (vietnamese) "Mật khẩu chính" else "Master password")).assertIsDisplayed()
                 ui.waitForIdle(); guards.foreground()
                 val node = ui.onNode(hasClickAction() and hasText(label)).fetchSemanticsNode()
@@ -113,7 +113,7 @@ class LanguageEdgePhysicalTest {
                 }
                 ui.waitForIdle(); afterInputDiagnostics(guards, "language-center-$sample-after-input"); guards.foreground()
                 vietnamese = !vietnamese
-                ui.onNodeWithText(if (vietnamese) "PassChef — Cookbook riêng" else "PassChef — private Cookbook").assertExists()
+                ui.onNodeWithText(if (vietnamese) "Tạo mật khẩu chính" else "Create your master password").assertExists()
                 ui.onNode(hasSetTextAction() and hasText(if (vietnamese) "Mật khẩu chính" else "Master password")).assertIsDisplayed()
                 ui.onNode(hasClickAction() and hasText(if (vietnamese) "EN" else "VI")).assertIsDisplayed()
                 report("language-center-$sample-switched", mapOf("localizedHeadlineChanged" to true, "localizedMasterChanged" to true))
@@ -140,7 +140,7 @@ class LanguageEdgePhysicalTest {
             var vietnamese = ui.onAllNodes(hasClickAction() and hasText("EN")).fetchSemanticsNodes().isNotEmpty()
             for (sample in 1..2) {
                 val label = if (vietnamese) "EN" else "VI"
-                ui.onNodeWithText(if (vietnamese) "PassChef — Cookbook riêng" else "PassChef — private Cookbook").assertExists()
+                ui.onNodeWithText(if (vietnamese) "Tạo mật khẩu chính" else "Create your master password").assertExists()
                 ui.onNode(hasSetTextAction() and hasText(if (vietnamese) "Mật khẩu chính" else "Master password")).assertIsDisplayed()
                 ui.waitForIdle(); guards.foreground()
                 val node = ui.onNode(hasClickAction() and hasText(label)).fetchSemanticsNode()
@@ -161,7 +161,7 @@ class LanguageEdgePhysicalTest {
                 }
                 ui.waitForIdle(); afterInputDiagnostics(guards, "language-edge-$sample-after-input"); guards.foreground()
                 vietnamese = !vietnamese
-                ui.onNodeWithText(if (vietnamese) "PassChef — Cookbook riêng" else "PassChef — private Cookbook").assertExists()
+                ui.onNodeWithText(if (vietnamese) "Tạo mật khẩu chính" else "Create your master password").assertExists()
                 ui.onNode(hasSetTextAction() and hasText(if (vietnamese) "Mật khẩu chính" else "Master password")).assertIsDisplayed()
                 ui.onNode(hasClickAction() and hasText(if (vietnamese) "EN" else "VI")).assertIsDisplayed()
                 report("language-edge-$sample-switched", mapOf("localizedHeadlineChanged" to true, "localizedMasterChanged" to true))

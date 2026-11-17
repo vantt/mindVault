@@ -72,7 +72,7 @@ class ScreenOffClipboardPhysicalTest {
             val baseline = ColdCacheBaseline.create(activity, fixture.snapshot())
             activity.application.registerActivityLifecycleCallbacks(monitor); monitoring = true
             state.requireReady(); copyStartedAt = SystemClock.elapsedRealtime()
-            ui.onNodeWithTag("dish-copy").performScrollTo().performClick()
+            ui.onNodeWithTag("dish-copy").scrollIfAble().performClick()
             assertTrue("Actual authenticated UI Copy confirms success", timerMain { state.book().clipboardStatus == "COPIED" })
             assertTrue("Legal focused clipboard read immediately after own Copy", state.foreground())
             timerMain {
@@ -113,7 +113,7 @@ class ScreenOffClipboardPhysicalTest {
             report("screen-off-clipboard-passed")
         } catch (failure: Throwable) {
             runCatching { report("$phase-failed", failed = true) }
-            throw AssertionError("Screen-off clipboard checkpoint failed; safe phase recorded")
+            throw AssertionError("Screen-off clipboard checkpoint failed; safe phase recorded", failure)
         } finally {
             // If still offscreen, legal clipboard cleanup is unavailable; never read or clear blindly.
             runCatching {

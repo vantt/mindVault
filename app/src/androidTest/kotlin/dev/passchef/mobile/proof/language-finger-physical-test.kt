@@ -30,10 +30,10 @@ class LanguageFingerPhysicalTest {
         })
     }
     private fun locale(vietnamese: Boolean) {
-        ui.onNodeWithText(if (vietnamese) "PassChef — Cookbook riêng" else "PassChef — private Cookbook").assertExists()
+        ui.onNodeWithText(if (vietnamese) "Tạo mật khẩu chính" else "Create your master password").assertExists()
         ui.onNode(hasSetTextAction() and hasText(if (vietnamese) "Mật khẩu chính" else "Master password")).assertIsDisplayed()
         ui.onNode(hasClickAction() and hasText(if (vietnamese) "EN" else "VI")).assertIsDisplayed()
-        ui.onNodeWithText(if (vietnamese) "PassChef — private Cookbook" else "PassChef — Cookbook riêng").assertDoesNotExist()
+        ui.onNodeWithText(if (vietnamese) "Create your master password" else "Tạo mật khẩu chính").assertDoesNotExist()
     }
     @Test fun pairedUnknownAndFingerExpandedEdgePointersSwitchOnlyForFinger() {
         val activity = ui.activity
@@ -51,7 +51,7 @@ class LanguageFingerPhysicalTest {
                     ui.waitForIdle(); guards.foreground(); locale(vietnamese)
                     val node = ui.onNode(hasClickAction() and hasText(if (vietnamese) "EN" else "VI")).fetchSemanticsNode()
                     val point = languagePointerPoint(activity, node)
-                    assertTrue("Both variants require the same guarded expanded midpoint", point.flags.values.all { it })
+                                        assertTrue("Both variants require the same guarded expanded midpoint", point.flags.values.all { it })
                     if (baseline == null) baseline = point
                     assertTrue("Paired variants keep exact same-language geometry", point == baseline)
                     report("language-$sample-$kind-point", point.flags + mapOf("pairedGeometryUnchanged" to true))

@@ -104,25 +104,27 @@ class AuthenticatedSecurityUiPhysicalTest {
                     val language = if (vietnamese) "vi" else "en"
                     report("$language-authenticated-ui")
                     if (vietnamese) {
-                        ui.onNodeWithText("VI").performClick()
+                        RedesignUi.language(ui, vietnamese = true) // D10: language moved to Settings
                         ui.waitForIdle()
                         ui.onNodeWithTag("dish-display").assertDoesNotExist()
                         ui.onNodeWithTag("dish-copy").assertDoesNotExist()
-                        ui.onNode(hasSetTextAction() and hasText("Dán Recipe")).assertExists()
-                        ui.onNode(hasClickAction() and hasText("Nấu Dish")).performScrollTo().performClick()
+                        RedesignUi.enterCode(ui)
+                        ui.onNode(hasSetTextAction() and hasText("Mã đã ghi, ví dụ rand0m\$1")).assertExists()
+                        ui.onNodeWithTag("manual-recipe").performTextReplacement("abcd#1") // tab switch dropped the typed code
+                        ui.onNodeWithTag("manual-cook").scrollIfAble().performClick()
                         ui.waitUntil(10_000) { timerMain { book().hasDish() } }
                     }
                     ready(proof)
                     ui.onNodeWithTag("manual-recipe").assert(SemanticsMatcher.keyIsDefined(SemanticsProperties.EditableText))
-                    ui.onNodeWithTag("dish-display").performScrollTo().assertTextEquals("••••••••")
+                    ui.onNodeWithTag("dish-display").scrollIfAble().assertTextEquals("••••••••")
                     ui.onNodeWithTag("dish-copy").assertIsEnabled()
-                    ui.onNodeWithTag("dish-reveal").assertTextEquals(if (vietnamese) "Hiện trong 10 giây" else "Reveal for 10 seconds")
-                    ui.onNodeWithTag("dish-reveal").performScrollTo().performClick()
+                    ui.onNodeWithTag("dish-reveal").assertTextEquals(if (vietnamese) "Hiện 10 giây" else "Show 10 s")
+                    ui.onNodeWithTag("dish-reveal").scrollIfAble().performClick()
                     ui.onNodeWithTag("dish-display").assertTextEquals("aB!*abcd")
                     assertTrue("Real explicit reveal is active before secure display capture", timerMain { book().revealed })
                     hideTimerIme(ui.activity) { proof.environment() }
                     ui.waitForIdle()
-                    ui.onNodeWithTag("dish-display").performScrollTo().assertIsDisplayed()
+                    ui.onNodeWithTag("dish-display").scrollIfAble().assertIsDisplayed()
                     ui.waitForIdle()
                     report("$language-authenticated-revealed-capture")
                     capture(proof)

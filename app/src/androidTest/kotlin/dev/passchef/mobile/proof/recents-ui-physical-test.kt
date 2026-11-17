@@ -101,7 +101,7 @@ class RecentsUiPhysicalTest {
                 activity.application.registerActivityLifecycleCallbacks(monitor)
                 try {
                     hideTimerIme(activity, proof::environment)
-                    ui.onNodeWithTag("dish-reveal").performScrollTo().performClick()
+                    ui.onNodeWithTag("dish-reveal").scrollIfAble().performClick()
                     ui.onNodeWithTag("dish-display").assertTextEquals("aB!*abcd")
                     assertTrue("Exact synthetic Dish is genuinely revealed before the owner checkpoint", timerMain {
                         val flags = CookbookUiDiagnostics.stateFlags(activity)
@@ -124,7 +124,7 @@ class RecentsUiPhysicalTest {
                     ui.onNodeWithTag("dish-copy").assertDoesNotExist()
                     assertTrue("Owner Recents round trip preserves encrypted owned jars", original.contentEquals(file.readBytes()))
                     report("recents-owner-reopen-biometric", activity)
-                    ui.onNode(hasClickAction() and hasText("Open with biometric")).performScrollTo().performClick()
+                    RedesignUi.unlockWithFingerprint(ui)
                     await { timerMain { foreground(activity) && CookbookUiDiagnostics.stateFlags(activity)["vaultReady"] == true } }
                     ui.waitForIdle()
                     proof.cook()

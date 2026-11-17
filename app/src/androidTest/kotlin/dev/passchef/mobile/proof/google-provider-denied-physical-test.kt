@@ -62,10 +62,10 @@ class GoogleProviderDeniedPhysicalTest {
             assertTrue("Genuine provider cached Cook precedes refusal", state.flags()["hasDish"] == true)
             report("provider-baseline-frozen")
             state.requireReady()
-            ui.onNode(hasClickAction() and hasText("Sources")).performScrollTo().performClick()
-            ui.onNodeWithTag("source-id").performScrollTo().performTextReplacement(url)
+            RedesignUi.openPasteLink(ui)
+            ui.onNodeWithTag("source-id").scrollIfAble().performTextReplacement(url)
             fixture.hideIme(); state.requireReady(); report("connect-dispatch")
-            ui.onNode(hasClickAction() and hasText("Connect / load tabs")).performScrollTo().performClick()
+            RedesignUi.continuePasteLink(ui)
             val deadline = SystemClock.elapsedRealtime() + 180_000
             var terminal = false
             while (SystemClock.elapsedRealtime() < deadline) {
@@ -83,7 +83,7 @@ class GoogleProviderDeniedPhysicalTest {
                 assumeTrue("Actual HTTP403 remains Pending; SDK/cancel/stale/other provider outcomes are distinct", false)
             }
             proof!!.assertDenied()
-            ui.onNodeWithText("This Google account cannot access this Menu.").assertExists()
+            ui.onNodeWithText(RedesignUi.message("ACCESS_DENIED")).assertExists()
             report("provider-http403-preservation-passed")
             cacheUi.cookAgain(cached.mapping.origin)
             proof!!.assertFreshCook()

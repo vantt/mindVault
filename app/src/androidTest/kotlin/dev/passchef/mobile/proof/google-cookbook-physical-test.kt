@@ -45,15 +45,15 @@ class GoogleCookbookPhysicalTest {
     }
     private fun click(text: String) {
         assertTrue("Actual own foreground required before UI action", main(::ownUi))
-        ui.onNode(hasClickAction() and hasText(text)).performScrollTo().performClick()
+        ui.onNode(hasClickAction() and hasText(text)).scrollIfAble().performClick()
     }
     private fun fill(label: String, text: String) {
         assertTrue("Actual own foreground required before input", main(::ownUi))
-        ui.onNode(hasSetTextAction() and hasText(label)).performScrollTo().performTextReplacement(text)
+        ui.onNode(hasSetTextAction() and hasText(label)).scrollIfAble().performTextReplacement(text)
     }
     private fun tag(name: String): SemanticsNodeInteraction {
         assertTrue("Actual own foreground required before tagged UI action", main(::ownUi))
-        return ui.onNodeWithTag(name).performScrollTo()
+        return ui.onNodeWithTag(name).scrollIfAble()
     }
     private fun report(passed: Boolean, failure: Throwable? = null) {
         val flags = runCatching { main { activity ->
@@ -85,27 +85,25 @@ class GoogleCookbookPhysicalTest {
             assertTrue("Proof starts with no cached Menu", main { sources(it).snapshots.isEmpty() })
             phase = "setup"; await { main(::ownUi) }
             if (ui.onAllNodesWithText("EN").fetchSemanticsNodes().isNotEmpty()) click("EN")
-            fill("Master password", "SYNTHETIC_GOOGLE_Kitchen_2026")
-            fill("Spice jar 1 (setup only)", "aB!*")
-            click("Set up / recover with password") // Owner authorizes the actual per-operation biometric.
+            RedesignUi.setupVault(ui, "SYNTHETIC_GOOGLE_Kitchen_2026", listOf("aB!*")) // Owner authorizes the actual per-operation biometric.
             await { main { ownUi(it) && ready(it) && !sources(it).busy } }
             val encryptedJars = recordFile.readBytes()
             var connected = false
             for (attempt in 0..1) {
                 phase = "connect-${attempt + 1}"
-                click("Sources")
+                RedesignUi.openPasteLink(ui)
                 tag("source-id").performTextReplacement(url)
-                click("Connect / load tabs") // Real AuthorizationClient and Android Sheets engine only.
+                RedesignUi.continuePasteLink(ui) // Real AuthorizationClient and Android Sheets engine only.
                 await { main { activity ->
                     val source = sources(activity)
                     ownUi(activity) && (!ready(activity) || (!source.busy &&
-                        (source.metadata != null || source.status in setOf("CONNECT_REQUIRED", "ACCESS_DENIED", "NETWORK_FAILED"))))
+                        (source.metadata != null || source.status in setOf("CONNECT_REQUIRED", "NOT_CONNECTED", "ACCESS_DENIED", "NETWORK_FAILED"))))
                 } }
                 connected = main { ready(it) && sources(it).metadata != null && !sources(it).busy }
                 if (connected) break
                 assertTrue("Only one actual background-lock reconnect is allowed", attempt == 0 && main { ownUi(it) && !ready(it) })
                 phase = "owner-reunlock"
-                click("Open with biometric") // Normal UI; owner must authorize, never a synthetic session.
+                RedesignUi.unlockWithFingerprint(ui) // Normal UI; owner must authorize, never a synthetic session.
                 await { main { ownUi(it) && ready(it) && !sources(it).busy } }
             }
             assertTrue("Real usable Google authorization and metadata read required", connected)
@@ -138,10 +136,10 @@ class GoogleCookbookPhysicalTest {
                 draft.rows.firstOrNull() == listOf("Label", "Recipe", "Username") &&
                     draft.rows.getOrNull(1) == listOf("Mail-test", "abcd#1", "00123"))
             phase = "mapping"
-            fill("First data row", "2")
+            fill("Advanced: data starts at row", "2")
             for ((role, column) in listOf("LABEL" to "1", "RECIPE" to "2", "USERNAME" to "3"))
                 tag("column-$role").performTextReplacement(column)
-            tag("confirm-columns").performClick()
+            RedesignUi.confirmAndSave(ui)
             await { main { ownUi(it) && ready(it) && !sources(it).busy } }
             phase = "cache"
             val saved = main { sources(it).snapshots.single() }
