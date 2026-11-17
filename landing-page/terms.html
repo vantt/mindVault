@@ -5,20 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="PassChef Terms local draft: Recipe cooking, Cookbook protection, sharing, recovery and responsibility. Publisher and legal approval pending.">
     <meta name="author" content="PassChef">
-    <meta name="theme-color" content="#00FF41">
+    <meta name="theme-color" content="#0e0e10">
 
     <title>Terms of Service - PassChef</title>
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Local fonts are declared in styles.css; see assets/fonts/provenance.json. -->
 
     <!-- Styles -->
     <link rel="stylesheet" href="styles.css">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
+    <link rel="icon" type="image/png" sizes="128x128" href="./assets/passchef-mark.png">
 
     <style>
         /* Legal page-specific styles (same as privacy.html) */
@@ -50,7 +47,7 @@
         .legal-title {
             font-family: var(--font-heading);
             font-size: clamp(var(--text-3xl), 4vw, var(--text-5xl));
-            font-weight: 700;
+            font-weight: 400;
             line-height: 1.2;
             letter-spacing: -0.02em;
             margin-bottom: var(--space-4);
@@ -71,15 +68,15 @@
         }
 
         .legal-summary-box {
-            background: rgba(var(--color-primary-rgb), 0.05);
-            border: 1px solid rgba(var(--color-primary-rgb), 0.2);
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-secondary);
             border-radius: var(--radius-xl);
             padding: var(--space-8);
             margin-bottom: var(--space-12);
         }
 
         .legal-summary-box h3 {
-            font-family: var(--font-heading);
+            font-family: var(--font-body);
             font-size: var(--text-lg);
             font-weight: 600;
             color: var(--color-primary);
@@ -119,7 +116,7 @@
         .legal-section h2 {
             font-family: var(--font-heading);
             font-size: var(--text-2xl);
-            font-weight: 700;
+            font-weight: 400;
             color: var(--text-primary);
             margin-bottom: var(--space-6);
             padding-bottom: var(--space-3);
@@ -127,7 +124,7 @@
         }
 
         .legal-section h3 {
-            font-family: var(--font-heading);
+            font-family: var(--font-body);
             font-size: var(--text-lg);
             font-weight: 600;
             color: var(--text-primary);
@@ -215,7 +212,7 @@
             border-radius: var(--radius-xl);
             padding: var(--space-8);
             margin-top: var(--space-6);
-            backdrop-filter: blur(10px);
+            backdrop-filter: none;
         }
 
         .warranty-card p {
@@ -236,7 +233,7 @@
         }
 
         .contact-card h3 {
-            font-family: var(--font-heading);
+            font-family: var(--font-body);
             font-size: var(--text-xl);
             font-weight: 600;
             margin-bottom: var(--space-3);
@@ -268,12 +265,8 @@
     <nav class="nav scrolled" id="nav">
         <div class="nav-container">
             <a href="index.html" class="nav-logo">
-                <svg class="nav-logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="2" y="2" width="28" height="28" rx="6" stroke="currentColor" stroke-width="2"/>
-                    <path d="M16 8V24M10 16H22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                    <circle cx="16" cy="16" r="4" stroke="currentColor" stroke-width="2"/>
-                </svg>
-                <span>PassChef</span>
+                <img class="nav-logo-icon" src="./assets/passchef-mark.png" width="32" height="32" alt="">
+                <span class="brand-wordmark"><span class="brand-pass">Pass</span><span>Chef</span><span class="brand-dot" aria-hidden="true">.</span></span>
             </a>
             <div class="nav-links">
                 <a href="index.html#core-concept" class="nav-link">How It Works</a>
@@ -410,7 +403,7 @@
                 <div class="legal-section">
                     <h2>8. Google and other third parties</h2>
                     <p>Google Sheets hosts your Menu; the browser extension reads selected Recipe content through page DOM access on its fixed host scope. Chrome Sync may transmit encrypted profiles and readable metadata under browser settings. Google services are subject to <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a> and applicable Google terms.</p>
-                    <p>Google interface/API changes, browser policy, network conditions and storage quotas may affect operation. A public Menu can disclose account labels and patterns; a visible Tag can help test weak Spice guesses. Keep sensitive Menus private. The separate website also uses hosting and font providers as described in the <a href="privacy.html">Privacy draft</a>.</p>
+                    <p>Google interface/API changes, browser policy, network conditions and storage quotas may affect operation. A public Menu can disclose account labels and patterns; a visible Tag can help test weak Spice guesses. Keep sensitive Menus private. The separate website serves its current font files from the same website host; hosting can receive request metadata as described in the <a href="privacy.html">Privacy draft</a>.</p>
                 </div>
                 <div class="legal-section">
                     <h2>9. Changes, removal and data controls</h2>
@@ -441,12 +434,8 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <a href="index.html" class="footer-logo">
-                        <svg class="footer-logo-icon" viewBox="0 0 32 32" fill="none">
-                            <rect x="2" y="2" width="28" height="28" rx="6" stroke="currentColor" stroke-width="2"/>
-                            <path d="M16 8V24M10 16H22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                            <circle cx="16" cy="16" r="4" stroke="currentColor" stroke-width="2"/>
-                        </svg>
-                        <span>PassChef</span>
+                        <img class="footer-logo-icon" src="./assets/passchef-mark.png" width="32" height="32" alt="">
+                <span class="brand-wordmark"><span class="brand-pass">Pass</span><span>Chef</span><span class="brand-dot" aria-hidden="true">.</span></span>
                     </a>
                     <p class="footer-tagline">
                         Turn Google Sheets into a secure password manager.

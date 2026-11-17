@@ -13,6 +13,9 @@
     const navToggle = document.getElementById('nav-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
     const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link, .mobile-menu-cta');
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    navToggle.setAttribute('aria-controls', mobileMenu.id);
+    navToggle.setAttribute('aria-expanded', String(mobileMenu.classList.contains('active')));
 
     // ================================================
     // Navigation Scroll Effect
@@ -61,12 +64,14 @@
     function openMobileMenu() {
         mobileMenu.classList.add('active');
         navToggle.classList.add('active');
+        navToggle.setAttribute('aria-expanded', 'true');
         document.body.style.overflow = 'hidden';
     }
 
     function closeMobileMenu() {
         mobileMenu.classList.remove('active');
         navToggle.classList.remove('active');
+        navToggle.setAttribute('aria-expanded', 'false');
         document.body.style.overflow = '';
     }
 
@@ -168,6 +173,10 @@
     const bgGlows = document.querySelectorAll('.bg-glow');
 
     function updateParallax() {
+        if (prefersReducedMotion.matches) {
+            bgGlows.forEach(glow => { glow.style.transform = 'none'; });
+            return;
+        }
         const scrollY = window.scrollY;
         const windowHeight = window.innerHeight;
         const scrollPercent = scrollY / windowHeight;
@@ -178,6 +187,13 @@
             glow.style.transform = `translateY(${translateY}px)`;
         });
     }
+
+    if (typeof prefersReducedMotion.addEventListener === 'function') {
+        prefersReducedMotion.addEventListener('change', updateParallax);
+    } else if (typeof prefersReducedMotion.addListener === 'function') {
+        prefersReducedMotion.addListener(updateParallax);
+    }
+    updateParallax();
 
     // Throttle parallax updates
     let parallaxTicking = false;
@@ -240,8 +256,6 @@
     // ================================================
     // Reduced Motion Check
     // ================================================
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-
     if (prefersReducedMotion.matches) {
         // Disable animations
         document.querySelectorAll('[data-aos]').forEach(el => {
@@ -557,10 +571,14 @@
     function initFAQ() {
         const faqItems = document.querySelectorAll('.faq-item');
 
-        faqItems.forEach(item => {
+        faqItems.forEach((item, index) => {
             const question = item.querySelector('.faq-question');
+            const answer = item.querySelector('.faq-answer');
 
-            if (question) {
+            if (question && answer) {
+                answer.id = answer.id || `faq-answer-${index + 1}`;
+                question.setAttribute('aria-controls', answer.id);
+                question.setAttribute('aria-expanded', String(item.classList.contains('active')));
                 question.addEventListener('click', () => {
                     const isActive = item.classList.contains('active');
 
@@ -568,11 +586,13 @@
                     faqItems.forEach(otherItem => {
                         if (otherItem !== item) {
                             otherItem.classList.remove('active');
+                            otherItem.querySelector('.faq-question')?.setAttribute('aria-expanded', 'false');
                         }
                     });
 
                     // Toggle current item
                     item.classList.toggle('active', !isActive);
+                    question.setAttribute('aria-expanded', String(!isActive));
                 });
             }
         });

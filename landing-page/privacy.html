@@ -5,20 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="PassChef Privacy draft: encrypted Cookbook, Chrome Sync metadata, permissions, clipboard, sharing and retention limits. Approval pending.">
     <meta name="author" content="PassChef">
-    <meta name="theme-color" content="#00FF41">
+    <meta name="theme-color" content="#0e0e10">
 
     <title>Privacy Policy - PassChef</title>
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Local fonts are declared in styles.css; see assets/fonts/provenance.json. -->
 
     <!-- Styles -->
     <link rel="stylesheet" href="styles.css">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
+    <link rel="icon" type="image/png" sizes="128x128" href="./assets/passchef-mark.png">
 
     <style>
         /* Legal page-specific styles */
@@ -50,7 +47,7 @@
         .legal-title {
             font-family: var(--font-heading);
             font-size: clamp(var(--text-3xl), 4vw, var(--text-5xl));
-            font-weight: 700;
+            font-weight: 400;
             line-height: 1.2;
             letter-spacing: -0.02em;
             margin-bottom: var(--space-4);
@@ -71,15 +68,15 @@
         }
 
         .legal-summary-box {
-            background: rgba(var(--color-primary-rgb), 0.05);
-            border: 1px solid rgba(var(--color-primary-rgb), 0.2);
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-secondary);
             border-radius: var(--radius-xl);
             padding: var(--space-8);
             margin-bottom: var(--space-12);
         }
 
         .legal-summary-box h3 {
-            font-family: var(--font-heading);
+            font-family: var(--font-body);
             font-size: var(--text-lg);
             font-weight: 600;
             color: var(--color-primary);
@@ -119,7 +116,7 @@
         .legal-section h2 {
             font-family: var(--font-heading);
             font-size: var(--text-2xl);
-            font-weight: 700;
+            font-weight: 400;
             color: var(--text-primary);
             margin-bottom: var(--space-6);
             padding-bottom: var(--space-3);
@@ -127,7 +124,7 @@
         }
 
         .legal-section h3 {
-            font-family: var(--font-heading);
+            font-family: var(--font-body);
             font-size: var(--text-lg);
             font-weight: 600;
             color: var(--text-primary);
@@ -179,7 +176,7 @@
             border-radius: var(--radius-xl);
             padding: var(--space-6);
             margin-bottom: var(--space-4);
-            backdrop-filter: blur(10px);
+            backdrop-filter: none;
             transition: border-color var(--transition-fast);
         }
 
@@ -197,7 +194,7 @@
         .permission-name {
             font-family: var(--font-mono);
             font-size: var(--text-sm);
-            font-weight: 600;
+            font-weight: 500;
             color: var(--color-primary);
             background: rgba(var(--color-primary-rgb), 0.1);
             padding: var(--space-1) var(--space-3);
@@ -237,7 +234,7 @@
         }
 
         .contact-card h3 {
-            font-family: var(--font-heading);
+            font-family: var(--font-body);
             font-size: var(--text-xl);
             font-weight: 600;
             margin-bottom: var(--space-3);
@@ -269,12 +266,8 @@
     <nav class="nav scrolled" id="nav">
         <div class="nav-container">
             <a href="index.html" class="nav-logo">
-                <svg class="nav-logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="2" y="2" width="28" height="28" rx="6" stroke="currentColor" stroke-width="2"/>
-                    <path d="M16 8V24M10 16H22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                    <circle cx="16" cy="16" r="4" stroke="currentColor" stroke-width="2"/>
-                </svg>
-                <span>PassChef</span>
+                <img class="nav-logo-icon" src="./assets/passchef-mark.png" width="32" height="32" alt="">
+                <span class="brand-wordmark"><span class="brand-pass">Pass</span><span>Chef</span><span class="brand-dot" aria-hidden="true">.</span></span>
             </a>
             <div class="nav-links">
                 <a href="index.html#core-concept" class="nav-link">How It Works</a>
@@ -355,7 +348,7 @@
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M20 6L9 17l-5-5"/>
                         </svg>
-                        <span>No developer telemetry client in inspected extension source; website hosting/fonts have separate request metadata.</span>
+                        <span>No developer telemetry client in inspected extension source; website fonts are served by the same website host, which can receive request metadata.</span>
                     </div>
                     <div class="legal-summary-item">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -426,8 +419,8 @@
                 <div class="legal-section">
                     <h2>7. Third parties, fonts and website hosting</h2>
                     <p>Google provides the browser, your Menu and optional Chrome Sync. Their services can process account/network metadata under <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>. The extension has no developer-operated password backend, analytics or remote error-reporting client in the inspected source. Local processing is still data handling.</p>
-                    <p>The extension's popup and Options pages load bundled styles/tokens.css, which imports a Google Fonts stylesheet. When these external styles/fonts load, Google can receive ordinary request metadata such as IP address and browser request headers. This is a source finding; actual requests and the final artifact's network behavior still need verification. These font resources are separate from the bundled executable JavaScript and WASM.</p>
-                    <p>This website is separate from the bundled extension. Its pages also request external Google Fonts, whose provider receives ordinary request metadata. Website hosting can receive IP addresses and request logs. The owner selected passchef.com and Cloudflare, but domain ownership, the deployed service, provider log retention, cookies and final live configuration remain unverified. Those website disclosures must be completed before publication; no universal website “no tracking/no data” claim is made.</p>
+                    <p>The current extension source bundles its fonts with the extension. Its popup, Options and demo use those bundled font files and do not require requests to Google Fonts for typography. This is a finding about the current source; font loading in the final artifact still needs verification. Other Google services and Chrome Sync can still process ordinary account or network metadata as described above.</p>
+                    <p>This website is separate from the bundled extension and serves its bundled fonts from the same host as its pages. Its current font setup does not require requests to Google Fonts. Website hosting can receive IP addresses and request logs. The owner reports managing passchef.com in Cloudflare; account/project access, the deployed service, provider log retention, cookies, contacts and final live configuration remain unverified. Publication is held until cross-platform UI alignment and the remaining website disclosures are completed; no universal website “no tracking/no data” claim is made.</p>
                 </div>
                 <div class="legal-section">
                     <h2>8. Data use and privacy rights</h2>
@@ -458,12 +451,8 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <a href="index.html" class="footer-logo">
-                        <svg class="footer-logo-icon" viewBox="0 0 32 32" fill="none">
-                            <rect x="2" y="2" width="28" height="28" rx="6" stroke="currentColor" stroke-width="2"/>
-                            <path d="M16 8V24M10 16H22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                            <circle cx="16" cy="16" r="4" stroke="currentColor" stroke-width="2"/>
-                        </svg>
-                        <span>PassChef</span>
+                        <img class="footer-logo-icon" src="./assets/passchef-mark.png" width="32" height="32" alt="">
+                <span class="brand-wordmark"><span class="brand-pass">Pass</span><span>Chef</span><span class="brand-dot" aria-hidden="true">.</span></span>
                     </a>
                     <p class="footer-tagline">
                         Turn Google Sheets into a secure password manager.

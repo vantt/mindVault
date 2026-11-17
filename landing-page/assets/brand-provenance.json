@@ -1,0 +1,50 @@
+{
+  "purpose": "PassChef website brand assets; original legacy icon exception plus Precision wordmark/card",
+  "originalMark": {
+    "source": "chrome-extension/src/assets/icon-128.png",
+    "copy": "passchef-mark.png",
+    "sha256": "b0d51f0ee397ed78c817c707089ea146abce4f0e046418fb234410d6d4eb5710",
+    "transformation": "none; byte-identical original PNG"
+  },
+  "favicon": {
+    "file": "favicon.svg",
+    "method": "SVG wrapper embeds exact original PNG bytes; no redraw",
+    "sha256": "0534ca5cbed3104c934bb21900f0448c542d66a9c36378c013670d829d838915"
+  },
+  "openGraph": {
+    "source": "og-image.svg",
+    "raster": "og-image.png",
+    "width": 1200,
+    "height": 630,
+    "sourceSha256": "d27dea799b7a0a22d0ae6fc321bc24d96f353cfd97faf86d76fa20728d38adc4",
+    "pngSha256": "fc0e27978b1517b08d7c8dbd75aec6050cf2e92aab0de067ddc34ab940e8d7b9",
+    "text": "PassChef. Your Recipes. Your Spices. Cook on demand.",
+    "fonts": [
+      {
+        "file": "fonts/fraunces-regular.ttf",
+        "family": "Fraunces",
+        "weight": 400,
+        "role": "wordmark/static Recipe heading",
+        "sha256": "177ff6c0f14e5550a3c624247cd1189611d4eb65d000b14944c63d967958abbb"
+      },
+      {
+        "file": "fonts/fraunces-italic.ttf",
+        "family": "Fraunces Italic",
+        "weight": 400,
+        "role": "static Spices heading",
+        "sha256": "b24448c43702fac4ee856781d461a0dfba8d8e594b6e8e190234b75fed2c0e01"
+      },
+      {
+        "file": "fonts/geist.ttf",
+        "family": "Geist",
+        "weight": 400,
+        "role": "Cook on demand",
+        "sha256": "73894e0448cae90a92b6c2f8732b7bb9acb7b94c418bff559dad4a18e1de9659"
+      }
+    ],
+    "textDelivery": "Pango/Cairo glyph outlines; SVG has no external font or image dependency",
+    "rasterization": "FFmpeg librsvg, single frame; unmodified original mark embedded in source composition"
+  },
+  "fontSourcesAndLicenses": "fonts/provenance.json; fonts/fraunces-ofl.txt and fonts/geist-ofl.txt; original unmodified font files and notices retained",
+  "scope": "Local source asset preparation; no browser/social-provider rendering or publication approval"
+}
