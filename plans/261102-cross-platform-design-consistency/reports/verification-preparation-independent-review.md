@@ -1,0 +1,15 @@
+# V01 — independent local consolidation review
+
+Date:2026-11-02. **Passed — local consolidation only.** No actionable finding. V01 may close after root rollup;V02 integrated acceptance remains Pending.
+
+Reviewed [matrix](verification.md),[tester report](verification-preparation-checks.md),[Phase05](../phase-05-verification.md) and actual ignored `v01-tester-consolidation/verification.json`. Rehashed author matrix `105f4335de15ba0e91e321fe62eaf826e785e11c1f4019852b1bb2bde4fc85cf` (79lines),Phase05 `81cb384d13d4e9d9fbc5b192179f8c6c39617719e3b81da6ba5decb6d2d81ad4` and tester receipt `2732e396eae1506069b3870a879277967c902500bc630ab0c9e716ebb4869c26`. Existing per-slice independent reviews remain their bounded evidence;no product re-audit or suite replay.
+
+- Matrix correctly separates historical source/build/package checks from current runtime acceptance. Tester receipt records37resolving local link occurrences,11printed identities,397inputs/17helpers,current83-file c11e ZIP and113native sources/two retained M04APKs. Current151unit/67package outcomes and distinct36author/32tester offline groups are represented accurately;they are not new runs or browser/device results.
+- Four native build receipts retain10JVMtests each,zero failures/errors/skips;compilation is explicitly separate from instrumentation. Font cmap/NFD gaps,explicit Fraunces400,opaque contrast math and historical failed candidates retain practical limits. Prior B05 runtime cannot establish redesigned-source acceptance.
+- Prepared desktop totals13/3/7 include separate canaries. All three finite batches share one absolute15min start/deadline;cleanup at12min and last-cell cutoff11min15s do not renew between batches. Insufficient budget stays NotRun/Partial. Fresh exclusive owner slot **or** separately authorized demonstrated isolation is the correct boundary;A21/OS isolation remains Unverified.
+- Phone uses a separate fresh15min only after desktop return. Owner biometric/native credential/visual readiness,canonical synthetic Copy clipboard scope and any needed APK update require their specific fresh authorization. No installation,CUA authentication,owner-data wipe or FLAG_SECURE bypass is inferred. Root cleanup/refreeze/desktop return remains mandatory.
+- Tester closure records original46catalog IDs,46canonical files and79-line master intact;runtime directory absent. Local consolidation creates no lease or runtime permission. Deployment remains owner-held;native/rendered fonts/visual journeys/owner verdict and broader provider/platform/release cells remain Pending.
+
+Review activity:document/raw-receipt inspection and three SHA256 checks only;no product/helper/manifest edits,GUI,network,process/device launch,build,package or test replay. Root owns final plan/status rollup;no additional bookkeeping review loop required.
+
+Unresolved:V02 source-bound integrated runtime/owner acceptance;fresh scoped desktop then phone resources;actual cleanup proofs;A21/isolation and release/deployment prerequisites.

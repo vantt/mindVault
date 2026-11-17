@@ -1,0 +1,590 @@
+<!doctype html>
+<html lang="en" data-lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>First Screen Options</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;1,9..144,400&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap&subset=vietnamese" rel="stylesheet">
+<style>
+/* v2 · Palette D (reports/06-palette-study.md). APPROVED (D13). Dark (= option A Ink+Amber) and Linen light are equal
+   first-class themes; app follows system. Page default = dark. Calm via restraint: ONE amber main action per screen,
+   faint vignette, no copy-sweep glow. Toggles/chips/nav/role states are neutral (text colour), not amber.
+   Rule: amber (--accent) is a FILL only (primary button, logo). Text/icons/active states use --accent-ink.
+   Light amber fills carry a 1px --accent-edge (#8a5610) to reach 3:1 against linen. */
+:root[data-theme="light"]{
+  --page:#efe9dd; --canvas:#f8f5ef; --surface:#fffdf9; --raised:#ffffff;
+  --hair:#e3dccf; --divider:#d6cdbd; --ctl:#8a8478;
+  --text:#1d1b17; --secondary:#4c4840; --muted:#68645b; --faint:#b5ad9f;
+  --accent:#e8a341; --on-accent:#1d1b17; --accent-ink:#8a5610; --accent-edge:#8a5610; --tint:#fbedd2;
+  --success:#3c7535; --warning:#8a6100; --error:#b4372d;
+  --success-tint:#e7efe0; --warn-tint:#f6ecd2; --error-tint:#f7e2de;
+  --snack-bg:#2a2722; --snack-fg:#f6f1e7; --snack-ink:#e8a341;
+  --bezel:#2a2722; --bezel-edge:#4c4840;
+  --vg-ready:rgba(60,117,53,.04); --vg-accent:rgba(232,163,65,.06); --vg-lock:rgba(104,100,91,.03);
+  --id-blue:#2f6fb5; --id-green:#3c7535; --id-violet:#7a4fc0;
+  color-scheme:light;
+}
+:root,[data-theme="dark"]{
+  --page:#0a0a0c; --canvas:#0e0e10; --surface:#15151a; --raised:#1c1c22;
+  --hair:#232329; --divider:#2f2f36; --ctl:#6a655d;
+  --text:#f0ece2; --secondary:#b4ad9f; --muted:#8a857a; --faint:#44413c;
+  --accent:#e8a341; --on-accent:#0e0e10; --accent-ink:#e8a341; --accent-edge:#e8a341; --tint:#3a2a14;
+  --success:#84b577; --warning:#d4a548; --error:#e0746c;
+  --success-tint:#1d2818; --warn-tint:#2a2412; --error-tint:#2b1815;
+  --snack-bg:#1c1c22; --snack-fg:#f0ece2; --snack-ink:#e8a341;
+  --bezel:#050506; --bezel-edge:#2f2f36;
+  --vg-ready:rgba(132,181,119,.05); --vg-accent:rgba(232,163,65,.05); --vg-lock:rgba(138,133,122,.04);
+  --id-blue:#58a6ff; --id-green:#3fb950; --id-violet:#a371f7;
+  color-scheme:dark;
+}
+:root{--f-display:"Fraunces",Georgia,serif; --f-body:"Geist",system-ui,sans-serif; --f-mono:"Geist Mono",ui-monospace,monospace; --r-ctl:4px; --r-chip:3px}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--page);color:var(--secondary);font-family:var(--f-body);font-size:15px;line-height:1.5}
+body{padding:32px 16px 64px;overflow-x:hidden}
+a{color:var(--accent-ink)}
+.wrap{max-width:1320px;margin:0 auto}
+/* ---------- page chrome ---------- */
+.top{display:flex;flex-wrap:wrap;gap:16px;align-items:flex-end;justify-content:space-between;border-bottom:1px solid var(--hair);padding-bottom:20px;margin-bottom:24px}
+.top h1{font-family:var(--f-display);font-weight:400;font-size:clamp(28px,5vw,44px);color:var(--text);line-height:1.1}
+.top h1 em{color:var(--accent-ink)}
+.top p{max-width:680px;margin-top:8px}
+.tagline{font-family:var(--f-display);font-style:italic;color:var(--accent-ink);font-size:16px;margin-top:6px}
+.cap{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.toggles{display:flex;gap:10px;flex-wrap:wrap}
+.seg-t{display:inline-flex;border:1px solid var(--ctl);border-radius:var(--r-ctl);overflow:hidden}
+.seg-t button{background:transparent;color:var(--secondary);border:0;font:500 13px var(--f-mono);padding:10px 14px;min-height:44px;cursor:pointer}
+.seg-t button[aria-pressed=true]{background:var(--accent);color:var(--on-accent);box-shadow:inset 0 0 0 1px var(--accent-edge)}
+.seg-t button:focus-visible{outline:2px solid var(--accent-ink);outline-offset:-3px}
+.legend{display:flex;flex-wrap:wrap;gap:8px 18px;margin:0 0 28px}
+.sw{display:inline-flex;align-items:center;gap:6px;font:12px var(--f-mono);color:var(--muted)}
+.sw i{width:14px;height:14px;border-radius:2px;display:inline-block;border:1px solid var(--divider)}
+section.row{margin-bottom:56px}
+section.row>h2{font-family:var(--f-display);font-weight:400;color:var(--text);font-size:26px;margin:6px 0 4px}
+section.row>p{max-width:780px;margin-bottom:20px}
+.flow{display:flex;align-items:flex-start;justify-content:center;gap:12px}
+.step{display:flex;flex-direction:column;align-items:center;gap:12px;width:360px;max-width:100%}
+.arrow{align-self:center;display:flex;flex-direction:column;align-items:center;gap:6px;width:84px;flex:none;color:var(--accent-ink);text-align:center;margin-top:-80px}
+.arrow svg{width:48px;height:24px}
+.arrow span{font:11px/1.3 var(--f-mono);color:var(--secondary);letter-spacing:.04em}
+@media (max-width:1260px){
+  .flow{flex-direction:column;align-items:center}
+  .arrow{margin:0;width:auto;flex-direction:row}
+  .arrow svg{transform:rotate(90deg)}
+}
+.note{width:100%;border-left:2px solid var(--accent-edge);padding:4px 0 4px 12px;font-size:13px;color:var(--secondary)}
+.note b{color:var(--text);font-weight:600}
+.note code,.tag{font:12px var(--f-mono);color:var(--accent-ink)}
+/* ---------- phone frame ---------- */
+.phone{width:360px;max-width:100%;height:740px;border-radius:36px;padding:10px;background:var(--bezel);border:1px solid var(--bezel-edge);box-shadow:0 30px 60px -34px rgba(0,0,0,.55)}
+.scr{position:relative;height:100%;border-radius:28px;overflow:hidden;background:var(--canvas);display:flex;flex-direction:column;isolation:isolate}
+.scr::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(120% 60% at 0% 0%,var(--vg,transparent),transparent 45%),radial-gradient(120% 60% at 100% 100%,var(--vg,transparent),transparent 45%)}
+.vg-ready{--vg:var(--vg-ready)} .vg-amber{--vg:var(--vg-accent)} .vg-lock{--vg:var(--vg-lock)}
+.sb{display:flex;justify-content:space-between;padding:10px 22px 4px;font:500 12px var(--f-mono);color:var(--secondary)}
+.hdr{display:flex;align-items:center;justify-content:space-between;padding:8px 20px 12px;border-bottom:1px solid var(--hair);min-height:60px}
+/* Wordmark: "PassChef", NO dot. "Chef" in accent-ink. */
+.wm{font-family:var(--f-display);font-size:20px;color:var(--text);letter-spacing:-.005em}
+.wm span{color:var(--accent-ink)}
+.hdr-r{display:flex;align-items:center;gap:6px}
+.sdot{width:8px;height:8px;border-radius:50%;display:inline-block}
+.ib{width:44px;height:44px;display:inline-grid;place-items:center;border-radius:var(--r-ctl);color:var(--secondary);background:transparent;border:0}
+.ib svg,.ic{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.skip{font:500 14px var(--f-body);color:var(--secondary);padding:12px 4px}
+.body{flex:1;overflow:hidden;padding:16px 20px;display:flex;flex-direction:column;gap:12px;min-height:0}
+.t-disp{font-family:var(--f-display);font-weight:400;font-size:26px;line-height:1.15;color:var(--text)}
+.t-disp em{font-style:italic;color:inherit}
+.t-sub{color:var(--secondary);font-size:14.5px}
+.t-help{color:var(--muted);font-size:12.5px}
+.mono{font-family:var(--f-mono)}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;min-height:48px;border-radius:var(--r-ctl);font:600 15px var(--f-body);padding:0 16px;border:1px solid transparent;width:100%;text-align:center}
+.btn-p{background:var(--accent);color:var(--on-accent);border-color:var(--accent-edge)}
+.btn-s{background:transparent;color:var(--text);border-color:var(--ctl)}
+.btn-g{background:transparent;color:var(--accent-ink)}
+.btn-o{background:transparent;color:var(--accent-ink);border-color:var(--accent-edge)}
+.dots{display:flex;gap:6px;justify-content:center}
+.dots i{width:6px;height:6px;border-radius:50%;background:var(--faint)}
+.dots i.on{width:18px;border-radius:3px;background:var(--text)}
+.field{display:flex;align-items:center;gap:10px;min-height:48px;padding:0 12px;border:1px solid var(--ctl);border-radius:var(--r-ctl);background:var(--surface);color:var(--muted);font-size:14.5px}
+.chips{display:flex;gap:8px;overflow:hidden;flex:none}
+.chip{flex:none;display:inline-flex;align-items:center;gap:6px;min-height:36px;padding:0 12px;border:1px solid var(--divider);border-radius:var(--r-chip);font:500 13px var(--f-body);color:var(--secondary);background:var(--surface)}
+.chip.on{background:var(--raised);border-color:var(--text);color:var(--text)}
+.chip .ic{width:14px;height:14px}
+.bar{padding:12px 20px 14px;border-top:1px solid var(--hair);background:var(--canvas);display:flex;gap:10px}
+.nav{display:flex;border-top:1px solid var(--hair);background:var(--surface)}
+.nav a{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:10px 0 12px;color:var(--muted);text-decoration:none;font:500 12px var(--f-body);border-top:2px solid transparent;margin-top:-1px;min-height:64px}
+.nav a.on{color:var(--text);border-top-color:var(--text)}
+/* code rendering: random part + position/secret marker */
+.code{font-family:var(--f-mono);color:var(--text);letter-spacing:.01em}
+.code b{color:var(--text);font-weight:600;text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--ctl)}
+.gloss{font-size:12.5px;color:var(--secondary)}
+.gloss .mono{color:var(--text);font-weight:600}
+/* list rows */
+.rrow{display:flex;align-items:center;gap:10px;min-height:60px;border-bottom:1px solid var(--hair);position:relative;padding-left:9px}
+.rrow::before{content:"";position:absolute;left:0;top:10px;bottom:10px;width:3px;background:var(--strip,var(--id-blue))}
+.tile{width:36px;height:36px;border-radius:var(--r-ctl);background:var(--raised);border:1px solid var(--divider);display:grid;place-items:center;font:600 13px var(--f-body);color:var(--text);flex:none}
+.rt{flex:1;min-width:0}
+.rt b{display:block;color:var(--text);font-weight:500;font-size:15px}
+.rt span{display:block;color:var(--muted);font-size:12.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rcode{font:12.5px var(--f-mono);color:var(--secondary);flex:none}
+.rcode b{color:var(--text);font-weight:600}
+.acc{color:var(--secondary)}
+.snack{margin:0 12px 10px;background:var(--snack-bg);border-radius:var(--r-ctl);padding:10px 12px;display:flex;align-items:center;gap:10px;font-size:13px;color:var(--snack-fg)}
+.ring{width:22px;height:22px;flex:none}
+/* detail */
+.kv{border-bottom:1px solid var(--hair);padding:6px 0;display:flex;align-items:center;gap:8px}
+.kv .v{flex:1;min-width:0;color:var(--text)}
+.codebox{border:1px solid var(--divider);background:var(--surface);border-radius:var(--r-ctl);padding:10px 12px}
+.codebox .code{font-size:18px}
+.slab{position:relative;overflow:hidden;background:var(--raised);border:1px solid var(--divider);border-radius:var(--r-ctl);padding:14px 14px;display:flex;align-items:center;gap:8px}
+.slab .v{flex:1;font:500 22px var(--f-mono);color:var(--text);letter-spacing:.12em}
+.clr{height:3px;background:var(--hair);border-radius:2px;overflow:hidden}.clr i{display:block;height:100%;width:62%;background:var(--secondary);transform-origin:left;animation:drain 30s linear infinite}
+@keyframes drain{from{transform:scaleX(1)}to{transform:scaleX(0)}}
+@media (prefers-reduced-motion:reduce){.clr i{animation:none}}
+/* cards / lists */
+.card{border:1px solid var(--divider);background:var(--surface);padding:12px 14px;display:flex;align-items:center;gap:12px}
+.card.pri{border-color:var(--accent-edge);background:var(--tint)}
+.card .ct{flex:1;min-width:0}.card .ct b{display:block;color:var(--text);font-weight:600}.card .ct span{color:var(--secondary);font-size:12.5px}
+.li{display:flex;align-items:center;gap:12px;min-height:48px;border-bottom:1px solid var(--hair);color:var(--text);font-size:14.5px}
+.li .ic{color:var(--secondary)} .li .grow{flex:1;min-width:0} .li .chev{color:var(--muted)}
+.li small{display:block;color:var(--muted);font-size:12px}
+.toggle{width:40px;height:22px;border-radius:11px;background:var(--text);position:relative;flex:none}.toggle::after{content:"";position:absolute;right:3px;top:3px;width:16px;height:16px;border-radius:50%;background:var(--canvas)}
+.seg{display:inline-flex;border:1px solid var(--ctl);border-radius:var(--r-ctl);overflow:hidden;flex:none}.seg span{padding:5px 10px;font:500 11.5px var(--f-mono);color:var(--secondary)}.seg .on{background:var(--text);color:var(--canvas)}
+/* mapping table */
+.tbl{border:1px solid var(--divider);overflow:hidden;font-size:12.5px;background:var(--surface)}
+.tbl table{border-collapse:collapse;width:100%;table-layout:fixed}
+.tbl th,.tbl td{border-right:1px solid var(--hair);border-bottom:1px solid var(--hair);padding:6px 5px;text-align:left;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tbl th{background:var(--raised);vertical-align:top}
+.tbl th .l{font:500 11px var(--f-mono);color:var(--muted)} .tbl th .h{display:block;color:var(--text);font-weight:600;font-size:12.5px}
+.tbl td{font-family:var(--f-mono);color:var(--secondary);font-size:11.5px}
+.tbl col.sel{background:var(--raised)}
+.role{display:inline-block;margin-top:4px;padding:2px 4px;border-radius:var(--r-chip);font:500 10.5px var(--f-body);border:1px solid var(--divider);color:var(--muted)}
+.role.set{background:var(--text);border-color:var(--text);color:var(--canvas)}
+.role.sug{border:1px dashed var(--secondary);color:var(--text)}
+.banner{border:1px solid var(--warning);background:var(--warn-tint);color:var(--text);padding:8px 10px;font-size:12.5px;border-radius:var(--r-ctl)}
+/* explainer illustrations (HTML, theme-aware) */
+.ex{border:1px solid var(--hair);background:var(--surface);padding:12px}
+.cmp{display:flex;flex-direction:column;gap:8px}
+.cmp-row{border:1px solid var(--divider);background:var(--raised);padding:10px 12px;display:flex;flex-direction:column;gap:6px}
+.cmp-row.good-row{border-color:var(--ctl)}
+.pwline{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.pwline .k{white-space:nowrap}
+.k{font-size:11.5px;color:var(--secondary);font-weight:500}
+.hint{font-size:11px;color:var(--muted);line-height:1.25}
+.pw-verdict{font-size:12px;font-weight:600;white-space:nowrap}
+.pwfull{font-size:15px;display:inline-flex;align-items:stretch;line-height:1.5}
+.pwfull .pw-sec{background:var(--warn-tint);color:var(--text);border:1px dashed var(--warning);padding:0 4px}
+.pwfull .pw-pub{background:var(--canvas);color:var(--text);border:1px dashed var(--ctl);border-left:0;padding:0 4px}
+.split-arrows{display:flex;justify-content:space-around;color:var(--muted);font-size:13px;line-height:1;margin:-4px 0}
+.halves{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.half{display:flex;flex-direction:column;gap:3px;padding:8px;min-width:0}
+.half .mono{font-size:13px;color:var(--text)}
+.sec-half{border:1px dashed var(--warning);background:var(--warn-tint)}
+.paper-half{border:1px dashed var(--ctl);background:var(--canvas)}
+.paper.line{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-size:13px;padding:6px 8px;word-break:normal}
+.paper{font:12px var(--f-mono);color:var(--text);background:var(--canvas);border:1px dashed var(--ctl);padding:6px;word-break:break-all}
+.who{display:flex;align-items:center;gap:6px;font-size:12px;line-height:1.3}
+.who .ic{width:16px;height:16px}
+.bad{color:var(--error)} .good{color:var(--success)}
+.eq{display:flex;flex-direction:column;gap:6px}
+.eq .lineq{display:flex;align-items:center;justify-content:space-between;gap:8px;border:1px solid var(--divider);background:var(--raised);padding:8px 10px}
+.eq .op{font:500 12px var(--f-mono);color:var(--accent-ink);text-align:center}
+.pill{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--divider);background:var(--raised);border-radius:var(--r-chip);padding:5px 9px;font:12.5px var(--f-mono);color:var(--text)}
+.pill b{color:var(--accent-ink);font-weight:500}
+.hand{border-left:2px solid var(--success);background:var(--success-tint);padding:8px 10px;font-size:13px;color:var(--text)}
+.decisions{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.decisions div{border:1px solid var(--divider);background:var(--surface);padding:12px 14px;font-size:13.5px;color:var(--secondary)}
+.decisions div.new{border-color:var(--accent-edge)}
+.decisions b{font:500 12px var(--f-mono);color:var(--accent-ink);display:block;margin-bottom:2px}
+/* v3 multi-sheet list */
+.scope{display:inline-flex;align-items:center;gap:4px;min-height:44px;padding:0 8px;border-radius:var(--r-ctl);font:600 17px var(--f-body);color:var(--text)}
+.scope .ic{transform:rotate(90deg);width:18px;height:18px;color:var(--secondary)}
+.glist{display:flex;flex-direction:column}
+.sec{display:flex;align-items:center;gap:6px;min-height:46px;background:var(--surface);border-top:1px solid var(--divider);border-bottom:1px solid var(--hair);position:relative;padding-left:12px;margin-top:4px}
+.sec::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--strip)}
+.sec .rt b{font-size:14px;font-weight:600}
+.sec .caret{transform:rotate(90deg);color:var(--muted);width:16px;height:16px;margin-right:6px}
+.sec.collapsed .caret{transform:none}
+.warn{color:var(--warning)!important} .err{color:var(--error)!important}
+.inbanner{display:flex;align-items:center;gap:8px;justify-content:space-between;font-size:12px;color:var(--text);background:var(--warn-tint);border-left:3px solid var(--warning);padding:6px 8px;margin:4px 0}
+.lnk{font:600 13px var(--f-body);color:var(--text);text-decoration:underline;text-underline-offset:3px;min-height:32px;display:inline-flex;align-items:center;flex:none}
+.sbadge{display:inline-block!important;margin-top:2px;font:500 11px var(--f-mono)!important;color:var(--secondary)!important;border:1px solid var(--divider);border-left:3px solid var(--strip);padding:0 6px;border-radius:var(--r-chip)}
+.scrim{position:absolute;inset:0;background:rgba(0,0,0,.45);z-index:1}
+.bsheet{position:absolute;left:0;right:0;bottom:0;z-index:2;background:var(--raised);border-top:1px solid var(--divider);border-radius:14px 14px 0 0;padding:8px 14px 18px;display:flex;flex-direction:column;gap:4px}
+.handle{display:block;width:36px;height:4px;border-radius:2px;background:var(--faint);margin:2px auto 8px}
+.opt{display:flex;align-items:center;gap:10px;min-height:56px;border-bottom:1px solid var(--hair);padding:0 4px}
+.opt.sel{background:var(--surface)}
+.radio{width:18px;height:18px;border-radius:50%;border:1.5px solid var(--ctl);flex:none;position:relative}
+.opt.sel .radio{border-color:var(--text)} .opt.sel .radio::after{content:"";position:absolute;inset:3px;border-radius:50%;background:var(--text)}
+.cdot{width:10px;height:10px;border-radius:2px;flex:none}
+footer{color:var(--muted);font-size:12.5px;border-top:1px solid var(--hair);padding-top:16px;margin-top:24px}
+</style>
+</head>
+<body>
+<!-- Icon sprite: custom 1.3–1.4px line icons (proposal for ui/passchef-line-icons.kt) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="logo" viewBox="0 0 96 92"><path fill="#e8a341" fill-rule="evenodd" d="M26 57 C15 57 7 49 7 38 C7 26 16 18 27 18 C30 9 38 3 48 3 C58 3 66 9 69 18 C80 18 89 26 89 38 C89 49 81 57 70 57 V80 Q70 87 63 87 H33 Q26 87 26 80 Z M44 64 A8 8 0 1 1 52 64 L55 77 H41 Z"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="M15.5 15.5 20 20"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="11" height="11" rx="1.5"/><path d="M5 15V6a1 1 0 0 1 1-1h9"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12z"/><circle cx="12" cy="12" r="2.5"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="1.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol>
+  <symbol id="i-unlock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="1.5"/><path d="M8 11V8a4 4 0 0 1 7.5-2"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c1-4 4-6 7-6s6 2 7 6"/></symbol>
+  <symbol id="i-family" viewBox="0 0 24 24"><circle cx="8" cy="8" r="3"/><circle cx="16.5" cy="9.5" r="2.3"/><path d="M2.5 20c.8-3.5 3-5.5 5.5-5.5s4.7 2 5.5 5.5M13.5 15.5c.9-.7 1.9-1 3-1 2.2 0 4 1.7 4.7 4.5"/></symbol>
+  <symbol id="i-fp" viewBox="0 0 24 24"><path d="M4.5 9a8 8 0 0 1 15 0"/><path d="M7 11a5 5 0 0 1 10 0v1.5"/><path d="M12 10.5v3.5c0 3-1 5-2.5 6.5"/><path d="M9.5 12v1.5c0 2-.5 3.5-1.5 5"/><path d="M14.5 13.5c0 2.5-.5 4.5-1.5 6"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3.5l2.6 5.5 5.9.6-4.5 3.9 1.3 6-5.3-3.1-5.3 3.1 1.3-6-4.5-3.9 5.9-.6z"/></symbol>
+  <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.3-5.6"/><path d="M20 4v4h-4"/></symbol>
+  <symbol id="i-drive" viewBox="0 0 24 24"><path d="M8.5 4h7l6 10.5-3 5.5h-13l-3-5.5z"/><path d="M8.5 4l6.5 10.5h6.5"/><path d="M2.5 14.5h12.5l-3 5.5"/></symbol>
+  <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></symbol>
+  <symbol id="i-share" viewBox="0 0 24 24"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.6M8.2 13.2l7.6 4.6"/></symbol>
+  <symbol id="i-table" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3 10h18M9 5v14"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></symbol>
+  <symbol id="i-back" viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-keys" viewBox="0 0 24 24"><circle cx="8" cy="8" r="3.5"/><path d="M10.5 10.5 19 19M16 16l2-2M18.5 18.5l1.5-1.5"/><path d="M4 16h6M4 19.5h4"/></symbol>
+  <symbol id="i-keypad" viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="1.5"/><path d="M8 7.5h.01M12 7.5h.01M16 7.5h.01M8 11.5h.01M12 11.5h.01M16 11.5h.01M8 15.5h.01M12 15.5h.01M16 15.5h.01" stroke-width="2.4"/></symbol>
+  <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 3v2.5M12 18.5V21M3 12h2.5M18.5 12H21M5.6 5.6l1.8 1.8M16.6 16.6l1.8 1.8M5.6 18.4l1.8-1.8M16.6 7.4l1.8-1.8"/></symbol>
+  <symbol id="i-env" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="13" rx="1"/><path d="M3 7l9 6 9-6"/></symbol>
+  <symbol id="i-more" viewBox="0 0 24 24"><path d="M12 5h.01M12 12h.01M12 19h.01" stroke-width="2.6"/></symbol>
+  <symbol id="i-ext" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></symbol>
+  <symbol id="i-paste" viewBox="0 0 24 24"><rect x="6" y="4.5" width="12" height="16" rx="1.5"/><rect x="9" y="2.5" width="6" height="3.5" rx="1"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 48 24"><path d="M2 12h42M36 5l8 7-8 7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+<style>
+.opts{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:40px 24px;justify-items:center}
+.opt-step{display:flex;flex-direction:column;gap:12px;width:360px;max-width:100%}
+.opt-h{display:flex;align-items:baseline;gap:10px}
+.opt-h b{font:500 13px var(--f-mono);color:var(--accent-ink);letter-spacing:.06em}
+.opt-h span{font-family:var(--f-display);font-size:20px;color:var(--text)}
+.pc{font-size:12.5px;color:var(--secondary);line-height:1.45}
+.pc .p{color:var(--success)} .pc .m{color:var(--error)}
+.rec{outline:2px solid var(--accent-edge);outline-offset:10px;border-radius:40px}
+/* B stranger view */
+.sheet{border:1px solid var(--divider);background:var(--surface)}
+.sheet .sh{display:flex;align-items:center;gap:6px;padding:7px 10px;border-bottom:1px solid var(--divider);font-size:11.5px;color:var(--secondary)}
+.sheet .r{display:flex;justify-content:space-between;padding:6px 10px;border-top:1px solid var(--hair);font:13px var(--f-mono);color:var(--text)}
+.sheet .r:first-of-type{border-top:0}
+.login{border:1px solid var(--divider);background:var(--raised);padding:10px;display:flex;flex-direction:column;gap:6px}
+.field{border:1px solid var(--ctl);background:var(--canvas);padding:7px 10px;font:14px var(--f-mono);color:var(--text);display:flex;justify-content:space-between;align-items:center}
+.field small{font:11px var(--f-body);color:var(--muted)}
+/* C two places */
+.place{display:flex;gap:10px;align-items:center;padding:10px 12px;border:1px solid var(--divider);background:var(--raised)}
+.place .ic{width:22px;height:22px;color:var(--secondary)}
+.place .tx{display:flex;flex-direction:column;gap:2px;flex:1;min-width:0}
+.place .v{font:15px var(--f-mono);color:var(--text)}
+.place.secret{border:1px dashed var(--warning);background:var(--warn-tint)}
+.place.paperp{border:1px dashed var(--ctl);background:var(--canvas)}
+.joinop{text-align:center;font:16px var(--f-mono);color:var(--muted);line-height:1}
+.result{border:1px solid var(--success);padding:10px 12px;display:flex;flex-direction:column;gap:3px}
+.result .v{font:17px var(--f-mono);color:var(--text)}
+.result .k{color:var(--success)}
+/* D torn paper */
+.torn{position:relative;height:128px}
+.tp{position:absolute;background:var(--raised);border:0;padding:12px 14px;font:16px var(--f-mono);color:var(--text);box-shadow:0 6px 16px -10px rgba(0,0,0,.6)}
+.tp-main{left:0;top:10px;width:180px;height:78px;clip-path:polygon(0 0,100% 0,94% 12%,100% 25%,94% 38%,100% 50%,94% 63%,100% 76%,94% 88%,100% 100%,0 100%)}
+.tp-piece{left:168px;top:48px;width:118px;height:84px;background:var(--warn-tint);transform:rotate(7deg);clip-path:polygon(6% 0,100% 0,100% 100%,6% 100%,0 88%,6% 76%,0 63%,6% 50%,0 38%,6% 25%,0 12%)}
+.tp small{display:block;font:11px var(--f-body);color:var(--muted);margin-top:4px}
+.tp-piece small{color:var(--warning)}
+.torn .cap2{position:absolute;font-size:11.5px;color:var(--secondary)}
+.cut-tbl{border:1px solid var(--divider);background:var(--surface);font-size:11.5px}
+.cut-tbl>div{display:grid;grid-template-columns:66px 1fr 14px 1fr;align-items:center;padding:0 8px}
+.ct-h{color:var(--secondary);font-weight:600;border-bottom:1px solid var(--divider)}
+.ct-h>span,.ct-r>span,.ct-f>span{padding:6px 0}
+.ct-r{border-top:1px solid var(--hair);color:var(--secondary)}
+.ct-r .mono{font-size:12px;color:var(--text)}
+.ct-s{font-style:normal;background:var(--warn-tint);border:1px dashed var(--warning);padding:0 2px;margin-right:1px}
+.ct-cut{align-self:stretch;border-left:1px dashed var(--muted);margin-left:6px;color:var(--muted);font-size:11px;display:flex;align-items:center;justify-content:center;transform:translateX(-7px)}
+.ct-h .ct-cut{border-left:0}
+.ct-f{color:var(--muted);font-size:10.5px;border-top:1px solid var(--divider)}
+.ct-f>span:nth-child(2){color:var(--warning)}
+/* F interactive tear (D+E) */
+.fx .strip{position:relative;height:112px;margin-top:10px}
+.fx .acct{font:12px var(--f-body);color:var(--secondary);margin-bottom:4px}
+.fx .pp{position:absolute;top:6px;height:62px;display:flex;flex-direction:column;justify-content:center;gap:2px;font:20px var(--f-mono);color:var(--text);background:var(--raised);transition:transform .7s cubic-bezier(.3,.7,.2,1),background .4s,box-shadow .4s}
+.fx .pp-s{left:118px;width:92px;align-items:flex-start;padding-left:1px}
+.fx .pp-m{left:0;width:118px;align-items:flex-end;padding-right:1px}
+.fx .pp-m .mk{display:inline-block;max-width:0;overflow:hidden;vertical-align:bottom;opacity:0;transition:opacity .4s .5s,max-width .4s .4s;color:var(--accent-ink);font-weight:500}
+.fx[data-st=pc] .pp-m .mk{max-width:2.5em}
+.fx .pp small{font:11px var(--f-body);white-space:nowrap;opacity:0;transition:opacity .4s .5s;height:0;overflow:visible}
+.fx[data-st=pc] .pp small{height:auto}
+.fx[data-st=pc] .pp-s{align-items:center}
+.fx[data-st=pc] .pp-m{align-items:center}
+.fx[data-st=pc] .pp-s{transform:translate(70px,30px) rotate(7deg);background:var(--warn-tint);box-shadow:0 8px 18px -10px rgba(0,0,0,.6);clip-path:polygon(0 0,100% 0,100% 100%,0 100%,6% 85%,0 70%,6% 55%,0 40%,6% 25%,0 10%)}
+.fx[data-st=pc] .pp-m{transform:none;box-shadow:0 8px 18px -10px rgba(0,0,0,.6)}
+.fx[data-st=pc] .pp-m .mk,.fx[data-st=pc] .pp small{opacity:1}
+.fx .pp-s small{color:var(--warning)} .fx .pp-m small{color:var(--muted)}
+.fx .sec-hl{transition:background .4s,outline-color .4s;outline:1px dashed transparent}
+.fx[data-st=pc] .sec-hl{background:var(--warn-tint);outline-color:var(--warning)}
+.fx .ft{display:grid;grid-template-columns:62px 1fr 14px 1fr;align-items:center;padding:0 8px}
+.fx .ftbl{border:1px solid var(--divider);background:var(--surface);font-size:11.5px}
+.fx .ft>span{padding:6px 0}
+.fx .ft-h{color:var(--secondary);font-weight:600;border-bottom:1px solid var(--divider)}
+.fx .ft-r{border-top:1px solid var(--hair);color:var(--secondary)}
+.fx .ft-r .mono{font-size:12px;color:var(--text)}
+.fx .ft-f{border-top:1px solid var(--divider);font-size:10.5px}
+.fx .later{opacity:0;transition:opacity .4s .6s}
+.fx[data-st=pc] .later{opacity:1}
+.fx .cutl{align-self:stretch;border-left:1px dashed transparent;margin-left:6px;transition:border-color .4s .4s}
+.fx[data-st=pc] .cutl{border-left-color:var(--muted)}
+.fx .st-n{display:inline} .fx .st-p{display:none} .fx svg.st-n,.fx[data-st=pc] svg.st-p{display:block}
+.fx[data-st=pc] .st-n{display:none} .fx[data-st=pc] .st-p{display:inline}
+.fx .vd{display:flex;gap:8px;align-items:flex-start;font-size:13px;line-height:1.35;margin-top:12px}
+.fx .vd .ic{width:18px;height:18px}
+.fx[data-st=normal] .vd{color:var(--error)} .fx[data-st=pc] .vd{color:var(--success)}
+.replay{all:unset;cursor:pointer;font:500 12.5px var(--f-body);color:var(--accent-ink);display:inline-flex;gap:6px;align-items:center}
+@media (prefers-reduced-motion:reduce){.fx *{transition:none!important}}
+/* E toggle */
+.segc{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--ctl);border-radius:var(--r-ctl);overflow:hidden}
+.segc button{all:unset;cursor:pointer;text-align:center;padding:9px 6px;font:500 13px var(--f-body);color:var(--secondary)}
+.segc button[aria-pressed=true]{background:var(--text);color:var(--canvas)}
+.bigpaper{border:1px dashed var(--ctl);background:var(--raised);padding:16px;display:flex;flex-direction:column;gap:4px}
+.bigpaper .acct{font:13px var(--f-body);color:var(--secondary)}
+.bigpaper .v{font:24px var(--f-mono);color:var(--text);letter-spacing:.01em}
+.verdict{display:flex;gap:8px;align-items:flex-start;font-size:13.5px;line-height:1.35}
+.verdict .ic{width:18px;height:18px;margin-top:1px}
+[data-state=normal] .st-pc,[data-state=pc] .st-normal{display:none}
+</style>
+<div class="wrap">
+  <header class="top">
+    <div>
+      <div class="cap">plans/261110-android-ux-flow-redesign · E1 options</div>
+      <h1 data-vi="Màn 1 · &lt;em&gt;các phương án&lt;/em&gt;">First screen · <em>options</em></h1>
+      <p data-vi="Mục tiêu: người mới không bao giờ nhầm mã đã ghi là mật khẩu đầy đủ. Dữ liệu ví dụ. Viền hổ phách = đề xuất.">Goal: a new user never mistakes the written code for the full password. Example data. Amber outline = recommended.</p>
+    </div>
+    <div class="toggles">
+      <div class="seg-t" role="group" aria-label="Theme">
+        <button type="button" aria-pressed="true" data-theme-set="dark" data-vi="Tối">Dark</button>
+        <button type="button" aria-pressed="false" data-theme-set="light" data-vi="Sáng">Light</button>
+      </div>
+      <div class="seg-t" role="group" aria-label="Language">
+        <button type="button" aria-pressed="true" data-set="en">EN</button>
+        <button type="button" aria-pressed="false" data-set="vi">VI</button>
+      </div>
+    </div>
+  </header>
+  <section class="row">
+  <div class="opts">
+    <div class="opt-step">
+      <div class="opt-h"><b>F</b><span data-vi="D + E · xé tờ giấy, tương tác">D + E · interactive tear</span></div>
+      <div class="rec"><div class="phone"><div class="scr vg-amber">
+          <div class="sb"><span>9:41</span><span>▮▮ 82%</span></div>
+          <div class="hdr"><div class="wm">Pass<span>Chef</span></div><span class="skip" data-vi="Bỏ qua">Skip</span></div>
+          <div class="body">
+            <div class="fx" data-st="normal" data-fx>
+            <div class="segc" role="group" aria-label="Compare">
+              <button type="button" aria-pressed="true" data-go="normal" data-vi="Cách thường">Normal way</button>
+              <button type="button" aria-pressed="false" data-go="pc" data-vi="Xé phần bí mật">Tear off secret</button>
+            </div>
+            <div class="strip" aria-live="polite">
+              <div class="pp pp-m"><span>rand0m<b class="mk">$1</b></span><small data-vi="ở lại trên giấy · mã">stays on paper · code</small></div>
+              <div class="pp pp-s"><span>Basic*</span><small data-vi="giữ riêng">kept apart</small></div>
+            </div>
+            <div class="ftbl">
+              <div class="ft ft-h"><span></span><span data-vi="Mật khẩu đầy đủ">Full password</span><span class="cutl"></span><span class="later" data-vi="Mã đã ghi">Written code</span></div>
+              <div class="ft ft-r"><span>Facebook</span><span class="mono">rand0m<i class="sec-hl" style="font-style:normal">Basic*</i></span><span class="cutl"></span><span class="mono later">rand0m<b class="acc">$1</b></span></div>
+              <div class="ft ft-r"><span>Gmail</span><span class="mono">x9Lk2m<i class="sec-hl" style="font-style:normal">Basic*</i></span><span class="cutl"></span><span class="mono later">x9Lk2m<b class="acc">$1</b></span></div>
+              <div class="ft ft-r"><span data-vi="Ngân hàng">Bank</span><span class="mono">p3Zn7w<i class="sec-hl" style="font-style:normal">Basic*</i></span><span class="cutl"></span><span class="mono later">p3Zn7w<b class="acc">$1</b></span></div>
+              <div class="ft ft-f"><span></span><span><span class="st-n bad" data-vi="đang ghi trên giấy">written on paper</span><span class="st-p warn" data-vi="không ghi ở đâu">never written down</span></span><span class="cutl"></span><span class="later" style="color:var(--muted)" data-vi="ghi lên giấy">on paper</span></div>
+            </div>
+            <div class="vd"><svg class="ic st-n"><use href="#i-unlock"/></svg><svg class="ic st-p"><use href="#i-lock"/></svg><span><span class="st-n" data-vi="Đây là &lt;b&gt;mật khẩu đầy đủ&lt;/b&gt;. Ai đọc cũng đăng nhập được.">This is the <b>full password</b>. Anyone who reads it can log in.</span><span class="st-p" data-vi="Đây chỉ là &lt;b&gt;mã&lt;/b&gt;. Ai đọc cũng không đăng nhập được.">This is only a <b>code</b>. Anyone who reads it still can't log in.</span></span></div>
+            </div>
+            <div class="t-disp" data-vi="Xé phần bí mật ra. &lt;em&gt;Phần còn lại là mã vô dụng.&lt;/em&gt;">Tear the secret part off. <em>What's left is useless code.</em></div>
+            <button type="button" class="replay" data-replay><svg class="ic" style="width:16px;height:16px"><use href="#i-refresh"/></svg><span data-vi="Xem lại">Play again</span></button>
+            <div style="flex:1"></div>
+            <div class="dots"><i class="on"></i><i></i><i></i></div>
+            <div class="btn btn-p"><span data-vi="Tiếp">Next</span><svg class="ic"><use href="#i-chev"/></svg></div>
+          </div>
+        </div></div></div>
+      <div class="pc" data-vi="Mở màn: giấy nguyên, bảng chỉ có mật khẩu đầy đủ (đỏ). Sau 1,2s tự xé một lần: mảnh Basic* (cuối mật khẩu) bay ra, $1 hiện, cột Mã đã ghi + đường cắt hiện. Bấm 2 nút để qua lại, Xem lại để chạy lại. Tiếp không bị chặn. Giảm chuyển động: đổi ngay, không bay. TalkBack: vùng live đọc câu kết luận của từng trạng thái.">Opens intact: paper whole, table shows only full passwords (red). After 1.2s it tears once by itself: Basic* piece (end of password) flies off, $1 appears, Written-code column + cut line fade in. Two buttons flip back and forth; Play again replays. Next never blocked. Reduced motion: instant swap. TalkBack: live region reads each state's verdict.</div>
+    </div>
+    <div class="opt-step">
+      <div class="opt-h"><b>D</b><span data-vi="Xé tờ giấy">Torn paper</span></div>
+      <div><div class="phone"><div class="scr vg-amber">
+          <div class="sb"><span>9:41</span><span>▮▮ 82%</span></div>
+          <div class="hdr"><div class="wm">Pass<span>Chef</span></div><span class="skip" data-vi="Bỏ qua">Skip</span></div>
+          <div class="body">
+            <div class="torn">
+              <div class="tp tp-main">Facebook<br>r4nd0m<b class="acc">#1</b><small data-vi="ở lại trên giấy · mã">stays on paper · code</small></div>
+              <div class="tp tp-piece">Basic*<small data-vi="xé ra, giữ riêng">torn off, kept apart</small></div>
+            </div>
+            <div class="cut-tbl">
+              <div class="ct-h"><span></span><span data-vi="Mật khẩu đầy đủ">Full password</span><span class="ct-cut" aria-hidden="true">✂</span><span data-vi="Mã đã ghi">Written code</span></div>
+              <div class="ct-r"><span data-vi="Facebook">Facebook</span><span class="mono"><i class="ct-s">Basic*</i>r4nd0m</span><span class="ct-cut"></span><span class="mono">r4nd0m<b class="acc">#1</b></span></div>
+              <div class="ct-r"><span>Gmail</span><span class="mono"><i class="ct-s">Pho!9</i>x9Lk2m</span><span class="ct-cut"></span><span class="mono">x9Lk2m<b class="acc">#2</b></span></div>
+              <div class="ct-r"><span data-vi="Ngân hàng">Bank</span><span class="mono"><i class="ct-s">Basic*</i>p3Zn7w</span><span class="ct-cut"></span><span class="mono">p3Zn7w<b class="acc">#1</b></span></div>
+              <div class="ct-f"><span></span><span data-vi="không ghi ở đâu">never written down</span><span class="ct-cut"></span><span data-vi="ghi lên giấy / bảng tính">on paper / sheet</span></div>
+            </div>
+            <div class="t-disp" data-vi="Xé phần bí mật ra. &lt;em&gt;Giấy còn lại chỉ là mã.&lt;/em&gt;">Tear the secret part off. <em>What's left is just a code.</em></div>
+            <div class="t-sub" data-vi="&lt;span class=&quot;mono&quot;&gt;#1&lt;/span&gt;, &lt;span class=&quot;mono&quot;&gt;#2&lt;/span&gt; cho biết ghép lại phần bí mật nào. Chỉ cột phải được ghi.">The <span class="mono">#1</span>, <span class="mono">#2</span> say which secret part goes back. Only the right column is ever written.</div>
+            <div style="flex:1"></div>
+            <div class="dots"><i class="on"></i><i></i><i></i></div>
+            <div class="btn btn-p"><span data-vi="Tiếp">Next</span><svg class="ic"><use href="#i-chev"/></svg></div>
+          </div>
+        </div></div></div>
+      <div class="pc" data-vi="<span class=&quot;p&quot;>+</span> Ẩn dụ vật lý hợp thói quen ghi giấy, dễ nhớ. Bảng gọi tên hai cột: mật khẩu đầy đủ (không ghi) và mã đã ghi (lên giấy), đường cắt ở giữa. <span class=&quot;m&quot;>−</span> Khó vẽ tĩnh cho êm trong Compose; dựa vào hình nhiều hơn chữ."><span class="p">+</span> Physical metaphor matches the paper habit; memorable. Table names the two columns: full password (never written) vs written code (on paper), cut line between. <span class="m">−</span> Harder to build as a calm static illustration in Compose; relies on picture more than words.</div>
+    </div>
+    <div class="opt-step">
+      <div class="opt-h"><b>C</b><span data-vi="Hai nơi cất">Two places</span></div>
+      <div><div class="phone"><div class="scr vg-amber">
+          <div class="sb"><span>9:41</span><span>▮▮ 82%</span></div>
+          <div class="hdr"><div class="wm">Pass<span>Chef</span></div><span class="skip" data-vi="Bỏ qua">Skip</span></div>
+          <div class="body">
+            <div class="place paperp"><svg class="ic"><use href="#i-table"/></svg><div class="tx"><span class="k" data-vi="Trên giấy / bảng tính · ai đọc cũng được">On paper / sheet · anyone may read</span><span class="v">r4nd0m<b class="acc">#1</b></span><span class="hint" data-vi="mã đã ghi">written code</span></div></div>
+            <div class="joinop">+</div>
+            <div class="place secret"><svg class="ic"><use href="#i-user"/></svg><div class="tx"><span class="k" data-vi="Chỉ bạn biết · không ghi cùng chỗ">Only you know · never written with it</span><span class="v">Basic*</span><span class="hint" data-vi="phần bí mật">secret part</span></div></div>
+            <div class="joinop">=</div>
+            <div class="result"><span class="k" data-vi="Mật khẩu đầy đủ · chỉ có khi ghép">Full password · exists only when joined</span><span class="v">Basic*r4nd0m</span></div>
+            <div class="t-disp" data-vi="Mật khẩu đầy đủ &lt;em&gt;không nằm ở đâu cả&lt;/em&gt;.">Your full password is <em>stored nowhere</em>.</div>
+            <div class="t-sub" data-vi="Giấy chỉ có mã. Phần bí mật ở chỗ khác. Ghép lại mới thành mật khẩu.">Paper holds only the code. The secret part lives elsewhere. Only together do they make the password.</div>
+            <div style="flex:1"></div>
+            <div class="dots"><i class="on"></i><i></i><i></i></div>
+            <div class="btn btn-p"><span data-vi="Tiếp">Next</span><svg class="ic"><use href="#i-chev"/></svg></div>
+          </div>
+        </div></div></div>
+      <div class="pc" data-vi="<span class=&quot;p&quot;>+</span> Một ý, đọc từ trên xuống: mã + phần bí mật = mật khẩu. Gọi tên 3 thứ một lần, mỗi thứ một màu. Giống bố cục E2, nên E2 thành bước &quot;tự tính tay&quot;. <span class=&quot;m&quot;>−</span> Không so với cách thường."><span class="p">+</span> One idea, top to bottom: code + secret = password. Names the 3 things once, each in its own colour. Same layout as E2, so E2 can become the "do it by hand" step. <span class="m">−</span> No "normal way" contrast.</div>
+    </div>
+    <div class="opt-step">
+      <div class="opt-h"><b>B</b><span data-vi="Người lạ thấy gì">Stranger's view</span></div>
+      <div><div class="phone"><div class="scr vg-amber">
+          <div class="sb"><span>9:41</span><span>▮▮ 82%</span></div>
+          <div class="hdr"><div class="wm">Pass<span>Chef</span></div><span class="skip" data-vi="Bỏ qua">Skip</span></div>
+          <div class="body">
+            <div class="sheet">
+              <div class="sh"><svg class="ic" style="width:16px;height:16px"><use href="#i-table"/></svg><span data-vi="Bảng tính của bạn · ví dụ">Your sheet · example</span></div>
+              <div class="r"><span>Facebook</span><span>r4nd0m#1</span></div>
+              <div class="r"><span>Gmail</span><span>x9Lk2m#2</span></div>
+              <div class="r"><span data-vi="Ngân hàng">Bank</span><span>p3Zn7w#1</span></div>
+            </div>
+            <div class="login">
+              <span class="cap" data-vi="Người lạ thử đăng nhập Facebook">A stranger tries Facebook</span>
+              <div class="field"><span>r4nd0m#1</span><small data-vi="mật khẩu">password</small></div>
+              <span class="who bad"><svg class="ic"><use href="#i-lock"/></svg><span data-vi="Sai mật khẩu. Đó chỉ là mã.">Wrong password. That's only a code.</span></span>
+            </div>
+            <div class="t-disp" data-vi="Lộ bảng tính? Người lạ &lt;em&gt;chỉ thấy mã&lt;/em&gt;.">Sheet leaked? Strangers <em>see only codes</em>.</div>
+            <div class="t-sub" data-vi="Mật khẩu đầy đủ = mã + phần bí mật chỉ bạn biết. Phần bí mật không bao giờ ghi vào bảng tính.">Full password = code + a secret part only you know. The secret part is never in the sheet.</div>
+            <div style="flex:1"></div>
+            <div class="dots"><i class="on"></i><i></i><i></i></div>
+            <div class="btn btn-p"><span data-vi="Tiếp">Next</span><svg class="ic"><use href="#i-chev"/></svg></div>
+          </div>
+        </div></div></div>
+      <div class="pc" data-vi="<span class=&quot;p&quot;>+</span> Kể chuyện thay vì sơ đồ: nhìn bảng tính bằng mắt kẻ gian, đăng nhập thất bại. Hiểu ngay &quot;đây không phải mật khẩu&quot;. <span class=&quot;m&quot;>−</span> Không có cách thường; mật khẩu đầy đủ chỉ nói bằng lời."><span class="p">+</span> Story, not diagram: you see the sheet the way a thief would, and the login fails. Instantly shows "this is not the password". <span class="m">−</span> Does not show the normal way; full password only in words.</div>
+    </div>
+    <div class="opt-step">
+      <div class="opt-h"><b>E</b><span data-vi="Một tờ giấy, hai cách">One paper, two ways</span></div>
+      <div><div class="phone"><div class="scr vg-amber">
+          <div class="sb"><span>9:41</span><span>▮▮ 82%</span></div>
+          <div class="hdr"><div class="wm">Pass<span>Chef</span></div><span class="skip" data-vi="Bỏ qua">Skip</span></div>
+          <div class="body" data-state="normal">
+            <div class="segc" role="group" data-segc>
+              <button type="button" aria-pressed="true" data-st="normal" data-vi="Cách thường">Normal way</button>
+              <button type="button" aria-pressed="false" data-st="pc" data-vi="Cách hai nửa">Two-half way</button>
+            </div>
+            <div class="bigpaper">
+              <span class="acct" data-vi="Ghi trên giấy · Facebook">Written on paper · Facebook</span>
+              <span class="v st-normal">Basic*r4nd0m</span>
+              <span class="v st-pc">r4nd0m<b class="acc">#1</b></span>
+            </div>
+            <div class="verdict bad st-normal"><svg class="ic"><use href="#i-unlock"/></svg><span data-vi="Đây là &lt;b&gt;mật khẩu đầy đủ&lt;/b&gt;. Ai đọc cũng đăng nhập được.">This is the <b>full password</b>. Anyone who reads it can log in.</span></div>
+            <div class="verdict good st-pc"><svg class="ic"><use href="#i-lock"/></svg><span data-vi="Đây chỉ là &lt;b&gt;mã&lt;/b&gt;, chưa phải mật khẩu. Thiếu phần bí mật bạn giữ riêng.">This is only a <b>code</b>, not the password. It lacks the secret part you keep apart.</span></div>
+            <div class="t-disp" data-vi="Ghi ra giấy, &lt;em&gt;người lạ&lt;/em&gt; đọc cũng vô dụng.">Write it down. <em>Strangers</em> still can't log in.</div>
+            <div class="t-sub" data-vi="Bấm qua lại để so sánh.">Tap to compare.</div>
+            <div style="flex:1"></div>
+            <div class="dots"><i class="on"></i><i></i><i></i></div>
+            <div class="btn btn-p"><span data-vi="Tiếp">Next</span><svg class="ic"><use href="#i-chev"/></svg></div>
+          </div>
+        </div></div></div>
+      <div class="pc" data-vi="<span class=&quot;p&quot;>+</span> Chữ lớn, gần như không nhãn; cùng một tờ giấy đổi nội dung nên thấy ngay khác biệt. Người dùng tự bấm. <span class=&quot;m&quot;>−</span> Tương tác: người bấm Tiếp ngay sẽ không thấy trạng thái 2; cần gợi ý hoặc tự lật một lần."><span class="p">+</span> Big type, almost no labels; the same paper changes, so the difference is the point. User taps = engagement. <span class="m">−</span> Interactive: the second state may never be seen if user hits Next; needs a hint/auto-flip once.</div>
+    </div>
+    <div class="opt-step">
+      <div class="opt-h"><b>A</b><span data-vi="Tách đôi (bản v6 hiện tại)">Split (current v6)</span></div>
+      <div><div class="phone"><div class="scr vg-amber">
+          <div class="sb"><span>9:41</span><span>▮▮ 82%</span></div>
+          <div class="hdr"><div class="wm">Pass<span>Chef</span></div><span class="skip" data-vi="Bỏ qua">Skip</span></div>
+          <div class="body">
+            <div class="cmp">
+              <div class="cmp-row">
+                <span class="cap" data-vi="Cách thường · giấy ghi">Normal way · on paper</span>
+                <div class="pwline"><span class="paper" style="word-break:normal;white-space:nowrap">Facebook<br>Basic*r4nd0m</span><span class="pw-verdict bad" data-vi="= mật khẩu đầy đủ">= full password</span></div>
+                <span class="who bad"><svg class="ic"><use href="#i-unlock"/></svg><span data-vi="Người lạ đọc được → đăng nhập được">Stranger reads it → logs in</span></span>
+              </div>
+              <div class="cmp-row good-row">
+                <span class="cap" data-vi="Cách hai nửa">Two-half way</span>
+                <div class="pwline"><span class="k" data-vi="Mật khẩu đầy đủ">Full password</span><span class="mono pwfull"><span class="pw-sec">Basic*</span><span class="pw-pub">r4nd0m</span></span></div>
+                <div class="split-arrows" aria-hidden="true"><span>↙</span><span>↘</span></div>
+                <div class="halves">
+                  <div class="half sec-half">
+                    <span class="mono">Basic*</span>
+                    <span class="k" data-vi="Phần bí mật">Secret part</span>
+                    <span class="hint" data-vi="giữ riêng · không ghi">kept apart · never written</span>
+                  </div>
+                  <div class="half paper-half">
+                    <span class="mono">Facebook<br>r4nd0m<b class="acc">#1</b></span>
+                    <span class="k" data-vi="Mã đã ghi">Written code</span>
+                    <span class="hint" data-vi="lên giấy · không phải mật khẩu">on paper · not the password</span>
+                  </div>
+                </div>
+                <span class="who good"><svg class="ic"><use href="#i-lock"/></svg><span data-vi="Người lạ đọc giấy → chỉ thấy mã">Stranger reads paper → sees only a code</span></span>
+              </div>
+            </div>
+            <div class="t-disp" data-vi="Ghi ra giấy, &lt;em&gt;người lạ&lt;/em&gt; đọc cũng vô dụng.">Write it down. <em>Strangers</em> still can't log in.</div>
+            <div class="t-sub" data-vi="Giấy hay bảng tính chỉ ghi &lt;b&gt;mã&lt;/b&gt;, không ghi mật khẩu đầy đủ. Phần bí mật bạn giữ riêng.">Paper or sheet holds only the <b>code</b>, never the full password. You keep the secret part apart.</div>
+
+            <div style="flex:1"></div>
+            <div class="dots"><i class="on"></i><i></i><i></i></div>
+            <div class="btn btn-p"><span data-vi="Tiếp">Next</span><svg class="ic"><use href="#i-chev"/></svg></div>
+          </div>
+        </div></div></div>
+      <div class="pc" data-vi="<span class=&quot;p&quot;>+</span> Thấy cả hai cách. <span class=&quot;m&quot;>−</span> Dày: 6 ô, nhiều nhãn, phải đọc kỹ. Mũi tên nhỏ."><span class="p">+</span> Shows both ways side by side. <span class="m">−</span> Dense: 6 boxes, several labels; reader must study it. Arrows small.</div>
+    </div>
+  </div>
+  </section>
+  <footer data-vi="v3: F = D + E tương tác (đề xuất). D là bản tĩnh dự phòng. B hoặc C làm màn 2.">v3: F = D + E interactive (recommended). D static fallback. B or C can be screen 2.</footer>
+</div>
+<script>
+/* EN/VI swaps innerHTML of [data-vi] (EN cached in data-en). Theme sets [data-theme] on <html>. Storage optional. */
+(function(){
+  var root=document.documentElement;
+  var nodes=[].slice.call(document.querySelectorAll('[data-vi]'));
+  nodes.forEach(function(n){n.setAttribute('data-en',n.innerHTML);});
+  function store(k,v){try{localStorage.setItem(k,v);}catch(e){}}
+  function read(k){try{return localStorage.getItem(k);}catch(e){return null;}}
+  function setLang(lang){
+    nodes.forEach(function(n){n.innerHTML=n.getAttribute(lang==='vi'?'data-vi':'data-en');});
+    root.lang=lang;root.dataset.lang=lang;
+    document.querySelectorAll('[data-set]').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.set===lang));});
+    store('pc-wire-lang',lang);
+  }
+  function setTheme(t){
+    root.dataset.theme=t;
+    document.querySelectorAll('[data-theme-set]').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.themeSet===t));});
+    store('pc-wire-theme',t);
+  }
+  document.querySelectorAll('[data-set]').forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.set);});});
+  document.querySelectorAll('[data-theme-set]').forEach(function(b){b.addEventListener('click',function(){setTheme(b.dataset.themeSet);});});
+  if(read('pc-wire-theme')==='light')setTheme('light');
+  if(read('pc-wire-lang')==='vi')setLang('vi');
+})();
+</script>
+<script>
+document.querySelectorAll('[data-segc]').forEach(function(g){
+  var body=g.closest('[data-state]');
+  g.querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){
+    body.dataset.state=b.dataset.st;
+    g.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',String(x===b));});
+  });});
+});
+</script>
+<script>
+document.querySelectorAll('[data-fx]').forEach(function(fx){
+  var body=fx.closest('.body');
+  function go(s){fx.dataset.st=s;fx.querySelectorAll('[data-go]').forEach(function(b){b.setAttribute('aria-pressed',String(b.dataset.go===s));});}
+  fx.querySelectorAll('[data-go]').forEach(function(b){b.addEventListener('click',function(){go(b.dataset.go);});});
+  var rp=body.querySelector('[data-replay]');
+  function play(){go('normal');setTimeout(function(){go('pc');},1200);}
+  if(rp)rp.addEventListener('click',play);
+  play();
+});
+</script>
+</body>
+</html>

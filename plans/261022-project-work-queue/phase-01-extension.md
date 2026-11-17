@@ -87,3 +87,15 @@ source/candidate/commit, command/runtime khi có, verdict, giới hạn và next
 
 Unresolved: remaining OWN01/C01 blocker details; C02-required support/Sync evidence; C03 permitted
 devices/accounts; desktop slot và candidate/runtime cho từng B case. A02/A05/A06/A07 prep Done; product gate đóng.
+
+## Owner UI priority —2026-11-02
+
+[Cross-platform design consistency child plan](../261102-cross-platform-design-consistency/plan.md) aligns current web/Android screens to the accepted extension Precision family before deployment. Local contract/theme/presentation slices can proceed;this does not open Later features or replace prior functional/security/device acceptance. Extension behavior/Golden/C01deferral and Android auth/session/clipboard protections remain constraints.
+
+[UI child E01 audit reviewed](../261102-cross-platform-design-consistency/reports/extension-coherence-independent-review.md):current74font/resource source and heldZIP unchanged;demonstrated font delivery/dynamic-name/text/field gaps. Reviewed E02 uses83files/local fonts/new unique artifact,then E03 roles/shapes/E04 QA prep. Existing desktop density/behavior/46test files retained;fresh candidate/browser/release acceptance Pending.
+
+[UI E02 local-font/package reviewed](../261102-cross-platform-design-consistency/reports/extension-font-package-independent-review.md):83file candidate in unique output,151unit/67package/extract/reproducibility Passed;source fontdisclosures updated,all46canonicaltests/behavior preserved. Oldheld74ZIP unchanged/historical;newcandidate browser/NFD/artifactrelease acceptance Pending. E03 roles/shapes next;no permissions/Sync/Store action.
+
+[UI E03 final02 reviewed](../261102-cross-platform-design-consistency/reports/extension-role-alignment-independent-review.md):dynamic names/readable roles/field outlines/named surfaces corrected in3CSS;geometry/fonts/JS/46tests intact.151unit/67package/new83ZIP c11e…ae9 locally verified;old278b/3ed8/9519ZIPs preserved. E04 source-bound QA prep next;actual browser/font/NFD/target/owner and release acceptance Pending.
+
+[UI E04 preparation reviewed](../261102-cross-platform-design-consistency/reports/extension-ui-qa-preparation-independent-review.md):32independent offline groups and397inputs/17helpers Passed;actual source-bound assertions and finite resource/cleanup controls prepared. [V01 local consolidation/review](../261102-cross-platform-design-consistency/reports/verification-preparation-independent-review.md) Done;fresh desktop/phone readiness next. Browser/owner/release acceptance Pending.

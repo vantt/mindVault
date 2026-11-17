@@ -1,6 +1,6 @@
 # Track03 — Website và deployment
 
-Ngày:2026-10-22. Status: **Partial website / Pending remaining tasks**.
+Ngày:2026-10-22; updated2026-11-02. Status: **Partial website; selected width/hover/ARIA/parallax/OG verified; broader/deployed QA Pending**.
 Parent:[master plan](plan.md). Dispatch:[catalog](task-catalog.md).
 
 ## Context và inputs
@@ -21,9 +21,9 @@ QA và nối URLs thực. Local edits không đồng nghĩa được quyền pub
 
 | Task | Status / depends | Các bước và tiêu chí hoàn tất |
 |---|---|---|
-| <a id="task-c05"></a>C05 — deployment readiness | Pending owner details | Xác nhận ownership domain, Cloudflare service và route mong muốn so với GitHub Pages; lập patch/deploy proposal cụ thể, URL/rollback và quyền deploy trước hành động. Xác minh HTTPS/landing/legal/support reachability sau deploy; không hỏi lại domain/nền tảng đã chọn. |
+| <a id="task-c05"></a>C05 — deployment readiness | Owner-held2026-11-02 until [cross-platform UI alignment](../261102-cross-platform-design-consistency/plan.md). Domain management owner-confirmed; [readiness packet](reports/c05-deployment-readiness-20261102.md)/[independent review](reports/c05-deployment-readiness-20261102-independent-review.md) preparationPassed. Service/project/account/HTTPS/permissions deferred; draft GitHub Pages gate unapplied; C05NOTDone | Xác nhận ownership domain, Cloudflare service và route mong muốn so với GitHub Pages; lập patch/deploy proposal cụ thể, URL/rollback và quyền deploy trước hành động. Xác minh HTTPS/landing/legal/support reachability sau deploy; không hỏi lại domain/nền tảng đã chọn. |
 | <a id="task-c12"></a>C12 — social-proof provenance | Pending; A03/A08 draft vẫn làm được | Đối chiếu quote/adoption số liệu với nguồn/quyền dùng owner cung cấp. Có evidence thì retain; thiếu thì bỏ unsupported claim khỏi draft, không bịa testimonial hoặc giữ website đứng chờ. |
-| <a id="task-b05"></a>B05 — website QA | Desktop slot; local after A03/A04/A08, final after C05/URLs | Serve local candidate, kiểm tra viewport/keyboard/reduced-motion/links/assets và đo performance có runtime/device/sample. Findings có repro và tiêu chí fix; retest affected cells. Public-site QA tách local QA, claim accessibility phải gắn evidence. |
+| <a id="task-b05"></a>B05 — website QA | Partial2Nov: [slot04 tooltip/AOS repair and original-page retest](reports/b05-pseudo-overflow-slot04-20261102.md)/[independent review](reports/b05-pseudo-overflow-slot04-20261102-independent-review.md). Scoped W01Passed21width samples390/768/1440(root/client375/753/1425),6settled Copy/Dish opacity1 and9real tooltip hovers. Prior diagnostic failures and slot02 scoped evidence retained. Desktop returned17:29:41Asia/Saigon;owned0/portsfree/2profilesremoved. Broader responsive/accessibility/motion/performance/link/font/deployed matrix and C05/URLs Pending [Local link/asset source audit](reports/b05-local-link-source-audit-20261102.md)69/69local occurrencesPassed; dynamic/HTTP/external/placeholders NotExercised. [New UI foundation](../261102-cross-platform-design-consistency/reports/website-foundation.md) changes fonts/styles;prior B05 runtime/source results retain old candidate scope and affected new-font retakes are Pending. | Serve local candidate, kiểm tra viewport/keyboard/reduced-motion/links/assets và đo performance có runtime/device/sample. Findings có repro và tiêu chí fix; retest affected cells. Public-site QA tách local QA, claim accessibility phải gắn evidence. |
 | <a id="task-a22"></a>A22 — published CTA | Blocked C05 + C11 published listing | Nhận URL listing đã publish từ release track; thay generic CTA và canonical links, validate local→deploy theo quyền C05/C11→bàn giao B09 kiểm tra public artifact. Không fabricated listing ID hoặc link tới generic Store như acceptance. |
 
 ## Ordered steps và file boundaries
@@ -52,3 +52,7 @@ Done khi content/asset/link có evidence, required local/deployed QA Passed và 
 đến listing thật; các mục optional không giữ track mở. Plan tổng vẫn Partial theo
 release và các track khác. Unresolved: deployment route/quyền, public URLs,
 support config, testimonial provenance nếu muốn giữ, desktop QA slot.
+
+[UI child W02 composition03 reviewed](../261102-cross-platform-design-consistency/reports/website-composition-independent-review.md):quiet Precision section/legal CSS,594rules/0warnings,source copy/DOM/JS and30geometry nodes preserved. Base buttons/social controls declare44px;actual layout/targets/font/ARIA/motion retakes Pending on changed candidate. W03 artwork next;B05/website Partial and deployment held.
+
+[W03 brand assets reviewed](../261102-cross-platform-design-consistency/reports/website-brand-assets-independent-review.md):six original-mark/Precision wordmarks,local favicon/warm metadata and self-contained OG SVG/1200×630 PNG verified;actual OG artwork readable/unclipped. Web source complete;E01 comparison next. B05/website browser/layout/font/targets/ARIA/motion and deployed/owner acceptance remain Partial/Pending.

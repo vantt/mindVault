@@ -60,3 +60,6 @@ repository font directories;Passed. Artwork unchanged by source bundling.
 [Download package](../../docs/designs/passchef-brand-v2/passchef-brand-v2.zip).
 No app behavior/source migration;extension suites/device/store acceptance not run
 for this asset-only delivery. No unresolved asset-package questions.
+
+## Follow-up 2026-11-10 — dot-less wordmark (owner)
+Owner: wordmark has **no dot** between Pass and Chef (D16 in [Android UX redesign](../261110-android-ux-flow-redesign/plan.md)). Current package wordmarks carry the amber signature dot → revise wordmark SVG/PNG variants, usage guide line, and re-run validator. Mark/icon geometry unchanged. Status: Pending; needed before Android redesign phase 06.

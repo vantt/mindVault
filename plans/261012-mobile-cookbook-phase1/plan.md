@@ -2,14 +2,12 @@
 
 Parent: [project master](../261022-project-work-queue/plan.md) → [Mobile track/task ownership](../261022-project-work-queue/phase-02-mobile.md). This plan retains its existing five phases and runtime reports.
 
-Date:2026-10-12; updated2026-10-21 (Asia/Saigon). Status: **Partial — code/local checks Done; owner acceptance Pending**.
-Baseline: main `2579e29044924e1582b78414b0314baffc72abe5`.
-Owner authorized two agents: recheck the five browser slices and implement mobile.
-Selected UI/cache/cold/clipboard/timers/capture/Recents/owner shortcut/tag-mapping Passed; broader acceptance Pending.
-Latest: [provider-loaded403 + fresh cached Cook](reports/google-provider403-preparation.md#actual-provider-loaded-http403-run01--passed21902s) Run01 Passed21.902s; exact pre-Cook preservation; Mobile Partial.
+Date:2026-10-12; updated2026-11-10 (Asia/Saigon). Status: **Partial — code/local checks Done; owner acceptance Pending**. Baseline: main `2579e29044924e1582b78414b0314baffc72abe5`. Current: [10November per-step execution](phase-05-verification-delivery.md#current-execution-10november2026-asiasaigon), 151 fresh JVM tests/build Passed and current candidate review found no P1/P2. Google37/38 cores failed; separate restorations Passed and obligations closed. Latest38 owner confirmed Continue, not Back. L3 observation prerequisite Passed; actual OS-memory recovery Pending. Latest accepted: [physical EN/VI secure Cook](reports/bilingual-secure-landscape-20261109.md) Passed11.949s and [VI offline source/mapping/detail](reports/vietnamese-offline-landscape-20261109.md) Passed61.969s at200%landscape; [release manifest/allDEX audit](reports/release-package-audit-20261109.md) Passed. Initial fixture failure retained; direct-click test repair only, production unchanged. [Google36](reports/google-prepositioned-cancellation-20261109.md) core Failed254.970s after owner Allow, normal restore Passed19.830s; obligation closed. [L3 idle diagnostic](reports/lmk-idle-diagnostic-20261109.md) collected/reviewed; no pressure acceptance. Phase03 finite acceptance Done. Per-step updates in phase05.
+9November [local verification](reports/current-verification-20261109.md): fresh151 JVM tests Passed,0failures/errors/skips; compile/lint reused,lint0errors/7warnings/1hint,207sources stable,3APKs match32. [LocalSDK/reconnect](reports/google-local-sdk-runtime-20261109.md): core NotExercised; reconnect Passed18.564s. [Physical EN offline200%landscape](reports/large-landscape-runtime-20261109.md) Run02 Passed57.549s; Run01Unknown retained. Actual [provider33](reports/google-provider33-runtime-20261109.md)/[34](reports/google-provider34-runtime-20261109.md) human-cancel attempts Failed; separate normal restores Passed18.313s/41.291s,obligationsfalse.34 new empty-dir audit failure retained; separate cleanup restored names, original Cookbook exact. All scopes independently reviewed; no new source repair. Human/different-Menu/naturalLMK remainPending. [Per-step checklist](phase-05-verification-delivery.md#current-execution-checklist-9november2026-asiasaigon).
+Latest accepted4November: [physical401](reports/google-http401-review-20261104.md#actual-physical-retained-grant401-run01--passed) independently Passed105.047s; [grant restoration](reports/google-grant-restoration-runtime-20261104.md) Passed33.115s after local rejected-token repair/JVM16; earlier failures retained. [Proposal/limits/capacity](reports/cache-capacity-status-20261104.md) UI4, [API26](reports/api26-clipboard-runtime-20261104.md)/[API27](reports/api27-clipboard-runtime-20261104.md) clipboard4+4/VM cleanup, selected [TalkBack](reports/talkback-runtime-20261104.md), [authenticated recreation](reports/authenticated-recreation-runtime-20261104.md) and emulator [saved-task](reports/saved-task-runtime-20261104.md) accepted; broader phone/Google gates Pending.
+6November [actual continuation](reports/nov6-resume-runtime-20261106.md): selected200%/landscape EN27/VI29 accepted separately; grid29 independently Passed9points/language/18toggles. Physical saved-task29 attempt02 independently Passed warm/password-cache-Cook/cleanup; attempt01 Failed retained. Selected663s background/manual cached Cook independently accepted; original native timeout retained. Google candidate30 compiled/installed/reviewed; early owner revocation restored Passed; human setup Failed retained. Human/different-Menu and OS-LMK remain Pending.
 Earlier: [actual Google HTTP403](reports/google-http403-preparation.md#actual-google-http403-run04--passed27530s) Passed27.530s; exact synthetic cache/jars preserved, stale Dish cleared; Mobile Partial. Earlier [real host Google OS-Back/stale reply](reports/google-cancellation-preparation.md#actual-host-android-system-back-run01--passed) Passed17.949s; synthetic cache/jars preserved; human cancellation/401/different-Menu Pending. Earlier [clipboard repair](reports/clipboard-null-label-repair-runtime.md) remains accepted.
-Actual UI Run01 failed after reveal; [device evidence](reports/device-acceptance.md)
-and [unattended regressions](reports/unattended-regression.md) track investigation.
+Actual UI Run01 failed after reveal; [device evidence](reports/device-acceptance.md) and [unattended regressions](reports/unattended-regression.md) retain the investigation.
 
 ## Outcome and settled scope
 
@@ -27,13 +25,13 @@ Q6 historical read-only wording superseded by Q9 and retained decisions.
 |---|---|---|---|
 | 1 | [Session-owned manual cooking](phase-01-session-cooking.md) | Done (local scope) | First useful offline path; shared JVM regressions + Android compile |
 | 2 | [Private cache and column mapping](phase-02-cache-mapping.md) | Done (local scope) | Pure model/storage tests; no Google credential required |
-| 3 | [Cookbook Compose screens and clipboard](phase-03-cookbook-ui.md) | Partial | Selected UI/cache/real5+10min/secure capture/Recents Passed; accessibility/broader phone matrix Pending |
-| 4 | [Android Sheets/authorization integration](phase-04-android-sheets-connection.md) | Partial | Google/cache/network-off/host OS-Back/selected403 Passed;401/human cancel/different-Menu Pending |
-| 5 | [Independent verification and delivery](phase-05-verification-delivery.md) | Partial | Evidence separates code/build acceptance from physical/live acceptance |
+| 3 | [Cookbook Compose screens and clipboard](phase-03-cookbook-ui.md) | Done (finite acceptance) | Original named UI/clipboard/phone criteria independently reconciled; [evidence](reports/finite-acceptance-reconciliation-20261109.md); unsampled combinations stay unproved |
+| 4 | [Android Sheets/authorization integration](phase-04-android-sheets-connection.md) | Partial | Google/cache/network-off/host OS-Back/selected403/401/grant restoration Passed; human cancel/different-Menu Pending |
+| 5 | [Independent verification and delivery](phase-05-verification-delivery.md) | Partial | Scoped main push `2748d0b` Done; physical/live gates remain |
 
 Phases1–3 support real offline code without phone/account. Phase4 protocol fixtures
 permit build/tests but never certify Android Google connection. Exact local evidence:
-[Verification](reports/verification.md), [independent review](reports/independent-review.md).
+[Verification](reports/verification.md), [independent review](reports/independent-review.md), [isolated code checkpoint](reports/isolated-mobile-checkpoint-20261104.md).
 
 ## Verified integration choices
 
@@ -44,8 +42,9 @@ permit build/tests but never certify Android Google connection. Exact local evid
   canonical common sources/tests; desktop loopback OAuth tool stays outside Android.
 - App manifest adds INTERNET for the real Android Sheets engine. AuthorizationClient
   and Compose test dependencies are pinned and compile in the actual app.
-- Available SDK has no verified emulator executable. Compiling instrumentation
-  is feasible; running it cannot be claimed without an authorized device/runtime.
+- Separate Windows API36.1 emulator now verified: selected offline UI/password,
+  VI OS association and EN/VI secure pixels at font2/landscape Passed. This does
+  not replace physical/provider acceptance; original no-emulator reports stay dated.
 
 ## Owner-dependent acceptance and deferred work
 
@@ -54,19 +53,16 @@ records Google Run03 Passed metadata/rows/mapping/cache-file load after Failed R
 [Cache UI Run02](reports/google-cache-ui-runtime.md) Passed lock/reopen/cached Cook
 and authenticated same-process recreation; app-disconnected cache only. Later
 [Network-off Run04](reports/network-off-runtime.md) Passed real offline Cook/error
-preservation;401/403/cancel/LMK/task restoration remain Pending in phase04.
+preservation; human cancel/OS-LMK remain Pending; selected physical task/background and later401/restoration accepted above.
 Run04/05 cover selected synthetic-jars biometric/Cook/reveal/copy/background flow.
 Foreground clipboard adapter3/3 and [actual5-minute idle Run05](reports/session-timer-runtime.md)
 and total04 Passed; API36 foreground proof only, broader UX Pending.
 [Security/UI pixels01/authenticated02](reports/security-ui-runtime.md) Passed1/1 each,
 2.321s/25.890s: selected EN/VI setup/manual Cook and secure shell captures with
-genuine synthetic-jars authentication. Locked01/Capture01/Auth01 remain Failed;
-Recents01 Failed206.052s without observed checkpoint stop/resume; Recents02
-Failed182.457s at setup, before checkpoint/navigation; causes unconfirmed.
-Run03 Passed1/1,137.789s with pause/stop/locked read/genuine reopening; owner confirmed
-own card blank/covered. Same frozen04/APKs, no rebuild/install between attempts.
-Owner revealed-Dish screenshot shortcut07 Passed; spoken TalkBack/full layout and orientation
-remain Pending. [Offline cold02](reports/cold-process-runtime.md) Passed5.993s after
+genuine synthetic-jars authentication. Historical failures remain in linked reports;
+Recents03 Passed137.789s with genuine reopening and owner-confirmed hidden card.
+Owner revealed-Dish screenshot shortcut07 and selected spoken TalkBack Passed; full physical
+layout/orientation remain Pending. [Offline cold02](reports/cold-process-runtime.md) Passed5.993s after
 verified warm02 SIGKILL; provider cold02 Passed8.886s/VI OS-field01 Passed1.5s. No repair claim.
 QR receiver/camera, Autofill spike/service, Drive, multi-profile authoring and
 append/update screens remain separate later work. No reopened stack/write decision.
@@ -75,10 +71,12 @@ append/update screens remain separate later work. No reopened stack/write decisi
 
 [Roadmap/Q6/Q8/Q9](../../docs/mobile-app-brainstorm-qa.md), [settled decisions](../../docs/decisions/mobile-product-decisions.md),
 [Core](../../docs/specs/mobile-core.md), [Keystore](../../docs/specs/mobile-keystore.md), [Sheets client](../../docs/specs/mobile-sheets-client.md).
-Exact local commands and the Pending owner checklist are in phase5.
 
 ## Open dependencies
-Google401/cancellation/later physical acceptance; no product question blocks offline code.
+Google cancellation/physical acceptance remain; offline implementation unblocked.
 [Actual401 preparation](reports/google-http401-preparation.md): checkpoint audit Passed;
-retained-grant tab-read checklist ready, permitted credential transition still Pending.
+retained-grant401 Run01 and post-revocation normal SDK restoration accepted.
 Whole Phase1 remains Partial until required connection/user/device flows have evidence.
+
+## Update 2026-11-10 — successor UX redesign
+[Android UX redesign](../261110-android-ux-flow-redesign/plan.md) replaces the paste-URL `SourceScreen` flow and moves Sheets access from `spreadsheets` to `drive.file` + Google Picker (D1, spike [M1–M10 passed](../261110-android-ux-flow-redesign/reports/07-picker-spike-results.md)). Existing Google grant evidence here stays dated and applies to the old scope only; new-scope acceptance belongs to redesign phase 07.

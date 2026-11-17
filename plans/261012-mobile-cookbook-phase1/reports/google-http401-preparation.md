@@ -120,3 +120,35 @@ makes its acceptance path concrete; no speculative production instrumentation ne
 Unresolved: permitted actual401 transition, exact connection/project impact and
 restoration approval if revocation chosen; then reviewed candidate and fresh owner
 readiness. Historical causes and broader Mobile acceptance remain unresolved.
+
+## 4November2026 — impact answer and concrete candidate preparation
+
+Owner answered the impact question: “không có project nào ảnh hưởng”. Record this
+as impact information only. It supplies neither the exact Google connection/project
+nor permission to remove a connection; revocation and restoration stay unapproved.
+Fresh physical readiness was not supplied for this401 candidate.
+
+Preparing the [conditional native scope](../phase-04-android-sheets-connection.md#conditional-retained-grant401-candidate-4november2026)
+makes a later final approval concrete: real provider baseline, retained-grant Sources
+checkpoint, externally completed approved-action marker and one ordinary Test-tab
+read. Current source uniqueness was reread, including the subsequent cache-capacity
+repair: only typed provider401 sets CONNECT_REQUIRED and clears the grant on the
+exclusive `choose` path. SDK disconnection, natural lock,403 and successful refresh
+remain distinct. No account operation, candidate installation or runtime occurred.
+
+Owner subsequently identified the Google permissions entry display name exactly:
+**PassChef**. This identification is not revocation/restoration approval or fresh
+readiness. Cloud project ID was not supplied; no exact project identity is assumed.
+
+The separate `GoogleGrantRestorePhysicalTest` candidate makes restoration concrete:
+use the phone's intended account and the original permitted Menu through normal
+existing-scope authorization/real owner consent, then prove actual Test rows,
+confirmed mapping and durable private cache in another owned UUID. Fresh consent
+is an owner observation; the native case proves usable grant/read/cache only.
+Host may select restoration only after actual approved revocation, explicit
+restoration approval and confirmed prior native inactivity, even if the401 attempt
+was NotExercised/Failed after its action marker. Unknown liveness blocks restoration.
+No account operation, installation or new runtime occurred during preparation.
+
+Unresolved: explicit PassChef transition/restoration approval for the intended
+phone account, candidate/host build/review and fresh owner/device readiness.

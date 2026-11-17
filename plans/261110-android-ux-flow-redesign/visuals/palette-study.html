@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PassChef Palette Study</title>
+<meta name="description" content="Four colour directions for the PassChef Android app, shown on the same three screens with contrast numbers.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ===== Page chrome tokens (neutral, so the four options are judged on their own) ===== */
+:root{
+  --pg-bg:#f2f1ee; --pg-card:#ffffff; --pg-line:#dedbd4; --pg-text:#1c1b19; --pg-sec:#4e4b45; --pg-mute:#6a665e;
+  --pg-acc:#7a4d0c; --pg-pass:#2f6b3c; --pg-fail:#a8332a; --pg-rec:#fff7e8; --pg-rec-line:#e8a341;
+  --f-display:"Fraunces",Georgia,serif; --f-body:"Geist",system-ui,sans-serif; --f-mono:"Geist Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --pg-bg:#141412; --pg-card:#1d1c1a; --pg-line:#34322e; --pg-text:#f1eee8; --pg-sec:#c3beb4; --pg-mute:#9b968c;
+    --pg-acc:#e8a341; --pg-pass:#8cc77f; --pg-fail:#f0907f; --pg-rec:#2a2318; --pg-rec-line:#b97d23;
+  }
+}
+:root[data-theme="dark"]{
+  --pg-bg:#141412; --pg-card:#1d1c1a; --pg-line:#34322e; --pg-text:#f1eee8; --pg-sec:#c3beb4; --pg-mute:#9b968c;
+  --pg-acc:#e8a341; --pg-pass:#8cc77f; --pg-fail:#f0907f; --pg-rec:#2a2318; --pg-rec-line:#b97d23;
+}
+
+/* ===== Option tokens: one class per option. Phone components read ONLY these vars. ===== */
+.opt-a,.opt-d.is-dark{
+  --canvas:#0e0e10; --surface:#15151a; --raised:#1c1c22; --hair:#2f2f36; --border:#6a655d;
+  --text:#f0ece2; --sec:#b4ad9f; --muted:#8a857a;
+  --accent:#e8a341; --on-accent:#0e0e10; --accent-ink:#e8a341; --accent-edge:#e8a341; --tint:#3a2a14;
+  --ok:#84b577; --warn:#d4a548; --err:#e0746c;
+  --snack:#1c1c22; --snack-fg:#f0ece2; --snack-acc:#e8a341; --bezel:#050506; --glow:rgba(232,163,65,.10);
+}
+.opt-b{
+  --canvas:#f5f0e6; --surface:#fbf8f1; --raised:#ffffff; --hair:#ddd3c1; --border:#857e70;
+  --text:#1e2422; --sec:#454c48; --muted:#625f57;
+  --accent:#1d5c55; --on-accent:#ffffff; --accent-ink:#1d5c55; --accent-edge:#1d5c55; --tint:#dfece7;
+  --ok:#2f6b3c; --warn:#8a5a00; --err:#b03a2e;
+  --snack:#1e2422; --snack-fg:#f5f0e6; --snack-acc:#7cc4b6; --bezel:#2b2a27; --glow:rgba(29,92,85,.07);
+}
+.opt-c{
+  --canvas:#0c1824; --surface:#122131; --raised:#18293b; --hair:#25394e; --border:#5f7891;
+  --text:#ebf1f6; --sec:#b2c2d0; --muted:#8a9db0;
+  --accent:#6cc5b8; --on-accent:#062420; --accent-ink:#6cc5b8; --accent-edge:#6cc5b8; --tint:#133a3a;
+  --ok:#83cc9b; --warn:#e3b562; --err:#f08d83;
+  --snack:#1e3247; --snack-fg:#ebf1f6; --snack-acc:#6cc5b8; --bezel:#060c12; --glow:rgba(108,197,184,.09);
+}
+.opt-d{
+  --canvas:#f8f5ef; --surface:#fffdf9; --raised:#ffffff; --hair:#e3dccf; --border:#8a8478;
+  --text:#1d1b17; --sec:#4c4840; --muted:#68645b;
+  --accent:#e8a341; --on-accent:#1d1b17; --accent-ink:#8a5610; --accent-edge:#8a5610; --tint:#fbedd2;
+  --ok:#3c7535; --warn:#8a6100; --err:#b4372d;
+  --snack:#2a2722; --snack-fg:#f6f1e7; --snack-acc:#e8a341; --bezel:#2b2a27; --glow:rgba(232,163,65,.12);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--pg-bg);color:var(--pg-text);font:15px/1.55 var(--f-body)}
+body{padding:28px 16px 64px;overflow-x:hidden}
+.wrap{max-width:1180px;margin:0 auto}
+a{color:var(--pg-acc)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--pg-acc);outline-offset:2px}
+.cap{font:500 11.5px var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--pg-mute)}
+h1{font:400 clamp(30px,6vw,48px)/1.08 var(--f-display);margin:6px 0 10px}
+h2{font:400 clamp(24px,4vw,32px)/1.15 var(--f-display)}
+h3{font:600 13px var(--f-body);margin-bottom:6px}
+.lead{color:var(--pg-sec);max-width:720px}
+
+/* recommendation box */
+.rec{margin:24px 0 28px;border:1px solid var(--pg-rec-line);border-left-width:4px;background:var(--pg-rec);padding:18px 20px;border-radius:6px}
+.rec h2{font-size:24px;margin:4px 0 8px}
+.rec ul{padding-left:18px;color:var(--pg-sec)} .rec li{margin:4px 0}
+.rec b{color:var(--pg-text)}
+
+/* research */
+.research{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-bottom:40px}
+.research div{background:var(--pg-card);border:1px solid var(--pg-line);border-radius:6px;padding:14px 16px;font-size:13.5px;color:var(--pg-sec)}
+.research h3{color:var(--pg-text)}
+
+/* option section */
+.opt-sec{background:var(--pg-card);border:1px solid var(--pg-line);border-radius:10px;padding:22px 20px 24px;margin-bottom:28px}
+.opt-head{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:flex-end;justify-content:space-between;margin-bottom:6px}
+.letter{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--pg-text);color:var(--pg-card);font:600 15px var(--f-body);margin-right:10px;vertical-align:middle}
+.mood{color:var(--pg-sec);font-style:italic;font-family:var(--f-display);font-size:17px}
+.toggle{display:inline-flex;border:1px solid var(--pg-line);border-radius:6px;overflow:hidden}
+.toggle button{background:transparent;border:0;color:var(--pg-sec);font:500 13px var(--f-mono);min-height:44px;padding:0 16px;cursor:pointer}
+.toggle button[aria-pressed=true]{background:var(--pg-text);color:var(--pg-card)}
+.swatches{display:flex;flex-wrap:wrap;gap:6px 10px;margin:12px 0 18px}
+.sw{display:inline-flex;align-items:center;gap:6px;font:11.5px var(--f-mono);color:var(--pg-mute)}
+.sw i{width:16px;height:16px;border-radius:3px;border:1px solid var(--pg-line);flex:none}
+.phones{display:flex;flex-wrap:wrap;gap:20px;justify-content:center;margin-bottom:20px}
+.phone-col{display:flex;flex-direction:column;align-items:center;gap:8px;width:320px;max-width:100%}
+.info{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;font-size:13.5px;color:var(--pg-sec)}
+.info ul{padding-left:16px} .info li{margin:3px 0}
+table.cr{width:100%;border-collapse:collapse;font-size:12.5px}
+table.cr td{padding:4px 0;border-bottom:1px solid var(--pg-line);vertical-align:top}
+table.cr td:last-child{text-align:right;font-family:var(--f-mono);white-space:nowrap;padding-left:8px}
+.ok{color:var(--pg-pass)} .no{color:var(--pg-fail)}
+footer{color:var(--pg-mute);font-size:12.5px;margin-top:28px}
+
+/* ===== Phone frame (≈320px). Every colour comes from the option vars. ===== */
+.phone{width:320px;max-width:100%;height:640px;border-radius:34px;padding:9px;background:var(--bezel);box-shadow:0 24px 48px -28px rgba(0,0,0,.55)}
+.scr{position:relative;height:100%;border-radius:26px;overflow:hidden;background:var(--canvas);color:var(--text);display:flex;flex-direction:column;isolation:isolate;font-size:14px;line-height:1.45;transition:background-color .25s,color .25s}
+.scr::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(110% 55% at 0% 0%,var(--glow),transparent 50%)}
+.sb{display:flex;justify-content:space-between;padding:9px 20px 3px;font:500 11px var(--f-mono);color:var(--sec)}
+.hdr{display:flex;align-items:center;justify-content:space-between;padding:6px 16px 10px;border-bottom:1px solid var(--hair);min-height:52px}
+.wm{font:400 19px var(--f-display);color:var(--text);letter-spacing:-.005em}
+.wm span{color:var(--accent-ink)}
+.ib{width:44px;height:44px;display:inline-grid;place-items:center;color:var(--sec);flex:none}
+.ic{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.body{flex:1;min-height:0;overflow:hidden;padding:14px 16px;display:flex;flex-direction:column;gap:10px}
+.t-disp{font:400 25px/1.15 var(--f-display);color:var(--text)}
+.t-disp em{color:var(--accent-ink)}
+.t-sub{color:var(--sec);font-size:14px}
+.t-help{color:var(--muted);font-size:12.5px}
+.lbl{font:500 11px var(--f-mono);letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;min-height:48px;border-radius:6px;font:600 15px var(--f-body);padding:0 14px;width:100%;border:1px solid transparent}
+.btn-p{background:var(--accent);color:var(--on-accent);border-color:var(--accent-edge)}
+.btn-s{background:transparent;color:var(--text);border-color:var(--border)}
+.field{display:flex;align-items:center;gap:10px;min-height:48px;padding:0 12px;border:1px solid var(--border);border-radius:6px;background:var(--surface);color:var(--muted)}
+.chips{display:flex;gap:6px;overflow:hidden;flex:none}
+.chip{flex:none;display:inline-flex;align-items:center;min-height:36px;padding:0 12px;border:1px solid var(--hair);border-radius:18px;font:500 13px var(--f-body);color:var(--sec);background:var(--surface)}
+.chip.on{background:var(--tint);border-color:var(--accent-ink);color:var(--accent-ink)}
+.row{display:flex;align-items:center;gap:12px;min-height:60px;border-bottom:1px solid var(--hair)}
+.tile{width:38px;height:38px;border-radius:10px;background:var(--raised);border:1px solid var(--hair);display:grid;place-items:center;font:600 14px var(--f-body);color:var(--text);flex:none}
+.rt{flex:1;min-width:0}
+.rt b{display:block;font-weight:500;font-size:15px;color:var(--text)}
+.rt span{display:block;color:var(--muted);font-size:12.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.acc{color:var(--accent-ink)}
+.snack{margin:0 8px 8px;background:var(--snack);color:var(--snack-fg);border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:10px;font-size:13px;box-shadow:0 8px 20px -10px rgba(0,0,0,.45)}
+.snack .ring{width:22px;height:22px;flex:none;color:var(--snack-acc)}
+.nav{display:flex;border-top:1px solid var(--hair);background:var(--surface)}
+.nav a{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:9px 0 11px;color:var(--muted);text-decoration:none;font:500 12px var(--f-body);min-height:62px}
+.nav a.on{color:var(--accent-ink)}
+.nav a.on .pill{background:var(--tint)}
+.pill{display:grid;place-items:center;width:52px;height:28px;border-radius:14px}
+.kv{border-bottom:1px solid var(--hair);padding:6px 0;display:flex;align-items:center;gap:8px;min-height:52px}
+.kv .v{flex:1;min-width:0;color:var(--text)}
+.slab{background:var(--raised);border:1px solid var(--hair);border-radius:8px;padding:12px 6px 12px 14px;display:flex;align-items:center;gap:6px}
+.slab .v{flex:1;font:500 20px var(--f-mono);letter-spacing:.14em;color:var(--text)}
+.clr{height:4px;background:var(--hair);border-radius:2px;overflow:hidden}
+.clr i{display:block;height:100%;width:62%;background:var(--accent-ink);transform-origin:left;animation:drain 30s linear infinite}
+@keyframes drain{from{transform:scaleX(1)}to{transform:scaleX(0)}}
+.bar .btn{padding:0 8px}
+.bar{padding:10px 16px 12px;border-top:1px solid var(--hair);background:var(--canvas);display:flex;gap:8px}
+.status{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;color:var(--ok)}
+.status i{width:8px;height:8px;border-radius:50%;background:var(--ok)}
+.state-row{display:flex;gap:10px;flex-wrap:wrap;font-size:12px}
+.state-row span{display:inline-flex;align-items:center;gap:5px}
+.state-row i{width:8px;height:8px;border-radius:50%}
+@media (prefers-reduced-motion:reduce){
+  .clr i{animation:none}
+  .scr{transition:none}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="logo" viewBox="0 0 96 92"><path fill="currentColor" fill-rule="evenodd" d="M26 57 C15 57 7 49 7 38 C7 26 16 18 27 18 C30 9 38 3 48 3 C58 3 66 9 69 18 C80 18 89 26 89 38 C89 49 81 57 70 57 V80 Q70 87 63 87 H33 Q26 87 26 80 Z M44 64 A8 8 0 1 1 52 64 L55 77 H41 Z"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="M15.5 15.5 20 20"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="11" height="11" rx="1.5"/><path d="M5 15V6a1 1 0 0 1 1-1h9"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12z"/><circle cx="12" cy="12" r="2.5"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="1.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol>
+  <symbol id="i-fp" viewBox="0 0 24 24"><path d="M4.5 9a8 8 0 0 1 15 0"/><path d="M7 11a5 5 0 0 1 10 0v1.5"/><path d="M12 10.5v3.5c0 3-1 5-2.5 6.5"/><path d="M9.5 12v1.5c0 2-.5 3.5-1.5 5"/><path d="M14.5 13.5c0 2.5-.5 4.5-1.5 6"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3.5l2.6 5.5 5.9.6-4.5 3.9 1.3 6-5.3-3.1-5.3 3.1 1.3-6-4.5-3.9 5.9-.6z"/></symbol>
+  <symbol id="i-back" viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></symbol>
+  <symbol id="i-more" viewBox="0 0 24 24"><path d="M12 5h.01M12 12h.01M12 19h.01" stroke-width="2.6"/></symbol>
+  <symbol id="i-ext" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></symbol>
+  <symbol id="i-key" viewBox="0 0 24 24"><circle cx="8" cy="15" r="4"/><path d="M11 12l8-8M16 7l2 2M14 9l2 2"/></symbol>
+  <symbol id="i-jar" viewBox="0 0 24 24"><rect x="8" y="3" width="8" height="3" rx="1"/><path d="M7 6h10v2c2 1 3 3 3 5v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-6c0-2 1-4 3-5z"/></symbol>
+  <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M5.3 18.7l2.1-2.1M16.6 7.4l2.1-2.1"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3 8.5-7 10-4-1.5-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></symbol>
+</svg>
+
+<div class="wrap">
+  <div class="cap">plans/261110-android-ux-flow-redesign · palette study</div>
+  <h1>Which colours feel <em style="font-style:italic">safe</em>?</h1>
+  <p class="lead">Same three screens (unlock, password list, password detail) in four colour directions. Layout is fixed from wireframes v1; only colour changes. Labels are plain on purpose while wording is revised. Wordmark has no dot.</p>
+
+  <aside class="rec" aria-labelledby="rec-h">
+    <div class="cap">Recommendation</div>
+    <h2 id="rec-h">Option D: keep Ink + Amber as the dark theme, add a Linen light theme, follow the phone setting</h2>
+    <ul>
+      <li><b>Primary users are technical, and they expect dark.</b> Most run dark IDEs and terminals and set their phone to dark. Following the system gives them today's ink + amber palette, identical to the extension, with zero extension work.</li>
+      <li><b>Calm comes from restraint, not a new hue.</b> In my view the “not safe” feel comes from too much amber on near-black. Use amber for one main action per screen, keep the vignette faint, and use no sweep glow. Switching to navy/teal (C) would cost the brand for a similar gain.</li>
+      <li><b>Light adds calm where it matters.</b> Daylight and outdoor reading are better on light, and relatives who open the app in an emergency get the paper-like Linen look. Brand stays: amber fills the main button, and a deeper amber-brown for links and icons passes AA (5.6:1).</li>
+      <li><b>Runner-up: C “Night Navy + Soft Teal”</b> if the owner feels amber itself is the problem. It is calm and reads as security, and stays dark, but the extension's ink and accent must change. B drops to third because its main strength serves the secondary audience.</li>
+    </ul>
+  </aside>
+
+  <div class="cap" style="margin-bottom:10px">Research in brief (sources in reports/06-palette-study.md)</div>
+  <div class="research">
+    <div><h3>Trust colours</h3>Blue and teal are the usual trust and security colours in finance apps. Green means “OK / safe”, red means loss or danger, so keep red for errors only. Users expect their category's conventions (<a href="https://abp.io/community/articles/color-psychology-in-web-design-how-to-choose-the-perfect-palette-in-2025-z383jph8">ABP 2025</a>, <a href="https://www.progress.com/blogs/how-choose-right-colors-fintech">Progress</a>). Evidence is mostly practitioner writing, not controlled studies.</div>
+    <div><h3>Password managers</h3>Bitwarden: blue #175DDC with deep navy, palette revised 2025–26. 1Password refresh: blues plus a warm beige called “Biscuit”. Proton Pass: purple fading to orange, dark-first app. Google Password Manager: Material You, follows the system theme. All except Proton default to light or follow the system.</div>
+    <div><h3>Banks (incl. Vietnam)</h3>VCB Digibank launched an “An Vui” mode for older customers in Oct 2024 with large text and clear numbers (<a href="https://news.laodong.vn/kinh-doanh/vcb-digibank-cap-nhat-phien-ban-chu-to-so-ro-cho-khach-hang-lon-tuoi-1402056.ldo">Lao Động</a>). It also promotes dark mode as an option. Older users get a mode they pick, not a dark app forced on them.</div>
+    <div><h3>Dark vs light, older eyes</h3>Piepenbrock et al. (summarised by <a href="https://www.nngroup.com/articles/dark-mode/">NN/g</a>): light mode gave better acuity and proofreading for ages 18–33 and 60–85. Some low-vision users, e.g. with cataracts, prefer dark. Technical, dark-habituated users expect dark; light still helps in daylight and for occasional readers. So: support both and follow the system, with dark as the primary design target.</div>
+    <div><h3>WCAG 2.2 AA</h3>Text needs 4.5:1, large text 3:1, and controls and focus indicators 3:1 against neighbours (1.4.11). Every option below is checked. Amber as text on light fails at 2.0:1, so D uses a separate deeper “accent-ink” for anything that is text or an icon.</div>
+  </div>
+
+  <div id="options"></div>
+
+  <footer>Static palette proposal, not device screenshots. Contrast = WCAG 2.x relative luminance, computed from the hex values shown. Sample data is fake. Security behaviour is unchanged: reveal 10s, clipboard clears in 30s, lock 5/10 min.</footer>
+</div>
+
+<script>
+/* Renders the same 3 screens for each option (DRY): phone markup lives once, option data below. */
+(function(){
+  var U=function(id,cls){return '<svg class="ic'+(cls?' '+cls:'')+'" aria-hidden="true"><use href="#'+id+'"/></svg>';};
+  var WM='<div class="wm">Pass<span>Chef</span></div>';
+  var SB='<div class="sb"><span>9:41</span><span>82%</span></div>';
+  var NAV=function(){return '<nav class="nav" aria-label="Main"><a class="on"><span class="pill">'+U('i-key')+'</span>Passwords</a><a><span class="pill">'+U('i-jar')+'</span>Secret parts</a><a><span class="pill">'+U('i-gear')+'</span>Settings</a></nav>';};
+  var unlock='<div class="phone"><div class="scr">'+SB+
+    '<div class="hdr">'+WM+'<span class="lbl">EN · VI</span></div>'+
+    '<div class="body" style="align-items:center;text-align:center;justify-content:center;gap:14px">'+
+      '<svg width="84" height="80" class="acc" aria-hidden="true"><use href="#logo"/></svg>'+
+      '<div class="t-disp">PassChef is <em>locked</em></div>'+
+      '<div class="t-sub">Touch the sensor to open your passwords.</div>'+
+      '<div class="state-row" style="justify-content:center"><span style="color:var(--sec)"><i style="background:var(--muted)"></i>Locked</span></div>'+
+      '<div style="flex:1"></div>'+
+      '<div class="btn btn-p">'+U('i-fp')+'Unlock with fingerprint</div>'+
+      '<div class="btn btn-s">Use main password</div>'+
+      '<div class="t-help">Locks itself after 5 minutes without use.</div>'+
+    '</div></div></div>';
+  var rows=[['G','GitHub','chef@example.com · github.com'],['NH','Ngân hàng','chef · bank.example.vn'],['A','Amazon','chef@example.com · amazon.com'],['E','Email gia đình','family@example.com']];
+  var home='<div class="phone"><div class="scr">'+SB+
+    '<div class="hdr">'+WM+'<span style="display:flex;align-items:center;gap:2px"><span class="status"><i></i>Ready</span><span class="ib" aria-label="Lock now">'+U('i-lock')+'</span></span></div>'+
+    '<div class="body" style="gap:10px;padding-top:12px">'+
+      '<div class="field">'+U('i-search')+'<span>Search passwords</span></div>'+
+      '<div class="chips"><span class="chip on">All</span><span class="chip">Favorites</span><span class="chip">Recent</span><span class="chip">Family</span></div>'+
+      '<div class="lbl">All passwords · 109</div><div>'+
+      rows.map(function(r){return '<div class="row"><span class="tile">'+r[0]+'</span><span class="rt"><b>'+r[1]+'</b><span>'+r[2]+'</span></span><span class="ib acc" aria-label="Copy password">'+U('i-copy')+'</span></div>';}).join('')+
+    '</div></div>'+
+    '<div class="snack" role="status"><svg class="ring" viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="9" fill="none" stroke="currentColor" stroke-opacity=".3" stroke-width="2"/><circle cx="11" cy="11" r="9" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="56.5" stroke-dashoffset="21" transform="rotate(-90 11 11)"/></svg><span>GitHub password copied · clears in 30s</span></div>'+
+    NAV()+'</div></div>';
+  var detail='<div class="phone"><div class="scr">'+SB+
+    '<div class="hdr" style="padding-left:4px"><span style="display:flex;align-items:center"><span class="ib">'+U('i-back')+'</span><b style="font-size:17px;font-weight:600">GitHub</b></span><span style="display:flex"><span class="ib acc">'+U('i-star')+'</span><span class="ib">'+U('i-more')+'</span></span></div>'+
+    '<div class="body" style="gap:8px">'+
+      '<div><div class="lbl">Username</div><div class="kv"><span class="v">chef@example.com</span><span class="ib acc">'+U('i-copy')+'</span></div></div>'+
+      '<div><div class="lbl" style="margin-bottom:6px">Password</div>'+
+        '<div class="slab"><span class="v">••••••••••</span><span class="ib acc" aria-label="Show for 10 seconds">'+U('i-eye')+'</span></div>'+
+        '<div style="display:flex;justify-content:space-between;margin-top:8px;font-size:12.5px"><span style="color:var(--sec);display:inline-flex;gap:6px;align-items:center">'+U('i-shield','')+'Copied · clipboard clears in</span><b class="acc" style="font-family:var(--f-mono);font-weight:500">19s</b></div>'+
+        '<div class="clr" style="margin-top:6px"><i></i></div></div>'+
+      '<div class="kv"><span class="lbl" style="width:70px">Website</span><span class="v">github.com</span><span class="ib acc">'+U('i-ext')+'</span></div>'+
+      '<div class="kv"><span class="lbl" style="width:70px">Notes</span><span class="v">2-step code in app</span></div>'+
+      '<div class="state-row" style="margin-top:4px"><span style="color:var(--ok)"><i style="background:var(--ok)"></i>Up to date</span><span style="color:var(--warn)"><i style="background:var(--warn)"></i>Saved copy 3 days old</span><span style="color:var(--err)"><i style="background:var(--err)"></i>Can’t reach sheet</span></div>'+
+    '</div>'+
+    '<div class="bar"><div class="btn btn-s" style="flex:1;font-size:14px">Copy username</div><div class="btn btn-p" style="flex:1.15;font-size:14px">Copy password</div></div>'+
+    '</div></div>';
+  var screens=[['Unlock',unlock],['Password list + copy',home],['Password detail',detail]];
+
+  var P=function(v){return v>=4.5?'ok':(v>=3?'ok':'no');};
+  var O=[
+    {k:'a',L:'A',name:'Ink + Amber (current)',mood:'focused · technical · night-desk · premium',
+     sw:[['canvas','#0e0e10'],['surface','#15151a'],['raised','#1c1c22'],['hairline','#2f2f36'],['text','#f0ece2'],['secondary','#b4ad9f'],['muted','#8a857a'],['accent','#e8a341'],['accent-tint','#3a2a14'],['success','#84b577'],['warning','#d4a548'],['error','#e0746c']],
+     pros:['Already built: extension and Android tokens match','What technical users expect (dark IDE and terminal habit)','Very high text contrast (16.3:1)'],
+     cons:['Owner feedback: feels “terminal”, not calm or safe','Amber used widely on near-black can read as a warning colour','Dark only: nothing for daylight or for relatives reading in an emergency'],
+     ext:'No change. cross-platform-design.md stays as written (dark-only).',
+     cr:[['Text on canvas',16.3],['Secondary on canvas',8.6],['Muted on raised (worst)',4.6],['Accent text/icon on canvas',9.0],['Button label on accent',9.0],['Accent fill vs canvas (UI)',9.0],['Field border vs surface (UI)',3.15],['Error on surface',6.0]]},
+    {k:'b',L:'B',name:'Paper + Deep Teal (light)',mood:'calm · orderly · trustworthy · “the sheet in the drawer”',
+     sw:[['canvas','#f5f0e6'],['surface','#fbf8f1'],['raised','#ffffff'],['hairline','#ddd3c1'],['text','#1e2422'],['secondary','#454c48'],['muted','#625f57'],['accent','#1d5c55'],['accent-tint','#dfece7'],['success','#2f6b3c'],['warning','#8a5a00'],['error','#b03a2e']],
+     pros:['Calmest and most “bank-like”; teal is a classic trust and safety colour','Paper look fits relatives who read the sheet in an emergency (secondary users)','Best for daylight reading'],
+     cons:['Light-first is less expected by technical users who run dark everywhere','Loses amber: the brand no longer matches the extension or the logo','Teal sits close to the green “success” colour, so status needs its word label','Needs a dark-mode set too (not drawn) to respect the system setting'],
+     ext:'Big change. Extension needs a new light theme and a teal accent, or the two products look unrelated. The spec rules “dark-only” and “amber the only tappable colour” would both be replaced. Logo recoloured or kept amber as a lone exception.',
+     cr:[['Text on canvas',13.9],['Secondary on canvas',7.8],['Muted on canvas (worst)',5.6],['Accent text/icon on canvas',6.8],['Button label on accent',7.7],['Accent fill vs canvas (UI)',6.8],['Field border vs canvas (UI)',3.54],['Error on surface',5.7]]},
+    {k:'c',L:'C',name:'Night Navy + Soft Teal (dark)',mood:'secure · quiet · vault-like · professional',
+     sw:[['canvas','#0c1824'],['surface','#122131'],['raised','#18293b'],['hairline','#25394e'],['text','#ebf1f6'],['secondary','#b2c2d0'],['muted','#8a9db0'],['accent','#6cc5b8'],['accent-tint','#133a3a'],['success','#83cc9b'],['warning','#e3b562'],['error','#f08d83']],
+     pros:['Instantly reads as “security product” (navy is the industry default)','Softer than black; teal accent is calm, not alarming','Best contrast numbers overall'],
+     cons:['Dark only: no daylight or occasional-reader option','Generic: looks like many VPNs and antivirus apps, with little PassChef personality','Loses amber, so it breaks brand continuity like B'],
+     ext:'Medium change. Extension stays dark but needs its ink ramp re-tinted to navy and its accent changed to teal. Spec keeps “dark-only” but every colour value changes.',
+     cr:[['Text on canvas',15.7],['Secondary on canvas',9.8],['Muted on raised (worst)',5.3],['Accent text/icon on canvas',8.8],['Button label on accent',8.1],['Accent fill vs canvas (UI)',8.8],['Field border vs surface (UI)',3.56],['Error on surface',6.9]]},
+    {k:'d',L:'D',name:'Ink + Amber dark, Linen light (follow system)',mood:'familiar · calm · warm · unmistakably PassChef',toggle:true,
+     sw:[['canvas','#f8f5ef'],['surface','#fffdf9'],['raised','#ffffff'],['hairline','#e3dccf'],['text','#1d1b17'],['secondary','#4c4840'],['muted','#68645b'],['accent (fill)','#e8a341'],['accent-ink (text/icons)','#8a5610'],['accent-tint','#fbedd2'],['success','#3c7535'],['warning','#8a6100'],['error','#b4372d']],
+     pros:['Dark = today’s palette: what technical users expect, identical to the extension','Linen light adds daytime calm and serves relatives reading in an emergency','Same amber, logo and type in both themes'],
+     cons:['Two token sets to maintain and test (light + dark)','Amber fill on linen is only 2.0:1, so the button needs a 1px amber-brown edge (5.6:1) and a dark label (8.0:1)','Two amber values (fill vs ink) need a clear rule for developers'],
+     ext:'Smallest change. Extension stays dark; dark tokens are identical. Spec edit: “Android: dark + light, follow system (dark is the primary design target); extension dark, light optional later.” Add an accent-ink token.',
+     cr:[['Text on canvas',15.8],['Secondary on canvas',8.4],['Muted on canvas (worst)',5.4],['Accent-ink text/icon on canvas',5.6],['Button label on amber fill',8.0],['Amber fill vs canvas (UI)',2.0,'fixed by edge'],['Button edge #8a5610 vs canvas',5.6],['Field border vs surface (UI)',3.66],['Error on surface',5.9]]}
+  ];
+
+  var html=O.map(function(o){
+    var crRows=o.cr.map(function(c){
+      var ui=/UI|edge/.test(c[0]); var min=ui?3:4.5; var pass=c[1]>=min;
+      var tag=pass?'<span class="ok">✓ AA</span>':(c[2]?'<span class="no">✗</span> <span style="color:var(--pg-mute)">'+c[2]+'</span>':'<span class="no">✗</span>');
+      return '<tr><td>'+c[0]+'</td><td>'+String(c[1])+':1 '+tag+'</td></tr>';
+    }).join('');
+    return '<section class="opt-sec" aria-labelledby="h-'+o.k+'">'+
+      '<div class="opt-head"><div><h2 id="h-'+o.k+'"><span class="letter">'+o.L+'</span>'+o.name+'</h2><div class="mood">'+o.mood+'</div></div>'+
+      (o.toggle?'<div class="toggle" role="group" aria-label="Option D mode"><button type="button" aria-pressed="true" data-m="light">Light</button><button type="button" aria-pressed="false" data-m="dark">Dark (= A)</button></div>':'')+
+      '</div>'+
+      '<div class="swatches">'+o.sw.map(function(s){return '<span class="sw"><i style="background:'+s[1]+'"></i>'+s[0]+' '+s[1]+'</span>';}).join('')+'</div>'+
+      '<div class="phones opt-'+o.k+'" id="ph-'+o.k+'">'+screens.map(function(s){return '<div class="phone-col">'+s[1]+'<span class="cap">'+s[0]+'</span></div>';}).join('')+'</div>'+
+      '<div class="info">'+
+        '<div><h3>Pros</h3><ul>'+o.pros.map(function(p){return '<li>'+p+'</li>';}).join('')+'</ul></div>'+
+        '<div><h3>Cons</h3><ul>'+o.cons.map(function(p){return '<li>'+p+'</li>';}).join('')+'</ul></div>'+
+        '<div><h3>Chrome extension impact</h3><p>'+o.ext+'</p></div>'+
+        '<div><h3>Contrast (AA: text 4.5, UI 3.0)</h3><table class="cr">'+crRows+'</table></div>'+
+      '</div></section>';
+  }).join('');
+  document.getElementById('options').innerHTML=html;
+
+  /* Option D light/dark toggle: swaps to A tokens (dark mode = current palette). */
+  var ph=document.getElementById('ph-d');
+  document.querySelectorAll('.toggle button').forEach(function(b){
+    b.addEventListener('click',function(){
+      var dark=b.dataset.m==='dark';
+      ph.classList.toggle('is-dark',dark);
+      document.querySelectorAll('.toggle button').forEach(function(x){x.setAttribute('aria-pressed',String(x===b));});
+    });
+  });
+})();
+</script>
+</body>
+</html>
