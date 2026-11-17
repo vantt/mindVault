@@ -230,7 +230,7 @@ main {
     font-weight: 500;
     letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: var(--ink-500);
+    color: var(--ink-600);
 }
 
 .caption.accent {
@@ -386,7 +386,7 @@ main {
     font-size: 10px;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: var(--ink-500);
+    color: var(--ink-600);
 }
 
 /* ════════════════════════════════════════════
@@ -401,8 +401,8 @@ main {
 
 /* Password slab — borderline style (top + bottom only, no box) */
 .password-slab {
-    border-top: 1px solid var(--ink-300);
-    border-bottom: 1px solid var(--ink-300);
+    border-top: 1px solid var(--ink-500);
+    border-bottom: 1px solid var(--ink-500);
     transition: border-color 0.15s ease;
 }
 
@@ -436,7 +436,7 @@ main {
     font-size: 14px;
     font-style: italic;
     letter-spacing: 0;
-    color: var(--ink-500);
+    color: var(--ink-600);
 }
 
 /* Error message below password field */
@@ -463,7 +463,7 @@ main {
     font-size: 10px;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: var(--ink-500);
+    color: var(--ink-600);
 }
 
 /* ════════════════════════════════════════════
@@ -736,7 +736,7 @@ main {
     font-weight: 500;
     letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: var(--ink-500);
+    color: var(--ink-600);
 }
 
 /* Subtitle under label */
@@ -791,7 +791,7 @@ main {
 }
 
 .input-slab input[type="text"]::placeholder {
-    color: var(--ink-500);
+    color: var(--ink-600);
     font-style: italic;
 }
 
@@ -804,8 +804,8 @@ main {
 .input-with-refresh {
     display: flex;
     align-items: stretch;
-    border-top: 1px solid var(--ink-300);
-    border-bottom: 1px solid var(--ink-300);
+    border-top: 1px solid var(--ink-500);
+    border-bottom: 1px solid var(--ink-500);
     transition: border-color 0.15s;
 }
 
@@ -831,7 +831,7 @@ main {
 }
 
 .input-with-refresh input[type="text"]::placeholder {
-    color: var(--ink-500);
+    color: var(--ink-600);
     font-style: italic;
 }
 
@@ -839,7 +839,7 @@ main {
 .btn-detect-refresh {
     background: none;
     border: none;
-    color: var(--ink-500);
+    color: var(--ink-600);
     cursor: pointer;
     padding: 0 var(--sp-2);
     display: flex;
@@ -1057,8 +1057,8 @@ details[open] .builder-more-summary > span:last-child {
     width: 100%;
     padding: 10px 0;
     background: transparent;
-    border-top: 1px solid var(--ink-300);
-    border-bottom: 1px solid var(--ink-300);
+    border-top: 1px solid var(--ink-500);
+    border-bottom: 1px solid var(--ink-500);
     border-left: none;
     border-right: none;
     color: var(--ink-900);
@@ -1100,7 +1100,7 @@ details[open] .builder-more-summary > span:last-child {
     font-weight: 500;
     letter-spacing: 0.22em;
     text-transform: uppercase;
-    color: var(--ink-500);
+    color: var(--ink-600);
     min-width: 55px;
     flex-shrink: 0;
 }
@@ -1119,7 +1119,7 @@ details[open] .builder-more-summary > span:last-child {
     flex: 1;
 }
 
-.preview-block code.muted { color: var(--ink-500); }
+.preview-block code.muted { color: var(--ink-600); }
 .preview-block code.error { color: var(--coral); }
 
 .preview-divider {
@@ -1189,7 +1189,7 @@ details[open] .builder-more-summary > span:last-child {
 .tabs-picker-item-sub {
     font-family: var(--font-mono);
     font-size: 10px;
-    color: var(--ink-500);
+    color: var(--ink-600);
     margin-left: auto;
 }
 

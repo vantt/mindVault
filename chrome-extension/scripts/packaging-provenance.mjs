@@ -41,6 +41,27 @@ export function copyArgon2Assets(projectRoot = PROJECT_ROOT) {
     fs.writeFileSync(path.join(root, 'vendor/argon2-browser-LICENSE.txt'), assets.license);
     return assets;
 }
+function validateFonts(files) {
+    for (const [name, digest] of Object.entries(contract.fonts.hashes)) {
+        requireHash(files[name], digest, `Font resource ${name}`);
+    }
+    const metadata = JSON.parse(files['assets/fonts/provenance.json']);
+    if (metadata.repository !== contract.fonts.repository || metadata.commit !== contract.fonts.commit ||
+        metadata.unmodifiedBytes !== true || metadata.files.length !== 7) {
+        throw new Error('Font source provenance mismatch');
+    }
+    for (const asset of metadata.files) {
+        const name = `assets/fonts/${asset.file}`;
+        if (contract.fonts.hashes[name] !== asset.sha256 || files[name].length !== asset.bytes) {
+            throw new Error(`Font source metadata mismatch: ${name}`);
+        }
+    }
+    const notice = files['vendor/README.md'].toString();
+    if (!notice.includes(contract.fonts.commit) || !notice.includes('SIL Open Font') ||
+        !['fraunces-ofl.txt', 'geist-ofl.txt', 'geistmono-ofl.txt'].every(name => notice.includes(name))) {
+        throw new Error('Font provenance notice is missing');
+    }
+}
 export function validateProvenance(files, projectRoot = PROJECT_ROOT) {
     const dependency = dependencyAssets(projectRoot);
     for (const [name, digest] of Object.entries(contract.argon2.hashes)) {
@@ -54,4 +75,5 @@ export function validateProvenance(files, projectRoot = PROJECT_ROOT) {
         throw new Error('QR provenance notice is missing');
     }
     if (WebAssembly.validate(files['wasm/argon2.wasm']) !== true) throw new Error('Invalid Argon2 WASM');
+    validateFonts(files);
 }

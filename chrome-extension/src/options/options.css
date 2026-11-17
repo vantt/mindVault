@@ -159,7 +159,7 @@ main {
   border: none;
   border-bottom: 2px solid transparent;
   margin-bottom: -1px;
-  color: var(--ink-500);
+  color: var(--ink-600);
   font-family: var(--font-body);
   font-size: 13px;
   font-weight: 500;
@@ -206,7 +206,7 @@ main {
   font-weight: 500;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--ink-500);
+  color: var(--ink-600);
   margin-bottom: 8px;
 }
 
@@ -243,7 +243,7 @@ main {
   gap: 7px;
   padding: 4px 10px 4px 8px;
   border: 1px solid var(--ink-300);
-  border-radius: 999px;
+  border-radius: var(--radius-chip);
   background: var(--ink-100);
   font-size: 11.5px;
   color: var(--ink-700);
@@ -254,7 +254,7 @@ main {
 .card {
   background: var(--ink-100);
   border: 1px solid var(--ink-200);
-  border-radius: 6px;
+  border-radius: 0;
   padding: var(--sp-5);
   position: relative;
 }
@@ -380,7 +380,7 @@ main {
   width: 100%;
   padding: 9px 12px;
   background: var(--ink-100);
-  border: 1px solid var(--ink-300);
+  border: 1px solid var(--ink-500);
   border-radius: var(--radius-btn);
   color: var(--ink-900);
   font-family: var(--font-body);
@@ -395,7 +395,7 @@ main {
   box-shadow: 0 0 0 2px rgba(232,163,65,0.15);
 }
 
-.o-input::placeholder { color: var(--ink-500); }
+.o-input::placeholder { color: var(--ink-600); }
 
 /* password inputs use mono, dots when masked */
 input[type="password"].o-input {
@@ -419,12 +419,13 @@ input[type="text"].o-input {
   display: flex;
   align-items: stretch;
   background: var(--ink-100);
-  border: 1px solid var(--ink-300);
+  border: 1px solid var(--ink-500);
   border-radius: var(--radius-btn);
   transition: border-color 0.15s, box-shadow 0.15s;
 }
 
-.input-wrapper:focus-within {
+.input-wrapper:focus-within,
+.secret-item .input-wrapper:focus-within {
   border-color: var(--amber);
   box-shadow: 0 0 0 2px rgba(232,163,65,0.15);
 }
@@ -469,7 +470,7 @@ textarea.o-input {
 select.o-input,
 .profile-select {
   background: var(--ink-100);
-  border: 1px solid var(--ink-300);
+  border: 1px solid var(--ink-500);
   border-radius: var(--radius-btn);
   color: var(--ink-900);
   font-family: var(--font-body);
@@ -519,7 +520,7 @@ select.o-input:focus,
 /* secret input wrapper: background is ink-050 per design */
 .secret-item .input-wrapper {
   background: var(--ink-050);
-  border-color: var(--ink-300);
+  border-color: var(--ink-500);
 }
 
 .secret-item .input-wrapper .o-input {
@@ -556,7 +557,7 @@ select.o-input:focus,
   width: 14px;
   height: 14px;
   border-radius: 3px;
-  border: 1px solid var(--ink-300);
+  border: 1px solid var(--ink-500);
   background: transparent;
   display: flex;
   align-items: center;
@@ -681,7 +682,7 @@ select.o-input:focus,
   align-items: center;
   gap: var(--sp-5);
   margin-top: var(--sp-5);
-  color: var(--ink-500);
+  color: var(--ink-600);
   font-size: 11.5px;
 }
 
@@ -706,7 +707,7 @@ select.o-input:focus,
 .profile-card {
   background: var(--ink-100);
   border: 1px solid var(--ink-200);
-  border-radius: 6px;
+  border-radius: 0;
   padding: var(--sp-4);
   margin-bottom: var(--sp-3);
   position: relative;
@@ -743,7 +744,7 @@ select.o-input:focus,
 }
 
 .profile-name {
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: 18px;
   font-weight: 400;
   letter-spacing: -0.015em;
@@ -756,7 +757,7 @@ select.o-input:focus,
   align-items: center;
   gap: 5px;
   padding: 2px 8px;
-  border-radius: 999px;
+  border-radius: var(--radius-chip);
   background: rgba(58,42,20,0.7);
   color: var(--amber);
   border: 1px solid rgba(232,163,65,0.35);
@@ -920,7 +921,7 @@ select.o-input:focus,
   max-height: 90vh;
   background: var(--ink-100);
   border: 1px solid var(--ink-300);
-  border-radius: 8px;
+  border-radius: 0;
   display: flex;
   flex-direction: column;
   box-shadow: 0 24px 64px rgba(0,0,0,0.5);
@@ -951,6 +952,11 @@ select.o-input:focus,
 
 .modal-title-dim  { color: var(--ink-600); }
 .modal-title-em   { font-style: italic; }
+#edit-secrets-title .modal-title-em,
+#export-modal-title .modal-title-em {
+  font-family: var(--font-body);
+  font-style: normal;
+}
 
 .modal-sub {
   font-size: 12px;
@@ -1008,7 +1014,7 @@ select.o-input:focus,
   font-size: 10px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--ink-500);
+  color: var(--ink-600);
 }
 
 /* ── Wizard step dots ────────────────────────────────────────────────────── */
@@ -1044,7 +1050,7 @@ select.o-input:focus,
   font-size: 10px;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--ink-500);
+  color: var(--ink-600);
   margin-left: 2px;
 }
 
@@ -1055,7 +1061,7 @@ select.o-input:focus,
   font-size: 9.5px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--ink-500);
+  color: var(--ink-600);
   margin-bottom: 6px;
 }
 
@@ -1106,7 +1112,7 @@ select.o-input:focus,
   width: 100%;
   height: 180px;
   background: var(--ink-050);
-  border: 1px solid var(--ink-300);
+  border: 1px solid var(--ink-500);
   border-radius: var(--radius-btn);
   color: var(--ink-800);
   font-family: var(--font-mono);
@@ -1117,7 +1123,7 @@ select.o-input:focus,
   line-height: 1.55;
 }
 
-.bundle-textarea::placeholder { color: var(--ink-500); }
+.bundle-textarea::placeholder { color: var(--ink-600); }
 .bundle-textarea:focus {
   outline: none;
   border-color: var(--amber);
@@ -1177,7 +1183,7 @@ select.o-input:focus,
   font-size: 9.5px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--ink-500);
+  color: var(--ink-600);
   align-self: center;
 }
 
@@ -1399,7 +1405,7 @@ select.o-input:focus,
   font-family: var(--font-mono);
   font-size: 10px;
   letter-spacing: 0.16em;
-  color: var(--ink-500);
+  color: var(--ink-600);
 }
 
 .segmented-option.active .segmented-sub {
@@ -1424,7 +1430,7 @@ select.o-input:focus,
 }
 
 .quota-bar-pct { color: var(--ink-600); }
-.quota-bar-abs { color: var(--ink-500); }
+.quota-bar-abs { color: var(--ink-600); }
 
 .quota-bar-track {
   height: 6px;
@@ -1467,7 +1473,7 @@ select.o-input:focus,
   font-size: 9.5px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--ink-500);
+  color: var(--ink-600);
 }
 
 .quota-kv-value {
@@ -1559,7 +1565,7 @@ select.o-input:focus,
 .form-group textarea {
   width: 100%;
   background: var(--ink-050);
-  border: 1px solid var(--ink-300);
+  border: 1px solid var(--ink-500);
   border-radius: var(--radius-btn);
   color: var(--ink-900);
   font-family: var(--font-mono);

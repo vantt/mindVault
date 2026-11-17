@@ -9,6 +9,14 @@
     "adapters/infrastructure/qr-chunking.js",
     "adapters/infrastructure/qr-serialization.js",
     "adapters/infrastructure/regex_parser_adapter.js",
+    "assets/fonts/fraunces-italic.ttf",
+    "assets/fonts/fraunces-ofl.txt",
+    "assets/fonts/fraunces-regular.ttf",
+    "assets/fonts/geist-mono.ttf",
+    "assets/fonts/geist-ofl.txt",
+    "assets/fonts/geist.ttf",
+    "assets/fonts/geistmono-ofl.txt",
+    "assets/fonts/provenance.json",
     "assets/icon-128.png",
     "assets/icon-16.png",
     "assets/icon-32.png",
@@ -67,6 +75,7 @@
     "security/session-authority.js",
     "security/session-guard.js",
     "service_worker.js",
+    "styles/fonts.css",
     "styles/tokens.css",
     "vendor/README.md",
     "vendor/argon2-browser-LICENSE.txt",
@@ -91,9 +100,19 @@
     "licenseHash": "524a1d77701975a063a590424637abbd7fa519042a113f2bbe2eaf4cde76296d"
   },
   "qrHash": "79f419f267ce5a80d97f8099e0a789a4ecc4697b5348d86371a1f3b2a75d6e03",
-  "externalStyles": {
-    "styles/tokens.css": [
-      "https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@300;400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400;1,9..144,500&display=swap"
-    ]
+  "externalStyles": {},
+  "fonts": {
+    "repository": "https://github.com/google/fonts",
+    "commit": "6c1dbe27dcf7d817d4b62cec033ba77fa8e2a5ec",
+    "hashes": {
+      "assets/fonts/fraunces-italic.ttf": "b24448c43702fac4ee856781d461a0dfba8d8e594b6e8e190234b75fed2c0e01",
+      "assets/fonts/fraunces-ofl.txt": "bdf4c22802eaf804f998195871c6b8938aac2ac14b2d78a8bd66a6f1eced833b",
+      "assets/fonts/fraunces-regular.ttf": "177ff6c0f14e5550a3c624247cd1189611d4eb65d000b14944c63d967958abbb",
+      "assets/fonts/geist-mono.ttf": "d00e590b8eb3a59acc329b2d044fd143ae935090b7da33199ebee27cc7de8196",
+      "assets/fonts/geist-ofl.txt": "1781d2806a07d91c4edf4740b88449fab7d0eadad53f7c351b94cd4d4eb8c00f",
+      "assets/fonts/geist.ttf": "73894e0448cae90a92b6c2f8732b7bb9acb7b94c418bff559dad4a18e1de9659",
+      "assets/fonts/geistmono-ofl.txt": "1781d2806a07d91c4edf4740b88449fab7d0eadad53f7c351b94cd4d4eb8c00f",
+      "assets/fonts/provenance.json": "6dd333444b15e3a15238da9bd8cddeec07d6d1886226df9a67719e66e730c99b"
+    }
   }
 }

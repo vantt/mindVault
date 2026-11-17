@@ -83,16 +83,44 @@ const mutations = [
 for (const [name, mutate, expected] of mutations) test(`source validation rejects ${name}`, () => sourceFixture(root => {
     mutate(root); assert.throws(() => validateSource(root), expected);
 }));
+const fontAssets = Object.keys(JSON.parse(fs.readFileSync(new URL('./package-contract.json', import.meta.url))).fonts.hashes);
+for (const asset of [...fontAssets, 'styles/fonts.css']) {
+    test(`source validation rejects missing font resource ${asset}`, () => sourceFixture(root => {
+        fs.rmSync(path.join(root, asset)); assert.throws(() => validateSource(root), /Missing mandatory/);
+    }));
+}
+for (const asset of fontAssets) {
+    test(`source validation rejects changed font resource ${asset}`, () => sourceFixture(root => {
+        if (asset.endsWith('.json')) {
+            const file = path.join(root, asset), metadata = JSON.parse(fs.readFileSync(file));
+            metadata.commit = 'unapproved'; fs.writeFileSync(file, JSON.stringify(metadata));
+        } else append(root, asset, '\nchanged');
+        assert.throws(() => validateSource(root), /Unapproved dependency bytes: Font resource/);
+    }));
+}
+test('source validation rejects removed font source notice', () => sourceFixture(root => {
+    const file = path.join(root, 'vendor/README.md');
+    fs.writeFileSync(file, fs.readFileSync(file, 'utf8').split('## Bundled Precision fonts')[0]);
+    assert.throws(() => validateSource(root), /Font provenance notice is missing/);
+}));
 const source = validateSource(path.join(PROJECT_ROOT, 'src'));
-test('source validates exact inventory and records Google Fonts data separately', () => {
-    assert.equal(source.inventory.length, 74);
-    assert.equal(source.externalStyles.length, 1);
-    assert.equal(source.externalStyles[0].from, 'styles/tokens.css');
+test('source validates exact inventory and bundled font resource graph without remote styles', () => {
+    assert.equal(source.inventory.length, 83);
+    assert.deepEqual(source.externalStyles, []);
+    assert.ok(source.files['styles/tokens.css'].toString().includes("@import url('fonts.css')"));
+    assert.doesNotMatch(source.files['demo/demo.css'].toString(), /@import|https?:/i);
+    for (const file of ['styles/fonts.css', 'demo/demo.css']) {
+        const faces = source.files[file].toString();
+        assert.equal((faces.match(/@font-face\s*\{/g) || []).length, 4);
+        for (const name of fontAssets.filter(name => name.endsWith('.ttf'))) {
+            assert.ok(faces.includes(`../${name}`));
+        }
+    }
     for (const entry of source.inventory) assert.doesNotMatch(entry.name, /(^|\/)(?:test|debug|\.env)(\/|\.|$)/);
 });
 test('ZIP has manifest at root, exact file bytes, notices and reproducible bytes', () => {
     const first = archiveSource(source), second = archiveSource(source);
-    assert.deepEqual(first, second); assert.equal(validateArchive(first, source.files), 74);
+    assert.deepEqual(first, second); assert.equal(validateArchive(first, source.files), 83);
 });
 test('ZIP validator rejects wrapper directory', () => {
     const wrapped = Object.fromEntries(Object.entries(source.files).map(([name, bytes]) => ['src/' + name, bytes]));

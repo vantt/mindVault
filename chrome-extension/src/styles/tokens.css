@@ -1,9 +1,8 @@
 /* tokens.css — Precision Design System v2 tokens
    Source of truth: docs/designs/README.md §3 + mvault-system.jsx */
 
-/* Self-host fonts for MV3 CSP compliance.
-   Fallback: load from Google Fonts during development. */
-@import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@300;400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400;1,9..144,500&display=swap');
+/* Bundled font faces only; no remote font stylesheet dependency. */
+@import url('fonts.css');
 
 :root {
   /* ── Ink ramp (warm desaturated grays) ── */
