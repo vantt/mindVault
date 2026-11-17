@@ -1,7 +1,7 @@
 # Publisher, hosting và support
 
 > **Status:** Draft
-> **Last updated:** 2026-10-15
+> **Last updated:** 2026-11-02
 
 Hồ sơ quyết định và bằng chứng cho [Phase 0.3](../plan.md#03-publisher-public-urls-and-support--prepare-now). Chuẩn bị được khi bug/UI còn mở. Owner xác nhận 2026-10-15: chưa có tài khoản Chrome Web Store developer; chọn domain `passchef.com` và nền tảng Cloudflare. Chưa kiểm chứng đăng ký domain, DNS, dịch vụ hosting cụ thể, HTTPS hay deployment trong lần cập nhật này.
 
@@ -23,7 +23,7 @@ Theo [quyết định trong plan](../plan.md#11-open-decisions): tên PassChef, 
 | Publisher name / danh tính bên duy trì | Pending | Tên hiển thị và thông tin phù hợp với tài khoản, landing và legal. |
 | Email tài khoản Google sở hữu publisher | Pending | Chưa chọn. Phân biệt với email contact/support; xem quy định thay đổi bên dưới trước khi đăng ký. |
 | Email contact đã verify | Pending | Xác nhận tài khoản đã verify email liên hệ. |
-| Domain / nền tảng | Đã chọn — owner xác nhận 2026-10-15 | `passchef.com`, Cloudflare. Chưa kiểm chứng quyền sở hữu, DNS, hosting/deployment hoặc HTTPS; chưa tự chọn Cloudflare Pages/Workers thay owner. |
+| Domain / nền tảng | Đã chọn2026-10-15; owner xác nhận quyền quản lý2026-11-02 | `passchef.com`, Cloudflare. Quyền quản lý là owner-reported; account/zone/project và HTTPS chưa được kiểm chứng độc lập. Owner giữ deployment đến khi web/Android/extension đồng bộ style; Pages/Workers để sau. |
 | Landing URL | Dự kiến; chưa kiểm chứng | `https://passchef.com`; xác nhận URL chính thức và kết quả mở trang khi kiểm tra triển khai. |
 | Privacy URL | Pending | URL HTTPS đến bản HTML đã rà; thay tham chiếu chưa xác nhận `passchef.io/privacy`. |
 | Terms URL | Pending | URL chính thức đến bản HTML đã rà. |
@@ -53,7 +53,7 @@ Nếu dùng [Cloudflare Email Routing](https://developers.cloudflare.com/email-s
 
 ## Chuẩn bị tiếp theo
 
-1. Owner chốt tài khoản Google sở hữu publisher và contact/support; domain/nền tảng đã chọn, còn xác nhận tình trạng triển khai Cloudflare và quyền quản lý domain.
+1. Owner chốt tài khoản Google sở hữu publisher và contact/support; domain/nền tảng và quyền quản lý đã được owner xác nhận;kiểm chứng account/zone/project/service để sau khi đồng bộ UI.
 2. Lập bộ URL dùng chung cho listing, landing và legal; ghi URL dự kiến là Pending cho đến khi kiểm tra hoạt động.
 3. Chuẩn bị nội dung support: cách gửi lỗi, thông tin phiên bản/bước tái hiện, hướng dẫn sao lưu Cookbook và tuyến báo lỗi riêng tư.
 4. Đối chiếu các contact/link công khai với quyết định; kiểm tra provenance/consent testimonial và các tuyên bố số người dùng theo checklist trong plan.
@@ -62,3 +62,9 @@ Nếu dùng [Cloudflare Email Routing](https://developers.cloudflare.com/email-s
 ## Còn cần chốt
 
 Tài khoản Google/email sở hữu publisher, danh tính publisher, contact/support chính thức, cấu hình/triển khai Cloudflare và domain, bộ URL và phạm vi phân phối. Tài khoản developer xác nhận chưa có; lựa chọn domain/nền tảng đã chốt.
+
+## Owner update —2026-11-02
+
+Owner confirms management of `passchef.com` in Cloudflare (owner-reported;account/zone/project configuration not independently inspected). Hosting service choice remains deferred. Owner explicitly holds deployment until website,Android and extension share a consistent design;current extension Precision language is the implementation baseline for that alignment.
+
+[C05 read-only readiness packet](../../../plans/261022-project-work-queue/reports/c05-deployment-readiness-20261102.md)/[independent review](../../../plans/261022-project-work-queue/reports/c05-deployment-readiness-20261102-independent-review.md) records public probes and an unapplied CI proposal. Public NS delegation does not prove account ownership,active hosting or accepted HTTPS. Existing publisher/support/account decisions remain Pending;no deployment/publication authorized by this update.

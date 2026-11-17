@@ -173,6 +173,64 @@ export PATH="$JAVA_HOME/bin:$PATH"
 
 ### Android Cookbook
 
+Current10November2026: Phases01–03 remain Done within their recorded local/finite
+scopes; phases04–05 Partial, G1/G2/L3/D1/D2 open. [Fresh local checks](plans/261012-mobile-cookbook-phase1/reports/current-verification-20261110.md)
+Passed151JVM tests/0failures/errors/skips; [candidate review](plans/261012-mobile-cookbook-phase1/reports/candidate-review-20261110.md)
+found no concrete P1/P2 within scope. Source205/current APKs unchanged;214source/config
+paths stable. Compile/APK assembly and main lint reused; Android-test lint executed.
+
+[Actual Google38](plans/261012-mobile-cookbook-phase1/reports/google-realtime-cancellation-20261110.md)
+used fresh specific approval; retained-A/revoke marker/real401 and same-task6884
+cancel-only route reached the actual owner checkpoint. Core Failed111.687s/114.175s
+at canceled-result conjunction; owner confirmed Continue instead of Android Back,
+request-bound DidNotCancel/aggregate Failed. No G1/G2 credit or source repair.
+Separate normal restore01 Passed18.023s/19.805s with original Menu/Test/mapping/cache,
+original nine names/one owner file/source205/APKs exact/native inactive; obligation=false.
+Independent38audit Passed; no new39/revocation/core scope planned.
+[Earlier37](plans/261012-mobile-cookbook-phase1/reports/google-android-back-cancellation-20261110.md)
+remains core Failed381.729s/384.592s, separate restore05 Passed120.493s/122.331s and
+independent closure Passed/obligation=false; its previous failures are retained.
+
+[Observable LMKD runtime](plans/261012-mobile-cookbook-phase1/reports/lmk-observable-runtime-20261110.md)
+diagnostic prerequisite Passed98FD/PSI6/7. [Two bounded workloads](plans/261012-mobile-cookbook-phase1/reports/lmk-controlled-runtime-20261110.md)
+remain NotExercised: target survived17/129responsive samples; slow final60,912KiB
+crossed64MiB guard. Helpers/native inactive; visible cleanup Passed4.012s host,
+slow cleanup Passed4.011s host, independent final audit Passed. No L3/reason3/cold
+recovery credit or further escalation. Original VM disposal Unknown retained; separate
+recovered-absence/archive disposal Passed, protected files/owner exact, no second kill.
+Independent final disposal audit Passed; no further Google/VM work planned.
+
+Phase03/C09 are **Done for original functional and sampled phone acceptance**;
+[finite requirement-to-evidence reconciliation](plans/261012-mobile-cookbook-phase1/reports/finite-acceptance-reconciliation-20261109.md)
+received independent scope review. Whole plan remains Partial for human Google
+cancellation/different-Menu, actual OS-LMK and final candidate/delivery gates G1/G2/L3/D1/D2.
+
+Earlier Google36 (9November): [pre-positioned cancellation and restoration](plans/261012-mobile-cookbook-phase1/reports/google-prepositioned-cancellation-20261109.md)
+used new approval and owner-reported prepared page. Actual revoke marker reached the
+live120s checkpoint; retained401 preserved the Menu/Spice jars, then Google and the
+app shared task6841. Owner later confirmed pressing Continue/Allow before route
+publication; core Failed254.970s/257.829s, no canceled resultCode accepted. Separate normal restoration
+Passed19.830s/22.212s with original Menu/Test rows, mapping and durable cache.
+Obligation=false; all nine captured names/one owner file, source205/APKs preserved,
+native inactive. Independent audits Passed; no extra36 revoke/core planned.
+
+Earlier Google35: [approved core and separate restoration](plans/261012-mobile-cookbook-phase1/reports/google-topology-diagnostic-20261109.md)
+core Failed138.641s before the120s owner-action marker; later owner confirmation
+established remote deletion, exact gesture time unknown. No stale marker or new revoke.
+Normal restore01 Failed182.301s; separate unchanged restore02 Passed43.846s, obligation
+closed, owner/source/APKs preserved/native inactive. Final closure audit Passed;
+human cancellation/different-Menu remain unaccepted, no further revocation planned.
+
+Latest9November: selected [EN/VI Cook/reveal and secure pixels at200%/landscape](plans/261012-mobile-cookbook-phase1/reports/bilingual-secure-landscape-20261109.md)
+Passed11.949s on unchanged candidate32, independently reviewed. The [fresh unsigned-release manifest/DEX audit](plans/261012-mobile-cookbook-phase1/reports/release-package-audit-20261109.md)
+also Passed; production APK excludes proof/test classes and retains backup exclusions.
+[Separate VI offline/source/mapping/detail flow](plans/261012-mobile-cookbook-phase1/reports/vietnamese-offline-landscape-20261109.md)
+Passed61.969s after a new-test header-action repair; initial Failed10.003s retained.
+Independent runtime review Passed. Owner/display restored; source205 retains original204,
+production/release32 unchanged, only testAPK changed to e59af…12f.
+Earlier151JVM/three-APK32 verification remains its original snapshot. Remaining gates
+are G1/G2/L3/D1/D2; unsampled complete spoken/touch/device coverage stays unclaimed.
+
 The [Android app](app/) connects its encrypted Cookbook to manual Recipe cooking,
 confirmed Menu columns, private offline snapshots, search/favorites and masked
 reveal/copy. The root `:sheets-android` bridge shares the portable Menu client;
@@ -240,8 +298,15 @@ From `chrome-extension/`, with the locked pnpm development dependencies installe
 ```bash
 pnpm validate
 pnpm test:package
-pnpm package
-pnpm validate:zip build/passchef-extension-2.3.1-development.zip
+# Use a fresh candidate directory; fail if it already exists.
+pnpm exec node --input-type=module <<'JS'
+import fs from 'node:fs';
+import { packageExtension } from './scripts/package-extension.mjs';
+const outputRoot = 'build/local-font-candidate-01';
+fs.mkdirSync(outputRoot);
+console.log(packageExtension(outputRoot));
+JS
+pnpm validate:zip build/local-font-candidate-01/passchef-extension-2.3.1-development.zip
 ```
 
 These commands validate the reviewed runtime inventory, local imports/resources,
@@ -249,8 +314,14 @@ mandatory Argon2 bytes and third-party notices, then create a development ZIP wi
 the manifest at its root plus SHA256/inventory sidecars in the ignored `build/`
 folder. Missing or changed mandatory assets fail assembly; the four reviewed
 legacy/unreferenced files listed in `scripts/package-contract.json` stay out of
-the ZIP. Current Google Fonts CSS is recorded as external styling data separately
-from executable resources. [Dated extracted-ZIP/full-suite and WASM evidence](plans/261022-project-work-queue/reports/b07-zip-suite.md),
+the ZIP. The current source inventory contains83runtime files,including four
+unmodified bundled fonts,threeOFL notices,source provenance and a shared local
+font-face stylesheet. Popup,Options and Demo no longer require Google Fonts for
+typography;this does not eliminate ordinary Google service/Sync requests or prove
+final artifact network acceptance. Default `pnpm package` writes the original
+versioned filename under `build/`;use the fresh output-directory API above to avoid
+overwriting the held74-file ZIP or sidecars. That earlier artifact's external-font
+finding and its source/verification evidence remain historical. [Dated extracted-ZIP/full-suite and WASM evidence](plans/261022-project-work-queue/reports/b07-zip-suite.md),
 [selected Windows measurements](plans/261022-project-work-queue/reports/b03-measurements-20261030.md)
 and [local numeric upgrade evidence](plans/261022-project-work-queue/reports/b08-artifact-acceptance.md)
 record actual scoped passes separately. Real two-device Sync,Store/final release

@@ -62,7 +62,9 @@ Your role is to analyze user requirements, delegate tasks to appropriate sub-age
 
 ## Domain Language & Metaphors (The "Cooking" Protocol)
 
-When writing documentation, UI text, or explaining concepts to the user, strictly adhere to the **Cooking Metaphor**:
+Scope (decision D14, `plans/261110-android-ux-flow-redesign/ux-flow-redesign-spec.md`): the Cooking Metaphor applies to marketing copy and the product tagline only. App UI and product docs use plain words.
+
+When writing marketing copy or the product tagline, strictly adhere to the **Cooking Metaphor**:
 
 - **Context**: We are "Chefs" in a kitchen, not just admins in a server room.
 - **Terminology Mapping**:

@@ -9,6 +9,10 @@ The Android Cookbook adapter is implemented and locally verified. Its package/si
 registration and live acceptance are in the [Android checklist](android-cookbook-acceptance.md).
 Desktop Client ID/Secret below are not Android app configuration.
 
+**Android app (2026-11-10):** uses Google Picker with `drive.file` only. Enable the
+**Google Picker API** (Step 2) and set Data Access to `drive.file` (Step 3). Each sheet
+is chosen in Google's Picker; the app never sees sheets you did not pick.
+
 **What this is not:** this runbook does not touch any code, and no `gcloud` CLI commands are
 used anywhere in it — every step below is a click-path in the Console web UI, done manually by
 you. No real Client ID, Client Secret, or token value is written into this document at any
@@ -59,6 +63,7 @@ older APIs & Services labels below redirect there.
    (https://console.cloud.google.com/apis/library).
 2. In the search box, type `Google Sheets API` and click the result.
 3. Click **Enable**. Wait for the page to redirect to the API's overview/dashboard page.
+4. Repeat for `Google Picker API` (search, open, **Enable**). Required by the Android app.
 
 **Done when:** the Sheets API page shows a **Manage** button (not an **Enable** button) —
 that button flip is Google's own signal that the API is now on for this project.
@@ -77,11 +82,12 @@ that button flip is Google's own signal that the API is now on for this project.
    can read your Menu, and save. Leave publishing status at **Testing**; do not
    publish the app for this development check.
 4. Open **Data Access → Add or Remove Scopes**. Select or enter
-   `https://www.googleapis.com/auth/spreadsheets`, apply the selection, and save.
-   The client also requests this exact scope during sign-in.
+   `https://www.googleapis.com/auth/drive.file` (Android app; its only scope), apply, and save.
+   Also add `https://www.googleapis.com/auth/spreadsheets` only if you run the desktop JVM tool
+   (Steps 5–7), which requests it during sign-in.
 
 **Done when:** Audience shows **Testing** and the intended test account; Data Access
-lists the `spreadsheets` scope. These labels follow Google's current
+lists `drive.file` (and `spreadsheets` if the desktop tool is used). These labels follow Google's current
 [consent configuration guide](https://developers.google.com/workspace/guides/configure-oauth-consent).
 
 ---
@@ -133,11 +139,10 @@ saved somewhere private (not in this repo).
 This step is informational — there is nothing to click here, just two things to know before
 you use the credentials from Step 5.
 
-**The scope this app requests:** the client code (built in a separate track of this same
-feature) requests `https://www.googleapis.com/auth/spreadsheets` — full read **and** write
-access to Sheets, not the read-only variant. This is intentional (locked decision D3): the
-mobile app is allowed to append and update rows in your sheet, never delete them, and asking
-for the broader scope now avoids having to re-consent with a different scope later.
+**Desktop JVM tool scope:** requests `https://www.googleapis.com/auth/spreadsheets` — full
+read **and** write access to Sheets, not the read-only variant (pre-redesign locked decision
+D3). The Android app no longer requests this scope: since 2026-11-10 it requests only
+`drive.file` via Google Picker, so you pick each sheet once (existing users re-pick once).
 
 **The 7-day refresh-token expiry:** because your OAuth consent screen is in **Testing** status
 (Step 3) and not Google-verified, every refresh token Google issues to this app **expires after
@@ -219,7 +224,8 @@ remain the account owner's follow-up, outside this track's completed code delive
 
 Android uses its own **Android** OAuth client, registered with the candidate's
 package and signing-certificate SHA-1. Debug is `dev.passchef.mobile.demo`; release
-is `dev.passchef.mobile`. Keep the Desktop client for this independent JVM tool.
+is `dev.passchef.mobile`. The debug client (package + debug SHA-1) exists from the Picker
+spike; release client/SHA-1 and Google verification remain pending. Keep the Desktop client for this independent JVM tool.
 No desktop secret or loopback flow is bundled in Android.
 
 Follow the [Android candidate checklist](android-cookbook-acceptance.md) when the
@@ -238,7 +244,7 @@ Use this to confirm the whole runbook is complete:
       **Test users** (or Step 4's Internal path chosen instead, if applicable).
 - [ ] Step 5 — A **Desktop app**-type OAuth 2.0 Client ID exists under Credentials, with the
       Client ID + Secret saved privately outside this repo.
-- [ ] Step 6 — You understand the `spreadsheets` scope and the 7-day Testing-mode
+- [ ] Step 6 — You understand the `drive.file` (Android) and `spreadsheets` (desktop tool) scopes and the 7-day Testing-mode
       refresh-token expiry (or that it doesn't apply, if you're on the Internal path).
 - [ ] Step 7 — Client ID/Secret are wired into the client tool's local config, confirmed not
       committed to git.

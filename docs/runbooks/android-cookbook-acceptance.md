@@ -1,5 +1,231 @@
 # Android Cookbook — owner acceptance
 
+Current10November2026: Phases01–03 remain Done within their recorded local/finite
+scopes; phases04–05 Partial, G1/G2/L3/D1/D2 open. [Fresh local checks](../../plans/261012-mobile-cookbook-phase1/reports/current-verification-20261110.md)
+Passed151JVM tests/0failures/errors/skips; [candidate review](../../plans/261012-mobile-cookbook-phase1/reports/candidate-review-20261110.md)
+found no concrete P1/P2 within scope. Source205/current APKs unchanged;214source/config
+paths stable. Compile/APK assembly and main lint reused; Android-test lint executed.
+
+[Actual Google38](../../plans/261012-mobile-cookbook-phase1/reports/google-realtime-cancellation-20261110.md)
+used fresh specific approval; retained-A/revoke marker/real401 and same-task6884
+cancel-only route reached the actual owner checkpoint. Core Failed111.687s/114.175s
+at canceled-result conjunction; owner confirmed Continue instead of Android Back,
+request-bound DidNotCancel/aggregate Failed. No G1/G2 credit or source repair.
+Separate normal restore01 Passed18.023s/19.805s with original Menu/Test/mapping/cache,
+original nine names/one owner file/source205/APKs exact/native inactive; obligation=false.
+Independent38audit Passed; no new39/revocation/core scope planned.
+[Earlier37](../../plans/261012-mobile-cookbook-phase1/reports/google-android-back-cancellation-20261110.md)
+remains core Failed381.729s/384.592s, separate restore05 Passed120.493s/122.331s and
+independent closure Passed/obligation=false; its previous failures are retained.
+
+[Observable LMKD runtime](../../plans/261012-mobile-cookbook-phase1/reports/lmk-observable-runtime-20261110.md)
+diagnostic prerequisite Passed98FD/PSI6/7. [Two bounded workloads](../../plans/261012-mobile-cookbook-phase1/reports/lmk-controlled-runtime-20261110.md)
+remain NotExercised: target survived17/129responsive samples; slow final60,912KiB
+crossed64MiB guard. Helpers/native inactive; visible cleanup Passed4.012s host,
+slow cleanup Passed4.011s host, independent final audit Passed. No L3/reason3/cold
+recovery credit or further escalation. Original VM disposal Unknown retained; separate
+recovered-absence/archive disposal Passed, protected files/owner exact, no second kill.
+Independent final disposal audit Passed; no further Google/VM work planned.
+
+Phase03/C09 finite acceptance2026-11-09: **Done** after [requirement-to-evidence reconciliation](../../plans/261012-mobile-cookbook-phase1/reports/finite-acceptance-reconciliation-20261109.md)
+and independent scope review. Original functional/sampled phone criteria are satisfied;
+no every-control/device/font matrix is introduced. Whole plan remains Partial for
+G1 human cancellation, G2 different-Menu callback, L3 actual OS-LMK and D1/D2 delivery.
+
+Earlier Google36 actual2026-11-09: [pre-positioned cancellation and restoration](../../plans/261012-mobile-cookbook-phase1/reports/google-prepositioned-cancellation-20261109.md)
+used specific new approval and owner-reported prepared page. Actual revoke marker
+arrived before the live120s deadline; retained401 preserved Menu/Spice jars before
+one real Google request in shared task6841. Owner later confirmed pressing
+Continue/Allow before route publication; core Failed254.970s/257.829s, no canceled
+resultCode acceptance.
+Separate normal restore Passed19.830s/22.212s with original Menu/Test rows/mapping/
+durable cache; obligation=false, all nine baseline names/one owner file, source205/
+APKs exact/native inactive. Independent audits Passed; no extra36 revoke/core planned.
+Phase03/C09 stay Done; G1/G2/L3/D1/D2 remain required. The page was owner-reported;
+the later Allow clarification concerns core, not fresh restoration consent.
+
+Earlier Google35 actual2026-11-09: [approved core and separate restoration](../../plans/261012-mobile-cookbook-phase1/reports/google-topology-diagnostic-20261109.md)
+core Failed138.641s/142.174s at unchanged120s action-marker wait; original verdict retained.
+Owner confirmed remote deletion after core ended; exact gesture time unknown, no stale
+marker/extra revoke/core. Restore01 Failed182.301s/186.36s during genuine setup, code15
+observed without unique cause; separate unchanged restore02 Passed43.846s/48.462s with
+real metadata/Test rows/mapping/cache. restorationRequired=false, owner/source205/APKs
+exact/native inactive; final closure audit Passed. No human-cancel/different-Menu credit
+or further revocation planned; original core-null obligation remains historical.
+
+Latest physical/static evidence2026-11-09: selected [EN/VI Cook/reveal and secure pixels](../../plans/261012-mobile-cookbook-phase1/reports/bilingual-secure-landscape-20261109.md)
+Passed11.949s on unchanged candidate32 at actual200%/landscape; independent review Passed.
+[Fresh release manifest/DEX audit](../../plans/261012-mobile-cookbook-phase1/reports/release-package-audit-20261109.md)
+Passed: all3DEX/25,535classes checked, no proof/test harness, packaged backup exclusions verified.
+[Separate VI offline/source/mapping/detail flow](../../plans/261012-mobile-cookbook-phase1/reports/vietnamese-offline-landscape-20261109.md)
+Passed61.969s native/64.357s host after a new-test direct-header repair; independent
+runtime review Passed. Initial Failed10.003s retained; owner inventory exact, original
+display restored/native inactive. Source205 retains original204; production/release32
+unchanged, only testAPK changed to e59af…12f. Setup was EN; no VI setup/spoken/touch claim.
+Earlier151JVM/three-APK32 results below retain their original snapshot. Plan stays
+Partial for named G1/G2/L3/D1/D2; unsampled spoken/touch/device coverage stays unclaimed.
+
+Earlier local verification2026-11-09: [151 fresh JVM assertions](../../plans/261012-mobile-cookbook-phase1/reports/current-verification-20261109.md)
+Passed with0failures/errors/skips. Compile/assembly/lint analysis were reused;
+lint0errors/7warnings/1hint,207 source paths stable and all3APKs match candidate32.
+That local verification included no native run; later selected native outcomes follow.
+Required residual owner/device acceptance and overall plan remain Partial.
+
+Latest Google outcomes2026-11-09: [provider33](../../plans/261012-mobile-cookbook-phase1/reports/google-provider33-runtime-20261109.md)
+core Failed106.553s native/111.827s host after actual owner Continue/Allow before
+route publication; separate normal restoration Passed18.313s/21.632s.
+[Provider34](../../plans/261012-mobile-cookbook-phase1/reports/google-provider34-runtime-20261109.md) core Failed316.896s/320.790s
+although the actual hand-Cancel reply was ready-bound: original request remained
+pending after180s, resultCode unavailable; same own/Google task6817, no different-Menu
+route. Core preserved=false remains: only one new empty proof directory appeared,
+original regular files unchanged; after native inactivity, rmdir of only that new
+empty directory restored original names. Separate normal restoration Passed41.291s/
+46.015s, restorationRequired=false. Both bounded runtime audits Passed; strict core
+failures remain Failed. Final owner file/eight names, source204/APK32 exact and
+native inactive; Google/phone operations ended, no further revocation planned.
+Human cancellation/callback/different-Menu, natural LMK and broader VI/spoken gates
+remain Pending; no historical cause/fix or overall Done claim.
+
+Actual native continuation2026-11-09: [SDK32 local operation/reconnect](../../plans/261012-mobile-cookbook-phase1/reports/google-local-sdk-runtime-20261109.md)
+independently reviewed: core NotExercised126.745s native/129.990s host despite successful
+local token-cache clearing; zero external Google launches/results. Separate normal
+reconnect Passed18.564s/21.421s and closed its obligation. Human cancellation/resultCode
+remains Pending; no remote revocation or fresh-consent claim.
+[Physical EN offline Cookbook at200%/landscape](../../plans/261012-mobile-cookbook-phase1/reports/large-landscape-runtime-20261109.md)
+Run02 Passed57.549s/60.248s, independently reviewed: five own-configuration samples
+all200%/landscape/rotation90; five restoration samples span6.603s. Original owner
+file/eight names, source204/candidate32 and native inactivity verified. Run01 Unknown
+host FileExistsError and separate native setup failure/code15 remain retained;
+immediate first authentication was owner-confirmed, no historical cause/fix proved.
+Broad VI/spoken/layout, natural LMK and human Google/different-Menu remain Pending.
+
+Selected font update2026-11-06: [actual continuation](../../plans/261012-mobile-cookbook-phase1/reports/nov6-resume-runtime-20261106.md)
+accepts EN200%/landscape on source195/candidate27 and VI speech/focus on
+source199/candidate29 separately; no same-candidate full bilingual pass.
+The Nov4 deferral was resumed Nov6. Grid29 sampled9points/language/18toggles
+at110%portrait Passed, including independent strict74-frame runtime review. Broader controls/
+layout/lifecycle and human Google/different-Menu remain Pending, Mobile Partial.
+
+Selected Google continuation2026-11-04: [independent401/usable-restoration review](../../plans/261012-mobile-cookbook-phase1/reports/google-http401-review-20261104.md)
+accepts original physical401 run01,105.047s native/107.610s host, and separate
+candidate26 recovery03,33.115s native/34.899s host. Actual original both-scope
+same-account PassChef approval/action remains unchanged; no second revocation.
+The retained-tab401 advanced generation14→15 with token absent, exact RAM/all
+regular cache/jar preservation and no stop/pending, then fresh cached Cook16.
+Recovery03 proves a usable grant through normal SDK authorization, genuine
+metadata/Test literal rows/origin, explicit mapping and durable cache reload.
+Owner digest/all original regular files/six names exact, current UUID absent,
+native inactive; **restorationRequired=false**. Fresh consent remains unproven.
+Actual restore01 Failed11.014s and recovery01 Failed remain retained. Recovery02
+honestly Failed17.988s native/20.453s host, while its current metadata401 and
+read-success/gate-empty/no-inflight diagnostics prove completed local SDK
+eviction. Root reviewed that result before separately invoking recovery03.
+The narrow production repair clears only a current rejected local token and
+orders an explicit Connect after completion; no automatic authorization/read
+or remote revocation. Build26 Passed31s/164tasks31executed133up-to-date; fresh
+app JVM16 has zero failures/errors/skips, and recovery host21 pure checks
+independently Passed. Current source194/ZIP/3APKs/installed identities match,
+61 original Android tests/54 protected files exact: debug`21cabccc…bb65a`,
+test`04c92e38…16838`, release`d989959a…6b92e`; production bytes changed26.
+Earlier source192/candidate23/host54 and all Failed attempts remain preserved.
+[Human packet04](../../plans/261012-mobile-cookbook-phase1/reports/google-human-review-20261104.md) had52 pure checks Passed
+against candidate23/source192; any current human invocation needs a reviewed
+candidate26 rebind. Human cancellation/resultCode, different-Menu and broader
+Google/physical cases remain Pending. Whole Mobile Partial; selected401 and
+usable-grant restoration are closed without broad acceptance credit.
+
+Owner deferral2026-11-04: selected physical200%font/landscape EN/VI TalkBack
+is **Deferred by owner**: “Để lại ca kiểm tra này”. Candidate26 preparation
+grants no permission; no display setting or native run occurred. Earlier
+font1.1/portrait spoken-label/focus passes and accepted401/restoration remain
+valid in their original scope. This defers only that selected case; Mobile
+stays Partial for human Google/different-Menu and broader device gates.
+
+Selected API26 adapter2026-11-04: [runtime](../../plans/261012-mobile-cookbook-phase1/reports/api26-clipboard-runtime-20261104.md)/[independent review](../../plans/261012-mobile-cookbook-phase1/reports/api26-clipboard-review-20261104.md)
+Passed36.503s/68.043s/42.502s/37.054s. Actual30s empty-label/empty-text fallback,
+foreign/null replacement survival, later Copy deadline and username preservation
+proved on isolated API26. Source186/candidate16/installed APK identities,61 prior
+tests/54 protected files match; private namespace empty after every case. This is
+no-auth adapter evidence; candidate16 remains separate from later UI18/20.
+[Actual API27 runtime/review](../../plans/261012-mobile-cookbook-phase1/reports/api27-clipboard-runtime-20261104.md)
+Passed all four cases36.766s/66.740s/41.532s/36.866s,181.904s native total; actual
+SDK27/x86/serial5584. Source189/candidate20/archive and61 prior tests/54 Golden
+match; retained `api26` prefixes require actual API27 metadata. Native inactive/
+private empty after every case. Both owned26/27 VMs closed: all owned launchers/
+QEMU including headless/serials absent, exact Windows temporary AVD/image roots
+removed; definitions/APKs/raw evidence/original user AVD retained. This accepts
+selected emulator legacy fallback only, not physical/authentication/device matrices.
+[Capacity status fix](../../plans/261012-mobile-cookbook-phase1/reports/cache-capacity-status-20261104.md)/[review](../../plans/261012-mobile-cookbook-phase1/reports/cache-capacity-review-20261104.md)
+retains10s pre-fix regression failure after RAM/20-file preservation passed; valid
+21st mapping now receives CACHE_FAILED. Build18 Passed32s/164tasks29executed135up-to-date,
+fresh JVM11 with zero failures/errors/skips. Source189/ZIP/3APKs reviewed:
+debug`c4f24726…ce454`/test`26b09a7e…5a5f5`/release`87fc6d3e…45471`.
+All four selected API26 UI cases and independent runtime review Passed26.155s/
+23.224s/29.497s/97.776s: ties/sparse/missing/duplicate roles, explicit literal
+confirmation, table/oversized-edit limits and20 real UI commits followed by valid
+21st CACHE_FAILED with prior20 RAM/cache/jars exact. Each accepted case binds
+source189/archive/3APK provenance before/after, native inactive/private namespace empty.
+UI01 case03 Failed27.455s remains retained as a new unmarked-test draft-retention
+overconstraint after field equality passed; no production fix for that result.
+Corrected case immediately checks field/RAM/files then normally previews the same
+inputs. Build20 Passed11s/test`35a08698…aca14`; production debug/release identical18;
+fresh JVM11 remains Build18 evidence. Static release-audit20 verifies current
+release`87fc6d3e…45471` manifest byte-identical to audited16 and debug proof markers
+absent in all3DEX; full release/runtime acceptance is separate. Broader physical
+mapping/layout still Pending.
+[Google human-result packet03](../../plans/261012-mobile-cookbook-phase1/reports/google-human-review-20261104.md)
+was earlier rebound/reviewed against source189/candidate20/archive,52 pure checks Passed;
+phone13 was unchanged at that checkpoint, without Google native acceptance. Whole Mobile Partial; 200%font/orientation
+choice and Google401 transition approval remain open.
+
+Selected authenticated recreation2026-11-04: [runtime](../../plans/261012-mobile-cookbook-phase1/reports/authenticated-recreation-runtime-20261104.md)/[independent review](../../plans/261012-mobile-cookbook-phase1/reports/authenticated-recreation-review-20261104.md)
+Passed emulator125.698s and real Xiaomi/API36 Run04 113.868s native/116.477s host.
+Candidate04 source archive173 and installed debug`9fd023…31b8`/test`210761…66c1`
+match. Two additive tests retain earlier assertions. Actual biometric wrapping/
+password recovery, destroyed/replacement Activities in one PID/UUID and both
+retired/new sessions absent with no old Dish/grant passed. Original Copy
+deadline1461316489/generation1 survives; foreground cleanup observed+557ms, then
+fresh cached Cook succeeds. Owner`894f73…a4d6`, all protected files and six prior
+proof directories preserved; only the new UUID removed. Original plugged-awake0
+restored at fixture creation before Copy checkpoint; proof KEEP_SCREEN_ON scoped.
+Preparations01–03 performed no install/native test. This accepts only selected
+authenticated same-process recreation, not process death/history/exact background30s,
+TalkBack/full layout, Google or natural LMK. Broader acceptance remains Partial.
+[Saved-task work](../../plans/261012-mobile-cookbook-phase1/reports/saved-task-review-20261104.md)
+accepts [controlled emulator Attempt04](../../plans/261012-mobile-cookbook-phase1/reports/saved-task-runtime-20261104.md):
+warm16.242s/cold7.850s/cleanup0.294s, guarded own-UID SIGKILL PID9840→9955,
+same task17/ActivityRecord/UUID and encrypted files, actual nonnull saved state,
+locked initial session and genuine password recovery/cached Cook. Earlier
+Attempts01–03 remain Failed. Owned emulator shutdown exit0, serial/QEMU absent,
+exact temporary AVD removed and original user AVD retained. Natural LMK and the
+physical task/biometric matrix remain Pending; no clipboard process-death credit.
+[TalkBack13 preparation](../../plans/261012-mobile-cookbook-phase1/reports/talkback-review-20261104.md)
+Passed Build13 32s/182 archived paths, debug`707bb621…fc8b1`/test`fcd17593…e0f86`,
+release`039e2420…641d`. [Actual physical TalkBack](../../plans/261012-mobile-cookbook-phase1/reports/talkback-runtime-20261104.md)
+Run01 Passed136.423s native/139.038s host, UUID`b518…3eff`: owner-observed EN/VI
+password labels and sampled focus. Run02 Passed57.629s/59.152s, UUID`4259…b9de`:
+actual biometric setup/manual Cook and owner-confirmed masked Dish, Reveal/Copy
+labels/focus and no real Dish spoken. Actual font1.1/portrait1220×2421/density3.25,
+service/touch exploration true. Strict native passes and separate2+1 ready-SHA-bound
+actual owner verdicts Passed after live checks/manual completion signals.
+All owner file hashes/names/six prior directories/policy preserved; current UUIDs
+removed. Independent runtime review Passed. Selected physical200%font/landscape
+EN/VI owner deferral4November was resumed6November; EN27/VI29 observations
+accepted separately. Full-touch/complete focus order remain Pending. Mobile Partial for human Google/different-Menu and
+broader device gates; selected401/restoration accepted separately.
+
+Earlier local candidate2026-11-04 (Asia/Saigon): [verification and exact identities](../../plans/261012-mobile-cookbook-phase1/reports/completion-verification-20261104.md)
+and [independent review](../../plans/261012-mobile-cookbook-phase1/reports/completion-review-20261104.md)
+record four separate selected emulator native passes: locked29.416s, full offline
+UI111.247s, VI OS-field20.781s, EN/VI secure pixels12.496s. Observer04 binds actual
+own font2.0/landscape2400×1080, not full layout or spoken TalkBack. Actual UI01
+Failed with old Espresso; only instrumentation pins in `app/build.gradle.kts`
+changed to Espresso3.7, runner/rules1.7 and JUnit1.3. Build02 Passed194.447s,
+lint0errors/7warnings/1hint (initial0/10/1 retained); debug/release APKs unchanged,
+new testAPK `91b81eea…ba50`. Initial locked-run host misclassification is separately
+corrected against the same native log. Physical/Google acceptance remains Partial;
+emulator observations do not certify the owner-dependent rows below.
+
 Status2026-10-15: **Partial**. Verified candidates installed on Xiaomi/API36;
 selected real UI Run04/05 Passed1/1 each, including normal screen policy in Run05.
 Historical Run01 cause not reproduced; broader phone/Google matrix Pending. Prior Keystore demo
@@ -133,7 +359,12 @@ Passed Google Run03 with actual grant/metadata/rows/mapping/cache-file readback.
 Selected cache UI Run02 accepted app-disconnected reopening/Cook and authenticated
 same-process recreation. Later network-off Run04 accepted strict actual network absence
 and NETWORK_FAILED preservation. Later Google-loaded cache cold02 accepted controlled
-SIGKILL/fresh-process reopening;401/403/cancel/LMK/task restoration remain **Pending**.
+SIGKILL/fresh-process reopening. Later selected [provider-loaded403](../../plans/261012-mobile-cookbook-phase1/reports/google-provider403-preparation.md#actual-provider-loaded-http403-run01--passed21902s) and4November
+[physical401/usable-grant restoration](../../plans/261012-mobile-cookbook-phase1/reports/google-http401-review-20261104.md) were accepted. Human cancellation/resultCode,
+different-Menu callbacks, natural LMK and broader physical task coverage remain **Pending**.
+Selected controlled physical saved-task29 attempt02 and663.477s manual background
+return were accepted in the [6November continuation](../../plans/261012-mobile-cookbook-phase1/reports/nov6-resume-runtime-20261106.md);
+their earlier failed attempts remain Failed and do not establish natural LMK.
 Confirm Sheets API enabled, the phone account in Test users and the Sheets scope saved.
 Create a dedicated private Menu `PassChef OAuth Test`, rename its tab `Test`, and
 enter this fixture only; format C2 as plain text before entering the literal username:
@@ -215,14 +446,14 @@ Pending. No source/time/auth bypass or hidden failure; earlier causes remain unk
 | Tagged context | Correct Menu cooks; absent/wrong Menu refuses; previous Dish disappears | Selected Passed: correct/absent/edit Run04; unchanged Recipe under different saved Menu refuses and clears old Dish/Copy in mapping/tag Run01 |
 | Google consent | Registered package/signature; actual user grant; no token displayed/logged | Passed selected runtime scope: usable grant; owner confirmed account/consent in Google Run01 |
 | Menu/tab read | Real metadata and bounded values; selected tab remains explicit | Passed Google Run03: selected Test tab and exact literal fake schema/row, including00123 |
-| Mapping | Actual preview; confirm roles; duplicate/empty/ragged inputs handled | Partial: Google preview/mapping Run03; irregular-row/duplicate+blank-header explicit remap and invalid-role preservation mapping/tag Run01 Passed; ambiguous proposals/broader matrix Pending |
-| Offline/cache | Reopen private cache; search label/username; favorites/recent retain origin | Passed network-off Run04/recreation, synthetic offline cold02 5.993s and Google-loaded cold02 8.886s after verified SIGKILL; LMK/task restore Pending |
-| Errors/refresh | Cancel/401/403/network failure retain last good cache and clear stale results | Partial: NETWORK_FAILED preservation Passed Run04; actual host OS-Back/stale Google callback after natural lock Passed17.949s with synthetic offline cache/jars preserved; actual metadata403/synthetic cache preservation Passed Run04; human cancellation/resultCode,401/provider-loaded403/different-Menu/provider-loaded cancellation Pending |
+| Mapping | Actual preview; confirm roles; duplicate/empty/ragged inputs handled | Passed finite criteria: Google Run03, irregular-row mapping/tag Run01, API26 tied/sparse/missing/duplicate roles/literal confirmation/limits/capacity and current VI explicit mapping at200%landscape. [Finite reconciliation](../../plans/261012-mobile-cookbook-phase1/reports/finite-acceptance-reconciliation-20261109.md) retains actual platform boundaries; no every-table/configuration matrix claim. |
+| Offline/cache | Reopen private cache; search label/username; favorites/recent retain origin | Passed network-off Run04/recreation, synthetic offline cold02 5.993s and Google-loaded cold02 8.886s after verified SIGKILL; controlled emulator retained-task Attempt04 and physical saved-task29 attempt02/password cached Cook Passed; selected663.477s manual background cached Cook accepted; natural LMK/broader physical task matrix Pending |
+| Errors/refresh | Cancel/401/403/network failure retain last good cache and clear stale results | Partial: NETWORK_FAILED Run04 and host OS-Back/stale callback17.949s Passed in their original scopes; metadata403/synthetic-cache Run04 and provider-loaded403 Run01/21.902s Passed; selected physical401 Run01/105.047s and usable-grant restoration03/33.115s accepted4November with exact owner/fixture preservation. SDK32 actual9Nov local clearing succeeded/core NotExercised126.745s with zero Google launches/results; separate normal reconnect Passed18.564s, obligation closed, independently reviewed. Provider33/34 cores Failed106.553s/316.896s, latter despite ready-bound hand-Cancel (pending180s/resultCode unavailable/same task); normal restores Passed18.313s/41.291s, final obligation false/owner names restored/native inactive, bounded reviews Passed. Human cancellation/resultCode, different-Menu and provider-loaded cancellation remain Pending; no further revocation planned |
 | Reveal | Masked default; explicit reveal hides after10seconds | Passed Run04/05, including KEEP_SCREEN_ON=false in Run05; historical Run01 cause unknown |
-| Clipboard | Dish copy; real30second compare-clear; replaced/username text survives old cleanup | Selected Passed foreground ownership/locked adapter recreation + authenticated owner-Copy35s screen-off/legal return; cross-app/authenticated recreation/process death/history/API26 fallback Pending |
-| Lifecycle | Navigation/edit/lock/background/recreation clear Dish and require unlock | Partial: earlier edit/Back/background/recreation/Recents/cold Passed; owner-Copy35s actual screen-off/same-Activity locked return Passed; long-background/LMK/task matrix Pending |
-| Session | Real5minute idle and10minute total despite activity, no deadline reset | Passed selected API36 foreground proof KEEP_SCREEN_ON: Idle05 341.722s and Total04 609.969s; earlier failures retained, broader timer UX Pending |
-| Security/UI | EN/VI, accessibility/layout, blocked capture/hidden Recents, sanitized own-app logs | Partial: secure shell capture/Recents03/VI OS field01/center02/04/explicit-finger01 Passed; legacy edge01/02/dwell04 Failed; owner revealed-Dish shortcut07 Passed; TalkBack/full layout Pending |
+| Clipboard | Dish copy; real30second compare-clear; replaced/username text survives old cleanup | Passed stated guarantee: foreground/locked recreation, owner-Copy35s legal return, authenticated recreation original deadline/cleanup+557ms, strict actual Chrome replacement and current EN/VI username survival. API26/27 fallback cases remain emulator evidence; physical legacy variants unclaimed/separate device matrix. Process-death timing/history-wide deletion are outside the guarantee. |
+| Lifecycle | Navigation/edit/lock/background/recreation clear Dish and require unlock | Original functional observations Passed: edit/Back/background/recreation/Recents/cold, owner-Copy35s legal return, authenticated recreation, controlled emulator saved-task Attempt04, physical saved-task29 attempt02 and663.477s manual background return. L3 actual OS-LMK mechanism remains a named separate gate; historical failures retained, no every-device/task combination claim. |
+| Session | Real5minute idle and10minute total despite activity, no deadline reset | Passed selected API36 foreground proof KEEP_SCREEN_ON: Idle05 341.722s and Total04 609.969s; earlier failures retained, other UX/platform combinations unclaimed. |
+| Security/UI | EN/VI, accessibility/layout, blocked capture/hidden Recents, sanitized own-app logs | Done for [original finite sampled criteria](../../plans/261012-mobile-cookbook-phase1/reports/finite-acceptance-reconciliation-20261109.md): secure capture/Recents03/owner shortcut07, actual EN/VI TalkBack labels/focus/masked-Dish privacy, separate200%landscape speech observations, named grid29, current EN offline57.549s/VI offline61.969s/bilingual secure11.949s. Independent reviews Passed. Original Failed/Unknown results retained; complete traversal/every-control/pixel/device/font coverage unclaimed, not added mandatory gates. |
 | Recents lifecycle | Actual same-Activity stop/lock, preserved jars and genuine biometric reopen | Passed Run03 1/1,137.789s; Run01/02 failures retained; API36 proof KEEP_SCREEN_ON scope |
 
 Record candidate SHA/APK hash, device/API, timestamps, observer and evidence for

@@ -53,8 +53,8 @@ metadata cases before making a minimum-permission or narrow-host claim.
 | Recipe/Menu/tab context | Google Menu DOM; selected text and MenuID/URL/title in content/popup/worker messages; names/assignments may persist as above | Google Menu remains owner-controlled. No developer upload/telemetry endpoint implemented. A read can still handle sensitive website content/browsing metadata. |
 | Owned Dish clipboard | OS clipboard + separate offscreen RAM text/deadline | Attempt30s exact-match clear; read denial/different text prevents write. Reset/lock has no explicit immediate owner-dispose/clipboard-clear command. Sleep/closed browser/history/sync/races outside guarantee. |
 | Export/QR/recipient | Full Access original Spices encrypted by separate PBKDF2-SHA256100k/AES-GCM password; readable bundle headers; user-chosen file/clipboard/QR/recipient | Source Reset/delete/master-password rotation cannot revoke independent copies. Legacy HKDF-derived Menu-bound sharing is separate. |
-| Extension font requests | [Bundled tokens.css](../../../chrome-extension/src/styles/tokens.css):6 imports Google Fonts CSS; popup/Options link this stylesheet. External stylesheet/font requests can expose ordinary network/header metadata to Google | A06 source inventory adds this disclosure; actual requests, provider behavior and final artifact network acceptance Pending. This is external font data, not a developer telemetry client or remote executable code. |
-| Website requests/support | Legal pages also load external Google Fonts; deployed host can receive IP/request logs. Any future submitted support content depends on chosen channel | passchef.com+Cloudflare chosen, but ownership/service/log retention/cookies/deployment and contacts unverified C04/C05. Extension no-telemetry finding does not cover all website/provider processing. |
+| Extension font requests | Current popup/Options source uses [shared local font faces](../../../chrome-extension/src/styles/fonts.css); standalone Demo embeds matching local declarations. All reuse four bundled TTFs with original OFL/source provenance; no Google Fonts stylesheet dependency for typography | E02 current-source migration; earlier held74-file development artifact imported Google Fonts data and remains historical. Font loading/final artifact network acceptance Pending. Local fonts do not remove ordinary Google service/Sync metadata processing. |
+| Website requests/support | Website HTML heads/styles.css declare four local TTF assets without Google Fonts URLs; deployed hosting can receive IP/request logs. Any future submitted support content depends on chosen channel | Owner reports managing passchef.com in Cloudflare; account/project/service/log retention/cookies/live configuration/contacts remain unverified C04/C05, and publication is held pending UI alignment. Extension no-telemetry finding does not cover all website/provider processing. |
 
 [Reset source](../../../chrome-extension/src/options/options-settings-tab.js):
 confirmed handler calls `chrome.storage.sync.clear()` then `chrome.storage.session.clear()`;
@@ -74,7 +74,7 @@ No promise that Store removal/discontinuation preserves recoverability.
 | Website content / web activity | Selected Recipe/page content and MenuID/tab URL/title are processed for detection/cooking/picker. No general history database feature, but required current-page data still needs disclosure. |
 | Identifiable/other sensitive data | Profile names, Menu context, user-entered Recipes/labels and future support reports can contain identifiers. Final Dashboard category choices must reflect actual accepted input scope and all applicable categories; don't categorically exclude content just because fixture data is synthetic. |
 | Other Dashboard categories | No source flow for advertising, credit scoring or payment data collection in this extension. This is not certification of every user-entered value, deployed website or future billing service. Owner must inspect final Dashboard wording/categories. |
-| Remote executable code | Current resource paths use bundled JS/Worker/WASM; locale fetch uses runtime.getURL. Provisional draft:“No remote executable code in the accepted extension artifact.” A06/A13/B07 must verify imports/resources/provenance before asserting final No. Popup/Options bundled CSS imports external Google Fonts stylesheet/font data; remote data requests differ from remote executable code and still require disclosure/network verification. |
+| Remote executable code | Current resource paths use bundled JS/Worker/WASM; locale fetch uses runtime.getURL. Provisional draft:“No remote executable code in the accepted extension artifact.” A06/A13/B07 must verify imports/resources/provenance before asserting final No. Current font resources are bundled locally; the earlier held74-file artifact imported external Google Fonts data. This source migration does not certify final artifact network behavior or other service requests. |
 | Limited Use | Draft commitment:user data only for disclosed Recipe/Cookbook/session/clipboard/sharing purpose; no unrelated advertising, sale, credit scoring or human access workflow implemented. Owner must approve/certify full restrictions and ensure a corresponding public policy statement. |
 | Privacy URL / support / identity | Pending C04/C05; relative local HTML is not a verified public HTTPS URL. Existing unconfirmed .io/email contact is not promoted as approved identity. |
 | Final consistency | A14 binds accepted ZIP/version/manifest, Store categories/certifications, policy URLs and listing. C11 approval/submission remains separate. |
@@ -85,6 +85,14 @@ No promise that Store removal/discontinuation preserves recoverability.
 - [Privacy fields](https://developer.chrome.com/docs/webstore/cws-dashboard-privacy):purpose, per-permission justification, remote-code declaration, data categories/certification and policy URL must be consistent. Actual Dashboard not accessed.
 - [User Data FAQ](https://developer.chrome.com/docs/webstore/program-policies/user-data-faq):local processing/storage still requires data-handling disclosure; scraped website content and browsing metadata are relevant.
 - [Limited Use](https://developer.chrome.com/docs/webstore/program-policies/limited-use):purpose-bound use/transfer restrictions, constraints on human access and prohibited uses, plus an affirmative website disclosure. Draft text is not owner certification or proof of legal compliance.
+
+## Android app Google access (2026-11-10)
+
+Not part of the Chrome Web Store declarations above. Android requests only
+`https://www.googleapis.com/auth/drive.file` via Play services AuthorizationClient +
+Google Picker: file-level access to sheets the user picks. The earlier `spreadsheets`
+scope is dropped for Android. Desktop JVM dev tool still uses `spreadsheets` (not shipped).
+Android store/privacy declarations are not covered by this record.
 
 ## Current legal source state
 

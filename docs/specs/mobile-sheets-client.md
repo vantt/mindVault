@@ -1,6 +1,6 @@
 ---
 area: mobile-sheets-client
-updated: 2026-10-12
+updated: 2026-11-10
 sources: [passchef-mobile-oauth-sheets]
 decisions: [D1, D2, D3, D4]
 coverage: partial
@@ -27,7 +27,9 @@ passed. Real Android Google acceptance remains Pending.
   performing one real read of the sheet.
 - **Android Cookbook Connect/tab selection** → canonical metadata/read client
   through an Android engine. Code/local checks Done; live acceptance Pending. Update
-  authoring screens remain deferred.
+  authoring screens remain deferred. Since 2026-11-10 Android Connect requests
+  `drive.file` through Google Picker only; paste link and Share-in reopen the Picker
+  filtered to that file.
 
 ## Data Dictionary
 
@@ -68,11 +70,11 @@ insufficient" outcome, separate from "expired."
 | Actor | Access |
 |---|---|
 | Account owner | The only actor. Performs the one-time setup and, currently, the one-time connection check. Owns the sheet and the permission grant. |
-| Android Cookbook (code complete) | Requests explicit Google authorization and reads a selected Menu/tab; real owner grant and phone acceptance Pending. |
+| Android Cookbook (code complete) | Requests `drive.file` through Google Picker and reads a selected Menu/tab; real owner grant and phone acceptance Pending. |
 
 ## Business Rules
 
-- **R1** — The permission requested covers both reading AND updating the sheet, not read-only, so the connection never has to ask the account owner to re-grant a broader permission later. (D3)
+- **R1** — The permission requested covers both reading AND updating the sheet, not read-only, so the connection never has to ask the account owner to re-grant a broader permission later. (D3) **Superseded for Android 2026-11-10:** app requests `drive.file` only via Google Picker (redesign D1); no write path. Desktop JVM tool keeps `spreadsheets`.
 - **R2** — Updates through this connection are limited to appending new rows and updating existing ones; deleting a row is never done through this connection. (prior locked decision, carried into D3's scope)
 - **R3** — Setting up the permission grant (creating the connection, choosing what it can access) is always a manual, one-time action the account owner takes themselves in their own Google account settings — this product never automates that setup. (D1)
 - **R4** — Proving the connection actually works (the one-time connection check) is verified against simulated responses as part of building this area; running it for real, with the account owner's real permission grant, is the account owner's own follow-up action, separate from building the connection itself. (D4)
@@ -92,6 +94,7 @@ insufficient" outcome, separate from "expired."
 - Updates start at the configured range; appends add rows after the table found in the
   configured search range. Account values remain literal text by default. No deletion
   operation exists; callers choose a suitable destination and account for table growth.
+- Android (2026-11-10): 404 or 403 on a picked sheet → "choose this sheet again" (filtered Picker). Refresh = silent authorize. Picker cancel → calm "Not connected". Existing users re-pick each sheet once after the scope change.
 - The permission-expired and permission-insufficient outcomes never reveal the actual permission value itself (no token/credential value is ever surfaced, logged, or printed anywhere, including in these error paths).
 
 ## Open Gaps
@@ -99,7 +102,7 @@ insufficient" outcome, separate from "expired."
 - Android metadata/read screens and the genuine authorization/engine adapter are
   implemented and locally verified in the Cookbook slice. Append/update authoring UI remains later work.
 - The account owner has not yet actually completed the one-time setup, and the one-time connection check has not yet been run against a real permission grant — everything proven so far uses simulated responses, not a live connection.
-- Android401 reconnect/403 access feedback is implemented but still needs the
+- Android 401 reconnect and 403/404 choose-again feedback (Picker, `drive.file`) are implemented but still need the
   live owner/device acceptance; the local build passed. The desktop tool retains
   its existing distinct sanitized outcomes.
 
@@ -116,4 +119,5 @@ insufficient" outcome, separate from "expired."
 - `src/jvmTest/kotlin/com/passchef/sheets/SheetsSmokeTestConfigTest.kt`
 - `docs/runbooks/google-oauth-sheets-setup.md` — the one-time setup runbook
 - `docs/mobile-kmp-toolchain-setup.md` — local toolchain install notes for building this module
+- `app/src/main/kotlin/dev/passchef/mobile/cookbook/AndroidSheetsAuthorization.kt` — Android Picker + `drive.file` authorization (2026-11-10)
 - `archive/plans/passchef-mobile-oauth-sheets/{CONTEXT.md,approach.md,plan.md}` — design history and locked decisions D1-D4

@@ -1,5 +1,449 @@
 # Project Changelog
 
+## Android UX flow redesign implemented (2026-11-10)
+
+Uncommitted. Plan: [261110-android-ux-flow-redesign](../plans/261110-android-ux-flow-redesign/plan.md);
+spec D1–D18 in [ux-flow-redesign-spec.md](../plans/261110-android-ux-flow-redesign/ux-flow-redesign-spec.md).
+Phase 01 picker spike GO; phases 02–06 implemented; phase 07 verification partial.
+
+- **Google access (D1):** `drive.file` only via Play services AuthorizationClient + Google Picker.
+  `spreadsheets` dropped for Android. Paste link / Share-in open Picker filtered to file id.
+  404/403 → choose sheet again. Existing users re-pick each sheet once. Requires Google Picker
+  API and `drive.file` on OAuth Data Access.
+- **Navigation/gate (D2–D6):** `VaultPhase` gate (NEW / LOCKED_BIOMETRIC / LOCKED_PASSWORD /
+  UNLOCKED). Bottom nav Passwords / Enter code / Settings. Non-secret route and wizard progress
+  survive lock. Picker window unlocks ≤120 s only while own intent pending. Auto fingerprint
+  prompt once per lock event.
+- **Vault (D8, D9, D15, D17):** add secret part after setup (master-password re-auth, key
+  unchanged). Offline table without sheet id uses `local_` id. 1–5 secret parts. Vault format v2:
+  up to 8 named secret-part sets; v1 caches read as "Default"; sheet bound to set (ids in
+  non-sensitive prefs); cache plaintext ≤ 32000 bytes.
+- **Sharing/copy/language (D10–D12):** Share-in via `ShareReceiverActivity` (`ACTION_SEND`
+  text/plain). Copy from list row. Language persisted.
+- **Look and words (D13, D14, D16–D18):** palette D (Ink+Amber dark, Linen light), Settings
+  Theme System/Dark/Light, amber fill = one main action. Plain words in UI; cooking metaphor
+  tagline/brand only. First run: E1–E4 explainer. Launcher: brand kit v2 chef-keyhole adaptive
+  + monochrome icon. In-app wordmark dot-less.
+- **Deferred:** D7 quick-return grace.
+- **Docs updated:** `docs/specs/mobile-cookbook.md`, `docs/specs/cross-platform-design.md`,
+  `docs/specs/mobile-sheets-client.md`, `docs/runbooks/google-oauth-sheets-setup.md`,
+  `docs/commercialization/legal/permissions-review.md`, `docs/development-roadmap.md`, `AGENTS.md`.
+- **Not covered:** Android live Google/device acceptance and phase 07 items not yet run; the
+  desktop JVM tool still uses `spreadsheets`; plan phase files still show Pending.
+
+## Record actual Google38 cancellation failure and normal restoration (2026-11-10)
+
+[Provider38](../plans/261012-mobile-cookbook-phase1/reports/google-realtime-cancellation-20261110.md)
+used fresh actual specific approval under scopeb39a1eca…ff55. Retained-provider-A,
+bound revoke marker within120s, real401 and same-task6884 cancel-only metadata route
+reached the actual owner checkpoint. Core Failed111.687s native/114.175s host at the
+unchanged canceled-result conjunction; minimal frame pending=false, exact result
+integer Unknown. Owner explicitly confirmed Google Continue instead of Android Back;
+ready/request-bound DidNotCancel and aggregate Failed retained. No G1/G2/source-fix claim.
+Separate normal restore01 Passed18.023s/19.805s with genuine original Menu/Test rows,
+mapping/durable cache and exact original nine names/one file/source205/APKs/native
+inactivity; restorationRequired=false. Independent38audit Passed, no new39scope/revoke.
+Earlier37 core/failure history and independently Passed restoration remain unchanged.
+
+## Record current verification and Google37 restoration obligation (2026-11-10)
+
+[Fresh local verification](../plans/261012-mobile-cookbook-phase1/reports/current-verification-20261110.md)
+Passed151JVM tests/0failures/errors/skips,214source/config paths stable and all current
+APKs unchanged. Compilation/APK assembly and main/unit lint reused; Android-test lint
+executed. [Candidate review](../plans/261012-mobile-cookbook-phase1/reports/candidate-review-20261110.md)
+found no concrete P1/P2 within reviewed session/callback/token/clipboard/cache/backup
+scope. These checks do not close final candidate/delivery acceptance.
+
+[Actual Google37](../plans/261012-mobile-cookbook-phase1/reports/google-android-back-cancellation-20261110.md)
+core Failed381.729s/384.592s at the retained-action checkpoint; owner acknowledged
+revocation late, exact gesture time unknown, no stale marker or G1/G2 credit.
+Cleanup-only HOME allowed genuine failed JUnit/fixture cleanup. Restore01 Failed
+16.119s/18.795s with local token eviction complete; restore02 Failed182.232s/185.365s
+at initial setup. Later owner biometric acknowledgment has unknown gesture time.
+Restore03/04 NotStarted at preflight. Bounded inactive debug-process/known-emptyUUID
+recovery restored original nine names/one owner file; source205/APKs unchanged.
+Separate normal restore05 Passed120.493s native/122.331s host with original Menu/Test
+rows/mapping/durable cache, exact owner/source/APKs/native inactivity and
+**restorationRequired=false**. Independent closure review Passed within this scope. No extra37revocation/core planned; earlier failures remain Failed.
+
+[Observable LMKD runtime](../plans/261012-mobile-cookbook-phase1/reports/lmk-observable-runtime-20261110.md)
+diagnostic prerequisite Passed on the owned userdebug VM: stable98FD inventory,
+epoll3 references PSI6/7 and actual root-readable samples. The original64FD parser
+failure remains retained; separately reviewed bounded-parser followup passed.
+That diagnostic included no target/workload. Later [two controlled attempts](../plans/261012-mobile-cookbook-phase1/reports/lmk-controlled-runtime-20261110.md)
+remain NotExercised: both targets survived17/129responsive samples; slow final60,912KiB
+crossed64MiB guard. Helpers/native inactive, visible cleanup Passed4.012s host with
+independent review; slow cleanup Passed4.011s host, independent slow final audit
+Passed. No L3/reason3/cold credit or further pressure escalation. Original one-emu-kill
+disposal ended Unknown after5s host timeout; separate recovered-absence/archive
+disposal Passed with original processes/listeners/serial absent, exact owned temporary
+root removed, archive exit0 and all protected/source/owner bytes preserved. No second
+kill; independent final disposal audit Passed. No further Google/VM work planned. Phases01–03 stay Done within recorded scopes,04–05 Partial and
+G1/G2/L3/D1/D2 open.
+
+Earlier38preparation retained47+48+41pure checks/five null actual-data templates;
+its later specifically approved actual run is recorded above. Provider37's consumed
+authority was not reused.
+
+## Record Google36 pre-positioned attempt and normal restoration (2026-11-09)
+
+[Provider36](../plans/261012-mobile-cookbook-phase1/reports/google-prepositioned-cancellation-20261109.md)
+used new specific approval and owner-reported prepared page. Actual revoke acknowledgment
+arrived105.756s after retained-A readiness; its marker published108.124s after readiness,
+before the unchanged120s deadline. Exact gesture time remains unknown. Real retained401
+preserved Menu/Spice jars; one real Google request shared task6841 with the app.
+Owner later confirmed pressing Continue/Allow before route publication. Core Failed254.970s
+native/257.829s host when the original request stopped being pending; no Cancel route,
+canceled resultCode or different-Menu acceptance. Independent runtime audit Passed
+for those facts; no production repair inferred.
+
+Separate normal restore01 Passed19.830s/22.212s: genuine setup, original Menu/Test
+metadata/rows, explicit mapping and durable cache reload. All nine captured baseline
+names/one owner file, source205/APKs preserved/native inactive; obligation=false.
+Independent closure audit Passed. No extra36 revoke/core planned; earlier35 history
+unchanged. Phase03/C09 remain Done; G1/G2/L3/D1/D2 remain required. The owner's Allow
+clarification refers to core, not a fresh-consent observation during restoration.
+
+## Close original finite Phase03/C09 acceptance (2026-11-09)
+
+[Requirement-to-evidence reconciliation](../plans/261012-mobile-cookbook-phase1/reports/finite-acceptance-reconciliation-20261109.md)
+and independent scope review establish **Phase03/C09 Done** for the original
+functional/sampled phone criteria introduced at2579e29. Accepted recovery, EN/VI
+layout/accessibility, named language touch target, mapping/cache/Cook, clipboard,
+timers, lifecycle and secure Recents/capture evidence satisfy that finite scope.
+No new runtime, waiver or retrospective relabeling of failed attempts occurred.
+Unmeasured every-control/pixel/device/font coverage stays unclaimed, not a new matrix.
+Whole plan remains Partial for G1 human cancellation/G2 different-Menu/L3 actual
+OS-LMK and D1/D2 candidate/delivery. Google35 restoration remains closed separately.
+
+## Record approved Google35 failure and separate restoration (2026-11-09)
+
+[Provider35](../plans/261012-mobile-cookbook-phase1/reports/google-topology-diagnostic-20261109.md)
+core01 Failed138.641s native/142.174s host at the unchanged120s owner-action-marker
+wait after genuine setup/provider A/cache/Cook. Specific user approval and fresh
+preflight were recorded; no actual-action reply/record/marker,401, external resolution
+or Cancel checkpoint followed. Owner regular file/eight names, source205/all APKs
+preserved/native inactive; worker0samples/0calls, bounded independent audit Passed.
+The strict Failed outcome remains. Owner acknowledged remote deletion after core
+ended; exact gesture time unknown, completion-receipt timestamp disclosed. No stale
+marker, extra revocation or core retry. Actual action required mandatory restoration;
+restore01 Failed182.301s/186.36s in genuine setup with two PID-bound code15 samples,
+no unique cause or Google Connect inferred. After fresh actual owner readiness,
+separate unchanged normal restore02 Passed43.846s/48.462s: metadata/Test rows/mapping/
+durable cache, exact owner/source205/APKs/native inactivity. restorationRequired=false;
+final closure audit Passed. Original core-null and restore01-failure records retained;
+no human-cancel/different-Menu acceptance or further revocation planned.
+
+## Accept selected bilingual secure display and audit release package (2026-11-09)
+
+[EN/VI Cook/reveal and secure pixels](../plans/261012-mobile-cookbook-phase1/reports/bilingual-secure-landscape-20261109.md)
+Passed11.949s on unchanged candidate32 at actual200%/landscape, independently reviewed;
+owner/source/APKs preserved and original display restored. The [fresh unsigned-release manifest/DEX audit](../plans/261012-mobile-cookbook-phase1/reports/release-package-audit-20261109.md)
+Passed all3DEX/25,535classes, proof/test exclusion and packaged backup rules. This is
+static package evidence, not signing/publication acceptance.
+
+[Separate VI offline/source/mapping/detail flow](../plans/261012-mobile-cookbook-phase1/reports/vietnamese-offline-landscape-20261109.md)
+Passed61.969s native/64.357s host, strict selected1/1, after a one-line direct-header
+action repair in the new test. Actual explicit mapping/tag refusal/search/cache Cook,
+real10.5s remask/30.5s username preservation and background lock assertions ran.
+Independent runtime review Passed. Original Failed10.003s/12.524s at the header
+scroll helper retained; no production defect or historical biometric cause inferred.
+Repair compilation Passed6s; source205 retains original204, production/release32 exact,
+only testAPK changed to e59af…12f. Owner regular file/eight names exact, original display
+restored/native inactive. Setup was EN; no VI setup/spoken/full-touch acceptance.
+Earlier151JVM/three-APK32 verification remains its original snapshot; Mobile Partial
+for human Google/different-Menu, natural LMK and broader spoken/touch gates.
+
+## Record failed human-Google attempts and completed restoration (2026-11-09)
+
+[Provider33](../plans/261012-mobile-cookbook-phase1/reports/google-provider33-runtime-20261109.md)
+core Failed106.553s native/111.827s host after owner Continue/Allow before route;
+normal restoration Passed18.313s/21.632s. [Provider34](../plans/261012-mobile-cookbook-phase1/reports/google-provider34-runtime-20261109.md)
+core Failed316.896s/320.790s despite actual ready-bound hand-Cancel reply: original
+request pending after180s, resultCode unavailable, same own/Google task6817 and no
+different-Menu route. Core preserved=false retained: one new empty proof directory,
+no original regular-file changes; only that empty directory removed after native
+inactivity, original names restored. Separate normal restoration Passed41.291s/
+46.015s; restorationRequired=false, original owner file/eight names/source204/APK32
+exact, native inactive. Both independent audits Passed for bounded facts; strict
+core failures remain Failed. No code/test/APK changes or historical cause/fix claim.
+Google/phone operations ended; no further revocation planned. C07/Mobile remain
+Partial; required human callback/different-Menu/natural LMK/VI-spoken gates Pending.
+
+## Accept selected SDK reconnect and physical EN landscape flow (2026-11-09)
+
+[SDK32 runtime](../plans/261012-mobile-cookbook-phase1/reports/google-local-sdk-runtime-20261109.md):
+core NotExercised126.745s native/129.990s host after successful local token-cache
+clearing; zero external Google launches/results. Separate normal reconnect
+Passed18.564s/21.421s, obligation closed; independent review Passed. No remote
+revocation, fresh consent or human cancellation acceptance.
+[Physical EN offline flow](../plans/261012-mobile-cookbook-phase1/reports/large-landscape-runtime-20261109.md)
+Run02 Passed57.549s/60.248s and independent review: five own samples at200%/
+landscape/rotation90; display restoration verified over6.603s. Owner file/eight
+names, source204/candidate32 and native inactivity preserved. Run01 Unknown host
+FileExistsError and separate setup failure/code15 retained; immediate first auth
+owner-confirmed, no historical cause/fix claim. No production/test/APK changes;
+earlier151 fresh local tests stay separate. Broader physical/Google gates remain Partial.
+
+## Revalidate Cookbook locally and reconcile accepted scopes (2026-11-09)
+
+[Current verification](../plans/261012-mobile-cookbook-phase1/reports/current-verification-20261109.md):
+151 fresh JVM assertions Passed (shared78/bridge22/app16/standalone35),0failures/
+errors/skips. Root build Passed56s/185tasks/11executed; compile/assembly/lint
+analysis reused, lint0errors/7warnings/1hint.207 mobile source paths stayed exact;
+all3APK hashes match archived candidate32. That local verification included no production/test source change or native
+run; later selected native outcomes are recorded above. Overall Mobile remains Partial for outstanding owner/device/Google acceptance.
+
+Current spec/roadmap/runbook/Track02 now reflect already accepted grid29 independent
+review, controlled physical saved-task29 and663.477s manual background return;
+A11/C06 selected401/restoration campaign is Done. Earlier Failed/Unknown outcomes
+remain unchanged; no natural LMK/full layout or new Google cancellation credit.
+
+## Accept selected font observations on separate candidates (2026-11-06)
+
+Selected font update2026-11-06: [actual continuation](../plans/261012-mobile-cookbook-phase1/reports/nov6-resume-runtime-20261106.md)
+accepts EN200%/landscape on source195/candidate27 and VI speech/focus on
+source199/candidate29 separately; no same-candidate full bilingual pass.
+The Nov4 deferral was resumed Nov6. Grid29 sampled9points/language/18toggles
+at110%portrait actually Passed; independent review Pending. Broader controls/
+layout/lifecycle and human Google/different-Menu remain Pending, Mobile Partial.
+
+## Earlier documentation reconciliation (2026-11-06, before runtime continuation)
+
+Documentation reconciliation only: selected [provider-loaded403](../plans/261012-mobile-cookbook-phase1/reports/google-provider403-preparation.md#actual-provider-loaded-http403-run01--passed21902s)
+and4November [physical401/usable-grant restoration](../plans/261012-mobile-cookbook-phase1/reports/google-http401-review-20261104.md) remain accepted.
+Human Google/different-Menu and broader physical lifecycle/control-layout
+remain Pending; selected200%font/landscape TalkBack stays owner-Deferred.
+No new runtime acceptance; all dated outcomes below remain unchanged.
+
+## Close selected physical401 and usable-grant restoration (2026-11-04)
+
+Selected Google continuation2026-11-04: [independent401/usable-restoration review](../plans/261012-mobile-cookbook-phase1/reports/google-http401-review-20261104.md)
+accepts original physical401 run01,105.047s native/107.610s host, and separate
+candidate26 recovery03,33.115s native/34.899s host. Actual original both-scope
+same-account PassChef approval/action remains unchanged; no second revocation.
+The retained-tab401 advanced generation14→15 with token absent, exact RAM/all
+regular cache/jar preservation and no stop/pending, then fresh cached Cook16.
+Recovery03 proves a usable grant through normal SDK authorization, genuine
+metadata/Test literal rows/origin, explicit mapping and durable cache reload.
+Owner digest/all original regular files/six names exact, current UUID absent,
+native inactive; **restorationRequired=false**. Fresh consent remains unproven.
+Actual restore01 Failed11.014s and recovery01 Failed remain retained. Recovery02
+honestly Failed17.988s native/20.453s host, while its current metadata401 and
+read-success/gate-empty/no-inflight diagnostics prove completed local SDK
+eviction. Root reviewed that result before separately invoking recovery03.
+The narrow production repair clears only a current rejected local token and
+orders an explicit Connect after completion; no automatic authorization/read
+or remote revocation. Build26 Passed31s/164tasks31executed133up-to-date; fresh
+app JVM16 has zero failures/errors/skips, and recovery host21 pure checks
+independently Passed. Current source194/ZIP/3APKs/installed identities match,
+61 original Android tests/54 protected files exact: debug`21cabccc…bb65a`,
+test`04c92e38…16838`, release`d989959a…6b92e`; production bytes changed26.
+Earlier source192/candidate23/host54 and all Failed attempts remain preserved.
+[Human packet04](../plans/261012-mobile-cookbook-phase1/reports/google-human-review-20261104.md) had52 pure checks Passed
+against candidate23/source192; any current human invocation needs a reviewed
+candidate26 rebind. Human cancellation/resultCode, different-Menu and broader
+Google/physical cases remain Pending. Whole Mobile Partial; selected401 and
+usable-grant restoration are closed without broad acceptance credit.
+
+Owner deferral2026-11-04: selected physical200%font/landscape EN/VI TalkBack
+is **Deferred by owner**: “Để lại ca kiểm tra này”. Candidate26 preparation
+grants no permission; no display setting or native run occurred. Earlier
+font1.1/portrait spoken-label/focus passes and accepted401/restoration remain
+valid in their original scope. This defers only that selected case; Mobile
+stays Partial for human Google/different-Menu and broader device gates.
+
+## Verify API26 fallback and correct full-cache error classification (2026-11-04)
+
+[API26 adapter runtime](../plans/261012-mobile-cookbook-phase1/reports/api26-clipboard-runtime-20261104.md)/[review](../plans/261012-mobile-cookbook-phase1/reports/api26-clipboard-review-20261104.md)
+Passed four selected native cases36.503s/68.043s/42.502s/37.054s: actual30s empty
+fallback, foreign/null replacements, later Copy deadline and username preservation.
+Source186/candidate16/installed APK identities,61 prior tests and54 protected files
+match; private namespace empty after each. Candidate16 adapter evidence stays
+separate from later UI18/20. [Separate API27 runtime/review](../plans/261012-mobile-cookbook-phase1/reports/api27-clipboard-runtime-20261104.md)
+Passed four selected cases36.766s/66.740s/41.532s/36.866s,181.904s native total.
+Actual SDK27/x86/5584 and source189/candidate20/archive/61 prior tests/54 Golden
+match; `api26` diagnostic prefixes require actual API27 metadata. Native inactive
+and private namespace empty after every case. Both owned26/27 VMs closed with
+all owned launchers/QEMU including headless/serials absent. Exact temporary Windows
+AVD/image roots removed; definitions/APKs/raw evidence/original user AVD retained.
+No broad physical/authentication/cooking/device-matrix acceptance follows.
+
+[Capacity regression/correction](../plans/261012-mobile-cookbook-phase1/reports/cache-capacity-status-20261104.md)/[review](../plans/261012-mobile-cookbook-phase1/reports/cache-capacity-review-20261104.md)
+retains pre-repair targeted failure10s: valid21st mapping preserved all RAM/20 disk
+files but reported INVALID_MAPPING instead of CACHE_FAILED. The narrow durable-save
+catch now reports cache failure; mapping-validation behavior and old assertions
+remain intact. Build18 Passed32s,164tasks29executed135up-to-date, fresh app JVM11
+with zero failures/errors/skips. Reviewed source189/ZIP/APKs bind debug`c4f24726…ce454`,
+test`26b09a7e…5a5f5`, release`87fc6d3e…45471`; this production correction affects release.
+All four selected emulator UI cases and independent runtime review Passed:
+26.155s tied/sparse/missing/duplicate roles;23.224s unique explicit confirmation/
+literal Unicode and leading zeroes;29.497s limits/oversized edit;97.776s20 actual
+UI commits and valid21st refusal with CACHE_FAILED/all prior20 RAM/cache/jars exact.
+Each accepted run preserves source189/archive/3APK provenance before/after, native
+inactive and empty private namespace. Failed UI01 case03 27.455s remains retained:
+the new unmarked test overrequired an unconfirmed draft after field equality
+passed. No production change for that failure; revised test checks field/RAM/files
+immediately then previews the same inputs normally. Build20 Passed11s; test APK
+`35a08698…aca14`, debug/release identical18. Fresh app JVM11 remains Build18 evidence.
+Static release-audit20 confirms release`87fc6d3e…45471` manifest byte-identical to
+audited16 and debug proof markers absent in all3DEX; full release/runtime remains separate.
+[Google human-result packet03](../plans/261012-mobile-cookbook-phase1/reports/google-human-review-20261104.md)
+was earlier rebound/reviewed against source189/candidate20/archive;52 pure checks Passed.
+Phone13 was unchanged at that preparation checkpoint; no Google native result. Mobile remains Partial;
+no 200%font/orientation, Google401 or broad acceptance inferred.
+
+## Record selected physical TalkBack labels, focus and masking (2026-11-04)
+
+[Actual runtime](../plans/261012-mobile-cookbook-phase1/reports/talkback-runtime-20261104.md):
+Run01 Passed136.423s native/139.038s host, UUID`b518…3eff`, owner-observed EN/VI
+password labels and sampled focus. Run02 Passed57.629s/59.152s, UUID`4259…b9de`,
+genuine biometric setup/manual Cook and owner-confirmed masked Dish, Reveal/Copy
+labels/focus with no real Dish spoken. Actual font1.1/portrait1220×2421/density3.25;
+expected TalkBack and touch exploration true. Strict native results and separate
+2+1 ready-SHA-bound actual owner verdicts Passed after live checks/manual signals.
+Owner digest/all original file hashes/names/six prior directories and plugged-awake
+policy remain exact; each current UUID removed. [Source/host review](../plans/261012-mobile-cookbook-phase1/reports/talkback-review-20261104.md)
+Passed; independent runtime review Passed. Selected physical200%font/landscape
+EN/VI owner deferral4November was resumed6November; selected EN27/VI29 scopes
+accepted separately. Full-touch/complete traversal and broader gates remain open.
+
+## Accept selected controlled emulator saved-task recovery (2026-11-04)
+
+[Attempt04 runtime](../plans/261012-mobile-cookbook-phase1/reports/saved-task-runtime-20261104.md)/[independent review](../plans/261012-mobile-cookbook-phase1/reports/saved-task-review-20261104.md)
+Passed warm16.242s/cold7.850s/cleanup0.294s. After genuine password setup/cache/Cook
+and real Home/save/stop, guarded own-UID SIGKILL changes PID9840→9955. Task17,
+ActivityRecord/UUID and encrypted files remain exact; restored nonnull saved state
+starts locked, then real password recovery reloads the cache and cooks the literal
+Dish. Separate cleanup removes only the selected UUID/aliases and restores the
+empty private namespace. Original Attempts01–03 remain Failed.
+Owned emulator shut down exit0; selected serial/QEMU absent, exact temporary AVD
+removed and original user AVD retained. Controlled emulator recovery is accepted;
+natural LMK, physical task/biometric matrix and clipboard process-death are not.
+
+[TalkBack13 preparation review](../plans/261012-mobile-cookbook-phase1/reports/talkback-review-20261104.md)
+Passed Build13 32s/182 archived paths; debug`707bb621…fc8b1`, test`fcd17593…e0f86`,
+release`039e2420…641d`. Exact phone install preserved owner files; owner reports
+TalkBack enabled/speaking. Later selected actual native/owner results are recorded
+above; independent runtime review Passed. Mobile remains Partial, with
+Google401/human cancellation/resultCode gates open.
+
+## Accept selected authenticated clipboard recreation on Xiaomi (2026-11-04)
+
+[Selected runtime](../plans/261012-mobile-cookbook-phase1/reports/authenticated-recreation-runtime-20261104.md)/[independent review](../plans/261012-mobile-cookbook-phase1/reports/authenticated-recreation-review-20261104.md)
+Passed emulator125.698s and physical Run04 113.868s native/116.477s host. Two
+additive tests retain every earlier assertion. Physical candidate04 archived173
+paths, debug`9fd023…31b8`/test`210761…66c1` and installed hashes match. Actual
+biometric wrapping/password recovery, different destroyed/replacement Activities
+in one PID/UUID and retired/new sessions absent with no old Dish/grant passed.
+Original clipboard deadline1461316489/generation1 remained exact; foreground
+cleanup+557ms and fresh cached Cook passed. Owner`894f73…a4d6`, all protected
+files and six old proof directories preserved; new UUID removed. Original
+plugged-awake0 restored at fixture creation before the Copy checkpoint; proof
+KEEP_SCREEN_ON scoped. Preparations01–03 performed no install/native test and are not
+phone runtime failures. Only selected authenticated recreation is accepted;
+process-death/history/exact background30s/TalkBack/full layout/Google/natural LMK
+remain unaccepted; Mobile Partial.
+
+[Saved-task work](../plans/261012-mobile-cookbook-phase1/reports/saved-task-review-20261104.md)
+adds debug opt-in journaling/tests/harness. Warm01 ServiceLoader Failed0.105s before
+body; warm02 UI Failed24.442s at offscreen confirmation. Neither performed actual
+kill/cold proof; later Attempt03 failed to establish death. Selected Attempt04
+acceptance and its controlled-emulator limits are recorded above; earlier verdicts retained.
+
+## Reverify current Android Cookbook and Menu client (2026-11-04)
+
+[Fresh verification](../plans/261012-mobile-cookbook-phase1/reports/completion-verification-20261104.md):
+root Passed335.520s/182 executed tasks with shared78/bridge22/app10 JVM tests;
+standalone JVM21 Passed100.399s/35 tests. Zero failures/errors/skips;
+initial lint0errors/10warnings/1hint retained.170 frozen mobile files and54 baseline
+tests/fixtures, including Golden kitchen tests, unchanged. Corrected only
+`app/build.gradle.kts` test pins to Espresso3.7, runner/rules1.7 and JUnit1.3 after
+actual old-Espresso full-UI01 failure. Build02 Passed194.447s,
+lint0errors/7warnings/1hint; debug/release APKs identical, new testAPK `91b81eea…ba50`.
+Four separate selected native emulator cases Passed: locked29.416s, full offline
+UI111.247s, VI OS-field20.781s and EN/VI secure pixels12.496s. Observer04 confirms
+actual own font2.0/landscape2400×1080. [Independent source/artifact/runtime review](../plans/261012-mobile-cookbook-phase1/reports/completion-review-20261104.md)
+Passed; actual UI01 Failed and initial locked-run host misclassification remain
+separate retained outcomes. Preexisting design edits preserved. Physical/provider
+acceptance stays Partial; full layout/spoken TalkBack and genuine Google flows
+receive no emulator credit; remaining lifecycle/clipboard requirements retained.
+
+## Consolidate cross-platform design verification (2026-11-02)
+
+[V01 local matrix/review](../plans/261102-cross-platform-design-consistency/reports/verification-preparation-independent-review.md) Passed:37evidence links/11printed identities agree with current web19/extension83/native113,retained APKs and c11e development ZIP. Latest151unit/67package,Android10JUnit/lint and E04distinct36author/32tester offline results are consolidated without replay. Source/preparation complete;fresh scoped desktop then phone readiness,actual rendering/owner verdict and V02 remain Pending. Deployment stays owner-held.
+
+## Prepare source-bound cross-platform UI acceptance (2026-11-02)
+
+[E04 packet review](../plans/261102-cross-platform-design-consistency/reports/extension-ui-qa-preparation-independent-review.md) Passed after36author/32independent offline guard checks and397input/17helper bindings. Finite web/extension cases assert actual font loads,brand400,NFD roles,visible EN/VI and geometry;owned Linux process/listener and fresh-resource gates reviewed. Native cases target the actual MainActivity/theme with owner biometric/visual observations. No runtime,device,clipboard or product changes;V01 consolidation next,actual acceptance Pending,deployment held.
+
+## Align extension readable roles and finish surface census (2026-11-02)
+
+[E03 final02 review](../plans/261102-cross-platform-design-consistency/reports/extension-role-alignment-independent-review.md) moves dynamic profile names to Geist,clarifies essential text and enabled-field boundaries,and preserves Amber focus with the secret-wrapper selector. Named card/modal/Demo surfaces are square,profile/TOC chips3px;documented frame/toggle/circle/control shapes retained. Only three CSS files changed;layout/fonts/JS/HTML/46canonical tests unchanged. Final151unit/67package Passed;new83file ZIPc11e3a6a…91ae9 reproduces/extracts exactly,three prior ZIPs retained. Source census74radius declarations found no unclassified major-surface/chip gap. Actual browser/NFD/owner acceptance Pending;E04 preparation next,publication held.
+
+## Bundle extension fonts and validate a new development artifact (2026-11-02)
+
+[E02 delivery/review](../plans/261102-cross-platform-design-consistency/reports/extension-font-package-independent-review.md) bundles the four pinned fonts/OFL notices and enforces83runtime resources with zero external stylesheet records. Popup/Options share a font-only sheet;Demo embeds equivalent local declarations to honor its unchanged standalone test. Privacy/matrix/notices updated factually;46canonical tests and behavior/security code unchanged. Actual151unit/67package tests Passed;new ZIP3ed8c41d…1d1e reproduces and extracts byte-exact in a unique directory,held278b… unchanged. Failed150/151 attempt and wrapper status anomalies retained;direct child receipts establish final passes. E03 roles/shapes and actual browser/NFD/rendering/release acceptance Pending;deployment held.
+
+## Review extension coherence and plan bounded font/role alignment (2026-11-02)
+
+[E01 read-only audit/review](../plans/261102-cross-platform-design-consistency/reports/extension-coherence-independent-review.md) confirms the common Precision palette/mark but finds remote-font versus intentional Demo system-font delivery,unfit dynamic-profile display type and essential text/field role gaps. All74runtime/46canonical tests/19web/113Android and heldZIP unchanged during audit. Reviewed E02 adds pinned local fonts with83file package/provenance/disclosure migration;E03 handles specific roles/shapes. Desktop26/30px compact controls remain per existing Precision baseline;E04 prepares actual target/flow QA. This is a platform contract clarification,not an owner waiver or accessibility acceptance. No implementation/publication from the audit;deployment held.
+
+## Unify website brand artwork with extension and Android (2026-11-02)
+
+[W03 delivery/review](../plans/261102-cross-platform-design-consistency/reports/website-brand-assets-independent-review.md) replaces six competing crosshair marks with the unmodified original extension icon and Precision wordmarks,updates favicon/theme metadata and provides a portable outlined1200×630 OG image. Six headless Pango400 runs bind reviewed fonts;original PNG embeddings and raster dimensions checked,actual artwork viewed readable/unclipped. Non-brand copy/IDs/handlers/fonts and repaired geometry preserved. W01–W03 web and M01–M04 Android source delivery reviewed;E01 extension coherence next. Actual browser/native/owner acceptance Pending;deployment held.
+
+## Align website sections and legal-page typography (2026-11-02)
+
+[W02 candidate03 delivery/review](../plans/261102-cross-platform-design-consistency/reports/website-composition-independent-review.md) applies quiet opaque Precision sections/cards,italic Fraunces hero emphasis,explicit400display roles and restrained decoration;legal headings now follow the same type hierarchy. Body text/DOM/heads/JS and repaired geometry retained. Source minimums cover buttons and standalone social controls at44px;nav toggle already44px. Three CSS sources parse594rules/0warnings;tester7/7 source groups Passed. Fresh full occurrence check covers30geometry rule nodes/31selector memberships,correcting an earlier count omission without rewriting history. Actual browser/font/target/layout acceptance remains Pending;W03 brand assets next,deployment held.
+
+## Align Android source and column-confirmation presentation (2026-11-02)
+
+[M04 delivery/review](../plans/261102-cross-platform-design-consistency/reports/android-sources-mapping-independent-review.md) groups Google/offline/cache/mapping content with Precision surfaces and controls. Existing disclosures,limits,invalidation,busy gates,cache-only removal and explicit mapping confirmation retained;111protected files unchanged. Root10unit tests,app/test APKs and lint Passed with113sources stable through build. M01–M04 source delivery reviewed;actual phone/font-scale/IME/provider and visual acceptance Pending. Website composition/artwork next;deployment held.
+
+## Align Android Menu, manual Cook and Dish presentation (2026-11-02)
+
+[M03 delivery/review](../plans/261102-cross-platform-design-consistency/reports/android-cookbook-journeys-independent-review.md) adds selected navigation/filter choices,quiet Menu cards and a mono Dish slab with separate actions. Existing parent state,scroll ancestry,search/recent/favorite/pagination,cooking context,labels/tags and mask/reveal/Copy behavior retained;controllers/tests unchanged. Root final build Passed with10unit tests,app/test APKs,lint0errors and stable113sources. Native rendering/large-text/IME/flow acceptance remains Pending;M04 source/mapping next.
+
+## Group Android locked Cookbook form and actions (2026-11-02)
+
+[M02 delivery/review](../plans/261102-cross-platform-design-consistency/reports/android-locked-form-independent-review.md) groups the existing password and setup-only Spice fields on Precision surfaces,with clear primary/secondary/Lock actions and readable status/help. Exact labels,masked inputs,limits,busy gates and clear-before-auth behavior retained;108protected files unchanged. Root10unit tests,app/test APKs and lint Passed;source stable during build. Real Main phone/font-scale/IME/accessibility and authentication-flow acceptance remain Pending.
+
+## Add Android Precision theme and root shell (2026-11-02)
+
+[M01 delivery/review](../plans/261102-cross-platform-design-consistency/reports/android-theme-independent-review.md) bundles the four reviewed fonts/licenses,explicit variable weights,Precision Material roles and reusable controls/header;native windows and original extension launcher mark now share the family. Existing controllers/lifecycle/tests/dependencies unchanged. Root build/tests Passed:10unit tests,app/test APKs,lint0errors/3existing warnings. Initial API27/min26 resource failure preserved and fixed with qualified resources. Screen hierarchy M02–M04 and actual phone/font/large-text/IME/visual acceptance remain Pending;deployment held.
+
+## Align website foundation and correct font disclosures (2026-11-02)
+
+[W01 source delivery/review](../plans/261102-cross-platform-design-consistency/reports/website-foundation-independent-review.md) adds licensed local Fraunces/Geist fonts and Precision warm-ink/amber shared styling,retaining page bodies/JavaScript and repaired B05 geometry in that slice. [W02 Privacy correction/review](../plans/261102-cross-platform-design-consistency/reports/website-privacy-alignment-independent-review.md) then updates five text spans in Privacy/Terms/data matrix to describe same-host website fonts and owner-reported domain management;extension remote-font disclosures remain unchanged. Tester5/5 source checks Passed. New-font layout/rendering proof,web section/artwork alignment and Android delivery remain Pending;no deployment or legal acceptance.
+
+## Prioritize cross-platform design consistency; defer deployment (2026-11-02)
+
+Owner reports management of passchef.com in Cloudflare and explicitly defers deployment until website,Android and extension share a consistent style. Owner report does not independently verify account/project access;Cloudflare service choice waits until after UI alignment.
+[New child plan](../plans/261102-cross-platform-design-consistency/plan.md) adopts current extension Precision as default baseline. Planning/source audit prepared;UI implementation and acceptance Pending,D01 review before D02 contract/fonts/local slices. Original46master task IDs retained;new child owns this local UI work without promoting QR/Autofill/other Later features. Prior B05 scoped passes remain historical and changed UI needs affected retakes.
+[C05 read-only packet](../plans/261022-project-work-queue/reports/c05-deployment-readiness-20261102.md)/[independent review](../plans/261022-project-work-queue/reports/c05-deployment-readiness-20261102-independent-review.md) preserves observed public DNS/HTTPS limits and two hosting routes. Workflow-gate patch remains unapplied;no deployment,service selection or product change from this planning update.
+
+## Repair mobile anatomy tooltip and reveal overflow; verify scoped widths (2026-11-02)
+
+[Actual B05 slot04](../plans/261022-project-work-queue/reports/b05-pseudo-overflow-slot04-20261102.md)/[independent review record](../plans/261022-project-work-queue/reports/b05-pseudo-overflow-slot04-20261102-independent-review.md):diagnostic13 isolated anatomy-position tooltip width462→379→462 with restored original Failed. Mobile tooltips now share a bounded wrapping anchor without hover translation;mobile horizontal AOS starts vertically. PostCSS8.5.6 parsed517root nodes,roundtrip unchanged,0warnings.
+Actual14 scoped W01 Passed with21width samples(seven each390/768/1440),roots equalclients375/753/1425,six visible Copy/Dish samples opacity1 and nine real label-preserving tooltip hovers/bounds/screenshots. Acceptance used original source and unchanged thresholds;no diagnostic suppression. Previous failures and11unreached visibility remain historical.
+Desktop returned17:29:41.960Asia/Saigon after0owned processes,free ports and2profile removals;candidate9/extension74/tests46/heldZIP match,no GUI after return. B05/website remain Partial for broader responsive/accessibility/all-motion/performance/links/fonts/deployed/C05 gates;no all-AOS/platform/full-website or release acceptance.
+[Read-only local link source audit](../plans/261022-project-work-queue/reports/b05-local-link-source-audit-20261102.md):69/69local occurrences Passed(49static fragments/20file-only,3HTML/26IDs);14external+7`#`placeholders NotExercised;styles.css+5inline CSS fragments(2blocks/3attributes)have no URL references. No source fix/HTTP/dynamic-JS/provider proof;current9/runtime74/tests46/ZIP unchanged,existing gates retained.
+
+## Repair Step/Dish/Copy intrinsic sizing; retain residual mobile overflow (2026-11-02)
+
+[Actual B05 slot03](../plans/261022-project-work-queue/reports/b05-mobile-overflow-slot03-20261102.md)/[independent review](../plans/261022-project-work-queue/reports/b05-mobile-overflow-slot03-20261102-independent-review.md):scoped grid minimum and Dish wrapping repairs keep all18affected box bounds within390/768/1440. PostCSS8.5.6 parsed516root nodes,roundtrip unchanged,0warnings.
+Root390 W01 remains Failed462/client375(previous478);strict visibility assertion unreached,raw transient opacities retained. Diagnostic12 found no outbound DOM content boxes;residual cause Unknown,pseudo-element contribution only a hypothesis. Pseudo-diagnostic13 prepared/unexecuted,independent source review Passed;fresh slot required.
+Desktop returned16:39:57.359Asia/Saigon with0owned processes,free ports,3profilesremoved,candidate9match and extension74/tests46/heldZIP unchanged;no GUI after return. B05/website remain Partial;no solved-root/full-responsive/deployed/release acceptance. Earlier failures and scoped passes retained chronologically.
+
+## Repair selected local website accessibility, layout, motion and OG findings (2026-11-02)
+
+Fixed menu/FAQ ARIA relationships and expanded states, hero/comparison intrinsic grid sizing and wrapping, reduced-motion glow parallax including live preference changes, and missing local OG artwork using existing branding.
+[B05 slot02 affected retest](../plans/261022-project-work-queue/reports/b05-local-qa-slot02-20261102.md)/[independent source/runtime/cleanup review Passed](../plans/261022-project-work-queue/reports/b05-local-qa-slot02-20261102-independent-review.md):menu/FAQ keyboard+ARIA, initial/live glow parallax and local OG HTTP200/PNG1200×630 Passed within selected scope.
+Hero/comparison bounds fit390/768/1440;mobile390 document scrollWidth478 vsclient375 remains Failed. B05/website stay Partial;remaining full responsive/motion/performance/link/deployed/CTA/C05 gates and all earlier failures retained.
+Desktop returned15:29:43.297Asia/Saigon after0owned processes,free ports and3profile removals;extension runtime74/tests46/heldZIP unchanged. Local changes only,no push/deploy or broad website/accessibility acceptance.
+After runtime, media-query subscription adds modern/legacy/neither API compatibility;11/11offline actual-source checks Passed. Exact runtime08 script copy/snapshot retained separately;current source changes only subscription. Packet10 prepared,09snapshot historical;no actual Safari/browser replay after desktop return.
+
 ## Commit verified extension checkpoint and reconcile plans (2026-11-02)
 
 [Implementation2281761](https://github.com/vantt/mindVault/commit/2281761d5e367698b3382a51e9e5b22fe39041a3) commits the Full Access import envelope repair,owner-approved Display-default deferral,2.3.1 beta metadata and validated development packaging/CI. Fresh151unit/49package checks,source/ZIP validation and static syntax/HTML/workflow checks Passed. A separate output archive matches the held278b ZIP;historical held039c+WIP provenance is preserved.

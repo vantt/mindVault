@@ -13,6 +13,7 @@ an area changes; it does not require a workflow tool or generated state.
 | Android Cookbook lookup/cooking/connection (code complete; selected device flows Passed, broader acceptance Pending) | [Cookbook](mobile-cookbook.md) | `app/.../cookbook/`, `shared/.../cookbook/`, `mobile/sheets-android/` |
 | Phone QR Cookbook handoff: extension sender | [QR sender](qr-handoff.md) | `chrome-extension/src/options/options-qr-display.js`, `chrome-extension/src/adapters/infrastructure/qr-serialization.js`, `chrome-extension/src/adapters/infrastructure/qr-chunking.js` |
 | Marketing landing page | Area specification not yet consolidated | `landing-page/` |
+| Cross-platform UI family (contract/staging; implementation Pending) | [Precision design contract](cross-platform-design.md) | `chrome-extension/src/styles/tokens.css`, `landing-page/`, `app/.../ui/`(planned) |
 
 Start with [system overview](system-overview.md). Product choices and remaining
 work are maintained in [decisions](../decisions/mobile-product-decisions.md) and
