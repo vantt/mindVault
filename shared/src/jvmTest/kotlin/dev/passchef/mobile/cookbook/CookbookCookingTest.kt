@@ -21,10 +21,10 @@ class CookbookCookingTest {
         assertEquals("legacy_no_tag", kitchen.execute("abcd#1", "Menu_0123456789").warning)
     }
     @Test fun authorizationRequiresActualGrantedSheetsScopeAndBoundedToken() {
-        assertTrue(AuthorizationGrantPolicy.usable("synthetic-grant", listOf(AuthorizationGrantPolicy.SHEETS_SCOPE)))
+        assertTrue(AuthorizationGrantPolicy.usable("synthetic-grant", listOf(AuthorizationGrantPolicy.DRIVE_FILE_SCOPE)))
         assertFalse(AuthorizationGrantPolicy.usable("synthetic-grant", listOf("email")))
-        assertFalse(AuthorizationGrantPolicy.usable(null, listOf(AuthorizationGrantPolicy.SHEETS_SCOPE)))
-        assertFalse(AuthorizationGrantPolicy.usable("x".repeat(16385), listOf(AuthorizationGrantPolicy.SHEETS_SCOPE)))
+        assertFalse(AuthorizationGrantPolicy.usable(null, listOf(AuthorizationGrantPolicy.DRIVE_FILE_SCOPE)))
+        assertFalse(AuthorizationGrantPolicy.usable("x".repeat(16385), listOf(AuthorizationGrantPolicy.DRIVE_FILE_SCOPE)))
     }
     @Test fun confidenceIsOnlyProposalAndProjectionRequiresExplicitMapping() {
         val rows = listOf(listOf("Tên", "Công thức", "Tài khoản"), listOf("Mail", "abc#1", "00123"),

@@ -1,7 +1,13 @@
 package dev.passchef.mobile.vault
 
-class VaultSession(val key: ByteArray, val spices: Map<Int, ByteArray>) : AutoCloseable {
-    override fun close() { key.fill(0); spices.values.forEach { it.fill(0) } }
+/** Unlocked key + secret-part sets (D17). [spices] = the first ("Default") set, kept for older callers. */
+class VaultSession(val key: ByteArray, val sets: List<SecretPartSet>) : AutoCloseable {
+    constructor(key: ByteArray, spices: Map<Int, ByteArray>) : this(key, listOf(SecretPartSet.default(spices)))
+    init { require(sets.isNotEmpty()) }
+    val spices: Map<Int, ByteArray> get() = sets.first().parts
+    fun set(id: String?): SecretPartSet? = if (id == null) sets.first() else sets.find { it.id == id }
+    fun summaries(): List<SecretPartSetSummary> = sets.map { SecretPartSetSummary(it.id, it.name, it.parts.keys.sorted()) }
+    override fun close() { key.fill(0); sets.forEach { it.close() } }
 }
 
 class PreparedVault internal constructor(val record: VaultRecord, val session: VaultSession) : AutoCloseable {
@@ -48,6 +54,23 @@ class VaultRepository(private val store: RecordStore) {
         return prepared.record.alias
     }
     fun commitPasswordOnly(prepared: PreparedVault) { store.write(prepared.record.encode()) }
+
+    /**
+     * Post-setup change of secret parts (D8 add part / D17 add set). Re-auth: the master password is
+     * derived again and must open the current cache. The key is unchanged, so the biometric wrap stays valid.
+     * [change] receives copies it may keep; the caller owns and closes the returned session.
+     */
+    fun updateSets(password: ByteArray, change: (List<SecretPartSet>) -> List<SecretPartSet>): VaultSession {
+        val prepared = recover(password)
+        var updated: List<SecretPartSet>? = null
+        try {
+            updated = change(prepared.session.sets.map { it.copy() })
+            val (iv, cache) = SeasoningCache.encryptSets(prepared.session.key, updated)
+            store.write(prepared.record.copy(cacheIv = iv, cache = cache).encode())
+            return VaultSession(prepared.session.key.copyOf(), updated)
+        } catch (error: Exception) { updated?.forEach { it.close() }; throw error }
+        finally { prepared.close() }
+    }
 
     /** Caller invokes only after cache authentication; deletion retries survive interruptions. */
     fun retireKeys(delete: (String) -> Unit): Boolean {

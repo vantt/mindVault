@@ -42,6 +42,13 @@ fun menuIdFromInput(input: String): String? {
         .matchEntire(value)?.groupValues?.get(1) ?: value
     return id.takeIf { it.matches(Regex("[A-Za-z0-9_-]{10,200}")) }
 }
+/** Searches label, username, website and notes; never the written code itself. */
 fun searchEntries(entries: List<MenuEntry>, query: String): List<MenuEntry> = entries.filter {
-    query.isBlank() || it.label.contains(query, true) || it.username.contains(query, true)
+    val q = query.trim()
+    q.isEmpty() || it.label.contains(q, true) || it.username.contains(q, true) ||
+        it.url.contains(q, true) || it.notes.contains(q, true)
 }
+/** Offline tables have no Google id (D9): a random local id that still fits the MenuOrigin pattern. */
+fun localMenuId(random: (Int) -> ByteArray): String =
+    "local_" + random(10).joinToString("") { "%02x".format(it) }
+fun isLocalMenuId(id: String): Boolean = id.startsWith("local_")
