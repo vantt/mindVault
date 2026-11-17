@@ -25,6 +25,15 @@ class VaultController(
         private set
     var unlocked by mutableStateOf(false)
         private set
+    /** D3: gate phase computed on the worker, never by reading storage in composition. */
+    var phase by mutableStateOf(VaultPhase.CHECKING)
+        private set
+    /** Increments on every lock; the unlock screen auto-prompts fingerprint once per event (D6). */
+    var lockEvent by mutableStateOf(0L)
+        private set
+    /** Non-secret set labels + part numbers for Settings (D17). Empty while locked. */
+    var setSummaries by mutableStateOf<List<SecretPartSetSummary>>(emptyList())
+        private set
     private val worker = Executors.newSingleThreadExecutor()
     private val main = Handler(Looper.getMainLooper())
     private val repository = VaultRepository(AtomicRecordStore(File(context.noBackupFilesDir, "cookbook-v1.json")))
@@ -37,25 +46,45 @@ class VaultController(
     private val cooking = VaultCooking(worker, main, ::readyForCooking)
     fun readyForCooking(): Boolean = active && unlocked && !clock.expired(SystemClock.elapsedRealtime())
     fun invalidateDish() { cooking.invalidate() }
-    fun cook(text: String, menuId: String?, callback: (dev.passchef.mobile.recipe.CookingResult?, String?) -> Unit) {
+    fun cook(text: String, menuId: String?, callback: (dev.passchef.mobile.recipe.CookingResult?, String?) -> Unit) =
+        cook(text, menuId, null, callback)
+    /** [setId] = the sheet's secret-part set (D17); null = first ("Default") set. */
+    fun cook(text: String, menuId: String?, setId: String?, callback: (dev.passchef.mobile.recipe.CookingResult?, String?) -> Unit) {
         cooking.invalidate()
         if (!readyForCooking()) { callback(null, "LOCKED"); return }
         val recipe = dev.passchef.mobile.recipe.RecipeParser.parse(text)
         if (recipe == null) { callback(null, "INVALID_RECIPE"); return }
-        val jar = session?.spices?.get(recipe.spiceIndex)?.copyOf()
+        val jar = session?.set(setId)?.parts?.get(recipe.spiceIndex)?.copyOf()
         cooking.cook(text, menuId, jar, callback)
     }
     private val tickCallback = Runnable { tick() }
     private val wrapping = VaultWrapping(context, crypto, repository, worker, main, authenticate,
         { active && epoch.accepts(it) }, ::retire, ::passwordOnly, ::passwordLockout, ::finish, ::fail, { status = it })
 
-    fun start() { active = true; tick() }
+    fun start() { active = true; main.removeCallbacks(tickCallback); tick(); refreshPhase() }
+    /** Reads only whether a record exists and is wrapped; posts the result if still locked. */
+    private fun refreshPhase() {
+        if (unlocked) return
+        runCatching { worker.execute {
+            val next = runCatching {
+                val record = repository.record()
+                when {
+                    record == null -> VaultPhase.NEW
+                    record.alias.isNotEmpty() && biometricAvailable() -> VaultPhase.LOCKED_BIOMETRIC
+                    else -> VaultPhase.LOCKED_PASSWORD
+                }
+            }.getOrDefault(VaultPhase.LOCKED_PASSWORD)
+            main.post { if (!unlocked) phase = next }
+        } }
+    }
     fun touch() { clock.touch(SystemClock.elapsedRealtime()) }
     fun lock() {
         active = false; cooking.invalidate(); epoch.invalidate(); cancelPrompt(); main.removeCallbacks(tickCallback)
         wrapping.cancel()
         session?.close(); session = null; clock.lock()
-        unlocked = false; busy = false; status = "Cookbook locked"
+        unlocked = false; busy = false; status = "Cookbook locked"; setSummaries = emptyList()
+        if (phase == VaultPhase.UNLOCKED) phase = VaultPhase.CHECKING
+        lockEvent++
         runCatching { onLocked() }
     }
     fun explicitLock() { lock(); start() }
@@ -73,18 +102,23 @@ class VaultController(
     private fun biometricAvailable(): Boolean = BiometricManager.from(context)
         .canAuthenticate(BiometricManager.Authenticators.BIOMETRIC_STRONG) == BiometricManager.BIOMETRIC_SUCCESS
 
-    fun password(password: ByteArray, spices: Map<Int, ByteArray>) {
+    /** First setup when no record exists, else recovery. [useBiometric]=false is SU3 "Not now". */
+    fun password(password: ByteArray, spices: Map<Int, ByteArray>, useBiometric: Boolean = true) {
         if (!active || busy || unlocked) { password.fill(0); spices.values.forEach { it.fill(0) }; return }
         busy = true; status = "Opening the Cookbook…"
         val token = epoch.begin()
         worker.execute {
             try {
-                val firstSetup = repository.record() == null
+                val existing = repository.record()
+                val firstSetup = existing == null
+                // Re-wrap with fingerprint only for setup (user chose it) or a vault that already used it; a
+                // password-only vault ("Not now") is never re-prompted on every password unlock.
+                val wrap = useBiometric && (firstSetup || existing?.alias?.isNotEmpty() == true)
                 val prepared = if (firstSetup) repository.setup(password, spices) else repository.recover(password)
                 if (!main.post {
                     epoch.deliver(token, {
                         if (!active) prepared.close()
-                        else if (!biometricAvailable()) passwordOnly(prepared, token)
+                        else if (!wrap || !biometricAvailable()) passwordOnly(prepared, token)
                         else wrapping.start(prepared, token, firstSetup)
                     }, { prepared.close() })
                 }) prepared.close()
@@ -153,9 +187,30 @@ class VaultController(
             epoch.deliver(token, {
                 if (!active) opened.close()
                 else { session?.close(); session = opened; clock.begin(SystemClock.elapsedRealtime())
-                    unlocked = true; busy = false; status = message }
+                    unlocked = true; busy = false; status = message
+                    phase = VaultPhase.UNLOCKED; setSummaries = opened.summaries() }
             }, { opened.close() })
         }) opened.close()
+    }
+    /**
+     * D8/D17 add a part or a set after setup. Re-auth with the master password on the worker;
+     * the key does not change, so the fingerprint wrap stays valid. Password bytes are zeroed.
+     */
+    enum class UpdateOutcome { SAVED, REJECTED, TOO_LARGE }
+    fun updateSets(password: ByteArray, change: (List<SecretPartSet>) -> List<SecretPartSet>, done: (UpdateOutcome) -> Unit) {
+        if (!readyForCooking() || busy) { password.fill(0); done(UpdateOutcome.REJECTED); return }
+        busy = true
+        runCatching { worker.execute {
+            var tooLarge = false
+            val updated = try { repository.updateSets(password, change) }
+                catch (error: Exception) { tooLarge = error is IllegalArgumentException && error.message == "Secret parts too large"; null }
+                finally { password.fill(0) }
+            if (!main.post {
+                busy = false
+                if (updated != null && readyForCooking()) { session?.close(); session = updated; setSummaries = updated.summaries(); done(UpdateOutcome.SAVED) }
+                else { updated?.close(); done(if (tooLarge) UpdateOutcome.TOO_LARGE else UpdateOutcome.REJECTED) }
+            }) updated?.close()
+        } }.onFailure { password.fill(0); busy = false; done(UpdateOutcome.REJECTED) }
     }
     private fun fail(token: Long, message: String) {
         main.post { if (active && epoch.accepts(token)) { busy = false; status = message } }

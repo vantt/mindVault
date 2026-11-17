@@ -1,27 +1,41 @@
 package dev.passchef.mobile.cookbook
 
 import androidx.compose.runtime.compositionLocalOf
+
 val LocalCookbookVietnamese = compositionLocalOf { false }
 fun words(vi: Boolean, english: String, vietnamese: String) = if (vi) vietnamese else english
+
+/**
+ * Every controller/source `code` maps to on-screen words (audit #4). Plain terms (D14): sheet,
+ * written code, secret part, password, private vault. Codes stay internal; never interpolates
+ * provider errors or stored values.
+ */
 fun cookbookMessage(code: String?, vi: Boolean): String = when (code) {
-    "RECIPE_MISMATCH" -> words(vi,"Recipe does not match this Menu or profile.","Recipe không khớp Menu hoặc hồ sơ này.")
-    "INVALID_RECIPE" -> words(vi,"Check the Recipe format.","Kiểm tra định dạng Recipe.")
-    "MISSING_SPICE" -> words(vi,"This spice jar is not configured.","Chưa thiết lập lọ Spices này.")
-    "LOCKED" -> words(vi,"Unlock your Cookbook again.","Mở khóa Cookbook lại.")
-    "INVALID_MENU" -> words(vi,"Enter a valid Menu URL or ID.","Nhập URL hoặc ID Menu hợp lệ.")
-    "OFFLINE" -> words(vi,"Offline cache; Connect to refresh.","Cache ngoại tuyến; Kết nối để làm mới.")
-    "CORRUPT_CACHE" -> words(vi,"Some local cache files could not be read; good caches are preserved.","Không đọc được một số cache; cache tốt được giữ nguyên.")
-    "CONNECT_REQUIRED" -> words(vi,"Connect again after unlocking; Google setup/permission may be needed.","Mở khóa rồi Kết nối lại; có thể cần thiết lập hoặc cấp quyền Google.")
-    "ACCESS_DENIED" -> words(vi,"This Google account cannot access this Menu.","Tài khoản Google này chưa có quyền vào Menu.")
-    "NETWORK_FAILED" -> words(vi,"Could not refresh. Last good cache preserved. Maximum 1000 rows / 32 columns.","Không làm mới được. Giữ cache tốt; tối đa 1000 hàng / 32 cột.")
-    "LOADING" -> words(vi,"Loading Menu…","Đang tải Menu…")
-    "CHOOSE_TAB" -> words(vi,"Choose a tab to read.","Chọn tab để đọc.")
-    "CONFIRM", "RECONFIRM" -> words(vi,"Confirm columns before replacing the cache.","Xác nhận cột trước khi thay cache.")
-    "SYNCED" -> words(vi,"Local Menu cache ready.","Cache Menu đã sẵn sàng.")
-    "INVALID_MAPPING" -> words(vi,"Choose distinct valid columns and a data row.","Chọn các cột riêng biệt và hàng dữ liệu hợp lệ.")
-    "INVALID_TABLE" -> words(vi,"Table is invalid or exceeds local limits.","Bảng không hợp lệ hoặc vượt giới hạn.")
-    "CACHE_FAILED" -> words(vi,"Could not save local cache; prior data preserved.","Không lưu được cache; giữ dữ liệu trước đó.")
-    "COPIED" -> words(vi,"Copied.","Đã Copy.")
-    "COPY_FAILED" -> words(vi,"Clipboard unavailable; no Copy confirmed.","Clipboard không khả dụng; chưa Copy.")
+    "RECIPE_MISMATCH" -> words(vi,"This code belongs to another sheet or secret-part set. Pick the right sheet.","Mã này thuộc bảng tính hoặc bộ phần bí mật khác. Chọn đúng bảng tính.")
+    "INVALID_RECIPE" -> words(vi,"That doesn't look like a written code. Example: rand0m\$1","Mã chưa đúng dạng. Ví dụ: rand0m\$1")
+    "MISSING_SPICE" -> words(vi,"This code needs a secret part that isn't in your vault yet. Add it in Settings › Secret parts.","Mã này cần một phần bí mật chưa có trong két. Thêm ở Cài đặt › Phần bí mật.")
+    "LOCKED" -> words(vi,"Your vault locked. Unlock to continue.","Két đã khóa. Mở khóa để tiếp tục.")
+    "INVALID_MENU" -> words(vi,"That isn't a Google Sheets link. It looks like docs.google.com/spreadsheets/d/…","Đây không phải link Google Trang tính. Link có dạng docs.google.com/spreadsheets/d/…")
+    "OFFLINE" -> words(vi,"Showing the saved copy on this phone.","Đang dùng bản lưu trên điện thoại.")
+    "CORRUPT_CACHE" -> words(vi,"A saved sheet copy is damaged. Refresh or remove it; good copies are kept.","Một bản lưu bị hỏng. Làm mới hoặc xóa nó; các bản tốt được giữ nguyên.")
+    "CONNECT_REQUIRED" -> words(vi,"Google sign-in expired or was not granted. Tap Connect again.","Phiên Google hết hạn hoặc chưa được cấp quyền. Bấm Kết nối lại.")
+    "NOT_CONNECTED" -> words(vi,"Not connected. Nothing was picked. Try again when ready.","Chưa kết nối, chưa chọn bảng tính nào. Thử lại khi sẵn sàng.")
+    "ACCESS_DENIED" -> words(vi,"PassChef can't open this sheet. Choose it again in Google Drive (or check the Google account).","PassChef không mở được bảng tính này. Chọn lại trong Google Drive (hoặc kiểm tra tài khoản Google).")
+    "NETWORK_FAILED" -> words(vi,"Couldn't reach Google. Your saved copy still works. Try again later.","Không kết nối được Google. Bản lưu vẫn dùng được. Thử lại sau.")
+    "LOADING" -> words(vi,"Opening the sheet…","Đang mở bảng tính…")
+    "CHOOSE_TAB" -> words(vi,"Choose the tab that holds your codes.","Chọn tab chứa các mã.")
+    "CONFIRM", "RECONFIRM" -> words(vi,"Check the columns before saving.","Kiểm tra các cột trước khi lưu.")
+    "SYNCED" -> words(vi,"Sheet saved on this phone. Up to date.","Đã lưu bảng tính trên điện thoại. Mới nhất.")
+    "INVALID_MAPPING" -> words(vi,"Pick one column for the written code, use each column once, and a valid first data row.","Chọn một cột cho mã đã ghi, mỗi cột dùng một lần, và hàng dữ liệu đầu hợp lệ.")
+    "INVALID_TABLE" -> words(vi,"This table is empty or too big. Limits: 1000 rows, 32 columns.","Bảng trống hoặc quá lớn. Giới hạn: 1000 hàng, 32 cột.")
+    "CACHE_FAILED" -> words(vi,"Couldn't save on this phone (max 20 sheets). Earlier copy kept.","Không lưu được trên điện thoại (tối đa 20 bảng). Bản trước được giữ.")
+    "COPIED" -> words(vi,"Password copied. Clipboard clears in 30 seconds.","Đã chép mật khẩu. Bộ nhớ tạm tự xóa sau 30 giây.")
+    "USERNAME_COPIED" -> words(vi,"Username copied (not cleared automatically).","Đã chép tên đăng nhập (không tự xóa).")
+    "COPY_FAILED" -> words(vi,"Couldn't copy. Open PassChef and try again.","Chưa chép được. Mở PassChef rồi thử lại.")
     else -> ""
 }
+
+/** Which statuses read as trouble (coral) vs calm. */
+fun isProblem(code: String?): Boolean = code in setOf("CORRUPT_CACHE", "CONNECT_REQUIRED", "ACCESS_DENIED",
+    "NETWORK_FAILED", "INVALID_MAPPING", "INVALID_TABLE", "CACHE_FAILED", "COPY_FAILED", "INVALID_MENU",
+    "RECIPE_MISMATCH", "INVALID_RECIPE", "MISSING_SPICE", "LOCKED")

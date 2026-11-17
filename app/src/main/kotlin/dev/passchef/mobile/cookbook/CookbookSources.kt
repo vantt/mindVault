@@ -6,7 +6,8 @@ import kotlinx.coroutines.*
 import java.io.File
 
 data class MappingDraft(val origin: MenuOrigin, val rows: List<List<String>>)
-class CookbookSources(directory: File, private val ready: () -> Boolean, private val io: CoroutineDispatcher = Dispatchers.IO) {
+class CookbookSources(directory: File, private val ready: () -> Boolean, private val io: CoroutineDispatcher = Dispatchers.IO,
+    private val onRejectedToken: (String) -> Unit = {}) {
     private val store = MenuSnapshotStore(directory)
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
     private val ownership = SourceOwnership()
@@ -36,7 +37,27 @@ class CookbookSources(directory: File, private val ready: () -> Boolean, private
         if(!ready() || busy) return false
         invalidate(); busy=true; status="LOADING"; return true
     }
-    fun disconnected() { if (ready()) { busy = false; status = "CONNECT_REQUIRED" } }
+    /** CM3 "Review" refused locally (duplicate/missing columns, bad first row): stay on mapping, explain. */
+    fun markInvalidMapping() { if (ready() && !busy && draft != null) status = "INVALID_MAPPING" }
+    fun disconnected(cancelled: Boolean = false) { if (ready()) { busy = false; status = if (cancelled) "NOT_CONNECTED" else "CONNECT_REQUIRED" } }
+    /** Refresh a known sheet with a silent grant: same tab, stored mapping; drift → RECONFIRM. */
+    fun refresh(token: String, origin: MenuOrigin) {
+        if (!ready()) return
+        invalidate(); accessToken = token; busy = true; status = "LOADING"
+        val request = ownership.begin(origin.key)
+        scope.launch {
+            try {
+                val data = withContext(io) { SheetsMenus.metadata(token, origin.menuId) }
+                if (!current(request)) return@launch
+                metadata = data
+                val tab = data.sheets.map { it.properties }.find { it.sheetId == origin.tabId }
+                if (tab == null) { status = "CHOOSE_TAB"; return@launch }
+                val rows = withContext(io) { SheetsMenus.rows(token, origin.menuId, tab) }
+                if (current(request)) stage(MenuOrigin(origin.menuId, tab.sheetId, tab.title), rows, request)
+            } catch (error: Exception) { if (current(request)) failure(error) }
+            finally { if (current(request)) busy = false }
+        }
+    }
     fun granted(token: String, id: String) {
         if (!ready()) return
         invalidate(); accessToken = token; busy = true; status = "LOADING"
@@ -94,9 +115,10 @@ class CookbookSources(directory: File, private val ready: () -> Boolean, private
                 val mapping = MenuMapping(staged.origin, columns, firstRow,
                     if (firstRow > 1) staged.rows.getOrNull(firstRow - 2) else null, labels)
                 val entries = MenuTable.project(staged.rows, mapping)
-                if(save(MenuSnapshot(mapping = mapping, entries = entries, refreshedAt = System.currentTimeMillis()),request)) {
-                    draft = null; status = "SYNCED"
-                }
+                val snapshot = MenuSnapshot(mapping = mapping, entries = entries, refreshedAt = System.currentTimeMillis())
+                try {
+                    if(save(snapshot,request)) { draft = null; status = "SYNCED" }
+                } catch (_: Exception) { if(current(request)) status = "CACHE_FAILED" }
             } catch (_: Exception) { if(current(request)) status = "INVALID_MAPPING" }
             finally { if(current(request)) busy = false }
         }
@@ -142,7 +164,17 @@ class CookbookSources(directory: File, private val ready: () -> Boolean, private
         }
     }
     private fun failure(error: Exception) {
-        status = when (error) { is SheetsUnauthorizedException -> "CONNECT_REQUIRED"; is SheetsForbiddenException -> "ACCESS_DENIED"; else -> "NETWORK_FAILED" }
-        if (error is SheetsUnauthorizedException) accessToken = null
+        // drive.file hides files the user has not picked: 404 and 403 both mean "pick this sheet again".
+        status = when {
+            error is SheetsUnauthorizedException -> "CONNECT_REQUIRED"
+            error is SheetsForbiddenException -> "ACCESS_DENIED"
+            error is SheetsApiException && error.statusCode == 404 -> "ACCESS_DENIED"
+            error is IllegalArgumentException -> "INVALID_TABLE"
+            else -> "NETWORK_FAILED"
+        }
+        if (error is SheetsUnauthorizedException) {
+            accessToken?.let { token -> runCatching { onRejectedToken(token) } }
+            accessToken = null
+        }
     }
 }
